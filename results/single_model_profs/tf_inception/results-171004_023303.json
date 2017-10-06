@@ -1,0 +1,92 @@
+{
+    "client_metrics": {
+        "thrus": [], 
+        "p99_lats": [], 
+        "mean_lats": []
+    }, 
+    "node_configs": [
+        {
+            "model_image": "model-comp/inception-feats", 
+            "name": "inception", 
+            "cpus_per_replica": 2, 
+            "input_type": "strings", 
+            "batch_size": 1, 
+            "num_replicas": 1, 
+            "slo": 500000, 
+            "allocated_cpus": [
+                11, 
+                12
+            ], 
+            "gpus": []
+        }
+    ], 
+    "clipper_metrics": {
+        "histograms": [
+            {
+                "internal:rpc_request_queueing_delay": {
+                    "p99": "0", 
+                    "min": "0", 
+                    "max": "0", 
+                    "p95": "0", 
+                    "std_dev": "0", 
+                    "size": "0", 
+                    "p50": "0", 
+                    "unit": "microseconds", 
+                    "mean": "0"
+                }
+            }, 
+            {
+                "app:inception:prediction_latency": {
+                    "p99": "90.0299999999997453415", 
+                    "min": "27", 
+                    "max": "692", 
+                    "p95": "70", 
+                    "std_dev": "14.4384566625897221223", 
+                    "size": "4096", 
+                    "p50": "51", 
+                    "unit": "microseconds", 
+                    "mean": "52.485595703125"
+                }
+            }
+        ], 
+        "meters": [
+            {
+                "internal:aggregate_model_throughput": {
+                    "rate": "0", 
+                    "rate_1min": "0", 
+                    "rate_15min": "0", 
+                    "unit": "events per second", 
+                    "rate_5min": "0"
+                }
+            }, 
+            {
+                "app:inception:prediction_throughput": {
+                    "rate": "0", 
+                    "rate_1min": "0", 
+                    "rate_15min": "0", 
+                    "unit": "events per second", 
+                    "rate_5min": "0"
+                }
+            }
+        ], 
+        "ratio_counters": [
+            {
+                "app:inception:default_prediction_ratio": {
+                    "ratio": "1"
+                }
+            }
+        ], 
+        "counters": [
+            {
+                "internal:aggregate_num_predictions": {
+                    "count": "10000"
+                }
+            }, 
+            {
+                "app:inception:num_predictions": {
+                    "count": "10000"
+                }
+            }
+        ]
+    }
+}
