@@ -1,0 +1,196 @@
+{
+    "client_metrics": {
+        "thrus": [
+            30.60827831495306, 
+            100.952282884449, 
+            102.22461200648512, 
+            104.70436721915671, 
+            104.09130889616372, 
+            107.41761605936327, 
+            122.15590513861031, 
+            126.6940579219894, 
+            125.070664925683, 
+            126.79461934353354, 
+            127.51995368475282, 
+            125.116514754365, 
+            126.7356446535301, 
+            123.45679012345678, 
+            124.54882189269372
+        ], 
+        "p99_lats": [
+            3.23952109, 
+            4.22616435, 
+            5.2015491, 
+            6.14927944, 
+            7.10702972, 
+            8.03077603, 
+            8.84902196, 
+            9.633519170000001, 
+            10.42876233, 
+            11.21266094, 
+            11.99283879, 
+            12.787933120000002, 
+            13.57055222, 
+            14.34667954, 
+            15.14504641
+        ], 
+        "mean_lats": [
+            2.76652489, 
+            3.7732416899999994, 
+            4.721611029999999, 
+            5.690095919999999, 
+            6.649257100000001, 
+            7.58705387, 
+            8.471607590000001, 
+            9.25532835, 
+            10.04536539, 
+            10.83732131, 
+            11.61715943, 
+            12.40486859, 
+            13.192578700000002, 
+            13.97999243, 
+            14.762728940000002
+        ]
+    }, 
+    "node_configs": [
+        {
+            "model_image": "model-comp/pytorch-alexnet", 
+            "name": "alexnet", 
+            "cpus_per_replica": 3, 
+            "input_type": "floats", 
+            "use_nvidia_docker": true, 
+            "batch_size": 2, 
+            "num_replicas": 1, 
+            "slo": 500000, 
+            "allocated_cpus": [
+                6, 
+                7, 
+                8, 
+                9, 
+                10, 
+                11, 
+                12, 
+                13, 
+                14, 
+                15
+            ], 
+            "gpus": [
+                0
+            ]
+        }
+    ], 
+    "clipper_metrics": {
+        "histograms": [
+            {
+                "internal:rpc_request_queueing_delay": {
+                    "p99": "0", 
+                    "min": "0", 
+                    "max": "0", 
+                    "p95": "0", 
+                    "std_dev": "0", 
+                    "size": "0", 
+                    "p50": "0", 
+                    "unit": "microseconds", 
+                    "mean": "0"
+                }
+            }, 
+            {
+                "app:alexnet:prediction_latency": {
+                    "p99": "14291940.2000000000717", 
+                    "min": "2257107", 
+                    "max": "14394127", 
+                    "p95": "13842119", 
+                    "std_dev": "3434106.69048735941874", 
+                    "size": "1559", 
+                    "p50": "8824561", 
+                    "unit": "microseconds", 
+                    "mean": "8649595.19371391917502"
+                }
+            }, 
+            {
+                "model:alexnet:1:prediction_latency": {
+                    "p99": "24145.2599999999968077", 
+                    "min": "15040", 
+                    "max": "2256322", 
+                    "p95": "20332.299999999999045", 
+                    "std_dev": "80147.1321501781475831", 
+                    "size": "780", 
+                    "p50": "16405", 
+                    "unit": "microseconds", 
+                    "mean": "20076.7333333333333272"
+                }
+            }, 
+            {
+                "model:alexnet:1:batch_size": {
+                    "p99": "2", 
+                    "min": "1", 
+                    "max": "2", 
+                    "p95": "2", 
+                    "std_dev": "0.035782783940904776062", 
+                    "size": "780", 
+                    "p50": "2", 
+                    "unit": "queries", 
+                    "mean": "1.99871794871794871632"
+                }
+            }
+        ], 
+        "meters": [
+            {
+                "internal:aggregate_model_throughput": {
+                    "rate": "20.033669929828953", 
+                    "rate_1min": "18.479403954840436", 
+                    "rate_15min": "1.3334170525858018", 
+                    "unit": "events per second", 
+                    "rate_5min": "3.9546439568026917"
+                }
+            }, 
+            {
+                "app:alexnet:prediction_throughput": {
+                    "rate": "0", 
+                    "rate_1min": "0", 
+                    "rate_15min": "0", 
+                    "unit": "events per second", 
+                    "rate_5min": "0"
+                }
+            }, 
+            {
+                "model:alexnet:1:prediction_throughput": {
+                    "rate": "26.468662733209463", 
+                    "rate_1min": "16.529389934373178", 
+                    "rate_15min": "1.1838338046134864", 
+                    "unit": "events per second", 
+                    "rate_5min": "3.5148983802683293"
+                }
+            }
+        ], 
+        "ratio_counters": [
+            {
+                "app:alexnet:default_prediction_ratio": {
+                    "ratio": "0"
+                }
+            }, 
+            {
+                "model:alexnet:1:cache_hit_ratio": {
+                    "ratio": "0"
+                }
+            }
+        ], 
+        "counters": [
+            {
+                "internal:aggregate_num_predictions": {
+                    "count": "10000"
+                }
+            }, 
+            {
+                "app:alexnet:num_predictions": {
+                    "count": "1559"
+                }
+            }, 
+            {
+                "model:alexnet:1:num_predictions": {
+                    "count": "1559"
+                }
+            }
+        ]
+    }
+}
