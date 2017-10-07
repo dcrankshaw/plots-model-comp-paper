@@ -115,6 +115,8 @@ if __name__ == '__main__':
         ("tf_lstm", "lstm"),
         ("lgbm", "lgbm"),
         ("tf_inception", "inception"),
+        ("kernel-svm", "kernel-svm"),
+        ("elastic-net", "elastic-net")
     ]
 
     for d, m in models:
