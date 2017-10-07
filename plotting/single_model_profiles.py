@@ -110,14 +110,6 @@ def create_results_df(results_dir):
 
 if __name__ == '__main__':
 
-    models = [
-        ("tf_lstm", "lstm"),
-        ("lgbm", "lgbm"),
-        ("tf_inception", "inception"),
-        ("kernel-svm", "kernel-svm"),
-        ("elastic-net", "elastic-net")
-    ]
-
     single_model_profs_dir = os.path.abspath("../results/single_model_profs/")
     for m in os.listdir(single_model_profs_dir):
         print(m)
