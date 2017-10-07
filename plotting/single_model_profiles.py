@@ -49,7 +49,7 @@ def throughput(exp):
 def client_lat(exp):
     lats = exp["client_metrics"]["mean_lats"]
     # discard first trial
-    return np.mean(lats[1:])
+    return np.mean(lats[1:]) * 1000.0
 
 
 def extract_client_metrics(exp):
@@ -59,19 +59,19 @@ def extract_client_metrics(exp):
     batch_key = "model:{name}:1:batch_size".format(name=name)
     for h in hists:
         if list(h.keys())[0] == lat_key:
-            p99_lat = h[lat_key]["p99"]
+            p99_lat = float(h[lat_key]["p99"]) / 1000.0
         elif list(h.keys())[0] == batch_key:
             mean_batch = h[batch_key]["mean"]
     return (p99_lat, mean_batch)
 
 
-def create_results_df(results_dir, expected_model_name):
+def create_results_df(results_dir):
     experiments = load_results(results_dir)
 
     gpus = []
     cpus = []
     config_batch = []
-    # model_name = []
+    model_names = []
     mean_thru = []
     std_thru = []
     p99_lat = []
@@ -79,30 +79,29 @@ def create_results_df(results_dir, expected_model_name):
     client_lats = []
 
     for e in experiments:
-        if model_name(e) == expected_model_name:
-            gpus.append(num_gpus(e))
-            cpus.append(num_cpus(e))
-            config_batch.append(batch_size(e))
-            mean_t, std_t = throughput(e)
-            mean_thru.append(mean_t)
-            std_thru.append(std_t)
+        model_names.append(model_name(e))
+        gpus.append(num_gpus(e))
+        cpus.append(num_cpus(e))
+        config_batch.append(batch_size(e))
+        mean_t, std_t = throughput(e)
+        mean_thru.append(mean_t)
+        std_thru.append(std_t)
 
-            p99_l, mean_b = extract_client_metrics(e)
-            p99_lat.append(p99_l)
-            mean_batch.append(mean_b)
-            client_lats.append(client_lat(e))
-        else:
-            print("Found experiment with model: %s" % model_name(e))
+        p99_l, mean_b = extract_client_metrics(e)
+        p99_lat.append(p99_l)
+        mean_batch.append(mean_b)
+        client_lats.append(client_lat(e))
 
     results_dict = {
-        "num_gpus": gpus,
-        "num_cpus": cpus,
-        "batch_size": config_batch,
-        "mean_throughput": mean_thru,
-        "std_throughput": std_thru,
-        "p99_latency": p99_lat,
-        "actual_batch": mean_batch,
-        "client_latency": client_lats
+        "model_name" : model_names,
+        "num_gpus_per_replica": gpus,
+        "num_cpus_per_replica": cpus,
+        "configured_batch_size": config_batch,
+        "mean_throughput_qps": mean_thru,
+        "std_throughput_qps": std_thru,
+        "p99_latency_ms": p99_lat,
+        "mean_batch_size": mean_batch,
+        "client_latency_ms": client_lats
     }
 
     df = pd.DataFrame.from_dict(results_dict)
@@ -119,10 +118,11 @@ if __name__ == '__main__':
         ("elastic-net", "elastic-net")
     ]
 
-    for d, m in models:
+    single_model_profs_dir = os.path.abspath("../results/single_model_profs/")
+    for m in os.listdir(single_model_profs_dir):
         print(m)
-        results_dir = os.path.join(os.path.abspath("../results/single_model_profs/"), d)
-        df = create_results_df(results_dir, m)
+        results_dir = os.path.join(single_model_profs_dir, m)
+        df = create_results_df(results_dir)
         df.to_csv(os.path.join(results_dir, "summary.csv"))
 
 
