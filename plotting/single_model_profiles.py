@@ -5,6 +5,7 @@ import matplotlib.pyplot as plt
 import json
 import seaborn as sns
 import pandas as pd
+import itertools
 
 
 def load_results(results_dir):
@@ -42,11 +43,10 @@ def model_name(exp):
 
 
 def throughput(exp):
-    thrus = exp["client_metrics"]["thrus"]
     mean = 0
     var = 0
     for cm in exp["client_metrics"]:
-        # discard first trial
+        # discard first trial for each set of client metrics
         cm_thrus = cm["thrus"][1:]
         cm_mean = np.mean(cm_thrus)
         cm_var = np.var(cm_thrus)
@@ -57,9 +57,9 @@ def throughput(exp):
     return (mean, std)
 
 def client_lat(exp):
-    lats = exp["client_metrics"]["mean_lats"]
-    # discard first trial
-    all_lats = np.array([cm["mean_lats"][1:] for cm in exp["client_metrics"]]).flatten()
+    # discard first trial for each set of client metrics
+    all_lats = [cm["mean_lats"][1:] for cm in exp["client_metrics"]]
+    all_lats = list(itertools.chain.from_iterable(all_lats))
     return np.mean(all_lats) * 1000.0
 
 def extract_client_metrics(exp):
