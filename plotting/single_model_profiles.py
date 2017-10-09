@@ -14,12 +14,16 @@ def load_results(results_dir):
         if exp[-4:] == "json":
             with open(os.path.join(results_dir, exp), "r") as f:
                 data = json.load(f)
-                if len(data["client_metrics"]["thrus"]) > 5:
+                format_client_metrics(data)
+                if max([len(cm["thrus"]) for cm in data["client_metrics"]]) > 5:
                     experiments.append(data)
         else:
             print("skipping %s" % os.path.join(results_dir, exp))
     return experiments
 
+def format_client_metrics(data):
+    if type(data["client_metrics"]) == dict:
+        data["client_metrics"] = [data["client_metrics"]]
 
 def num_gpus(exp):
     return len(exp["node_configs"][0]["gpus"])
@@ -39,18 +43,24 @@ def model_name(exp):
 
 def throughput(exp):
     thrus = exp["client_metrics"]["thrus"]
-    # discard first trial
-    thrus = thrus[1:]
-    mean = np.mean(thrus)
-    std = np.std(thrus)
-    return (mean, std)
+    mean = 0
+    var = 0
+    for cm in exp["client_metrics"]:
+        # discard first trial
+        cm_thrus = cm["thrus"][1:]
+        cm_mean = np.mean(cm_thrus)
+        cm_var = np.var(cm_thrus)
+        mean += cm_mean
+        var += cm_var
 
+    std = np.sqrt(var)
+    return (mean, std)
 
 def client_lat(exp):
     lats = exp["client_metrics"]["mean_lats"]
     # discard first trial
-    return np.mean(lats[1:]) * 1000.0
-
+    all_lats = np.array([cm["mean_lats"][1:] for cm in exp["client_metrics"]]).flatten()
+    return np.mean(all_lats) * 1000.0
 
 def extract_client_metrics(exp):
     name = model_name(exp)
