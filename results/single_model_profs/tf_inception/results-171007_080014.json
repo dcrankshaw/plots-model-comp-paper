@@ -1,0 +1,150 @@
+{
+    "client_metrics": {
+        "thrus": [
+            0.9835136943364935, 
+            1.0283563716354056
+        ], 
+        "p99_lats": [
+            50.83394018, 
+            99.45183862000002
+        ], 
+        "mean_lats": [
+            48.89052406, 
+            83.89224388000001
+        ]
+    }, 
+    "node_configs": [
+        {
+            "model_image": "model-comp/inception-feats", 
+            "name": "inception", 
+            "cpus_per_replica": 1, 
+            "input_type": "strings", 
+            "use_nvidia_docker": true, 
+            "batch_size": 64, 
+            "num_replicas": 1, 
+            "slo": 500000, 
+            "allocated_cpus": [
+                5, 
+                6, 
+                7, 
+                8, 
+                9
+            ], 
+            "gpus": []
+        }
+    ], 
+    "clipper_metrics": {
+        "histograms": [
+            {
+                "internal:rpc_request_queueing_delay": {
+                    "p99": "0", 
+                    "min": "0", 
+                    "max": "0", 
+                    "p95": "0", 
+                    "std_dev": "0", 
+                    "size": "0", 
+                    "p50": "0", 
+                    "unit": "microseconds", 
+                    "mean": "0"
+                }
+            }, 
+            {
+                "app:inception:prediction_latency": {
+                    "p99": "99409340.4499999999971", 
+                    "min": "2286305", 
+                    "max": "99409435", 
+                    "p95": "99406068.3499999999913", 
+                    "std_dev": "25719905.472244869361", 
+                    "size": "130", 
+                    "p50": "50824921", 
+                    "unit": "microseconds", 
+                    "mean": "73980327.1769230769278"
+                }
+            }, 
+            {
+                "model:inception:1:prediction_latency": {
+                    "p99": "48621990", 
+                    "min": "2284061", 
+                    "max": "48621990", 
+                    "p95": "48621990", 
+                    "std_dev": "21824803.829764075721", 
+                    "size": "3", 
+                    "p50": "48540826", 
+                    "unit": "microseconds", 
+                    "mean": "33148959"
+                }
+            }, 
+            {
+                "model:inception:1:batch_size": {
+                    "p99": "64", 
+                    "min": "2", 
+                    "max": "64", 
+                    "p95": "64", 
+                    "std_dev": "29.2270802890439643403", 
+                    "size": "3", 
+                    "p50": "64", 
+                    "unit": "queries", 
+                    "mean": "43.3333333333333333356"
+                }
+            }
+        ], 
+        "meters": [
+            {
+                "internal:aggregate_model_throughput": {
+                    "rate": "0.51290610238241807", 
+                    "rate_1min": "1.1485587347036164", 
+                    "rate_15min": "0.13767590284438613", 
+                    "unit": "events per second", 
+                    "rate_5min": "0.3761813050819674"
+                }
+            }, 
+            {
+                "app:inception:prediction_throughput": {
+                    "rate": "0", 
+                    "rate_1min": "0", 
+                    "rate_15min": "0", 
+                    "unit": "events per second", 
+                    "rate_5min": "0"
+                }
+            }, 
+            {
+                "model:inception:1:prediction_throughput": {
+                    "rate": "0.55161255358831096", 
+                    "rate_1min": "1.1481498968914752", 
+                    "rate_15min": "0.13766503801491273", 
+                    "unit": "events per second", 
+                    "rate_5min": "0.37610557158821339"
+                }
+            }
+        ], 
+        "ratio_counters": [
+            {
+                "app:inception:default_prediction_ratio": {
+                    "ratio": "0"
+                }
+            }, 
+            {
+                "model:inception:1:cache_hit_ratio": {
+                    "ratio": "0"
+                }
+            }
+        ], 
+        "counters": [
+            {
+                "internal:aggregate_num_predictions": {
+                    "count": "10000"
+                }
+            }, 
+            {
+                "app:inception:num_predictions": {
+                    "count": "130"
+                }
+            }, 
+            {
+                "model:inception:1:num_predictions": {
+                    "count": "130"
+                }
+            }
+        ]
+    }
+}
