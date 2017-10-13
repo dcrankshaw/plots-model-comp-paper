@@ -1,11 +1,12 @@
 import os
-import sys
+# import sys
 import numpy as np
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 import json
-import seaborn as sns
+# import seaborn as sns
 import pandas as pd
 import itertools
+from tabulate import tabulate
 
 
 def load_results(results_dir):
@@ -22,9 +23,11 @@ def load_results(results_dir):
             print("skipping %s" % os.path.join(results_dir, exp))
     return experiments
 
+
 def format_client_metrics(data):
     if type(data["client_metrics"]) == dict:
         data["client_metrics"] = [data["client_metrics"]]
+
 
 def num_gpus(exp):
     return len(exp["node_configs"][0]["gpus"])
@@ -56,11 +59,13 @@ def throughput(exp):
     std = np.sqrt(var)
     return (mean, std)
 
+
 def client_lat(exp):
     # discard first trial for each set of client metrics
     all_lats = [cm["mean_lats"][1:] for cm in exp["client_metrics"]]
     all_lats = list(itertools.chain.from_iterable(all_lats))
     return np.mean(all_lats) * 1000.0
+
 
 def extract_client_metrics(exp):
     name = model_name(exp)
@@ -103,7 +108,7 @@ def create_results_df(results_dir):
         client_lats.append(client_lat(e))
 
     results_dict = {
-        "model_name" : model_names,
+        "model_name": model_names,
         "num_gpus_per_replica": gpus,
         "num_cpus_per_replica": cpus,
         "configured_batch_size": config_batch,
@@ -125,10 +130,6 @@ if __name__ == '__main__':
         print(m)
         results_dir = os.path.join(single_model_profs_dir, m)
         df = create_results_df(results_dir)
+        with open(os.path.join(results_dir, "summary_pretty.csv"), "w") as f:
+            f.write(tabulate(df, headers='keys', tablefmt='psql'))
         df.to_csv(os.path.join(results_dir, "summary.csv"))
-
-
-
-
-
-
