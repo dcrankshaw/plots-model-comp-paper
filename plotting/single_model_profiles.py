@@ -45,6 +45,13 @@ def model_name(exp):
     return exp["node_configs"][0]["name"]
 
 
+def instance_type(exp):
+    if "instance_type" in exp["node_configs"][0]:
+        return exp["node_configs"][0]["instance_type"]
+    else:
+        return "g3.4xlarge"
+
+
 def throughput(exp):
     mean = 0
     var = 0
@@ -92,9 +99,11 @@ def create_results_df(results_dir):
     p99_lat = []
     mean_batch = []
     client_lats = []
+    inst_types = []
 
     for e in experiments:
         model_names.append(model_name(e))
+        inst_types.append(instance_type(e))
         gpus.append(num_gpus(e))
         cpus.append(num_cpus(e))
         config_batch.append(batch_size(e))
@@ -116,7 +125,8 @@ def create_results_df(results_dir):
         "std_throughput_qps": std_thru,
         "p99_latency_ms": p99_lat,
         "mean_batch_size": mean_batch,
-        "client_latency_ms": client_lats
+        "client_latency_ms": client_lats,
+        "inst_type": inst_types
     }
 
     df = pd.DataFrame.from_dict(results_dict)
@@ -130,6 +140,16 @@ if __name__ == '__main__':
         print(m)
         results_dir = os.path.join(single_model_profs_dir, m)
         df = create_results_df(results_dir)
-        with open(os.path.join(results_dir, "summary_pretty.csv"), "w") as f:
-            f.write(tabulate(df, headers='keys', tablefmt='psql'))
         df.to_csv(os.path.join(results_dir, "summary.csv"))
+        if "pytorch" in m:
+            with open(os.path.join(results_dir, "summary_pretty.tab"), "w") as f:
+                df_summary = df.loc[(df["inst_type"] == "p2.8xlarge") & (df["num_cpus_per_replica"] == 1)]
+                df_summary = df_summary.filter(items=["num_gpus_per_replica",
+                                                      "configured_batch_size",
+                                                      "mean_throughput_qps",
+                                                      "p99_latency_ms",
+                                                      "client_latency_ms"])
+
+                f.write(tabulate(df_summary,
+                                 headers='keys',
+                                 tablefmt='psql'))
