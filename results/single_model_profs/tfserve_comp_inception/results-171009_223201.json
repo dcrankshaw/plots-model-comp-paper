@@ -1,0 +1,173 @@
+{
+    "client_metrics": {
+        "thrus": [
+            2.195091380556627, 
+            2.2564095852730466, 
+            2.63526398262834, 
+            2.259742228944202, 
+            2.259035336564921, 
+            2.6365149543457775, 
+            2.2585683590157024, 
+            2.2580602731609383
+        ], 
+        "p99_lats": [
+            18.219567819999998, 
+            34.95954747, 
+            51.12230101, 
+            68.82016203, 
+            85.53882552, 
+            101.69479569, 
+            119.40287366999999, 
+            136.1272773
+        ], 
+        "mean_lats": [
+            9.813269375, 
+            26.639677274999997, 
+            43.53414765, 
+            60.41685522499999, 
+            77.232615525, 
+            94.10616225, 
+            110.99506242500001, 
+            127.8150039
+        ]
+    }, 
+    "node_configs": [
+        {
+            "model_image": "model-comp/inceptionv3", 
+            "name": "inceptionv3-tfserve-compare", 
+            "cpus_per_replica": 2, 
+            "input_type": "strings", 
+            "use_nvidia_docker": true, 
+            "batch_size": 6, 
+            "num_replicas": 1, 
+            "slo": 500000, 
+            "allocated_cpus": [
+                6, 
+                7, 
+                8, 
+                9, 
+                10, 
+                11, 
+                12, 
+                13, 
+                14, 
+                15
+            ], 
+            "gpus": []
+        }
+    ], 
+    "clipper_metrics": {
+        "histograms": [
+            {
+                "internal:rpc_request_queueing_delay": {
+                    "p99": "0", 
+                    "min": "0", 
+                    "max": "0", 
+                    "p95": "0", 
+                    "std_dev": "0", 
+                    "size": "0", 
+                    "p50": "0", 
+                    "unit": "microseconds", 
+                    "mean": "0"
+                }
+            }, 
+            {
+                "app:inceptionv3-tfserve-compare:prediction_latency": {
+                    "p99": "137041590.880000000005", 
+                    "min": "500117", 
+                    "max": "137042011", 
+                    "p95": "131981456.899999999994", 
+                    "std_dev": "39528880.5762635598112", 
+                    "size": "325", 
+                    "p50": "68781689", 
+                    "unit": "microseconds", 
+                    "mean": "69829777.2953846153832"
+                }
+            }, 
+            {
+                "model:inceptionv3-tfserve-compare:1:prediction_latency": {
+                    "p99": "2555576", 
+                    "min": "499554", 
+                    "max": "2555576", 
+                    "p95": "2536391.19999999999823", 
+                    "std_dev": "271335.249461490454934", 
+                    "size": "55", 
+                    "p50": "2528833", 
+                    "unit": "microseconds", 
+                    "mean": "2493128.12727272727238"
+                }
+            }, 
+            {
+                "model:inceptionv3-tfserve-compare:1:batch_size": {
+                    "p99": "6", 
+                    "min": "1", 
+                    "max": "6", 
+                    "p95": "6", 
+                    "std_dev": "0.668042657122684935625", 
+                    "size": "55", 
+                    "p50": "6", 
+                    "unit": "queries", 
+                    "mean": "5.90909090909090908795"
+                }
+            }
+        ], 
+        "meters": [
+            {
+                "internal:aggregate_model_throughput": {
+                    "rate": "1.8789239013157255", 
+                    "rate_1min": "2.1378822416207015", 
+                    "rate_15min": "0.32950583843774323", 
+                    "unit": "events per second", 
+                    "rate_5min": "0.85897624672800743"
+                }
+            }, 
+            {
+                "app:inceptionv3-tfserve-compare:prediction_throughput": {
+                    "rate": "0", 
+                    "rate_1min": "0", 
+                    "rate_15min": "0", 
+                    "unit": "events per second", 
+                    "rate_5min": "0"
+                }
+            }, 
+            {
+                "model:inceptionv3-tfserve-compare:1:prediction_throughput": {
+                    "rate": "2.2947924078184188", 
+                    "rate_1min": "2.138243593498609", 
+                    "rate_15min": "0.50029175297901951", 
+                    "unit": "events per second", 
+                    "rate_5min": "0.98151152651364648"
+                }
+            }
+        ], 
+        "ratio_counters": [
+            {
+                "app:inceptionv3-tfserve-compare:default_prediction_ratio": {
+                    "ratio": "0"
+                }
+            }, 
+            {
+                "model:inceptionv3-tfserve-compare:1:cache_hit_ratio": {
+                    "ratio": "0"
+                }
+            }
+        ], 
+        "counters": [
+            {
+                "internal:aggregate_num_predictions": {
+                    "count": "10000"
+                }
+            }, 
+            {
+                "app:inceptionv3-tfserve-compare:num_predictions": {
+                    "count": "325"
+                }
+            }, 
+            {
+                "model:inceptionv3-tfserve-compare:1:num_predictions": {
+                    "count": "325"
+                }
+            }
+        ]
+    }
+}
