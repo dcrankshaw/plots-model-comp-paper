@@ -143,12 +143,10 @@ if __name__ == '__main__':
         df.to_csv(os.path.join(results_dir, "summary.csv"))
         if "pytorch" in m:
             with open(os.path.join(results_dir, "summary_pretty.tab"), "w") as f:
-                df_summary = df.loc[(df["inst_type"] == "p2.8xlarge") & (df["num_cpus_per_replica"] == 1)]
-                df_summary = df_summary.filter(items=["num_gpus_per_replica",
-                                                      "configured_batch_size",
+                df_summary = df.loc[(df["inst_type"] == "p2.8xlarge") & (df["num_cpus_per_replica"] == 1) & (df["num_gpus_per_replica"] == 1)]
+                df_summary = df_summary.filter(items=["configured_batch_size",
                                                       "mean_throughput_qps",
-                                                      "p99_latency_ms",
-                                                      "client_latency_ms"])
+                                                      "p99_latency_ms"])
 
                 f.write(tabulate(df_summary,
                                  headers='keys',
