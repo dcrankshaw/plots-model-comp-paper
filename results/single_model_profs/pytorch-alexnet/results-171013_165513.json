@@ -1,0 +1,199 @@
+{
+    "client_metrics": {
+        "thrus": [
+            54.77141151404613, 
+            170.08769721668492, 
+            166.28531900175597, 
+            165.55085391130447, 
+            169.41055292216262, 
+            163.04914953563602, 
+            132.8333486091684, 
+            166.63361766582963, 
+            167.84155756965424, 
+            169.2313680494562, 
+            169.66982252536565, 
+            170.93549578131197, 
+            138.97806648154787, 
+            174.22756210341453, 
+            173.43647022095806
+        ], 
+        "p99_lats": [
+            1.8206111600000001, 
+            2.4046821600000006, 
+            3.00061026, 
+            3.60055015, 
+            4.18561946, 
+            4.79512917, 
+            5.54238723, 
+            6.139281540000001, 
+            6.73130831, 
+            7.31760794, 
+            7.90346613, 
+            8.48416404, 
+            9.199644529999999, 
+            9.7690585, 
+            10.34200832
+        ], 
+        "mean_lats": [
+            1.45974919, 
+            2.07299713, 
+            2.68473931, 
+            3.3083826399999996, 
+            3.9214116099999994, 
+            4.545606020000001, 
+            5.17861545, 
+            5.79892156, 
+            6.42056042, 
+            7.0298783600000005, 
+            7.63916281, 
+            8.24754669, 
+            8.849609690000001, 
+            9.447336929999999, 
+            10.041378889999999
+        ]
+    }, 
+    "node_configs": [
+        {
+            "model_image": "model-comp/pytorch-alexnet", 
+            "name": "alexnet", 
+            "cpus_per_replica": 1, 
+            "input_type": "floats", 
+            "use_nvidia_docker": true, 
+            "batch_size": 24, 
+            "num_replicas": 1, 
+            "instance_type": "p2.8xlarge", 
+            "slo": 5000000, 
+            "allocated_cpus": [
+                8, 
+                9, 
+                10, 
+                11, 
+                12, 
+                13, 
+                14, 
+                15, 
+                16, 
+                17, 
+                18, 
+                19
+            ], 
+            "gpus": [
+                0
+            ]
+        }
+    ], 
+    "clipper_metrics": {
+        "histograms": [
+            {
+                "internal:rpc_request_queueing_delay": {
+                    "p99": "0", 
+                    "min": "0", 
+                    "max": "0", 
+                    "p95": "0", 
+                    "std_dev": "0", 
+                    "size": "0", 
+                    "p50": "0", 
+                    "unit": "microseconds", 
+                    "mean": "0"
+                }
+            }, 
+            {
+                "app:alexnet:prediction_latency": {
+                    "p99": "9246399.81999999991694", 
+                    "min": "1043227", 
+                    "max": "9257244", 
+                    "p95": "8885621.09999999999854", 
+                    "std_dev": "2362809.32658185590572", 
+                    "size": "1537", 
+                    "p50": "5203064", 
+                    "unit": "microseconds", 
+                    "mean": "5259495.3435263500287"
+                }
+            }, 
+            {
+                "model:alexnet:1:prediction_latency": {
+                    "p99": "1042775", 
+                    "min": "140084", 
+                    "max": "1042775", 
+                    "p95": "156930.199999999993452", 
+                    "std_dev": "110353.838886582994853", 
+                    "size": "65", 
+                    "p50": "146313", 
+                    "unit": "microseconds", 
+                    "mean": "160882.615384615384599"
+                }
+            }, 
+            {
+                "model:alexnet:1:batch_size": {
+                    "p99": "24", 
+                    "min": "1", 
+                    "max": "24", 
+                    "p95": "24", 
+                    "std_dev": "2.83076923076923076678", 
+                    "size": "65", 
+                    "p50": "24", 
+                    "unit": "queries", 
+                    "mean": "23.6461538461538461429"
+                }
+            }
+        ], 
+        "meters": [
+            {
+                "internal:aggregate_model_throughput": {
+                    "rate": "21.176858804981727", 
+                    "rate_1min": "17.653775910137629", 
+                    "rate_15min": "1.2490449209078527", 
+                    "unit": "events per second", 
+                    "rate_5min": "3.7150438553717109"
+                }
+            }, 
+            {
+                "app:alexnet:prediction_throughput": {
+                    "rate": "0", 
+                    "rate_1min": "0", 
+                    "rate_15min": "0", 
+                    "unit": "events per second", 
+                    "rate_5min": "0"
+                }
+            }, 
+            {
+                "model:alexnet:1:prediction_throughput": {
+                    "rate": "28.731072284555228", 
+                    "rate_1min": "15.15138363588356", 
+                    "rate_15min": "1.0637797804552935", 
+                    "unit": "events per second", 
+                    "rate_5min": "3.1675526575346611"
+                }
+            }
+        ], 
+        "ratio_counters": [
+            {
+                "app:alexnet:default_prediction_ratio": {
+                    "ratio": "0"
+                }
+            }, 
+            {
+                "model:alexnet:1:cache_hit_ratio": {
+                    "ratio": "0"
+                }
+            }
+        ], 
+        "counters": [
+            {
+                "internal:aggregate_num_predictions": {
+                    "count": "10000"
+                }
+            }, 
+            {
+                "app:alexnet:num_predictions": {
+                    "count": "1537"
+                }
+            }, 
+            {
+                "model:alexnet:1:num_predictions": {
+                    "count": "1537"
+                }
+            }
+        ]
+    }
+}

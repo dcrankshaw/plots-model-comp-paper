@@ -1,0 +1,199 @@
+{
+    "client_metrics": {
+        "thrus": [
+            64.30524930180576, 
+            150.9219823904231, 
+            151.50642841775777, 
+            151.38784809743322, 
+            154.20081572231518, 
+            151.50964207362156, 
+            149.126862221692, 
+            149.68827416904298, 
+            150.86141870078146, 
+            154.71278345315838, 
+            152.80799980440577, 
+            157.42676506888995, 
+            159.63118810300682, 
+            157.0105197048202, 
+            159.449452928927
+        ], 
+        "p99_lats": [
+            1.5483381500000002, 
+            2.20622864, 
+            2.86095133, 
+            3.5163493399999997, 
+            4.158997970000001, 
+            4.81420414, 
+            5.48029343, 
+            6.143595080000001, 
+            6.802662349999999, 
+            7.44544173, 
+            8.09701616, 
+            8.72861928, 
+            9.35111862, 
+            9.98322839, 
+            10.60622931
+        ], 
+        "mean_lats": [
+            1.2795929500000003, 
+            1.93442565, 
+            2.59408389, 
+            3.2436028899999996, 
+            3.895311219999999, 
+            4.5441059, 
+            5.209361169999999, 
+            5.874546849999999, 
+            6.530935519999999, 
+            7.18010817, 
+            7.833766390000001, 
+            8.470243140000001, 
+            9.095058660000001, 
+            9.72578434, 
+            10.350496380000003
+        ]
+    }, 
+    "node_configs": [
+        {
+            "model_image": "model-comp/pytorch-alexnet", 
+            "name": "alexnet", 
+            "cpus_per_replica": 1, 
+            "input_type": "floats", 
+            "use_nvidia_docker": true, 
+            "batch_size": 20, 
+            "num_replicas": 1, 
+            "instance_type": "p2.8xlarge", 
+            "slo": 5000000, 
+            "allocated_cpus": [
+                8, 
+                9, 
+                10, 
+                11, 
+                12, 
+                13, 
+                14, 
+                15, 
+                16, 
+                17, 
+                18, 
+                19
+            ], 
+            "gpus": [
+                0
+            ]
+        }
+    ], 
+    "clipper_metrics": {
+        "histograms": [
+            {
+                "internal:rpc_request_queueing_delay": {
+                    "p99": "0", 
+                    "min": "0", 
+                    "max": "0", 
+                    "p95": "0", 
+                    "std_dev": "0", 
+                    "size": "0", 
+                    "p50": "0", 
+                    "unit": "microseconds", 
+                    "mean": "0"
+                }
+            }, 
+            {
+                "app:alexnet:prediction_latency": {
+                    "p99": "9271271.6000000000131", 
+                    "min": "867290", 
+                    "max": "9281914", 
+                    "p95": "8941776.29999999989832", 
+                    "std_dev": "2432821.03454682711595", 
+                    "size": "1501", 
+                    "p50": "5134620", 
+                    "unit": "microseconds", 
+                    "mean": "5138906.58361092604855"
+                }
+            }, 
+            {
+                "model:alexnet:1:prediction_latency": {
+                    "p99": "866801", 
+                    "min": "123095", 
+                    "max": "866801", 
+                    "p95": "138800.899999999989717", 
+                    "std_dev": "84112.7871384604956404", 
+                    "size": "76", 
+                    "p50": "129114.5", 
+                    "unit": "microseconds", 
+                    "mean": "139313.223684210526315"
+                }
+            }, 
+            {
+                "model:alexnet:1:batch_size": {
+                    "p99": "20", 
+                    "min": "1", 
+                    "max": "20", 
+                    "p95": "20", 
+                    "std_dev": "2.16506350946109661637", 
+                    "size": "76", 
+                    "p50": "20", 
+                    "unit": "queries", 
+                    "mean": "19.7499999999999999948"
+                }
+            }
+        ], 
+        "meters": [
+            {
+                "internal:aggregate_model_throughput": {
+                    "rate": "20.68841307866618", 
+                    "rate_1min": "16.875973657567986", 
+                    "rate_15min": "1.1958103525002552", 
+                    "unit": "events per second", 
+                    "rate_5min": "3.5559327035172053"
+                }
+            }, 
+            {
+                "app:alexnet:prediction_throughput": {
+                    "rate": "0", 
+                    "rate_1min": "0", 
+                    "rate_15min": "0", 
+                    "unit": "events per second", 
+                    "rate_5min": "0"
+                }
+            }, 
+            {
+                "model:alexnet:1:prediction_throughput": {
+                    "rate": "28.067204068544115", 
+                    "rate_1min": "14.816218344884129", 
+                    "rate_15min": "1.0415455085929715", 
+                    "unit": "events per second", 
+                    "rate_5min": "3.1007828100080808"
+                }
+            }
+        ], 
+        "ratio_counters": [
+            {
+                "app:alexnet:default_prediction_ratio": {
+                    "ratio": "0"
+                }
+            }, 
+            {
+                "model:alexnet:1:cache_hit_ratio": {
+                    "ratio": "0"
+                }
+            }
+        ], 
+        "counters": [
+            {
+                "internal:aggregate_num_predictions": {
+                    "count": "10000"
+                }
+            }, 
+            {
+                "app:alexnet:num_predictions": {
+                    "count": "1501"
+                }
+            }, 
+            {
+                "model:alexnet:1:num_predictions": {
+                    "count": "1501"
+                }
+            }
+        ]
+    }
+}
