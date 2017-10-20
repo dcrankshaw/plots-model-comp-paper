@@ -1,0 +1,2985 @@
+{
+    "client_metrics": [
+        {
+            "p99_lats": [
+                5.564120569999999, 
+                10.99514132, 
+                16.42151626, 
+                21.82845355, 
+                27.255611579999997, 
+                32.57516073, 
+                37.8179562, 
+                43.05985324, 
+                48.306803970000004, 
+                53.55398553, 
+                58.80376821, 
+                64.05138373000001, 
+                69.29971613, 
+                74.57757711, 
+                79.83724059000001
+            ], 
+            "all_metrics": [
+                {
+                    "histograms": [
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "2", 
+                                "min": "1", 
+                                "max": "2", 
+                                "p95": "2", 
+                                "std_dev": "0.287479787288034484749", 
+                                "mean": "1.9090909090909090912", 
+                                "p50": "2", 
+                                "unit": "queries", 
+                                "size": "11"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "543261", 
+                                "min": "308198", 
+                                "max": "543261", 
+                                "p95": "543261", 
+                                "std_dev": "65500.11734264929121", 
+                                "mean": "514771.090909090909093", 
+                                "p50": "534196", 
+                                "unit": "microseconds", 
+                                "size": "11"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "4096"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "5633268", 
+                                "min": "308306", 
+                                "max": "5633268", 
+                                "p95": "5633248.59999999999991", 
+                                "std_dev": "1619672.73614673113957", 
+                                "mean": "3080531.0952380952383", 
+                                "p50": "2942968", 
+                                "unit": "microseconds", 
+                                "size": "21"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "14", 
+                                "min": "4", 
+                                "max": "14", 
+                                "p95": "13.5999999999999943157", 
+                                "std_dev": "2.18840481772877282272", 
+                                "mean": "7.14285714285714285702", 
+                                "p50": "7", 
+                                "unit": "microseconds", 
+                                "size": "21"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "694", 
+                                "min": "91", 
+                                "max": "873", 
+                                "p95": "650", 
+                                "std_dev": "228.810008379559821731", 
+                                "mean": "350.3388671875", 
+                                "p50": "537", 
+                                "unit": "microseconds", 
+                                "size": "4096"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "0.60056490851194377", 
+                                "rate_1min": "0.015991117074135343", 
+                                "rate_5min": "0.0033057092356765017", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.0011080303990206543"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "0.60056394670492574", 
+                                "rate_1min": "0.015991117074135343", 
+                                "rate_5min": "0.0033057092356765017", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.0011080303990206543"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "206.2219958765896", 
+                                "rate_1min": "11.76946216656361", 
+                                "rate_5min": "2.4330019974579051", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.81551037367920143"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "0.60071878577226734", 
+                                "rate_1min": "0.015991117074135343", 
+                                "rate_5min": "0.0033057092356765017", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.0011080303990206543"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "1.261058507289849", 
+                                "rate_1min": "0.20788452196375945", 
+                                "rate_5min": "0.042974220063794526", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.014404395187268505"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "21"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "7211"
+                            }
+                        }, 
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "21"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "2", 
+                                "min": "2", 
+                                "max": "2", 
+                                "p95": "2", 
+                                "std_dev": "2.16840434497100886801e-19", 
+                                "mean": "2.00000000000000000022", 
+                                "p50": "2", 
+                                "unit": "queries", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "556040", 
+                                "min": "537871", 
+                                "max": "556040", 
+                                "p95": "556040", 
+                                "std_dev": "4898.20463129093862475", 
+                                "mean": "543282.300000000000011", 
+                                "p50": "541931", 
+                                "unit": "microseconds", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "4096"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "11052360", 
+                                "min": "6178490", 
+                                "max": "11052360", 
+                                "p95": "11052310.9999999999991", 
+                                "std_dev": "1553026.83623478960158", 
+                                "mean": "8620998.39999999999964", 
+                                "p50": "8621628", 
+                                "unit": "microseconds", 
+                                "size": "20"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "43", 
+                                "min": "4", 
+                                "max": "43", 
+                                "p95": "41.4499999999999779732", 
+                                "std_dev": "8.06845710157772357755", 
+                                "mean": "9", 
+                                "p50": "7", 
+                                "unit": "microseconds", 
+                                "size": "20"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "596", 
+                                "min": "92", 
+                                "max": "700", 
+                                "p95": "585", 
+                                "std_dev": "230.437442573124284612", 
+                                "mean": "352.03955078125", 
+                                "p50": "551", 
+                                "unit": "microseconds", 
+                                "size": "4096"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "3.6820911921433011", 
+                                "rate_1min": "2.3999999999999999", 
+                                "rate_5min": "2.3999999999999999", 
+                                "unit": "events per second", 
+                                "rate_15min": "2.3999999999999999"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "3.6820383174999547", 
+                                "rate_1min": "0.28784010733443616", 
+                                "rate_5min": "0.059502766242177034", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.019944547182371774"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "1788.9025082191574", 
+                                "rate_1min": "156.75270212080619", 
+                                "rate_5min": "43.51006634688413", 
+                                "unit": "events per second", 
+                                "rate_15min": "23.89138737205738"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "3.6819474851194092", 
+                                "rate_1min": "0.28784010733443616", 
+                                "rate_5min": "0.059502766242177034", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.019944547182371774"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "3.6819149492374388", 
+                                "rate_1min": "0.28784010733443616", 
+                                "rate_5min": "0.059502766242177034", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.019944547182371774"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "9717"
+                            }
+                        }, 
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "20"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "20"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "2", 
+                                "min": "2", 
+                                "max": "2", 
+                                "p95": "2", 
+                                "std_dev": "2.16840434497100886801e-19", 
+                                "mean": "2.00000000000000000022", 
+                                "p50": "2", 
+                                "unit": "queries", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "546601", 
+                                "min": "538241", 
+                                "max": "546601", 
+                                "p95": "546601", 
+                                "std_dev": "2416.91647352571950624", 
+                                "mean": "542725.600000000000023", 
+                                "p50": "542889", 
+                                "unit": "microseconds", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "4096"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "16464299", 
+                                "min": "11592028", 
+                                "max": "16464299", 
+                                "p95": "16464235.2999999999993", 
+                                "std_dev": "1556141.56211344088638", 
+                                "mean": "14028019.1999999999998", 
+                                "p50": "14028121", 
+                                "unit": "microseconds", 
+                                "size": "20"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "9", 
+                                "min": "2", 
+                                "max": "9", 
+                                "p95": "9", 
+                                "std_dev": "1.82414363469546991704", 
+                                "mean": "6.84999999999999999948", 
+                                "p50": "7", 
+                                "unit": "microseconds", 
+                                "size": "20"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "596", 
+                                "min": "93", 
+                                "max": "907", 
+                                "p95": "582", 
+                                "std_dev": "230.827230062359233353", 
+                                "mean": "346.355712890625", 
+                                "p50": "540", 
+                                "unit": "microseconds", 
+                                "size": "4096"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "1765.7823939374682", 
+                                "rate_1min": "1647.5999999999999", 
+                                "rate_5min": "1647.5999999999999", 
+                                "unit": "events per second", 
+                                "rate_15min": "1647.5999999999999"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "3.6840771239441432", 
+                                "rate_1min": "3.2000000000000002", 
+                                "rate_5min": "3.2000000000000002", 
+                                "unit": "events per second", 
+                                "rate_15min": "3.2000000000000002"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "3.6840431931960143", 
+                                "rate_1min": "3.2000000000000002", 
+                                "rate_5min": "3.2000000000000002", 
+                                "unit": "events per second", 
+                                "rate_15min": "3.2000000000000002"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "3.6839685477501267", 
+                                "rate_1min": "3.2000000000000002", 
+                                "rate_5min": "3.2000000000000002", 
+                                "unit": "events per second", 
+                                "rate_15min": "3.2000000000000002"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "3.6839359761398831", 
+                                "rate_1min": "2", 
+                                "rate_5min": "2", 
+                                "unit": "events per second", 
+                                "rate_15min": "2"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "20"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "20"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "9586"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "2", 
+                                "min": "2", 
+                                "max": "2", 
+                                "p95": "2", 
+                                "std_dev": "2.16840434497100886801e-19", 
+                                "mean": "2.00000000000000000022", 
+                                "p50": "2", 
+                                "unit": "queries", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "548323", 
+                                "min": "539230", 
+                                "max": "548323", 
+                                "p95": "548323", 
+                                "std_dev": "2605.89633139923661087", 
+                                "mean": "542241.099999999999966", 
+                                "p50": "541583", 
+                                "unit": "microseconds", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "4096"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "21869773", 
+                                "min": "17002327", 
+                                "max": "21869773", 
+                                "p95": "21869753.2999999999993", 
+                                "std_dev": "1553223.9573674259741", 
+                                "mean": "19435843.6499999999996", 
+                                "p50": "19433934", 
+                                "unit": "microseconds", 
+                                "size": "20"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "10", 
+                                "min": "4", 
+                                "max": "10", 
+                                "p95": "9.89999999999999857891", 
+                                "std_dev": "1.5", 
+                                "mean": "6.5", 
+                                "p50": "7", 
+                                "unit": "microseconds", 
+                                "size": "20"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "593", 
+                                "min": "99", 
+                                "max": "810", 
+                                "p95": "582", 
+                                "std_dev": "230.441032052421313103", 
+                                "mean": "342.120361328125", 
+                                "p50": "544", 
+                                "unit": "microseconds", 
+                                "size": "4096"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "3.6890077897088487", 
+                                "rate_1min": "1.6000000000000001", 
+                                "rate_5min": "1.6000000000000001", 
+                                "unit": "events per second", 
+                                "rate_15min": "1.6000000000000001"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "3.6889295408924294", 
+                                "rate_1min": "2.7999999999999998", 
+                                "rate_5min": "2.7999999999999998", 
+                                "unit": "events per second", 
+                                "rate_15min": "2.7999999999999998"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "3.6888962011009143", 
+                                "rate_1min": "2.7999999999999998", 
+                                "rate_5min": "2.7999999999999998", 
+                                "unit": "events per second", 
+                                "rate_15min": "2.7999999999999998"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "3.6888628619120296", 
+                                "rate_1min": "2.7999999999999998", 
+                                "rate_5min": "2.7999999999999998", 
+                                "unit": "events per second", 
+                                "rate_15min": "2.7999999999999998"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "1741.8653009144241", 
+                                "rate_1min": "1457.4000000000001", 
+                                "rate_5min": "1457.4000000000001", 
+                                "unit": "events per second", 
+                                "rate_15min": "1457.4000000000001"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "20"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "9444"
+                            }
+                        }, 
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "20"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "2", 
+                                "min": "2", 
+                                "max": "2", 
+                                "p95": "2", 
+                                "std_dev": "2.16840434497100886801e-19", 
+                                "mean": "2.00000000000000000022", 
+                                "p50": "2", 
+                                "unit": "queries", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "545841", 
+                                "min": "539987", 
+                                "max": "545841", 
+                                "p95": "545841", 
+                                "std_dev": "1838.25401944345004057", 
+                                "mean": "542783.600000000000023", 
+                                "p50": "542436", 
+                                "unit": "microseconds", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "4096"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "27281023", 
+                                "min": "22409785", 
+                                "max": "27281023", 
+                                "p95": "27281002.3500000000004", 
+                                "std_dev": "1554334.87369726411873", 
+                                "mean": "24845371.0999999999985", 
+                                "p50": "24843942.5", 
+                                "unit": "microseconds", 
+                                "size": "20"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "9", 
+                                "min": "2", 
+                                "max": "9", 
+                                "p95": "8.94999999999999928946", 
+                                "std_dev": "1.49248115565992993219", 
+                                "mean": "6.34999999999999999948", 
+                                "p50": "6", 
+                                "unit": "microseconds", 
+                                "size": "20"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "573", 
+                                "min": "93", 
+                                "max": "583", 
+                                "p95": "561", 
+                                "std_dev": "224.260157292381543837", 
+                                "mean": "330.12890625", 
+                                "p50": "538", 
+                                "unit": "microseconds", 
+                                "size": "4096"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "3.6846961304795114", 
+                                "rate_1min": "2.3999999999999999", 
+                                "rate_5min": "2.3999999999999999", 
+                                "unit": "events per second", 
+                                "rate_15min": "2.3999999999999999"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "1837.1962601670352", 
+                                "rate_1min": "1385.2", 
+                                "rate_5min": "1385.2", 
+                                "unit": "events per second", 
+                                "rate_15min": "1385.2"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "3.6846723709079643", 
+                                "rate_1min": "2.3999999999999999", 
+                                "rate_5min": "2.3999999999999999", 
+                                "unit": "events per second", 
+                                "rate_15min": "2.3999999999999999"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "3.6846221373940327", 
+                                "rate_1min": "2.3999999999999999", 
+                                "rate_5min": "2.3999999999999999", 
+                                "unit": "events per second", 
+                                "rate_15min": "2.3999999999999999"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "3.6845264259762058", 
+                                "rate_1min": "1.2", 
+                                "rate_5min": "1.2", 
+                                "unit": "events per second", 
+                                "rate_15min": "1.2"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "9971"
+                            }
+                        }, 
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "20"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "20"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "2", 
+                                "min": "2", 
+                                "max": "2", 
+                                "p95": "2", 
+                                "std_dev": "2.16840434497100886801e-19", 
+                                "mean": "2.00000000000000000022", 
+                                "p50": "2", 
+                                "unit": "queries", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "543201", 
+                                "min": "523369", 
+                                "max": "543201", 
+                                "p95": "543201", 
+                                "std_dev": "8775.42508144192408714", 
+                                "mean": "531652.200000000000045", 
+                                "p50": "525353.5", 
+                                "unit": "microseconds", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "4070"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "32581601", 
+                                "min": "27821795", 
+                                "max": "32581601", 
+                                "p95": "32581536.7999999999993", 
+                                "std_dev": "1515772.75187882302839", 
+                                "mean": "30217333.9999999999982", 
+                                "p50": "30227987", 
+                                "unit": "microseconds", 
+                                "size": "20"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "9", 
+                                "min": "4", 
+                                "max": "9", 
+                                "p95": "8.94999999999999928946", 
+                                "std_dev": "1.31434394280949155202", 
+                                "mean": "6.34999999999999999948", 
+                                "p50": "6.5", 
+                                "unit": "microseconds", 
+                                "size": "20"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "579", 
+                                "min": "91", 
+                                "max": "758", 
+                                "p95": "562", 
+                                "std_dev": "224.80915273214745688", 
+                                "mean": "329.708527893831406796", 
+                                "p50": "535", 
+                                "unit": "microseconds", 
+                                "size": "4069"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "3.761920114121609", 
+                                "rate_1min": "1.2", 
+                                "rate_5min": "1.2", 
+                                "unit": "events per second", 
+                                "rate_15min": "1.2"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "3.7618316659327959", 
+                                "rate_1min": "2.3999999999999999", 
+                                "rate_5min": "2.3999999999999999", 
+                                "unit": "events per second", 
+                                "rate_15min": "2.3999999999999999"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "3.7617969953775039", 
+                                "rate_1min": "2.3999999999999999", 
+                                "rate_5min": "2.3999999999999999", 
+                                "unit": "events per second", 
+                                "rate_15min": "2.3999999999999999"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "765.51848924644014", 
+                                "rate_1min": "814", 
+                                "rate_5min": "814", 
+                                "unit": "events per second", 
+                                "rate_15min": "814"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "3.7617248260672485", 
+                                "rate_1min": "2.3999999999999999", 
+                                "rate_5min": "2.3999999999999999", 
+                                "unit": "events per second", 
+                                "rate_15min": "2.3999999999999999"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "20"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "20"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "4071"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "2", 
+                                "min": "2", 
+                                "max": "2", 
+                                "p95": "2", 
+                                "std_dev": "2.16840434497100886801e-19", 
+                                "mean": "2.00000000000000000022", 
+                                "p50": "2", 
+                                "unit": "queries", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "525836", 
+                                "min": "522964", 
+                                "max": "525836", 
+                                "p95": "525836", 
+                                "std_dev": "1172.85898555623471851", 
+                                "mean": "524309.000000000000057", 
+                                "p50": "524230", 
+                                "unit": "microseconds", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "37808146", 
+                                "min": "33101687", 
+                                "max": "37808146", 
+                                "p95": "37808085.1499999999978", 
+                                "std_dev": "1501321.30790011436522", 
+                                "mean": "35455331.7000000000007", 
+                                "p50": "35455611", 
+                                "unit": "microseconds", 
+                                "size": "20"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "8", 
+                                "min": "4", 
+                                "max": "8", 
+                                "p95": "8", 
+                                "std_dev": "1.17898261225515959692", 
+                                "mean": "5.89999999999999999965", 
+                                "p50": "6", 
+                                "unit": "microseconds", 
+                                "size": "20"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "3.8138745322997987", 
+                                "rate_1min": "2", 
+                                "rate_5min": "2", 
+                                "unit": "events per second", 
+                                "rate_15min": "2"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "3.8138861688464614", 
+                                "rate_1min": "2", 
+                                "rate_5min": "2", 
+                                "unit": "events per second", 
+                                "rate_15min": "2"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "3.8137879877119754", 
+                                "rate_1min": "2", 
+                                "rate_5min": "2", 
+                                "unit": "events per second", 
+                                "rate_15min": "2"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "3.8137225364305847", 
+                                "rate_1min": "0.80000000000000004", 
+                                "rate_5min": "0.80000000000000004", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.80000000000000004"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "20"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "0"
+                            }
+                        }, 
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "20"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "2", 
+                                "min": "2", 
+                                "max": "2", 
+                                "p95": "2", 
+                                "std_dev": "2.16840434497100886801e-19", 
+                                "mean": "2.00000000000000000022", 
+                                "p50": "2", 
+                                "unit": "queries", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "525563", 
+                                "min": "523063", 
+                                "max": "525563", 
+                                "p95": "525563", 
+                                "std_dev": "1044.54013326439496845", 
+                                "mean": "524242.900000000000034", 
+                                "p50": "524230", 
+                                "unit": "microseconds", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "43033676", 
+                                "min": "38328613", 
+                                "max": "43033676", 
+                                "p95": "43033659.4000000000015", 
+                                "std_dev": "1501009.75826319247142", 
+                                "mean": "40681193.8499999999985", 
+                                "p50": "40681047.5", 
+                                "unit": "microseconds", 
+                                "size": "20"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "7", 
+                                "min": "4", 
+                                "max": "7", 
+                                "p95": "7", 
+                                "std_dev": "0.96306801421291113297", 
+                                "mean": "5.64999999999999999965", 
+                                "p50": "6", 
+                                "unit": "microseconds", 
+                                "size": "20"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "3.8149075523915563", 
+                                "rate_1min": "0.80000000000000004", 
+                                "rate_5min": "0.80000000000000004", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.80000000000000004"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "3.8148544327845535", 
+                                "rate_1min": "2", 
+                                "rate_5min": "2", 
+                                "unit": "events per second", 
+                                "rate_15min": "2"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "3.8147882172636334", 
+                                "rate_1min": "2", 
+                                "rate_5min": "2", 
+                                "unit": "events per second", 
+                                "rate_15min": "2"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "3.8147445599358365", 
+                                "rate_1min": "2", 
+                                "rate_5min": "2", 
+                                "unit": "events per second", 
+                                "rate_15min": "2"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "0"
+                            }
+                        }, 
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "20"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "20"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "2", 
+                                "min": "2", 
+                                "max": "2", 
+                                "p95": "2", 
+                                "std_dev": "2.16840434497100886801e-19", 
+                                "mean": "2.00000000000000000022", 
+                                "p50": "2", 
+                                "unit": "queries", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "526350", 
+                                "min": "523373", 
+                                "max": "526350", 
+                                "p95": "526350", 
+                                "std_dev": "1116.74450524728349787", 
+                                "mean": "524816.100000000000023", 
+                                "p50": "524839.5", 
+                                "unit": "microseconds", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "48265307", 
+                                "min": "43555371", 
+                                "max": "48265307", 
+                                "p95": "48265279.7000000000007", 
+                                "std_dev": "1502945.13817989710401", 
+                                "mean": "45910643.8999999999942", 
+                                "p50": "45910768", 
+                                "unit": "microseconds", 
+                                "size": "20"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "8", 
+                                "min": "4", 
+                                "max": "8", 
+                                "p95": "7.94999999999999928946", 
+                                "std_dev": "1.12249721603218241561", 
+                                "mean": "5.79999999999999999974", 
+                                "p50": "6", 
+                                "unit": "microseconds", 
+                                "size": "20"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "3.8113118592589248", 
+                                "rate_1min": "1.6000000000000001", 
+                                "rate_5min": "1.6000000000000001", 
+                                "unit": "events per second", 
+                                "rate_15min": "1.6000000000000001"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "3.8112675551747675", 
+                                "rate_1min": "1.6000000000000001", 
+                                "rate_5min": "1.6000000000000001", 
+                                "unit": "events per second", 
+                                "rate_15min": "1.6000000000000001"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "3.8112167156916179", 
+                                "rate_1min": "1.6000000000000001", 
+                                "rate_5min": "1.6000000000000001", 
+                                "unit": "events per second", 
+                                "rate_15min": "1.6000000000000001"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "3.8111825813711304", 
+                                "rate_1min": "0.40000000000000002", 
+                                "rate_5min": "0.40000000000000002", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.40000000000000002"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "20"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "20"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "0"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "2", 
+                                "min": "2", 
+                                "max": "2", 
+                                "p95": "2", 
+                                "std_dev": "2.16840434497100886801e-19", 
+                                "mean": "2.00000000000000000022", 
+                                "p50": "2", 
+                                "unit": "queries", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "526747", 
+                                "min": "523460", 
+                                "max": "526747", 
+                                "p95": "526747", 
+                                "std_dev": "1069.0379272972498238", 
+                                "mean": "524771.899999999999977", 
+                                "p50": "524783.5", 
+                                "unit": "microseconds", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "53498903", 
+                                "min": "48787113", 
+                                "max": "53498903", 
+                                "p95": "53498889.4500000000007", 
+                                "std_dev": "1503497.06508567801063", 
+                                "mean": "51142839.5499999999956", 
+                                "p50": "51143031", 
+                                "unit": "microseconds", 
+                                "size": "20"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "9", 
+                                "min": "4", 
+                                "max": "9", 
+                                "p95": "8.94999999999999928946", 
+                                "std_dev": "1.39999999999999999987", 
+                                "mean": "6.19999999999999999983", 
+                                "p50": "6", 
+                                "unit": "microseconds", 
+                                "size": "20"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "3.8111666038141774", 
+                                "rate_1min": "0.40000000000000002", 
+                                "rate_5min": "0.40000000000000002", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.40000000000000002"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "3.8110787296455046", 
+                                "rate_1min": "1.6000000000000001", 
+                                "rate_5min": "1.6000000000000001", 
+                                "unit": "events per second", 
+                                "rate_15min": "1.6000000000000001"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "3.8110438715937365", 
+                                "rate_1min": "1.6000000000000001", 
+                                "rate_5min": "1.6000000000000001", 
+                                "unit": "events per second", 
+                                "rate_15min": "1.6000000000000001"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "3.8110068356124107", 
+                                "rate_1min": "1.6000000000000001", 
+                                "rate_5min": "1.6000000000000001", 
+                                "unit": "events per second", 
+                                "rate_15min": "1.6000000000000001"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "20"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "0"
+                            }
+                        }, 
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "20"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "2", 
+                                "min": "2", 
+                                "max": "2", 
+                                "p95": "2", 
+                                "std_dev": "2.16840434497100886801e-19", 
+                                "mean": "2.00000000000000000022", 
+                                "p50": "2", 
+                                "unit": "queries", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "526368", 
+                                "min": "523810", 
+                                "max": "526368", 
+                                "p95": "526368", 
+                                "std_dev": "938.424765231608750793", 
+                                "mean": "524996.400000000000034", 
+                                "p50": "525000.5", 
+                                "unit": "microseconds", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "58737187", 
+                                "min": "54021167", 
+                                "max": "58737187", 
+                                "p95": "58737134.6499999999978", 
+                                "std_dev": "1504584.90885823638837", 
+                                "mean": "56379300.0499999999956", 
+                                "p50": "56379759", 
+                                "unit": "microseconds", 
+                                "size": "20"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "8", 
+                                "min": "4", 
+                                "max": "8", 
+                                "p95": "7.94999999999999928946", 
+                                "std_dev": "1.09087121146357144113", 
+                                "mean": "5.89999999999999999965", 
+                                "p50": "6", 
+                                "unit": "microseconds", 
+                                "size": "20"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "3.8089245387297157", 
+                                "rate_1min": "1.2", 
+                                "rate_5min": "1.2", 
+                                "unit": "events per second", 
+                                "rate_15min": "1.2"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "3.808892621603658", 
+                                "rate_1min": "1.2", 
+                                "rate_5min": "1.2", 
+                                "unit": "events per second", 
+                                "rate_15min": "1.2"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "3.8088374932821631", 
+                                "rate_1min": "1.2", 
+                                "rate_5min": "1.2", 
+                                "unit": "events per second", 
+                                "rate_15min": "1.2"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "3.8087272414264595", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "0"
+                            }
+                        }, 
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "20"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "20"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "2", 
+                                "min": "2", 
+                                "max": "2", 
+                                "p95": "2", 
+                                "std_dev": "2.16840434497100886801e-19", 
+                                "mean": "2.00000000000000000022", 
+                                "p50": "2", 
+                                "unit": "queries", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "526100", 
+                                "min": "523333", 
+                                "max": "526100", 
+                                "p95": "526100", 
+                                "std_dev": "1108.32159592782455171", 
+                                "mean": "524770.800000000000011", 
+                                "p50": "524831", 
+                                "unit": "microseconds", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "63972756", 
+                                "min": "59258278", 
+                                "max": "63972756", 
+                                "p95": "63972702", 
+                                "std_dev": "1503954.8525214869295", 
+                                "mean": "61615507.8499999999985", 
+                                "p50": "61615246.5", 
+                                "unit": "microseconds", 
+                                "size": "20"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "8", 
+                                "min": "4", 
+                                "max": "8", 
+                                "p95": "8", 
+                                "std_dev": "1.22882057274445075914", 
+                                "mean": "5.69999999999999999983", 
+                                "p50": "5.5", 
+                                "unit": "microseconds", 
+                                "size": "20"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "3.8107548648096605", 
+                                "rate_1min": "0.28784010733443616", 
+                                "rate_5min": "0.059502766242177034", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.019944547182371774"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "3.8106699138655227", 
+                                "rate_1min": "1.2", 
+                                "rate_5min": "1.2", 
+                                "unit": "events per second", 
+                                "rate_15min": "1.2"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "3.8106365153863027", 
+                                "rate_1min": "1.2", 
+                                "rate_5min": "1.2", 
+                                "unit": "events per second", 
+                                "rate_15min": "1.2"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "3.8105573778487725", 
+                                "rate_1min": "1.2", 
+                                "rate_5min": "1.2", 
+                                "unit": "events per second", 
+                                "rate_15min": "1.2"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "20"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "20"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "0"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "2", 
+                                "min": "2", 
+                                "max": "2", 
+                                "p95": "2", 
+                                "std_dev": "2.16840434497100886801e-19", 
+                                "mean": "2.00000000000000000022", 
+                                "p50": "2", 
+                                "unit": "queries", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "526292", 
+                                "min": "523642", 
+                                "max": "526292", 
+                                "p95": "526292", 
+                                "std_dev": "1115.70738099198752225", 
+                                "mean": "524904.799999999999955", 
+                                "p50": "524878", 
+                                "unit": "microseconds", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "69209352", 
+                                "min": "64494447", 
+                                "max": "69209352", 
+                                "p95": "69209344.5", 
+                                "std_dev": "1504272.12694795601601", 
+                                "mean": "66852083.6499999999978", 
+                                "p50": "66851915.5", 
+                                "unit": "microseconds", 
+                                "size": "20"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "8", 
+                                "min": "4", 
+                                "max": "8", 
+                                "p95": "7.94999999999999928946", 
+                                "std_dev": "1.15217186218029122636", 
+                                "mean": "5.64999999999999999965", 
+                                "p50": "5", 
+                                "unit": "microseconds", 
+                                "size": "20"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "3.8102648153097967", 
+                                "rate_1min": "0.80000000000000004", 
+                                "rate_5min": "0.80000000000000004", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.80000000000000004"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "3.8102742521098438", 
+                                "rate_1min": "0.80000000000000004", 
+                                "rate_5min": "0.80000000000000004", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.80000000000000004"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "3.8101798862127878", 
+                                "rate_1min": "0.80000000000000004", 
+                                "rate_5min": "0.80000000000000004", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.80000000000000004"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "3.8101116553220589", 
+                                "rate_1min": "3.6000000000000001", 
+                                "rate_5min": "3.6000000000000001", 
+                                "unit": "events per second", 
+                                "rate_15min": "3.6000000000000001"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "20"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "0"
+                            }
+                        }, 
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "20"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "2", 
+                                "min": "2", 
+                                "max": "2", 
+                                "p95": "2", 
+                                "std_dev": "2.16840434497100886801e-19", 
+                                "mean": "2.00000000000000000022", 
+                                "p50": "2", 
+                                "unit": "queries", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "529219", 
+                                "min": "525470", 
+                                "max": "529219", 
+                                "p95": "529219", 
+                                "std_dev": "1199.47623986471695345", 
+                                "mean": "527939.5", 
+                                "p50": "528023", 
+                                "unit": "microseconds", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "74476552", 
+                                "min": "69733448", 
+                                "max": "74476552", 
+                                "p95": "74476539.1999999999971", 
+                                "std_dev": "1513472.08210304543422", 
+                                "mean": "72104842.1500000000015", 
+                                "p50": "72104799", 
+                                "unit": "microseconds", 
+                                "size": "20"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "9", 
+                                "min": "4", 
+                                "max": "9", 
+                                "p95": "8.94999999999999928946", 
+                                "std_dev": "1.39552857369528625494", 
+                                "mean": "5.94999999999999999939", 
+                                "p50": "6", 
+                                "unit": "microseconds", 
+                                "size": "20"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "3.7885159473790289", 
+                                "rate_1min": "3.2000000000000002", 
+                                "rate_5min": "3.2000000000000002", 
+                                "unit": "events per second", 
+                                "rate_15min": "3.2000000000000002"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "3.788462842567017", 
+                                "rate_1min": "0.80000000000000004", 
+                                "rate_5min": "0.80000000000000004", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.80000000000000004"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "3.7883932344600582", 
+                                "rate_1min": "0.80000000000000004", 
+                                "rate_5min": "0.80000000000000004", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.80000000000000004"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "3.7883465912836205", 
+                                "rate_1min": "0.80000000000000004", 
+                                "rate_5min": "0.80000000000000004", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.80000000000000004"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "0"
+                            }
+                        }, 
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "20"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "20"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "2", 
+                                "min": "2", 
+                                "max": "2", 
+                                "p95": "2", 
+                                "std_dev": "2.16840434497100886801e-19", 
+                                "mean": "2.00000000000000000022", 
+                                "p50": "2", 
+                                "unit": "queries", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "528403", 
+                                "min": "523195", 
+                                "max": "528403", 
+                                "p95": "528403", 
+                                "std_dev": "1509.61301001283106993", 
+                                "mean": "525992.399999999999977", 
+                                "p50": "526068.5", 
+                                "unit": "microseconds", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "79724346", 
+                                "min": "75001890", 
+                                "max": "79724346", 
+                                "p95": "79724291.25", 
+                                "std_dev": "1506622.47299436214803", 
+                                "mean": "77364716.5500000000029", 
+                                "p50": "77365384", 
+                                "unit": "microseconds", 
+                                "size": "20"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "7", 
+                                "min": "4", 
+                                "max": "7", 
+                                "p95": "7", 
+                                "std_dev": "0.969535971483265802918", 
+                                "mean": "5.59999999999999999948", 
+                                "p50": "6", 
+                                "unit": "microseconds", 
+                                "size": "20"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "3.8017891599965861", 
+                                "rate_1min": "0.40000000000000002", 
+                                "rate_5min": "0.40000000000000002", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.40000000000000002"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "3.8017523036718086", 
+                                "rate_1min": "0.40000000000000002", 
+                                "rate_5min": "0.40000000000000002", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.40000000000000002"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "3.8016995497837307", 
+                                "rate_1min": "0.40000000000000002", 
+                                "rate_5min": "0.40000000000000002", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.40000000000000002"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "3.8016641404608453", 
+                                "rate_1min": "3.2000000000000002", 
+                                "rate_5min": "3.2000000000000002", 
+                                "unit": "events per second", 
+                                "rate_15min": "3.2000000000000002"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "20"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "20"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "0"
+                            }
+                        }
+                    ]
+                }
+            ], 
+            "thrus": [
+                3.526928184864646, 
+                3.6857588360078735, 
+                3.68774872712743, 
+                3.6924990205646346, 
+                3.6873428270119986, 
+                3.7645648661819537, 
+                3.816804090697952, 
+                3.817402929169616, 
+                3.8137436260426063, 
+                3.8136032754275813, 
+                3.811395386153429, 
+                3.81322445306445, 
+                3.81293656932176, 
+                3.7909783434675663, 
+                3.804473642511493
+            ], 
+            "all_lats": [
+                "[0.323933, 0.949757, 0.950129, 1.374309, 1.374686, 2.105369, 2.105782, 2.690839, 2.690959, 2.969668, 2.969824, 3.504686, 3.505114, 4.044769, 4.044925, 4.588232, 4.588412, 5.124941, 5.12444, 5.667138]", 
+                "[5.674557, 6.213866, 6.214012, 6.770449, 6.770645, 7.312245, 7.312484, 7.850722, 7.850771, 8.391034, 8.391406, 8.93597, 8.93603, 9.475905, 9.47597, 10.019174, 10.019381, 10.557209, 10.557359, 11.097831]", 
+                "[11.102123, 11.638941, 11.639114, 12.181852, 12.181956, 12.71933, 12.719413, 13.263077, 13.263289, 13.810373, 13.810614, 14.353992, 14.354062, 14.898019, 14.898263, 15.443182, 15.443355, 15.983713, 15.983836, 16.524182]", 
+                "[16.516699, 17.050075, 17.050121, 17.593813, 17.593918, 18.13512, 18.135174, 18.675703, 18.675879, 19.214078, 19.214119, 19.763088, 19.763071, 20.306794, 20.3069, 20.848136, 20.848304, 21.38729, 21.387364, 21.931919]", 
+                "[21.936178, 22.473783, 22.473899, 23.017926, 23.017988, 23.559724, 23.559851, 24.102143, 24.102205, 24.641919, 24.642102, 25.188017, 25.1881, 25.73085, 25.731071, 26.274954, 26.275108, 26.814926, 26.815038, 27.358956]", 
+                "[27.363398, 27.902112, 27.902242, 28.445169, 28.445386, 28.986123, 28.986308, 29.528591, 29.528862, 30.051924, 30.052221, 30.577086, 30.577217, 31.101115, 31.10122, 31.626036, 31.626216, 32.149952, 32.150127, 32.67486]", 
+                "[32.679136, 33.197551, 33.197789, 33.72364, 33.723811, 34.246499, 34.246545, 34.772582, 34.772689, 35.295362, 35.295485, 35.821493, 35.821628, 36.344057, 36.344213, 36.869025, 36.869128, 37.391759, 37.39188, 37.9179]", 
+                "[37.921835, 38.441282, 38.441533, 38.966041, 38.966168, 39.4888, 39.488856, 40.014618, 40.014727, 40.536904, 40.537009, 41.061884, 41.061938, 41.585999, 41.586115, 42.11072, 42.110848, 42.63381, 42.633952, 43.159756]", 
+                "[43.163603, 43.682497, 43.682608, 44.208798, 44.209082, 44.733092, 44.733207, 45.258758, 45.258989, 45.782022, 45.782117, 46.308147, 46.308173, 46.832879, 46.833045, 47.357772, 47.357802, 47.881501, 47.881524, 48.406561]", 
+                "[48.410413, 48.930593, 48.930701, 49.456891, 49.456937, 49.979709, 49.979807, 50.507033, 50.50736, 51.030108, 51.03016, 51.556267, 51.556328, 52.079469, 52.079621, 52.605391, 52.605494, 53.12913, 53.129129, 53.653643]", 
+                "[53.657502, 54.17817, 54.178387, 54.704162, 54.704245, 55.227895, 55.22791, 55.753897, 55.754152, 56.278908, 56.279006, 56.805057, 56.805111, 57.328667, 57.328853, 57.854163, 57.854286, 58.377646, 58.377675, 58.903716]", 
+                "[58.907596, 59.426667, 59.426774, 59.952807, 59.952863, 60.476497, 60.476749, 61.002552, 61.002605, 61.525277, 61.525355, 62.051328, 62.05144, 62.575228, 62.575274, 63.101305, 63.101489, 63.625195, 63.625378, 64.151311]", 
+                "[64.155634, 64.675144, 64.675274, 65.200064, 65.200219, 65.723933, 65.724114, 66.250579, 66.250705, 66.774428, 66.774562, 67.299341, 67.299452, 67.82361, 67.823806, 68.349119, 68.349248, 68.87359, 68.873759, 69.399632]", 
+                "[69.403656, 69.924572, 69.924689, 70.452868, 70.453032, 70.980617, 70.98067, 71.509822, 71.509881, 72.036591, 72.036651, 72.56542, 72.565593, 73.093246, 73.093301, 73.621799, 73.621921, 74.148737, 74.148819, 74.67815]", 
+                "[74.681985, 75.203928, 75.204025, 75.732915, 75.73301, 76.258249, 76.258414, 76.785808, 76.785948, 77.310368, 77.310424, 77.836208, 77.836245, 78.361855, 78.362034, 78.887718, 78.887819, 79.411458, 79.411554, 79.937093]"
+            ], 
+            "mean_batch_sizes": [
+                {
+                    "res50": 1.91
+                }, 
+                {
+                    "res50": 2.0
+                }, 
+                {
+                    "res50": 2.0
+                }, 
+                {
+                    "res50": 2.0
+                }, 
+                {
+                    "res50": 2.0
+                }, 
+                {
+                    "res50": 2.0
+                }, 
+                {
+                    "res50": 2.0
+                }, 
+                {
+                    "res50": 2.0
+                }, 
+                {
+                    "res50": 2.0
+                }, 
+                {
+                    "res50": 2.0
+                }, 
+                {
+                    "res50": 2.0
+                }, 
+                {
+                    "res50": 2.0
+                }, 
+                {
+                    "res50": 2.0
+                }, 
+                {
+                    "res50": 2.0
+                }, 
+                {
+                    "res50": 2.0
+                }
+            ], 
+            "mean_lats": [
+                3.0348956, 
+                8.391351, 
+                13.8106343, 
+                19.219878249999997, 
+                24.6452369, 
+                30.03880825, 
+                35.2961086, 
+                40.538139750000006, 
+                45.78310885, 
+                51.030709200000004, 
+                56.278970400000006, 
+                61.5266845, 
+                66.77481064999999, 
+                72.03750174999999, 
+                77.30985290000001
+            ]
+        }
+    ], 
+    "node_configs": [
+        {
+            "model_image": "model-comp/pytorch-res50", 
+            "name": "res50", 
+            "cpus_per_replica": 1, 
+            "input_type": "floats", 
+            "use_nvidia_docker": true, 
+            "batch_size": 2, 
+            "num_replicas": 1, 
+            "instance_type": "p2.8xlarge", 
+            "slo": 5000000, 
+            "gpus_per_replica": 0, 
+            "allocated_cpus": [
+                12, 
+                13, 
+                14, 
+                15, 
+                16, 
+                17, 
+                18, 
+                19, 
+                20
+            ], 
+            "gpus": [], 
+            "input_size": -1
+        }
+    ]
+}

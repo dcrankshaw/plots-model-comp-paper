@@ -1,0 +1,2987 @@
+{
+    "client_metrics": [
+        {
+            "p99_lats": [
+                4.4585633, 
+                7.537237, 
+                10.60754339, 
+                13.70951597, 
+                16.88704176, 
+                20.01950613, 
+                23.11281791, 
+                26.22058403, 
+                29.328324779999996, 
+                32.42937566, 
+                35.49785807000001, 
+                38.558084390000005, 
+                41.57819619, 
+                44.647141579999996, 
+                47.70034019999999
+            ], 
+            "all_metrics": [
+                {
+                    "histograms": [
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "30", 
+                                "min": "1", 
+                                "max": "30", 
+                                "p95": "30", 
+                                "std_dev": "8.33691383135300005669", 
+                                "mean": "27.3636363636363636343", 
+                                "p50": "30", 
+                                "unit": "queries", 
+                                "size": "11"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "1114470", 
+                                "min": "301090", 
+                                "max": "1114470", 
+                                "p95": "1114470", 
+                                "std_dev": "231060.378250160921041", 
+                                "mean": "405347.727272727272748", 
+                                "p50": "313415", 
+                                "unit": "microseconds", 
+                                "size": "11"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "68", 
+                                "p95": "0", 
+                                "std_dev": "1.0623702923757603802", 
+                                "mean": "0.0166015625", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "4096"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "4296489.8800000000183", 
+                                "min": "1114787", 
+                                "max": "4297634", 
+                                "p95": "4290262.89999999997917", 
+                                "std_dev": "850562.047382969471585", 
+                                "mean": "2966550.18272425249165", 
+                                "p50": "2845619", 
+                                "unit": "microseconds", 
+                                "size": "301"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "13.8800000000001091394", 
+                                "min": "0", 
+                                "max": "20", 
+                                "p95": "7", 
+                                "std_dev": "1.9191906312007554154", 
+                                "mean": "4.64784053156146179098", 
+                                "p50": "5", 
+                                "unit": "microseconds", 
+                                "size": "301"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "735.089999999999236024", 
+                                "min": "95", 
+                                "max": "926", 
+                                "p95": "691", 
+                                "std_dev": "244.380219798305520565", 
+                                "mean": "363.627197265625", 
+                                "p50": "541", 
+                                "unit": "microseconds", 
+                                "size": "4096"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "8.8719780929933627", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "8.8719710324545549", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "153.74135451733571", 
+                                "rate_1min": "12.409106849529024", 
+                                "rate_5min": "2.5652303668849652", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.85983158964002759"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "8.8742001058417888", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "24.179954127172742", 
+                                "rate_1min": "0.97545814152225574", 
+                                "rate_5min": "0.2016482633762666", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.067589854340259894"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "301"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "5216"
+                            }
+                        }, 
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "301"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "30", 
+                                "min": "30", 
+                                "max": "30", 
+                                "p95": "30", 
+                                "std_dev": "0", 
+                                "mean": "30", 
+                                "p50": "30", 
+                                "unit": "queries", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "313019", 
+                                "min": "305487", 
+                                "max": "313019", 
+                                "p95": "313019", 
+                                "std_dev": "2125.1759456572060496", 
+                                "mean": "309224.000000000000028", 
+                                "p50": "309389.5", 
+                                "unit": "microseconds", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "4096"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "7151281.85000000000127", 
+                                "min": "4542044", 
+                                "max": "7152041", 
+                                "p95": "7146155.549999999997", 
+                                "std_dev": "828464.100425188168344", 
+                                "mean": "5865985.48000000000093", 
+                                "p50": "5873475.5", 
+                                "unit": "microseconds", 
+                                "size": "300"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "9.98000000000001818989", 
+                                "min": "2", 
+                                "max": "23", 
+                                "p95": "7", 
+                                "std_dev": "1.67708742235526357244", 
+                                "mean": "4.97333333333333333249", 
+                                "p50": "5", 
+                                "unit": "microseconds", 
+                                "size": "300"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "721", 
+                                "min": "95", 
+                                "max": "827", 
+                                "p95": "665", 
+                                "std_dev": "238.805729846562078925", 
+                                "mean": "345.662841796875", 
+                                "p50": "541", 
+                                "unit": "microseconds", 
+                                "size": "4096"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "97.164607208836543", 
+                                "rate_1min": "48", 
+                                "rate_5min": "48", 
+                                "unit": "events per second", 
+                                "rate_15min": "48"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "97.162278494295606", 
+                                "rate_1min": "18", 
+                                "rate_5min": "18", 
+                                "unit": "events per second", 
+                                "rate_15min": "18"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "1722.9753582137021", 
+                                "rate_1min": "384.80000000000001", 
+                                "rate_5min": "384.80000000000001", 
+                                "unit": "events per second", 
+                                "rate_15min": "384.80000000000001"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "97.158691233565605", 
+                                "rate_1min": "18", 
+                                "rate_5min": "18", 
+                                "unit": "events per second", 
+                                "rate_15min": "18"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "97.157306747639737", 
+                                "rate_1min": "18", 
+                                "rate_5min": "18", 
+                                "unit": "events per second", 
+                                "rate_15min": "18"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "5319"
+                            }
+                        }, 
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "300"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "300"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "30", 
+                                "min": "30", 
+                                "max": "30", 
+                                "p95": "30", 
+                                "std_dev": "0", 
+                                "mean": "30", 
+                                "p50": "30", 
+                                "unit": "queries", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "311978", 
+                                "min": "304392", 
+                                "max": "311978", 
+                                "p95": "311978", 
+                                "std_dev": "2764.57450794873676525", 
+                                "mean": "308043.300000000000011", 
+                                "p50": "308132", 
+                                "unit": "microseconds", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "20", 
+                                "p95": "0", 
+                                "std_dev": "0.364350744261281837708", 
+                                "mean": "0.0078125", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "4096"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "10006751.2100000000055", 
+                                "min": "7429665", 
+                                "max": "10007546", 
+                                "p95": "10001964.3999999999905", 
+                                "std_dev": "810803.993291766992115", 
+                                "mean": "8719399.24000000000069", 
+                                "p50": "8708632", 
+                                "unit": "microseconds", 
+                                "size": "300"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "9", 
+                                "min": "0", 
+                                "max": "13", 
+                                "p95": "7", 
+                                "std_dev": "1.43546740355421051372", 
+                                "mean": "4.80999999999999999908", 
+                                "p50": "5", 
+                                "unit": "microseconds", 
+                                "size": "300"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "587.059999999999490683", 
+                                "min": "91", 
+                                "max": "904", 
+                                "p95": "563", 
+                                "std_dev": "224.82482181415497946", 
+                                "mean": "335.085205078125", 
+                                "p50": "536", 
+                                "unit": "microseconds", 
+                                "size": "4096"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "1870.8285032788151", 
+                                "rate_1min": "1108.8", 
+                                "rate_5min": "1108.8", 
+                                "unit": "events per second", 
+                                "rate_15min": "1108.8"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "97.304219046068354", 
+                                "rate_1min": "54", 
+                                "rate_5min": "54", 
+                                "unit": "events per second", 
+                                "rate_15min": "54"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "97.302704171885878", 
+                                "rate_1min": "54", 
+                                "rate_5min": "54", 
+                                "unit": "events per second", 
+                                "rate_15min": "54"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "97.300431949050903", 
+                                "rate_1min": "54", 
+                                "rate_5min": "54", 
+                                "unit": "events per second", 
+                                "rate_15min": "54"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "97.298917192783534", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "300"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "300"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "5769"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "30", 
+                                "min": "30", 
+                                "max": "30", 
+                                "p95": "30", 
+                                "std_dev": "0", 
+                                "mean": "30", 
+                                "p50": "30", 
+                                "unit": "queries", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "322712", 
+                                "min": "307021", 
+                                "max": "322712", 
+                                "p95": "322712", 
+                                "std_dev": "5512.29216932484448677", 
+                                "mean": "311401.799999999999983", 
+                                "p50": "308970", 
+                                "unit": "microseconds", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "4096"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "12878021.8500000000013", 
+                                "min": "10291033", 
+                                "max": "12879043", 
+                                "p95": "12871439.7499999999991", 
+                                "std_dev": "812207.190449817914441", 
+                                "mean": "11580750.2233333333361", 
+                                "p50": "11549630.5", 
+                                "unit": "microseconds", 
+                                "size": "300"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "9", 
+                                "min": "0", 
+                                "max": "11", 
+                                "p95": "7", 
+                                "std_dev": "1.41977697779146520103", 
+                                "mean": "5.03000000000000000193", 
+                                "p50": "5", 
+                                "unit": "microseconds", 
+                                "size": "300"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "596", 
+                                "min": "92", 
+                                "max": "759", 
+                                "p95": "579", 
+                                "std_dev": "229.459287237014226066", 
+                                "mean": "336.825439453125", 
+                                "p50": "536", 
+                                "unit": "microseconds", 
+                                "size": "4096"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "96.261399756266144", 
+                                "rate_1min": "24", 
+                                "rate_5min": "24", 
+                                "unit": "events per second", 
+                                "rate_15min": "24"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "96.258311103011152", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "96.256828619850339", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "96.255407949669973", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "1733.53264306457", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "300"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "5403"
+                            }
+                        }, 
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "300"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "30", 
+                                "min": "30", 
+                                "max": "30", 
+                                "p95": "30", 
+                                "std_dev": "0", 
+                                "mean": "30", 
+                                "p50": "30", 
+                                "unit": "queries", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "328578", 
+                                "min": "308091", 
+                                "max": "328578", 
+                                "p95": "328578", 
+                                "std_dev": "6921.88175570776418288", 
+                                "mean": "320653.400000000000034", 
+                                "p50": "323670", 
+                                "unit": "microseconds", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "4096"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "15814717.270000000005", 
+                                "min": "13157300", 
+                                "max": "15815913", 
+                                "p95": "15809807.24999999999", 
+                                "std_dev": "840850.564993423383896", 
+                                "mean": "14454069.1033333333362", 
+                                "p50": "14410864.5", 
+                                "unit": "microseconds", 
+                                "size": "300"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "10", 
+                                "min": "0", 
+                                "max": "19", 
+                                "p95": "7", 
+                                "std_dev": "1.69795955978541098636", 
+                                "mean": "5.06000000000000000082", 
+                                "p50": "5", 
+                                "unit": "microseconds", 
+                                "size": "300"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "594", 
+                                "min": "97", 
+                                "max": "779", 
+                                "p95": "575", 
+                                "std_dev": "225.95827631522032608", 
+                                "mean": "330.173828125", 
+                                "p50": "540", 
+                                "unit": "microseconds", 
+                                "size": "4096"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "93.401757385199119", 
+                                "rate_1min": "30", 
+                                "rate_5min": "30", 
+                                "unit": "events per second", 
+                                "rate_15min": "30"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "1513.1150649285146", 
+                                "rate_1min": "551", 
+                                "rate_5min": "551", 
+                                "unit": "events per second", 
+                                "rate_15min": "551"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "93.400797767347328", 
+                                "rate_1min": "30", 
+                                "rate_5min": "30", 
+                                "unit": "events per second", 
+                                "rate_15min": "30"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "93.39879135737398", 
+                                "rate_1min": "30", 
+                                "rate_5min": "30", 
+                                "unit": "events per second", 
+                                "rate_15min": "30"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "93.394749720749701", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "4860"
+                            }
+                        }, 
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "300"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "300"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "30", 
+                                "min": "30", 
+                                "max": "30", 
+                                "p95": "30", 
+                                "std_dev": "0", 
+                                "mean": "30", 
+                                "p50": "30", 
+                                "unit": "queries", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "328344", 
+                                "min": "306086", 
+                                "max": "328344", 
+                                "p95": "328344", 
+                                "std_dev": "7457.69134786362689171", 
+                                "mean": "313984.599999999999994", 
+                                "p50": "310145", 
+                                "unit": "microseconds", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "27", 
+                                "p95": "0", 
+                                "std_dev": "0.422971571880125173603", 
+                                "mean": "0.007080078125", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "4096"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "18653113.8100000000086", 
+                                "min": "16111542", 
+                                "max": "18654208", 
+                                "p95": "18646441.75", 
+                                "std_dev": "788318.853103043514864", 
+                                "mean": "17402166.6099999999951", 
+                                "p50": "17402258", 
+                                "unit": "microseconds", 
+                                "size": "300"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "8", 
+                                "min": "2", 
+                                "max": "10", 
+                                "p95": "7", 
+                                "std_dev": "1.1473399186330478618", 
+                                "mean": "5.18333333333333333339", 
+                                "p50": "5", 
+                                "unit": "microseconds", 
+                                "size": "300"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "781.059999999999490683", 
+                                "min": "98", 
+                                "max": "1162", 
+                                "p95": "716", 
+                                "std_dev": "236.765543518576015908", 
+                                "mean": "356.10009765625", 
+                                "p50": "543", 
+                                "unit": "microseconds", 
+                                "size": "4096"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "95.370766571147541", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "95.367280058415631", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "95.365855209200888", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "1430.4673654764647", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "95.363005638496645", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "300"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "300"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "4500"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "30", 
+                                "min": "30", 
+                                "max": "30", 
+                                "p95": "30", 
+                                "std_dev": "0", 
+                                "mean": "30", 
+                                "p50": "30", 
+                                "unit": "queries", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "313911", 
+                                "min": "306738", 
+                                "max": "313911", 
+                                "p95": "313911", 
+                                "std_dev": "2199.63768834778787986", 
+                                "mean": "310358.799999999999983", 
+                                "p50": "309767", 
+                                "unit": "microseconds", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "27", 
+                                "p95": "0", 
+                                "std_dev": "0.422971571880125173603", 
+                                "mean": "0.007080078125", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "4096"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "21610983.0600000000013", 
+                                "min": "18935540", 
+                                "max": "21611781", 
+                                "p95": "21411500.4999999999891", 
+                                "std_dev": "829422.52883235356984", 
+                                "mean": "20263942.3166666666693", 
+                                "p50": "20279283.5", 
+                                "unit": "microseconds", 
+                                "size": "300"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "8", 
+                                "min": "2", 
+                                "max": "9", 
+                                "p95": "7", 
+                                "std_dev": "1.08640078546854275941", 
+                                "mean": "5.08000000000000000167", 
+                                "p50": "5", 
+                                "unit": "microseconds", 
+                                "size": "300"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "599", 
+                                "min": "97", 
+                                "max": "1299", 
+                                "p95": "585", 
+                                "std_dev": "230.938103371788216983", 
+                                "mean": "342.716796875", 
+                                "p50": "542", 
+                                "unit": "microseconds", 
+                                "size": "4096"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "96.546250964255677", 
+                                "rate_1min": "6", 
+                                "rate_5min": "6", 
+                                "unit": "events per second", 
+                                "rate_15min": "6"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "96.546717025434276", 
+                                "rate_1min": "6", 
+                                "rate_5min": "6", 
+                                "unit": "events per second", 
+                                "rate_15min": "6"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "1398.297134762053", 
+                                "rate_1min": "120.8", 
+                                "rate_5min": "120.8", 
+                                "unit": "events per second", 
+                                "rate_15min": "120.8"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "96.543019730496937", 
+                                "rate_1min": "6", 
+                                "rate_5min": "6", 
+                                "unit": "events per second", 
+                                "rate_15min": "6"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "96.540223645082108", 
+                                "rate_1min": "36", 
+                                "rate_5min": "36", 
+                                "unit": "events per second", 
+                                "rate_15min": "36"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "300"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "4344"
+                            }
+                        }, 
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "300"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "30", 
+                                "min": "30", 
+                                "max": "30", 
+                                "p95": "30", 
+                                "std_dev": "0", 
+                                "mean": "30", 
+                                "p50": "30", 
+                                "unit": "queries", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "313154", 
+                                "min": "309535", 
+                                "max": "313154", 
+                                "p95": "313154", 
+                                "std_dev": "1194.00052345047152413", 
+                                "mean": "311299.5", 
+                                "p50": "311481.5", 
+                                "unit": "microseconds", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "38", 
+                                "p95": "0", 
+                                "std_dev": "0.593677516327630800698", 
+                                "mean": "0.00927734375", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "4096"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "24378854.96000000001", 
+                                "min": "21694861", 
+                                "max": "24379948", 
+                                "p95": "24372670.6499999999996", 
+                                "std_dev": "851574.361504447048162", 
+                                "mean": "23037284", 
+                                "p50": "23037373.5", 
+                                "unit": "microseconds", 
+                                "size": "300"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "8.99000000000000909495", 
+                                "min": "2", 
+                                "max": "9", 
+                                "p95": "7", 
+                                "std_dev": "1.14454746030424133385", 
+                                "mean": "4.99666666666666666645", 
+                                "p50": "5", 
+                                "unit": "microseconds", 
+                                "size": "300"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "594", 
+                                "min": "94", 
+                                "max": "880", 
+                                "p95": "580", 
+                                "std_dev": "230.091049975187299223", 
+                                "mean": "341.206298828125", 
+                                "p50": "539", 
+                                "unit": "microseconds", 
+                                "size": "4096"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "96.019234573069667", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "96.017083359471314", 
+                                "rate_1min": "42", 
+                                "rate_5min": "42", 
+                                "unit": "events per second", 
+                                "rate_15min": "42"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "1472.2393272250338", 
+                                "rate_1min": "671.79999999999995", 
+                                "rate_5min": "671.79999999999995", 
+                                "unit": "events per second", 
+                                "rate_15min": "671.79999999999995"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "96.014010364392377", 
+                                "rate_1min": "42", 
+                                "rate_5min": "42", 
+                                "unit": "events per second", 
+                                "rate_15min": "42"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "96.012535396621374", 
+                                "rate_1min": "42", 
+                                "rate_5min": "42", 
+                                "unit": "events per second", 
+                                "rate_15min": "42"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "4601"
+                            }
+                        }, 
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "300"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "300"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "30", 
+                                "min": "30", 
+                                "max": "30", 
+                                "p95": "30", 
+                                "std_dev": "0", 
+                                "mean": "30", 
+                                "p50": "30", 
+                                "unit": "queries", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "318059", 
+                                "min": "308264", 
+                                "max": "318059", 
+                                "p95": "318059", 
+                                "std_dev": "2854.63174507676208602", 
+                                "mean": "311814", 
+                                "p50": "311629", 
+                                "unit": "microseconds", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "28", 
+                                "p95": "0", 
+                                "std_dev": "0.437446590978254274198", 
+                                "mean": "0.0068359375", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "4096"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "27105379.8200000000015", 
+                                "min": "24662075", 
+                                "max": "27106378", 
+                                "p95": "27099440.2499999999927", 
+                                "std_dev": "786324.569901079991325", 
+                                "mean": "25957164.0700000000106", 
+                                "p50": "26008465.5", 
+                                "unit": "microseconds", 
+                                "size": "300"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "8.99000000000000909495", 
+                                "min": "2", 
+                                "max": "22", 
+                                "p95": "7", 
+                                "std_dev": "1.38730754421008690134", 
+                                "mean": "5.09333333333333333369", 
+                                "p50": "5", 
+                                "unit": "microseconds", 
+                                "size": "300"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "895.059999999999490683", 
+                                "min": "91", 
+                                "max": "1335", 
+                                "p95": "778.149999999999636202", 
+                                "std_dev": "251.542299385995877348", 
+                                "mean": "379.2197265625", 
+                                "p50": "542", 
+                                "unit": "microseconds", 
+                                "size": "4096"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "1395.5262390343496", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "96.155233008168381", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "96.15375369831375", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "96.151534818874552", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "96.150055622807173", 
+                                "rate_1min": "12", 
+                                "rate_5min": "12", 
+                                "unit": "events per second", 
+                                "rate_15min": "12"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "300"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "300"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "4354"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "30", 
+                                "min": "30", 
+                                "max": "30", 
+                                "p95": "30", 
+                                "std_dev": "0", 
+                                "mean": "30", 
+                                "p50": "30", 
+                                "unit": "queries", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "317204", 
+                                "min": "305850", 
+                                "max": "317204", 
+                                "p95": "317204", 
+                                "std_dev": "2690.9115853182541902", 
+                                "mean": "310758.800000000000011", 
+                                "p50": "310860.5", 
+                                "unit": "microseconds", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "22", 
+                                "p95": "0", 
+                                "std_dev": "0.343708035768628358299", 
+                                "mean": "0.00537109375", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "4096"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "30069005.6900000000078", 
+                                "min": "27394398", 
+                                "max": "30069896", 
+                                "p95": "30062928.3499999999931", 
+                                "std_dev": "849670.904251956024495", 
+                                "mean": "28732198.4933333333302", 
+                                "p50": "28733158.5", 
+                                "unit": "microseconds", 
+                                "size": "300"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "8", 
+                                "min": "2", 
+                                "max": "9", 
+                                "p95": "7", 
+                                "std_dev": "1.14687498107780789733", 
+                                "mean": "5.20333333333333333511", 
+                                "p50": "5", 
+                                "unit": "microseconds", 
+                                "size": "300"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "889.029999999999745341", 
+                                "min": "96", 
+                                "max": "968", 
+                                "p95": "585", 
+                                "std_dev": "238.418058564088007248", 
+                                "mean": "346.997802734375", 
+                                "p50": "541", 
+                                "unit": "microseconds", 
+                                "size": "4096"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "96.266403795206713", 
+                                "rate_1min": "48", 
+                                "rate_5min": "48", 
+                                "unit": "events per second", 
+                                "rate_15min": "48"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "96.263314820828299", 
+                                "rate_1min": "18", 
+                                "rate_5min": "18", 
+                                "unit": "events per second", 
+                                "rate_15min": "18"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "96.261801295748015", 
+                                "rate_1min": "18", 
+                                "rate_5min": "18", 
+                                "unit": "events per second", 
+                                "rate_15min": "18"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "96.26041136565928", 
+                                "rate_1min": "18", 
+                                "rate_5min": "18", 
+                                "unit": "events per second", 
+                                "rate_15min": "18"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "1375.2196709676239", 
+                                "rate_1min": "300.60000000000002", 
+                                "rate_5min": "300.60000000000002", 
+                                "unit": "events per second", 
+                                "rate_15min": "300.60000000000002"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "300"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "4286"
+                            }
+                        }, 
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "300"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "30", 
+                                "min": "30", 
+                                "max": "30", 
+                                "p95": "30", 
+                                "std_dev": "0", 
+                                "mean": "30", 
+                                "p50": "30", 
+                                "unit": "queries", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "314932", 
+                                "min": "302850", 
+                                "max": "314932", 
+                                "p95": "314932", 
+                                "std_dev": "3351.67975946390200481", 
+                                "mean": "308039.699999999999989", 
+                                "p50": "307696", 
+                                "unit": "microseconds", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "22", 
+                                "p95": "0", 
+                                "std_dev": "0.59958415780356048543", 
+                                "mean": "0.0170623145400593471809", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "1348"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "32986802.3300000000017", 
+                                "min": "30354458", 
+                                "max": "32988717", 
+                                "p95": "32978522.6499999999978", 
+                                "std_dev": "835881.623536395752296", 
+                                "mean": "31678490.75", 
+                                "p50": "31684831.5", 
+                                "unit": "microseconds", 
+                                "size": "300"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "8", 
+                                "min": "2", 
+                                "max": "12", 
+                                "p95": "6.94999999999998863132", 
+                                "std_dev": "0.977951373478706705239", 
+                                "mean": "5.01666666666666666557", 
+                                "p50": "5", 
+                                "unit": "microseconds", 
+                                "size": "300"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "887", 
+                                "min": "98", 
+                                "max": "1319", 
+                                "p95": "589", 
+                                "std_dev": "238.084264100436297174", 
+                                "mean": "345.90356083086053457", 
+                                "p50": "541", 
+                                "unit": "microseconds", 
+                                "size": "1348"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "97.40452651822001", 
+                                "rate_1min": "54", 
+                                "rate_5min": "54", 
+                                "unit": "events per second", 
+                                "rate_15min": "54"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "437.6731373891044", 
+                                "rate_1min": "269.60000000000002", 
+                                "rate_5min": "269.60000000000002", 
+                                "unit": "events per second", 
+                                "rate_15min": "269.60000000000002"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "97.403356389790048", 
+                                "rate_1min": "54", 
+                                "rate_5min": "54", 
+                                "unit": "events per second", 
+                                "rate_15min": "54"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "97.401205956798009", 
+                                "rate_1min": "54", 
+                                "rate_5min": "54", 
+                                "unit": "events per second", 
+                                "rate_15min": "54"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "97.396842134653085", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "1348"
+                            }
+                        }, 
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "300"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "300"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "30", 
+                                "min": "30", 
+                                "max": "30", 
+                                "p95": "30", 
+                                "std_dev": "0", 
+                                "mean": "30", 
+                                "p50": "30", 
+                                "unit": "queries", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "310311", 
+                                "min": "305590", 
+                                "max": "310311", 
+                                "p95": "310311", 
+                                "std_dev": "1476.57042161896226984", 
+                                "mean": "306941.300000000000011", 
+                                "p50": "306377", 
+                                "unit": "microseconds", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "35574530.8500000000095", 
+                                "min": "33256486", 
+                                "max": "35575454", 
+                                "p95": "35568662.3999999999905", 
+                                "std_dev": "713485.2877239808696", 
+                                "mean": "34374880.4300000000148", 
+                                "p50": "34264483", 
+                                "unit": "microseconds", 
+                                "size": "300"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "7", 
+                                "min": "2", 
+                                "max": "8", 
+                                "p95": "6", 
+                                "std_dev": "0.790014064572411407403", 
+                                "mean": "4.75666666666666666363", 
+                                "p50": "5", 
+                                "unit": "microseconds", 
+                                "size": "300"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "97.604556440973482", 
+                                "rate_1min": "24", 
+                                "rate_5min": "24", 
+                                "unit": "events per second", 
+                                "rate_15min": "24"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "97.600936448451577", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "97.599444073566559", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "97.596395960289982", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "300"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "300"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "0"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "30", 
+                                "min": "30", 
+                                "max": "30", 
+                                "p95": "30", 
+                                "std_dev": "0", 
+                                "mean": "30", 
+                                "p50": "30", 
+                                "unit": "queries", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "310916", 
+                                "min": "303215", 
+                                "max": "310916", 
+                                "p95": "310916", 
+                                "std_dev": "2189.94156086412497664", 
+                                "mean": "306653.400000000000006", 
+                                "p50": "306931", 
+                                "unit": "microseconds", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "38398990.0200000000004", 
+                                "min": "35853198", 
+                                "max": "38400166", 
+                                "p95": "38393103.1499999999978", 
+                                "std_dev": "801738.382937320596795", 
+                                "mean": "37133348.8833333333278", 
+                                "p50": "37142694", 
+                                "unit": "microseconds", 
+                                "size": "300"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "7", 
+                                "min": "2", 
+                                "max": "7", 
+                                "p95": "6", 
+                                "std_dev": "0.767390962214755881362", 
+                                "mean": "4.7333333333333333314", 
+                                "p50": "5", 
+                                "unit": "microseconds", 
+                                "size": "300"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "97.679207157411341", 
+                                "rate_1min": "30", 
+                                "rate_5min": "30", 
+                                "unit": "events per second", 
+                                "rate_15min": "30"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "97.679652416724835", 
+                                "rate_1min": "30", 
+                                "rate_5min": "30", 
+                                "unit": "events per second", 
+                                "rate_15min": "30"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "97.676090455873847", 
+                                "rate_1min": "30", 
+                                "rate_5min": "30", 
+                                "unit": "events per second", 
+                                "rate_15min": "30"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "97.673260154356313", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "300"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "0"
+                            }
+                        }, 
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "300"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "30", 
+                                "min": "30", 
+                                "max": "30", 
+                                "p95": "30", 
+                                "std_dev": "0", 
+                                "mean": "30", 
+                                "p50": "30", 
+                                "unit": "queries", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "310387", 
+                                "min": "305382", 
+                                "max": "310387", 
+                                "p95": "310387", 
+                                "std_dev": "1616.21818143467251372", 
+                                "mean": "307671.699999999999989", 
+                                "p50": "308165.5", 
+                                "unit": "microseconds", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "41325540.1400000000103", 
+                                "min": "38678893", 
+                                "max": "41326405", 
+                                "p95": "41319209.3999999999905", 
+                                "std_dev": "840147.381339613366663", 
+                                "mean": "40003944.1833333333343", 
+                                "p50": "40004778.5", 
+                                "unit": "microseconds", 
+                                "size": "300"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "6", 
+                                "min": "2", 
+                                "max": "8", 
+                                "p95": "6", 
+                                "std_dev": "0.801415414542711841499", 
+                                "mean": "4.61999999999999999686", 
+                                "p50": "5", 
+                                "unit": "microseconds", 
+                                "size": "300"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "97.342074651637049", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "97.339958507220359", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "97.337084488264878", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "97.335600171310659", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "0"
+                            }
+                        }, 
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "300"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "300"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "30", 
+                                "min": "30", 
+                                "max": "30", 
+                                "p95": "30", 
+                                "std_dev": "0", 
+                                "mean": "30", 
+                                "p50": "30", 
+                                "unit": "queries", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "310176", 
+                                "min": "302607", 
+                                "max": "310176", 
+                                "p95": "310176", 
+                                "std_dev": "2525.988838059265851", 
+                                "mean": "306247.700000000000017", 
+                                "p50": "306388.5", 
+                                "unit": "microseconds", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "43883292.5700000000033", 
+                                "min": "41600465", 
+                                "max": "43884286", 
+                                "p95": "43877755.1999999999971", 
+                                "std_dev": "722516.271582323112568", 
+                                "mean": "42660331.406666666684", 
+                                "p50": "42553203", 
+                                "unit": "microseconds", 
+                                "size": "300"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "7", 
+                                "min": "2", 
+                                "max": "7", 
+                                "p95": "6", 
+                                "std_dev": "0.749659181821238608675", 
+                                "mean": "4.70333333333333333077", 
+                                "p50": "5", 
+                                "unit": "microseconds", 
+                                "size": "300"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "97.825661627558134", 
+                                "rate_1min": "12", 
+                                "rate_5min": "12", 
+                                "unit": "events per second", 
+                                "rate_15min": "12"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "97.823364915063223", 
+                                "rate_1min": "12", 
+                                "rate_5min": "12", 
+                                "unit": "events per second", 
+                                "rate_15min": "12"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "97.820749346068297", 
+                                "rate_1min": "12", 
+                                "rate_5min": "12", 
+                                "unit": "events per second", 
+                                "rate_15min": "12"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "97.818867498800913", 
+                                "rate_1min": "36", 
+                                "rate_5min": "36", 
+                                "unit": "events per second", 
+                                "rate_15min": "36"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "300"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "300"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "0"
+                            }
+                        }
+                    ]
+                }
+            ], 
+            "thrus": [
+                67.01411250195179, 
+                97.33458959843642, 
+                97.44223867696826, 
+                96.38814348724591, 
+                93.52308960384866, 
+                95.50429450977646, 
+                96.67580253000575, 
+                96.1945746901172, 
+                96.341588737026, 
+                96.4544005391158, 
+                97.58236439466731, 
+                97.71522266367789, 
+                97.79323055699439, 
+                97.45360233992596, 
+                97.9362865694094
+            ], 
+            "all_lats": [
+                "[1.12094, 1.812058, 1.810885, 1.811097, 1.811303, 1.811589, 1.813546, 1.814647, 1.81521, 1.814496, 1.815949, 1.816919, 1.817051, 1.817084, 1.817303, 1.818354, 1.818819, 1.818954, 1.81819, 1.818411, 1.818224, 1.820181, 1.820376, 1.820787, 1.82112, 1.821233, 1.821094, 1.821576, 1.821569, 1.821726, 1.822013, 1.97711, 1.977639, 1.978145, 1.978541, 1.978622, 1.979142, 1.979815, 1.980227, 1.980598, 1.981731, 1.98174, 1.981701, 1.982271, 1.982119, 1.98279, 1.983924, 1.982648, 1.984251, 1.984629, 1.986472, 1.986553, 1.98613, 1.986451, 1.987147, 1.987597, 1.987893, 1.986903, 1.987389, 1.98845, 1.989935, 2.33477, 2.335036, 2.336063, 2.335729, 2.337013, 2.336781, 2.33742, 2.337146, 2.337579, 2.337753, 2.337882, 2.337895, 2.338416, 2.339518, 2.341145, 2.340326, 2.342393, 2.342416, 2.342533, 2.34261, 2.342299, 2.344542, 2.34494, 2.345007, 2.345366, 2.345393, 2.345274, 2.345594, 2.345561, 2.346842, 2.618117, 2.618463, 2.618943, 2.618794, 2.620047, 2.620076, 2.620922, 2.621321, 2.621769, 2.621705, 2.62239, 2.623016, 2.623487, 2.623993, 2.62463, 2.624942, 2.626479, 2.626662, 2.626838, 2.628113, 2.629884, 2.631597, 2.631558, 2.632021, 2.632405, 2.632623, 2.632845, 2.63344, 2.633468, 2.633644, 3.07054, 3.070719, 3.071312, 3.071648, 3.071977, 3.072121, 3.072493, 3.072931, 3.073131, 3.073461, 3.073707, 3.0742, 3.074563, 3.07519, 3.075339, 3.075868, 3.076224, 3.076235, 3.076906, 3.077554, 3.077875, 3.078467, 3.079179, 3.079377, 3.07957, 3.07933, 3.079609, 3.080327, 3.081305, 3.081489, 3.230903, 3.231508, 3.232166, 3.231946, 3.232203, 3.232463, 3.233013, 3.232944, 3.233476, 3.233409, 3.234749, 3.234368, 3.234576, 3.235859, 3.236635, 3.236424, 3.236823, 3.238239, 3.23769, 3.240203, 3.241632, 3.241716, 3.241741, 3.241702, 3.241619, 3.24214, 3.242765, 3.243089, 3.243461, 3.243552, 3.533664, 3.534402, 3.535468, 3.535522, 3.536322, 3.53605, 3.536608, 3.536345, 3.536594, 3.537669, 3.537739, 3.537359, 3.538092, 3.537941, 3.538276, 3.539677, 3.539776, 3.539809, 3.540403, 3.541348, 3.541474, 3.542841, 3.542437, 3.543924, 3.544031, 3.543998, 3.545702, 3.545143, 3.54531, 3.546084, 3.98259, 3.982625, 3.982918, 3.983076, 3.983057, 3.983402, 3.983683, 3.98378, 3.984531, 3.984908, 3.985019, 3.985088, 3.986434, 3.985913, 3.987533, 3.987482, 3.987455, 3.987649, 3.987917, 3.98817, 3.988431, 3.988173, 3.989149, 3.990423, 3.990158, 3.990071, 3.990096, 3.991169, 3.990988, 3.991055, 4.143655, 4.143786, 4.144044, 4.144312, 4.144584, 4.145898, 4.146497, 4.147468, 4.147109, 4.147349, 4.147932, 4.147752, 4.147846, 4.148224, 4.148922, 4.14935, 4.14951, 4.149065, 4.15052, 4.150758, 4.15108, 4.151714, 4.152218, 4.152523, 4.152982, 4.153204, 4.154284, 4.154392, 4.154812, 4.155013, 4.453018, 4.453264, 4.452586, 4.454094, 4.453038, 4.453186, 4.45509, 4.453806, 4.45414, 4.454569, 4.454258, 4.454742, 4.455297, 4.455095, 4.457274, 4.457374, 4.457407, 4.456365, 4.458563, 4.45849, 4.457621, 4.457588, 4.457723, 4.458264, 4.459759, 4.459802, 4.458323, 4.458473, 4.458593]", 
+                "[4.468158, 4.763712, 4.763988, 4.764519, 4.764552, 4.764977, 4.765131, 4.766199, 4.765901, 4.765708, 4.76639, 4.766342, 4.766141, 4.766837, 4.766646, 4.766634, 4.767146, 4.767971, 4.768037, 4.767936, 4.768075, 4.768087, 4.767796, 4.768885, 4.7689, 4.768137, 4.769143, 4.769015, 4.769158, 4.769128, 4.769246, 5.072374, 5.072453, 5.072543, 5.07309, 5.07296, 5.073548, 5.073197, 5.073662, 5.073169, 5.073629, 5.073354, 5.07426, 5.074144, 5.074079, 5.074311, 5.074991, 5.075141, 5.075249, 5.075444, 5.076598, 5.076398, 5.07658, 5.07667, 5.076522, 5.076266, 5.077415, 5.077496, 5.076718, 5.076985, 5.077337, 5.380053, 5.38, 5.380162, 5.380315, 5.380684, 5.381077, 5.381079, 5.381828, 5.381761, 5.381928, 5.382623, 5.38227, 5.381989, 5.382768, 5.382534, 5.382267, 5.382727, 5.382378, 5.383515, 5.383539, 5.383065, 5.383112, 5.382955, 5.384207, 5.383304, 5.384492, 5.384559, 5.383705, 5.383771, 5.38413, 5.688392, 5.68855, 5.689486, 5.689128, 5.68914, 5.690168, 5.689742, 5.689755, 5.690576, 5.689677, 5.691117, 5.690324, 5.691179, 5.691298, 5.691621, 5.691522, 5.691681, 5.691726, 5.692832, 5.693013, 5.693225, 5.693448, 5.693221, 5.693134, 5.693278, 5.693363, 5.693451, 5.694311, 5.693875, 5.69373, 5.996984, 5.997214, 5.997431, 5.997725, 5.998003, 5.998269, 5.998541, 5.998422, 5.999447, 5.998882, 5.998935, 6.00016, 5.999651, 6.000549, 6.000727, 6.000906, 6.001113, 6.001016, 6.002201, 6.002231, 6.001837, 6.001862, 6.002652, 6.002686, 6.002551, 6.002529, 6.002668, 6.002897, 6.002529, 6.00307, 6.308881, 6.309286, 6.309545, 6.30985, 6.310221, 6.310386, 6.310728, 6.311561, 6.311252, 6.311238, 6.311879, 6.311679, 6.311288, 6.311811, 6.31276, 6.312569, 6.312641, 6.312455, 6.312587, 6.312674, 6.312711, 6.312989, 6.312934, 6.313972, 6.313927, 6.313749, 6.313861, 6.313813, 6.314103, 6.314073, 6.618417, 6.61839, 6.6185, 6.618585, 6.618522, 6.61938, 6.619232, 6.618748, 6.619753, 6.619629, 6.618448, 6.619817, 6.619805, 6.619009, 6.619141, 6.621029, 6.62114, 6.621192, 6.620689, 6.61988, 6.621125, 6.62104, 6.619935, 6.621599, 6.621544, 6.621466, 6.621344, 6.620493, 6.62154, 6.620544, 6.924489, 6.92463, 6.924338, 6.925202, 6.924704, 6.92536, 6.924875, 6.925583, 6.925204, 6.925107, 6.926305, 6.926165, 6.926361, 6.926379, 6.926564, 6.926568, 6.926631, 6.926594, 6.926536, 6.926754, 6.927225, 6.928029, 6.927949, 6.92796, 6.928104, 6.927935, 6.927956, 6.927774, 6.928797, 6.928088, 7.22832, 7.22838, 7.228424, 7.228956, 7.229154, 7.228982, 7.229275, 7.229513, 7.22921, 7.22967, 7.229864, 7.229658, 7.230069, 7.23031, 7.23007, 7.230003, 7.230336, 7.230308, 7.230163, 7.23047, 7.230957, 7.23103, 7.230978, 7.230963, 7.231051, 7.231159, 7.231775, 7.231359, 7.232147, 7.231896, 7.534553, 7.53472, 7.534802, 7.534732, 7.534971, 7.535083, 7.534737, 7.535182, 7.535228, 7.535224, 7.536557, 7.536611, 7.536725, 7.536767, 7.536512, 7.536385, 7.53639, 7.537159, 7.5368, 7.536792, 7.537515, 7.537237, 7.537226, 7.537237, 7.537221, 7.536884, 7.53696, 7.537214, 7.53731]", 
+                "[7.542325, 7.838702, 7.838713, 7.838991, 7.839272, 7.839146, 7.839368, 7.839279, 7.839351, 7.839059, 7.840182, 7.839391, 7.840379, 7.840314, 7.840321, 7.840084, 7.839885, 7.84047, 7.840467, 7.840588, 7.840699, 7.841579, 7.841487, 7.841476, 7.841507, 7.841534, 7.841567, 7.841589, 7.84153, 7.841379, 7.841307, 8.143005, 8.142984, 8.143173, 8.143117, 8.143372, 8.143209, 8.143579, 8.143319, 8.143818, 8.14374, 8.144153, 8.143925, 8.144326, 8.144215, 8.144453, 8.144336, 8.145227, 8.145244, 8.144892, 8.145608, 8.145031, 8.145721, 8.145601, 8.145641, 8.145677, 8.145691, 8.145535, 8.146018, 8.145515, 8.145639, 8.446857, 8.446779, 8.447256, 8.446899, 8.447446, 8.447103, 8.447237, 8.447281, 8.447086, 8.447506, 8.447298, 8.448299, 8.447771, 8.447533, 8.448473, 8.448054, 8.447849, 8.448643, 8.448375, 8.448215, 8.448786, 8.448386, 8.449376, 8.44934, 8.448782, 8.448414, 8.449429, 8.44844, 8.448888, 8.449401, 8.752059, 8.75218, 8.752235, 8.75235, 8.75222, 8.752198, 8.752736, 8.752494, 8.753037, 8.752682, 8.753379, 8.753012, 8.753482, 8.753047, 8.753912, 8.753481, 8.753459, 8.754185, 8.753918, 8.754872, 8.754941, 8.754209, 8.75543, 8.755466, 8.755574, 8.754855, 8.755913, 8.755692, 8.755245, 8.755702, 9.059647, 9.060913, 9.05993, 9.060382, 9.060709, 9.062062, 9.062236, 9.061443, 9.061606, 9.06159, 9.061493, 9.061525, 9.061898, 9.062475, 9.062341, 9.063709, 9.063381, 9.063469, 9.063175, 9.063576, 9.063529, 9.063607, 9.06372, 9.06437, 9.064097, 9.064336, 9.064487, 9.064803, 9.064812, 9.06504, 9.365525, 9.365601, 9.365546, 9.365566, 9.365542, 9.365629, 9.365743, 9.365772, 9.36598, 9.366164, 9.366116, 9.366619, 9.367105, 9.366408, 9.366818, 9.36668, 9.367683, 9.367926, 9.367801, 9.367438, 9.367415, 9.367731, 9.368873, 9.368447, 9.368741, 9.368703, 9.368608, 9.368373, 9.369189, 9.368751, 9.675628, 9.675457, 9.675583, 9.676113, 9.676156, 9.67679, 9.677053, 9.676575, 9.677226, 9.677397, 9.677209, 9.677308, 9.676902, 9.677358, 9.676933, 9.677006, 9.678291, 9.678201, 9.678226, 9.67827, 9.678247, 9.677546, 9.677682, 9.679201, 9.678878, 9.678079, 9.678107, 9.678878, 9.678126, 9.6782, 9.985103, 9.985662, 9.985694, 9.985932, 9.986119, 9.987025, 9.987568, 9.986971, 9.988125, 9.987757, 9.987507, 9.987828, 9.987934, 9.987792, 9.988669, 9.987937, 9.988318, 9.989343, 9.989263, 9.989233, 9.989227, 9.988659, 9.989533, 9.989525, 9.989403, 9.989505, 9.989221, 9.98946, 9.98994, 9.989501, 10.295694, 10.295935, 10.29587, 10.29606, 10.296039, 10.296354, 10.296658, 10.296907, 10.297295, 10.297164, 10.297188, 10.2977, 10.297598, 10.297924, 10.298604, 10.298102, 10.298677, 10.299507, 10.299579, 10.299583, 10.299538, 10.299504, 10.299696, 10.300465, 10.30003, 10.299985, 10.300027, 10.299884, 10.300231, 10.300149, 10.605301, 10.605341, 10.605374, 10.605717, 10.605561, 10.605631, 10.605912, 10.605452, 10.605158, 10.605284, 10.605651, 10.605378, 10.605679, 10.60636, 10.606459, 10.606092, 10.606187, 10.606132, 10.606955, 10.607025, 10.607075, 10.606444, 10.607773, 10.607582, 10.607485, 10.607543, 10.607523, 10.607297, 10.607956]", 
+                "[10.612361, 10.914374, 10.914234, 10.914523, 10.9145, 10.914985, 10.915615, 10.915514, 10.915798, 10.915371, 10.916025, 10.915981, 10.915707, 10.916291, 10.916328, 10.916231, 10.916381, 10.917469, 10.916869, 10.916886, 10.916609, 10.917992, 10.917527, 10.917491, 10.917181, 10.918394, 10.918242, 10.917773, 10.917224, 10.917269, 10.917928, 11.234969, 11.235027, 11.234919, 11.235071, 11.235062, 11.235737, 11.235309, 11.234498, 11.234886, 11.234579, 11.235102, 11.236499, 11.234993, 11.235694, 11.235636, 11.235958, 11.235824, 11.237625, 11.237758, 11.23669, 11.238279, 11.238139, 11.238048, 11.238069, 11.237025, 11.236822, 11.236816, 11.238267, 11.23835, 11.236989, 11.554604, 11.554677, 11.554504, 11.555411, 11.555246, 11.554625, 11.555365, 11.555876, 11.555905, 11.555739, 11.555967, 11.555586, 11.555623, 11.555529, 11.555872, 11.557103, 11.557214, 11.557108, 11.557127, 11.557146, 11.557195, 11.557111, 11.557126, 11.557139, 11.557157, 11.557171, 11.556938, 11.557405, 11.556996, 11.557128, 11.866214, 11.866318, 11.866382, 11.866249, 11.866368, 11.866182, 11.867016, 11.866334, 11.866232, 11.866557, 11.867264, 11.867134, 11.867182, 11.867174, 11.867195, 11.866847, 11.867995, 11.868081, 11.868157, 11.86818, 11.867997, 11.867929, 11.867975, 11.867911, 11.868946, 11.868261, 11.868053, 11.868395, 11.868388, 11.868084, 12.17154, 12.171643, 12.171753, 12.172001, 12.172234, 12.172102, 12.172001, 12.172504, 12.172438, 12.172334, 12.172555, 12.172667, 12.172016, 12.172566, 12.17259, 12.172023, 12.172387, 12.172838, 12.173181, 12.173189, 12.173265, 12.173065, 12.173076, 12.172851, 12.173952, 12.173588, 12.173708, 12.173443, 12.173608, 12.173908, 12.477775, 12.477913, 12.478265, 12.478411, 12.478036, 12.478448, 12.4782, 12.478676, 12.478629, 12.478032, 12.478946, 12.47902, 12.479181, 12.478861, 12.479832, 12.479083, 12.479102, 12.479197, 12.479959, 12.479777, 12.479792, 12.479805, 12.47958, 12.479542, 12.479551, 12.479357, 12.479351, 12.479669, 12.479311, 12.47945, 12.78856, 12.788859, 12.788808, 12.788978, 12.788398, 12.788886, 12.789141, 12.788695, 12.789421, 12.789349, 12.78901, 12.789436, 12.789598, 12.789224, 12.790132, 12.790091, 12.789891, 12.789444, 12.789851, 12.789806, 12.789803, 12.789928, 12.790802, 12.790724, 12.790724, 12.790696, 12.790397, 12.789957, 12.789864, 12.790353, 13.094257, 13.094258, 13.094508, 13.094208, 13.094469, 13.094348, 13.094516, 13.094924, 13.094895, 13.09487, 13.094919, 13.09499, 13.095046, 13.095023, 13.094842, 13.095063, 13.094981, 13.095125, 13.095269, 13.095213, 13.095273, 13.095428, 13.096041, 13.095515, 13.096184, 13.096207, 13.096214, 13.09581, 13.09641, 13.096183, 13.400676, 13.400897, 13.400912, 13.401201, 13.401299, 13.401147, 13.401138, 13.40202, 13.401466, 13.402353, 13.401904, 13.40274, 13.402623, 13.402029, 13.402525, 13.402865, 13.401412, 13.403283, 13.403326, 13.403023, 13.403045, 13.40304, 13.401951, 13.403558, 13.403557, 13.403369, 13.403392, 13.404146, 13.402857, 13.403707, 13.707232, 13.686411, 13.707066, 13.707586, 13.686487, 13.68685, 13.708025, 13.708008, 13.708067, 13.708141, 13.70804, 13.687786, 13.687664, 13.687681, 13.687446, 13.687476, 13.687613, 13.687659, 13.708924, 13.709345, 13.709361, 13.688264, 13.709711, 13.709721, 13.709514, 13.688819, 13.688867, 13.688708, 13.709989]", 
+                "[13.693426, 13.993983, 13.994159, 13.994115, 13.994134, 13.994487, 13.994644, 13.994868, 13.995435, 13.994946, 13.995079, 13.995545, 13.994933, 13.99541, 13.995419, 13.995571, 13.99606, 13.996012, 13.995914, 13.996379, 13.996571, 13.997781, 13.997832, 13.997116, 13.996967, 13.997062, 13.997126, 13.997123, 13.997664, 13.997239, 13.997581, 14.301231, 14.301348, 14.301908, 14.302067, 14.302185, 14.302195, 14.30286, 14.303093, 14.302979, 14.303365, 14.303818, 14.303721, 14.304266, 14.30467, 14.304281, 14.304441, 14.304838, 14.304519, 14.306035, 14.306258, 14.305318, 14.30551, 14.306554, 14.305972, 14.30687, 14.306415, 14.306545, 14.306176, 14.306494, 14.306891, 14.616038, 14.616129, 14.615982, 14.616961, 14.617052, 14.616249, 14.617239, 14.617336, 14.616715, 14.617509, 14.61774, 14.617108, 14.617893, 14.617891, 14.617702, 14.618218, 14.618916, 14.618904, 14.618862, 14.618966, 14.618697, 14.620089, 14.620256, 14.620309, 14.619634, 14.620338, 14.620295, 14.619876, 14.619821, 14.620383, 14.939266, 14.939444, 14.939318, 14.939287, 14.939709, 14.940329, 14.939775, 14.940601, 14.940411, 14.94097, 14.940762, 14.941132, 14.941086, 14.941318, 14.941882, 14.941706, 14.94272, 14.942374, 14.942541, 14.942823, 14.94248, 14.943398, 14.943558, 14.943245, 14.944615, 14.944252, 14.944336, 14.944834, 14.94424, 14.944256, 15.263819, 15.263701, 15.263848, 15.263876, 15.264551, 15.264528, 15.264381, 15.264989, 15.264805, 15.264916, 15.266042, 15.265481, 15.265469, 15.266623, 15.266801, 15.266962, 15.266754, 15.267083, 15.267143, 15.2672, 15.267356, 15.267701, 15.268753, 15.268666, 15.268718, 15.267504, 15.269097, 15.267941, 15.26936, 15.268169, 15.591329, 15.591216, 15.591709, 15.592741, 15.592446, 15.593417, 15.593087, 15.593926, 15.593209, 15.594152, 15.593408, 15.593769, 15.593679, 15.593882, 15.595044, 15.595043, 15.595091, 15.595179, 15.594536, 15.595554, 15.595439, 15.595523, 15.595017, 15.596166, 15.596094, 15.596107, 15.596078, 15.595977, 15.596204, 15.596389, 15.911369, 15.911307, 15.911891, 15.911744, 15.911956, 15.912331, 15.912736, 15.912762, 15.913019, 15.91323, 15.913322, 15.913354, 15.913441, 15.913413, 15.913671, 15.913457, 15.914143, 15.914347, 15.914377, 15.913468, 15.915026, 15.915215, 15.914981, 15.915485, 15.91554, 15.915401, 15.915407, 15.916197, 15.916044, 15.915814, 16.234776, 16.235294, 16.235537, 16.235765, 16.235714, 16.235874, 16.235829, 16.235766, 16.236116, 16.235898, 16.236554, 16.236821, 16.236825, 16.237997, 16.238091, 16.238217, 16.238025, 16.237661, 16.237897, 16.238593, 16.238977, 16.239002, 16.239193, 16.239469, 16.239325, 16.239358, 16.239391, 16.240627, 16.239849, 16.239778, 16.55909, 16.559131, 16.559381, 16.559644, 16.559681, 16.560006, 16.559802, 16.560068, 16.560246, 16.560396, 16.560331, 16.560346, 16.560435, 16.560653, 16.560856, 16.560968, 16.561008, 16.561231, 16.561645, 16.561406, 16.561734, 16.561494, 16.562166, 16.561695, 16.561888, 16.561631, 16.562462, 16.561808, 16.562044, 16.562147, 16.884201, 16.8835, 16.884348, 16.884668, 16.884121, 16.884714, 16.884953, 16.884517, 16.885714, 16.885911, 16.885466, 16.885504, 16.885491, 16.886278, 16.886347, 16.886412, 16.886486, 16.88623, 16.886435, 16.887041, 16.887312, 16.887117, 16.88685, 16.886819, 16.886852, 16.886896, 16.886922, 16.887224, 16.88696]", 
+                "[16.892209, 17.207583, 17.207579, 17.207757, 17.20808, 17.208138, 17.208192, 17.20888, 17.209184, 17.208425, 17.209261, 17.209357, 17.209601, 17.209858, 17.20975, 17.209756, 17.20976, 17.210044, 17.210459, 17.209705, 17.209969, 17.209825, 17.210752, 17.209899, 17.209988, 17.209828, 17.209818, 17.209828, 17.210061, 17.209891, 17.210131, 17.535229, 17.535606, 17.535655, 17.535666, 17.535699, 17.53622, 17.535878, 17.536317, 17.536769, 17.536494, 17.536513, 17.53688, 17.537123, 17.536881, 17.536858, 17.537246, 17.537166, 17.537841, 17.537811, 17.537214, 17.537873, 17.537864, 17.537877, 17.537703, 17.537679, 17.537914, 17.538205, 17.537881, 17.53767, 17.537678, 17.857423, 17.857493, 17.857584, 17.857719, 17.857737, 17.85794, 17.857824, 17.858001, 17.857889, 17.858034, 17.858753, 17.858138, 17.858453, 17.859491, 17.858678, 17.858988, 17.859861, 17.85907, 17.859019, 17.860467, 17.860484, 17.860563, 17.860536, 17.860662, 17.86088, 17.860492, 17.861086, 17.860379, 17.860995, 17.860604, 18.165879, 18.166155, 18.166421, 18.166549, 18.16669, 18.166712, 18.166544, 18.167266, 18.166915, 18.167007, 18.167339, 18.167651, 18.16736, 18.167323, 18.167929, 18.16729, 18.167666, 18.167528, 18.167793, 18.168078, 18.168577, 18.168407, 18.168045, 18.168721, 18.168319, 18.168575, 18.168701, 18.168569, 18.169228, 18.168789, 18.476709, 18.47687, 18.476913, 18.476939, 18.477277, 18.476384, 18.476734, 18.478097, 18.477905, 18.477938, 18.47824, 18.47704, 18.478612, 18.477777, 18.477868, 18.47773, 18.477705, 18.477931, 18.477934, 18.47803, 18.478352, 18.478308, 18.478479, 18.478812, 18.478837, 18.478624, 18.479205, 18.479014, 18.479145, 18.479053, 18.785524, 18.78543, 18.785697, 18.785734, 18.785925, 18.78629, 18.786349, 18.786818, 18.786889, 18.786975, 18.786956, 18.787426, 18.787063, 18.78723, 18.787064, 18.787394, 18.78802, 18.78798, 18.787574, 18.787753, 18.78815, 18.787815, 18.788036, 18.788561, 18.788653, 18.788475, 18.788958, 18.788664, 18.788743, 18.78925, 19.095177, 19.095309, 19.096016, 19.095598, 19.096133, 19.095526, 19.095854, 19.095699, 19.096097, 19.096673, 19.095942, 19.095994, 19.096879, 19.096034, 19.095897, 19.097241, 19.097222, 19.096411, 19.096772, 19.09689, 19.096949, 19.097835, 19.097872, 19.097728, 19.097845, 19.09735, 19.097353, 19.098378, 19.097731, 19.097435, 19.402891, 19.402979, 19.403512, 19.403614, 19.403445, 19.403329, 19.403839, 19.403075, 19.403224, 19.403714, 19.403502, 19.403525, 19.404073, 19.403606, 19.403823, 19.403946, 19.404928, 19.404973, 19.404409, 19.404399, 19.404677, 19.405123, 19.405314, 19.405333, 19.40535, 19.405157, 19.405174, 19.404796, 19.405065, 19.405267, 19.708739, 19.708829, 19.709125, 19.708991, 19.708995, 19.708756, 19.709117, 19.709828, 19.709043, 19.709393, 19.710116, 19.709338, 19.709682, 19.710147, 19.709586, 19.709625, 19.70967, 19.710611, 19.710836, 19.710943, 19.710756, 19.710789, 19.710373, 19.711566, 19.711574, 19.71144, 19.711132, 19.710829, 19.711428, 19.711208, 20.016214, 20.016201, 20.016377, 20.016739, 20.016749, 20.016435, 20.016617, 20.01659, 20.016804, 20.017688, 20.017082, 20.017189, 20.018321, 20.017226, 20.017681, 20.017619, 20.017637, 20.019025, 20.01873, 20.018207, 20.01943, 20.019412, 20.019479, 20.019519, 20.019556, 20.01944, 20.019431, 20.020028, 20.019506]", 
+                "[20.02465, 20.326747, 20.326933, 20.327249, 20.327627, 20.327438, 20.32768, 20.327528, 20.32813, 20.328511, 20.328273, 20.328033, 20.328971, 20.328944, 20.328757, 20.329456, 20.329068, 20.329475, 20.32981, 20.329847, 20.330076, 20.330416, 20.331463, 20.331486, 20.331616, 20.331497, 20.331077, 20.331093, 20.331098, 20.33165, 20.331146, 20.63815, 20.638161, 20.638434, 20.638327, 20.638521, 20.638496, 20.638365, 20.639458, 20.63881, 20.639055, 20.639921, 20.640158, 20.64014, 20.640044, 20.640015, 20.638967, 20.639941, 20.640513, 20.640631, 20.64029, 20.63955, 20.641167, 20.641182, 20.640005, 20.640022, 20.639852, 20.640202, 20.640351, 20.640327, 20.640472, 20.950351, 20.950607, 20.950739, 20.950743, 20.95095, 20.951104, 20.95166, 20.951797, 20.951734, 20.952147, 20.952012, 20.951935, 20.951746, 20.951668, 20.951702, 20.951685, 20.952211, 20.952189, 20.951902, 20.95271, 20.952876, 20.95249, 20.9527, 20.953578, 20.95357, 20.953584, 20.95339, 20.953767, 20.953686, 20.953677, 21.26335, 21.26318, 21.263234, 21.262973, 21.262845, 21.264023, 21.263617, 21.263104, 21.264426, 21.264023, 21.263468, 21.264872, 21.265007, 21.265291, 21.265171, 21.265215, 21.2648, 21.264823, 21.26577, 21.265723, 21.265722, 21.265683, 21.265207, 21.265937, 21.265497, 21.265496, 21.265492, 21.265273, 21.265718, 21.265311, 21.570664, 21.570752, 21.570987, 21.571204, 21.571068, 21.571047, 21.571046, 21.571237, 21.5712, 21.571144, 21.571313, 21.571105, 21.571294, 21.571227, 21.572592, 21.572604, 21.572675, 21.572802, 21.572622, 21.572804, 21.572832, 21.573086, 21.572381, 21.572345, 21.573738, 21.573121, 21.57307, 21.573308, 21.572988, 21.573089, 21.87714, 21.877329, 21.877907, 21.877757, 21.878444, 21.878266, 21.87895, 21.878196, 21.878725, 21.878562, 21.879101, 21.878855, 21.879391, 21.879971, 21.88011, 21.880025, 21.880157, 21.880155, 21.880318, 21.881164, 21.881536, 21.881633, 21.881771, 21.881771, 21.881969, 21.881745, 21.881799, 21.881773, 21.88208, 21.882, 22.185098, 22.185374, 22.185425, 22.185595, 22.185721, 22.186026, 22.186297, 22.186874, 22.186677, 22.187756, 22.187531, 22.187367, 22.188409, 22.18851, 22.188339, 22.189189, 22.188792, 22.188808, 22.189668, 22.189337, 22.189222, 22.190627, 22.190614, 22.190737, 22.190678, 22.190195, 22.190297, 22.190271, 22.191423, 22.190669, 22.494103, 22.494469, 22.494564, 22.494903, 22.495064, 22.495233, 22.495338, 22.495696, 22.496423, 22.496088, 22.496507, 22.496695, 22.497348, 22.497044, 22.497173, 22.497483, 22.497485, 22.497863, 22.498039, 22.498367, 22.498859, 22.498797, 22.499014, 22.499134, 22.499482, 22.49982, 22.49968, 22.499804, 22.500026, 22.500366, 22.803248, 22.803623, 22.803491, 22.803426, 22.803604, 22.803583, 22.803648, 22.804111, 22.803509, 22.804041, 22.803824, 22.803832, 22.804345, 22.804323, 22.804348, 22.805603, 22.805618, 22.805045, 22.805904, 22.805309, 22.805535, 22.805497, 22.806308, 22.806413, 22.806564, 22.805892, 22.806132, 22.80655, 22.806199, 22.806276, 23.110725, 23.110811, 23.110569, 23.110895, 23.111174, 23.110881, 23.111289, 23.111208, 23.111369, 23.112817, 23.112908, 23.112988, 23.112049, 23.112192, 23.112273, 23.111995, 23.112192, 23.112122, 23.112339, 23.112123, 23.112264, 23.112914, 23.112612, 23.112303, 23.112384, 23.112756, 23.112775, 23.112678, 23.112763]", 
+                "[23.117085, 23.420554, 23.421052, 23.421353, 23.421494, 23.421606, 23.421711, 23.42167, 23.421351, 23.421725, 23.421877, 23.422486, 23.422323, 23.422634, 23.42257, 23.422661, 23.422713, 23.42329, 23.423735, 23.423807, 23.423476, 23.424828, 23.423761, 23.424621, 23.424633, 23.424648, 23.424244, 23.424254, 23.424644, 23.425255, 23.424353, 23.732249, 23.732398, 23.73226, 23.732023, 23.732406, 23.732816, 23.732298, 23.732731, 23.733127, 23.732601, 23.733215, 23.733612, 23.732867, 23.733511, 23.733245, 23.733209, 23.733792, 23.733635, 23.733516, 23.734733, 23.734766, 23.734798, 23.734248, 23.734159, 23.735264, 23.735098, 23.735077, 23.734546, 23.73479, 23.735178, 24.04403, 24.043647, 24.043614, 24.043897, 24.044537, 24.043974, 24.044135, 24.044738, 24.04495, 24.044084, 24.044115, 24.045266, 24.045455, 24.045635, 24.045464, 24.04546, 24.045527, 24.045508, 24.045095, 24.045148, 24.045583, 24.046248, 24.046283, 24.046308, 24.046334, 24.04592, 24.045996, 24.04585, 24.045998, 24.04624, 24.352892, 24.352973, 24.352997, 24.353622, 24.352938, 24.353845, 24.353142, 24.354389, 24.353639, 24.354501, 24.353696, 24.354229, 24.354113, 24.353908, 24.354579, 24.354091, 24.35423, 24.355221, 24.354823, 24.355237, 24.355262, 24.354438, 24.355566, 24.355084, 24.354936, 24.355105, 24.355145, 24.355919, 24.355906, 24.355395, 24.66429, 24.664468, 24.664432, 24.664451, 24.664469, 24.664406, 24.664676, 24.664622, 24.664616, 24.664775, 24.664719, 24.664697, 24.664722, 24.664866, 24.665933, 24.666133, 24.66617, 24.666134, 24.666154, 24.666171, 24.666128, 24.66617, 24.665677, 24.665708, 24.665748, 24.66695, 24.666917, 24.666208, 24.666096, 24.666224, 24.973289, 24.974142, 24.973939, 24.973816, 24.974873, 24.974637, 24.974217, 24.975629, 24.975387, 24.975043, 24.976533, 24.975818, 24.977097, 24.977156, 24.976751, 24.976863, 24.976446, 24.977392, 24.977474, 24.977587, 24.97738, 24.977472, 24.977536, 24.978559, 24.978618, 24.97863, 24.978163, 24.978526, 24.978536, 24.97858, 25.282852, 25.282976, 25.283309, 25.28346, 25.283695, 25.284146, 25.28432, 25.284522, 25.284731, 25.284903, 25.285201, 25.284379, 25.285552, 25.285098, 25.284909, 25.28629, 25.285309, 25.285339, 25.285713, 25.284915, 25.285226, 25.2861, 25.285273, 25.287821, 25.285726, 25.286824, 25.286006, 25.28689, 25.286168, 25.286343, 25.591806, 25.591982, 25.592311, 25.592443, 25.592535, 25.592899, 25.592988, 25.5931, 25.593155, 25.593541, 25.59381, 25.593704, 25.593985, 25.594206, 25.594037, 25.594678, 25.594458, 25.594381, 25.595032, 25.594799, 25.594767, 25.595089, 25.595229, 25.595795, 25.596339, 25.596159, 25.59605, 25.596534, 25.596032, 25.595984, 25.903925, 25.90408, 25.904176, 25.904201, 25.904238, 25.904251, 25.904444, 25.904646, 25.904532, 25.904636, 25.904678, 25.904799, 25.90498, 25.90473, 25.904977, 25.904872, 25.904875, 25.905291, 25.904871, 25.905079, 25.905461, 25.905764, 25.905828, 25.90558, 25.905264, 25.906107, 25.90596, 25.905777, 25.906018, 25.906184, 26.214845, 26.214876, 26.215427, 26.215486, 26.216356, 26.216351, 26.216399, 26.217, 26.217167, 26.218167, 26.218002, 26.218153, 26.218875, 26.218772, 26.219619, 26.219694, 26.21976, 26.219883, 26.219721, 26.219807, 26.219654, 26.219838, 26.220686, 26.220583, 26.220174, 26.220264, 26.220549, 26.220823, 26.220814]", 
+                "[26.229017, 26.53238, 26.533293, 26.533726, 26.53371, 26.533567, 26.533913, 26.533871, 26.534384, 26.534953, 26.534999, 26.535286, 26.535234, 26.535965, 26.535913, 26.53591, 26.536075, 26.535743, 26.535738, 26.536178, 26.536772, 26.536734, 26.536437, 26.53645, 26.536012, 26.536238, 26.53623, 26.536084, 26.53663, 26.536276, 26.537054, 26.845358, 26.845385, 26.845288, 26.845436, 26.845659, 26.845239, 26.846056, 26.846222, 26.845942, 26.846259, 26.846855, 26.846523, 26.84694, 26.847497, 26.847154, 26.847566, 26.848085, 26.847492, 26.847659, 26.847975, 26.847877, 26.848243, 26.848545, 26.848427, 26.848838, 26.849231, 26.849241, 26.849207, 26.849087, 26.849422, 27.158772, 27.158781, 27.158937, 27.159096, 27.159026, 27.158476, 27.158734, 27.159289, 27.158921, 27.159121, 27.159451, 27.159064, 27.160012, 27.159949, 27.159939, 27.160026, 27.159935, 27.16012, 27.160059, 27.160014, 27.160095, 27.160708, 27.161412, 27.161098, 27.161131, 27.160461, 27.16049, 27.161096, 27.160807, 27.160708, 27.468656, 27.468832, 27.467981, 27.468264, 27.468995, 27.468255, 27.468467, 27.468732, 27.468559, 27.468792, 27.469149, 27.468009, 27.468205, 27.469983, 27.470008, 27.470067, 27.469913, 27.470007, 27.470065, 27.469731, 27.469045, 27.470204, 27.471143, 27.470871, 27.470929, 27.469468, 27.471012, 27.469756, 27.471132, 27.471116, 27.779456, 27.779642, 27.779816, 27.780019, 27.780023, 27.78015, 27.780369, 27.780397, 27.780227, 27.780602, 27.780256, 27.780653, 27.780574, 27.780614, 27.781047, 27.780983, 27.782219, 27.782347, 27.782051, 27.78214, 27.782167, 27.782087, 27.782216, 27.782493, 27.782365, 27.782581, 27.782503, 27.783119, 27.782704, 27.782773, 28.088042, 28.08798, 28.088892, 28.088887, 28.08911, 28.089653, 28.089764, 28.089547, 28.089696, 28.089518, 28.09001, 28.09002, 28.08997, 28.090678, 28.090371, 28.090736, 28.091314, 28.091253, 28.09099, 28.090819, 28.090883, 28.090865, 28.090887, 28.090716, 28.090815, 28.090913, 28.090988, 28.090875, 28.091075, 28.09108, 28.396377, 28.396395, 28.396518, 28.396264, 28.396844, 28.397105, 28.396706, 28.397154, 28.39719, 28.396823, 28.397373, 28.397892, 28.397878, 28.397937, 28.397589, 28.39765, 28.397677, 28.397658, 28.397699, 28.397511, 28.397579, 28.398373, 28.398058, 28.398081, 28.398357, 28.399325, 28.398603, 28.398154, 28.398436, 28.398747, 28.706076, 28.706307, 28.706453, 28.706274, 28.706332, 28.706353, 28.706027, 28.706111, 28.706155, 28.706608, 28.70612, 28.706714, 28.706331, 28.70748, 28.707582, 28.707614, 28.707353, 28.707458, 28.707483, 28.707682, 28.70754, 28.707581, 28.70861, 28.708969, 28.708474, 28.708463, 28.708466, 28.707803, 28.70805, 28.708059, 29.013038, 29.013375, 29.013282, 29.013506, 29.01351, 29.013636, 29.013494, 29.013472, 29.014303, 29.014113, 29.013962, 29.014627, 29.014446, 29.015403, 29.015642, 29.015844, 29.015347, 29.015429, 29.01549, 29.016824, 29.016859, 29.016608, 29.016696, 29.0167, 29.017365, 29.016786, 29.016722, 29.016448, 29.016374, 29.016819, 29.324751, 29.324783, 29.325154, 29.325285, 29.325371, 29.325873, 29.325796, 29.325747, 29.326077, 29.326541, 29.326385, 29.326799, 29.326457, 29.326505, 29.326716, 29.326584, 29.327155, 29.327697, 29.327298, 29.327558, 29.327993, 29.32802, 29.327554, 29.327927, 29.32821, 29.328402, 29.328324, 29.328736, 29.329195]", 
+                "[29.334155, 29.641267, 29.641433, 29.641275, 29.641868, 29.641755, 29.642116, 29.642274, 29.642374, 29.642964, 29.642803, 29.643358, 29.64352, 29.643754, 29.644174, 29.644239, 29.644163, 29.644281, 29.644192, 29.644339, 29.644347, 29.644246, 29.64478, 29.644848, 29.644913, 29.644748, 29.645398, 29.644985, 29.645026, 29.645374, 29.645599, 29.951141, 29.950462, 29.950428, 29.950629, 29.952053, 29.950883, 29.951476, 29.95268, 29.951506, 29.952824, 29.951924, 29.953208, 29.953158, 29.953344, 29.952406, 29.95247, 29.952171, 29.952737, 29.952673, 29.952885, 29.953276, 29.953299, 29.952921, 29.952935, 29.952937, 29.953232, 29.953606, 29.953957, 29.95348, 29.953859, 30.258887, 30.25959, 30.259976, 30.259775, 30.259731, 30.260355, 30.259916, 30.260102, 30.260544, 30.260061, 30.260239, 30.260815, 30.260537, 30.260572, 30.260376, 30.260829, 30.260897, 30.260737, 30.260688, 30.261678, 30.261252, 30.261276, 30.261904, 30.262668, 30.262708, 30.262726, 30.262022, 30.262127, 30.262363, 30.262287, 30.568753, 30.568826, 30.568896, 30.56923, 30.569263, 30.569569, 30.569343, 30.57009, 30.569718, 30.570241, 30.569723, 30.571054, 30.570717, 30.570244, 30.571534, 30.570965, 30.570511, 30.571875, 30.571368, 30.571328, 30.572156, 30.571777, 30.571614, 30.572427, 30.572255, 30.572402, 30.572369, 30.57227, 30.57288, 30.573325, 30.880051, 30.87982, 30.879802, 30.880642, 30.879888, 30.880815, 30.880179, 30.880644, 30.880411, 30.880781, 30.880725, 30.881749, 30.881885, 30.881772, 30.881237, 30.882813, 30.882826, 30.882951, 30.882932, 30.882857, 30.882908, 30.882884, 30.882943, 30.882843, 30.884018, 30.884034, 30.884249, 30.883693, 30.884102, 30.884157, 31.189444, 31.189459, 31.18969, 31.189621, 31.189804, 31.189903, 31.189992, 31.190153, 31.189799, 31.190143, 31.189936, 31.190175, 31.190524, 31.190271, 31.191023, 31.191436, 31.19123, 31.191347, 31.19149, 31.191509, 31.192047, 31.192179, 31.192019, 31.192538, 31.19286, 31.192697, 31.192673, 31.192417, 31.192893, 31.192604, 31.499888, 31.500037, 31.499669, 31.500659, 31.500193, 31.500035, 31.500864, 31.500514, 31.500313, 31.500834, 31.500874, 31.500923, 31.501078, 31.501705, 31.501248, 31.501202, 31.501554, 31.502125, 31.502121, 31.502144, 31.501535, 31.501819, 31.501696, 31.501626, 31.501699, 31.501722, 31.501703, 31.501901, 31.501946, 31.5019, 31.805304, 31.805364, 31.805388, 31.805537, 31.805773, 31.80592, 31.805856, 31.806703, 31.806403, 31.806687, 31.806816, 31.80685, 31.807012, 31.808158, 31.807419, 31.807808, 31.808909, 31.808129, 31.808325, 31.809087, 31.809157, 31.809537, 31.809634, 31.809411, 31.809255, 31.809006, 31.809444, 31.809925, 31.809433, 31.80973, 32.113677, 32.113889, 32.113842, 32.114085, 32.114274, 32.114278, 32.114543, 32.114921, 32.115389, 32.115481, 32.115728, 32.114271, 32.114464, 32.116389, 32.116569, 32.116576, 32.115466, 32.116059, 32.115772, 32.115736, 32.115821, 32.115907, 32.115984, 32.11754, 32.117773, 32.117815, 32.11789, 32.117175, 32.116582, 32.116918, 32.42385, 32.424505, 32.424225, 32.425049, 32.425598, 32.425184, 32.426134, 32.425996, 32.426103, 32.426645, 32.427022, 32.427317, 32.427409, 32.427565, 32.427205, 32.427384, 32.427687, 32.428558, 32.428649, 32.428166, 32.428287, 32.428305, 32.429445, 32.429441, 32.42932, 32.429256, 32.429375, 32.429194, 32.429492]", 
+                "[32.437549, 32.738334, 32.738693, 32.738877, 32.738932, 32.739282, 32.739742, 32.739892, 32.740418, 32.740702, 32.740616, 32.741467, 32.741345, 32.741478, 32.741586, 32.741997, 32.741801, 32.742026, 32.742386, 32.742225, 32.742357, 32.743052, 32.742814, 32.744, 32.743741, 32.743777, 32.743904, 32.74352, 32.743894, 32.744198, 32.744992, 33.048562, 33.048799, 33.048901, 33.048832, 33.049163, 33.049104, 33.049434, 33.049395, 33.049545, 33.049862, 33.049987, 33.049942, 33.050376, 33.050338, 33.050339, 33.05037, 33.050411, 33.050991, 33.050839, 33.050924, 33.051313, 33.051144, 33.051186, 33.051235, 33.051393, 33.051587, 33.051692, 33.052324, 33.052308, 33.052115, 33.356816, 33.357056, 33.357242, 33.357518, 33.356956, 33.35695, 33.357845, 33.357317, 33.357356, 33.358047, 33.35814, 33.35814, 33.358293, 33.358394, 33.35847, 33.358509, 33.358625, 33.358714, 33.358833, 33.358881, 33.359536, 33.359172, 33.359065, 33.359252, 33.359411, 33.36024, 33.359444, 33.359491, 33.359461, 33.359614, 33.662402, 33.662515, 33.662592, 33.662713, 33.66286, 33.662767, 33.663337, 33.663212, 33.663666, 33.663691, 33.663574, 33.66349, 33.663433, 33.663467, 33.663456, 33.664061, 33.664079, 33.663766, 33.663868, 33.6637, 33.66409, 33.663965, 33.664215, 33.664258, 33.664328, 33.664341, 33.664368, 33.664867, 33.664762, 33.664595, 33.970146, 33.970011, 33.970486, 33.970455, 33.970462, 33.970907, 33.970816, 33.970748, 33.971089, 33.970725, 33.971091, 33.970558, 33.970998, 33.970996, 33.970785, 33.971278, 33.971294, 33.971444, 33.971325, 33.971587, 33.972403, 33.972406, 33.972407, 33.972387, 33.972356, 33.972262, 33.971927, 33.972369, 33.971931, 33.97202, 34.275978, 34.276177, 34.276628, 34.276321, 34.277003, 34.27631, 34.276518, 34.277255, 34.276517, 34.276817, 34.277624, 34.277614, 34.276943, 34.277467, 34.277433, 34.277482, 34.277478, 34.278107, 34.277799, 34.278429, 34.27769, 34.277803, 34.277712, 34.277966, 34.278071, 34.278035, 34.278156, 34.278395, 34.278329, 34.277494, 34.577989, 34.578924, 34.579059, 34.579183, 34.578818, 34.578662, 34.578535, 34.579044, 34.579142, 34.579, 34.579412, 34.580234, 34.579928, 34.580026, 34.580112, 34.579996, 34.580994, 34.581026, 34.580858, 34.580896, 34.580932, 34.580508, 34.580548, 34.580532, 34.581495, 34.581492, 34.581489, 34.581264, 34.580898, 34.580913, 34.885009, 34.884626, 34.8854, 34.88504, 34.885161, 34.885574, 34.885559, 34.885508, 34.885793, 34.885744, 34.886514, 34.886528, 34.886411, 34.886399, 34.886026, 34.886852, 34.886896, 34.88672, 34.886758, 34.886797, 34.886521, 34.886902, 34.887227, 34.886775, 34.886809, 34.886862, 34.886892, 34.887018, 34.887045, 34.887173, 35.19319, 35.193225, 35.193287, 35.193399, 35.193466, 35.193235, 35.193225, 35.193126, 35.193651, 35.19436, 35.194514, 35.194297, 35.194318, 35.194267, 35.194198, 35.194298, 35.194398, 35.194274, 35.194296, 35.194779, 35.19549, 35.195529, 35.194977, 35.195013, 35.195034, 35.195105, 35.196013, 35.195056, 35.195024, 35.196127, 35.49577, 35.495839, 35.49567, 35.495802, 35.496144, 35.495304, 35.496384, 35.496284, 35.495615, 35.496682, 35.496465, 35.495981, 35.497008, 35.497129, 35.497215, 35.496544, 35.496616, 35.496742, 35.497873, 35.497717, 35.497606, 35.497612, 35.49774, 35.497918, 35.497865, 35.497622, 35.497614, 35.497369, 35.497858]", 
+                "[35.501826, 35.799703, 35.800028, 35.799945, 35.799962, 35.80032, 35.800378, 35.800305, 35.800294, 35.800829, 35.800976, 35.800717, 35.800554, 35.800763, 35.800762, 35.800854, 35.800969, 35.800984, 35.800931, 35.801183, 35.801043, 35.801254, 35.801641, 35.801932, 35.801418, 35.80233, 35.802355, 35.802396, 35.801912, 35.802412, 35.801897, 36.10729, 36.107476, 36.107512, 36.107688, 36.107738, 36.108022, 36.108089, 36.108158, 36.108428, 36.108055, 36.107967, 36.108398, 36.108277, 36.108204, 36.108657, 36.108493, 36.109124, 36.108408, 36.108429, 36.108868, 36.109636, 36.109756, 36.109791, 36.109373, 36.109495, 36.109541, 36.109566, 36.110013, 36.109593, 36.109829, 36.41135, 36.411213, 36.411585, 36.411205, 36.411567, 36.411452, 36.411731, 36.412001, 36.411882, 36.412032, 36.411734, 36.411758, 36.412087, 36.413245, 36.413429, 36.413299, 36.413418, 36.413452, 36.413353, 36.413084, 36.413108, 36.413418, 36.413864, 36.413202, 36.414035, 36.413219, 36.414496, 36.413511, 36.414174, 36.414589, 36.71713, 36.716385, 36.716495, 36.716375, 36.716418, 36.716564, 36.716405, 36.718119, 36.716649, 36.718381, 36.718577, 36.718753, 36.718803, 36.71867, 36.717729, 36.717804, 36.717914, 36.718088, 36.718124, 36.717871, 36.719644, 36.719643, 36.720017, 36.718544, 36.718602, 36.718726, 36.718653, 36.718886, 36.720414, 36.718829, 37.025559, 37.025602, 37.025573, 37.025607, 37.026095, 37.025936, 37.025997, 37.025433, 37.02611, 37.025522, 37.026195, 37.026691, 37.02639, 37.026416, 37.026512, 37.026087, 37.027461, 37.027463, 37.027368, 37.027495, 37.027634, 37.027135, 37.02716, 37.027061, 37.027388, 37.027484, 37.027503, 37.027777, 37.027667, 37.027597, 37.330022, 37.330176, 37.330035, 37.330336, 37.330411, 37.330717, 37.331163, 37.33077, 37.330676, 37.330667, 37.331041, 37.330655, 37.330954, 37.331112, 37.330979, 37.331182, 37.332331, 37.33235, 37.332274, 37.3323, 37.33229, 37.332194, 37.33219, 37.33207, 37.331771, 37.33307, 37.333055, 37.332351, 37.333101, 37.332039, 37.638263, 37.638264, 37.638303, 37.638453, 37.63832, 37.638343, 37.638279, 37.638303, 37.639342, 37.638431, 37.638799, 37.638478, 37.639001, 37.638726, 37.639144, 37.640225, 37.640207, 37.639991, 37.639934, 37.63963, 37.640682, 37.640665, 37.640588, 37.640622, 37.640714, 37.640285, 37.640304, 37.640198, 37.640192, 37.6404, 37.944177, 37.944149, 37.944284, 37.944308, 37.944439, 37.944554, 37.944707, 37.944606, 37.944711, 37.944994, 37.944824, 37.944904, 37.944678, 37.944963, 37.945588, 37.945023, 37.945961, 37.946161, 37.946165, 37.946102, 37.946138, 37.94615, 37.946, 37.946168, 37.94624, 37.9465, 37.946375, 37.946988, 37.946543, 37.946471, 38.250852, 38.250921, 38.251448, 38.251107, 38.25144, 38.250814, 38.251604, 38.251001, 38.252347, 38.251993, 38.251383, 38.252469, 38.252088, 38.252195, 38.252216, 38.252302, 38.251984, 38.25208, 38.25335, 38.253365, 38.253435, 38.253461, 38.252935, 38.253011, 38.252746, 38.253237, 38.253277, 38.252998, 38.253467, 38.253489, 38.555523, 38.555238, 38.555241, 38.555527, 38.55564, 38.556683, 38.555878, 38.556775, 38.556837, 38.556925, 38.55684, 38.556966, 38.556988, 38.556873, 38.556915, 38.556942, 38.556743, 38.556769, 38.557077, 38.558006, 38.558046, 38.558084, 38.558005, 38.558123, 38.558185, 38.557692, 38.55767, 38.558278, 38.557572]", 
+                "[38.561442, 38.862536, 38.86275, 38.862721, 38.862895, 38.862945, 38.862677, 38.861881, 38.861808, 38.862335, 38.862304, 38.862289, 38.862623, 38.864376, 38.86436, 38.864167, 38.864206, 38.864268, 38.864013, 38.864098, 38.863177, 38.864878, 38.864699, 38.864794, 38.863594, 38.865511, 38.865318, 38.865414, 38.86528, 38.865491, 38.865631, 39.129648, 39.12974, 39.166118, 39.129996, 39.129626, 39.13035, 39.130409, 39.129974, 39.130705, 39.130625, 39.130169, 39.167393, 39.167528, 39.131406, 39.167793, 39.168015, 39.167893, 39.168017, 39.132396, 39.131976, 39.131981, 39.132186, 39.168533, 39.168574, 39.16861, 39.132214, 39.132262, 39.169232, 39.132588, 39.13249, 39.436575, 39.436884, 39.436758, 39.437011, 39.436859, 39.437244, 39.437027, 39.436913, 39.436718, 39.437132, 39.438489, 39.43701, 39.438411, 39.437741, 39.437788, 39.437841, 39.438981, 39.438978, 39.438942, 39.438916, 39.438803, 39.439666, 39.43966, 39.439057, 39.43854, 39.438567, 39.438625, 39.439033, 39.43946, 39.438882, 39.743522, 39.743954, 39.743833, 39.74407, 39.744025, 39.744256, 39.74439, 39.74426, 39.743797, 39.744207, 39.744431, 39.744012, 39.744502, 39.744729, 39.745691, 39.745812, 39.745591, 39.74561, 39.745646, 39.745562, 39.745604, 39.745221, 39.746609, 39.746647, 39.745719, 39.745758, 39.746103, 39.746254, 39.745972, 39.746558, 40.046746, 40.046909, 40.046976, 40.04702, 40.046934, 40.046987, 40.047014, 40.04703, 40.046855, 40.047344, 40.047356, 40.047184, 40.0473, 40.047732, 40.047535, 40.04875, 40.048787, 40.048074, 40.048186, 40.048095, 40.048714, 40.049591, 40.049612, 40.049523, 40.049533, 40.049557, 40.049573, 40.049011, 40.049277, 40.049416, 40.351018, 40.351097, 40.351406, 40.351227, 40.350545, 40.351338, 40.350595, 40.351725, 40.351854, 40.351879, 40.351743, 40.351578, 40.352065, 40.352252, 40.352856, 40.352843, 40.352127, 40.352133, 40.352408, 40.352091, 40.352768, 40.35279, 40.352808, 40.352641, 40.352679, 40.353155, 40.352713, 40.352955, 40.352793, 40.352877, 40.657293, 40.657202, 40.657261, 40.657831, 40.657653, 40.658105, 40.657762, 40.657512, 40.657631, 40.657788, 40.658106, 40.658047, 40.658331, 40.658526, 40.659236, 40.659244, 40.658889, 40.658888, 40.65884, 40.658532, 40.658545, 40.658647, 40.658823, 40.659553, 40.659566, 40.659381, 40.659391, 40.658806, 40.659981, 40.659486, 40.960084, 40.960067, 40.960296, 40.9598, 40.960555, 40.960525, 40.960146, 40.960814, 40.960307, 40.960548, 40.96116, 40.96066, 40.960908, 40.961499, 40.961781, 40.961817, 40.961273, 40.961441, 40.961486, 40.962116, 40.96206, 40.961783, 40.962908, 40.962627, 40.962655, 40.962759, 40.96218, 40.962425, 40.96281, 40.962401, 41.267458, 41.267584, 41.267143, 41.267682, 41.267323, 41.268005, 41.267484, 41.267711, 41.266734, 41.268033, 41.266932, 41.267087, 41.26836, 41.267182, 41.269032, 41.267475, 41.269034, 41.269134, 41.269216, 41.268811, 41.268186, 41.268099, 41.269769, 41.269789, 41.269467, 41.269565, 41.269585, 41.270362, 41.268868, 41.269778, 41.575811, 41.575707, 41.576053, 41.575964, 41.576321, 41.576373, 41.577135, 41.577137, 41.577299, 41.577413, 41.577498, 41.57754, 41.577315, 41.577392, 41.577572, 41.578186, 41.577696, 41.578215, 41.577601, 41.577676, 41.577976, 41.577787, 41.578116, 41.577781, 41.578287, 41.578156, 41.578196, 41.578182, 41.578511]", 
+                "[41.582332, 41.884648, 41.884636, 41.884646, 41.884964, 41.884819, 41.885078, 41.884928, 41.885424, 41.884987, 41.884937, 41.885157, 41.885472, 41.885349, 41.885585, 41.885801, 41.885763, 41.886322, 41.886403, 41.886125, 41.88617, 41.886189, 41.88649, 41.88749, 41.887474, 41.88751, 41.887491, 41.887597, 41.887633, 41.887013, 41.887867, 42.189367, 42.189545, 42.190263, 42.189706, 42.190278, 42.189926, 42.190328, 42.190097, 42.190623, 42.191086, 42.190459, 42.191362, 42.191395, 42.190956, 42.19101, 42.191159, 42.191472, 42.192054, 42.192055, 42.192022, 42.192421, 42.192189, 42.192, 42.191912, 42.192559, 42.192161, 42.192161, 42.192301, 42.192371, 42.192203, 42.499285, 42.499449, 42.499495, 42.49933, 42.49949, 42.499641, 42.500305, 42.500509, 42.500721, 42.50081, 42.500904, 42.500466, 42.501176, 42.500482, 42.501236, 42.501097, 42.501168, 42.501226, 42.501075, 42.501161, 42.501751, 42.501372, 42.502364, 42.501719, 42.501624, 42.501552, 42.501744, 42.501662, 42.50202, 42.501954, 42.807651, 42.807793, 42.80819, 42.807966, 42.808228, 42.808596, 42.808314, 42.808435, 42.808793, 42.808831, 42.809176, 42.809559, 42.809591, 42.809107, 42.809179, 42.809392, 42.809987, 42.809859, 42.809718, 42.810467, 42.809905, 42.809944, 42.80993, 42.809895, 42.810116, 42.810136, 42.810085, 42.810327, 42.810372, 42.810613, 43.112681, 43.112784, 43.113239, 43.113067, 43.113491, 43.113175, 43.11382, 43.113681, 43.11322, 43.114125, 43.113966, 43.11354, 43.113489, 43.11434, 43.114553, 43.114367, 43.115401, 43.115459, 43.115531, 43.115566, 43.114995, 43.115074, 43.115076, 43.114933, 43.116063, 43.115858, 43.11496, 43.115504, 43.114963, 43.114969, 43.420508, 43.420611, 43.420694, 43.420395, 43.420511, 43.421147, 43.421228, 43.420891, 43.420806, 43.421386, 43.421416, 43.42144, 43.421529, 43.421991, 43.421577, 43.421585, 43.422236, 43.421463, 43.421668, 43.421596, 43.421813, 43.421736, 43.422271, 43.422313, 43.42235, 43.422418, 43.422286, 43.422261, 43.422731, 43.422429, 43.725335, 43.725387, 43.724422, 43.724419, 43.724617, 43.724861, 43.725028, 43.724873, 43.725046, 43.724996, 43.725036, 43.724802, 43.725109, 43.724817, 43.725016, 43.725308, 43.725116, 43.725297, 43.725642, 43.727559, 43.726646, 43.726666, 43.726741, 43.726427, 43.726577, 43.726205, 43.727418, 43.7276, 43.726897, 43.727585, 44.032059, 44.03215, 44.032157, 44.032109, 44.032404, 44.032227, 44.03261, 44.03245, 44.032268, 44.032492, 44.032434, 44.032832, 44.033718, 44.032937, 44.033421, 44.033233, 44.034192, 44.034226, 44.034124, 44.034276, 44.034183, 44.034149, 44.034203, 44.034866, 44.035001, 44.034872, 44.034651, 44.034392, 44.034543, 44.034547, 44.339574, 44.339849, 44.340071, 44.340248, 44.34033, 44.340495, 44.340495, 44.340496, 44.339961, 44.340846, 44.340862, 44.340323, 44.341298, 44.341265, 44.341387, 44.3415, 44.341514, 44.341362, 44.341878, 44.341839, 44.34145, 44.341411, 44.341352, 44.342301, 44.341811, 44.34182, 44.34185, 44.341809, 44.341707, 44.341982, 44.645139, 44.644829, 44.64535, 44.645122, 44.645638, 44.645313, 44.645094, 44.645159, 44.645408, 44.645536, 44.64598, 44.645858, 44.64676, 44.646756, 44.646875, 44.646935, 44.646896, 44.646936, 44.64714, 44.646693, 44.646692, 44.646894, 44.647298, 44.646821, 44.646831, 44.647429, 44.64811, 44.64706, 44.646984]", 
+                "[44.651982, 44.946991, 44.947096, 44.947245, 44.947357, 44.947317, 44.947474, 44.947832, 44.947496, 44.947745, 44.947821, 44.947868, 44.947776, 44.948007, 44.948111, 44.948086, 44.948185, 44.948565, 44.949294, 44.949321, 44.949428, 44.949423, 44.949267, 44.949306, 44.949349, 44.949267, 44.949393, 44.949273, 44.949635, 44.949628, 44.949613, 45.251836, 45.251827, 45.251856, 45.251886, 45.252349, 45.252036, 45.252267, 45.252666, 45.252323, 45.252556, 45.252956, 45.25257, 45.253037, 45.252812, 45.252919, 45.253034, 45.253053, 45.253203, 45.25304, 45.25378, 45.253819, 45.253894, 45.253567, 45.253595, 45.254008, 45.254001, 45.254017, 45.254119, 45.253917, 45.254103, 45.553766, 45.554388, 45.553989, 45.554578, 45.554195, 45.554709, 45.554503, 45.554871, 45.554477, 45.554411, 45.554759, 45.554725, 45.555039, 45.555706, 45.555784, 45.555263, 45.5553, 45.55529, 45.556338, 45.556136, 45.556173, 45.556216, 45.556255, 45.556263, 45.555964, 45.556015, 45.556049, 45.557262, 45.556623, 45.556396, 45.858047, 45.858134, 45.857941, 45.857987, 45.858147, 45.858315, 45.857591, 45.857549, 45.857902, 45.857801, 45.858101, 45.857977, 45.859603, 45.859555, 45.859719, 45.859759, 45.860111, 45.858894, 45.859985, 45.860271, 45.860289, 45.858785, 45.858828, 45.858957, 45.859295, 45.859385, 45.859443, 45.859457, 45.859508, 45.859748, 46.16418, 46.164698, 46.164868, 46.164221, 46.164966, 46.164006, 46.164478, 46.165145, 46.16443, 46.164929, 46.165451, 46.164656, 46.165876, 46.165911, 46.16587, 46.16604, 46.166242, 46.166277, 46.165769, 46.165806, 46.166176, 46.166919, 46.166709, 46.166861, 46.166918, 46.166692, 46.166723, 46.167429, 46.166819, 46.166996, 46.470342, 46.470578, 46.470665, 46.471068, 46.470341, 46.470787, 46.470587, 46.470921, 46.470716, 46.471786, 46.471852, 46.471955, 46.471563, 46.471559, 46.471708, 46.47243, 46.472328, 46.472406, 46.472312, 46.47209, 46.472149, 46.472088, 46.472568, 46.472875, 46.472485, 46.472482, 46.472353, 46.472797, 46.472788, 46.472748, 46.779866, 46.779917, 46.78009, 46.779495, 46.779602, 46.780528, 46.780565, 46.780053, 46.780801, 46.780814, 46.7803, 46.780674, 46.781176, 46.780646, 46.78104, 46.781518, 46.780899, 46.780912, 46.782093, 46.781826, 46.781903, 46.781703, 46.782235, 46.782232, 46.782788, 46.782493, 46.78242, 46.781934, 46.781887, 46.781972, 47.08873, 47.088929, 47.089003, 47.089104, 47.089113, 47.088879, 47.089392, 47.08976, 47.089443, 47.089862, 47.090166, 47.089863, 47.090358, 47.091371, 47.091467, 47.091512, 47.090903, 47.091658, 47.09165, 47.09173, 47.091833, 47.091277, 47.091247, 47.091058, 47.092033, 47.092024, 47.091994, 47.092414, 47.091467, 47.092079, 47.395872, 47.396054, 47.395985, 47.396094, 47.396019, 47.396211, 47.396186, 47.396441, 47.396314, 47.396729, 47.397029, 47.3967, 47.397029, 47.397531, 47.397072, 47.397203, 47.397381, 47.39809, 47.398127, 47.397813, 47.397441, 47.397484, 47.397528, 47.397864, 47.397887, 47.397914, 47.397918, 47.398224, 47.397996, 47.398021, 47.697962, 47.697884, 47.698349, 47.698228, 47.698563, 47.698395, 47.697767, 47.697922, 47.698815, 47.698041, 47.699135, 47.699331, 47.699242, 47.699291, 47.699469, 47.699553, 47.699435, 47.699433, 47.69951, 47.699625, 47.699527, 47.700082, 47.700176, 47.700309, 47.70042, 47.70034, 47.70036, 47.701053, 47.70034]"
+            ], 
+            "mean_batch_sizes": [
+                {
+                    "res50": 27.36
+                }, 
+                {
+                    "res50": 30.0
+                }, 
+                {
+                    "res50": 30.0
+                }, 
+                {
+                    "res50": 30.0
+                }, 
+                {
+                    "res50": 30.0
+                }, 
+                {
+                    "res50": 30.0
+                }, 
+                {
+                    "res50": 30.0
+                }, 
+                {
+                    "res50": 30.0
+                }, 
+                {
+                    "res50": 30.0
+                }, 
+                {
+                    "res50": 30.0
+                }, 
+                {
+                    "res50": 30.0
+                }, 
+                {
+                    "res50": 30.0
+                }, 
+                {
+                    "res50": 30.0
+                }, 
+                {
+                    "res50": 30.0
+                }, 
+                {
+                    "res50": 30.0
+                }
+            ], 
+            "mean_lats": [
+                3.1100663933333337, 
+                6.143894116666667, 
+                9.2084446, 
+                12.311086066666666, 
+                15.421307256666665, 
+                18.616318013333334, 
+                21.713756466666666, 
+                24.80976684666667, 
+                27.922716626666666, 
+                31.024988876666665, 
+                34.111853536666665, 
+                37.16909888333333, 
+                40.19568631666667, 
+                43.256792186666665, 
+                46.31199175666666
+            ]
+        }
+    ], 
+    "node_configs": [
+        {
+            "model_image": "model-comp/pytorch-res50", 
+            "name": "res50", 
+            "cpus_per_replica": 1, 
+            "input_type": "floats", 
+            "use_nvidia_docker": true, 
+            "batch_size": 30, 
+            "num_replicas": 1, 
+            "instance_type": "p2.8xlarge", 
+            "slo": 5000000, 
+            "gpus_per_replica": 1, 
+            "allocated_cpus": [
+                12, 
+                13, 
+                14, 
+                15, 
+                16, 
+                17, 
+                18, 
+                19, 
+                20
+            ], 
+            "gpus": [
+                0
+            ], 
+            "input_size": -1
+        }
+    ]
+}

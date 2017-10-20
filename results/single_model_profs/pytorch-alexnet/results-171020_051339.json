@@ -1,0 +1,2985 @@
+{
+    "client_metrics": [
+        {
+            "p99_lats": [
+                4.26783982, 
+                8.533820050000001, 
+                12.81947854, 
+                17.080660920000003, 
+                21.33892329, 
+                25.586043420000003, 
+                29.84113446, 
+                33.968514760000005, 
+                38.09297246, 
+                42.21959870999999, 
+                46.339568539999995, 
+                50.47404015, 
+                54.60397099, 
+                58.71490635, 
+                62.83210755
+            ], 
+            "all_metrics": [
+                {
+                    "histograms": [
+                        {
+                            "model:alexnet:1:batch_size": {
+                                "p99": "10", 
+                                "min": "1", 
+                                "max": "10", 
+                                "p95": "10", 
+                                "std_dev": "2.58731808559231036236", 
+                                "mean": "9.18181818181818181889", 
+                                "p50": "10", 
+                                "unit": "queries", 
+                                "size": "11"
+                            }
+                        }, 
+                        {
+                            "model:alexnet:1:prediction_latency": {
+                                "p99": "436064", 
+                                "min": "73896", 
+                                "max": "436064", 
+                                "p95": "436064", 
+                                "std_dev": "99478.3956070964358815", 
+                                "mean": "387837.272727272727309", 
+                                "p50": "416928", 
+                                "unit": "microseconds", 
+                                "size": "11"
+                            }
+                        }, 
+                        {
+                            "alexnet:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "15", 
+                                "p95": "0", 
+                                "std_dev": "0.234346388024064789749", 
+                                "mean": "0.003662109375", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "4096"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:prediction_latency": {
+                                "p99": "4219927.96000000000095", 
+                                "min": "74027", 
+                                "max": "4219933", 
+                                "p95": "4217807.59999999999854", 
+                                "std_dev": "1200464.03833175727709", 
+                                "mean": "2325711.65346534653486", 
+                                "p50": "2142809", 
+                                "unit": "microseconds", 
+                                "size": "101"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "11.9600000000000079581", 
+                                "min": "0", 
+                                "max": "12", 
+                                "p95": "8", 
+                                "std_dev": "1.84705882720230816195", 
+                                "mean": "5.11881188118811881116", 
+                                "p50": "5", 
+                                "unit": "microseconds", 
+                                "size": "101"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "691.029999999999745341", 
+                                "min": "93", 
+                                "max": "786", 
+                                "p95": "660", 
+                                "std_dev": "232.826953692223070191", 
+                                "mean": "352.72265625", 
+                                "p50": "540", 
+                                "unit": "microseconds", 
+                                "size": "4096"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "3.0061069807399621", 
+                                "rate_1min": "0.17590228781548878", 
+                                "rate_5min": "0.03636280159244152", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.012188334389227196"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "3.0061042071083173", 
+                                "rate_1min": "0.17590228781548878", 
+                                "rate_5min": "0.03636280159244152", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.012188334389227196"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "132.06009189560876", 
+                                "rate_1min": "12.457080200751433", 
+                                "rate_5min": "2.5751474945919948", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.8631556808370896"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "3.0068445904930718", 
+                                "rate_1min": "0.17590228781548878", 
+                                "rate_5min": "0.03636280159244152", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.012188334389227196"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "model:alexnet:1:prediction_throughput": {
+                                "rate": "6.087534405117097", 
+                                "rate_1min": "0.97545814152225574", 
+                                "rate_5min": "0.2016482633762666", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.067589854340259894"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:alexnet:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "model:alexnet:1:num_predictions": {
+                                "count": "101"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "4437"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:num_predictions": {
+                                "count": "101"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:alexnet:1:batch_size": {
+                                "p99": "10", 
+                                "min": "10", 
+                                "max": "10", 
+                                "p95": "10", 
+                                "std_dev": "0", 
+                                "mean": "10", 
+                                "p50": "10", 
+                                "unit": "queries", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "model:alexnet:1:prediction_latency": {
+                                "p99": "432320", 
+                                "min": "419727", 
+                                "max": "432320", 
+                                "p95": "432320", 
+                                "std_dev": "4178.17761829245358873", 
+                                "mean": "426742.300000000000011", 
+                                "p50": "428173", 
+                                "unit": "microseconds", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "alexnet:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "1", 
+                                "p95": "0", 
+                                "std_dev": "0.0220916914567648811696", 
+                                "mean": "0.00048828125", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "4096"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:prediction_latency": {
+                                "p99": "8436118.96999999999935", 
+                                "min": "4641646", 
+                                "max": "8436120", 
+                                "p95": "8434077.09999999999854", 
+                                "std_dev": "1209462.71665461316934", 
+                                "mean": "6542705.22999999999911", 
+                                "p50": "6542588.5", 
+                                "unit": "microseconds", 
+                                "size": "100"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "17.9099999999999539568", 
+                                "min": "2", 
+                                "max": "18", 
+                                "p95": "8", 
+                                "std_dev": "1.81659021245849499899", 
+                                "mean": "5.39999999999999999835", 
+                                "p50": "5", 
+                                "unit": "microseconds", 
+                                "size": "100"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "686.029999999999745341", 
+                                "min": "95", 
+                                "max": "826", 
+                                "p95": "649", 
+                                "std_dev": "234.323482812617390383", 
+                                "mean": "338.6083984375", 
+                                "p50": "540", 
+                                "unit": "microseconds", 
+                                "size": "4096"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "model:alexnet:1:prediction_throughput": {
+                                "rate": "23.425079217761642", 
+                                "rate_1min": "14", 
+                                "rate_5min": "14", 
+                                "unit": "events per second", 
+                                "rate_15min": "14"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "23.424695110024622", 
+                                "rate_1min": "6", 
+                                "rate_5min": "6", 
+                                "unit": "events per second", 
+                                "rate_15min": "6"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "1635.7288339663789", 
+                                "rate_1min": "489.19999999999999", 
+                                "rate_5min": "489.19999999999999", 
+                                "unit": "events per second", 
+                                "rate_15min": "489.19999999999999"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "23.424146406536835", 
+                                "rate_1min": "6", 
+                                "rate_5min": "6", 
+                                "unit": "events per second", 
+                                "rate_15min": "6"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "23.423894011564375", 
+                                "rate_1min": "6", 
+                                "rate_5min": "6", 
+                                "unit": "events per second", 
+                                "rate_15min": "6"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:alexnet:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "6983"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:num_predictions": {
+                                "count": "100"
+                            }
+                        }, 
+                        {
+                            "model:alexnet:1:num_predictions": {
+                                "count": "100"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:alexnet:1:batch_size": {
+                                "p99": "10", 
+                                "min": "10", 
+                                "max": "10", 
+                                "p95": "10", 
+                                "std_dev": "0", 
+                                "mean": "10", 
+                                "p50": "10", 
+                                "unit": "queries", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "model:alexnet:1:prediction_latency": {
+                                "p99": "433205", 
+                                "min": "423133", 
+                                "max": "433205", 
+                                "p95": "433205", 
+                                "std_dev": "3235.39955646903061148", 
+                                "mean": "428872.900000000000034", 
+                                "p50": "428324.5", 
+                                "unit": "microseconds", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "alexnet:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "26", 
+                                "p95": "0", 
+                                "std_dev": "0.406200405908378968899", 
+                                "mean": "0.00634765625", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "4096"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:prediction_latency": {
+                                "p99": "12649847.0599999999995", 
+                                "min": "8827248", 
+                                "max": "12649848", 
+                                "p95": "12648053.2999999999993", 
+                                "std_dev": "1215407.63973795623008", 
+                                "mean": "10739178.4799999999968", 
+                                "p50": "10740134.5", 
+                                "unit": "microseconds", 
+                                "size": "100"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "9.98999999999999488409", 
+                                "min": "2", 
+                                "max": "10", 
+                                "p95": "8", 
+                                "std_dev": "1.29784436663260976659", 
+                                "mean": "5.33999999999999999927", 
+                                "p50": "5", 
+                                "unit": "microseconds", 
+                                "size": "100"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "706", 
+                                "min": "89", 
+                                "max": "902", 
+                                "p95": "563", 
+                                "std_dev": "227.675752934125802021", 
+                                "mean": "330.9765625", 
+                                "p50": "537", 
+                                "unit": "microseconds", 
+                                "size": "4096"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "1795.1334784007424", 
+                                "rate_1min": "719.39999999999998", 
+                                "rate_5min": "719.39999999999998", 
+                                "unit": "events per second", 
+                                "rate_15min": "719.39999999999998"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "23.295209945750116", 
+                                "rate_1min": "8", 
+                                "rate_5min": "8", 
+                                "unit": "events per second", 
+                                "rate_15min": "8"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "23.294927762429008", 
+                                "rate_1min": "8", 
+                                "rate_5min": "8", 
+                                "unit": "events per second", 
+                                "rate_15min": "8"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "23.294520779294899", 
+                                "rate_1min": "10", 
+                                "rate_5min": "10", 
+                                "unit": "events per second", 
+                                "rate_15min": "10"
+                            }
+                        }, 
+                        {
+                            "model:alexnet:1:prediction_throughput": {
+                                "rate": "23.294271170008347", 
+                                "rate_1min": "18", 
+                                "rate_5min": "18", 
+                                "unit": "events per second", 
+                                "rate_15min": "18"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:alexnet:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "app:alexnet:num_predictions": {
+                                "count": "100"
+                            }
+                        }, 
+                        {
+                            "model:alexnet:1:num_predictions": {
+                                "count": "100"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "7705"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:alexnet:1:batch_size": {
+                                "p99": "10", 
+                                "min": "10", 
+                                "max": "10", 
+                                "p95": "10", 
+                                "std_dev": "0", 
+                                "mean": "10", 
+                                "p50": "10", 
+                                "unit": "queries", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "model:alexnet:1:prediction_latency": {
+                                "p99": "429794", 
+                                "min": "420227", 
+                                "max": "429794", 
+                                "p95": "429794", 
+                                "std_dev": "2566.00031371782961442", 
+                                "mean": "426554.300000000000011", 
+                                "p50": "427034.5", 
+                                "unit": "microseconds", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "alexnet:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "1", 
+                                "p95": "0", 
+                                "std_dev": "0.0156230925349376526499", 
+                                "mean": "0.000244140625", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "4096"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:prediction_latency": {
+                                "p99": "16859676.0699999999997", 
+                                "min": "13069538", 
+                                "max": "16859677", 
+                                "p95": "16857763.1999999999862", 
+                                "std_dev": "1208094.49762788837904", 
+                                "mean": "14964602.5999999999985", 
+                                "p50": "14964316.5", 
+                                "unit": "microseconds", 
+                                "size": "100"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "9", 
+                                "min": "2", 
+                                "max": "9", 
+                                "p95": "8", 
+                                "std_dev": "1.29903810567665796991", 
+                                "mean": "5.44999999999999999896", 
+                                "p50": "5", 
+                                "unit": "microseconds", 
+                                "size": "100"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "855", 
+                                "min": "97", 
+                                "max": "1144", 
+                                "p95": "595", 
+                                "std_dev": "239.519007344178958552", 
+                                "mean": "347.18115234375", 
+                                "p50": "540", 
+                                "unit": "microseconds", 
+                                "size": "4096"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "model:alexnet:1:prediction_throughput": {
+                                "rate": "23.458935602406701", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "23.458374287745109", 
+                                "rate_1min": "12", 
+                                "rate_5min": "12", 
+                                "unit": "events per second", 
+                                "rate_15min": "12"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "23.458121154627491", 
+                                "rate_1min": "12", 
+                                "rate_5min": "12", 
+                                "unit": "events per second", 
+                                "rate_15min": "12"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "23.457857021546509", 
+                                "rate_1min": "12", 
+                                "rate_5min": "12", 
+                                "unit": "events per second", 
+                                "rate_15min": "12"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "1680.0320149077625", 
+                                "rate_1min": "961.20000000000005", 
+                                "rate_5min": "961.20000000000005", 
+                                "unit": "events per second", 
+                                "rate_15min": "961.20000000000005"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:alexnet:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "model:alexnet:1:num_predictions": {
+                                "count": "100"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "7163"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:num_predictions": {
+                                "count": "100"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:alexnet:1:batch_size": {
+                                "p99": "10", 
+                                "min": "10", 
+                                "max": "10", 
+                                "p95": "10", 
+                                "std_dev": "0", 
+                                "mean": "10", 
+                                "p50": "10", 
+                                "unit": "queries", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "model:alexnet:1:prediction_latency": {
+                                "p99": "432078", 
+                                "min": "419003", 
+                                "max": "432078", 
+                                "p95": "432078", 
+                                "std_dev": "4725.8621319289457241", 
+                                "mean": "426104.900000000000006", 
+                                "p50": "427834", 
+                                "unit": "microseconds", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "alexnet:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "2", 
+                                "p95": "0", 
+                                "std_dev": "0.0312461850698753052999", 
+                                "mean": "0.00048828125", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "4096"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:prediction_latency": {
+                                "p99": "21016544.6299999999974", 
+                                "min": "17268048", 
+                                "max": "21016550", 
+                                "p95": "21013966.1999999999916", 
+                                "std_dev": "1199998.78065018466089", 
+                                "mean": "19132368.2999999999956", 
+                                "p50": "19132166.5", 
+                                "unit": "microseconds", 
+                                "size": "100"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "9.98999999999999488409", 
+                                "min": "4", 
+                                "max": "10", 
+                                "p95": "8", 
+                                "std_dev": "1.36011028964565958089", 
+                                "mean": "5.50999999999999999847", 
+                                "p50": "5", 
+                                "unit": "microseconds", 
+                                "size": "100"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "732.029999999999745341", 
+                                "min": "98", 
+                                "max": "886", 
+                                "p95": "586", 
+                                "std_dev": "232.055034191675415151", 
+                                "mean": "346.5556640625", 
+                                "p50": "546", 
+                                "unit": "microseconds", 
+                                "size": "4096"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "23.45992071954392", 
+                                "rate_1min": "16", 
+                                "rate_5min": "16", 
+                                "unit": "events per second", 
+                                "rate_15min": "16"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "1668.4758243436534", 
+                                "rate_1min": "1195.5999999999999", 
+                                "rate_5min": "1195.5999999999999", 
+                                "unit": "events per second", 
+                                "rate_15min": "1195.5999999999999"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "23.459711581613874", 
+                                "rate_1min": "16", 
+                                "rate_5min": "16", 
+                                "unit": "events per second", 
+                                "rate_15min": "16"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "23.459326337293035", 
+                                "rate_1min": "16", 
+                                "rate_5min": "16", 
+                                "unit": "events per second", 
+                                "rate_15min": "16"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "model:alexnet:1:prediction_throughput": {
+                                "rate": "23.458561389647645", 
+                                "rate_1min": "2", 
+                                "rate_5min": "2", 
+                                "unit": "events per second", 
+                                "rate_15min": "2"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:alexnet:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "7112"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:num_predictions": {
+                                "count": "100"
+                            }
+                        }, 
+                        {
+                            "model:alexnet:1:num_predictions": {
+                                "count": "100"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:alexnet:1:batch_size": {
+                                "p99": "10", 
+                                "min": "10", 
+                                "max": "10", 
+                                "p95": "10", 
+                                "std_dev": "0", 
+                                "mean": "10", 
+                                "p50": "10", 
+                                "unit": "queries", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "model:alexnet:1:prediction_latency": {
+                                "p99": "430453", 
+                                "min": "418767", 
+                                "max": "430453", 
+                                "p95": "430453", 
+                                "std_dev": "4246.54769077188158199", 
+                                "mean": "425040.900000000000006", 
+                                "p50": "425599.5", 
+                                "unit": "microseconds", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "alexnet:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "17", 
+                                "p95": "0", 
+                                "std_dev": "0.272830725866156894509", 
+                                "mean": "0.005126953125", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "4096"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:prediction_latency": {
+                                "p99": "25203067.059999999994", 
+                                "min": "21432640", 
+                                "max": "25203078", 
+                                "p95": "25127026.449999999988", 
+                                "std_dev": "1193861.82197220039086", 
+                                "mean": "23320789.5900000000001", 
+                                "p50": "23333853", 
+                                "unit": "microseconds", 
+                                "size": "100"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "8.98999999999999488409", 
+                                "min": "2", 
+                                "max": "9", 
+                                "p95": "8", 
+                                "std_dev": "1.40210555950684397824", 
+                                "mean": "5.2099999999999999983", 
+                                "p50": "5", 
+                                "unit": "microseconds", 
+                                "size": "100"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "583", 
+                                "min": "94", 
+                                "max": "1718", 
+                                "p95": "567", 
+                                "std_dev": "225.910246303432819162", 
+                                "mean": "331.877685546875", 
+                                "p50": "539", 
+                                "unit": "microseconds", 
+                                "size": "4096"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "app:alexnet:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "model:alexnet:1:prediction_throughput": {
+                                "rate": "23.512681800055677", 
+                                "rate_1min": "6", 
+                                "rate_5min": "6", 
+                                "unit": "events per second", 
+                                "rate_15min": "6"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "23.512046044110011", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "23.511786223315884", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "1722.9242501117972", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "23.511227904441906", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:alexnet:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "app:alexnet:num_predictions": {
+                                "count": "100"
+                            }
+                        }, 
+                        {
+                            "model:alexnet:1:num_predictions": {
+                                "count": "100"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "7328"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:alexnet:1:batch_size": {
+                                "p99": "10", 
+                                "min": "10", 
+                                "max": "10", 
+                                "p95": "10", 
+                                "std_dev": "0", 
+                                "mean": "10", 
+                                "p50": "10", 
+                                "unit": "queries", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "model:alexnet:1:prediction_latency": {
+                                "p99": "434628", 
+                                "min": "419554", 
+                                "max": "434628", 
+                                "p95": "434628", 
+                                "std_dev": "4869.32591227985067173", 
+                                "mean": "425812.599999999999994", 
+                                "p50": "426321", 
+                                "unit": "microseconds", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "alexnet:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "14", 
+                                "p95": "0", 
+                                "std_dev": "0.218723295489127137099", 
+                                "mean": "0.00341796875", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "4096"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:prediction_latency": {
+                                "p99": "29324748.0699999999943", 
+                                "min": "25543479", 
+                                "max": "29324759", 
+                                "p95": "29322098.9999999999891", 
+                                "std_dev": "1202917.96040516291725", 
+                                "mean": "27427275.7299999999977", 
+                                "p50": "27424379.5", 
+                                "unit": "microseconds", 
+                                "size": "100"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "8", 
+                                "min": "2", 
+                                "max": "8", 
+                                "p95": "8", 
+                                "std_dev": "1.35863902490691029041", 
+                                "mean": "5.20999999999999999873", 
+                                "p50": "5", 
+                                "unit": "microseconds", 
+                                "size": "100"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "593", 
+                                "min": "95", 
+                                "max": "901", 
+                                "p95": "580", 
+                                "std_dev": "229.337972483624116304", 
+                                "mean": "338.842529296875", 
+                                "p50": "541", 
+                                "unit": "microseconds", 
+                                "size": "4096"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "23.48308654174917", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "23.483180289533525", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "1759.104380806295", 
+                                "rate_1min": "21.800000000000001", 
+                                "rate_5min": "21.800000000000001", 
+                                "unit": "events per second", 
+                                "rate_15min": "21.800000000000001"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "23.482507527904851", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "model:alexnet:1:prediction_throughput": {
+                                "rate": "23.482005739002204", 
+                                "rate_1min": "8", 
+                                "rate_5min": "8", 
+                                "unit": "events per second", 
+                                "rate_15min": "8"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:alexnet:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "model:alexnet:1:num_predictions": {
+                                "count": "100"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "7491"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:num_predictions": {
+                                "count": "100"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:alexnet:1:batch_size": {
+                                "p99": "10", 
+                                "min": "10", 
+                                "max": "10", 
+                                "p95": "10", 
+                                "std_dev": "0", 
+                                "mean": "10", 
+                                "p50": "10", 
+                                "unit": "queries", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "model:alexnet:1:prediction_latency": {
+                                "p99": "423177", 
+                                "min": "405254", 
+                                "max": "423177", 
+                                "p95": "423177", 
+                                "std_dev": "5637.98825823537876589", 
+                                "mean": "413192.999999999999972", 
+                                "p50": "414710.5", 
+                                "unit": "microseconds", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "alexnet:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "27", 
+                                "p95": "0", 
+                                "std_dev": "0.639781585552814400944", 
+                                "mean": "0.0151685393258426966288", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "1780"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:prediction_latency": {
+                                "p99": "33303173.9300000000003", 
+                                "min": "29735956", 
+                                "max": "33303175", 
+                                "p95": "33300928.0999999999985", 
+                                "std_dev": "1137725.33874309927842", 
+                                "mean": "31546852.4000000000015", 
+                                "p50": "31564689.5", 
+                                "unit": "microseconds", 
+                                "size": "100"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "7.98999999999999488409", 
+                                "min": "2", 
+                                "max": "8", 
+                                "p95": "7", 
+                                "std_dev": "1.03590540108641194432", 
+                                "mean": "4.86999999999999999859", 
+                                "p50": "5", 
+                                "unit": "microseconds", 
+                                "size": "100"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "569", 
+                                "min": "93", 
+                                "max": "603", 
+                                "p95": "560", 
+                                "std_dev": "224.198436761336421491", 
+                                "mean": "329.096121416526138842", 
+                                "p50": "539", 
+                                "unit": "microseconds", 
+                                "size": "1779"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "model:alexnet:1:prediction_throughput": {
+                                "rate": "24.202146004286199", 
+                                "rate_1min": "12", 
+                                "rate_5min": "12", 
+                                "unit": "events per second", 
+                                "rate_15min": "12"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "24.201730133283771", 
+                                "rate_1min": "2", 
+                                "rate_5min": "2", 
+                                "unit": "events per second", 
+                                "rate_15min": "2"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "431.02791081183051", 
+                                "rate_1min": "323", 
+                                "rate_5min": "323", 
+                                "unit": "events per second", 
+                                "rate_15min": "323"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "24.201156137631006", 
+                                "rate_1min": "2", 
+                                "rate_5min": "2", 
+                                "unit": "events per second", 
+                                "rate_15min": "2"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "24.200886720489439", 
+                                "rate_1min": "2", 
+                                "rate_5min": "2", 
+                                "unit": "events per second", 
+                                "rate_15min": "2"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:alexnet:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "1781"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:num_predictions": {
+                                "count": "100"
+                            }
+                        }, 
+                        {
+                            "model:alexnet:1:num_predictions": {
+                                "count": "100"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:alexnet:1:batch_size": {
+                                "p99": "10", 
+                                "min": "10", 
+                                "max": "10", 
+                                "p95": "10", 
+                                "std_dev": "0", 
+                                "mean": "10", 
+                                "p50": "10", 
+                                "unit": "queries", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "model:alexnet:1:prediction_latency": {
+                                "p99": "415931", 
+                                "min": "405753", 
+                                "max": "415931", 
+                                "p95": "415931", 
+                                "std_dev": "3108.93152706842355126", 
+                                "mean": "412759.599999999999994", 
+                                "p50": "413409.5", 
+                                "unit": "microseconds", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "alexnet:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:prediction_latency": {
+                                "p99": "37370635.9399999999987", 
+                                "min": "33705704", 
+                                "max": "37370639", 
+                                "p95": "37368222.1499999999978", 
+                                "std_dev": "1166499.97481924066267", 
+                                "mean": "35538230.0300000000025", 
+                                "p50": "35536219.5", 
+                                "unit": "microseconds", 
+                                "size": "100"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "12.9499999999999744205", 
+                                "min": "2", 
+                                "max": "13", 
+                                "p95": "7", 
+                                "std_dev": "1.32529242056234517627", 
+                                "mean": "5.05999999999999999778", 
+                                "p50": "5", 
+                                "unit": "microseconds", 
+                                "size": "100"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "24.218071137193437", 
+                                "rate_1min": "8", 
+                                "rate_5min": "8", 
+                                "unit": "events per second", 
+                                "rate_15min": "8"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "24.217789613280651", 
+                                "rate_1min": "8", 
+                                "rate_5min": "8", 
+                                "unit": "events per second", 
+                                "rate_15min": "8"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "24.217373204493679", 
+                                "rate_1min": "8", 
+                                "rate_5min": "8", 
+                                "unit": "events per second", 
+                                "rate_15min": "8"
+                            }
+                        }, 
+                        {
+                            "model:alexnet:1:prediction_throughput": {
+                                "rate": "24.217115155530792", 
+                                "rate_1min": "16", 
+                                "rate_5min": "16", 
+                                "unit": "events per second", 
+                                "rate_15min": "16"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:alexnet:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "app:alexnet:num_predictions": {
+                                "count": "100"
+                            }
+                        }, 
+                        {
+                            "model:alexnet:1:num_predictions": {
+                                "count": "100"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "0"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:alexnet:1:batch_size": {
+                                "p99": "10", 
+                                "min": "10", 
+                                "max": "10", 
+                                "p95": "10", 
+                                "std_dev": "0", 
+                                "mean": "10", 
+                                "p50": "10", 
+                                "unit": "queries", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "model:alexnet:1:prediction_latency": {
+                                "p99": "415920", 
+                                "min": "406149", 
+                                "max": "415920", 
+                                "p95": "415920", 
+                                "std_dev": "3010.05528354547003311", 
+                                "mean": "413004.700000000000017", 
+                                "p50": "413228", 
+                                "unit": "microseconds", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "alexnet:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:prediction_latency": {
+                                "p99": "41318205.8099999999977", 
+                                "min": "37772749", 
+                                "max": "41318208", 
+                                "p95": "41315170.1999999999971", 
+                                "std_dev": "1134981.70552827079473", 
+                                "mean": "39583763.7599999999984", 
+                                "p50": "39610584.5", 
+                                "unit": "microseconds", 
+                                "size": "100"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "8", 
+                                "min": "2", 
+                                "max": "8", 
+                                "p95": "7.94999999999998863132", 
+                                "std_dev": "1.12120470923021011008", 
+                                "mean": "5.26999999999999999825", 
+                                "p50": "5", 
+                                "unit": "microseconds", 
+                                "size": "100"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "model:alexnet:1:prediction_throughput": {
+                                "rate": "24.201929280994563", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "24.201331847694242", 
+                                "rate_1min": "12", 
+                                "rate_5min": "12", 
+                                "unit": "events per second", 
+                                "rate_15min": "12"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "24.201056569727722", 
+                                "rate_1min": "12", 
+                                "rate_5min": "12", 
+                                "unit": "events per second", 
+                                "rate_15min": "12"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "24.200775441246687", 
+                                "rate_1min": "12", 
+                                "rate_5min": "12", 
+                                "unit": "events per second", 
+                                "rate_15min": "12"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:alexnet:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "model:alexnet:1:num_predictions": {
+                                "count": "100"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "0"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:num_predictions": {
+                                "count": "100"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:alexnet:1:batch_size": {
+                                "p99": "10", 
+                                "min": "10", 
+                                "max": "10", 
+                                "p95": "10", 
+                                "std_dev": "0", 
+                                "mean": "10", 
+                                "p50": "10", 
+                                "unit": "queries", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "model:alexnet:1:prediction_latency": {
+                                "p99": "415929", 
+                                "min": "407584", 
+                                "max": "415929", 
+                                "p95": "415929", 
+                                "std_dev": "2956.81392887682399717", 
+                                "mean": "412351.300000000000011", 
+                                "p50": "413223.5", 
+                                "unit": "microseconds", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "alexnet:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:prediction_latency": {
+                                "p99": "45375916.8899999999958", 
+                                "min": "41714094", 
+                                "max": "45375928", 
+                                "p95": "45374034.7999999999956", 
+                                "std_dev": "1165813.87822416572055", 
+                                "mean": "43542163.4900000000016", 
+                                "p50": "43539533", 
+                                "unit": "microseconds", 
+                                "size": "100"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "8.98999999999999488409", 
+                                "min": "2", 
+                                "max": "9", 
+                                "p95": "7", 
+                                "std_dev": "1.07721864075961849285", 
+                                "mean": "5.13999999999999999814", 
+                                "p50": "5", 
+                                "unit": "microseconds", 
+                                "size": "100"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "24.248461374504632", 
+                                "rate_1min": "16", 
+                                "rate_5min": "16", 
+                                "unit": "events per second", 
+                                "rate_15min": "16"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "24.24827321984333", 
+                                "rate_1min": "16", 
+                                "rate_5min": "16", 
+                                "unit": "events per second", 
+                                "rate_15min": "16"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "24.247867521290839", 
+                                "rate_1min": "16", 
+                                "rate_5min": "16", 
+                                "unit": "events per second", 
+                                "rate_15min": "16"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "model:alexnet:1:prediction_throughput": {
+                                "rate": "24.247067923311374", 
+                                "rate_1min": "2", 
+                                "rate_5min": "2", 
+                                "unit": "events per second", 
+                                "rate_15min": "2"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:alexnet:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "0"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:num_predictions": {
+                                "count": "100"
+                            }
+                        }, 
+                        {
+                            "model:alexnet:1:num_predictions": {
+                                "count": "100"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:alexnet:1:batch_size": {
+                                "p99": "10", 
+                                "min": "10", 
+                                "max": "10", 
+                                "p95": "10", 
+                                "std_dev": "0", 
+                                "mean": "10", 
+                                "p50": "10", 
+                                "unit": "queries", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "model:alexnet:1:prediction_latency": {
+                                "p99": "418047", 
+                                "min": "407086", 
+                                "max": "418047", 
+                                "p95": "418047", 
+                                "std_dev": "3223.85161569201258414", 
+                                "mean": "413806.599999999999966", 
+                                "p50": "414499", 
+                                "unit": "microseconds", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "alexnet:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:prediction_latency": {
+                                "p99": "49452725.9899999999943", 
+                                "min": "45777524", 
+                                "max": "49452738", 
+                                "p95": "49450617.1499999999905", 
+                                "std_dev": "1168548.42049125422625", 
+                                "mean": "47615683.4300000000003", 
+                                "p50": "47613660.5", 
+                                "unit": "microseconds", 
+                                "size": "100"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "8", 
+                                "min": "2", 
+                                "max": "8", 
+                                "p95": "7", 
+                                "std_dev": "1.01960776772247081604", 
+                                "mean": "5.01999999999999999825", 
+                                "p50": "5", 
+                                "unit": "microseconds", 
+                                "size": "100"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "app:alexnet:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "model:alexnet:1:prediction_throughput": {
+                                "rate": "24.160051644526394", 
+                                "rate_1min": "6", 
+                                "rate_5min": "6", 
+                                "unit": "events per second", 
+                                "rate_15min": "6"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "24.159392072385405", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "24.159123584305558", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "24.158586626048031", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:alexnet:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "app:alexnet:num_predictions": {
+                                "count": "100"
+                            }
+                        }, 
+                        {
+                            "model:alexnet:1:num_predictions": {
+                                "count": "100"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "0"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:alexnet:1:batch_size": {
+                                "p99": "10", 
+                                "min": "10", 
+                                "max": "10", 
+                                "p95": "10", 
+                                "std_dev": "0", 
+                                "mean": "10", 
+                                "p50": "10", 
+                                "unit": "queries", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "model:alexnet:1:prediction_latency": {
+                                "p99": "417407", 
+                                "min": "406573", 
+                                "max": "417407", 
+                                "p95": "417407", 
+                                "std_dev": "3718.52914604686136246", 
+                                "mean": "413288.69999999999996", 
+                                "p50": "414401", 
+                                "unit": "microseconds", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "alexnet:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:prediction_latency": {
+                                "p99": "53383168.1599999999962", 
+                                "min": "49849402", 
+                                "max": "53383174", 
+                                "p95": "53381115.4499999999898", 
+                                "std_dev": "1121542.54949737056336", 
+                                "mean": "51582965.5900000000038", 
+                                "p50": "51538012", 
+                                "unit": "microseconds", 
+                                "size": "100"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "9", 
+                                "min": "4", 
+                                "max": "9", 
+                                "p95": "7.94999999999998863132", 
+                                "std_dev": "1.10905365064094171606", 
+                                "mean": "5.09999999999999999818", 
+                                "p50": "5", 
+                                "unit": "microseconds", 
+                                "size": "100"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "24.188031955292779", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "24.188113864094728", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "24.187458609211458", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "model:alexnet:1:prediction_throughput": {
+                                "rate": "24.186932090834507", 
+                                "rate_1min": "10", 
+                                "rate_5min": "10", 
+                                "unit": "events per second", 
+                                "rate_15min": "10"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:alexnet:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "model:alexnet:1:num_predictions": {
+                                "count": "100"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "0"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:num_predictions": {
+                                "count": "100"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:alexnet:1:batch_size": {
+                                "p99": "10", 
+                                "min": "10", 
+                                "max": "10", 
+                                "p95": "10", 
+                                "std_dev": "0", 
+                                "mean": "10", 
+                                "p50": "10", 
+                                "unit": "queries", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "model:alexnet:1:prediction_latency": {
+                                "p99": "418513", 
+                                "min": "406391", 
+                                "max": "418513", 
+                                "p95": "418513", 
+                                "std_dev": "4345.10823915814552887", 
+                                "mean": "411374.700000000000045", 
+                                "p50": "409296.5", 
+                                "unit": "microseconds", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "alexnet:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:prediction_latency": {
+                                "p99": "57434037.6599999999962", 
+                                "min": "53780572", 
+                                "max": "57434043", 
+                                "p95": "57431983.5999999999985", 
+                                "std_dev": "1163777.77314886556485", 
+                                "mean": "55608344.260000000002", 
+                                "p50": "55611480", 
+                                "unit": "microseconds", 
+                                "size": "100"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "8.98999999999999488409", 
+                                "min": "4", 
+                                "max": "9", 
+                                "p95": "7", 
+                                "std_dev": "1.11691539518443383287", 
+                                "mean": "4.94999999999999999853", 
+                                "p50": "5", 
+                                "unit": "microseconds", 
+                                "size": "100"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "model:alexnet:1:prediction_throughput": {
+                                "rate": "24.291501909554967", 
+                                "rate_1min": "14", 
+                                "rate_5min": "14", 
+                                "unit": "events per second", 
+                                "rate_15min": "14"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "24.291088862632922", 
+                                "rate_1min": "4", 
+                                "rate_5min": "4", 
+                                "unit": "events per second", 
+                                "rate_15min": "4"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "24.29055782294418", 
+                                "rate_1min": "4", 
+                                "rate_5min": "4", 
+                                "unit": "events per second", 
+                                "rate_15min": "4"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "24.290292311806709", 
+                                "rate_1min": "4", 
+                                "rate_5min": "4", 
+                                "unit": "events per second", 
+                                "rate_15min": "4"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:alexnet:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "0"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:num_predictions": {
+                                "count": "100"
+                            }
+                        }, 
+                        {
+                            "model:alexnet:1:num_predictions": {
+                                "count": "100"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:alexnet:1:batch_size": {
+                                "p99": "10", 
+                                "min": "10", 
+                                "max": "10", 
+                                "p95": "10", 
+                                "std_dev": "0", 
+                                "mean": "10", 
+                                "p50": "10", 
+                                "unit": "queries", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "model:alexnet:1:prediction_latency": {
+                                "p99": "418410", 
+                                "min": "406252", 
+                                "max": "418410", 
+                                "p95": "418410", 
+                                "std_dev": "4118.51044068119365971", 
+                                "mean": "412143.499999999999972", 
+                                "p50": "413614.5", 
+                                "unit": "microseconds", 
+                                "size": "10"
+                            }
+                        }, 
+                        {
+                            "alexnet:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:prediction_latency": {
+                                "p99": "61491382.9199999999983", 
+                                "min": "57836777", 
+                                "max": "61491384", 
+                                "p95": "61489728.7999999999993", 
+                                "std_dev": "1165234.78730595144384", 
+                                "mean": "59667382.2099999999919", 
+                                "p50": "59669110.5", 
+                                "unit": "microseconds", 
+                                "size": "100"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "15.9199999999999590727", 
+                                "min": "0", 
+                                "max": "16", 
+                                "p95": "7", 
+                                "std_dev": "1.58113883008418966598", 
+                                "mean": "4.9999999999999999987", 
+                                "p50": "5", 
+                                "unit": "microseconds", 
+                                "size": "100"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "24.271067043483072", 
+                                "rate_1min": "8", 
+                                "rate_5min": "8.1999999999999993", 
+                                "unit": "events per second", 
+                                "rate_15min": "8.1999999999999993"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "24.270778395415153", 
+                                "rate_1min": "8", 
+                                "rate_5min": "8", 
+                                "unit": "events per second", 
+                                "rate_15min": "8"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "24.270377833961007", 
+                                "rate_1min": "8", 
+                                "rate_5min": "8", 
+                                "unit": "events per second", 
+                                "rate_15min": "8"
+                            }
+                        }, 
+                        {
+                            "model:alexnet:1:prediction_throughput": {
+                                "rate": "24.270100983036169", 
+                                "rate_1min": "18", 
+                                "rate_5min": "18", 
+                                "unit": "events per second", 
+                                "rate_15min": "18"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:alexnet:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:alexnet:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "app:alexnet:num_predictions": {
+                                "count": "100"
+                            }
+                        }, 
+                        {
+                            "model:alexnet:1:num_predictions": {
+                                "count": "100"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "0"
+                            }
+                        }
+                    ]
+                }
+            ], 
+            "thrus": [
+                23.38621111574678, 
+                23.45642640405477, 
+                23.328512107497783, 
+                23.48897756238907, 
+                23.481106983915208, 
+                23.539453418599514, 
+                23.51023847375293, 
+                24.229102641262937, 
+                24.239586007262666, 
+                24.222611614160925, 
+                24.26790407091664, 
+                24.179434617116232, 
+                24.208233413849918, 
+                24.31733933290729, 
+                24.29153141344405
+            ], 
+            "all_lats": [
+                "[0.08094, 0.500835, 0.501587, 0.502088, 0.502112, 0.502149, 0.502663, 0.502714, 0.503271, 0.504113, 0.503987, 0.936937, 0.937328, 0.937361, 0.938014, 0.938642, 0.939154, 0.93899, 0.938923, 0.9399, 0.939601, 1.335512, 1.336039, 1.33668, 1.336986, 1.337097, 1.33723, 1.33743, 1.337669, 1.337828, 1.337883, 1.751938, 1.752178, 1.75245, 1.752659, 1.753745, 1.75409, 1.754427, 1.754731, 1.755047, 1.755234, 2.168377, 2.168746, 2.168994, 2.169459, 2.170002, 2.170184, 2.170506, 2.171014, 2.171311, 2.172062, 2.688681, 2.688737, 2.687851, 2.688366, 2.689759, 2.690128, 2.690359, 2.689286, 2.690764, 2.690995, 3.002738, 3.003205, 3.00387, 3.004075, 3.00449, 3.005114, 3.005566, 3.005852, 3.006486, 3.006595, 3.426525, 3.426771, 3.427272, 3.427525, 3.42787, 3.428369, 3.429169, 3.429125, 3.429267, 3.429716, 3.831507, 3.831715, 3.8318, 3.831905, 3.831838, 3.832206, 3.832175, 3.832354, 3.832544, 3.832417, 4.267072, 4.267218, 4.267386, 4.267453, 4.267692, 4.267612, 4.267839, 4.267921, 4.267799]", 
+                "[4.275227, 4.699052, 4.699298, 4.699564, 4.699807, 4.700126, 4.70025, 4.700519, 4.701231, 4.701275, 4.701517, 5.130917, 5.13089, 5.131133, 5.131507, 5.131423, 5.13199, 5.132178, 5.131859, 5.131854, 5.132197, 5.558743, 5.559091, 5.559661, 5.55986, 5.560149, 5.56076, 5.561081, 5.561215, 5.561277, 5.561447, 5.978382, 5.9781, 5.978868, 5.979019, 5.979051, 5.979483, 5.979588, 5.979794, 5.980061, 5.980185, 6.407784, 6.408132, 6.408241, 6.408603, 6.408494, 6.408767, 6.409067, 6.409094, 6.409407, 6.409447, 6.833138, 6.833453, 6.833351, 6.833613, 6.833888, 6.834252, 6.834576, 6.834336, 6.834529, 6.835, 7.261391, 7.261726, 7.261829, 7.262339, 7.262419, 7.262909, 7.263327, 7.263167, 7.263765, 7.263841, 7.689378, 7.689661, 7.690154, 7.690325, 7.690519, 7.690343, 7.690461, 7.690753, 7.690992, 7.690936, 8.108348, 8.108532, 8.108644, 8.108742, 8.108797, 8.109183, 8.109325, 8.109205, 8.109381, 8.109555, 8.532698, 8.532835, 8.532837, 8.532924, 8.533145, 8.533421, 8.533724, 8.53382, 8.533825]", 
+                "[8.539205, 8.958155, 8.958151, 8.958453, 8.958392, 8.958827, 8.959218, 8.959565, 8.959302, 8.959418, 8.959711, 9.383898, 9.383778, 9.383924, 9.384281, 9.384203, 9.384379, 9.384714, 9.384607, 9.384577, 9.38472, 9.811474, 9.811653, 9.811506, 9.812258, 9.812303, 9.812306, 9.812298, 9.812693, 9.812442, 9.812597, 10.244286, 10.244775, 10.245153, 10.244908, 10.24514, 10.245742, 10.245838, 10.245796, 10.246069, 10.245961, 10.676459, 10.676801, 10.677117, 10.677396, 10.678025, 10.678277, 10.678318, 10.678514, 10.678701, 10.678524, 11.104913, 11.105217, 11.105316, 11.105425, 11.105423, 11.105742, 11.105838, 11.105854, 11.105552, 11.105886, 11.531144, 11.531247, 11.531734, 11.531509, 11.531556, 11.532029, 11.532153, 11.532447, 11.532263, 11.532265, 11.954562, 11.954636, 11.954782, 11.954934, 11.954968, 11.955537, 11.955488, 11.955441, 11.9558, 11.955817, 12.387165, 12.386598, 12.386772, 12.38697, 12.387104, 12.387235, 12.387223, 12.387489, 12.387471, 12.387464, 12.817097, 12.817411, 12.81815, 12.818198, 12.818623, 12.818783, 12.819317, 12.819475, 12.819829]", 
+                "[12.827865, 13.246638, 13.246785, 13.246883, 13.247096, 13.246957, 13.247134, 13.247543, 13.247566, 13.247484, 13.247775, 13.674566, 13.6747, 13.675072, 13.674977, 13.675355, 13.675569, 13.675292, 13.675641, 13.675456, 13.675394, 14.094577, 14.094718, 14.094875, 14.095003, 14.094936, 14.095084, 14.094948, 14.095259, 14.095199, 14.095332, 14.519589, 14.519659, 14.519754, 14.520016, 14.520281, 14.520306, 14.520203, 14.520316, 14.520568, 14.52037, 14.947059, 14.947311, 14.94717, 14.947426, 14.947603, 14.947476, 14.947773, 14.947655, 14.947819, 14.947969, 15.372475, 15.372485, 15.372573, 15.372613, 15.373199, 15.373007, 15.373435, 15.373505, 15.373294, 15.373669, 15.801734, 15.802065, 15.802117, 15.802163, 15.802231, 15.802333, 15.802694, 15.802519, 15.802819, 15.80297, 16.225702, 16.225858, 16.226041, 16.226045, 16.225995, 16.226146, 16.226289, 16.226599, 16.226585, 16.226728, 16.653258, 16.653364, 16.653506, 16.65359, 16.653779, 16.65389, 16.653969, 16.654174, 16.654159, 16.654304, 17.079538, 17.080044, 17.079781, 17.080394, 17.080014, 17.08031, 17.080554, 17.08066, 17.080752]", 
+                "[17.08495, 17.49838, 17.49818, 17.499133, 17.499147, 17.499347, 17.499554, 17.499527, 17.49934, 17.499517, 17.499608, 17.927361, 17.927695, 17.927911, 17.928092, 17.928029, 17.928483, 17.928324, 17.928274, 17.928495, 17.928483, 18.354279, 18.354494, 18.354481, 18.354447, 18.354798, 18.354662, 18.354835, 18.355027, 18.355046, 18.355204, 18.784222, 18.784696, 18.784641, 18.785092, 18.785259, 18.78529, 18.785467, 18.78532, 18.785743, 18.785741, 19.214143, 19.214166, 19.214335, 19.214278, 19.214588, 19.214598, 19.214422, 19.214572, 19.214857, 19.215073, 19.645394, 19.645494, 19.645814, 19.645899, 19.646076, 19.645986, 19.646005, 19.646422, 19.646575, 19.64657, 20.064824, 20.064879, 20.065048, 20.065085, 20.065162, 20.065468, 20.065408, 20.065532, 20.065809, 20.065663, 20.490483, 20.49063, 20.490731, 20.490886, 20.490853, 20.491109, 20.491236, 20.491285, 20.491666, 20.491582, 20.918353, 20.918734, 20.918536, 20.91885, 20.91893, 20.918649, 20.918781, 20.918896, 20.918968, 20.918877, 21.338212, 21.338344, 21.338445, 21.338472, 21.33873, 21.338705, 21.338725, 21.338921, 21.33915]", 
+                "[21.343339, 21.765731, 21.765799, 21.765063, 21.765092, 21.766534, 21.76578, 21.765743, 21.765731, 21.765735, 21.765948, 22.192662, 22.192696, 22.192795, 22.19281, 22.192994, 22.193113, 22.193446, 22.193297, 22.193443, 22.193595, 22.622624, 22.622845, 22.622928, 22.623384, 22.623654, 22.623592, 22.624308, 22.62432, 22.624626, 22.624717, 23.053039, 23.053327, 23.053248, 23.053679, 23.053648, 23.053833, 23.053835, 23.053776, 23.054114, 23.054277, 23.480469, 23.480754, 23.480701, 23.480709, 23.480943, 23.480972, 23.481041, 23.481138, 23.481094, 23.481195, 23.902284, 23.902373, 23.902561, 23.9026, 23.902736, 23.902617, 23.902943, 23.902778, 23.902933, 23.903183, 24.32176, 24.321843, 24.322024, 24.322199, 24.322345, 24.322278, 24.32235, 24.32242, 24.322443, 24.322854, 24.743358, 24.743313, 24.743604, 24.743723, 24.743752, 24.743485, 24.743913, 24.743877, 24.743764, 24.743981, 25.161235, 25.161346, 25.161724, 25.161976, 25.162505, 25.162759, 25.163003, 25.163037, 25.16353, 25.163783, 25.5847, 25.585042, 25.584945, 25.585595, 25.585489, 25.585609, 25.586026, 25.586085, 25.586043]", 
+                "[25.592047, 26.011419, 26.011994, 26.012011, 26.012217, 26.012012, 26.012263, 26.012092, 26.012381, 26.012677, 26.012627, 26.435051, 26.435218, 26.43548, 26.43546, 26.435535, 26.435509, 26.435797, 26.435888, 26.435989, 26.436057, 26.854889, 26.855264, 26.855047, 26.855373, 26.855683, 26.855412, 26.855522, 26.855886, 26.855862, 26.855879, 27.283855, 27.284092, 27.284013, 27.284311, 27.284375, 27.284498, 27.284479, 27.284745, 27.284806, 27.284804, 27.702861, 27.702919, 27.702866, 27.702963, 27.703031, 27.702949, 27.703466, 27.703542, 27.703556, 27.703643, 28.128938, 28.129141, 28.129456, 28.129558, 28.129922, 28.130046, 28.129891, 28.130182, 28.130144, 28.130032, 28.54763, 28.54769, 28.547879, 28.547881, 28.548066, 28.548361, 28.548432, 28.548094, 28.548215, 28.548505, 28.978485, 28.978526, 28.978671, 28.97885, 28.978905, 28.979032, 28.979422, 28.979488, 28.979679, 28.979858, 29.405626, 29.405717, 29.406115, 29.406232, 29.406208, 29.406304, 29.4062, 29.406576, 29.40648, 29.406579, 29.840201, 29.840488, 29.840421, 29.840684, 29.840752, 29.840912, 29.840959, 29.84118, 29.841134]", 
+                "[29.846766, 30.262532, 30.262708, 30.262794, 30.262991, 30.263153, 30.263089, 30.263083, 30.263517, 30.263098, 30.26331, 30.681233, 30.681472, 30.681511, 30.681812, 30.681612, 30.681894, 30.68201, 30.681936, 30.682206, 30.682203, 31.096424, 31.096449, 31.096035, 31.096059, 31.095951, 31.097133, 31.09618, 31.097252, 31.096527, 31.096452, 31.50488, 31.504952, 31.505315, 31.505137, 31.505461, 31.505558, 31.505458, 31.505631, 31.505678, 31.505971, 31.909398, 31.909581, 31.909515, 31.909641, 31.909953, 31.910009, 31.909997, 31.909997, 31.909974, 31.909957, 32.325748, 32.325892, 32.325995, 32.326216, 32.32632, 32.326357, 32.326362, 32.326467, 32.326485, 32.326581, 32.73053, 32.730924, 32.730949, 32.730888, 32.731356, 32.731456, 32.731487, 32.731612, 32.731766, 32.731582, 33.145938, 33.146053, 33.14616, 33.14625, 33.146572, 33.146476, 33.146818, 33.146984, 33.146853, 33.147093, 33.560312, 33.560519, 33.560569, 33.560527, 33.560824, 33.56094, 33.561011, 33.56095, 33.560992, 33.561261, 33.967576, 33.967797, 33.967891, 33.968334, 33.968351, 33.968514, 33.968471, 33.96843, 33.96859]", 
+                "[33.972399, 34.379938, 34.380358, 34.380166, 34.380275, 34.380384, 34.380715, 34.380697, 34.380759, 34.381039, 34.381252, 34.79531, 34.795347, 34.795869, 34.795835, 34.796238, 34.796414, 34.796315, 34.79617, 34.796471, 34.796272, 35.208885, 35.209142, 35.209147, 35.209305, 35.209234, 35.20961, 35.209633, 35.209515, 35.20977, 35.209841, 35.622611, 35.622919, 35.62272, 35.623025, 35.622983, 35.623327, 35.623069, 35.623265, 35.623336, 35.623463, 36.028599, 36.028707, 36.029368, 36.029406, 36.029207, 36.029575, 36.029565, 36.029434, 36.029562, 36.029643, 36.435946, 36.435984, 36.436033, 36.436079, 36.43614, 36.436747, 36.436736, 36.436579, 36.437096, 36.436717, 36.848682, 36.849027, 36.849097, 36.849262, 36.849284, 36.849758, 36.849745, 36.849702, 36.849524, 36.849832, 37.26467, 37.2648, 37.265321, 37.265118, 37.265634, 37.265567, 37.265372, 37.265831, 37.265788, 37.265641, 37.677333, 37.677581, 37.6776, 37.67779, 37.677895, 37.677907, 37.678227, 37.678051, 37.677972, 37.678306, 38.092008, 38.09234, 38.092413, 38.092815, 38.092872, 38.092722, 38.092735, 38.092972, 38.093018]", 
+                "[38.096555, 38.504919, 38.50521, 38.505269, 38.50545, 38.505282, 38.505402, 38.505561, 38.505408, 38.50551, 38.505398, 38.920583, 38.92064, 38.920615, 38.920628, 38.920661, 38.920781, 38.920836, 38.921184, 38.92131, 38.921049, 39.333088, 39.333456, 39.333257, 39.333335, 39.333671, 39.333979, 39.334013, 39.334009, 39.333836, 39.333914, 39.748716, 39.748818, 39.748887, 39.748935, 39.749093, 39.749158, 39.749143, 39.749372, 39.749193, 39.749487, 40.159672, 40.160926, 40.160098, 40.161225, 40.161469, 40.161524, 40.16147, 40.160553, 40.161623, 40.160721, 40.575218, 40.575301, 40.575345, 40.575483, 40.575697, 40.57566, 40.575859, 40.575996, 40.576022, 40.575989, 40.987288, 40.987343, 40.987364, 40.987882, 40.987981, 40.988228, 40.988396, 40.988274, 40.988728, 40.988675, 41.403343, 41.403533, 41.403602, 41.404047, 41.404126, 41.404095, 41.404409, 41.404424, 41.404362, 41.404502, 41.808933, 41.809089, 41.809136, 41.809394, 41.809119, 41.809283, 41.809487, 41.809504, 41.809606, 41.809905, 42.2188, 42.218823, 42.218874, 42.219121, 42.21922, 42.219569, 42.219553, 42.219598, 42.219669]", 
+                "[42.223779, 42.626681, 42.626634, 42.626649, 42.626962, 42.627256, 42.627172, 42.627043, 42.627204, 42.627367, 42.627203, 43.040741, 43.040669, 43.040952, 43.040885, 43.040905, 43.040783, 43.040792, 43.041112, 43.041183, 43.040844, 43.453058, 43.453057, 43.453711, 43.453512, 43.453798, 43.453974, 43.453848, 43.45397, 43.453709, 43.453728, 43.86044, 43.860492, 43.860507, 43.86063, 43.860607, 43.860654, 43.861157, 43.86087, 43.861101, 43.861435, 44.27338, 44.273455, 44.273423, 44.273724, 44.273849, 44.273679, 44.273849, 44.27398, 44.27394, 44.274199, 44.681682, 44.681474, 44.682064, 44.682118, 44.682124, 44.682033, 44.682287, 44.682381, 44.68232, 44.682493, 45.093591, 45.093817, 45.093874, 45.094275, 45.094348, 45.094195, 45.094368, 45.09439, 45.094421, 45.094767, 45.509275, 45.509375, 45.509149, 45.509583, 45.509416, 45.509783, 45.509558, 45.509883, 45.510022, 45.510178, 45.924558, 45.924633, 45.924652, 45.925037, 45.924769, 45.925041, 45.925091, 45.925467, 45.925442, 45.925729, 46.338977, 46.339101, 46.339081, 46.339002, 46.339367, 46.339622, 46.339295, 46.339562, 46.339568]", 
+                "[46.343419, 46.751941, 46.752387, 46.752196, 46.752537, 46.752785, 46.752659, 46.752649, 46.752637, 46.752599, 46.752748, 47.170017, 47.170167, 47.170348, 47.170356, 47.170356, 47.17057, 47.170561, 47.170845, 47.170877, 47.170837, 47.583483, 47.583569, 47.583857, 47.583702, 47.583991, 47.584014, 47.584183, 47.584074, 47.584221, 47.584237, 48.000173, 48.000233, 48.000459, 48.000566, 48.000836, 48.000679, 48.00076, 48.000863, 48.000989, 48.000827, 48.407109, 48.407131, 48.40726, 48.407326, 48.40764, 48.407427, 48.407746, 48.407677, 48.40758, 48.407836, 48.814874, 48.814905, 48.814944, 48.815217, 48.815155, 48.815324, 48.815684, 48.815636, 48.815658, 48.815758, 49.228749, 49.227937, 49.228924, 49.229314, 49.229334, 49.228372, 49.229471, 49.229542, 49.229764, 49.228768, 49.64286, 49.642864, 49.642938, 49.642856, 49.64322, 49.643464, 49.643409, 49.643335, 49.643374, 49.643602, 50.0582, 50.058398, 50.058941, 50.058942, 50.058904, 50.058759, 50.058981, 50.05919, 50.058961, 50.059344, 50.473383, 50.473446, 50.473395, 50.473621, 50.473853, 50.474055, 50.47404, 50.473873, 50.473888]", 
+                "[50.477614, 50.880216, 50.880485, 50.881014, 50.880916, 50.881226, 50.881317, 50.881096, 50.88105, 50.881345, 50.88119, 51.289779, 51.289922, 51.290094, 51.290339, 51.290482, 51.290514, 51.290433, 51.290588, 51.290651, 51.290791, 51.705085, 51.705272, 51.705352, 51.705398, 51.705553, 51.705528, 51.705627, 51.7056, 51.7057, 51.70582, 52.122322, 52.122451, 52.122482, 52.122659, 52.122671, 52.122805, 52.122919, 52.123026, 52.122923, 52.123108, 52.528398, 52.528406, 52.528397, 52.528359, 52.528946, 52.528959, 52.529087, 52.529288, 52.529283, 52.529389, 52.944562, 52.944976, 52.944823, 52.945282, 52.945545, 52.94559, 52.94554, 52.945368, 52.94564, 52.945897, 53.358416, 53.358811, 53.358831, 53.358629, 53.35876, 53.35885, 53.358751, 53.358851, 53.358806, 53.359098, 53.773036, 53.773422, 53.773644, 53.773788, 53.773877, 53.773935, 53.773974, 53.774291, 53.774365, 53.774072, 54.185966, 54.186049, 54.186083, 54.186221, 54.186282, 54.186413, 54.186808, 54.186862, 54.186765, 54.186949, 54.603343, 54.603474, 54.60353, 54.603573, 54.603851, 54.603589, 54.60397, 54.603919, 54.604069]", 
+                "[54.607903, 55.010458, 55.010726, 55.01063, 55.010918, 55.010867, 55.011175, 55.010963, 55.011147, 55.011096, 55.011168, 55.427676, 55.427539, 55.427669, 55.428149, 55.428222, 55.428215, 55.429007, 55.428964, 55.429104, 55.429395, 55.835804, 55.836018, 55.836177, 55.836579, 55.836858, 55.836835, 55.836811, 55.836941, 55.837118, 55.837437, 56.244754, 56.245034, 56.245203, 56.245541, 56.245698, 56.245711, 56.245809, 56.245999, 56.246376, 56.246689, 56.658313, 56.658444, 56.658655, 56.658967, 56.659197, 56.659379, 56.659378, 56.659349, 56.659535, 56.659686, 57.076675, 57.076889, 57.077074, 57.077087, 57.077233, 57.077358, 57.077343, 57.077542, 57.077638, 57.078002, 57.483837, 57.483751, 57.484243, 57.484079, 57.48461, 57.484364, 57.484908, 57.485038, 57.48491, 57.4849, 57.892417, 57.892612, 57.892735, 57.893111, 57.893125, 57.893331, 57.893665, 57.893722, 57.893728, 57.893788, 58.298378, 58.298676, 58.29881, 58.29909, 58.298351, 58.299645, 58.299737, 58.30007, 58.299259, 58.300368, 58.713557, 58.713738, 58.71395, 58.714295, 58.714656, 58.714653, 58.714621, 58.714906, 58.714941]", 
+                "[58.71983, 59.127299, 59.127617, 59.127672, 59.127918, 59.128561, 59.128673, 59.128704, 59.128625, 59.129116, 59.129008, 59.541583, 59.541814, 59.541759, 59.542081, 59.542311, 59.542147, 59.542793, 59.542562, 59.542922, 59.543121, 59.955135, 59.955176, 59.955247, 59.955264, 59.955554, 59.955971, 59.956199, 59.956222, 59.95629, 59.956268, 60.363035, 60.363431, 60.363755, 60.363732, 60.364002, 60.364501, 60.364529, 60.364613, 60.364928, 60.364897, 60.778237, 60.778591, 60.778874, 60.779007, 60.779313, 60.779461, 60.779818, 60.780051, 60.780378, 60.780321, 61.193713, 61.193934, 61.194115, 61.194637, 61.194889, 61.194732, 61.195269, 61.195106, 61.195496, 61.195641, 61.600124, 61.600334, 61.600312, 61.60062, 61.600671, 61.600683, 61.600705, 61.600962, 61.600853, 61.600808, 62.017509, 62.017553, 62.017736, 62.017771, 62.018093, 62.017964, 62.018242, 62.018414, 62.018319, 62.018667, 62.423993, 62.424252, 62.424156, 62.424381, 62.424227, 62.424817, 62.424789, 62.424712, 62.424568, 62.424715, 62.831128, 62.831494, 62.831652, 62.831502, 62.83186, 62.832162, 62.832107, 62.831984, 62.831922]"
+            ], 
+            "mean_batch_sizes": [
+                {
+                    "alexnet": 9.18
+                }, 
+                {
+                    "alexnet": 10.0
+                }, 
+                {
+                    "alexnet": 10.0
+                }, 
+                {
+                    "alexnet": 10.0
+                }, 
+                {
+                    "alexnet": 10.0
+                }, 
+                {
+                    "alexnet": 10.0
+                }, 
+                {
+                    "alexnet": 10.0
+                }, 
+                {
+                    "alexnet": 10.0
+                }, 
+                {
+                    "alexnet": 10.0
+                }, 
+                {
+                    "alexnet": 10.0
+                }, 
+                {
+                    "alexnet": 10.0
+                }, 
+                {
+                    "alexnet": 10.0
+                }, 
+                {
+                    "alexnet": 10.0
+                }, 
+                {
+                    "alexnet": 10.0
+                }, 
+                {
+                    "alexnet": 10.0
+                }
+            ], 
+            "mean_lats": [
+                2.3505179599999995, 
+                6.57835977, 
+                10.8448866, 
+                15.1195393, 
+                19.38160458, 
+                23.640948619999996, 
+                27.876980619999998, 
+                32.07773484, 
+                36.19480358, 
+                40.32538747, 
+                44.4394779, 
+                48.572213649999995, 
+                52.69839021000001, 
+                56.82386702000001, 
+                60.94283209000001
+            ]
+        }
+    ], 
+    "node_configs": [
+        {
+            "model_image": "model-comp/pytorch-alexnet", 
+            "name": "alexnet", 
+            "cpus_per_replica": 1, 
+            "input_type": "floats", 
+            "use_nvidia_docker": true, 
+            "batch_size": 10, 
+            "num_replicas": 1, 
+            "instance_type": "p2.8xlarge", 
+            "slo": 5000000, 
+            "gpus_per_replica": 0, 
+            "allocated_cpus": [
+                12, 
+                13, 
+                14, 
+                15, 
+                16, 
+                17, 
+                18, 
+                19, 
+                20
+            ], 
+            "gpus": [], 
+            "input_size": -1
+        }
+    ]
+}
