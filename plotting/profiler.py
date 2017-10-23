@@ -65,7 +65,19 @@ def get_node_work(exp, root_node):
     return counts
 
 
-def get_node_perf_from_profile(profile, batch_size, num_gpus, num_cpus):
+def find_closest_batch_size_index(batch_size, profile):
+    closest_batch = -1
+
+    for index, row in profile.iterrows():
+        if closest_batch == -1:
+            closest_batch = row["mean_batch_size"]
+        else:
+            if abs(batch_size - closest_batch) > abs(batch_size - row["mean_batch_size"]):
+                closest_batch = row["mean_batch_size"]
+    return closest_batch
+
+
+def get_node_perf_from_profile(name, profile, batch_size, num_gpus, num_cpus):
     """Finds the relevant row in a model profile for the provided physical
     configuration (batch size and resource bundle).
 
@@ -83,14 +95,28 @@ def get_node_perf_from_profile(profile, batch_size, num_gpus, num_cpus):
 
     result = profile[(profile.num_gpus_per_replica == num_gpus)
                      & (profile.num_cpus_per_replica == num_cpus)
-                     & (profile.mean_batch_size < (batch_size + batch_size * 0.2))
-                     & (profile.mean_batch_size > (batch_size - batch_size * 0.2))
+                     & (profile.mean_batch_size <= (batch_size))
+                     & (profile.mean_batch_size > (batch_size - 0.3))
                      ]
+    if len(result) < 1:
+        closest_batch = find_closest_batch_size_index(batch_size, profile[
+            (profile.num_gpus_per_replica == num_gpus) &
+            (profile.num_cpus_per_replica == num_cpus)])
+        result = profile[(profile.num_gpus_per_replica == num_gpus)
+                         & (profile.num_cpus_per_replica == num_cpus)
+                         & (profile.mean_batch_size <= (closest_batch + 0.1))
+                         & (profile.mean_batch_size > (closest_batch - 0.1))
+                         ]
+
+        print(("No profile found for {m}: {g} gpus, {c} cpus, batch size {b}."
+              " Approximating with batch size {ab}").format(
+            m=name, g=num_gpus, c=num_cpus, b=batch_size, ab=closest_batch))
     if len(result) > 1:
-        print("Ambiguous profile setting")
-    elif len(result) < 1:
-        print("No profile found for: {g} gpus, {c} cpus, {b} batch size".format(
-            g=num_gpus, c=num_cpus, b=batch_size))
+        print("Ambiguous profile setting for batch size {b}".format(b=batch_size))
+        print(result)
+    if len(result) < 1:
+        print("Something weird happened")
+        print(profile)
     else:
         return result
 
@@ -126,7 +152,8 @@ def predict_performance_for_pipeline_config(node_configs, node_profs, logical_pi
         batch_size = node["batch_size"]
         num_gpus = node["gpus_per_replica"]
         num_cpus = node["cpus_per_replica"]
-        expected_perf_prof = get_node_perf_from_profile(prof, batch_size, num_gpus, num_cpus)
+        expected_perf_prof = get_node_perf_from_profile(node["name"], prof, batch_size,
+                                                        num_gpus, num_cpus)
         work = node_work[node["name"]]
         adjusted_throughput = expected_perf_prof.mean_throughput_qps.tolist()[0] / work * num_reps
         p99_lat = expected_perf_prof.p99_latency_ms.tolist()[0]
@@ -179,43 +206,33 @@ def get_logical_pipeline(pipeline_name):
         return LogicalPipeline(root_node, paths)
 
 
-def load_pipeline_three_systemx():
-    pipeline = get_logical_pipeline("pipeline_three")
+def load_pipeline_systemx(pipeline, dirpath):
     single_model_profs = sm_profs.load_single_model_profiles()
-    dirpath = os.path.abspath("../results/e2e_profs/systemx/resnet_cascade")
-    exp_dfs = []
+    exp_dfs_list = []
     for d in os.listdir(dirpath):
         df, raw_results = e2e_profs.load_end_to_end_experiment(d, os.path.join(dirpath, d))
         df = df.merge(estimate_end_to_end_exp(d, pipeline, df, raw_results, single_model_profs),
                       left_index=True, right_index=True)
-        exp_dfs.append(df)
+        exp_dfs_list.append(df)
 
-    exp_three_dfs = pd.concat(exp_dfs)
-    exp_three_dfs = exp_three_dfs[["name",
-                                   "mean_throughput",
-                                   "estimated_thru",
-                                   "p99_latency",
-                                   "estimated_latency",
-                                   "cost"]]
-    return exp_three_dfs
+    exp_dfs = pd.concat(exp_dfs_list)
+    exp_dfs = exp_dfs[["name",
+                       "mean_throughput",
+                       "estimated_thru",
+                       "p99_latency",
+                       "p95_latency",
+                       "estimated_latency",
+                       "cost"]]
+    return exp_dfs
+
+
+def load_pipeline_three_systemx():
+    pipeline = get_logical_pipeline("pipeline_three")
+    dirpath = os.path.abspath("../results/e2e_profs/systemx/resnet_cascade")
+    return load_pipeline_systemx(pipeline, dirpath)
 
 
 def load_pipeline_one_systemx():
     pipeline = get_logical_pipeline("pipeline_one")
-    single_model_profs = sm_profs.load_single_model_profiles()
     dirpath = os.path.abspath("../results/e2e_profs/systemx/image_driver_1")
-    exp_dfs = []
-    for d in os.listdir(dirpath):
-        df, raw_results = e2e_profs.load_end_to_end_experiment(d, os.path.join(dirpath, d))
-        df = df.merge(estimate_end_to_end_exp(d, pipeline, df, raw_results, single_model_profs),
-                      left_index=True, right_index=True)
-        exp_dfs.append(df)
-
-    exp_three_dfs = pd.concat(exp_dfs)
-    exp_three_dfs = exp_three_dfs[["name",
-                                   "mean_throughput",
-                                   "estimated_thru",
-                                   "p99_latency",
-                                   "estimated_latency",
-                                   "cost"]]
-    return exp_three_dfs
+    return load_pipeline_systemx(pipeline, dirpath)

@@ -17,6 +17,7 @@ def load_end_to_end_results(results_dir):
                 data = json.load(f)
                 name = exp[:-5]
                 first_good_trial, last_good_trial = select_valid_trials(name, data)
+                print(first_good_trial, last_good_trial)
                 extract_good_results(data, first_good_trial, last_good_trial)
                 experiments[name] = data
         else:
@@ -29,29 +30,48 @@ def load_end_to_end_results(results_dir):
 def select_valid_trials(name, results_json):
     p99_lats = results_json["client_metrics"][0]["p99_lats"]
 
-    # We assume that at least the last 8 trials were good
-    last_8_mean = np.mean(p99_lats[-8:])
-    last_8_stdev = np.mean(p99_lats[-8:])
+    num_good_trials = 8
 
-    good_trials = []
-    for i in reversed(range(len(p99_lats))):
-        if p99_lats[i] <= last_8_mean + last_8_stdev:
-            good_trials.append(i)
-        elif len(p99_lats) - i < 8:
-            print("Found a bad trial in the last 8 trials for: {}".format(name))
-        else:
-            break
-    first_good_trial = min(good_trials)
-    last_good_trial = max(good_trials)
-    assert last_good_trial == len(p99_lats) - 1
-    return first_good_trial, last_good_trial
+    # We assume that at least the last 8 trials were good
+    last_8_mean = np.mean(p99_lats[-1*num_good_trials:])
+    last_8_stdev = np.std(p99_lats[-1*num_good_trials:])
+
+    # good_trials = []
+    # for i in reversed(range(len(p99_lats))):
+    #     if p99_lats[i] <= last_8_mean + last_8_stdev:
+    #         good_trials.append(i)
+    #     elif len(p99_lats) - i < num_good_trials:
+    #         # print("Found a bad trial in the last 8 trials for: {}".format(name))
+    #         continue
+    #     else:
+    #         break
+    # first_good_trial = min(good_trials)
+    # last_good_trial = max(good_trials)
+    # assert len(good_trials) > 1
+    # assert last_good_trial == len(p99_lats) - 1
+    # return first_good_trial, last_good_trial
+    return len(p99_lats) - num_good_trials - 1, len(p99_lats) - 1
 
 
 def extract_good_results(results_json, first_good_trial, last_good_trial):
+    node_configs = results_json["node_configs"]
+    results_json["node_configs"] = [n for n in node_configs if "request_delay" not in n]
     client_metrics = results_json["client_metrics"]
     for client in client_metrics:
+        # First deal with inconsistently formatted all_lats list:
+        lat_entries_per_trial = len(client["all_lats"]) / len(client["p99_lats"])
+        if lat_entries_per_trial > 1:
+            print("Found {} queries per trial".format(lat_entries_per_trial))
+            first_entry = round(first_good_trial * lat_entries_per_trial)
+            last_entry = round((last_good_trial + 1) * lat_entries_per_trial)
+            client["all_lats"] = client["all_lats"][first_entry:last_entry]
+        else:
+            client["all_lats"] = client["all_lats"][first_good_trial:last_good_trial + 1]
         for metric in client:
-            client[metric] = client[metric][first_good_trial:last_good_trial + 1]
+            if metric == "all_lats":
+                continue
+            else:
+                client[metric] = client[metric][first_good_trial:last_good_trial + 1]
 
 
 def get_throughput(results_json):
@@ -118,6 +138,7 @@ def load_end_to_end_experiment(name, results_dir):
     names = []
     configs = []
     p99s = []
+    p95s = []
 
     for e in experiments:
         names.append(name)
@@ -129,12 +150,14 @@ def load_end_to_end_experiment(name, results_dir):
         latencies.append(all_lats)
         configs.append(experiments[e]["node_configs"])
         p99s.append(np.percentile(all_lats, 99))
+        p95s.append(np.percentile(all_lats, 95))
 
     results_dict = {
         "mean_throughput": thru_means,
         "standard_dev_throughput": thru_stds,
         "latency": latencies,
         "p99_latency": p99s,
+        "p95_latency": p95s,
         "cost": costs,
         "name": names,
         "config": configs,

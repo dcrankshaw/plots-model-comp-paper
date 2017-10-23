@@ -14,8 +14,8 @@ def load_results(results_dir):
         if exp[-4:] == "json":
             with open(os.path.join(results_dir, exp), "r") as f:
                 data = json.load(f)
-                # Skip the first trial
                 format_client_metrics(data)
+                # Skip the first trial
                 skip_first_trial(data)
                 if max([len(cm["thrus"]) for cm in data["client_metrics"]]) > 5:
                     experiments.append(data)
