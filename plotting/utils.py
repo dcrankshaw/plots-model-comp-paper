@@ -1,0 +1,3 @@
+COST_PER_CPU = 4.75 / 100.0
+COST_PER_GPU = 70.0 / 100.0
+

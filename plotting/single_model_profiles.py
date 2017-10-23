@@ -8,6 +8,7 @@ import pandas as pd
 import itertools
 from tabulate import tabulate
 
+from utils import COST_PER_GPU, COST_PER_CPU
 
 def load_results(results_dir):
     fs = os.listdir(results_dir)
@@ -20,7 +21,8 @@ def load_results(results_dir):
                 if max([len(cm["thrus"]) for cm in data["client_metrics"]]) > 5:
                     experiments.append(data)
         else:
-            print("skipping %s" % os.path.join(results_dir, exp))
+            # print("skipping %s" % os.path.join(results_dir, exp))
+            pass
     return experiments
 
 
@@ -87,7 +89,19 @@ def extract_client_metrics(exp):
     return (p99_lat, mean_batch)
 
 
-def create_results_df(results_dir):
+def compute_cost(results_json):
+    nodes = results_json["node_configs"]
+    total_cost = 0.0
+    for n in nodes:
+        num_reps = n["num_replicas"]
+        n_gpus = num_gpus(results_json) * num_reps
+        n_cpus = num_cpus(results_json) * num_reps
+        cost = float(n_gpus) * COST_PER_GPU + float(n_cpus) * COST_PER_CPU
+        total_cost += cost
+    return total_cost
+
+
+def create_model_profile_df_old_format(results_dir):
     experiments = load_results(results_dir)
 
     gpus = []
@@ -100,6 +114,7 @@ def create_results_df(results_dir):
     mean_batch = []
     client_lats = []
     inst_types = []
+    costs = []
 
     for e in experiments:
         model_names.append(model_name(e))
@@ -110,44 +125,42 @@ def create_results_df(results_dir):
         mean_t, std_t = throughput(e)
         mean_thru.append(mean_t)
         std_thru.append(std_t)
-
+        costs.append(compute_cost(e))
         p99_l, mean_b = extract_client_metrics(e)
         p99_lat.append(p99_l)
         mean_batch.append(mean_b)
         client_lats.append(client_lat(e))
 
     results_dict = {
-        "model_name": model_names,
         "num_gpus_per_replica": gpus,
         "num_cpus_per_replica": cpus,
-        "configured_batch_size": config_batch,
         "mean_throughput_qps": mean_thru,
         "std_throughput_qps": std_thru,
         "p99_latency_ms": p99_lat,
         "mean_batch_size": mean_batch,
         "client_latency_ms": client_lats,
-        "inst_type": inst_types
+        "inst_type": inst_types,
+        "cost": costs
     }
 
     df = pd.DataFrame.from_dict(results_dict)
     return df
 
-
-if __name__ == '__main__':
-
-    single_model_profs_dir = os.path.abspath("../results/single_model_profs/")
-    for m in os.listdir(single_model_profs_dir):
-        print(m)
-        results_dir = os.path.join(single_model_profs_dir, m)
-        df = create_results_df(results_dir)
-        df.to_csv(os.path.join(results_dir, "summary.csv"))
-        if "pytorch" in m:
-            with open(os.path.join(results_dir, "summary_pretty.tab"), "w") as f:
-                df_summary = df.loc[(df["inst_type"] == "p2.8xlarge") & (df["num_cpus_per_replica"] == 1) & (df["num_gpus_per_replica"] == 1)]
-                df_summary = df_summary.filter(items=["configured_batch_size",
-                                                      "mean_throughput_qps",
-                                                      "p99_latency_ms"])
-
-                f.write(tabulate(df_summary,
-                                 headers='keys',
-                                 tablefmt='psql'))
+# if __name__ == '__main__':
+#
+#     single_model_profs_dir = os.path.abspath("../results/single_model_profs/")
+#     for m in os.listdir(single_model_profs_dir):
+#         print(m)
+#         results_dir = os.path.join(single_model_profs_dir, m)
+#         df = create_results_df(results_dir)
+#         df.to_csv(os.path.join(results_dir, "summary.csv"))
+#         if "pytorch" in m:
+#             with open(os.path.join(results_dir, "summary_pretty.tab"), "w") as f:
+#                 df_summary = df.loc[(df["inst_type"] == "p2.8xlarge") & (df["num_cpus_per_replica"] == 1) & (df["num_gpus_per_replica"] == 1)]
+#                 df_summary = df_summary.filter(items=["configured_batch_size",
+#                                                       "mean_throughput_qps",
+#                                                       "p99_latency_ms"])
+#
+#                 f.write(tabulate(df_summary,
+#                                  headers='keys',
+#                                  tablefmt='psql'))
