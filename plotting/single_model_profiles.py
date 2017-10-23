@@ -83,7 +83,7 @@ def extract_client_metrics_old(exp):
         if list(h.keys())[0] == lat_key:
             p99_lat = float(h[lat_key]["p99"]) / 1000.0
         elif list(h.keys())[0] == batch_key:
-            mean_batch = h[batch_key]["mean"]
+            mean_batch = float(h[batch_key]["mean"])
     return (p99_lat, mean_batch)
 
 
@@ -137,6 +137,8 @@ def create_model_profile_df(results_dir):
     inst_types = []
     costs = []
 
+    model_name = experiments[0]["node_configs"][0]["name"]
+
     for e in experiments:
         inst_types.append(instance_type(e))
         gpus.append(num_gpus(e))
@@ -162,14 +164,24 @@ def create_model_profile_df(results_dir):
 
     df = pd.DataFrame.from_dict(results_dict)
     df = df[list(results_dict.keys())]
-    return df
+    return (model_name, df)
 
 
-def load_profs(single_model_profs_dir=os.path.abspath("../results/single_model_profs/")):
+def load_single_model_profiles(
+        single_model_profs_dir=os.path.abspath("../results/single_model_profs/")):
+    """
+    Returns
+    -------
+    dict :
+        A dict that maps model name to a DataFrame containing single model profile for that
+        model. The model name is set based on the node config in the experimental results. It will
+        not necessarily match the directory name of the directory containing the profiling results
+        for that model.
+    """
     profs = {}
     for m in os.listdir(single_model_profs_dir):
-        print(m)
         fname = os.path.join(single_model_profs_dir, m)
         if os.path.isdir(fname):
-            profs[m] = create_model_profile_df(fname)
+            model_name, df = create_model_profile_df(fname)
+            profs[model_name] = df
     return profs

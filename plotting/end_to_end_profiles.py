@@ -1,26 +1,27 @@
 import numpy as np
 import json
 import os
-import sys
+# import sys
 import pandas as pd
 
 COST_PER_CPU = 4.75 / 100.0
 COST_PER_GPU = 70.0 / 100.0
 
 
-def load_results(results_dir):
+def load_end_to_end_results(results_dir):
     fs = os.listdir(results_dir)
     experiments = {}
     for exp in fs:
         if exp[-4:] == "json":
             with open(os.path.join(results_dir, exp), "r") as f:
                 data = json.load(f)
-                name = exp[:-4]
+                name = exp[:-5]
                 first_good_trial, last_good_trial = select_valid_trials(name, data)
                 extract_good_results(data, first_good_trial, last_good_trial)
                 experiments[name] = data
         else:
-            print("skipping %s" % os.path.join(results_dir, exp))
+            # print("skipping %s" % os.path.join(results_dir, exp))
+            pass
     return experiments
 
 
@@ -88,49 +89,73 @@ def compute_cost(results_json):
     return total_cost
 
 
-def collect_results(name, results_dir):
-    experiments = load_results(results_dir)
+
+
+def load_end_to_end_experiment(name, results_dir):
+    """
+    Parameters
+    ----------
+    name : str
+        Experiment name (e.g. max_thru). Mostly used to label a line on the plot.
+    results_dir : str
+        Path to a directory containing all of the JSON results files for this experiment.
+        Generally, each file represents an end-to-end run of the experiment with a fixed number
+        of replicas per model. The different files in the directory hold everything else fixed
+        and vary the number of model replicas.
+
+    Returns
+    --------
+    (DataFrame, dict) :
+        Each row in the dataframe corresponds to a single run (single file) of the
+        experiment. The dict is a map from file name to loaded and filtered results dict loaded
+        from the JSON.
+    """
+    experiments = load_end_to_end_results(results_dir)
     thru_means = []
     thru_stds = []
     costs = []
     latencies = []
     names = []
+    configs = []
+    p99s = []
+
     for e in experiments:
         names.append(name)
         thru_mean, thru_std = get_throughput(experiments[e])
         thru_means.append(thru_mean)
         thru_stds.append(thru_std)
         costs.append(compute_cost(experiments[e]))
-        latencies.append(extract_all_latencies(experiments[e]))
+        all_lats = extract_all_latencies(experiments[e])
+        latencies.append(all_lats)
+        configs.append(experiments[e]["node_configs"])
+        p99s.append(np.percentile(all_lats, 99))
 
     results_dict = {
         "mean_throughput": thru_means,
         "standard_dev_throughput": thru_stds,
-        "latencies": latencies,
+        "latency": latencies,
+        "p99_latency": p99s,
         "cost": costs,
-        "name": names
+        "name": names,
+        "config": configs,
     }
 
     df = pd.DataFrame.from_dict(results_dict)
-    return df
+    return (df, experiments)
 
 
-
-
-def load_all():
-
-    df1 = collect_results("max_thru",
-                          os.path.abspath("../results/e2e_profs/resnet_cascade/max_thru/"))
-    df2 = collect_results("min_lat",
-                          os.path.abspath("../results/e2e_profs/resnet_cascade/min_lat/"))
-
-    df3 = collect_results("slo_500",
-                          os.path.abspath("../results/e2e_profs/resnet_cascade/slo_500ms/"))
-
-    df = pd.concat([df1, df2, df3])
-    return df
-
-
+# def load_all():
+#
+#     df1 = collect_results("max_thru",
+#                           os.path.abspath("../results/e2e_profs/resnet_cascade/max_thru/"))
+#     df2 = collect_results("min_lat",
+#                           os.path.abspath("../results/e2e_profs/resnet_cascade/min_lat/"))
+#
+#     df3 = collect_results("slo_500",
+#                           os.path.abspath("../results/e2e_profs/resnet_cascade/slo_500ms/"))
+#
+#     df = pd.concat([df1, df2, df3])
+#     return df
 
 
 
