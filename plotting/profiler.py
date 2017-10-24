@@ -12,7 +12,7 @@ class LogicalPipeline(object):
     def __init__(self, root_node, paths):
         """
         root_node : str
-            The name of any node that all queries get sent to. Used to estimate relative work of
+            The name of any node that all queries get sent to. Used to estimate relative prob of
             each node in the pipline.
         paths : list
             A list of tuples of nodes. Each tuple should represent a unique path through the
@@ -25,13 +25,13 @@ class LogicalPipeline(object):
         self.paths = paths
 
 
-def get_node_work(exp, root_node):
+def get_node_probs(exp, root_node):
     """
     Parameters
     ----------
     exp : dict
         A dict containing the results of an end-to-end experiment. The node
-        work should be the same under any pipeline configuration, so the experiment
+        prob should be the same under any pipeline configuration, so the experiment
         JSON can be from any run and only needs to be computed once per logical
         pipeline.
     root_node : str
@@ -121,7 +121,7 @@ def get_node_perf_from_profile(name, profile, batch_size, num_gpus, num_cpus):
         return result
 
 
-def predict_performance_for_pipeline_config(node_configs, node_profs, logical_pipeline, node_work):
+def predict_performance_for_pipeline_config(node_configs, node_profs, logical_pipeline, node_probs):
     """
     Parameters
     ----------
@@ -131,8 +131,8 @@ def predict_performance_for_pipeline_config(node_configs, node_profs, logical_pi
         Single model profs dict as loaded by load_single_model_profiles()
     logical_pipeline : LogicalPipeline
         The logical pipeline structure
-    node_work : dict
-        Relative work each node in the pipeline performs. Provided by get_node_work().
+    node_probs : dict
+        Relative prob each node in the pipeline performs. Provided by get_node_probs().
 
     Returns
     -------
@@ -154,8 +154,10 @@ def predict_performance_for_pipeline_config(node_configs, node_profs, logical_pi
         num_cpus = node["cpus_per_replica"]
         expected_perf_prof = get_node_perf_from_profile(node["name"], prof, batch_size,
                                                         num_gpus, num_cpus)
-        work = node_work[node["name"]]
-        adjusted_throughput = expected_perf_prof.mean_throughput_qps.tolist()[0] / work * num_reps
+        prob = node_probs[node["name"]]
+        # TODO: Alexey fix this to scale up throughput by less than 2 when doubling number of
+        # replicas
+        adjusted_throughput = expected_perf_prof.mean_throughput_qps.tolist()[0] / prob * num_reps
         p99_lat = expected_perf_prof.p99_latency_ms.tolist()[0]
         cost = expected_perf_prof.cost.tolist()[0] * num_reps
         total_cost += cost
@@ -177,14 +179,14 @@ def predict_performance_for_pipeline_config(node_configs, node_profs, logical_pi
 
 
 def estimate_end_to_end_exp(name, pipeline, empirical_results_df, experiments, single_model_profs):
-    node_work = get_node_work(experiments[next(iter(experiments))], pipeline.root)
+    node_probs = get_node_probs(experiments[next(iter(experiments))], pipeline.root)
 
     def apply_func(row):
         node_configs = row["config"]
         return predict_performance_for_pipeline_config(node_configs,
                                                        single_model_profs,
                                                        pipeline,
-                                                       node_work)
+                                                       node_probs)
 
     return empirical_results_df.apply(apply_func, axis=1)
 
@@ -222,7 +224,7 @@ def load_pipeline_systemx(pipeline, dirpath):
                        "p99_latency",
                        "p95_latency",
                        "estimated_latency",
-                       "cost"]]
+                       "cost", "latency"]]
     return exp_dfs
 
 

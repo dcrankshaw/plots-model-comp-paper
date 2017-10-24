@@ -17,7 +17,6 @@ def load_end_to_end_results(results_dir):
                 data = json.load(f)
                 name = exp[:-5]
                 first_good_trial, last_good_trial = select_valid_trials(name, data)
-                print(first_good_trial, last_good_trial)
                 extract_good_results(data, first_good_trial, last_good_trial)
                 experiments[name] = data
         else:
@@ -61,7 +60,7 @@ def extract_good_results(results_json, first_good_trial, last_good_trial):
         # First deal with inconsistently formatted all_lats list:
         lat_entries_per_trial = len(client["all_lats"]) / len(client["p99_lats"])
         if lat_entries_per_trial > 1:
-            print("Found {} queries per trial".format(lat_entries_per_trial))
+            # print("Found {} queries per trial".format(lat_entries_per_trial))
             first_entry = round(first_good_trial * lat_entries_per_trial)
             last_entry = round((last_good_trial + 1) * lat_entries_per_trial)
             client["all_lats"] = client["all_lats"][first_entry:last_entry]
