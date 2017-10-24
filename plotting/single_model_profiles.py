@@ -14,23 +14,71 @@ def load_results(results_dir):
         if exp[-4:] == "json":
             with open(os.path.join(results_dir, exp), "r") as f:
                 data = json.load(f)
-                format_client_metrics(data)
-                # Skip the first trial
-                skip_first_trial(data)
-                if max([len(cm["thrus"]) for cm in data["client_metrics"]]) > 5:
-                    experiments.append(data)
+                if "no_diverge" in data["node_configs"][0] and data["node_configs"][0]["no_diverge"]:
+                    format_client_metrics(data)
+                    first_good_trial, last_good_trial = select_valid_trials(data)
+                    extract_good_results(data, first_good_trial, last_good_trial)
+                    if max([len(cm["thrus"]) for cm in data["client_metrics"]]) > 6:
+                            experiments.append(data)
         else:
             # print("skipping %s" % os.path.join(results_dir, exp))
             pass
     return experiments
 
 
-def skip_first_trial(results_json):
+# def skip_first_trial(results_json):
+#     client_metrics = results_json["client_metrics"]
+#     for client in client_metrics:
+#         for metric in client:
+#             client[metric] = client[metric][1:]
+
+
+# heuristic to determine when latencies have flattened out
+def select_valid_trials(results_json):
+    p99_lats = results_json["client_metrics"][0]["p99_lats"]
+
+    num_good_trials = 8
+
+    # We assume that at least the last 8 trials were good
+    last_8_mean = np.mean(p99_lats[-1*num_good_trials:])
+    last_8_stdev = np.std(p99_lats[-1*num_good_trials:])
+
+    # good_trials = []
+    # for i in reversed(range(len(p99_lats))):
+    #     if p99_lats[i] <= last_8_mean + last_8_stdev:
+    #         good_trials.append(i)
+    #     elif len(p99_lats) - i < num_good_trials:
+    #         # print("Found a bad trial in the last 8 trials for: {}".format(name))
+    #         continue
+    #     else:
+    #         break
+    # first_good_trial = min(good_trials)
+    # last_good_trial = max(good_trials)
+    # assert len(good_trials) > 1
+    # assert last_good_trial == len(p99_lats) - 1
+    # return first_good_trial, last_good_trial
+    return len(p99_lats) - num_good_trials - 1, len(p99_lats) - 1
+
+
+def extract_good_results(results_json, first_good_trial, last_good_trial):
+    node_configs = results_json["node_configs"]
+    results_json["node_configs"] = [n for n in node_configs if "request_delay" not in n]
     client_metrics = results_json["client_metrics"]
     for client in client_metrics:
+        # First deal with inconsistently formatted all_lats list:
+        lat_entries_per_trial = len(client["all_lats"]) / len(client["p99_lats"])
+        if lat_entries_per_trial > 1:
+            # print("Found {} queries per trial".format(lat_entries_per_trial))
+            first_entry = round(first_good_trial * lat_entries_per_trial)
+            last_entry = round((last_good_trial + 1) * lat_entries_per_trial)
+            client["all_lats"] = client["all_lats"][first_entry:last_entry]
+        else:
+            client["all_lats"] = client["all_lats"][first_good_trial:last_good_trial + 1]
         for metric in client:
-            client[metric] = client[metric][1:]
-
+            if metric == "all_lats":
+                continue
+            else:
+                client[metric] = client[metric][first_good_trial:last_good_trial + 1]
 
 def format_client_metrics(data):
     if type(data["client_metrics"]) == dict:
@@ -125,8 +173,22 @@ def compute_cost(results_json):
     return total_cost
 
 
+def extract_all_latencies(results_json):
+    client_metrics = results_json["client_metrics"]
+    latencies = []
+    for client in client_metrics:
+        for l in client["all_lats"]:
+            cur_lats = json.loads(l)
+            latencies.append(cur_lats)
+    all_lats = np.array(latencies).flatten()
+    return all_lats
+
+
 def create_model_profile_df(results_dir):
     experiments = load_results(results_dir)
+    if len(experiments) == 0:
+        return None
+
 
     gpus = []
     cpus = []
@@ -147,8 +209,9 @@ def create_model_profile_df(results_dir):
         mean_thrus.append(mean_thru)
         std_thrus.append(std_thru)
         costs.append(compute_cost(e))
-        p99_lat, mean_batch = extract_client_metrics(e)
-        p99_lats.append(p99_lat)
+        all_lats = extract_all_latencies(e)
+        model_p99_lat, mean_batch = extract_client_metrics(e)
+        p99_lats.append(np.percentile(all_lats, 99))
         mean_batches.append(mean_batch)
 
     results_dict = {
@@ -182,6 +245,8 @@ def load_single_model_profiles(
     for m in os.listdir(single_model_profs_dir):
         fname = os.path.join(single_model_profs_dir, m)
         if os.path.isdir(fname):
-            model_name, df = create_model_profile_df(fname)
-            profs[model_name] = df
+            res = create_model_profile_df(fname)
+            if res is not None:
+                model_name, df = res
+                profs[model_name] = df
     return profs

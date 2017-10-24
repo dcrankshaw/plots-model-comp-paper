@@ -96,7 +96,7 @@ def get_node_perf_from_profile(name, profile, batch_size, num_gpus, num_cpus):
     result = profile[(profile.num_gpus_per_replica == num_gpus)
                      & (profile.num_cpus_per_replica == num_cpus)
                      & (profile.mean_batch_size <= (batch_size))
-                     & (profile.mean_batch_size > (batch_size - 0.3))
+                     & (profile.mean_batch_size > (batch_size - 0.1))
                      ]
     if len(result) < 1:
         closest_batch = find_closest_batch_size_index(batch_size, profile[
@@ -174,7 +174,7 @@ def predict_performance_for_pipeline_config(node_configs, node_profs, logical_pi
             path_latency += node_perfs[node]["p99_lat"]
         longest_path_latency = max(longest_path_latency, path_latency)
 
-    return pd.Series([bottleneck_thru, longest_path_latency / 1000.0],
+    return pd.Series([bottleneck_thru, longest_path_latency],
                      index=["estimated_thru", "estimated_latency"])
 
 
