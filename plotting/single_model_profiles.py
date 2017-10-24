@@ -14,12 +14,12 @@ def load_results(results_dir):
         if exp[-4:] == "json":
             with open(os.path.join(results_dir, exp), "r") as f:
                 data = json.load(f)
-                if "no_diverge" in data["node_configs"][0] and data["node_configs"][0]["no_diverge"]:
-                    format_client_metrics(data)
-                    first_good_trial, last_good_trial = select_valid_trials(data)
-                    extract_good_results(data, first_good_trial, last_good_trial)
-                    if max([len(cm["thrus"]) for cm in data["client_metrics"]]) > 6:
-                            experiments.append(data)
+                assert data["node_configs"][0]["no_diverge"]
+                format_client_metrics(data)
+                first_good_trial, last_good_trial = select_valid_trials(data)
+                extract_good_results(data, first_good_trial, last_good_trial)
+                if max([len(cm["thrus"]) for cm in data["client_metrics"]]) > 5:
+                        experiments.append(data)
         else:
             # print("skipping %s" % os.path.join(results_dir, exp))
             pass
@@ -57,7 +57,7 @@ def select_valid_trials(results_json):
     # assert len(good_trials) > 1
     # assert last_good_trial == len(p99_lats) - 1
     # return first_good_trial, last_good_trial
-    return len(p99_lats) - num_good_trials - 1, len(p99_lats) - 1
+    return max(0, len(p99_lats) - num_good_trials - 1), len(p99_lats) - 1
 
 
 def extract_good_results(results_json, first_good_trial, last_good_trial):
