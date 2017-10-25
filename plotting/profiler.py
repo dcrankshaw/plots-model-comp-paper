@@ -108,9 +108,9 @@ def get_node_perf_from_profile(name, profile, batch_size, num_gpus, num_cpus):
                          & (profile.mean_batch_size > (closest_batch - 0.1))
                          ]
 
-        print(("No profile found for {m}: {g} gpus, {c} cpus, batch size {b}."
-              " Approximating with batch size {ab}").format(
-            m=name, g=num_gpus, c=num_cpus, b=batch_size, ab=closest_batch))
+        # print(("No profile found for {m}: {g} gpus, {c} cpus, batch size {b}."
+        #       " Approximating with batch size {ab}").format(
+        #     m=name, g=num_gpus, c=num_cpus, b=batch_size, ab=closest_batch))
     if len(result) > 1:
         print("Ambiguous profile setting for batch size {b}".format(b=batch_size))
         print(result)
@@ -158,7 +158,7 @@ def predict_performance_for_pipeline_config(node_configs, node_profs, logical_pi
         # TODO: Alexey fix this to scale up throughput by less than 2 when doubling number of
         # replicas
         adjusted_throughput = expected_perf_prof.mean_throughput_qps.tolist()[0] / prob * num_reps
-        p99_lat = expected_perf_prof.p99_latency_ms.tolist()[0]
+        p99_lat = expected_perf_prof.p99_latency.tolist()[0]
         cost = expected_perf_prof.cost.tolist()[0] * num_reps
         total_cost += cost
         node_perfs[node["name"]] = {"cost": cost, "p99_lat": p99_lat, "thru": adjusted_throughput}
@@ -212,6 +212,12 @@ def load_pipeline_systemx(pipeline, dirpath):
     single_model_profs = sm_profs.load_single_model_profiles()
     exp_dfs_list = []
     for d in os.listdir(dirpath):
+        if d == "max_thru_hand_tuned":
+            print("Skipping {}".format(d))
+            continue
+        # if d == "alexnet_cpu_max_thru":
+        #     print("Skipping {}".format(d))
+        #     continue
         df, raw_results = e2e_profs.load_end_to_end_experiment(d, os.path.join(dirpath, d))
         df = df.merge(estimate_end_to_end_exp(d, pipeline, df, raw_results, single_model_profs),
                       left_index=True, right_index=True)

@@ -32,9 +32,9 @@ def select_valid_trials(name, results_json):
     num_good_trials = 8
 
     # We assume that at least the last 8 trials were good
-    last_8_mean = np.mean(p99_lats[-1*num_good_trials:])
-    last_8_stdev = np.std(p99_lats[-1*num_good_trials:])
-
+    # last_8_mean = np.mean(p99_lats[-1*num_good_trials:])
+    # last_8_stdev = np.std(p99_lats[-1*num_good_trials:])
+    #
     # good_trials = []
     # for i in reversed(range(len(p99_lats))):
     #     if p99_lats[i] <= last_8_mean + last_8_stdev:
@@ -108,8 +108,6 @@ def compute_cost(results_json):
     return total_cost
 
 
-
-
 def load_end_to_end_experiment(name, results_dir):
     """
     Parameters
@@ -180,23 +178,79 @@ def load_end_to_end_experiment(name, results_dir):
 #     return df
 
 
+def load_single_proc_end_to_end(name, results_dir):
+    """
+    results_dir should be the top-level directory for an experiment. E.g.
+    max_thru or min_lat.
+    """
+    results_dir = os.path.abspath(results_dir)
+    replica_dirs = os.listdir(results_dir)
+    all_results = {}
+
+    for num_reps in replica_dirs:
+        num_reps_full_path = os.path.join(results_dir, num_reps)
+        client_fs = os.listdir(num_reps_full_path)
+        client_results = []
+        for f in client_fs:
+            if f[-4:] == "json":
+                with open(os.path.join(num_reps_full_path, f), "r") as json_file:
+                    res = json.load(json_file)
+                    client_metrics = res["client_metrics"][0]
+                    for metric in client_metrics:
+                        client_metrics[metric] = client_metrics[metric][1:]
+                    client_results.append(res)
+        all_results[num_reps] = client_results
+
+    exp_name = []
+    num_replicas = []
+    p99_lat_secs = []
+    mean_lat_secs = []
+    total_thru = []
+    total_cost = []
+
+    for num_rep_exp in all_results:
+        exp_name.append(name)
+        client_results = all_results[num_rep_exp]
+        # print(json.dumps(client_results[0][0], indent=4))
+        cur_num_replicas = len(client_results)
+
+        all_p99s = np.array([c["client_metrics"][0]["p99_lats"] for c in client_results]).flatten()
+        p99_lat_secs.append(np.mean(all_p99s))
+
+        all_mean_lats = np.array([c["client_metrics"][0]["mean_lats"] for c in client_results]).flatten()
+        mean_lat_secs.append(np.mean(all_mean_lats))
+
+        mean_thrus = np.array([np.mean(c["client_metrics"][0]["thrus"]) for c in client_results])
+        total_thru.append(np.sum(mean_thrus))
+
+        single_rep_config = client_results[0]["node_configs"]
+        total_gpus = np.sum([len(n["gpus"]) for n in single_rep_config]) * cur_num_replicas
+
+        total_cpus = len(single_rep_config[0]["allocated_cpus"]) * cur_num_replicas
+        total_cost.append(total_gpus * COST_PER_GPU + total_cpus * COST_PER_CPU)
+        num_replicas.append(cur_num_replicas)
+
+    results_dict = {
+        "name": exp_name,
+        "num_replicas": num_replicas,
+        "mean_throughput": total_thru,
+        "p99_latency": p99_lat_secs,
+        "mean_latency": mean_lat_secs,
+        "cost": total_cost,
+    }
+
+    df = pd.DataFrame.from_dict(results_dict)
+    return df
+
+def load_pipeline_one_single_proc():
+    max_thru_df = load_single_proc_end_to_end(
+        "max_thru", os.path.abspath("../results/e2e_profs/single_process/image_driver_1/max_thru/"))
+
+    min_lat_df = load_single_proc_end_to_end(
+        "min_lat", os.path.abspath("../results/e2e_profs/single_process/image_driver_1/min_lat/"))
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    return pd.concat([max_thru_df, min_lat_df])
 
 
 

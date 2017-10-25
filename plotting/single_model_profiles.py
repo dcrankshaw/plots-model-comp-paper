@@ -9,7 +9,7 @@ from utils import COST_PER_GPU, COST_PER_CPU
 
 def load_results(results_dir):
     fs = os.listdir(results_dir)
-    experiments = []
+    experiments = {}
     for exp in fs:
         if exp[-4:] == "json":
             with open(os.path.join(results_dir, exp), "r") as f:
@@ -19,7 +19,7 @@ def load_results(results_dir):
                 first_good_trial, last_good_trial = select_valid_trials(data)
                 extract_good_results(data, first_good_trial, last_good_trial)
                 if max([len(cm["thrus"]) for cm in data["client_metrics"]]) > 5:
-                        experiments.append(data)
+                    experiments[exp] = data
         else:
             # print("skipping %s" % os.path.join(results_dir, exp))
             pass
@@ -198,10 +198,11 @@ def create_model_profile_df(results_dir):
     mean_batches = []
     inst_types = []
     costs = []
+    fnames = []
 
-    model_name = experiments[0]["node_configs"][0]["name"]
+    model_name = experiments[next(iter(experiments))]["node_configs"][0]["name"]
 
-    for e in experiments:
+    for fname, e in experiments.items():
         inst_types.append(instance_type(e))
         gpus.append(num_gpus(e))
         cpus.append(num_cpus(e))
@@ -213,16 +214,19 @@ def create_model_profile_df(results_dir):
         model_p99_lat, mean_batch = extract_client_metrics(e)
         p99_lats.append(np.percentile(all_lats, 99))
         mean_batches.append(mean_batch)
+        fnames.append(fname)
 
     results_dict = {
         "num_gpus_per_replica": gpus,
         "num_cpus_per_replica": cpus,
         "mean_throughput_qps": mean_thrus,
         "std_throughput_qps": std_thrus,
-        "p99_latency_ms": p99_lats,
+        "p99_latency": p99_lats,
         "mean_batch_size": mean_batches,
         "inst_type": inst_types,
-        "cost": costs
+        "cost": costs,
+        "fname": fnames,
+
     }
 
     df = pd.DataFrame.from_dict(results_dict)
