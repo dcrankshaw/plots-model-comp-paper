@@ -90,7 +90,10 @@ def extract_all_latencies(results_json):
     latencies = []
     for client in client_metrics:
         for l in client["all_lats"]:
-            cur_lats = json.loads(l)
+            if type(l) is str:
+                cur_lats = json.loads(l)
+            else:
+                cur_lats = l
             latencies.append(cur_lats)
     all_lats = np.array(latencies).flatten()
     return all_lats
@@ -255,5 +258,16 @@ def load_pipeline_one_single_proc():
 
 
 
+def load_tfserving_end_to_end():
+    """
+    results_dir should be the top-level directory for an experiment. E.g.
+    max_thru or min_lat.
+    """
+    base_path = os.path.abspath("../results/e2e_profs/tf_serving")
 
+    df_max_thru, _ = load_end_to_end_experiment("max_thru",
+                                                os.path.join(base_path, "max_throughput"))
+    df_min_lat, _ = load_end_to_end_experiment("min_lat",
+                                                os.path.join(base_path, "min_latency"))
+    return pd.concat([df_max_thru, df_min_lat])
 
