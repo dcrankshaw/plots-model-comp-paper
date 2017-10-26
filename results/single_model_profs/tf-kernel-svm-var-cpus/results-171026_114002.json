@@ -1,0 +1,1417 @@
+{
+    "client_metrics": [
+        {
+            "p99_lats": [
+                0.07416509, 
+                0.02822615, 
+                0.02818346, 
+                0.02856368, 
+                0.02866719, 
+                0.0285413, 
+                0.02850687
+            ], 
+            "all_metrics": [
+                {
+                    "histograms": [
+                        {
+                            "model:tf-kernel-svm:1:batch_size": {
+                                "p99": "8", 
+                                "min": "1", 
+                                "max": "8", 
+                                "p95": "8", 
+                                "std_dev": "1.15356121837969154077", 
+                                "mean": "7.71794871794871794593", 
+                                "p50": "8", 
+                                "unit": "queries", 
+                                "size": "39"
+                            }
+                        }, 
+                        {
+                            "model:tf-kernel-svm:1:prediction_latency": {
+                                "p99": "44708", 
+                                "min": "12749", 
+                                "max": "44708", 
+                                "p95": "24880", 
+                                "std_dev": "5430.09070553600006459", 
+                                "mean": "14364.8205128205128203", 
+                                "p50": "12941", 
+                                "unit": "microseconds", 
+                                "size": "39"
+                            }
+                        }, 
+                        {
+                            "tf-kernel-svm:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "310"
+                            }
+                        }, 
+                        {
+                            "app:tf-kernel-svm:prediction_latency": {
+                                "p99": "72668.0400000000054206", 
+                                "min": "13036", 
+                                "max": "74983", 
+                                "p95": "68296.6999999999983402", 
+                                "std_dev": "16591.4905957490129875", 
+                                "mean": "43143.9767441860465063", 
+                                "p50": "43558", 
+                                "unit": "microseconds", 
+                                "size": "301"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "8", 
+                                "min": "0", 
+                                "max": "14", 
+                                "p95": "7", 
+                                "std_dev": "2.33661832828636175687", 
+                                "mean": "3.09302325581395348405", 
+                                "p50": "2", 
+                                "unit": "microseconds", 
+                                "size": "301"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "14.8899999999999863576", 
+                                "min": "1", 
+                                "max": "137", 
+                                "p95": "11", 
+                                "std_dev": "8.29133230953998394321", 
+                                "mean": "5.38387096774193548007", 
+                                "p50": "4", 
+                                "unit": "microseconds", 
+                                "size": "310"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "9.0725907328398723", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "9.0725828024641615", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "9.3438422421845555", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "9.0747592535712052", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "model:tf-kernel-svm:1:prediction_throughput": {
+                                "rate": "18.384349189763252", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "app:tf-kernel-svm:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:tf-kernel-svm:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:tf-kernel-svm:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "model:tf-kernel-svm:1:num_predictions": {
+                                "count": "301"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "310"
+                            }
+                        }, 
+                        {
+                            "app:tf-kernel-svm:num_predictions": {
+                                "count": "301"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:tf-kernel-svm:1:batch_size": {
+                                "p99": "8", 
+                                "min": "6", 
+                                "max": "8", 
+                                "p95": "8", 
+                                "std_dev": "0.513425206020186301761", 
+                                "mean": "7.21428571428571428379", 
+                                "p50": "7", 
+                                "unit": "queries", 
+                                "size": "42"
+                            }
+                        }, 
+                        {
+                            "model:tf-kernel-svm:1:prediction_latency": {
+                                "p99": "13847", 
+                                "min": "12737", 
+                                "max": "13847", 
+                                "p95": "13568.8500000000000298", 
+                                "std_dev": "207.211210670813848936", 
+                                "mean": "13163.4523809523809534", 
+                                "p50": "13160", 
+                                "unit": "microseconds", 
+                                "size": "42"
+                            }
+                        }, 
+                        {
+                            "tf-kernel-svm:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "303"
+                            }
+                        }, 
+                        {
+                            "app:tf-kernel-svm:prediction_latency": {
+                                "p99": "26111.4399999999981787", 
+                                "min": "13115", 
+                                "max": "26237", 
+                                "p95": "25661.0000000000002274", 
+                                "std_dev": "3783.35269126906944748", 
+                                "mean": "19700.7986798679868041", 
+                                "p50": "19640", 
+                                "unit": "microseconds", 
+                                "size": "303"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "9", 
+                                "min": "0", 
+                                "max": "10", 
+                                "p95": "7", 
+                                "std_dev": "2.27809329701768199621", 
+                                "mean": "3.21122112211221122629", 
+                                "p50": "3", 
+                                "unit": "microseconds", 
+                                "size": "303"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "5", 
+                                "min": "1", 
+                                "max": "141", 
+                                "p95": "4", 
+                                "std_dev": "8.03355514428519820042", 
+                                "mean": "2.84818481848184818428", 
+                                "p50": "2", 
+                                "unit": "microseconds", 
+                                "size": "303"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "app:tf-kernel-svm:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "model:tf-kernel-svm:1:prediction_throughput": {
+                                "rate": "545.69915227527736", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "545.63036514016221", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "545.58713638778102", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "545.54293224824903", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "545.4859685886496", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:tf-kernel-svm:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:tf-kernel-svm:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "303"
+                            }
+                        }, 
+                        {
+                            "app:tf-kernel-svm:num_predictions": {
+                                "count": "303"
+                            }
+                        }, 
+                        {
+                            "model:tf-kernel-svm:1:num_predictions": {
+                                "count": "303"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:tf-kernel-svm:1:batch_size": {
+                                "p99": "8", 
+                                "min": "6", 
+                                "max": "8", 
+                                "p95": "8", 
+                                "std_dev": "0.545024911536171287525", 
+                                "mean": "7.19047619047619047429", 
+                                "p50": "7", 
+                                "unit": "queries", 
+                                "size": "42"
+                            }
+                        }, 
+                        {
+                            "model:tf-kernel-svm:1:prediction_latency": {
+                                "p99": "13653", 
+                                "min": "12663", 
+                                "max": "13653", 
+                                "p95": "13458.200000000000216", 
+                                "std_dev": "190.274120493842292298", 
+                                "mean": "13113.5952380952380958", 
+                                "p50": "13144.5", 
+                                "unit": "microseconds", 
+                                "size": "42"
+                            }
+                        }, 
+                        {
+                            "tf-kernel-svm:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "302"
+                            }
+                        }, 
+                        {
+                            "app:tf-kernel-svm:prediction_latency": {
+                                "p99": "26230.7299999999967781", 
+                                "min": "12864", 
+                                "max": "26415", 
+                                "p95": "25599.6499999999962824", 
+                                "std_dev": "3767.39699642585672845", 
+                                "mean": "19562.8079470198675409", 
+                                "p50": "19544", 
+                                "unit": "microseconds", 
+                                "size": "302"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "8", 
+                                "min": "0", 
+                                "max": "10", 
+                                "p95": "7", 
+                                "std_dev": "2.18656402470006327576", 
+                                "mean": "3.01986754966887416978", 
+                                "p50": "2", 
+                                "unit": "microseconds", 
+                                "size": "302"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "5", 
+                                "min": "1", 
+                                "max": "485", 
+                                "p95": "5", 
+                                "std_dev": "33.9861647593313437217", 
+                                "mean": "5.33003300330033003354", 
+                                "p50": "2", 
+                                "unit": "microseconds", 
+                                "size": "303"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "547.16389732886182", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "547.17579381256519", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "547.1301934340753", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "547.06081613503341", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "model:tf-kernel-svm:1:prediction_throughput": {
+                                "rate": "547.01523491768512", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "app:tf-kernel-svm:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:tf-kernel-svm:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:tf-kernel-svm:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "app:tf-kernel-svm:num_predictions": {
+                                "count": "302"
+                            }
+                        }, 
+                        {
+                            "model:tf-kernel-svm:1:num_predictions": {
+                                "count": "302"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "302"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:tf-kernel-svm:1:batch_size": {
+                                "p99": "8", 
+                                "min": "6", 
+                                "max": "8", 
+                                "p95": "8", 
+                                "std_dev": "0.5853658536585365854", 
+                                "mean": "7.26829268292682926589", 
+                                "p50": "7", 
+                                "unit": "queries", 
+                                "size": "41"
+                            }
+                        }, 
+                        {
+                            "model:tf-kernel-svm:1:prediction_latency": {
+                                "p99": "13688", 
+                                "min": "12645", 
+                                "max": "13688", 
+                                "p95": "13671.4999999999999645", 
+                                "std_dev": "242.100612808371827775", 
+                                "mean": "13210.9756097560975601", 
+                                "p50": "13196", 
+                                "unit": "microseconds", 
+                                "size": "41"
+                            }
+                        }, 
+                        {
+                            "tf-kernel-svm:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "299"
+                            }
+                        }, 
+                        {
+                            "app:tf-kernel-svm:prediction_latency": {
+                                "p99": "26309.4199999999950705", 
+                                "min": "13035", 
+                                "max": "26890", 
+                                "p95": "25698.9000000000015689", 
+                                "std_dev": "3819.01405321382074209", 
+                                "mean": "19830.016778523489938", 
+                                "p50": "19787", 
+                                "unit": "microseconds", 
+                                "size": "298"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "8", 
+                                "min": "0", 
+                                "max": "9", 
+                                "p95": "7", 
+                                "std_dev": "2.23257028409412370032", 
+                                "mean": "3.0469798657718120793", 
+                                "p50": "2", 
+                                "unit": "microseconds", 
+                                "size": "298"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "5.05999999999994543032", 
+                                "min": "2", 
+                                "max": "236", 
+                                "p95": "4", 
+                                "std_dev": "13.5378676879990435585", 
+                                "mean": "3.16778523489932885759", 
+                                "p50": "2", 
+                                "unit": "microseconds", 
+                                "size": "298"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "model:tf-kernel-svm:1:prediction_throughput": {
+                                "rate": "545.87852554180279", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "app:tf-kernel-svm:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "545.7775498617242", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "545.73157331848745", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "545.68460528508365", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "547.46864414538129", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:tf-kernel-svm:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:tf-kernel-svm:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "model:tf-kernel-svm:1:num_predictions": {
+                                "count": "298"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "299"
+                            }
+                        }, 
+                        {
+                            "app:tf-kernel-svm:num_predictions": {
+                                "count": "298"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:tf-kernel-svm:1:batch_size": {
+                                "p99": "8", 
+                                "min": "6", 
+                                "max": "8", 
+                                "p95": "8", 
+                                "std_dev": "0.518543698182178019855", 
+                                "mean": "7.21951219512195121715", 
+                                "p50": "7", 
+                                "unit": "queries", 
+                                "size": "41"
+                            }
+                        }, 
+                        {
+                            "model:tf-kernel-svm:1:prediction_latency": {
+                                "p99": "13713", 
+                                "min": "12695", 
+                                "max": "13713", 
+                                "p95": "13450.2999999999999616", 
+                                "std_dev": "188.822863461011269934", 
+                                "mean": "13157.7804878048780504", 
+                                "p50": "13190", 
+                                "unit": "microseconds", 
+                                "size": "41"
+                            }
+                        }, 
+                        {
+                            "tf-kernel-svm:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "295"
+                            }
+                        }, 
+                        {
+                            "app:tf-kernel-svm:prediction_latency": {
+                                "p99": "26206.1699999999989359", 
+                                "min": "13033", 
+                                "max": "26388", 
+                                "p95": "25543.0999999999992269", 
+                                "std_dev": "3735.86324245828019208", 
+                                "mean": "19786.5506756756756701", 
+                                "p50": "19824.5", 
+                                "unit": "microseconds", 
+                                "size": "296"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "8", 
+                                "min": "0", 
+                                "max": "15", 
+                                "p95": "7", 
+                                "std_dev": "2.26760420999289508495", 
+                                "mean": "3.14189189189189189153", 
+                                "p50": "2", 
+                                "unit": "microseconds", 
+                                "size": "296"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "5.16000000000008185452", 
+                                "min": "1", 
+                                "max": "424", 
+                                "p95": "4", 
+                                "std_dev": "24.5271710574300976834", 
+                                "mean": "3.63050847457627119024", 
+                                "p50": "2", 
+                                "unit": "microseconds", 
+                                "size": "295"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "546.77210501718821", 
+                                "rate_1min": "18.800000000000001", 
+                                "rate_5min": "18.800000000000001", 
+                                "unit": "events per second", 
+                                "rate_15min": "18.800000000000001"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "544.93597464108109", 
+                                "rate_1min": "18.399999999999999", 
+                                "rate_5min": "18.399999999999999", 
+                                "unit": "events per second", 
+                                "rate_15min": "18.399999999999999"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "546.73372774507436", 
+                                "rate_1min": "18.800000000000001", 
+                                "rate_5min": "18.800000000000001", 
+                                "unit": "events per second", 
+                                "rate_15min": "18.800000000000001"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "546.66203727644108", 
+                                "rate_1min": "18.800000000000001", 
+                                "rate_5min": "18.800000000000001", 
+                                "unit": "events per second", 
+                                "rate_15min": "18.800000000000001"
+                            }
+                        }, 
+                        {
+                            "app:tf-kernel-svm:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "model:tf-kernel-svm:1:prediction_throughput": {
+                                "rate": "546.52173993319877", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:tf-kernel-svm:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:tf-kernel-svm:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "295"
+                            }
+                        }, 
+                        {
+                            "app:tf-kernel-svm:num_predictions": {
+                                "count": "296"
+                            }
+                        }, 
+                        {
+                            "model:tf-kernel-svm:1:num_predictions": {
+                                "count": "296"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:tf-kernel-svm:1:batch_size": {
+                                "p99": "8", 
+                                "min": "6", 
+                                "max": "8", 
+                                "p95": "8", 
+                                "std_dev": "0.537167341556117985274", 
+                                "mean": "7.2619047619047619028", 
+                                "p50": "7", 
+                                "unit": "queries", 
+                                "size": "42"
+                            }
+                        }, 
+                        {
+                            "model:tf-kernel-svm:1:prediction_latency": {
+                                "p99": "13701", 
+                                "min": "12784", 
+                                "max": "13701", 
+                                "p95": "13467.2500000000000355", 
+                                "std_dev": "187.73966391227957988", 
+                                "mean": "13213.2380952380952381", 
+                                "p50": "13262.5", 
+                                "unit": "microseconds", 
+                                "size": "42"
+                            }
+                        }, 
+                        {
+                            "tf-kernel-svm:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "306"
+                            }
+                        }, 
+                        {
+                            "app:tf-kernel-svm:prediction_latency": {
+                                "p99": "26605.1199999999998909", 
+                                "min": "13121", 
+                                "max": "27201", 
+                                "p95": "26016.6999999999996476", 
+                                "std_dev": "3838.64864039723516509", 
+                                "mean": "19869.3016393442622878", 
+                                "p50": "19958", 
+                                "unit": "microseconds", 
+                                "size": "305"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "8", 
+                                "min": "0", 
+                                "max": "9", 
+                                "p95": "7", 
+                                "std_dev": "2.21501072398995089464", 
+                                "mean": "3.07213114754098360411", 
+                                "p50": "2", 
+                                "unit": "microseconds", 
+                                "size": "305"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "5.93000000000000682121", 
+                                "min": "1", 
+                                "max": "485", 
+                                "p95": "5", 
+                                "std_dev": "27.5496127212686555321", 
+                                "mean": "4.13725490196078431009", 
+                                "p50": "2", 
+                                "unit": "microseconds", 
+                                "size": "306"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "app:tf-kernel-svm:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "model:tf-kernel-svm:1:prediction_throughput": {
+                                "rate": "547.64414263167259", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "547.50159762761268", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "547.45246138216487", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "549.19809898488097", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "547.35519763111847", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:tf-kernel-svm:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:tf-kernel-svm:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "app:tf-kernel-svm:num_predictions": {
+                                "count": "305"
+                            }
+                        }, 
+                        {
+                            "model:tf-kernel-svm:1:num_predictions": {
+                                "count": "305"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "306"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "model:tf-kernel-svm:1:batch_size": {
+                                "p99": "8", 
+                                "min": "6", 
+                                "max": "8", 
+                                "p95": "8", 
+                                "std_dev": "0.53101319651407905524", 
+                                "mean": "7.24390243902439024152", 
+                                "p50": "7", 
+                                "unit": "queries", 
+                                "size": "41"
+                            }
+                        }, 
+                        {
+                            "model:tf-kernel-svm:1:prediction_latency": {
+                                "p99": "14265", 
+                                "min": "12592", 
+                                "max": "14265", 
+                                "p95": "13530.3999999999999915", 
+                                "std_dev": "256.484008080332007262", 
+                                "mean": "13155.9512195121951219", 
+                                "p50": "13150", 
+                                "unit": "microseconds", 
+                                "size": "41"
+                            }
+                        }, 
+                        {
+                            "tf-kernel-svm:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "297"
+                            }
+                        }, 
+                        {
+                            "app:tf-kernel-svm:prediction_latency": {
+                                "p99": "26410.2599999999979445", 
+                                "min": "12967", 
+                                "max": "26845", 
+                                "p95": "25792.1999999999995907", 
+                                "std_dev": "3793.11863522286465922", 
+                                "mean": "19812.5993265993266039", 
+                                "p50": "19806", 
+                                "unit": "microseconds", 
+                                "size": "297"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "9", 
+                                "min": "0", 
+                                "max": "18", 
+                                "p95": "7", 
+                                "std_dev": "2.40929736743180058492", 
+                                "mean": "3.33333333333333333131", 
+                                "p50": "3", 
+                                "unit": "microseconds", 
+                                "size": "297"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "5.05999999999994543032", 
+                                "min": "1", 
+                                "max": "160", 
+                                "p95": "5", 
+                                "std_dev": "9.1631819751673521026", 
+                                "mean": "3.19865319865319865014", 
+                                "p50": "2", 
+                                "unit": "microseconds", 
+                                "size": "297"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "548.31241623004746", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "548.32456383273336", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "548.27800094517966", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "548.20715954858747", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "model:tf-kernel-svm:1:prediction_throughput": {
+                                "rate": "548.09688581314879", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "app:tf-kernel-svm:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:tf-kernel-svm:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:tf-kernel-svm:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "model:tf-kernel-svm:1:num_predictions": {
+                                "count": "297"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "297"
+                            }
+                        }, 
+                        {
+                            "app:tf-kernel-svm:num_predictions": {
+                                "count": "297"
+                            }
+                        }
+                    ]
+                }
+            ], 
+            "thrus": [
+                529.5497591431179, 
+                544.3460589345333, 
+                547.4662350199552, 
+                554.3831378824782, 
+                558.5000921525152, 
+                543.4841683061773, 
+                557.7286315570295
+            ], 
+            "all_lats": [
+                "[0.047587, 0.062337, 0.064558, 0.06665, 0.061307, 0.059869, 0.070939, 0.069142, 0.058222, 0.066177, 0.068318, 0.05941, 0.070666, 0.065341, 0.063637, 0.058278, 0.062136, 0.074471, 0.076479, 0.06953, 0.073621, 0.071868, 0.066461, 0.068332, 0.064729, 0.073583, 0.075611, 0.068481, 0.070516, 0.072444, 0.063657, 0.067337, 0.065579, 0.074162, 0.072554, 0.069305, 0.071348, 0.067895, 0.064448, 0.066319, 0.062767, 0.071234, 0.073159, 0.066053, 0.069834, 0.068291, 0.063202, 0.065229, 0.061636, 0.071766, 0.070119, 0.068742, 0.06711, 0.063628, 0.061977, 0.060454, 0.065921, 0.069445, 0.064073, 0.06817, 0.060985, 0.057471, 0.062969, 0.059606, 0.067124, 0.068006, 0.064607, 0.06128, 0.063535, 0.06732, 0.056447, 0.058299, 0.060148, 0.065022, 0.067188, 0.061789, 0.063795, 0.060372, 0.056802, 0.058687, 0.055108, 0.062387, 0.064497, 0.061239, 0.057937, 0.059853, 0.056319, 0.052765, 0.054746, 0.062793, 0.061133, 0.059713, 0.056274, 0.058188, 0.054702, 0.050845, 0.053186, 0.061497, 0.058015, 0.052951, 0.054924, 0.04967, 0.057066, 0.051588, 0.060772, 0.05759, 0.059508, 0.054296, 0.052671, 0.056675, 0.049528, 0.047789, 0.051445, 0.052697, 0.056742, 0.046049, 0.059062, 0.055574, 0.048496, 0.05044, 0.052303, 0.053504, 0.05543, 0.04466, 0.057455, 0.046911, 0.050623, 0.052568, 0.049064, 0.054747, 0.051749, 0.053816, 0.050147, 0.0484, 0.046654, 0.044906, 0.043161, 0.05197, 0.054003, 0.046695, 0.050389, 0.048656, 0.04156, 0.045218, 0.043472, 0.052428, 0.049078, 0.047619, 0.045913, 0.051444, 0.044271, 0.040682, 0.042572, 0.05107, 0.049606, 0.048009, 0.044824, 0.043343, 0.041681, 0.047199, 0.039791, 0.047211, 0.049201, 0.042124, 0.045876, 0.044134, 0.038863, 0.040763, 0.03717, 0.048011, 0.046397, 0.044754, 0.041265, 0.03953, 0.037631, 0.035881, 0.043367, 0.044493, 0.046518, 0.039659, 0.043565, 0.04184, 0.034072, 0.037763, 0.036015, 0.043498, 0.042165, 0.040485, 0.036933, 0.039138, 0.035721, 0.034048, 0.032407, 0.042582, 0.040907, 0.039219, 0.037701, 0.030524, 0.035997, 0.034228, 0.032481, 0.041321, 0.037989, 0.040128, 0.034996, 0.036977, 0.033493, 0.030104, 0.031962, 0.037088, 0.039388, 0.032174, 0.034128, 0.036144, 0.027377, 0.029351, 0.031307, 0.035204, 0.028276, 0.032, 0.037528, 0.034207, 0.025342, 0.027388, 0.031072, 0.033999, 0.028718, 0.036156, 0.025407, 0.03286, 0.031533, 0.023926, 0.028015, 0.031571, 0.026257, 0.028308, 0.022932, 0.034053, 0.021599, 0.025263, 0.03084, 0.032184, 0.028868, 0.027183, 0.030906, 0.024056, 0.022295, 0.026034, 0.020688, 0.031259, 0.027787, 0.026329, 0.024736, 0.030417, 0.021397, 0.01965, 0.023302, 0.027017, 0.028939, 0.025446, 0.021936, 0.024312, 0.018932, 0.017182, 0.020837, 0.027684, 0.025475, 0.023689, 0.022004, 0.020455, 0.018856, 0.017114, 0.027835, 0.026325, 0.024612, 0.022917, 0.021418, 0.019783, 0.01804, 0.016292, 0.025372, 0.023456, 0.021892, 0.01856, 0.017018, 0.020796, 0.027833, 0.026065, 0.024334, 0.022645, 0.021158, 0.017643, 0.019525, 0.027506, 0.025885, 0.024168, 0.02078, 0.022807, 0.0194, 0.015854]", 
+                "[0.02248, 0.025605, 0.027551, 0.024253, 0.022836, 0.0211, 0.017549, 0.019406, 0.028555, 0.023645, 0.021943, 0.026898, 0.018576, 0.016834, 0.020487, 0.024458, 0.019244, 0.02141, 0.027113, 0.018116, 0.016354, 0.023668, 0.027351, 0.025348, 0.022038, 0.024085, 0.020529, 0.017009, 0.018887, 0.027823, 0.026304, 0.02474, 0.02146, 0.019794, 0.023491, 0.018106, 0.02755, 0.023899, 0.022416, 0.026372, 0.017292, 0.019277, 0.021227, 0.026265, 0.02834, 0.023032, 0.02158, 0.025301, 0.018205, 0.016591, 0.020404, 0.026909, 0.025039, 0.021767, 0.023892, 0.018562, 0.016828, 0.0205, 0.027496, 0.026019, 0.024268, 0.022628, 0.021006, 0.01943, 0.017714, 0.02704, 0.025352, 0.023226, 0.021687, 0.018242, 0.016497, 0.020157, 0.02556, 0.027735, 0.020367, 0.02411, 0.022598, 0.015509, 0.01933, 0.017585, 0.026235, 0.021179, 0.023099, 0.025042, 0.016207, 0.018076, 0.019933, 0.024575, 0.019314, 0.017617, 0.02726, 0.021692, 0.016398, 0.023917, 0.027142, 0.02535, 0.022116, 0.024029, 0.020662, 0.018971, 0.017387, 0.027679, 0.023996, 0.020623, 0.026208, 0.022925, 0.015986, 0.019725, 0.01806, 0.025714, 0.020429, 0.024132, 0.022381, 0.01523, 0.018886, 0.017135, 0.026169, 0.024538, 0.022967, 0.021317, 0.016182, 0.01993, 0.018161, 0.026671, 0.024934, 0.023263, 0.021518, 0.019787, 0.018267, 0.016555, 0.027353, 0.025748, 0.023993, 0.020669, 0.018988, 0.017304, 0.022846, 0.026194, 0.022471, 0.024466, 0.028453, 0.017621, 0.01948, 0.021334, 0.023421, 0.025861, 0.020278, 0.02223, 0.028107, 0.015288, 0.017248, 0.019198, 0.020523, 0.015208, 0.026195, 0.022714, 0.024853, 0.017703, 0.019556, 0.026818, 0.023264, 0.021592, 0.025475, 0.020152, 0.016609, 0.018577, 0.027468, 0.023986, 0.022331, 0.026218, 0.020934, 0.017475, 0.019332, 0.028225, 0.015599, 0.026631, 0.019623, 0.023281, 0.025136, 0.021583, 0.018226, 0.025252, 0.021787, 0.027599, 0.024062, 0.018724, 0.020598, 0.017115, 0.027966, 0.026264, 0.022656, 0.024634, 0.021111, 0.017687, 0.019596, 0.027389, 0.025841, 0.024116, 0.022499, 0.020779, 0.019146, 0.017396, 0.01564, 0.026163, 0.024483, 0.022752, 0.019438, 0.017857, 0.016107, 0.021568, 0.026937, 0.025157, 0.023506, 0.022037, 0.01668, 0.020394, 0.018771, 0.0259, 0.02796, 0.020959, 0.024684, 0.022972, 0.015882, 0.019594, 0.017848, 0.02168, 0.025747, 0.023821, 0.016732, 0.020542, 0.018865, 0.028075, 0.026475, 0.022989, 0.024854, 0.021298, 0.017747, 0.019602, 0.016048, 0.026912, 0.025191, 0.021715, 0.023659, 0.02013, 0.016597, 0.01847, 0.027606, 0.02599, 0.024281, 0.02272, 0.019199, 0.021216, 0.017672, 0.0255, 0.027448, 0.023578, 0.020055, 0.021988, 0.016753, 0.01513, 0.018919, 0.023484, 0.021755, 0.025768, 0.01864, 0.016981, 0.020639, 0.028079, 0.026295, 0.022599, 0.024486, 0.021041, 0.019317, 0.017642, 0.025777, 0.027966, 0.024258, 0.022528, 0.020837, 0.019116, 0.017392, 0.028196, 0.02647, 0.024827, 0.021347, 0.02323, 0.019879, 0.016328, 0.018184, 0.02712, 0.023732, 0.020346, 0.025833, 0.022304, 0.017153, 0.019051, 0.027912, 0.019047, 0.022875, 0.026625]", 
+                "[0.025378, 0.02187, 0.029126, 0.020298, 0.026861, 0.025148, 0.021694, 0.023646, 0.020367, 0.016823, 0.018678, 0.024553, 0.026693, 0.02119, 0.023137, 0.017873, 0.016269, 0.019933, 0.027147, 0.025634, 0.02387, 0.022211, 0.020498, 0.017032, 0.018967, 0.026021, 0.027963, 0.022834, 0.024787, 0.021352, 0.016073, 0.019767, 0.018096, 0.026869, 0.023304, 0.025199, 0.022015, 0.018617, 0.020507, 0.017032, 0.02578, 0.024202, 0.022644, 0.028144, 0.019253, 0.017609, 0.021317, 0.024491, 0.026565, 0.017599, 0.028819, 0.023329, 0.021609, 0.016525, 0.020194, 0.027084, 0.025517, 0.022095, 0.02399, 0.020458, 0.018819, 0.017098, 0.026719, 0.02508, 0.023309, 0.019904, 0.021782, 0.018254, 0.014957, 0.016839, 0.025576, 0.021954, 0.023955, 0.020657, 0.017126, 0.019094, 0.015538, 0.026124, 0.02441, 0.021062, 0.022945, 0.019468, 0.015945, 0.017874, 0.026721, 0.024598, 0.022925, 0.019415, 0.017839, 0.016164, 0.021715, 0.027043, 0.023569, 0.022081, 0.025763, 0.020587, 0.017086, 0.018969, 0.026746, 0.025016, 0.019737, 0.021683, 0.023799, 0.014873, 0.018549, 0.016933, 0.025524, 0.022091, 0.024171, 0.018993, 0.02087, 0.015605, 0.017532, 0.026269, 0.024358, 0.022632, 0.021064, 0.019322, 0.017571, 0.015824, 0.026749, 0.023219, 0.025192, 0.021645, 0.018271, 0.020231, 0.016739, 0.027527, 0.025953, 0.02249, 0.024472, 0.02096, 0.017482, 0.019436, 0.02706, 0.023543, 0.021835, 0.014719, 0.026014, 0.018767, 0.01702, 0.020669, 0.025782, 0.02404, 0.022313, 0.017145, 0.019108, 0.021008, 0.025201, 0.023572, 0.02737, 0.021889, 0.020216, 0.016823, 0.01868, 0.01516, 0.025789, 0.023999, 0.022287, 0.017101, 0.019027, 0.02088, 0.026069, 0.028183, 0.020859, 0.022881, 0.024802, 0.017684, 0.019567, 0.025633, 0.027884, 0.020318, 0.022195, 0.024076, 0.015117, 0.018889, 0.017213, 0.026125, 0.022574, 0.020972, 0.0249, 0.01775, 0.015971, 0.019653, 0.026987, 0.025225, 0.023628, 0.02008, 0.018331, 0.021986, 0.016634, 0.024808, 0.026704, 0.023231, 0.01985, 0.021883, 0.018397, 0.014917, 0.016776, 0.025895, 0.022452, 0.024314, 0.018959, 0.020811, 0.017261, 0.027376, 0.025757, 0.022232, 0.024275, 0.020844, 0.017318, 0.019171, 0.028229, 0.024812, 0.026726, 0.01963, 0.023358, 0.016256, 0.02186, 0.018317, 0.026913, 0.025038, 0.021518, 0.023657, 0.020138, 0.016657, 0.018517, 0.025567, 0.027598, 0.020557, 0.024423, 0.017374, 0.019232, 0.022915, 0.027099, 0.021475, 0.025659, 0.02384, 0.02038, 0.018636, 0.016889, 0.015202, 0.025964, 0.024253, 0.022765, 0.019227, 0.021079, 0.017533, 0.015782, 0.026376, 0.020849, 0.022788, 0.024742, 0.015915, 0.017791, 0.019713, 0.025042, 0.026957, 0.021882, 0.023757, 0.018455, 0.01673, 0.020492, 0.02648, 0.023114, 0.024992, 0.021479, 0.019817, 0.018412, 0.01487, 0.016761, 0.025608, 0.023993, 0.020471, 0.022341, 0.01702, 0.015436, 0.019177, 0.02628, 0.020845, 0.024722, 0.023036, 0.015961, 0.017819, 0.019671, 0.026932, 0.023423, 0.021706, 0.025681, 0.0185, 0.01678, 0.02047, 0.027589, 0.022551, 0.024426, 0.026307, 0.017417, 0.019275, 0.021126, 0.027277]", 
+                "[0.028386, 0.030339, 0.02674, 0.023258, 0.025129, 0.021685, 0.027913, 0.022708, 0.026477, 0.021291, 0.024977, 0.01977, 0.016348, 0.0182, 0.022016, 0.026678, 0.024563, 0.016572, 0.020369, 0.018624, 0.026518, 0.02486, 0.023091, 0.021576, 0.019833, 0.014486, 0.018163, 0.016436, 0.025443, 0.023889, 0.020366, 0.018804, 0.022514, 0.017276, 0.015535, 0.025993, 0.024417, 0.020947, 0.022823, 0.019339, 0.017557, 0.026672, 0.028563, 0.023093, 0.021437, 0.025116, 0.019924, 0.018331, 0.029059, 0.02738, 0.026007, 0.022488, 0.024419, 0.020878, 0.017362, 0.019242, 0.028002, 0.024265, 0.026373, 0.021092, 0.023039, 0.015926, 0.019613, 0.017938, 0.026545, 0.022884, 0.021292, 0.024978, 0.017921, 0.016216, 0.020034, 0.027357, 0.024011, 0.022426, 0.0261, 0.017143, 0.018997, 0.020854, 0.028, 0.022635, 0.026349, 0.024737, 0.017625, 0.021388, 0.019668, 0.02588, 0.027929, 0.022523, 0.020895, 0.024585, 0.017537, 0.01589, 0.019548, 0.024762, 0.026704, 0.021377, 0.02331, 0.016261, 0.020256, 0.018584, 0.027492, 0.024041, 0.026025, 0.022484, 0.020801, 0.019058, 0.017283, 0.028094, 0.02648, 0.024504, 0.020981, 0.022962, 0.019445, 0.015976, 0.0179, 0.026684, 0.024953, 0.023225, 0.02155, 0.020156, 0.018412, 0.016665, 0.025718, 0.027612, 0.02237, 0.024254, 0.020822, 0.01729, 0.019213, 0.028158, 0.02471, 0.019559, 0.027146, 0.016548, 0.018525, 0.022278, 0.024231, 0.025283, 0.027294, 0.024027, 0.022434, 0.01737, 0.021065, 0.019335, 0.028121, 0.024522, 0.026652, 0.019602, 0.021522, 0.023557, 0.016646, 0.01851, 0.026771, 0.021461, 0.025269, 0.023734, 0.016796, 0.018774, 0.02079, 0.027459, 0.02423, 0.019058, 0.026493, 0.017636, 0.021394, 0.023249, 0.026554, 0.028631, 0.024817, 0.021377, 0.023403, 0.019973, 0.016693, 0.018554, 0.027009, 0.025222, 0.02351, 0.020338, 0.018868, 0.022527, 0.017181, 0.027713, 0.022392, 0.026192, 0.024631, 0.017494, 0.021146, 0.019397, 0.02753, 0.025912, 0.022425, 0.024367, 0.020877, 0.019186, 0.015694, 0.017657, 0.025977, 0.020853, 0.024754, 0.023069, 0.015995, 0.019677, 0.017905, 0.021186, 0.026781, 0.025019, 0.020064, 0.018547, 0.024023, 0.016917, 0.027493, 0.026271, 0.022787, 0.024717, 0.021361, 0.017811, 0.019674, 0.028404, 0.024573, 0.021209, 0.027062, 0.023359, 0.01641, 0.02014, 0.018615, 0.025091, 0.021609, 0.027204, 0.023869, 0.016779, 0.020651, 0.018911, 0.024702, 0.023156, 0.027083, 0.02187, 0.016531, 0.020181, 0.018434, 0.027715, 0.025972, 0.024251, 0.02256, 0.021042, 0.019584, 0.017828, 0.016079, 0.02635, 0.023001, 0.0197, 0.02161, 0.016321, 0.025467, 0.01853, 0.026937, 0.019791, 0.02385, 0.025726, 0.016738, 0.018617, 0.022374, 0.027512, 0.026333, 0.024629, 0.022887, 0.021143, 0.019398, 0.017651, 0.027445, 0.023801, 0.022408, 0.026252, 0.021072, 0.019361, 0.017666, 0.01595, 0.02651, 0.024806, 0.021289, 0.023141, 0.019599, 0.016049, 0.017906, 0.026895, 0.023171, 0.021942, 0.025731, 0.020435, 0.016893, 0.018775, 0.027818, 0.02637, 0.024711, 0.023034, 0.019548, 0.021459, 0.016171, 0.018104, 0.02657, 0.022793]", 
+                "[0.030054, 0.02296, 0.024907, 0.026807, 0.028665, 0.025031, 0.027516, 0.023708, 0.020334, 0.022297, 0.018853, 0.027929, 0.026365, 0.024815, 0.022953, 0.021184, 0.0173, 0.019188, 0.026058, 0.028386, 0.020868, 0.024715, 0.017633, 0.019647, 0.023299, 0.028358, 0.026767, 0.023063, 0.025034, 0.021614, 0.018252, 0.020214, 0.026059, 0.022692, 0.02851, 0.021125, 0.019492, 0.025007, 0.017934, 0.016255, 0.024723, 0.019765, 0.027283, 0.016452, 0.018426, 0.023931, 0.022185, 0.025809, 0.02805, 0.02121, 0.023157, 0.025147, 0.016204, 0.018086, 0.019964, 0.021923, 0.0238, 0.026016, 0.016725, 0.018708, 0.020564, 0.027975, 0.024118, 0.026585, 0.022936, 0.019406, 0.021255, 0.017719, 0.026567, 0.028884, 0.021723, 0.023797, 0.025749, 0.018607, 0.020463, 0.016913, 0.024263, 0.026556, 0.021312, 0.023214, 0.016089, 0.019778, 0.018033, 0.027354, 0.023707, 0.021989, 0.025747, 0.020353, 0.018635, 0.01689, 0.0281, 0.024851, 0.026742, 0.021391, 0.023242, 0.01607, 0.017924, 0.019802, 0.025705, 0.022498, 0.024367, 0.020818, 0.017276, 0.019252, 0.015708, 0.024747, 0.021619, 0.02727, 0.023749, 0.016648, 0.020391, 0.018649, 0.027597, 0.024225, 0.022791, 0.026516, 0.019603, 0.017851, 0.021565, 0.02732, 0.02589, 0.024188, 0.022771, 0.019302, 0.021259, 0.017726, 0.026595, 0.02853, 0.021415, 0.023332, 0.025314, 0.016445, 0.01846, 0.020491, 0.027261, 0.02518, 0.021924, 0.023939, 0.020624, 0.018963, 0.017221, 0.024747, 0.026749, 0.021653, 0.023609, 0.016527, 0.018449, 0.020524, 0.02525, 0.027989, 0.022131, 0.023993, 0.016852, 0.018777, 0.020653, 0.028055, 0.024687, 0.026656, 0.023177, 0.021498, 0.019821, 0.01661, 0.018472, 0.026975, 0.021639, 0.023773, 0.025854, 0.017179, 0.019168, 0.021028, 0.025165, 0.027062, 0.02166, 0.023516, 0.019975, 0.018228, 0.016566, 0.027647, 0.025993, 0.024484, 0.021073, 0.023167, 0.01963, 0.017886, 0.016167, 0.023771, 0.025688, 0.020309, 0.022294, 0.018748, 0.017, 0.015313, 0.024501, 0.02277, 0.026742, 0.019288, 0.017542, 0.02119, 0.027524, 0.024432, 0.022811, 0.02651, 0.017496, 0.019381, 0.02123, 0.020903, 0.017537, 0.028933, 0.025382, 0.027243, 0.02009, 0.02374, 0.016722, 0.027158, 0.023544, 0.025607, 0.022195, 0.018857, 0.020717, 0.017154, 0.027965, 0.026476, 0.021037, 0.022915, 0.024837, 0.01772, 0.019617, 0.023145, 0.027541, 0.025769, 0.020477, 0.022425, 0.018953, 0.015471, 0.017486, 0.025971, 0.020577, 0.024462, 0.023088, 0.016124, 0.019785, 0.01804, 0.024679, 0.026842, 0.023496, 0.016509, 0.020229, 0.018622, 0.022283, 0.026404, 0.022778, 0.024834, 0.019552, 0.021604, 0.016356, 0.018221, 0.024911, 0.021484, 0.027539, 0.023807, 0.016838, 0.020635, 0.018985, 0.02435, 0.028289, 0.021131, 0.022984, 0.026651, 0.015915, 0.019641, 0.017898, 0.024623, 0.021495, 0.027467, 0.023904, 0.016768, 0.020441, 0.01873, 0.027325, 0.024348, 0.022696, 0.026621, 0.019541, 0.017852, 0.021505, 0.025112, 0.021667, 0.020083, 0.018629, 0.028313, 0.015571, 0.01747, 0.024795, 0.025917, 0.024206, 0.022705, 0.021222, 0.017743, 0.019661, 0.016221]", 
+                "[0.026761, 0.024961, 0.023447, 0.021876, 0.020323, 0.018742, 0.017162, 0.027628, 0.023587, 0.025504, 0.021682, 0.019904, 0.018155, 0.016425, 0.02757, 0.024015, 0.020507, 0.026206, 0.017106, 0.018961, 0.022608, 0.026239, 0.028325, 0.021248, 0.025172, 0.023746, 0.016678, 0.020512, 0.018771, 0.02732, 0.021873, 0.023723, 0.025583, 0.016626, 0.02055, 0.018814, 0.028005, 0.024201, 0.022586, 0.026632, 0.021304, 0.017816, 0.019706, 0.026688, 0.028895, 0.025179, 0.021627, 0.023496, 0.020079, 0.016535, 0.018391, 0.026293, 0.022785, 0.021243, 0.025117, 0.019772, 0.016225, 0.018077, 0.027127, 0.025531, 0.024135, 0.020635, 0.022515, 0.019, 0.015474, 0.017379, 0.026174, 0.022886, 0.021424, 0.02508, 0.017921, 0.016168, 0.019844, 0.027129, 0.025242, 0.023723, 0.022237, 0.020497, 0.018751, 0.016986, 0.02751, 0.024062, 0.022579, 0.026427, 0.017663, 0.019591, 0.021448, 0.025201, 0.021949, 0.02044, 0.027913, 0.024431, 0.017503, 0.015764, 0.019417, 0.025884, 0.024441, 0.020957, 0.022939, 0.019533, 0.015991, 0.017891, 0.026551, 0.021333, 0.023257, 0.025322, 0.01664, 0.018505, 0.020357, 0.02755, 0.022239, 0.024399, 0.026285, 0.017411, 0.019287, 0.021139, 0.02819, 0.024747, 0.026906, 0.023295, 0.019872, 0.021729, 0.018185, 0.026688, 0.028716, 0.022997, 0.024981, 0.019848, 0.021807, 0.018273, 0.028055, 0.026211, 0.022414, 0.020823, 0.024542, 0.017447, 0.015809, 0.019465, 0.024672, 0.026629, 0.019552, 0.02143, 0.023457, 0.016488, 0.018374, 0.027445, 0.02408, 0.025976, 0.022458, 0.018994, 0.021068, 0.017553, 0.026417, 0.02854, 0.02137, 0.02506, 0.023444, 0.016452, 0.020141, 0.018487, 0.023738, 0.022341, 0.026214, 0.028103, 0.017353, 0.021005, 0.019266, 0.028184, 0.024401, 0.022864, 0.026757, 0.017579, 0.02123, 0.019483, 0.02867, 0.026873, 0.023426, 0.025537, 0.022076, 0.018547, 0.020508, 0.01695, 0.025828, 0.027735, 0.0244, 0.021006, 0.022891, 0.019327, 0.017601, 0.015878, 0.025671, 0.024108, 0.022507, 0.018973, 0.017256, 0.015514, 0.021085, 0.026369, 0.022984, 0.025086, 0.021547, 0.016171, 0.019823, 0.018076, 0.025635, 0.027604, 0.020479, 0.022424, 0.02448, 0.01556, 0.01742, 0.019274, 0.026255, 0.021116, 0.023079, 0.024962, 0.016049, 0.019708, 0.017955, 0.026877, 0.025098, 0.023452, 0.020167, 0.022162, 0.018683, 0.016939, 0.026029, 0.024416, 0.022698, 0.020956, 0.028443, 0.019452, 0.017705, 0.028292, 0.026713, 0.023001, 0.02489, 0.021407, 0.017892, 0.019814, 0.027701, 0.026056, 0.02253, 0.024518, 0.021034, 0.019324, 0.017608, 0.015941, 0.026626, 0.024914, 0.023239, 0.021634, 0.020049, 0.018388, 0.01664, 0.027164, 0.021889, 0.023839, 0.025922, 0.020734, 0.019136, 0.017414, 0.015707, 0.022152, 0.026325, 0.024305, 0.017221, 0.019159, 0.021084, 0.028325, 0.021102, 0.023067, 0.019548, 0.025166, 0.027067, 0.018171, 0.027834, 0.026201, 0.022731, 0.021007, 0.024767, 0.01771, 0.015983, 0.019652, 0.026989, 0.021509, 0.025455, 0.02386, 0.016711, 0.020366, 0.018647, 0.027754, 0.02623, 0.024503, 0.022761, 0.021188, 0.019475, 0.01777, 0.016098, 0.025656]", 
+                "[0.027049, 0.028946, 0.021782, 0.023655, 0.025505, 0.026412, 0.028465, 0.023128, 0.025016, 0.021688, 0.018147, 0.019997, 0.016452, 0.025348, 0.027356, 0.021655, 0.023641, 0.0185, 0.016838, 0.02055, 0.025767, 0.027774, 0.020625, 0.024363, 0.022738, 0.017423, 0.019355, 0.028147, 0.026512, 0.024677, 0.023013, 0.021303, 0.019699, 0.017986, 0.016281, 0.027102, 0.025541, 0.022099, 0.023979, 0.02044, 0.01692, 0.018801, 0.025003, 0.02704, 0.021693, 0.02354, 0.019999, 0.016451, 0.018305, 0.027642, 0.024076, 0.026301, 0.020676, 0.02253, 0.017187, 0.019036, 0.022613, 0.026496, 0.017573, 0.028488, 0.025102, 0.01981, 0.016259, 0.021719, 0.019773, 0.02724, 0.02386, 0.022262, 0.025933, 0.018856, 0.017146, 0.02685, 0.02528, 0.02367, 0.022117, 0.018558, 0.016809, 0.01506, 0.02051, 0.025732, 0.020452, 0.024277, 0.022565, 0.0154, 0.019074, 0.017326, 0.026501, 0.022976, 0.021261, 0.025022, 0.016068, 0.017928, 0.019781, 0.027294, 0.025638, 0.020475, 0.024177, 0.017058, 0.022618, 0.019076, 0.023315, 0.021643, 0.01832, 0.01675, 0.025843, 0.027795, 0.020685, 0.02782, 0.024572, 0.019279, 0.026721, 0.017901, 0.016158, 0.021607, 0.023457, 0.026689, 0.019536, 0.023251, 0.018009, 0.021757, 0.025548, 0.016766, 0.020846, 0.026372, 0.013899, 0.02497, 0.019738, 0.023442, 0.018192, 0.016524, 0.024082, 0.020534, 0.018965, 0.02269, 0.015609, 0.017486, 0.026769, 0.023302, 0.021644, 0.025391, 0.020134, 0.016714, 0.018702, 0.02748, 0.025694, 0.022581, 0.024525, 0.021009, 0.017551, 0.019515, 0.015939, 0.025038, 0.023166, 0.021447, 0.017988, 0.01631, 0.020082, 0.02725, 0.023735, 0.025926, 0.022323, 0.020646, 0.018931, 0.017261, 0.027715, 0.026065, 0.022601, 0.024571, 0.021102, 0.019391, 0.017721, 0.028504, 0.026843, 0.025058, 0.021637, 0.023716, 0.020266, 0.018523, 0.016776, 0.027253, 0.023983, 0.025981, 0.022635, 0.019121, 0.020998, 0.01751, 0.026992, 0.021495, 0.023461, 0.025757, 0.016686, 0.018567, 0.020511, 0.025778, 0.027719, 0.022461, 0.020904, 0.024658, 0.015738, 0.017616, 0.019528, 0.024536, 0.026771, 0.019576, 0.023255, 0.021537, 0.016211, 0.018279, 0.027506, 0.024125, 0.022478, 0.026198, 0.019267, 0.017525, 0.021178, 0.028204, 0.024702, 0.026691, 0.023361, 0.02162, 0.019872, 0.018137, 0.016388, 0.02632, 0.024424, 0.022767, 0.021117, 0.019534, 0.01605, 0.017932, 0.027022, 0.021643, 0.018303, 0.025689, 0.024025, 0.016916, 0.020705, 0.026891, 0.0234, 0.025289, 0.021957, 0.020344, 0.018627, 0.016908, 0.015234, 0.025772, 0.020424, 0.024149, 0.022507, 0.015491, 0.01922, 0.01746, 0.026397, 0.024733, 0.021191, 0.023068, 0.017839, 0.01612, 0.019844, 0.025304, 0.027398, 0.020316, 0.024122, 0.022468, 0.017221, 0.019079, 0.02787, 0.024301, 0.02635, 0.022769, 0.019227, 0.021076, 0.017529, 0.022944, 0.028791, 0.019705, 0.027093, 0.018226, 0.016549, 0.02569, 0.022143, 0.027282, 0.02421, 0.022469, 0.026122, 0.018972, 0.01722, 0.020874, 0.016068, 0.025324, 0.02171, 0.027392, 0.018317, 0.020481, 0.024144, 0.028838, 0.027114, 0.025277, 0.023621, 0.021954]"
+            ], 
+            "mean_batch_sizes": [
+                {
+                    "tf-kernel-svm": 7.72
+                }, 
+                {
+                    "tf-kernel-svm": 7.21
+                }, 
+                {
+                    "tf-kernel-svm": 7.19
+                }, 
+                {
+                    "tf-kernel-svm": 7.27
+                }, 
+                {
+                    "tf-kernel-svm": 7.22
+                }, 
+                {
+                    "tf-kernel-svm": 7.26
+                }, 
+                {
+                    "tf-kernel-svm": 7.24
+                }
+            ], 
+            "mean_lats": [
+                0.04569764333333333, 
+                0.022016753333333333, 
+                0.02165937, 
+                0.022170843333333332, 
+                0.02218241666666667, 
+                0.022110996666666667, 
+                0.02199597
+            ]
+        }
+    ], 
+    "node_configs": [
+        {
+            "model_image": "model-comp/tf-kernel-svm", 
+            "name": "tf-kernel-svm", 
+            "cpus_per_replica": 2, 
+            "input_type": "floats", 
+            "use_nvidia_docker": true, 
+            "batch_size": 8, 
+            "num_replicas": 1, 
+            "instance_type": "p2.8xlarge", 
+            "no_diverge": true, 
+            "slo": 5000000, 
+            "gpus_per_replica": 0, 
+            "allocated_cpus": [
+                17, 
+                18, 
+                19, 
+                20, 
+                21, 
+                22, 
+                23, 
+                24
+            ], 
+            "gpus": [], 
+            "input_size": -1
+        }
+    ]
+}
