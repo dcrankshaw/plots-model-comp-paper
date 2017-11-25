@@ -155,10 +155,10 @@ def extract_client_metrics_new(exp):
 
 
 def extract_client_metrics(exp):
-    if "clipper_metrics" in exp:
-        return extract_client_metrics_old(exp)
-    else:
-        return extract_client_metrics_new(exp)
+    # if "clipper_metrics" in exp:
+    #     return extract_client_metrics_old(exp)
+    # else:
+    return extract_client_metrics_new(exp)
 
 
 def compute_cost(results_json):
