@@ -18,7 +18,7 @@ def load_results(results_dir):
                 format_client_metrics(data)
                 first_good_trial, last_good_trial = select_valid_trials(data)
                 extract_good_results(data, first_good_trial, last_good_trial)
-                if max([len(cm["thrus"]) for cm in data["client_metrics"]]) > 5:
+                if max([len(cm["thrus"]) for cm in data["client_metrics"]]) > 4:
                     experiments[exp] = data
         else:
             # print("skipping %s" % os.path.join(results_dir, exp))
@@ -37,11 +37,13 @@ def load_results(results_dir):
 def select_valid_trials(results_json):
     p99_lats = results_json["client_metrics"][0]["p99_lats"]
 
-    num_good_trials = 8
+    num_good_trials = 4
 
     # We assume that at least the last 8 trials were good
     last_8_mean = np.mean(p99_lats[-1*num_good_trials:])
     last_8_stdev = np.std(p99_lats[-1*num_good_trials:])
+
+    print(last_8_mean)
 
     # good_trials = []
     # for i in reversed(range(len(p99_lats))):
@@ -155,10 +157,10 @@ def extract_client_metrics_new(exp):
 
 
 def extract_client_metrics(exp):
-    if "clipper_metrics" in exp:
-        return extract_client_metrics_old(exp)
-    else:
-        return extract_client_metrics_new(exp)
+    # if "clipper_metrics" in exp:
+    #     return extract_client_metrics_old(exp)
+    # else:
+    return extract_client_metrics_new(exp)
 
 
 def compute_cost(results_json):
