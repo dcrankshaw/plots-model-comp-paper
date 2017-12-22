@@ -1,0 +1,3099 @@
+{
+    "client_metrics": [
+        {
+            "p99_lats": [
+                0.0581439, 
+                0.06350114, 
+                0.07845491999999998, 
+                0.06613064999999997, 
+                0.07782156999999999, 
+                0.07747016999999999, 
+                0.0657894
+            ], 
+            "all_metrics": [
+                {
+                    "histograms": [
+                        {
+                            "app:tf-lang-detect:prediction_latency": {
+                                "p99": "56597.9900000000036471", 
+                                "min": "18476", 
+                                "max": "56687", 
+                                "p95": "55908.5999999999999091", 
+                                "std_dev": "9858.35347863805297308", 
+                                "mean": "42445.4849999999999994", 
+                                "p50": "42959", 
+                                "unit": "microseconds", 
+                                "size": "200"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "12", 
+                                "min": "3", 
+                                "max": "14", 
+                                "p95": "6", 
+                                "std_dev": "1.33819841578145652867", 
+                                "mean": "4.81500000000000000829", 
+                                "p50": "5", 
+                                "unit": "microseconds", 
+                                "size": "200"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "tf-lang-detect:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "203"
+                            }
+                        }, 
+                        {
+                            "tf-lang-detect:1:queue_size": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "151"
+                            }
+                        }, 
+                        {
+                            "model:tf-lang-detect:1:prediction_latency": {
+                                "p99": "39646.5", 
+                                "min": "18424", 
+                                "max": "39725", 
+                                "p95": "38731.5", 
+                                "std_dev": "6565.03341749324432808", 
+                                "mean": "34096.6442953020134219", 
+                                "p50": "38375", 
+                                "unit": "microseconds", 
+                                "size": "149"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "5", 
+                                "min": "0", 
+                                "max": "5", 
+                                "p95": "1", 
+                                "std_dev": "0.808422263030972872535", 
+                                "mean": "0.3004926108374384237", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "203"
+                            }
+                        }, 
+                        {
+                            "model:tf-lang-detect:1:batch_size": {
+                                "p99": "2", 
+                                "min": "1", 
+                                "max": "2", 
+                                "p95": "2", 
+                                "std_dev": "0.474473386366003662177", 
+                                "mean": "1.34228187919463087298", 
+                                "p50": "1", 
+                                "unit": "queries", 
+                                "size": "149"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "5.6854735213426562", 
+                                "rate_1min": "2.9743477757891736", 
+                                "rate_5min": "0.61486191783582933", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.20609365421784168"
+                            }
+                        }, 
+                        {
+                            "model:tf-lang-detect:1:prediction_throughput": {
+                                "rate": "11.025288428436093", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "app:tf-lang-detect:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "5.6868447386464061", 
+                                "rate_1min": "2.9743477757891736", 
+                                "rate_5min": "0.61486191783582933", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.20609365421784168"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "5.6854544498872253", 
+                                "rate_1min": "2.9743477757891736", 
+                                "rate_5min": "0.61486191783582933", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.20609365421784168"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "5.7707295407454433", 
+                                "rate_1min": "3.0223211270115793", 
+                                "rate_5min": "0.62477904554285879", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.20941774541490363"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:tf-lang-detect:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:tf-lang-detect:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "model:tf-lang-detect:1:num_predictions": {
+                                "count": "200"
+                            }
+                        }, 
+                        {
+                            "app:tf-lang-detect:num_predictions": {
+                                "count": "200"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "203"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:tf-lang-detect:prediction_latency": {
+                                "p99": "61601.4399999999992019", 
+                                "min": "43273", 
+                                "max": "61704", 
+                                "p95": "61191.4999999999987494", 
+                                "std_dev": "6172.61650984487008165", 
+                                "mean": "50844.527363184079622", 
+                                "p50": "47917", 
+                                "unit": "microseconds", 
+                                "size": "201"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "7", 
+                                "min": "3", 
+                                "max": "8", 
+                                "p95": "6", 
+                                "std_dev": "0.889393065104976702432", 
+                                "mean": "4.66169154228855720911", 
+                                "p50": "5", 
+                                "unit": "microseconds", 
+                                "size": "201"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "tf-lang-detect:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "202"
+                            }
+                        }, 
+                        {
+                            "tf-lang-detect:1:queue_size": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "134"
+                            }
+                        }, 
+                        {
+                            "model:tf-lang-detect:1:prediction_latency": {
+                                "p99": "38782.0000000000001137", 
+                                "min": "38114", 
+                                "max": "38789", 
+                                "p95": "38712.25", 
+                                "std_dev": "136.007039902706720183", 
+                                "mean": "38497.5820895522388092", 
+                                "p50": "38515.5", 
+                                "unit": "microseconds", 
+                                "size": "134"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "5.96999999999999886313", 
+                                "min": "0", 
+                                "max": "6", 
+                                "p95": "1", 
+                                "std_dev": "0.86350314566893107644", 
+                                "mean": "0.361386138613861386271", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "202"
+                            }
+                        }, 
+                        {
+                            "model:tf-lang-detect:1:batch_size": {
+                                "p99": "2", 
+                                "min": "1", 
+                                "max": "2", 
+                                "p95": "2", 
+                                "std_dev": "0.500000000000000000271", 
+                                "mean": "1.50000000000000000054", 
+                                "p50": "1.5", 
+                                "unit": "queries", 
+                                "size": "134"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "77.898462261101685", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "78.285774079657713", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "77.89616789608263", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "app:tf-lang-detect:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "model:tf-lang-detect:1:prediction_throughput": {
+                                "rate": "77.892153082494772", 
+                                "rate_1min": "29", 
+                                "rate_5min": "29", 
+                                "unit": "events per second", 
+                                "rate_15min": "29"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "77.890764596671161", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:tf-lang-detect:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:tf-lang-detect:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "app:tf-lang-detect:num_predictions": {
+                                "count": "201"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "202"
+                            }
+                        }, 
+                        {
+                            "model:tf-lang-detect:1:num_predictions": {
+                                "count": "201"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:tf-lang-detect:prediction_latency": {
+                                "p99": "76606.6700000000030286", 
+                                "min": "48374", 
+                                "max": "76900", 
+                                "p95": "63904.2999999999996135", 
+                                "std_dev": "6768.50429870588174186", 
+                                "mean": "55023.2800000000000082", 
+                                "p50": "51050", 
+                                "unit": "microseconds", 
+                                "size": "200"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "7", 
+                                "min": "2", 
+                                "max": "7", 
+                                "p95": "6", 
+                                "std_dev": "0.899319186940876959691", 
+                                "mean": "4.53500000000000000723", 
+                                "p50": "5", 
+                                "unit": "microseconds", 
+                                "size": "200"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "tf-lang-detect:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "200"
+                            }
+                        }, 
+                        {
+                            "tf-lang-detect:1:queue_size": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "128"
+                            }
+                        }, 
+                        {
+                            "model:tf-lang-detect:1:prediction_latency": {
+                                "p99": "51667.3099999999996186", 
+                                "min": "38164", 
+                                "max": "51685", 
+                                "p95": "50933.9499999999998607", 
+                                "std_dev": "4098.45097952623923332", 
+                                "mean": "40065.8828125", 
+                                "p50": "38541", 
+                                "unit": "microseconds", 
+                                "size": "128"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "5", 
+                                "min": "0", 
+                                "max": "8", 
+                                "p95": "1", 
+                                "std_dev": "0.905538513813741662635", 
+                                "mean": "0.199999999999999999989", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "200"
+                            }
+                        }, 
+                        {
+                            "model:tf-lang-detect:1:batch_size": {
+                                "p99": "3", 
+                                "min": "1", 
+                                "max": "3", 
+                                "p95": "2", 
+                                "std_dev": "0.555512151082224303134", 
+                                "mean": "1.5625", 
+                                "p50": "2", 
+                                "unit": "queries", 
+                                "size": "128"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "model:tf-lang-detect:1:prediction_throughput": {
+                                "rate": "77.966022407434835", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "77.9658704402148", 
+                                "rate_1min": "35", 
+                                "rate_5min": "35", 
+                                "unit": "events per second", 
+                                "rate_15min": "35"
+                            }
+                        }, 
+                        {
+                            "app:tf-lang-detect:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "77.96097741236602", 
+                                "rate_1min": "35", 
+                                "rate_5min": "35", 
+                                "unit": "events per second", 
+                                "rate_15min": "35"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "77.959549128743561", 
+                                "rate_1min": "34.799999999999997", 
+                                "rate_5min": "34.799999999999997", 
+                                "unit": "events per second", 
+                                "rate_15min": "34.799999999999997"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "77.957968961034652", 
+                                "rate_1min": "34.600000000000001", 
+                                "rate_5min": "34.600000000000001", 
+                                "unit": "events per second", 
+                                "rate_15min": "34.600000000000001"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:tf-lang-detect:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:tf-lang-detect:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "200"
+                            }
+                        }, 
+                        {
+                            "model:tf-lang-detect:1:num_predictions": {
+                                "count": "200"
+                            }
+                        }, 
+                        {
+                            "app:tf-lang-detect:num_predictions": {
+                                "count": "200"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:tf-lang-detect:prediction_latency": {
+                                "p99": "64052", 
+                                "min": "49377", 
+                                "max": "75862", 
+                                "p95": "63783", 
+                                "std_dev": "6209.77796185963366726", 
+                                "mean": "55142.1055276381909387", 
+                                "p50": "50949", 
+                                "unit": "microseconds", 
+                                "size": "199"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "7", 
+                                "min": "2", 
+                                "max": "11", 
+                                "p95": "6", 
+                                "std_dev": "0.98068516370873394755", 
+                                "mean": "4.45728643216080401513", 
+                                "p50": "4", 
+                                "unit": "microseconds", 
+                                "size": "199"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "tf-lang-detect:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "199"
+                            }
+                        }, 
+                        {
+                            "tf-lang-detect:1:queue_size": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "129"
+                            }
+                        }, 
+                        {
+                            "model:tf-lang-detect:1:prediction_latency": {
+                                "p99": "50741.899999999999352", 
+                                "min": "38234", 
+                                "max": "50759", 
+                                "p95": "50601", 
+                                "std_dev": "3499.66399892937144411", 
+                                "mean": "39644.6434108527131706", 
+                                "p50": "38550", 
+                                "unit": "microseconds", 
+                                "size": "129"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "4", 
+                                "min": "0", 
+                                "max": "4", 
+                                "p95": "1", 
+                                "std_dev": "0.649933516149738390655", 
+                                "mean": "0.140703517587939698494", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "199"
+                            }
+                        }, 
+                        {
+                            "model:tf-lang-detect:1:batch_size": {
+                                "p99": "2.69999999999998863132", 
+                                "min": "1", 
+                                "max": "3", 
+                                "p95": "2", 
+                                "std_dev": "0.513503725943540905352", 
+                                "mean": "1.54263565891472868223", 
+                                "p50": "2", 
+                                "unit": "queries", 
+                                "size": "129"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "77.996332996525055", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "77.996271856593481", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "77.993887474024902", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "app:tf-lang-detect:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "77.989699872904225", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "model:tf-lang-detect:1:prediction_throughput": {
+                                "rate": "77.988202226935471", 
+                                "rate_1min": "26.600000000000001", 
+                                "rate_5min": "26.600000000000001", 
+                                "unit": "events per second", 
+                                "rate_15min": "26.600000000000001"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:tf-lang-detect:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:tf-lang-detect:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "model:tf-lang-detect:1:num_predictions": {
+                                "count": "199"
+                            }
+                        }, 
+                        {
+                            "app:tf-lang-detect:num_predictions": {
+                                "count": "199"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "199"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:tf-lang-detect:prediction_latency": {
+                                "p99": "75632.419999999995639", 
+                                "min": "48716", 
+                                "max": "75708", 
+                                "p95": "63777.9999999999995453", 
+                                "std_dev": "6470.79527620422153333", 
+                                "mean": "55401.1890547263681768", 
+                                "p50": "51180", 
+                                "unit": "microseconds", 
+                                "size": "201"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "7.95999999999997953637", 
+                                "min": "3", 
+                                "max": "14", 
+                                "p95": "6", 
+                                "std_dev": "1.0466460404367995509", 
+                                "mean": "4.51741293532338308164", 
+                                "p50": "5", 
+                                "unit": "microseconds", 
+                                "size": "201"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "tf-lang-detect:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "201"
+                            }
+                        }, 
+                        {
+                            "tf-lang-detect:1:queue_size": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "128"
+                            }
+                        }, 
+                        {
+                            "model:tf-lang-detect:1:prediction_latency": {
+                                "p99": "51036.92999999999887", 
+                                "min": "38155", 
+                                "max": "51090", 
+                                "p95": "50629.4499999999998892", 
+                                "std_dev": "4103.28016506759008974", 
+                                "mean": "40127.609375", 
+                                "p50": "38572.5", 
+                                "unit": "microseconds", 
+                                "size": "128"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "4", 
+                                "min": "0", 
+                                "max": "7", 
+                                "p95": "1", 
+                                "std_dev": "0.825360988817820332732", 
+                                "mean": "0.223880597014925373131", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "201"
+                            }
+                        }, 
+                        {
+                            "model:tf-lang-detect:1:batch_size": {
+                                "p99": "3", 
+                                "min": "1", 
+                                "max": "3", 
+                                "p95": "2", 
+                                "std_dev": "0.540306535536772866062", 
+                                "mean": "1.5703125", 
+                                "p50": "2", 
+                                "unit": "queries", 
+                                "size": "128"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "78.047219732822242", 
+                                "rate_1min": "33.200000000000003", 
+                                "rate_5min": "33.200000000000003", 
+                                "unit": "events per second", 
+                                "rate_15min": "33.200000000000003"
+                            }
+                        }, 
+                        {
+                            "model:tf-lang-detect:1:prediction_throughput": {
+                                "rate": "78.047068206536622", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "app:tf-lang-detect:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "78.042128771842087", 
+                                "rate_1min": "33.200000000000003", 
+                                "rate_5min": "33.200000000000003", 
+                                "unit": "events per second", 
+                                "rate_15min": "33.200000000000003"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "78.040613733129064", 
+                                "rate_1min": "33.200000000000003", 
+                                "rate_5min": "33.200000000000003", 
+                                "unit": "events per second", 
+                                "rate_15min": "33.200000000000003"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "78.03906845424018", 
+                                "rate_1min": "33", 
+                                "rate_5min": "33", 
+                                "unit": "events per second", 
+                                "rate_15min": "33"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:tf-lang-detect:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:tf-lang-detect:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "app:tf-lang-detect:num_predictions": {
+                                "count": "201"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "201"
+                            }
+                        }, 
+                        {
+                            "model:tf-lang-detect:1:num_predictions": {
+                                "count": "201"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:tf-lang-detect:prediction_latency": {
+                                "p99": "75325.420000000001437", 
+                                "min": "48654", 
+                                "max": "76034", 
+                                "p95": "63770.1999999999998181", 
+                                "std_dev": "6526.66337189225655502", 
+                                "mean": "55155.1999999999999851", 
+                                "p50": "50990.5", 
+                                "unit": "microseconds", 
+                                "size": "200"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "10.9600000000000363798", 
+                                "min": "2", 
+                                "max": "42", 
+                                "p95": "6", 
+                                "std_dev": "2.82630058557118089119", 
+                                "mean": "4.54500000000000000657", 
+                                "p50": "4", 
+                                "unit": "microseconds", 
+                                "size": "200"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "tf-lang-detect:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "200"
+                            }
+                        }, 
+                        {
+                            "tf-lang-detect:1:queue_size": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "128"
+                            }
+                        }, 
+                        {
+                            "model:tf-lang-detect:1:prediction_latency": {
+                                "p99": "50991.089999999999506", 
+                                "min": "38190", 
+                                "max": "51014", 
+                                "p95": "50614.5499999999999403", 
+                                "std_dev": "3973.77119985123072055", 
+                                "mean": "40045.6171875", 
+                                "p50": "38587.5", 
+                                "unit": "microseconds", 
+                                "size": "128"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "5", 
+                                "min": "0", 
+                                "max": "9", 
+                                "p95": "1", 
+                                "std_dev": "1.00294566153904868473", 
+                                "mean": "0.29000000000000000002", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "200"
+                            }
+                        }, 
+                        {
+                            "model:tf-lang-detect:1:batch_size": {
+                                "p99": "3", 
+                                "min": "1", 
+                                "max": "3", 
+                                "p95": "2", 
+                                "std_dev": "0.541265877365274154201", 
+                                "mean": "1.5625", 
+                                "p50": "2", 
+                                "unit": "queries", 
+                                "size": "128"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "77.998587445581364", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "77.998465770178314", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "77.996184426657848", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "app:tf-lang-detect:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "model:tf-lang-detect:1:prediction_throughput": {
+                                "rate": "77.991956689506608", 
+                                "rate_1min": "24.399999999999999", 
+                                "rate_5min": "24.399999999999999", 
+                                "unit": "events per second", 
+                                "rate_15min": "24.399999999999999"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "77.990375207795609", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:tf-lang-detect:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:tf-lang-detect:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "200"
+                            }
+                        }, 
+                        {
+                            "model:tf-lang-detect:1:num_predictions": {
+                                "count": "200"
+                            }
+                        }, 
+                        {
+                            "app:tf-lang-detect:num_predictions": {
+                                "count": "200"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:tf-lang-detect:prediction_latency": {
+                                "p99": "63877", 
+                                "min": "48747", 
+                                "max": "63887", 
+                                "p95": "63359", 
+                                "std_dev": "6040.91062153674976143", 
+                                "mean": "54492.1155778894472412", 
+                                "p50": "50580", 
+                                "unit": "microseconds", 
+                                "size": "199"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "13", 
+                                "min": "3", 
+                                "max": "38", 
+                                "p95": "6", 
+                                "std_dev": "2.59513562670370732314", 
+                                "mean": "4.58793969849246230635", 
+                                "p50": "4", 
+                                "unit": "microseconds", 
+                                "size": "199"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "tf-lang-detect:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "199"
+                            }
+                        }, 
+                        {
+                            "tf-lang-detect:1:queue_size": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "131"
+                            }
+                        }, 
+                        {
+                            "model:tf-lang-detect:1:prediction_latency": {
+                                "p99": "50702.160000000000764", 
+                                "min": "37992", 
+                                "max": "50738", 
+                                "p95": "43676.999999999906322", 
+                                "std_dev": "2511.85781650641713325", 
+                                "mean": "39039.2061068702290072", 
+                                "p50": "38507", 
+                                "unit": "microseconds", 
+                                "size": "131"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "4", 
+                                "min": "0", 
+                                "max": "5", 
+                                "p95": "1", 
+                                "std_dev": "0.732876284782600641754", 
+                                "mean": "0.266331658291457286456", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "199"
+                            }
+                        }, 
+                        {
+                            "model:tf-lang-detect:1:batch_size": {
+                                "p99": "2", 
+                                "min": "1", 
+                                "max": "2", 
+                                "p95": "2", 
+                                "std_dev": "0.499635669372628141323", 
+                                "mean": "1.51908396946564885682", 
+                                "p50": "2", 
+                                "unit": "queries", 
+                                "size": "131"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "model:tf-lang-detect:1:prediction_throughput": {
+                                "rate": "77.958078141416735", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "77.957955981569015", 
+                                "rate_1min": "30.800000000000001", 
+                                "rate_5min": "30.800000000000001", 
+                                "unit": "events per second", 
+                                "rate_15min": "30.800000000000001"
+                            }
+                        }, 
+                        {
+                            "app:tf-lang-detect:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "77.952917221444665", 
+                                "rate_1min": "30.800000000000001", 
+                                "rate_5min": "30.800000000000001", 
+                                "unit": "events per second", 
+                                "rate_15min": "30.800000000000001"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "77.951420987812938", 
+                                "rate_1min": "31", 
+                                "rate_5min": "31", 
+                                "unit": "events per second", 
+                                "rate_15min": "31"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "77.949894278007704", 
+                                "rate_1min": "30.800000000000001", 
+                                "rate_5min": "30.800000000000001", 
+                                "unit": "events per second", 
+                                "rate_15min": "30.800000000000001"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:tf-lang-detect:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:tf-lang-detect:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "model:tf-lang-detect:1:num_predictions": {
+                                "count": "199"
+                            }
+                        }, 
+                        {
+                            "app:tf-lang-detect:num_predictions": {
+                                "count": "199"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "199"
+                            }
+                        }
+                    ]
+                }
+            ], 
+            "thrus": [
+                77.04133537287429, 
+                77.65551779340294, 
+                78.09964812203539, 
+                78.52017732996849, 
+                77.79664346381776, 
+                78.12960842612202, 
+                78.48963956380167
+            ], 
+            "all_lats": [
+                "0.020118", 
+                "0.020073", 
+                "0.020697", 
+                "0.021161", 
+                "0.021682", 
+                "0.022216", 
+                "0.022852", 
+                "0.023558", 
+                "0.023918", 
+                "0.023325", 
+                "0.023945", 
+                "0.024465", 
+                "0.024992", 
+                "0.025535", 
+                "0.026181", 
+                "0.026774", 
+                "0.027162", 
+                "0.027642", 
+                "0.027107", 
+                "0.027855", 
+                "0.028125", 
+                "0.028779", 
+                "0.029373", 
+                "0.029883", 
+                "0.030423", 
+                "0.031007", 
+                "0.031412", 
+                "0.030817", 
+                "0.031299", 
+                "0.031906", 
+                "0.032475", 
+                "0.033048", 
+                "0.033592", 
+                "0.034067", 
+                "0.034781", 
+                "0.03525", 
+                "0.035891", 
+                "0.036374", 
+                "0.035859", 
+                "0.036346", 
+                "0.036975", 
+                "0.037497", 
+                "0.038118", 
+                "0.038781", 
+                "0.039333", 
+                "0.039785", 
+                "0.040326", 
+                "0.040869", 
+                "0.041262", 
+                "0.054105", 
+                "0.041385", 
+                "0.041562", 
+                "0.05456", 
+                "0.042038", 
+                "0.055134", 
+                "0.042596", 
+                "0.042618", 
+                "0.041608", 
+                "0.054603", 
+                "0.042078", 
+                "0.055068", 
+                "0.042424", 
+                "0.042737", 
+                "0.055496", 
+                "0.04279", 
+                "0.043392", 
+                "0.055154", 
+                "0.042498", 
+                "0.04275", 
+                "0.05553", 
+                "0.042872", 
+                "0.043323", 
+                "0.042421", 
+                "0.055402", 
+                "0.042805", 
+                "0.055726", 
+                "0.043174", 
+                "0.043441", 
+                "0.043471", 
+                "0.056376", 
+                "0.043987", 
+                "0.044412", 
+                "0.057286", 
+                "0.043461", 
+                "0.056269", 
+                "0.043506", 
+                "0.043999", 
+                "0.056812", 
+                "0.04426", 
+                "0.044668", 
+                "0.056481", 
+                "0.043765", 
+                "0.044177", 
+                "0.057026", 
+                "0.044247", 
+                "0.044563", 
+                "0.056521", 
+                "0.043697", 
+                "0.044067", 
+                "0.044181", 
+                "0.05728", 
+                "0.044518", 
+                "0.043738", 
+                "0.056566", 
+                "0.04414", 
+                "0.057035", 
+                "0.04445", 
+                "0.044691", 
+                "0.043718", 
+                "0.056712", 
+                "0.044123", 
+                "0.057036", 
+                "0.044423", 
+                "0.044697", 
+                "0.044895", 
+                "0.057896", 
+                "0.044144", 
+                "0.044261", 
+                "0.057245", 
+                "0.044897", 
+                "0.057714", 
+                "0.045003", 
+                "0.045472", 
+                "0.058332", 
+                "0.045588", 
+                "0.044909", 
+                "0.045068", 
+                "0.058012", 
+                "0.045607", 
+                "0.045865", 
+                "0.058806", 
+                "0.044979", 
+                "0.045165", 
+                "0.058086", 
+                "0.045542", 
+                "0.044599", 
+                "0.057491", 
+                "0.04493", 
+                "0.058142", 
+                "0.04546", 
+                "0.045518", 
+                "0.044656", 
+                "0.057531", 
+                "0.045123", 
+                "0.045137", 
+                "0.058121", 
+                "0.045681", 
+                "0.04472", 
+                "0.057759", 
+                "0.045257", 
+                "0.057017", 
+                "0.044385", 
+                "0.044784", 
+                "0.057686", 
+                "0.045227", 
+                "0.045395", 
+                "0.04437", 
+                "0.057385", 
+                "0.04489", 
+                "0.04503", 
+                "0.058002", 
+                "0.045432", 
+                "0.057314", 
+                "0.044646", 
+                "0.044902", 
+                "0.044949", 
+                "0.057809", 
+                "0.045604", 
+                "0.044444", 
+                "0.057483", 
+                "0.044931", 
+                "0.057662", 
+                "0.045206", 
+                "0.045422", 
+                "0.05728", 
+                "0.044435", 
+                "0.044703", 
+                "0.056487", 
+                "0.043712", 
+                "0.044154", 
+                "0.057197", 
+                "0.044599", 
+                "0.044778", 
+                "0.043855", 
+                "0.056811", 
+                "0.044326", 
+                "0.044416", 
+                "0.057525", 
+                "0.044858", 
+                "0.057823", 
+                "0.04509", 
+                "0.044341", 
+                "0.044727", 
+                "0.057685", 
+                "0.045076", 
+                "0.057995", 
+                "0.045269", 
+                "0.045488", 
+                "0.044527", 
+                "0.057604", 
+                "0.045001", 
+                "0.04518", 
+                "0.058134", 
+                "0.045739", 
+                "0.058636", 
+                "0.045976", 
+                "0.045084", 
+                "0.058108", 
+                "0.045472", 
+                "0.045591", 
+                "0.045571", 
+                "0.058599", 
+                "0.045998", 
+                "0.058955", 
+                "0.046209", 
+                "0.045487", 
+                "0.045595", 
+                "0.058526", 
+                "0.045988", 
+                "0.046254", 
+                "0.059115", 
+                "0.046466", 
+                "0.045436", 
+                "0.05846", 
+                "0.045902", 
+                "0.046022", 
+                "0.059023", 
+                "0.046423", 
+                "0.045455", 
+                "0.058321", 
+                "0.045962", 
+                "0.059095", 
+                "0.046357", 
+                "0.046878", 
+                "0.058416", 
+                "0.045878", 
+                "0.04613", 
+                "0.059061", 
+                "0.046451", 
+                "0.046714", 
+                "0.05856", 
+                "0.045967", 
+                "0.046014", 
+                "0.058999", 
+                "0.04625", 
+                "0.046628", 
+                "0.059395", 
+                "0.046709", 
+                "0.045865", 
+                "0.046104", 
+                "0.059102", 
+                "0.046506", 
+                "0.059611", 
+                "0.046858", 
+                "0.047082", 
+                "0.06", 
+                "0.0473", 
+                "0.046653", 
+                "0.059555", 
+                "0.046792", 
+                "0.047295", 
+                "0.047553", 
+                "0.060512", 
+                "0.047989", 
+                "0.047056", 
+                "0.060042", 
+                "0.047562", 
+                "0.047885", 
+                "0.060735", 
+                "0.048194", 
+                "0.06009", 
+                "0.047451", 
+                "0.047517", 
+                "0.060443", 
+                "0.047696", 
+                "0.048102", 
+                "0.048205", 
+                "0.061205", 
+                "0.047658", 
+                "0.048127", 
+                "0.060948", 
+                "0.048348", 
+                "0.060049", 
+                "0.047436", 
+                "0.047854", 
+                "0.060745", 
+                "0.04805", 
+                "0.048417", 
+                "0.061492", 
+                "0.048868", 
+                "0.049121", 
+                "0.060997", 
+                "0.048396", 
+                "0.048651", 
+                "0.049043", 
+                "0.062032", 
+                "0.049356", 
+                "0.048441", 
+                "0.061383", 
+                "0.048899", 
+                "0.06197", 
+                "0.049256", 
+                "0.048388", 
+                "0.048393", 
+                "0.061255", 
+                "0.04883", 
+                "0.061971", 
+                "0.049361", 
+                "0.048202", 
+                "0.048129", 
+                "0.061069", 
+                "0.048772", 
+                "0.048842", 
+                "0.061713", 
+                "0.049341", 
+                "0.061214", 
+                "0.048528", 
+                "0.048726", 
+                "0.048721", 
+                "0.061847", 
+                "0.049219", 
+                "0.061107", 
+                "0.048421", 
+                "0.048536", 
+                "0.061551", 
+                "0.048799", 
+                "0.049084", 
+                "0.062099", 
+                "0.049394", 
+                "0.049588", 
+                "0.048689", 
+                "0.061543", 
+                "0.049129", 
+                "0.062038", 
+                "0.049312", 
+                "0.049692", 
+                "0.049838", 
+                "0.062941", 
+                "0.049301", 
+                "0.049501", 
+                "0.062502", 
+                "0.049883", 
+                "0.049916", 
+                "0.062859", 
+                "0.049303", 
+                "0.06237", 
+                "0.049686", 
+                "0.050058", 
+                "0.061673", 
+                "0.048984", 
+                "0.049404", 
+                "0.062535", 
+                "0.049848", 
+                "0.050068", 
+                "0.049072", 
+                "0.06209", 
+                "0.049495", 
+                "0.049657", 
+                "0.06244", 
+                "0.049169", 
+                "0.062166", 
+                "0.049679", 
+                "0.049773", 
+                "0.06277", 
+                "0.049983", 
+                "0.050373", 
+                "0.062061", 
+                "0.049432", 
+                "0.049836", 
+                "0.05006", 
+                "0.062888", 
+                "0.050734", 
+                "0.050673", 
+                "0.063642", 
+                "0.049889", 
+                "0.050101", 
+                "0.062895", 
+                "0.050687", 
+                "0.0635", 
+                "0.05098", 
+                "0.05009", 
+                "0.050224", 
+                "0.063215", 
+                "0.050617", 
+                "0.063458", 
+                "0.050673", 
+                "0.049944", 
+                "0.062987", 
+                "0.050258", 
+                "0.05063", 
+                "0.063614", 
+                "0.050958", 
+                "0.050283", 
+                "0.063148", 
+                "0.050569", 
+                "0.050867", 
+                "0.062573", 
+                "0.049913", 
+                "0.050281", 
+                "0.05046", 
+                "0.068603", 
+                "0.051066", 
+                "0.05103", 
+                "0.064015", 
+                "0.050499", 
+                "0.063079", 
+                "0.050327", 
+                "0.050572", 
+                "0.063375", 
+                "0.050689", 
+                "0.051072", 
+                "0.050142", 
+                "0.062995", 
+                "0.050594", 
+                "0.063578", 
+                "0.051119", 
+                "0.051476", 
+                "0.050352", 
+                "0.063264", 
+                "0.050788", 
+                "0.063789", 
+                "0.051003", 
+                "0.051481", 
+                "0.0506", 
+                "0.063532", 
+                "0.050885", 
+                "0.063697", 
+                "0.051017", 
+                "0.050296", 
+                "0.051735", 
+                "0.064743", 
+                "0.050963", 
+                "0.051149", 
+                "0.064098", 
+                "0.051669", 
+                "0.064777", 
+                "0.052044", 
+                "0.050952", 
+                "0.050964", 
+                "0.063887", 
+                "0.05149", 
+                "0.063165", 
+                "0.050537", 
+                "0.051034", 
+                "0.051417", 
+                "0.0644", 
+                "0.051784", 
+                "0.06349", 
+                "0.050898", 
+                "0.05107", 
+                "0.051261", 
+                "0.064498", 
+                "0.051696", 
+                "0.063507", 
+                "0.050823", 
+                "0.051116", 
+                "0.051091", 
+                "0.064212", 
+                "0.050352", 
+                "0.063352", 
+                "0.05065", 
+                "0.051036", 
+                "0.050026", 
+                "0.062872", 
+                "0.050585", 
+                "0.063409", 
+                "0.050697", 
+                "0.049963", 
+                "0.050257", 
+                "0.063107", 
+                "0.050643", 
+                "0.063667", 
+                "0.051072", 
+                "0.051588", 
+                "0.051751", 
+                "0.06501", 
+                "0.050862", 
+                "0.063818", 
+                "0.050906", 
+                "0.051318", 
+                "0.051533", 
+                "0.064434", 
+                "0.05193", 
+                "0.065012", 
+                "0.052396", 
+                "0.051545", 
+                "0.051639", 
+                "0.064798", 
+                "0.051955", 
+                "0.065161", 
+                "0.052456", 
+                "0.05153", 
+                "0.051748", 
+                "0.064633", 
+                "0.052202", 
+                "0.065484", 
+                "0.052706", 
+                "0.0518", 
+                "0.051762", 
+                "0.064694", 
+                "0.052257", 
+                "0.06526", 
+                "0.052607", 
+                "0.052949", 
+                "0.052046", 
+                "0.064996", 
+                "0.052495", 
+                "0.065458", 
+                "0.052919", 
+                "0.052075", 
+                "0.052101", 
+                "0.0651", 
+                "0.052367", 
+                "0.065548", 
+                "0.052907", 
+                "0.053067", 
+                "0.052221", 
+                "0.065118", 
+                "0.052684", 
+                "0.065713", 
+                "0.053011", 
+                "0.053152", 
+                "0.052682", 
+                "0.065892", 
+                "0.078802", 
+                "0.053269", 
+                "0.078361", 
+                "0.06595", 
+                "0.053352", 
+                "0.053237", 
+                "0.065744", 
+                "0.078744", 
+                "0.053296", 
+                "0.053208", 
+                "0.066173", 
+                "0.053416", 
+                "0.052396", 
+                "0.065562", 
+                "0.05281", 
+                "0.065534", 
+                "0.052804", 
+                "0.05323", 
+                "0.052379", 
+                "0.065196", 
+                "0.052507", 
+                "0.065509", 
+                "0.052792", 
+                "0.05289", 
+                "0.065778", 
+                "0.052249", 
+                "0.052624", 
+                "0.065743", 
+                "0.065189", 
+                "0.052495", 
+                "0.052852", 
+                "0.064621", 
+                "0.051855", 
+                "0.052107", 
+                "0.052308", 
+                "0.065299", 
+                "0.052475", 
+                "0.065385", 
+                "0.053167", 
+                "0.064724", 
+                "0.052288", 
+                "0.052363", 
+                "0.052557", 
+                "0.065408", 
+                "0.053017", 
+                "0.052143", 
+                "0.065043", 
+                "0.064913", 
+                "0.0522", 
+                "0.052679", 
+                "0.05275", 
+                "0.065779", 
+                "0.053162", 
+                "0.065054", 
+                "0.052309", 
+                "0.052663", 
+                "0.052783", 
+                "0.065731", 
+                "0.053302", 
+                "0.052843", 
+                "0.078452", 
+                "0.065739", 
+                "0.053156", 
+                "0.053493", 
+                "0.066441", 
+                "0.065088", 
+                "0.052357", 
+                "0.065195", 
+                "0.052493", 
+                "0.05249", 
+                "0.065584", 
+                "0.051764", 
+                "0.064755", 
+                "0.052021", 
+                "0.052297", 
+                "0.052428", 
+                "0.069858", 
+                "0.051853", 
+                "0.064771", 
+                "0.052303", 
+                "0.052444", 
+                "0.052728", 
+                "0.065668", 
+                "0.053042", 
+                "0.064797", 
+                "0.052142", 
+                "0.065076", 
+                "0.052383", 
+                "0.052555", 
+                "0.065646", 
+                "0.053036", 
+                "0.052614", 
+                "0.065127", 
+                "0.052386", 
+                "0.064129", 
+                "0.051411", 
+                "0.051693", 
+                "0.064582", 
+                "0.051955", 
+                "0.052278", 
+                "0.064252", 
+                "0.051604", 
+                "0.051829", 
+                "0.064767", 
+                "0.052478", 
+                "0.052565", 
+                "0.064309", 
+                "0.051711", 
+                "0.052045", 
+                "0.064923", 
+                "0.052254", 
+                "0.052644", 
+                "0.051579", 
+                "0.064698", 
+                "0.052008", 
+                "0.063937", 
+                "0.051444", 
+                "0.051694", 
+                "0.064549", 
+                "0.051901", 
+                "0.052432", 
+                "0.06507", 
+                "0.052234", 
+                "0.051115", 
+                "0.050841", 
+                "0.063987", 
+                "0.051344", 
+                "0.064314", 
+                "0.051704", 
+                "0.051862", 
+                "0.051988", 
+                "0.06503", 
+                "0.051364", 
+                "0.064082", 
+                "0.051762", 
+                "0.052013", 
+                "0.052177", 
+                "0.065153", 
+                "0.052482", 
+                "0.064567", 
+                "0.051731", 
+                "0.051744", 
+                "0.051828", 
+                "0.064679", 
+                "0.052381", 
+                "0.065106", 
+                "0.052349", 
+                "0.051685", 
+                "0.064802", 
+                "0.05214", 
+                "0.052225", 
+                "0.065406", 
+                "0.05262", 
+                "0.051755", 
+                "0.064681", 
+                "0.051987", 
+                "0.052375", 
+                "0.065541", 
+                "0.052833", 
+                "0.051844", 
+                "0.064754", 
+                "0.052081", 
+                "0.052254", 
+                "0.064417", 
+                "0.051825", 
+                "0.051794", 
+                "0.06491", 
+                "0.052256", 
+                "0.052508", 
+                "0.065528", 
+                "0.052931", 
+                "0.051903", 
+                "0.064953", 
+                "0.052185", 
+                "0.052784", 
+                "0.065484", 
+                "0.05277", 
+                "0.053111", 
+                "0.05207", 
+                "0.065187", 
+                "0.052402", 
+                "0.065204", 
+                "0.052569", 
+                "0.052724", 
+                "0.065582", 
+                "0.052024", 
+                "0.052212", 
+                "0.0651", 
+                "0.064996", 
+                "0.052398", 
+                "0.052699", 
+                "0.06454", 
+                "0.051924", 
+                "0.064739", 
+                "0.05216", 
+                "0.052298", 
+                "0.064441", 
+                "0.051646", 
+                "0.052005", 
+                "0.064819", 
+                "0.052123", 
+                "0.052549", 
+                "0.065506", 
+                "0.052812", 
+                "0.05215", 
+                "0.064928", 
+                "0.052458", 
+                "0.052514", 
+                "0.052767", 
+                "0.065701", 
+                "0.052098", 
+                "0.065002", 
+                "0.052419", 
+                "0.052727", 
+                "0.0516", 
+                "0.064457", 
+                "0.052134", 
+                "0.065062", 
+                "0.052399", 
+                "0.06509", 
+                "0.05278", 
+                "0.052845", 
+                "0.051702", 
+                "0.064495", 
+                "0.052366", 
+                "0.065241", 
+                "0.052614", 
+                "0.052795", 
+                "0.052892", 
+                "0.06574", 
+                "0.052418", 
+                "0.065228", 
+                "0.05268", 
+                "0.065191", 
+                "0.052435", 
+                "0.052826", 
+                "0.06501", 
+                "0.052171", 
+                "0.052315", 
+                "0.065101", 
+                "0.052527", 
+                "0.052982", 
+                "0.065823", 
+                "0.053052", 
+                "0.052083", 
+                "0.065073", 
+                "0.052359", 
+                "0.065322", 
+                "0.052633", 
+                "0.052983", 
+                "0.052838", 
+                "0.065853", 
+                "0.053237", 
+                "0.065147", 
+                "0.052541", 
+                "0.064897", 
+                "0.052238", 
+                "0.052738", 
+                "0.053184", 
+                "0.066093", 
+                "0.053629", 
+                "0.065178", 
+                "0.052588", 
+                "0.065439", 
+                "0.052752", 
+                "0.053187", 
+                "0.06588", 
+                "0.053155", 
+                "0.052468", 
+                "0.077847", 
+                "0.065438", 
+                "0.052651", 
+                "0.052494", 
+                "0.064597", 
+                "0.052084", 
+                "0.052078", 
+                "0.06503", 
+                "0.052342", 
+                "0.065032", 
+                "0.0523", 
+                "0.052771", 
+                "0.052807", 
+                "0.065758", 
+                "0.052112", 
+                "0.065001", 
+                "0.052594", 
+                "0.052505", 
+                "0.051571", 
+                "0.064544", 
+                "0.051988", 
+                "0.065305", 
+                "0.05261", 
+                "0.052645", 
+                "0.051687", 
+                "0.064677", 
+                "0.052058", 
+                "0.064968", 
+                "0.052188", 
+                "0.052591", 
+                "0.064566", 
+                "0.051848", 
+                "0.064639", 
+                "0.051988", 
+                "0.052181", 
+                "0.0523", 
+                "0.065336", 
+                "0.052859", 
+                "0.06566", 
+                "0.053068", 
+                "0.052211", 
+                "0.052397", 
+                "0.065449", 
+                "0.052846", 
+                "0.064671", 
+                "0.051931", 
+                "0.05194", 
+                "0.064856", 
+                "0.052589", 
+                "0.065336", 
+                "0.052803", 
+                "0.053085", 
+                "0.064992", 
+                "0.052329", 
+                "0.052524", 
+                "0.0654", 
+                "0.052642", 
+                "0.053087", 
+                "0.078179", 
+                "0.052879", 
+                "0.065838", 
+                "0.051975", 
+                "0.065072", 
+                "0.052443", 
+                "0.052651", 
+                "0.052814", 
+                "0.065775", 
+                "0.052082", 
+                "0.052191", 
+                "0.06524", 
+                "0.052705", 
+                "0.052854", 
+                "0.065755", 
+                "0.053332", 
+                "0.053273", 
+                "0.066311", 
+                "0.065069", 
+                "0.05246", 
+                "0.052774", 
+                "0.065677", 
+                "0.053056", 
+                "0.052846", 
+                "0.065624", 
+                "0.053333", 
+                "0.077818", 
+                "0.065123", 
+                "0.052409", 
+                "0.052271", 
+                "0.065259", 
+                "0.0528", 
+                "0.052922", 
+                "0.052129", 
+                "0.064903", 
+                "0.052393", 
+                "0.06532", 
+                "0.052692", 
+                "0.065368", 
+                "0.052603", 
+                "0.053051", 
+                "0.053228", 
+                "0.066201", 
+                "0.052398", 
+                "0.06528", 
+                "0.052488", 
+                "0.06532", 
+                "0.052584", 
+                "0.052098", 
+                "0.05209", 
+                "0.065075", 
+                "0.052627", 
+                "0.065505", 
+                "0.052677", 
+                "0.053018", 
+                "0.052299", 
+                "0.065373", 
+                "0.052037", 
+                "0.06503", 
+                "0.052447", 
+                "0.065443", 
+                "0.052853", 
+                "0.053161", 
+                "0.052326", 
+                "0.065237", 
+                "0.052315", 
+                "0.065284", 
+                "0.052848", 
+                "0.064461", 
+                "0.052796", 
+                "0.052322", 
+                "0.065359", 
+                "0.05272", 
+                "0.052825", 
+                "0.065579", 
+                "0.052844", 
+                "0.053298", 
+                "0.065212", 
+                "0.052612", 
+                "0.052519", 
+                "0.065527", 
+                "0.053036", 
+                "0.078175", 
+                "0.065595", 
+                "0.052925", 
+                "0.051884", 
+                "0.064973", 
+                "0.052252", 
+                "0.05241", 
+                "0.052637", 
+                "0.065698", 
+                "0.051862", 
+                "0.05194", 
+                "0.0649", 
+                "0.052421", 
+                "0.064331", 
+                "0.051866", 
+                "0.051879", 
+                "0.064815", 
+                "0.052087", 
+                "0.052398", 
+                "0.064023", 
+                "0.051325", 
+                "0.051613", 
+                "0.064472", 
+                "0.051734", 
+                "0.052103", 
+                "0.065135", 
+                "0.052513", 
+                "0.05268", 
+                "0.064398", 
+                "0.051855", 
+                "0.052123", 
+                "0.064883", 
+                "0.052616", 
+                "0.052661", 
+                "0.064678", 
+                "0.052023", 
+                "0.052141", 
+                "0.06505", 
+                "0.052437", 
+                "0.052158", 
+                "0.065176", 
+                "0.051661", 
+                "0.05169", 
+                "0.06474", 
+                "0.052074", 
+                "0.050933", 
+                "0.063999", 
+                "0.05124", 
+                "0.051063", 
+                "0.064134", 
+                "0.051571", 
+                "0.050573", 
+                "0.06363", 
+                "0.050976", 
+                "0.050913", 
+                "0.063877", 
+                "0.051369", 
+                "0.050354", 
+                "0.063348", 
+                "0.050848", 
+                "0.050931", 
+                "0.063776", 
+                "0.051406", 
+                "0.051516", 
+                "0.064484", 
+                "0.051018", 
+                "0.051173", 
+                "0.068878", 
+                "0.051736", 
+                "0.051705", 
+                "0.064787", 
+                "0.050915", 
+                "0.050947", 
+                "0.063798", 
+                "0.051545", 
+                "0.051476", 
+                "0.064436", 
+                "0.050792", 
+                "0.050854", 
+                "0.063973", 
+                "0.051392", 
+                "0.049862", 
+                "0.063029", 
+                "0.050409", 
+                "0.050455", 
+                "0.063376", 
+                "0.05101", 
+                "0.049923", 
+                "0.063205", 
+                "0.051568", 
+                "0.050596", 
+                "0.063544", 
+                "0.050806", 
+                "0.050827", 
+                "0.063702", 
+                "0.051503", 
+                "0.050296", 
+                "0.063147", 
+                "0.050855", 
+                "0.050932", 
+                "0.06396", 
+                "0.051524", 
+                "0.051598", 
+                "0.064485", 
+                "0.052056", 
+                "0.051053", 
+                "0.063948", 
+                "0.051562", 
+                "0.051869", 
+                "0.064865", 
+                "0.052165", 
+                "0.051011", 
+                "0.064132", 
+                "0.051618", 
+                "0.064646", 
+                "0.051872", 
+                "0.05198", 
+                "0.052161", 
+                "0.065128", 
+                "0.051639", 
+                "0.064736", 
+                "0.05205", 
+                "0.052122", 
+                "0.052131", 
+                "0.065134", 
+                "0.052611", 
+                "0.065658", 
+                "0.052985", 
+                "0.06581", 
+                "0.053099", 
+                "0.052325", 
+                "0.052439", 
+                "0.065587", 
+                "0.065426", 
+                "0.052752", 
+                "0.065328", 
+                "0.052577", 
+                "0.051845", 
+                "0.052106", 
+                "0.065219", 
+                "0.052564", 
+                "0.065399", 
+                "0.052803", 
+                "0.052127", 
+                "0.077466", 
+                "0.052027", 
+                "0.065004", 
+                "0.052164", 
+                "0.065183", 
+                "0.052519", 
+                "0.051632", 
+                "0.064439", 
+                "0.051917", 
+                "0.052422", 
+                "0.065104", 
+                "0.052543", 
+                "0.052824", 
+                "0.064707", 
+                "0.052081", 
+                "0.05227", 
+                "0.065214", 
+                "0.052541", 
+                "0.051716", 
+                "0.051878", 
+                "0.064869", 
+                "0.052381", 
+                "0.065345", 
+                "0.052559", 
+                "0.05188", 
+                "0.064899", 
+                "0.052171", 
+                "0.05268", 
+                "0.0654", 
+                "0.052644", 
+                "0.051633", 
+                "0.064467", 
+                "0.052137", 
+                "0.052229", 
+                "0.065438", 
+                "0.052698", 
+                "0.052863", 
+                "0.065717", 
+                "0.052416", 
+                "0.052261", 
+                "0.06525", 
+                "0.065115", 
+                "0.052323", 
+                "0.052816", 
+                "0.065696", 
+                "0.05283", 
+                "0.064465", 
+                "0.051767", 
+                "0.052231", 
+                "0.052577", 
+                "0.065425", 
+                "0.06518", 
+                "0.052508", 
+                "0.051828", 
+                "0.051697", 
+                "0.064671", 
+                "0.052134", 
+                "0.065178", 
+                "0.052468", 
+                "0.051779", 
+                "0.051873", 
+                "0.064859", 
+                "0.052428", 
+                "0.065253", 
+                "0.052572", 
+                "0.051827", 
+                "0.052016", 
+                "0.064875", 
+                "0.052496", 
+                "0.065489", 
+                "0.05277", 
+                "0.053208", 
+                "0.05163", 
+                "0.064869", 
+                "0.077883", 
+                "0.052164", 
+                "0.052452", 
+                "0.065286", 
+                "0.052853", 
+                "0.064728", 
+                "0.052165", 
+                "0.052515", 
+                "0.052604", 
+                "0.065624", 
+                "0.053025", 
+                "0.065165", 
+                "0.052585", 
+                "0.051941", 
+                "0.064911", 
+                "0.052519", 
+                "0.052427", 
+                "0.06534", 
+                "0.052958", 
+                "0.052014", 
+                "0.06492", 
+                "0.064843", 
+                "0.052345", 
+                "0.052525", 
+                "0.065475", 
+                "0.052768", 
+                "0.052129", 
+                "0.065136", 
+                "0.052559", 
+                "0.052524", 
+                "0.052737", 
+                "0.065721", 
+                "0.05321", 
+                "0.052749", 
+                "0.078613", 
+                "0.065989", 
+                "0.052052", 
+                "0.065096", 
+                "0.052429", 
+                "0.052827", 
+                "0.051791", 
+                "0.064867", 
+                "0.051764", 
+                "0.064738", 
+                "0.052215", 
+                "0.052466", 
+                "0.065357", 
+                "0.05309", 
+                "0.06494", 
+                "0.056951", 
+                "0.065252", 
+                "0.052695", 
+                "0.052795", 
+                "0.064591", 
+                "0.051855", 
+                "0.052355", 
+                "0.06532", 
+                "0.05259", 
+                "0.052863", 
+                "0.064807", 
+                "0.052319", 
+                "0.052396", 
+                "0.065414", 
+                "0.052782", 
+                "0.053085", 
+                "0.052236", 
+                "0.065129", 
+                "0.052284", 
+                "0.065376", 
+                "0.052937", 
+                "0.06443", 
+                "0.051681", 
+                "0.05209", 
+                "0.05229", 
+                "0.065237", 
+                "0.052972", 
+                "0.064534", 
+                "0.051666", 
+                "0.052123", 
+                "0.052269", 
+                "0.065502", 
+                "0.051738", 
+                "0.06449", 
+                "0.051734", 
+                "0.052125", 
+                "0.052473", 
+                "0.065348", 
+                "0.052703", 
+                "0.0647", 
+                "0.05203", 
+                "0.052358", 
+                "0.052246", 
+                "0.065219", 
+                "0.052811", 
+                "0.064827", 
+                "0.05212", 
+                "0.052384", 
+                "0.052565", 
+                "0.065527", 
+                "0.053156", 
+                "0.065042", 
+                "0.052431", 
+                "0.064942", 
+                "0.05215", 
+                "0.052628", 
+                "0.052609", 
+                "0.065456", 
+                "0.052044", 
+                "0.065035", 
+                "0.052338", 
+                "0.06506", 
+                "0.052411", 
+                "0.052704", 
+                "0.053014", 
+                "0.065973", 
+                "0.052161", 
+                "0.065071", 
+                "0.052306", 
+                "0.052705", 
+                "0.052898", 
+                "0.065928", 
+                "0.051804", 
+                "0.064798", 
+                "0.052232", 
+                "0.065072", 
+                "0.052463", 
+                "0.05277", 
+                "0.052824", 
+                "0.065788", 
+                "0.051932", 
+                "0.064875", 
+                "0.052242", 
+                "0.064454", 
+                "0.051749", 
+                "0.051744", 
+                "0.051667", 
+                "0.064511", 
+                "0.052166", 
+                "0.06398", 
+                "0.051609", 
+                "0.051719", 
+                "0.051855", 
+                "0.064973", 
+                "0.052194", 
+                "0.063882", 
+                "0.051148", 
+                "0.051743", 
+                "0.051732", 
+                "0.06477", 
+                "0.052223", 
+                "0.063955", 
+                "0.051363", 
+                "0.051491", 
+                "0.064562", 
+                "0.052015", 
+                "0.052268", 
+                "0.063902", 
+                "0.051199", 
+                "0.051572", 
+                "0.064719", 
+                "0.052103", 
+                "0.052116", 
+                "0.063869", 
+                "0.051102", 
+                "0.051737", 
+                "0.064704", 
+                "0.051942", 
+                "0.052397", 
+                "0.063903", 
+                "0.051105", 
+                "0.051659", 
+                "0.06466", 
+                "0.051969", 
+                "0.051131", 
+                "0.064021", 
+                "0.05153", 
+                "0.051602", 
+                "0.050471", 
+                "0.063363", 
+                "0.050855", 
+                "0.063715", 
+                "0.050976", 
+                "0.051433", 
+                "0.051482", 
+                "0.064776", 
+                "0.050917", 
+                "0.063657", 
+                "0.051184", 
+                "0.051216", 
+                "0.049945", 
+                "0.063002", 
+                "0.050489", 
+                "0.06328", 
+                "0.050582", 
+                "0.050972", 
+                "0.051212", 
+                "0.064004", 
+                "0.050694", 
+                "0.063508", 
+                "0.050998", 
+                "0.052233", 
+                "0.051325", 
+                "0.064274", 
+                "0.051881", 
+                "0.064763", 
+                "0.052232", 
+                "0.051324", 
+                "0.05129", 
+                "0.06422", 
+                "0.051746", 
+                "0.064766", 
+                "0.052202", 
+                "0.051374", 
+                "0.051537", 
+                "0.064549", 
+                "0.051783", 
+                "0.063783", 
+                "0.051132", 
+                "0.051494", 
+                "0.051526", 
+                "0.064497", 
+                "0.051937", 
+                "0.06477", 
+                "0.052167", 
+                "0.052345", 
+                "0.051028", 
+                "0.063922", 
+                "0.051674", 
+                "0.064501", 
+                "0.051747", 
+                "0.052175", 
+                "0.051061", 
+                "0.064103", 
+                "0.051653", 
+                "0.064448", 
+                "0.051829", 
+                "0.052105", 
+                "0.051885", 
+                "0.065004", 
+                "0.052306", 
+                "0.063974", 
+                "0.051132", 
+                "0.051732", 
+                "0.051734", 
+                "0.064625", 
+                "0.050855", 
+                "0.063942", 
+                "0.051208", 
+                "0.051575"
+            ], 
+            "mean_batch_sizes": [
+                {
+                    "tf-lang-detect": 1.34
+                }, 
+                {
+                    "tf-lang-detect": 1.5
+                }, 
+                {
+                    "tf-lang-detect": 1.56
+                }, 
+                {
+                    "tf-lang-detect": 1.54
+                }, 
+                {
+                    "tf-lang-detect": 1.57
+                }, 
+                {
+                    "tf-lang-detect": 1.56
+                }, 
+                {
+                    "tf-lang-detect": 1.52
+                }
+            ], 
+            "mean_lats": [
+                0.044084535, 
+                0.052468335000000005, 
+                0.056795805000000005, 
+                0.056897485000000005, 
+                0.05707189999999999, 
+                0.056949295000000004, 
+                0.0562395
+            ]
+        }
+    ], 
+    "node_configs": [
+        {
+            "input_length_words": 20
+        }, 
+        {
+            "model_image": "model-comp/tf-lang-detect", 
+            "name": "tf-lang-detect", 
+            "cpus_per_replica": 1, 
+            "input_type": "bytes", 
+            "use_nvidia_docker": true, 
+            "batch_size": 16, 
+            "num_replicas": 1, 
+            "instance_type": "p2.8xlarge", 
+            "no_diverge": true, 
+            "slo": 5000000, 
+            "gpus_per_replica": 0, 
+            "allocated_cpus": [
+                7
+            ], 
+            "gpus": [], 
+            "input_size": 20
+        }
+    ], 
+    "clipper_metrics": {
+        "histograms": [
+            {
+                "app:tf-lang-detect:prediction_latency": {
+                    "p99": "62419", 
+                    "min": "49011", 
+                    "max": "62419", 
+                    "p95": "62419", 
+                    "std_dev": "6073.43161281623023395", 
+                    "size": "3", 
+                    "p50": "50133", 
+                    "unit": "microseconds", 
+                    "mean": "53854.3333333333333357"
+                }
+            }, 
+            {
+                "query_cache:queue_submit_latency": {
+                    "p99": "6", 
+                    "min": "4", 
+                    "max": "6", 
+                    "p95": "6", 
+                    "std_dev": "0.942809041582063365843", 
+                    "size": "3", 
+                    "p50": "4", 
+                    "unit": "microseconds", 
+                    "mean": "4.66666666666666666696"
+                }
+            }, 
+            {
+                "internal:rpc_request_queueing_delay": {
+                    "p99": "0", 
+                    "min": "0", 
+                    "max": "0", 
+                    "p95": "0", 
+                    "std_dev": "0", 
+                    "size": "0", 
+                    "p50": "0", 
+                    "unit": "microseconds", 
+                    "mean": "0"
+                }
+            }, 
+            {
+                "tf-lang-detect:1:lock_latency": {
+                    "p99": "0", 
+                    "min": "0", 
+                    "max": "0", 
+                    "p95": "0", 
+                    "std_dev": "0", 
+                    "size": "0", 
+                    "p50": "0", 
+                    "unit": "microseconds", 
+                    "mean": "0"
+                }
+            }, 
+            {
+                "tf-lang-detect:1:queue_size": {
+                    "p99": "0", 
+                    "min": "0", 
+                    "max": "0", 
+                    "p95": "0", 
+                    "std_dev": "0", 
+                    "size": "1", 
+                    "p50": "0", 
+                    "unit": "microseconds", 
+                    "mean": "0"
+                }
+            }, 
+            {
+                "model:tf-lang-detect:1:prediction_latency": {
+                    "p99": "38569", 
+                    "min": "38259", 
+                    "max": "38569", 
+                    "p95": "38569", 
+                    "std_dev": "155", 
+                    "size": "2", 
+                    "p50": "38414", 
+                    "unit": "microseconds", 
+                    "mean": "38414"
+                }
+            }, 
+            {
+                "frontend_rpc:recv_latency": {
+                    "p99": "0", 
+                    "min": "0", 
+                    "max": "0", 
+                    "p95": "0", 
+                    "std_dev": "0", 
+                    "size": "0", 
+                    "p50": "0", 
+                    "unit": "microseconds", 
+                    "mean": "0"
+                }
+            }, 
+            {
+                "model:tf-lang-detect:1:batch_size": {
+                    "p99": "2", 
+                    "min": "1", 
+                    "max": "2", 
+                    "p95": "2", 
+                    "std_dev": "0.5", 
+                    "size": "2", 
+                    "p50": "1.5", 
+                    "unit": "queries", 
+                    "mean": "1.5"
+                }
+            }
+        ], 
+        "meters": [
+            {
+                "frontend_rpc:request_enqueue": {
+                    "rate": "0", 
+                    "rate_1min": "-1", 
+                    "rate_15min": "-1", 
+                    "unit": "events per second", 
+                    "rate_5min": "-1"
+                }
+            }, 
+            {
+                "frontend_rpc:response_dequeue": {
+                    "rate": "84.038321474592408", 
+                    "rate_1min": "-1", 
+                    "rate_15min": "-1", 
+                    "unit": "events per second", 
+                    "rate_5min": "-1"
+                }
+            }, 
+            {
+                "internal:aggregate_model_throughput": {
+                    "rate": "83.864475008386449", 
+                    "rate_1min": "-1", 
+                    "rate_15min": "-1", 
+                    "unit": "events per second", 
+                    "rate_5min": "-1"
+                }
+            }, 
+            {
+                "zmq_frontend:request_rate": {
+                    "rate": "0", 
+                    "rate_1min": "-1", 
+                    "rate_15min": "-1", 
+                    "unit": "events per second", 
+                    "rate_5min": "-1"
+                }
+            }, 
+            {
+                "app:tf-lang-detect:prediction_throughput": {
+                    "rate": "0", 
+                    "rate_1min": "-1", 
+                    "rate_15min": "-1", 
+                    "unit": "events per second", 
+                    "rate_5min": "-1"
+                }
+            }, 
+            {
+                "frontend_rpc:response_enqueue": {
+                    "rate": "83.539862437693188", 
+                    "rate_1min": "-1", 
+                    "rate_15min": "-1", 
+                    "unit": "events per second", 
+                    "rate_5min": "-1"
+                }
+            }, 
+            {
+                "model:tf-lang-detect:1:prediction_throughput": {
+                    "rate": "83.42370901810294", 
+                    "rate_1min": "-1", 
+                    "rate_15min": "-1", 
+                    "unit": "events per second", 
+                    "rate_5min": "-1"
+                }
+            }
+        ], 
+        "ratio_counters": [
+            {
+                "model:tf-lang-detect:1:cache_hit_ratio": {
+                    "ratio": "nan"
+                }
+            }, 
+            {
+                "app:tf-lang-detect:default_prediction_ratio": {
+                    "ratio": "nan"
+                }
+            }
+        ], 
+        "counters": [
+            {
+                "app:tf-lang-detect:num_predictions": {
+                    "count": "3"
+                }
+            }, 
+            {
+                "internal:aggregate_num_predictions": {
+                    "count": "0"
+                }
+            }, 
+            {
+                "model:tf-lang-detect:1:num_predictions": {
+                    "count": "3"
+                }
+            }
+        ]
+    }
+}
