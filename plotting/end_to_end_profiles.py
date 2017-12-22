@@ -90,11 +90,11 @@ def extract_all_latencies(results_json):
     latencies = []
     for client in client_metrics:
         for l in client["all_lats"]:
-            if type(l) is str or unicode:
+            if type(l) is str:
                 cur_lats = json.loads(l)
             else:
                 cur_lats = l
-            latencies.append([float(lat) for lat in cur_lats])
+            latencies.append(cur_lats)
     all_lats = np.array(latencies).flatten()
     return all_lats
 
