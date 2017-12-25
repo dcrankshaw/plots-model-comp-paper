@@ -1,0 +1,3101 @@
+{
+    "client_metrics": [
+        {
+            "p99_lats": [
+                3.66158932, 
+                3.71403735, 
+                3.7262869, 
+                3.72650877, 
+                3.7403436400000003, 
+                3.73276191, 
+                3.72849232
+            ], 
+            "all_metrics": [
+                {
+                    "histograms": [
+                        {
+                            "app:tf-nmt:prediction_latency": {
+                                "p99": "3672661.69999999984611", 
+                                "min": "934029", 
+                                "max": "3689924", 
+                                "p95": "3577295", 
+                                "std_dev": "511313.260563678105598", 
+                                "mean": "2818137.99509803921524", 
+                                "p50": "2833157", 
+                                "unit": "microseconds", 
+                                "size": "204"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "15", 
+                                "min": "0", 
+                                "max": "16", 
+                                "p95": "7", 
+                                "std_dev": "2.49264585381812892452", 
+                                "mean": "3.71568627450980392768", 
+                                "p50": "4", 
+                                "unit": "microseconds", 
+                                "size": "204"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "tf-nmt:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "236"
+                            }
+                        }, 
+                        {
+                            "tf-nmt:1:queue_size": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "19"
+                            }
+                        }, 
+                        {
+                            "model:tf-nmt:1:prediction_latency": {
+                                "p99": "2481508", 
+                                "min": "933912", 
+                                "max": "2481508", 
+                                "p95": "2481508", 
+                                "std_dev": "471022.641223919397959", 
+                                "mean": "2091551.82352941176464", 
+                                "p50": "2292170", 
+                                "unit": "microseconds", 
+                                "size": "17"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "4.62999999999999545253", 
+                                "min": "0", 
+                                "max": "5", 
+                                "p95": "1", 
+                                "std_dev": "0.784482146299508295529", 
+                                "mean": "0.296610169491525423703", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "236"
+                            }
+                        }, 
+                        {
+                            "model:tf-nmt:1:batch_size": {
+                                "p99": "16", 
+                                "min": "1", 
+                                "max": "16", 
+                                "p95": "16", 
+                                "std_dev": "5.02932576465860118643", 
+                                "mean": "12", 
+                                "p50": "15", 
+                                "unit": "queries", 
+                                "size": "17"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "3.985920400505282", 
+                                "rate_1min": "2.7988224911910207", 
+                                "rate_5min": "0.61240194830782713", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.2072865654855682"
+                            }
+                        }, 
+                        {
+                            "model:tf-nmt:1:prediction_throughput": {
+                                "rate": "6.5205821857055408", 
+                                "rate_1min": "2.5589557350789907", 
+                                "rate_5min": "0.5628163097726796", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.19066610950025839"
+                            }
+                        }, 
+                        {
+                            "app:tf-nmt:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "3.9865776620211122", 
+                                "rate_1min": "2.7988224911910207", 
+                                "rate_5min": "0.61240194830782713", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.2072865654855682"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "3.985911132782658", 
+                                "rate_1min": "2.7988224911910207", 
+                                "rate_5min": "0.61240194830782713", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.2072865654855682"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "4.611148851323744", 
+                                "rate_1min": "3.1925129171721869", 
+                                "rate_5min": "0.71545351531161894", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.24316716283799528"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:tf-nmt:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:tf-nmt:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "model:tf-nmt:1:num_predictions": {
+                                "count": "204"
+                            }
+                        }, 
+                        {
+                            "app:tf-nmt:num_predictions": {
+                                "count": "204"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "236"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:tf-nmt:prediction_latency": {
+                                "p99": "3711631.55000000000018", 
+                                "min": "2493071", 
+                                "max": "3715607", 
+                                "p95": "3672765.64999999990187", 
+                                "std_dev": "358584.102873535573252", 
+                                "mean": "3104564.47572815533977", 
+                                "p50": "3099447", 
+                                "unit": "microseconds", 
+                                "size": "206"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "14.8600000000000136424", 
+                                "min": "0", 
+                                "max": "15", 
+                                "p95": "6", 
+                                "std_dev": "2.31033794487937179014", 
+                                "mean": "3.59708737864077670449", 
+                                "p50": "4", 
+                                "unit": "microseconds", 
+                                "size": "206"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "tf-nmt:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "206"
+                            }
+                        }, 
+                        {
+                            "tf-nmt:1:queue_size": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "13"
+                            }
+                        }, 
+                        {
+                            "model:tf-nmt:1:prediction_latency": {
+                                "p99": "2494231", 
+                                "min": "2473324", 
+                                "max": "2494231", 
+                                "p95": "2494231", 
+                                "std_dev": "7581.81567456482834499", 
+                                "mean": "2484179.99999999999977", 
+                                "p50": "2483149", 
+                                "unit": "microseconds", 
+                                "size": "13"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "5", 
+                                "min": "0", 
+                                "max": "7", 
+                                "p95": "1", 
+                                "std_dev": "0.94395946830458051191", 
+                                "mean": "0.402912621359223300962", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "206"
+                            }
+                        }, 
+                        {
+                            "model:tf-nmt:1:batch_size": {
+                                "p99": "16", 
+                                "min": "15", 
+                                "max": "16", 
+                                "p95": "16", 
+                                "std_dev": "0.360801212294109965764", 
+                                "mean": "15.8461538461538461522", 
+                                "p50": "16", 
+                                "unit": "queries", 
+                                "size": "13"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "12.754223087335532", 
+                                "rate_1min": "9.9059710182977767", 
+                                "rate_5min": "9.5081595491255033", 
+                                "unit": "events per second", 
+                                "rate_15min": "9.4364606460016436"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "12.754214401068284", 
+                                "rate_1min": "10.091258480350035", 
+                                "rate_5min": "9.7049084784575808", 
+                                "unit": "events per second", 
+                                "rate_15min": "9.6353587542594479"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "12.75413701484594", 
+                                "rate_1min": "9.9059710182977767", 
+                                "rate_5min": "9.5081595491255033", 
+                                "unit": "events per second", 
+                                "rate_15min": "9.4364606460016436"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "app:tf-nmt:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "model:tf-nmt:1:prediction_throughput": {
+                                "rate": "12.754027254365639", 
+                                "rate_1min": "9.9059710182977767", 
+                                "rate_5min": "9.5081595491255033", 
+                                "unit": "events per second", 
+                                "rate_15min": "9.4364606460016436"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "12.753990141537097", 
+                                "rate_1min": "9.9059710182977767", 
+                                "rate_5min": "9.5081595491255033", 
+                                "unit": "events per second", 
+                                "rate_15min": "9.4364606460016436"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:tf-nmt:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:tf-nmt:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "app:tf-nmt:num_predictions": {
+                                "count": "206"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "206"
+                            }
+                        }, 
+                        {
+                            "model:tf-nmt:1:num_predictions": {
+                                "count": "206"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:tf-nmt:prediction_latency": {
+                                "p99": "3734880.15999999988026", 
+                                "min": "2508525", 
+                                "max": "3741805", 
+                                "p95": "3701009.59999999995989", 
+                                "std_dev": "360105.229070329708833", 
+                                "mean": "3125525.69109947643938", 
+                                "p50": "3114639", 
+                                "unit": "microseconds", 
+                                "size": "191"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "12.0799999999999840838", 
+                                "min": "0", 
+                                "max": "13", 
+                                "p95": "6.39999999999997726263", 
+                                "std_dev": "2.01296474946555826514", 
+                                "mean": "3.74869109947643979136", 
+                                "p50": "4", 
+                                "unit": "microseconds", 
+                                "size": "191"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "tf-nmt:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "191"
+                            }
+                        }, 
+                        {
+                            "tf-nmt:1:queue_size": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "12"
+                            }
+                        }, 
+                        {
+                            "model:tf-nmt:1:prediction_latency": {
+                                "p99": "2509910", 
+                                "min": "2488232", 
+                                "max": "2509910", 
+                                "p95": "2509910", 
+                                "std_dev": "6571.97016798531191295", 
+                                "mean": "2498634.66666666666674", 
+                                "p50": "2500507.5", 
+                                "unit": "microseconds", 
+                                "size": "12"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "6.07999999999998408384", 
+                                "min": "0", 
+                                "max": "7", 
+                                "p95": "2", 
+                                "std_dev": "1.00714260649535702213", 
+                                "mean": "0.492146596858638743575", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "191"
+                            }
+                        }, 
+                        {
+                            "model:tf-nmt:1:batch_size": {
+                                "p99": "16", 
+                                "min": "15", 
+                                "max": "16", 
+                                "p95": "16", 
+                                "std_dev": "0.276385399196283320787", 
+                                "mean": "15.9166666666666666661", 
+                                "p50": "16", 
+                                "unit": "queries", 
+                                "size": "12"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "model:tf-nmt:1:prediction_throughput": {
+                                "rate": "12.735793039495695", 
+                                "rate_1min": "7.2132206157219469", 
+                                "rate_5min": "6.4163737368187608", 
+                                "unit": "events per second", 
+                                "rate_15min": "6.272927430660113"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "12.735787094980299", 
+                                "rate_1min": "7.2132206157219469", 
+                                "rate_5min": "6.4163737368187608", 
+                                "unit": "events per second", 
+                                "rate_15min": "6.272927430660113"
+                            }
+                        }, 
+                        {
+                            "app:tf-nmt:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "12.735630841137073", 
+                                "rate_1min": "7.2132206157219469", 
+                                "rate_5min": "6.4163737368187608", 
+                                "unit": "events per second", 
+                                "rate_15min": "6.272927430660113"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "12.73558498475864", 
+                                "rate_1min": "7.7063971127085731", 
+                                "rate_5min": "6.9934523264400417", 
+                                "unit": "events per second", 
+                                "rate_15min": "6.8651957724942712"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "12.73551874835055", 
+                                "rate_1min": "7.2132206157219469", 
+                                "rate_5min": "6.4163737368187608", 
+                                "unit": "events per second", 
+                                "rate_15min": "6.272927430660113"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:tf-nmt:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:tf-nmt:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "191"
+                            }
+                        }, 
+                        {
+                            "model:tf-nmt:1:num_predictions": {
+                                "count": "191"
+                            }
+                        }, 
+                        {
+                            "app:tf-nmt:num_predictions": {
+                                "count": "191"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:tf-nmt:prediction_latency": {
+                                "p99": "3724169.69999999999936", 
+                                "min": "2365294", 
+                                "max": "3727183", 
+                                "p95": "3647901.69999999996617", 
+                                "std_dev": "362885.187354982268602", 
+                                "mean": "3087991.88780487804934", 
+                                "p50": "3091578", 
+                                "unit": "microseconds", 
+                                "size": "205"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "12.9399999999999977263", 
+                                "min": "0", 
+                                "max": "16", 
+                                "p95": "6", 
+                                "std_dev": "2.28589550569109062708", 
+                                "mean": "3.88292682926829268021", 
+                                "p50": "4", 
+                                "unit": "microseconds", 
+                                "size": "205"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "tf-nmt:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "205"
+                            }
+                        }, 
+                        {
+                            "tf-nmt:1:queue_size": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "13"
+                            }
+                        }, 
+                        {
+                            "model:tf-nmt:1:prediction_latency": {
+                                "p99": "2513095", 
+                                "min": "2350774", 
+                                "max": "2513095", 
+                                "p95": "2513095", 
+                                "std_dev": "52681.2112011607206092", 
+                                "mean": "2474805.38461538461524", 
+                                "p50": "2500482", 
+                                "unit": "microseconds", 
+                                "size": "13"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "4", 
+                                "min": "0", 
+                                "max": "5", 
+                                "p95": "1", 
+                                "std_dev": "0.717753120466446897536", 
+                                "mean": "0.146341463414634146323", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "205"
+                            }
+                        }, 
+                        {
+                            "model:tf-nmt:1:batch_size": {
+                                "p99": "16", 
+                                "min": "14", 
+                                "max": "16", 
+                                "p95": "16", 
+                                "std_dev": "0.575639597965221751685", 
+                                "mean": "15.7692307692307692292", 
+                                "p50": "16", 
+                                "unit": "queries", 
+                                "size": "13"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "12.744405843055191", 
+                                "rate_1min": "7.705118533582179", 
+                                "rate_5min": "6.9933976878722879", 
+                                "unit": "events per second", 
+                                "rate_15min": "6.8651896338374456"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "12.744399504721551", 
+                                "rate_1min": "7.3383793468568443", 
+                                "rate_5min": "6.6000637449113952", 
+                                "unit": "events per second", 
+                                "rate_15min": "6.4674118332923127"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "12.744341667718334", 
+                                "rate_1min": "7.3383793468568443", 
+                                "rate_5min": "6.6000637449113952", 
+                                "unit": "events per second", 
+                                "rate_15min": "6.4674118332923127"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "app:tf-nmt:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "12.744214903520076", 
+                                "rate_1min": "7.3383793468568443", 
+                                "rate_5min": "6.6000637449113952", 
+                                "unit": "events per second", 
+                                "rate_15min": "6.4674118332923127"
+                            }
+                        }, 
+                        {
+                            "model:tf-nmt:1:prediction_throughput": {
+                                "rate": "12.744175290225279", 
+                                "rate_1min": "7.3383793468568443", 
+                                "rate_5min": "6.6000637449113952", 
+                                "unit": "events per second", 
+                                "rate_15min": "6.4674118332923127"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:tf-nmt:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:tf-nmt:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "model:tf-nmt:1:num_predictions": {
+                                "count": "205"
+                            }
+                        }, 
+                        {
+                            "app:tf-nmt:num_predictions": {
+                                "count": "205"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "205"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:tf-nmt:prediction_latency": {
+                                "p99": "3739586.85999999999603", 
+                                "min": "2409893", 
+                                "max": "3744519", 
+                                "p95": "3666175.49999999996953", 
+                                "std_dev": "360636.039680152473295", 
+                                "mean": "3101198.37073170731674", 
+                                "p50": "3110435", 
+                                "unit": "microseconds", 
+                                "size": "205"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "16.9399999999999977263", 
+                                "min": "0", 
+                                "max": "17", 
+                                "p95": "7", 
+                                "std_dev": "2.67862182327030638913", 
+                                "mean": "3.9756097560975609726", 
+                                "p50": "4", 
+                                "unit": "microseconds", 
+                                "size": "205"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "tf-nmt:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "205"
+                            }
+                        }, 
+                        {
+                            "tf-nmt:1:queue_size": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "13"
+                            }
+                        }, 
+                        {
+                            "model:tf-nmt:1:prediction_latency": {
+                                "p99": "2507387", 
+                                "min": "2360416", 
+                                "max": "2507387", 
+                                "p95": "2507387", 
+                                "std_dev": "48423.0295918385408669", 
+                                "mean": "2474246.38461538461524", 
+                                "p50": "2493529", 
+                                "unit": "microseconds", 
+                                "size": "13"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "5.87999999999999545253", 
+                                "min": "0", 
+                                "max": "7", 
+                                "p95": "1", 
+                                "std_dev": "0.937626453894847471896", 
+                                "mean": "0.229268292682926829246", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "205"
+                            }
+                        }, 
+                        {
+                            "model:tf-nmt:1:batch_size": {
+                                "p99": "16", 
+                                "min": "14", 
+                                "max": "16", 
+                                "p95": "16", 
+                                "std_dev": "0.575639597965221751685", 
+                                "mean": "15.7692307692307692292", 
+                                "p50": "16", 
+                                "unit": "queries", 
+                                "size": "13"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "12.744335329448528", 
+                                "rate_1min": "4.6590629031023623", 
+                                "rate_5min": "3.5114743647048212", 
+                                "unit": "events per second", 
+                                "rate_15min": "3.3049743710361512"
+                            }
+                        }, 
+                        {
+                            "model:tf-nmt:1:prediction_throughput": {
+                                "rate": "12.744339290866417", 
+                                "rate_1min": "4.6590629031023623", 
+                                "rate_5min": "3.5114743647048212", 
+                                "unit": "events per second", 
+                                "rate_15min": "3.3049743710361512"
+                            }
+                        }, 
+                        {
+                            "app:tf-nmt:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "12.744201434972215", 
+                                "rate_1min": "4.6590629031023623", 
+                                "rate_5min": "3.5114743647048212", 
+                                "unit": "events per second", 
+                                "rate_15min": "3.3049743710361512"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "12.744161821761148", 
+                                "rate_1min": "4.6590629031023623", 
+                                "rate_5min": "3.5114743647048212", 
+                                "unit": "events per second", 
+                                "rate_15min": "3.3049743710361512"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "12.744123001053225", 
+                                "rate_1min": "5.3509608209625954", 
+                                "rate_5min": "4.2884983157583481", 
+                                "unit": "events per second", 
+                                "rate_15min": "4.0972365742134844"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:tf-nmt:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:tf-nmt:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "app:tf-nmt:num_predictions": {
+                                "count": "205"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "205"
+                            }
+                        }, 
+                        {
+                            "model:tf-nmt:1:num_predictions": {
+                                "count": "205"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:tf-nmt:prediction_latency": {
+                                "p99": "3733099.39000000001397", 
+                                "min": "2499724", 
+                                "max": "3736804", 
+                                "p95": "3677419.14999999999236", 
+                                "std_dev": "358800.971221661768084", 
+                                "mean": "3116258.94736842105181", 
+                                "p50": "3111286.5", 
+                                "unit": "microseconds", 
+                                "size": "190"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "8", 
+                                "min": "0", 
+                                "max": "8", 
+                                "p95": "6", 
+                                "std_dev": "1.45347992009395970666", 
+                                "mean": "4.6052631578947368432", 
+                                "p50": "5", 
+                                "unit": "microseconds", 
+                                "size": "190"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "tf-nmt:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "190"
+                            }
+                        }, 
+                        {
+                            "tf-nmt:1:queue_size": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "12"
+                            }
+                        }, 
+                        {
+                            "model:tf-nmt:1:prediction_latency": {
+                                "p99": "2512048", 
+                                "min": "2461615", 
+                                "max": "2512048", 
+                                "p95": "2512048", 
+                                "std_dev": "14627.9957128920737484", 
+                                "mean": "2486843.41666666666674", 
+                                "p50": "2489489", 
+                                "unit": "microseconds", 
+                                "size": "12"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "6.18000000000000682121", 
+                                "min": "0", 
+                                "max": "8", 
+                                "p95": "1", 
+                                "std_dev": "1.10727886369895990788", 
+                                "mean": "0.384210526315789473748", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "190"
+                            }
+                        }, 
+                        {
+                            "model:tf-nmt:1:batch_size": {
+                                "p99": "16", 
+                                "min": "15", 
+                                "max": "16", 
+                                "p95": "16", 
+                                "std_dev": "0.372677996249964949439", 
+                                "mean": "15.8333333333333333322", 
+                                "p50": "16", 
+                                "unit": "queries", 
+                                "size": "12"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "12.735245966194624", 
+                                "rate_1min": "1.9503213834523971", 
+                                "rate_5min": "0.41638284316240204", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.1403331252955996"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "12.735237430069303", 
+                                "rate_1min": "2.980811991268876", 
+                                "rate_5min": "1.5802932344087315", 
+                                "unit": "events per second", 
+                                "rate_15min": "1.3281754841905014"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "12.735157191050616", 
+                                "rate_1min": "1.9503213834523971", 
+                                "rate_5min": "0.41638284316240204", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.1403331252955996"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "app:tf-nmt:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "model:tf-nmt:1:prediction_throughput": {
+                                "rate": "12.735036834418381", 
+                                "rate_1min": "1.9503213834523971", 
+                                "rate_5min": "0.41638284316240204", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.1403331252955996"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "12.734995008887351", 
+                                "rate_1min": "1.9503213834523971", 
+                                "rate_5min": "0.41638284316240204", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.1403331252955996"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:tf-nmt:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:tf-nmt:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "190"
+                            }
+                        }, 
+                        {
+                            "model:tf-nmt:1:num_predictions": {
+                                "count": "190"
+                            }
+                        }, 
+                        {
+                            "app:tf-nmt:num_predictions": {
+                                "count": "190"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:tf-nmt:prediction_latency": {
+                                "p99": "3726230.799999999997", 
+                                "min": "2521395", 
+                                "max": "3731773", 
+                                "p95": "3704924.94999999993775", 
+                                "std_dev": "361654.129268839476765", 
+                                "mean": "3126026.79326923076906", 
+                                "p50": "3126662.5", 
+                                "unit": "microseconds", 
+                                "size": "208"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "12.8199999999999931788", 
+                                "min": "0", 
+                                "max": "18", 
+                                "p95": "6", 
+                                "std_dev": "2.19430998306418592863", 
+                                "mean": "3.70192307692307692431", 
+                                "p50": "4", 
+                                "unit": "microseconds", 
+                                "size": "208"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "tf-nmt:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "208"
+                            }
+                        }, 
+                        {
+                            "tf-nmt:1:queue_size": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "13"
+                            }
+                        }, 
+                        {
+                            "model:tf-nmt:1:prediction_latency": {
+                                "p99": "2507431", 
+                                "min": "2500595", 
+                                "max": "2507431", 
+                                "p95": "2507431", 
+                                "std_dev": "1870.90111503748928368", 
+                                "mean": "2504122.69230769230785", 
+                                "p50": "2504340", 
+                                "unit": "microseconds", 
+                                "size": "13"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "5.90999999999999658939", 
+                                "min": "0", 
+                                "max": "6", 
+                                "p95": "1", 
+                                "std_dev": "0.896244630594695660579", 
+                                "mean": "0.346153846153846153844", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "208"
+                            }
+                        }, 
+                        {
+                            "model:tf-nmt:1:batch_size": {
+                                "p99": "16", 
+                                "min": "16", 
+                                "max": "16", 
+                                "p95": "16", 
+                                "std_dev": "1.73472347597680709441e-18", 
+                                "mean": "15.9999999999999999983", 
+                                "p50": "16", 
+                                "unit": "queries", 
+                                "size": "13"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "model:tf-nmt:1:prediction_throughput": {
+                                "rate": "12.77734282255803", 
+                                "rate_1min": "2.8313499766860164", 
+                                "rate_5min": "0.62426336639086066", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.21156539108329697"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "12.777335758406137", 
+                                "rate_1min": "2.8313499766860164", 
+                                "rate_5min": "0.62426336639086066", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.21156539108329697"
+                            }
+                        }, 
+                        {
+                            "app:tf-nmt:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "12.77720625033901", 
+                                "rate_1min": "2.8313499766860164", 
+                                "rate_5min": "0.62426336639086066", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.21156539108329697"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "12.777165436219493", 
+                                "rate_1min": "4.0638950412364228", 
+                                "rate_5min": "2.1430331103957445", 
+                                "unit": "events per second", 
+                                "rate_15min": "1.784023930103424"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "12.777108924792156", 
+                                "rate_1min": "2.8313499766860164", 
+                                "rate_5min": "0.62426336639086066", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.21156539108329697"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:tf-nmt:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:tf-nmt:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "model:tf-nmt:1:num_predictions": {
+                                "count": "208"
+                            }
+                        }, 
+                        {
+                            "app:tf-nmt:num_predictions": {
+                                "count": "208"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "208"
+                            }
+                        }
+                    ]
+                }
+            ], 
+            "thrus": [
+                10.845488233512906, 
+                12.38644724488254, 
+                13.33934849021252, 
+                12.436720411953926, 
+                12.437252506448404, 
+                13.409077637151565, 
+                12.28917233591789
+            ], 
+            "all_lats": [
+                "0.935997", 
+                "1.270033", 
+                "2.008825", 
+                "1.616649", 
+                "2.087466", 
+                "2.166073", 
+                "1.773949", 
+                "2.244807", 
+                "1.538885", 
+                "1.695972", 
+                "1.931381", 
+                "1.853026", 
+                "2.108968", 
+                "1.952332", 
+                "1.71708", 
+                "1.795554", 
+                "2.030902", 
+                "1.874075", 
+                "2.670128", 
+                "2.827293", 
+                "2.200165", 
+                "2.74939", 
+                "2.435945", 
+                "2.279203", 
+                "2.514587", 
+                "2.357764", 
+                "2.043694", 
+                "1.965424", 
+                "2.593389", 
+                "2.122454", 
+                "1.88717", 
+                "2.580166", 
+                "2.345095", 
+                "2.659087", 
+                "2.26706", 
+                "2.50242", 
+                "2.110375", 
+                "2.424133", 
+                "2.18889", 
+                "3.026056", 
+                "2.71259", 
+                "2.555886", 
+                "2.242416", 
+                "3.262188", 
+                "3.105497", 
+                "2.948773", 
+                "2.792073", 
+                "2.478577", 
+                "3.184521", 
+                "2.870996", 
+                "2.322068", 
+                "2.635861", 
+                "2.086824", 
+                "2.40074", 
+                "2.165472", 
+                "2.982476", 
+                "2.668918", 
+                "2.512221", 
+                "2.904589", 
+                "2.355748", 
+                "3.061793", 
+                "2.591383", 
+                "2.434662", 
+                "2.826865", 
+                "2.74848", 
+                "3.436682", 
+                "3.515333", 
+                "3.044803", 
+                "3.358738", 
+                "2.809848", 
+                "2.888461", 
+                "3.202418", 
+                "2.967304", 
+                "2.653631", 
+                "2.496835", 
+                "2.340199", 
+                "2.575623", 
+                "3.124706", 
+                "2.418846", 
+                "3.281645", 
+                "2.732693", 
+                "3.467405", 
+                "3.232242", 
+                "3.389292", 
+                "2.918834", 
+                "3.311221", 
+                "2.997534", 
+                "3.15456", 
+                "3.076287", 
+                "2.841079", 
+                "2.7628", 
+                "2.684509", 
+                "2.449278", 
+                "2.606328", 
+                "2.527987", 
+                "3.506836", 
+                "2.644209", 
+                "2.879768", 
+                "3.036801", 
+                "2.488097", 
+                "3.586269", 
+                "3.429464", 
+                "3.194276", 
+                "2.723803", 
+                "3.351514", 
+                "2.959394", 
+                "2.56725", 
+                "3.116346", 
+                "2.802637", 
+                "3.273291", 
+                "3.644629", 
+                "3.487967", 
+                "3.252779", 
+                "3.096084", 
+                "3.566889", 
+                "2.939444", 
+                "3.331768", 
+                "2.782798", 
+                "3.175226", 
+                "2.46944", 
+                "2.704943", 
+                "2.626684", 
+                "3.411156", 
+                "3.018946", 
+                "2.548385", 
+                "2.862159", 
+                "3.611356", 
+                "2.905674", 
+                "3.29791", 
+                "3.376506", 
+                "3.533439", 
+                "3.220031", 
+                "2.828062", 
+                "2.749711", 
+                "2.514519", 
+                "3.45587", 
+                "3.063789", 
+                "3.14236", 
+                "2.59341", 
+                "2.671993", 
+                "2.985756", 
+                "3.36126", 
+                "3.596714", 
+                "2.891084", 
+                "3.126511", 
+                "3.205205", 
+                "2.577804", 
+                "3.283824", 
+                "3.048649", 
+                "2.734977", 
+                "2.656662", 
+                "3.441085", 
+                "2.813998", 
+                "3.676867", 
+                "2.500439", 
+                "2.971164", 
+                "3.520339", 
+                "2.720094", 
+                "3.661435", 
+                "2.642088", 
+                "3.583624", 
+                "3.505338", 
+                "2.564281", 
+                "3.27026", 
+                "3.191981", 
+                "3.113741", 
+                "2.957151", 
+                "3.349368", 
+                "3.427864", 
+                "3.035875", 
+                "2.486905", 
+                "2.800674", 
+                "2.879143", 
+                "3.631917", 
+                "3.553661", 
+                "3.318551", 
+                "3.240356", 
+                "3.005191", 
+                "3.083821", 
+                "3.476053", 
+                "2.692113", 
+                "2.849133", 
+                "2.614101", 
+                "3.398598", 
+                "3.163373", 
+                "2.928144", 
+                "2.771337", 
+                "2.536099", 
+                "3.69182", 
+                "3.613509", 
+                "3.3785", 
+                "3.535582", 
+                "3.065328", 
+                "2.987012", 
+                "3.300979", 
+                "2.67373", 
+                "2.830879", 
+                "2.909361", 
+                "3.458514", 
+                "3.223235", 
+                "3.149773", 
+                "2.522317", 
+                "2.757649", 
+                "2.600831", 
+                "3.44695", 
+                "3.054805", 
+                "3.133662", 
+                "2.66308", 
+                "3.682944", 
+                "3.29085", 
+                "2.898716", 
+                "2.977385", 
+                "3.605011", 
+                "3.369749", 
+                "2.742248", 
+                "3.526767", 
+                "3.212997", 
+                "2.507052", 
+                "2.585569", 
+                "2.821018", 
+                "3.671117", 
+                "3.592836", 
+                "3.279144", 
+                "3.436194", 
+                "2.808865", 
+                "3.358046", 
+                "3.044718", 
+                "2.574254", 
+                "3.123499", 
+                "2.966805", 
+                "2.888544", 
+                "3.516149", 
+                "3.202469", 
+                "2.49666", 
+                "2.653764", 
+                "2.732241", 
+                "3.018969", 
+                "3.646616", 
+                "2.940937", 
+                "3.490447", 
+                "3.569076", 
+                "2.62808", 
+                "3.41242", 
+                "3.255702", 
+                "2.785227", 
+                "3.099062", 
+                "3.334433", 
+                "2.863922", 
+                "3.177702", 
+                "2.550327", 
+                "2.707227", 
+                "3.477874", 
+                "3.00747", 
+                "3.635073", 
+                "2.850894", 
+                "3.243279", 
+                "3.164894", 
+                "2.615919", 
+                "3.714029", 
+                "3.400464", 
+                "2.773296", 
+                "3.557671", 
+                "3.322437", 
+                "3.087161", 
+                "2.538175", 
+                "2.930384", 
+                "2.695131", 
+                "3.388916", 
+                "2.996983", 
+                "2.840245", 
+                "3.153988", 
+                "2.762058", 
+                "2.683697", 
+                "3.076005", 
+                "2.605552", 
+                "2.527365", 
+                "3.704073", 
+                "3.468981", 
+                "2.920081", 
+                "3.547587", 
+                "3.626057", 
+                "3.233927", 
+                "3.312404", 
+                "3.687174", 
+                "3.373528", 
+                "3.530539", 
+                "3.452506", 
+                "3.060502", 
+                "3.13916", 
+                "2.903975", 
+                "2.668761", 
+                "2.982661", 
+                "2.747459", 
+                "2.590642", 
+                "3.61039", 
+                "3.296894", 
+                "2.826401", 
+                "3.218662", 
+                "2.512882", 
+                "3.674989", 
+                "3.518175", 
+                "3.28319", 
+                "3.126423", 
+                "2.734395", 
+                "2.656073", 
+                "3.362148", 
+                "2.578088", 
+                "3.59788", 
+                "3.441183", 
+                "2.892367", 
+                "2.97095", 
+                "2.814411", 
+                "2.500778", 
+                "3.2068", 
+                "3.050107", 
+                "3.418713", 
+                "3.34056", 
+                "3.027309", 
+                "3.262697", 
+                "2.713833", 
+                "3.576719", 
+                "3.184662", 
+                "2.949621", 
+                "2.635978", 
+                "3.655755", 
+                "3.49899", 
+                "3.107218", 
+                "2.872063", 
+                "2.55832", 
+                "2.793693", 
+                "3.718063", 
+                "3.561309", 
+                "2.855718", 
+                "2.777479", 
+                "3.326813", 
+                "2.699858", 
+                "3.6411", 
+                "3.405905", 
+                "3.249113", 
+                "3.17073", 
+                "3.092328", 
+                "3.013925", 
+                "2.543478", 
+                "2.621891", 
+                "2.93562", 
+                "3.484724", 
+                "3.477961", 
+                "3.086215", 
+                "3.635328", 
+                "3.243343", 
+                "2.92998", 
+                "2.538073", 
+                "3.008813", 
+                "2.852001", 
+                "2.695185", 
+                "2.773662", 
+                "3.714864", 
+                "3.558045", 
+                "3.322802", 
+                "2.616967", 
+                "3.401314", 
+                "3.166071", 
+                "3.231476", 
+                "3.153217", 
+                "3.07492", 
+                "2.682912", 
+                "3.467432", 
+                "2.918441", 
+                "3.702851", 
+                "3.54615", 
+                "3.310938", 
+                "2.526794", 
+                "3.625042", 
+                "3.389819", 
+                "2.840912", 
+                "2.605803", 
+                "2.998014", 
+                "2.762766", 
+                "3.305681", 
+                "3.070507", 
+                "2.600033", 
+                "3.619695", 
+                "3.463169", 
+                "2.75755", 
+                "3.54195", 
+                "3.385169", 
+                "2.522572", 
+                "3.699072", 
+                "2.993485", 
+                "2.915076", 
+                "2.836691", 
+                "3.228899", 
+                "3.15052", 
+                "2.679968", 
+                "3.6865", 
+                "3.451433", 
+                "3.059447", 
+                "3.373304", 
+                "3.138389", 
+                "2.903324", 
+                "2.830187", 
+                "2.594951", 
+                "3.614585", 
+                "2.751901", 
+                "3.536249", 
+                "3.22262", 
+                "2.987457", 
+                "2.673856", 
+                "3.301405", 
+                "2.517132", 
+                "3.687586", 
+                "3.452419", 
+                "3.295708", 
+                "3.374297", 
+                "2.747203", 
+                "2.98261", 
+                "3.531671", 
+                "3.13963", 
+                "3.610331", 
+                "2.904536", 
+                "2.669272", 
+                "2.59103", 
+                "3.061807", 
+                "3.218728", 
+                "2.512838", 
+                "2.826695", 
+                "3.429655", 
+                "3.351326", 
+                "3.665182", 
+                "3.587014", 
+                "3.273415", 
+                "3.038212", 
+                "2.803159", 
+                "3.509205", 
+                "3.117182", 
+                "3.195684", 
+                "2.882143", 
+                "2.725414", 
+                "2.647071", 
+                "2.960965", 
+                "2.568842", 
+                "3.744152", 
+                "3.273515", 
+                "2.88135", 
+                "3.038397", 
+                "2.724727", 
+                "2.80335", 
+                "3.588145", 
+                "2.568289", 
+                "3.509898", 
+                "3.66718", 
+                "3.353386", 
+                "3.196481", 
+                "3.118078", 
+                "3.432028", 
+                "2.647657", 
+                "2.961531", 
+                "3.73489", 
+                "3.499884", 
+                "3.578408", 
+                "3.264946", 
+                "2.794343", 
+                "3.657526", 
+                "2.71625", 
+                "3.030114", 
+                "3.422369", 
+                "3.108668", 
+                "2.638018", 
+                "2.951905", 
+                "3.344198", 
+                "3.187358", 
+                "2.873559", 
+                "2.559875", 
+                "3.332422", 
+                "3.09725", 
+                "3.411096", 
+                "2.940655", 
+                "3.254468", 
+                "3.176261", 
+                "2.70578", 
+                "3.019671", 
+                "2.784573", 
+                "3.647482", 
+                "2.549448", 
+                "3.7262", 
+                "3.569337", 
+                "2.863587", 
+                "3.491335", 
+                "2.628621", 
+                "3.64165", 
+                "3.328156", 
+                "2.779454", 
+                "3.720745", 
+                "2.70119", 
+                "3.56406", 
+                "3.250425", 
+                "3.015322", 
+                "3.407562", 
+                "3.17243", 
+                "2.937449", 
+                "3.4866", 
+                "3.094532", 
+                "2.859397", 
+                "2.54571", 
+                "2.624186", 
+                "3.404445", 
+                "3.483085", 
+                "2.934193", 
+                "3.09117", 
+                "3.640314", 
+                "2.777719", 
+                "2.856378", 
+                "3.719351", 
+                "3.562786", 
+                "3.170819", 
+                "2.700441", 
+                "3.014329", 
+                "2.62234", 
+                "2.543994", 
+                "3.328376", 
+                "3.249998", 
+                "3.559295", 
+                "3.716273", 
+                "3.245795", 
+                "3.402896", 
+                "2.932411", 
+                "3.011129", 
+                "2.776092", 
+                "3.639017", 
+                "3.482272", 
+                "3.168645", 
+                "2.619825", 
+                "3.325903", 
+                "2.698742", 
+                "3.091032", 
+                "2.855821", 
+                "2.542169", 
+                "3.404581", 
+                "3.012699", 
+                "2.856094", 
+                "3.170129", 
+                "2.699829", 
+                "2.621512", 
+                "3.641276", 
+                "3.327553", 
+                "3.092511", 
+                "2.543708", 
+                "3.720344", 
+                "3.563661", 
+                "3.4855", 
+                "2.936499", 
+                "2.7797", 
+                "3.250285", 
+                "3.161031", 
+                "3.474924", 
+                "2.769195", 
+                "2.926257", 
+                "3.240064", 
+                "2.612737", 
+                "3.318737", 
+                "2.691468", 
+                "3.711206", 
+                "3.554643", 
+                "3.397924", 
+                "2.849097", 
+                "3.633661", 
+                "3.084805", 
+                "2.535862", 
+                "3.00647", 
+                "3.625011", 
+                "3.703888", 
+                "3.547136", 
+                "3.468999", 
+                "3.390663", 
+                "2.99861", 
+                "3.234124", 
+                "3.077423", 
+                "2.920866", 
+                "3.156278", 
+                "3.313234", 
+                "2.842723", 
+                "2.60753", 
+                "2.686052", 
+                "2.764652", 
+                "2.529513", 
+                "3.467426", 
+                "2.996915", 
+                "3.624563", 
+                "3.389328", 
+                "2.761981", 
+                "3.232759", 
+                "3.154456", 
+                "3.703766", 
+                "3.547138", 
+                "3.076497", 
+                "2.605967", 
+                "3.312061", 
+                "2.841474", 
+                "2.920078", 
+                "2.527972", 
+                "2.689214", 
+                "3.473893", 
+                "3.160339", 
+                "2.925188", 
+                "2.768578", 
+                "3.396237", 
+                "3.082737", 
+                "2.612205", 
+                "3.318144", 
+                "2.847608", 
+                "3.004729", 
+                "3.553842", 
+                "3.240203", 
+                "2.534521", 
+                "2.691463", 
+                "2.456241", 
+                "2.377856", 
+                "3.465183", 
+                "3.151618", 
+                "3.543989", 
+                "2.838165", 
+                "3.387245", 
+                "2.760157", 
+                "3.074049", 
+                "2.603556", 
+                "2.995794", 
+                "2.525391", 
+                "2.917588", 
+                "3.309837", 
+                "2.368838", 
+                "2.44736", 
+                "2.682738", 
+                "3.231776", 
+                "3.124872", 
+                "2.654388", 
+                "3.203629", 
+                "2.733329", 
+                "2.498248", 
+                "3.518039", 
+                "3.282862", 
+                "3.04773", 
+                "2.890987", 
+                "2.577428", 
+                "3.362081", 
+                "2.813168", 
+                "3.440846", 
+                "2.970348", 
+                "3.195861", 
+                "3.118326", 
+                "3.03998", 
+                "2.883264", 
+                "2.648072", 
+                "3.589442", 
+                "2.569994", 
+                "3.354392", 
+                "2.962304", 
+                "3.276095", 
+                "3.668343", 
+                "3.51153", 
+                "2.727364", 
+                "3.433503", 
+                "2.806173", 
+                "2.492497", 
+                "3.408943", 
+                "3.565916", 
+                "3.644543", 
+                "3.017189", 
+                "3.17429", 
+                "3.331288", 
+                "2.703891", 
+                "3.096224", 
+                "2.782823", 
+                "3.488849", 
+                "3.253637", 
+                "2.940074", 
+                "2.861711", 
+                "2.54807", 
+                "2.626607", 
+                "3.728679", 
+                "3.415197", 
+                "3.493749", 
+                "3.572446", 
+                "3.10198", 
+                "3.259127", 
+                "3.023954", 
+                "2.710294", 
+                "3.651859", 
+                "3.181519", 
+                "2.867985", 
+                "2.789659", 
+                "2.632895", 
+                "3.338891", 
+                "2.946782", 
+                "2.554525", 
+                "3.646851", 
+                "3.333368", 
+                "3.019903", 
+                "2.86333", 
+                "3.255599", 
+                "2.78523", 
+                "3.726503", 
+                "3.491337", 
+                "2.707108", 
+                "3.099327", 
+                "3.413154", 
+                "3.178147", 
+                "3.570419", 
+                "2.550888", 
+                "2.629387", 
+                "2.943219", 
+                "3.648131", 
+                "3.491403", 
+                "3.334854", 
+                "3.72708", 
+                "3.178172", 
+                "3.413643", 
+                "2.707882", 
+                "3.021722", 
+                "2.551325", 
+                "3.100592", 
+                "2.787119", 
+                "2.865666", 
+                "3.571644", 
+                "2.944297", 
+                "2.630609", 
+                "3.258106", 
+                "3.721086", 
+                "3.329167", 
+                "3.486241", 
+                "2.93734", 
+                "3.015839", 
+                "2.623824", 
+                "3.094575", 
+                "2.859462", 
+                "3.643865", 
+                "3.173349", 
+                "3.408971", 
+                "3.565979", 
+                "3.252414", 
+                "2.546657", 
+                "2.70365", 
+                "2.782207", 
+                "3.722173", 
+                "3.48712", 
+                "3.016635", 
+                "2.860016", 
+                "3.644551", 
+                "2.703578", 
+                "3.17423", 
+                "3.331175", 
+                "3.40972", 
+                "3.096238", 
+                "2.547387", 
+                "3.567167", 
+                "3.253559", 
+                "2.939909", 
+                "2.626248", 
+                "2.783146", 
+                "3.637306", 
+                "3.323705", 
+                "3.010205", 
+                "2.931993", 
+                "2.540025", 
+                "3.559591", 
+                "3.167695", 
+                "2.775695", 
+                "3.246256", 
+                "3.089693", 
+                "3.717323", 
+                "3.48219", 
+                "2.85495", 
+                "2.619746", 
+                "3.404051", 
+                "2.698397", 
+                "3.713717", 
+                "3.164917", 
+                "3.400297", 
+                "3.008316", 
+                "2.930022", 
+                "3.636095", 
+                "2.695128", 
+                "3.558147", 
+                "2.773913", 
+                "3.24467", 
+                "3.323462", 
+                "3.480531", 
+                "3.088476", 
+                "2.853207", 
+                "2.618019", 
+                "2.539637", 
+                "3.709434", 
+                "3.631131", 
+                "3.082256", 
+                "3.553045", 
+                "3.396474", 
+                "3.31823", 
+                "3.161441", 
+                "3.004697", 
+                "2.612818", 
+                "3.475646", 
+                "2.774767", 
+                "3.245491", 
+                "2.931736", 
+                "2.853337", 
+                "2.539677", 
+                "2.696575", 
+                "3.703861", 
+                "3.468842", 
+                "3.625853", 
+                "3.233911", 
+                "3.390842", 
+                "3.312482", 
+                "2.606695", 
+                "3.077442", 
+                "2.999083", 
+                "3.156067", 
+                "2.921138", 
+                "2.529045", 
+                "3.548654", 
+                "2.764419", 
+                "2.686035", 
+                "2.842934", 
+                "3.615672", 
+                "3.380837", 
+                "3.067279", 
+                "3.459487", 
+                "2.910595", 
+                "2.832343", 
+                "2.754093", 
+                "3.146394", 
+                "3.538656", 
+                "3.22508", 
+                "2.989994", 
+                "2.597935", 
+                "3.695971", 
+                "2.676504", 
+                "2.519727", 
+                "3.304101", 
+                "3.609364", 
+                "3.295816", 
+                "3.060726", 
+                "3.688303", 
+                "3.374788", 
+                "2.825892", 
+                "3.453627", 
+                "2.904822", 
+                "2.669588", 
+                "3.53237", 
+                "3.21893", 
+                "2.513212", 
+                "2.748627", 
+                "2.984043", 
+                "3.140948", 
+                "2.59209", 
+                "3.684664", 
+                "3.449562", 
+                "3.21451", 
+                "2.90095", 
+                "3.37164", 
+                "2.822788", 
+                "3.607254", 
+                "3.058436", 
+                "2.744924", 
+                "3.294057", 
+                "3.529435", 
+                "3.137663", 
+                "2.980859", 
+                "2.667184", 
+                "2.588806", 
+                "2.510511", 
+                "3.587376", 
+                "3.273765", 
+                "3.430747", 
+                "2.803589", 
+                "3.196079", 
+                "2.647025", 
+                "3.117972", 
+                "3.667255", 
+                "3.510729", 
+                "2.883404", 
+                "2.56975", 
+                "3.354215", 
+                "2.962074", 
+                "2.726723", 
+                "3.040583", 
+                "3.746346", 
+                "3.589917", 
+                "3.511575", 
+                "3.197986", 
+                "3.041238", 
+                "3.119729", 
+                "3.433726", 
+                "2.571042", 
+                "3.669144", 
+                "3.35556", 
+                "2.885134", 
+                "3.27736", 
+                "2.806898", 
+                "2.728624", 
+                "2.964006", 
+                "2.650346", 
+                "3.662485", 
+                "3.427278", 
+                "3.348917", 
+                "3.270806", 
+                "3.114016", 
+                "2.95722", 
+                "3.192673", 
+                "2.879081", 
+                "3.036097", 
+                "2.722533", 
+                "2.644329", 
+                "3.742684", 
+                "2.566121", 
+                "3.585817", 
+                "3.507409", 
+                "2.801551", 
+                "3.112087", 
+                "3.504505", 
+                "2.798674", 
+                "2.877223", 
+                "3.269587", 
+                "3.74032", 
+                "3.583661", 
+                "2.642657", 
+                "3.348621", 
+                "2.721217", 
+                "3.662677", 
+                "3.427486", 
+                "2.957027", 
+                "3.192465", 
+                "3.035682", 
+                "2.565164", 
+                "3.424093", 
+                "3.188958", 
+                "3.581462", 
+                "2.954126", 
+                "3.346688", 
+                "2.797829", 
+                "3.111773", 
+                "3.739495", 
+                "3.504306", 
+                "3.269116", 
+                "2.877233", 
+                "2.720461", 
+                "3.661747", 
+                "3.034264", 
+                "2.642192", 
+                "2.563813", 
+                "3.594523", 
+                "3.359377", 
+                "2.967489", 
+                "3.516744", 
+                "2.811097", 
+                "3.203458", 
+                "3.125285", 
+                "2.654911", 
+                "3.439365", 
+                "2.890696", 
+                "2.733911", 
+                "3.282969", 
+                "3.047725", 
+                "2.420336", 
+                "2.498806", 
+                "2.577279", 
+                "3.588511", 
+                "3.510263", 
+                "3.353606", 
+                "3.197002", 
+                "2.883472", 
+                "2.805507", 
+                "2.727224", 
+                "2.64905", 
+                "2.57093", 
+                "3.276848", 
+                "2.492607", 
+                "2.414222", 
+                "3.433828", 
+                "2.963291", 
+                "3.04176", 
+                "3.120253", 
+                "3.401904", 
+                "3.245291", 
+                "3.088586", 
+                "3.167307", 
+                "2.932301", 
+                "3.481346", 
+                "3.010903", 
+                "2.854251", 
+                "2.697486", 
+                "3.560289", 
+                "3.325207", 
+                "2.541213", 
+                "2.619735", 
+                "2.776634", 
+                "3.717388", 
+                "3.403765", 
+                "3.482326", 
+                "2.933487", 
+                "3.090531", 
+                "2.5468", 
+                "2.78217", 
+                "3.566559", 
+                "3.331328", 
+                "3.017666", 
+                "2.860826", 
+                "3.645162", 
+                "3.174643", 
+                "3.253111", 
+                "2.625713", 
+                "2.704183", 
+                "3.717728", 
+                "3.482783", 
+                "3.090805", 
+                "3.639855", 
+                "3.561533", 
+                "2.93425", 
+                "3.248051", 
+                "3.169737", 
+                "2.621034", 
+                "3.327026", 
+                "2.778279", 
+                "3.405854", 
+                "3.013942", 
+                "2.700409", 
+                "2.8574", 
+                "2.543849", 
+                "3.130326", 
+                "2.973745", 
+                "2.817216", 
+                "3.601747", 
+                "2.503945", 
+                "3.445183", 
+                "3.288429", 
+                "3.210101", 
+                "2.661356", 
+                "3.681242", 
+                "3.524495", 
+                "2.897292", 
+                "2.740557", 
+                "3.368071", 
+                "3.05457", 
+                "2.584076", 
+                "3.521081", 
+                "3.599757", 
+                "2.972583", 
+                "3.365102", 
+                "2.816235", 
+                "3.208474", 
+                "3.130311", 
+                "3.679578", 
+                "3.444402", 
+                "3.052435", 
+                "2.738883", 
+                "3.28792", 
+                "2.503705", 
+                "2.582168", 
+                "2.895907", 
+                "2.660678", 
+                "3.188481", 
+                "3.031792", 
+                "2.875093", 
+                "3.659486", 
+                "3.581179", 
+                "2.718588", 
+                "3.42488", 
+                "3.346617", 
+                "2.562514", 
+                "3.503769", 
+                "3.111741", 
+                "2.954937", 
+                "3.26869", 
+                "2.641334", 
+                "2.798219", 
+                "3.732747", 
+                "3.576021", 
+                "3.497768", 
+                "3.184147", 
+                "3.105843", 
+                "2.713812", 
+                "3.262955", 
+                "2.635947", 
+                "2.557585", 
+                "3.341962", 
+                "2.793091", 
+                "3.65585", 
+                "3.420704", 
+                "2.871849", 
+                "2.950416", 
+                "3.028998", 
+                "2.790471", 
+                "3.418012", 
+                "2.633841", 
+                "3.496689", 
+                "3.261617", 
+                "3.732343", 
+                "3.654033", 
+                "3.340916", 
+                "3.027343", 
+                "2.556845", 
+                "3.184584", 
+                "2.870876", 
+                "3.576803", 
+                "2.949402", 
+                "2.714169", 
+                "3.1064", 
+                "3.695724", 
+                "3.460724", 
+                "3.304026", 
+                "2.676831", 
+                "3.225962", 
+                "2.834055", 
+                "3.540091", 
+                "3.069779", 
+                "2.520975", 
+                "3.619075", 
+                "3.383919", 
+                "3.148804", 
+                "2.992238", 
+                "2.756983", 
+                "2.600163", 
+                "2.913992", 
+                "3.605159", 
+                "3.369989", 
+                "3.683806", 
+                "3.134935", 
+                "3.056738", 
+                "3.449112", 
+                "3.52775", 
+                "3.292805", 
+                "2.901122", 
+                "2.979602", 
+                "2.822796", 
+                "2.665974", 
+                "2.587585", 
+                "3.215082", 
+                "2.744575", 
+                "2.509346", 
+                "3.366256", 
+                "3.444857", 
+                "3.680308", 
+                "3.209955", 
+                "2.974831", 
+                "3.288899", 
+                "3.132156", 
+                "3.053835", 
+                "2.583345", 
+                "3.524798", 
+                "2.740638", 
+                "2.897848", 
+                "2.819514", 
+                "2.505848", 
+                "3.603968", 
+                "2.662797", 
+                "3.585747", 
+                "3.350592", 
+                "3.664502", 
+                "3.194095", 
+                "3.42962", 
+                "3.116032", 
+                "3.273147", 
+                "3.037974", 
+                "2.80286", 
+                "2.881468", 
+                "3.509182", 
+                "2.960295", 
+                "2.568266", 
+                "2.646914", 
+                "2.725396", 
+                "3.660448", 
+                "3.34692", 
+                "3.739299", 
+                "3.033767", 
+                "3.504537", 
+                "2.798762", 
+                "2.563617", 
+                "3.426587", 
+                "3.191403", 
+                "2.642584", 
+                "3.584014", 
+                "3.270711", 
+                "2.878721", 
+                "2.957213", 
+                "3.11412", 
+                "2.722009", 
+                "3.734238", 
+                "3.577506", 
+                "3.499281", 
+                "3.421211", 
+                "3.264472", 
+                "3.656817", 
+                "3.343227", 
+                "3.186639", 
+                "2.716191", 
+                "2.637938", 
+                "3.108567", 
+                "3.03021", 
+                "2.795013", 
+                "2.873707", 
+                "2.560045", 
+                "2.956916", 
+                "3.655174", 
+                "3.420153", 
+                "3.106601", 
+                "2.949806", 
+                "3.734295", 
+                "3.499339", 
+                "3.342587", 
+                "2.715154", 
+                "3.578106", 
+                "3.264518", 
+                "3.186176", 
+                "3.02948", 
+                "2.794606", 
+                "2.873098", 
+                "2.559412", 
+                "2.637937", 
+                "3.72848", 
+                "3.572132", 
+                "3.336987", 
+                "3.180364", 
+                "3.258849", 
+                "2.866718", 
+                "3.651163", 
+                "3.494342", 
+                "3.023793", 
+                "2.945409", 
+                "2.788574", 
+                "2.710181", 
+                "2.631787", 
+                "3.102434", 
+                "2.553435", 
+                "3.416274", 
+                "3.571206", 
+                "3.100732", 
+                "3.336142", 
+                "3.6502", 
+                "2.944463", 
+                "3.493691", 
+                "3.258499", 
+                "2.709552", 
+                "2.631519", 
+                "3.729712", 
+                "3.416145", 
+                "3.180988", 
+                "3.024377", 
+                "2.789114", 
+                "2.553864", 
+                "2.867651", 
+                "3.646415", 
+                "3.568168", 
+                "3.176223", 
+                "3.411683", 
+                "3.333486", 
+                "2.706149", 
+                "3.255405", 
+                "2.863531", 
+                "3.020544", 
+                "2.628534", 
+                "3.726797", 
+                "3.491877", 
+                "3.099793", 
+                "2.786069", 
+                "2.550819", 
+                "2.943095", 
+                "3.722421", 
+                "3.408813", 
+                "3.487582", 
+                "3.252771", 
+                "3.331588", 
+                "3.017864", 
+                "2.782647", 
+                "3.174915", 
+                "3.645679", 
+                "3.567281", 
+                "2.547616", 
+                "3.096753", 
+                "2.62614", 
+                "2.861492", 
+                "2.939971", 
+                "2.704711", 
+                "3.639468", 
+                "3.325818", 
+                "3.561362", 
+                "2.777165", 
+                "3.247902", 
+                "3.012811", 
+                "2.620689", 
+                "3.091694", 
+                "3.719549", 
+                "2.856942", 
+                "3.406052", 
+                "3.170798", 
+                "2.543248", 
+                "3.484659", 
+                "2.700298", 
+                "2.935649", 
+                "3.637821", 
+                "3.402697", 
+                "3.167574", 
+                "3.560024", 
+                "3.24647", 
+                "2.540798", 
+                "3.717463", 
+                "3.325474", 
+                "3.011856", 
+                "2.77686", 
+                "3.090717", 
+                "3.483024", 
+                "2.855832", 
+                "2.934474", 
+                "2.620788", 
+                "2.699263", 
+                "3.715147", 
+                "3.479927", 
+                "3.088023", 
+                "3.323448", 
+                "2.852945", 
+                "3.24516", 
+                "2.774735", 
+                "2.931652", 
+                "2.618095", 
+                "3.559416", 
+                "3.167363", 
+                "3.010752", 
+                "3.638269", 
+                "2.540389", 
+                "2.697318", 
+                "3.403212", 
+                "3.551697", 
+                "2.767484", 
+                "3.23824", 
+                "3.395182", 
+                "2.689485", 
+                "3.081699", 
+                "3.630911", 
+                "2.925148", 
+                "2.611608", 
+                "3.70974", 
+                "3.474625", 
+                "3.317834", 
+                "3.161131", 
+                "2.533766", 
+                "2.847607", 
+                "3.004548", 
+                "3.238106", 
+                "3.630615", 
+                "2.768076", 
+                "3.395645", 
+                "3.081988", 
+                "2.611481", 
+                "3.709691", 
+                "3.552861", 
+                "3.474504", 
+                "3.160991", 
+                "3.004279", 
+                "3.318143", 
+                "2.847715", 
+                "2.534156", 
+                "2.926391", 
+                "2.691193", 
+                "3.70424", 
+                "3.390793", 
+                "3.547952", 
+                "2.999107", 
+                "3.15608", 
+                "3.234583", 
+                "2.685708", 
+                "2.842638", 
+                "3.627025", 
+                "3.470228", 
+                "3.078305", 
+                "2.764809", 
+                "3.313907", 
+                "2.529705", 
+                "2.608264", 
+                "2.922095", 
+                "3.463549", 
+                "3.071544", 
+                "3.620678", 
+                "2.993277", 
+                "3.385613", 
+                "2.915197", 
+                "2.601667", 
+                "3.229355", 
+                "2.758854", 
+                "3.151103", 
+                "2.837451", 
+                "3.700289", 
+                "3.543504", 
+                "2.680895", 
+                "2.524156", 
+                "3.3086", 
+                "3.69995", 
+                "3.307861", 
+                "3.464975", 
+                "3.54359", 
+                "2.837834", 
+                "2.994815", 
+                "3.073459"
+            ], 
+            "mean_batch_sizes": [
+                {
+                    "tf-nmt": 12.0
+                }, 
+                {
+                    "tf-nmt": 15.85
+                }, 
+                {
+                    "tf-nmt": 15.92
+                }, 
+                {
+                    "tf-nmt": 15.77
+                }, 
+                {
+                    "tf-nmt": 15.77
+                }, 
+                {
+                    "tf-nmt": 15.83
+                }, 
+                {
+                    "tf-nmt": 16.0
+                }
+            ], 
+            "mean_lats": [
+                2.8221376950000003, 
+                3.1059085900000003, 
+                3.12429401, 
+                3.0966550649999998, 
+                3.099588905, 
+                3.116095295, 
+                3.1344012599999997
+            ]
+        }
+    ], 
+    "node_configs": [
+        {
+            "input_length_words": 20
+        }, 
+        {
+            "model_image": "model-comp/tf-nmt", 
+            "name": "tf-nmt", 
+            "cpus_per_replica": 1, 
+            "input_type": "bytes", 
+            "use_nvidia_docker": true, 
+            "batch_size": 16, 
+            "num_replicas": 1, 
+            "instance_type": "p2.8xlarge", 
+            "no_diverge": true, 
+            "slo": 5000000, 
+            "gpus_per_replica": 1, 
+            "allocated_cpus": [
+                7
+            ], 
+            "gpus": [
+                0
+            ], 
+            "input_size": 20
+        }
+    ], 
+    "clipper_metrics": {
+        "histograms": [
+            {
+                "app:tf-nmt:prediction_latency": {
+                    "p99": "0", 
+                    "min": "0", 
+                    "max": "0", 
+                    "p95": "0", 
+                    "std_dev": "0", 
+                    "size": "0", 
+                    "p50": "0", 
+                    "unit": "microseconds", 
+                    "mean": "0"
+                }
+            }, 
+            {
+                "query_cache:queue_submit_latency": {
+                    "p99": "0", 
+                    "min": "0", 
+                    "max": "0", 
+                    "p95": "0", 
+                    "std_dev": "0", 
+                    "size": "0", 
+                    "p50": "0", 
+                    "unit": "microseconds", 
+                    "mean": "0"
+                }
+            }, 
+            {
+                "internal:rpc_request_queueing_delay": {
+                    "p99": "0", 
+                    "min": "0", 
+                    "max": "0", 
+                    "p95": "0", 
+                    "std_dev": "0", 
+                    "size": "0", 
+                    "p50": "0", 
+                    "unit": "microseconds", 
+                    "mean": "0"
+                }
+            }, 
+            {
+                "tf-nmt:1:lock_latency": {
+                    "p99": "0", 
+                    "min": "0", 
+                    "max": "0", 
+                    "p95": "0", 
+                    "std_dev": "0", 
+                    "size": "0", 
+                    "p50": "0", 
+                    "unit": "microseconds", 
+                    "mean": "0"
+                }
+            }, 
+            {
+                "tf-nmt:1:queue_size": {
+                    "p99": "0", 
+                    "min": "0", 
+                    "max": "0", 
+                    "p95": "0", 
+                    "std_dev": "0", 
+                    "size": "0", 
+                    "p50": "0", 
+                    "unit": "microseconds", 
+                    "mean": "0"
+                }
+            }, 
+            {
+                "model:tf-nmt:1:prediction_latency": {
+                    "p99": "0", 
+                    "min": "0", 
+                    "max": "0", 
+                    "p95": "0", 
+                    "std_dev": "0", 
+                    "size": "0", 
+                    "p50": "0", 
+                    "unit": "microseconds", 
+                    "mean": "0"
+                }
+            }, 
+            {
+                "frontend_rpc:recv_latency": {
+                    "p99": "0", 
+                    "min": "0", 
+                    "max": "0", 
+                    "p95": "0", 
+                    "std_dev": "0", 
+                    "size": "0", 
+                    "p50": "0", 
+                    "unit": "microseconds", 
+                    "mean": "0"
+                }
+            }, 
+            {
+                "model:tf-nmt:1:batch_size": {
+                    "p99": "0", 
+                    "min": "0", 
+                    "max": "0", 
+                    "p95": "0", 
+                    "std_dev": "0", 
+                    "size": "0", 
+                    "p50": "0", 
+                    "unit": "queries", 
+                    "mean": "0"
+                }
+            }
+        ], 
+        "meters": [
+            {
+                "frontend_rpc:request_enqueue": {
+                    "rate": "0", 
+                    "rate_1min": "-1", 
+                    "rate_15min": "-1", 
+                    "unit": "events per second", 
+                    "rate_5min": "-1"
+                }
+            }, 
+            {
+                "frontend_rpc:response_dequeue": {
+                    "rate": "0", 
+                    "rate_1min": "-1", 
+                    "rate_15min": "-1", 
+                    "unit": "events per second", 
+                    "rate_5min": "-1"
+                }
+            }, 
+            {
+                "internal:aggregate_model_throughput": {
+                    "rate": "0", 
+                    "rate_1min": "-1", 
+                    "rate_15min": "-1", 
+                    "unit": "events per second", 
+                    "rate_5min": "-1"
+                }
+            }, 
+            {
+                "zmq_frontend:request_rate": {
+                    "rate": "0", 
+                    "rate_1min": "-1", 
+                    "rate_15min": "-1", 
+                    "unit": "events per second", 
+                    "rate_5min": "-1"
+                }
+            }, 
+            {
+                "app:tf-nmt:prediction_throughput": {
+                    "rate": "0", 
+                    "rate_1min": "-1", 
+                    "rate_15min": "-1", 
+                    "unit": "events per second", 
+                    "rate_5min": "-1"
+                }
+            }, 
+            {
+                "frontend_rpc:response_enqueue": {
+                    "rate": "0", 
+                    "rate_1min": "-1", 
+                    "rate_15min": "-1", 
+                    "unit": "events per second", 
+                    "rate_5min": "-1"
+                }
+            }, 
+            {
+                "model:tf-nmt:1:prediction_throughput": {
+                    "rate": "0", 
+                    "rate_1min": "-1", 
+                    "rate_15min": "-1", 
+                    "unit": "events per second", 
+                    "rate_5min": "-1"
+                }
+            }
+        ], 
+        "ratio_counters": [
+            {
+                "model:tf-nmt:1:cache_hit_ratio": {
+                    "ratio": "nan"
+                }
+            }, 
+            {
+                "app:tf-nmt:default_prediction_ratio": {
+                    "ratio": "nan"
+                }
+            }
+        ], 
+        "counters": [
+            {
+                "app:tf-nmt:num_predictions": {
+                    "count": "0"
+                }
+            }, 
+            {
+                "internal:aggregate_num_predictions": {
+                    "count": "0"
+                }
+            }, 
+            {
+                "model:tf-nmt:1:num_predictions": {
+                    "count": "0"
+                }
+            }
+        ]
+    }
+}
