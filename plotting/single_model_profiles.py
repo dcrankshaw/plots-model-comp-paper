@@ -14,7 +14,7 @@ def load_results(results_dir):
         if exp[-4:] == "json":
             with open(os.path.join(results_dir, exp), "r") as f:
                 data = json.load(f)
-                assert data["node_configs"][0]["no_diverge"]
+                # assert data["node_configs"][0]["no_diverge"]
                 format_client_metrics(data)
                 first_good_trial, last_good_trial = select_valid_trials(data)
                 extract_good_results(data, first_good_trial, last_good_trial)
@@ -37,7 +37,7 @@ def load_results(results_dir):
 def select_valid_trials(results_json):
     p99_lats = results_json["client_metrics"][0]["p99_lats"]
 
-    num_good_trials = 8
+    num_good_trials = 5
 
     # We assume that at least the last 8 trials were good
     last_8_mean = np.mean(p99_lats[-1*num_good_trials:])
@@ -83,10 +83,20 @@ def extract_good_results(results_json, first_good_trial, last_good_trial):
 def format_client_metrics(data):
     if type(data["client_metrics"]) == dict:
         data["client_metrics"] = [data["client_metrics"]]
+    if "input_length_words" in data["node_configs"][0]:
+        num_words = data["node_configs"][0]["input_length_words"]
+        data["node_configs"].pop(0)
+        data["node_configs"][0]["input_length_words"] = num_words
+
+
 
 
 def num_gpus(exp):
-    return len(exp["node_configs"][0]["gpus"])
+    cloud, gpu_type = get_gpu_type(exp)
+    if gpu_type == "none":
+        return 0
+    else:
+        return 1
 
 
 def num_cpus(exp):
@@ -106,6 +116,28 @@ def instance_type(exp):
         return exp["node_configs"][0]["instance_type"]
     else:
         return "g3.4xlarge"
+
+
+def get_gpu_type(exp):
+    if "instance_type" in exp["node_configs"][0]:
+        if "p2" in exp["node_configs"][0]["instance_type"]:
+            if exp["node_configs"][0]["gpus_per_replica"] > 0:
+                return ("aws", "k80")
+            else:
+                return ("aws", "none")
+        elif "p3" in exp["node_configs"][0]["instance_type"]:
+            if exp["node_configs"][0]["gpus_per_replica"] > 0:
+                return ("aws", "v100")
+            else:
+                return ("aws", "none")
+        else:
+            print("Error: unknown GPU type for instance type {}".format(
+                exp["node_configs"][0]["instance_type"]))
+            return None
+    elif "cloud" in exp["node_configs"][0]:
+        return (exp["node_configs"][0]["cloud"], exp["node_configs"][0]["gpu_type"])
+    else:
+        print("Error: unknown cloud for exp:\n{}".format(json.dumps(exp["node_configs"][0], indent=2)))
 
 
 def throughput(exp):
@@ -155,13 +187,14 @@ def extract_client_metrics_new(exp):
 
 
 def extract_client_metrics(exp):
-    if "clipper_metrics" in exp:
-        return extract_client_metrics_old(exp)
-    else:
-        return extract_client_metrics_new(exp)
+    # if "clipper_metrics" in exp:
+    #     return extract_client_metrics_old(exp)
+    # else:
+    return extract_client_metrics_new(exp)
 
 
 def compute_cost(results_json):
+    # TODO: update cost to factor in varying GPU costs
     nodes = results_json["node_configs"]
     total_cost = 0.0
     for n in nodes:
@@ -189,22 +222,23 @@ def create_model_profile_df(results_dir):
     if len(experiments) == 0:
         return None
 
-
     gpus = []
     cpus = []
     mean_thrus = []
     std_thrus = []
     p99_lats = []
     mean_batches = []
-    inst_types = []
+    # inst_types = []
     costs = []
     fnames = []
+    clouds = []
+    gpu_types = []
 
     model_name = experiments[next(iter(experiments))]["node_configs"][0]["name"]
 
     for fname, e in experiments.items():
-        inst_types.append(instance_type(e))
-        gpus.append(num_gpus(e))
+        # inst_types.append(instance_type(e))
+        # gpus.append(num_gpus(e))
         cpus.append(num_cpus(e))
         mean_thru, std_thru = throughput(e)
         mean_thrus.append(mean_thru)
@@ -214,19 +248,27 @@ def create_model_profile_df(results_dir):
         model_p99_lat, mean_batch = extract_client_metrics(e)
         p99_lats.append(np.percentile(all_lats, 99))
         mean_batches.append(mean_batch)
+        cloud, gpu_type = get_gpu_type(e)
+        clouds.append(cloud)
+        gpu_types.append(gpu_type)
+        if gpu_type == "none":
+            gpus.append(0)
+        else:
+            gpus.append(1)
         fnames.append(fname)
 
     results_dict = {
-        "num_gpus_per_replica": gpus,
+        # "num_gpus_per_replica": gpus,
         "num_cpus_per_replica": cpus,
         "mean_throughput_qps": mean_thrus,
         "std_throughput_qps": std_thrus,
         "p99_latency": p99_lats,
         "mean_batch_size": mean_batches,
-        "inst_type": inst_types,
+        # "inst_type": inst_types,
         "cost": costs,
         "fname": fnames,
-
+        "cloud": clouds,
+        "gpu_type": gpu_types,
     }
 
     df = pd.DataFrame.from_dict(results_dict)
