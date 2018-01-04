@@ -6093,7 +6093,7 @@
         {
             "model_image": "model-comp/tf-lang-detect", 
             "name": "tf-lang-detect", 
-            "cpus_per_replica": 1, 
+            "cpus_per_replica": 4, 
             "input_type": "bytes", 
             "use_nvidia_docker": true, 
             "batch_size": 1, 
@@ -6104,7 +6104,9 @@
             "gpus_per_replica": 0, 
             "allocated_cpus": [
                 13, 
-                12
+                29, 
+                12, 
+                28
             ], 
             "gpus": [], 
             "input_size": 20
@@ -6112,7 +6114,7 @@
         {
             "model_image": "model-comp/tf-nmt", 
             "name": "tf-nmt", 
-            "cpus_per_replica": 1, 
+            "cpus_per_replica": 10, 
             "input_type": "bytes", 
             "use_nvidia_docker": true, 
             "batch_size": 1, 
@@ -6123,10 +6125,15 @@
             "gpus_per_replica": 1, 
             "allocated_cpus": [
                 11, 
+                27, 
                 10, 
+                26, 
                 9, 
+                25, 
                 8, 
-                7
+                24, 
+                7, 
+                23
             ], 
             "gpus": [
                 7, 
@@ -6140,7 +6147,7 @@
         {
             "model_image": "model-comp/tf-lstm", 
             "name": "tf-lstm", 
-            "cpus_per_replica": 1, 
+            "cpus_per_replica": 2, 
             "input_type": "bytes", 
             "use_nvidia_docker": true, 
             "batch_size": 1, 
@@ -6150,7 +6157,8 @@
             "slo": 5000000, 
             "gpus_per_replica": 0, 
             "allocated_cpus": [
-                6
+                6, 
+                22
             ], 
             "gpus": [], 
             "input_size": 20
