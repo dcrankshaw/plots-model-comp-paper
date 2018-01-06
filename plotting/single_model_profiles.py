@@ -18,8 +18,8 @@ def load_results(results_dir):
                 format_client_metrics(data)
                 first_good_trial, last_good_trial = select_valid_trials(data)
                 extract_good_results(data, first_good_trial, last_good_trial)
-                if max([len(cm["thrus"]) for cm in data["client_metrics"]]) > 5:
-                    experiments[exp] = data
+                # if max([len(cm["thrus"]) for cm in data["client_metrics"]]) > 4:
+                experiments[exp] = data
         else:
             # print("skipping %s" % os.path.join(results_dir, exp))
             pass
@@ -37,7 +37,7 @@ def load_results(results_dir):
 def select_valid_trials(results_json):
     p99_lats = results_json["client_metrics"][0]["p99_lats"]
 
-    num_good_trials = 5
+    num_good_trials = 4
 
     # We assume that at least the last 8 trials were good
     last_8_mean = np.mean(p99_lats[-1*num_good_trials:])
