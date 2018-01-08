@@ -247,10 +247,10 @@ def load_single_proc_end_to_end(name, results_dir):
 
 def load_pipeline_one_single_proc():
     max_thru_df = load_single_proc_end_to_end(
-        "max_thru", os.path.abspath("../results/e2e_profs/single_process/image_driver_1/max_thru/"))
+        "Throughput Greedy", os.path.abspath("../results/e2e_profs/single_process/image_driver_1/max_throughput/"))
 
     min_lat_df = load_single_proc_end_to_end(
-        "min_lat", os.path.abspath("../results/e2e_profs/single_process/image_driver_1/min_lat/"))
+        "Latency Greedy", os.path.abspath("../results/e2e_profs/single_process/image_driver_1/min_latency/"))
 
 
     return pd.concat([max_thru_df, min_lat_df])
@@ -258,16 +258,17 @@ def load_pipeline_one_single_proc():
 
 
 
-def load_tfserving_end_to_end():
+def load_tfserving_end_to_end(pipeline):
     """
     results_dir should be the top-level directory for an experiment. E.g.
     max_thru or min_lat.
     """
-    base_path = os.path.abspath("../results/e2e_profs/tf_serving")
+    base_path = os.path.join(os.path.abspath("../results/e2e_profs/tf_serving"), pipeline)
 
-    df_max_thru, _ = load_end_to_end_experiment("max_thru",
+
+    df_max_thru, _ = load_end_to_end_experiment("Throughput Greedy",
                                                 os.path.join(base_path, "max_throughput"))
-    df_min_lat, _ = load_end_to_end_experiment("min_lat",
+    df_min_lat, _ = load_end_to_end_experiment("Latency Greedy",
                                                 os.path.join(base_path, "min_latency"))
     return pd.concat([df_max_thru, df_min_lat])
 
