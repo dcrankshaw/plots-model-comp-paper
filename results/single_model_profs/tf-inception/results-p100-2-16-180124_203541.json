@@ -1,0 +1,2545 @@
+{
+    "client_metrics": [
+        {
+            "p99_lats": [
+                0.5058646299999999, 
+                0.36581853000000003, 
+                0.46983316, 
+                0.3216300999999999, 
+                0.26475692999999995, 
+                0.22007873999999997, 
+                0.21885157, 
+                0.21875369999999997, 
+                0.33288352, 
+                0.21356529999999996, 
+                0.22131788000000002, 
+                0.21974947999999997, 
+                0.23007015999999997
+            ], 
+            "all_metrics": [
+                {
+                    "histograms": [
+                        {
+                            "app:inception:prediction_latency": {
+                                "p99": "508682.050000000076125", 
+                                "min": "29577", 
+                                "max": "1548868", 
+                                "p95": "484331", 
+                                "std_dev": "107352.084651762977458", 
+                                "mean": "361641.828502415458871", 
+                                "p50": "358535", 
+                                "unit": "microseconds", 
+                                "size": "414"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "30", 
+                                "min": "1", 
+                                "max": "40", 
+                                "p95": "25", 
+                                "std_dev": "7.34231022739893403328", 
+                                "mean": "8.58454106280193236615", 
+                                "p50": "5", 
+                                "unit": "microseconds", 
+                                "size": "414"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "inception:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "8", 
+                                "p95": "0", 
+                                "std_dev": "0.376287422360912208086", 
+                                "mean": "0.01773835920177383592", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "451"
+                            }
+                        }, 
+                        {
+                            "inception:1:queue_size": {
+                                "p99": "48", 
+                                "min": "0", 
+                                "max": "48", 
+                                "p95": "48", 
+                                "std_dev": "16.1245724454104857604", 
+                                "mean": "20.757575757575757576", 
+                                "p50": "19", 
+                                "unit": "microseconds", 
+                                "size": "33"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:prediction_latency": {
+                                "p99": "1548757", 
+                                "min": "29476", 
+                                "max": "1548757", 
+                                "p95": "1221087.39999999923748", 
+                                "std_dev": "287910.545792961965105", 
+                                "mean": "236668.193548387096769", 
+                                "p50": "155497", 
+                                "unit": "microseconds", 
+                                "size": "31"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "858.440000000000509317", 
+                                "min": "490", 
+                                "max": "1440", 
+                                "p95": "681", 
+                                "std_dev": "77.9357339950041941579", 
+                                "mean": "575.636363636363636576", 
+                                "p50": "547", 
+                                "unit": "microseconds", 
+                                "size": "451"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:batch_size": {
+                                "p99": "16", 
+                                "min": "1", 
+                                "max": "16", 
+                                "p95": "16", 
+                                "std_dev": "5.46866963297570144375", 
+                                "mean": "13.3548387096774193502", 
+                                "p50": "16", 
+                                "unit": "queries", 
+                                "size": "31"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "7.4803606654087975", 
+                                "rate_1min": "5.3410331027612035", 
+                                "rate_5min": "1.1041068847159514", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.37008215327289845"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:prediction_throughput": {
+                                "rate": "9.5810950830653177", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "app:inception:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "7.4822406578125733", 
+                                "rate_1min": "5.3410331027612035", 
+                                "rate_5min": "1.1041068847159514", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.37008215327289845"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "7.4803360665650169", 
+                                "rate_1min": "5.3410331027612035", 
+                                "rate_5min": "1.1041068847159514", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.37008215327289845"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "8.1488607133848756", 
+                                "rate_1min": "6.2045534247645122", 
+                                "rate_5min": "1.2826151834424826", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.4299157948200138"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:inception:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:inception:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "model:inception:1:num_predictions": {
+                                "count": "414"
+                            }
+                        }, 
+                        {
+                            "app:inception:num_predictions": {
+                                "count": "414"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "450"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:inception:prediction_latency": {
+                                "p99": "362377.800000000044747", 
+                                "min": "155712", 
+                                "max": "371482", 
+                                "p95": "344797", 
+                                "std_dev": "48041.681077000397714", 
+                                "mean": "269604.14720812182739", 
+                                "p50": "272234", 
+                                "unit": "microseconds", 
+                                "size": "394"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "35.0500000000000113687", 
+                                "min": "0", 
+                                "max": "38", 
+                                "p95": "25", 
+                                "std_dev": "7.75021517407110908243", 
+                                "mean": "6.10152284263959390808", 
+                                "p50": "3", 
+                                "unit": "microseconds", 
+                                "size": "394"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "inception:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "397"
+                            }
+                        }, 
+                        {
+                            "inception:1:queue_size": {
+                                "p99": "22", 
+                                "min": "0", 
+                                "max": "22", 
+                                "p95": "21.3999999999999985789", 
+                                "std_dev": "7.16390954716766367467", 
+                                "mean": "9.72000000000000000024", 
+                                "p50": "10", 
+                                "unit": "microseconds", 
+                                "size": "25"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:prediction_latency": {
+                                "p99": "289215", 
+                                "min": "147210", 
+                                "max": "289215", 
+                                "p95": "288782.099999999999", 
+                                "std_dev": "46234.232004851124163", 
+                                "mean": "174946.039999999999978", 
+                                "p50": "155625", 
+                                "unit": "microseconds", 
+                                "size": "25"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "922.499999999998635758", 
+                                "min": "584", 
+                                "max": "1124", 
+                                "p95": "697.899999999998328803", 
+                                "std_dev": "52.7455078561324126919", 
+                                "mean": "647.486146095717884308", 
+                                "p50": "638", 
+                                "unit": "microseconds", 
+                                "size": "397"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:batch_size": {
+                                "p99": "16", 
+                                "min": "14", 
+                                "max": "16", 
+                                "p95": "16", 
+                                "std_dev": "0.585149553533111738298", 
+                                "mean": "15.7600000000000000028", 
+                                "p50": "16", 
+                                "unit": "queries", 
+                                "size": "25"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "180.3145894639531", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "181.68754319083598", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "180.30468746424796", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "app:inception:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:prediction_throughput": {
+                                "rate": "180.28727908516561", 
+                                "rate_1min": "62.799999999999997", 
+                                "rate_5min": "62.799999999999997", 
+                                "unit": "events per second", 
+                                "rate_15min": "62.799999999999997"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "180.28067963070831", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:inception:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:inception:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "app:inception:num_predictions": {
+                                "count": "394"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "398"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:num_predictions": {
+                                "count": "394"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:inception:prediction_latency": {
+                                "p99": "465605.960000000054606", 
+                                "min": "142585", 
+                                "max": "478921", 
+                                "p95": "439571.399999999962347", 
+                                "std_dev": "74945.6374537553284512", 
+                                "mean": "312661.734643734643868", 
+                                "p50": "309941", 
+                                "unit": "microseconds", 
+                                "size": "407"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "29.9200000000000159162", 
+                                "min": "0", 
+                                "max": "46", 
+                                "p95": "20", 
+                                "std_dev": "6.8649809427397218667", 
+                                "mean": "4.45945945945945945764", 
+                                "p50": "2", 
+                                "unit": "microseconds", 
+                                "size": "407"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "inception:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "12", 
+                                "p95": "0", 
+                                "std_dev": "0.592635986603153718563", 
+                                "mean": "0.0293398533007334963323", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "409"
+                            }
+                        }, 
+                        {
+                            "inception:1:queue_size": {
+                                "p99": "41", 
+                                "min": "0", 
+                                "max": "41", 
+                                "p95": "40.2999999999999971578", 
+                                "std_dev": "12.2354248517072404902", 
+                                "mean": "18.5769230769230769239", 
+                                "p50": "18", 
+                                "unit": "microseconds", 
+                                "size": "26"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:prediction_latency": {
+                                "p99": "400242", 
+                                "min": "140425", 
+                                "max": "400242", 
+                                "p95": "357071.949999999822467", 
+                                "std_dev": "56701.2531107156730279", 
+                                "mean": "170103.461538461538481", 
+                                "p50": "152650", 
+                                "unit": "microseconds", 
+                                "size": "26"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "850.79999999999836291", 
+                                "min": "581", 
+                                "max": "1651", 
+                                "p95": "680", 
+                                "std_dev": "62.3102813242646067157", 
+                                "mean": "642.134474327628361312", 
+                                "p50": "635", 
+                                "unit": "microseconds", 
+                                "size": "409"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:batch_size": {
+                                "p99": "16", 
+                                "min": "12", 
+                                "max": "16", 
+                                "p95": "16", 
+                                "std_dev": "0.99777859777483441121", 
+                                "mean": "15.6538461538461538495", 
+                                "p50": "16", 
+                                "unit": "queries", 
+                                "size": "26"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "model:inception:1:prediction_throughput": {
+                                "rate": "183.77571956999191", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "183.77356207347148", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "app:inception:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "183.75149213435259", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "184.19673294588813", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "183.73896606878517", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:inception:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:inception:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "408"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:num_predictions": {
+                                "count": "407"
+                            }
+                        }, 
+                        {
+                            "app:inception:num_predictions": {
+                                "count": "407"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:inception:prediction_latency": {
+                                "p99": "318751.480000000004793", 
+                                "min": "127217", 
+                                "max": "325448", 
+                                "p95": "300389.899999999911643", 
+                                "std_dev": "47997.1611934154419821", 
+                                "mean": "219123.890585241730193", 
+                                "p50": "214421", 
+                                "unit": "microseconds", 
+                                "size": "393"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "28", 
+                                "min": "0", 
+                                "max": "30", 
+                                "p95": "18", 
+                                "std_dev": "5.43755960858855201447", 
+                                "mean": "3.46819338422391857573", 
+                                "p50": "2", 
+                                "unit": "microseconds", 
+                                "size": "393"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "inception:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "388"
+                            }
+                        }, 
+                        {
+                            "inception:1:queue_size": {
+                                "p99": "19", 
+                                "min": "0", 
+                                "max": "19", 
+                                "p95": "18.1999999999999957367", 
+                                "std_dev": "5.48348311802125845324", 
+                                "mean": "3.92592592592592592592", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "27"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:prediction_latency": {
+                                "p99": "260785", 
+                                "min": "124527", 
+                                "max": "260785", 
+                                "p95": "256976.599999999979445", 
+                                "std_dev": "30328.9869470991626361", 
+                                "mean": "155000.851851851851862", 
+                                "p50": "150931", 
+                                "unit": "microseconds", 
+                                "size": "27"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "856.560000000001309672", 
+                                "min": "588", 
+                                "max": "987", 
+                                "p95": "678.649999999999863576", 
+                                "std_dev": "40.3409322645630908123", 
+                                "mean": "640.440721649484536016", 
+                                "p50": "635", 
+                                "unit": "microseconds", 
+                                "size": "388"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:batch_size": {
+                                "p99": "16", 
+                                "min": "11", 
+                                "max": "16", 
+                                "p95": "16", 
+                                "std_dev": "1.77081971672324748549", 
+                                "mean": "14.5555555555555555559", 
+                                "p50": "16", 
+                                "unit": "queries", 
+                                "size": "27"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "185.6158677231661", 
+                                "rate_1min": "9.5999999999999996", 
+                                "rate_5min": "9.5999999999999996", 
+                                "unit": "events per second", 
+                                "rate_15min": "9.5999999999999996"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "187.52352990857153", 
+                                "rate_1min": "9.5999999999999996", 
+                                "rate_5min": "9.5999999999999996", 
+                                "unit": "events per second", 
+                                "rate_15min": "9.5999999999999996"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "187.51180894980027", 
+                                "rate_1min": "9.5999999999999996", 
+                                "rate_5min": "9.5999999999999996", 
+                                "unit": "events per second", 
+                                "rate_15min": "9.5999999999999996"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "app:inception:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "187.49212819309113", 
+                                "rate_1min": "9.5999999999999996", 
+                                "rate_5min": "9.5999999999999996", 
+                                "unit": "events per second", 
+                                "rate_15min": "9.5999999999999996"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:prediction_throughput": {
+                                "rate": "187.48363096160975", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:inception:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:inception:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "model:inception:1:num_predictions": {
+                                "count": "393"
+                            }
+                        }, 
+                        {
+                            "app:inception:num_predictions": {
+                                "count": "393"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "389"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:inception:prediction_latency": {
+                                "p99": "261729.499999999969532", 
+                                "min": "132781", 
+                                "max": "273217", 
+                                "p95": "232457", 
+                                "std_dev": "27357.8472606563690448", 
+                                "mean": "181792.985148514851545", 
+                                "p50": "180453", 
+                                "unit": "microseconds", 
+                                "size": "404"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "29", 
+                                "min": "0", 
+                                "max": "36", 
+                                "p95": "19", 
+                                "std_dev": "6.38313451101166062307", 
+                                "mean": "4.24504950495049504944", 
+                                "p50": "2", 
+                                "unit": "microseconds", 
+                                "size": "404"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "inception:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "14", 
+                                "p95": "0", 
+                                "std_dev": "0.704414178737020627344", 
+                                "mean": "0.0355329949238578680214", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "394"
+                            }
+                        }, 
+                        {
+                            "inception:1:queue_size": {
+                                "p99": "2", 
+                                "min": "0", 
+                                "max": "2", 
+                                "p95": "1.44999999999999928946", 
+                                "std_dev": "0.395811402901263907828", 
+                                "mean": "0.100000000000000000008", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "30"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:prediction_latency": {
+                                "p99": "157687", 
+                                "min": "129038", 
+                                "max": "157687", 
+                                "p95": "157262.949999999999477", 
+                                "std_dev": "8260.82622340727691324", 
+                                "mean": "140872.799999999999997", 
+                                "p50": "138418.5", 
+                                "unit": "microseconds", 
+                                "size": "30"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "993.050000000000011369", 
+                                "min": "554", 
+                                "max": "1030", 
+                                "p95": "678", 
+                                "std_dev": "48.136473774564158417", 
+                                "mean": "637.139593908629441876", 
+                                "p50": "629", 
+                                "unit": "microseconds", 
+                                "size": "394"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:batch_size": {
+                                "p99": "16", 
+                                "min": "11", 
+                                "max": "16", 
+                                "p95": "16", 
+                                "std_dev": "1.38403596613511296247", 
+                                "mean": "13.4666666666666666663", 
+                                "p50": "13", 
+                                "unit": "queries", 
+                                "size": "30"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "191.44170292133404", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:prediction_throughput": {
+                                "rate": "191.43943500725953", 
+                                "rate_1min": "9.5999999999999996", 
+                                "rate_5min": "9.5999999999999996", 
+                                "unit": "events per second", 
+                                "rate_15min": "9.5999999999999996"
+                            }
+                        }, 
+                        {
+                            "app:inception:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "191.41612396563036", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "191.40923151562473", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "186.18939014210088", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:inception:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:inception:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "app:inception:num_predictions": {
+                                "count": "404"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "393"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:num_predictions": {
+                                "count": "404"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:inception:prediction_latency": {
+                                "p99": "216115.100000000007526", 
+                                "min": "138302", 
+                                "max": "218130", 
+                                "p95": "208449.25", 
+                                "std_dev": "20626.0893720250087267", 
+                                "mean": "176383.515228426395907", 
+                                "p50": "176350", 
+                                "unit": "microseconds", 
+                                "size": "394"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "32.1000000000000227374", 
+                                "min": "0", 
+                                "max": "38", 
+                                "p95": "19", 
+                                "std_dev": "6.48641192361896990262", 
+                                "mean": "4.31472081218274111777", 
+                                "p50": "2", 
+                                "unit": "microseconds", 
+                                "size": "394"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "inception:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "2", 
+                                "p95": "0", 
+                                "std_dev": "0.100630596962431518188", 
+                                "mean": "0.00507614213197969543163", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "394"
+                            }
+                        }, 
+                        {
+                            "inception:1:queue_size": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "30"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:prediction_latency": {
+                                "p99": "147093", 
+                                "min": "134537", 
+                                "max": "147093", 
+                                "p95": "146712.949999999999534", 
+                                "std_dev": "3786.32117393945098249", 
+                                "mean": "140953.633333333333326", 
+                                "p50": "140056.5", 
+                                "unit": "microseconds", 
+                                "size": "30"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "835.000000000000454747", 
+                                "min": "581", 
+                                "max": "1691", 
+                                "p95": "674.75", 
+                                "std_dev": "64.1727553166434044121", 
+                                "mean": "641.373096446700507733", 
+                                "p50": "634", 
+                                "unit": "microseconds", 
+                                "size": "394"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:batch_size": {
+                                "p99": "14", 
+                                "min": "12", 
+                                "max": "14", 
+                                "p95": "14", 
+                                "std_dev": "0.498887651569858851461", 
+                                "mean": "13.1333333333333333315", 
+                                "p50": "13", 
+                                "unit": "queries", 
+                                "size": "30"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "186.26041096421437", 
+                                "rate_1min": "37.200000000000003", 
+                                "rate_5min": "37.200000000000003", 
+                                "unit": "events per second", 
+                                "rate_15min": "37.200000000000003"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "186.25917822828757", 
+                                "rate_1min": "39", 
+                                "rate_5min": "39", 
+                                "unit": "events per second", 
+                                "rate_15min": "39"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "186.24931692826661", 
+                                "rate_1min": "37.200000000000003", 
+                                "rate_5min": "37.200000000000003", 
+                                "unit": "events per second", 
+                                "rate_15min": "37.200000000000003"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "app:inception:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:prediction_throughput": {
+                                "rate": "186.22818908683905", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "186.22114753819423", 
+                                "rate_1min": "37.200000000000003", 
+                                "rate_5min": "37.200000000000003", 
+                                "unit": "events per second", 
+                                "rate_15min": "37.200000000000003"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:inception:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:inception:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "395"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:num_predictions": {
+                                "count": "394"
+                            }
+                        }, 
+                        {
+                            "app:inception:num_predictions": {
+                                "count": "394"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:inception:prediction_latency": {
+                                "p99": "215396.039999999950851", 
+                                "min": "136456", 
+                                "max": "216645", 
+                                "p95": "208819.44999999997458", 
+                                "std_dev": "20489.7556879694310847", 
+                                "mean": "176515.291666666666671", 
+                                "p50": "176716.5", 
+                                "unit": "microseconds", 
+                                "size": "408"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "30", 
+                                "min": "0", 
+                                "max": "33", 
+                                "p95": "20", 
+                                "std_dev": "6.27647363186062888594", 
+                                "mean": "4.27205882352941176744", 
+                                "p50": "2", 
+                                "unit": "microseconds", 
+                                "size": "408"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "inception:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "409"
+                            }
+                        }, 
+                        {
+                            "inception:1:queue_size": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "31"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:prediction_latency": {
+                                "p99": "147435", 
+                                "min": "134664", 
+                                "max": "147435", 
+                                "p95": "146710.799999999998306", 
+                                "std_dev": "2663.97356070851541099", 
+                                "mean": "141160.354838709677409", 
+                                "p50": "140626", 
+                                "unit": "microseconds", 
+                                "size": "31"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "844.199999999999363354", 
+                                "min": "580", 
+                                "max": "974", 
+                                "p95": "694", 
+                                "std_dev": "39.4090454771245252141", 
+                                "mean": "643.977995110024449776", 
+                                "p50": "639", 
+                                "unit": "microseconds", 
+                                "size": "409"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:batch_size": {
+                                "p99": "15", 
+                                "min": "11", 
+                                "max": "15", 
+                                "p95": "14.3999999999999985789", 
+                                "std_dev": "0.807096516335277650196", 
+                                "mean": "13.1612903225806451577", 
+                                "p50": "13", 
+                                "unit": "queries", 
+                                "size": "31"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "model:inception:1:prediction_throughput": {
+                                "rate": "186.1100758991557", 
+                                "rate_1min": "39", 
+                                "rate_5min": "39", 
+                                "unit": "events per second", 
+                                "rate_15min": "39"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "186.10948163947859", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "app:inception:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "186.08588410863035", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "186.07917942730484", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "186.07272981008268", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:inception:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:inception:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "model:inception:1:num_predictions": {
+                                "count": "408"
+                            }
+                        }, 
+                        {
+                            "app:inception:num_predictions": {
+                                "count": "408"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "408"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:inception:prediction_latency": {
+                                "p99": "212904.879999999940082", 
+                                "min": "127733", 
+                                "max": "217138", 
+                                "p95": "205238.999999999988745", 
+                                "std_dev": "20768.0212893649851686", 
+                                "mean": "171748.138539042821122", 
+                                "p50": "171469", 
+                                "unit": "microseconds", 
+                                "size": "397"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "38.0399999999999636202", 
+                                "min": "0", 
+                                "max": "55", 
+                                "p95": "25.0999999999999658939", 
+                                "std_dev": "8.01596665644434735586", 
+                                "mean": "5.72292191435768261842", 
+                                "p50": "3", 
+                                "unit": "microseconds", 
+                                "size": "397"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "inception:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "395"
+                            }
+                        }, 
+                        {
+                            "inception:1:queue_size": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "31"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:prediction_latency": {
+                                "p99": "148608", 
+                                "min": "125077", 
+                                "max": "148608", 
+                                "p95": "147814.799999999998136", 
+                                "std_dev": "6249.85987139477868979", 
+                                "mean": "137200.677419354838705", 
+                                "p50": "137937", 
+                                "unit": "microseconds", 
+                                "size": "31"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "920.080000000001064109", 
+                                "min": "512", 
+                                "max": "1852", 
+                                "p95": "672.199999999999988631", 
+                                "std_dev": "74.6556062740725121657", 
+                                "mean": "639.324050632911392189", 
+                                "p50": "630", 
+                                "unit": "microseconds", 
+                                "size": "395"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:batch_size": {
+                                "p99": "14", 
+                                "min": "11", 
+                                "max": "14", 
+                                "p95": "14", 
+                                "std_dev": "0.930464845281029494901", 
+                                "mean": "12.8064516129032258032", 
+                                "p50": "13", 
+                                "unit": "queries", 
+                                "size": "31"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "186.70517696680466", 
+                                "rate_1min": "65", 
+                                "rate_5min": "65", 
+                                "unit": "events per second", 
+                                "rate_15min": "65"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "187.17541919986044", 
+                                "rate_1min": "63.600000000000001", 
+                                "rate_5min": "63.600000000000001", 
+                                "unit": "events per second", 
+                                "rate_15min": "63.600000000000001"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "187.16509469988054", 
+                                "rate_1min": "63.600000000000001", 
+                                "rate_5min": "63.600000000000001", 
+                                "unit": "events per second", 
+                                "rate_15min": "63.600000000000001"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "app:inception:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "187.14541953336209", 
+                                "rate_1min": "63.600000000000001", 
+                                "rate_5min": "63.600000000000001", 
+                                "unit": "events per second", 
+                                "rate_15min": "63.600000000000001"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:prediction_throughput": {
+                                "rate": "187.13748005477424", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:inception:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:inception:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "app:inception:num_predictions": {
+                                "count": "397"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "396"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:num_predictions": {
+                                "count": "397"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:inception:prediction_latency": {
+                                "p99": "329010.269999999982474", 
+                                "min": "127256", 
+                                "max": "332976", 
+                                "p95": "306201.549999999961074", 
+                                "std_dev": "54200.0404781009617317", 
+                                "mean": "212074.380597014925314", 
+                                "p50": "198227.5", 
+                                "unit": "microseconds", 
+                                "size": "402"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "32", 
+                                "min": "0", 
+                                "max": "53", 
+                                "p95": "24.8499999999999658939", 
+                                "std_dev": "8.04152370896169309614", 
+                                "mean": "6.62935323383084577301", 
+                                "p50": "4", 
+                                "unit": "microseconds", 
+                                "size": "402"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "inception:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "403"
+                            }
+                        }, 
+                        {
+                            "inception:1:queue_size": {
+                                "p99": "17", 
+                                "min": "0", 
+                                "max": "17", 
+                                "p95": "16", 
+                                "std_dev": "5.66525593873457933639", 
+                                "mean": "3.7931034482758620688", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "29"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:prediction_latency": {
+                                "p99": "259116", 
+                                "min": "124194", 
+                                "max": "259116", 
+                                "p95": "258642.5", 
+                                "std_dev": "31921.0509804733496484", 
+                                "mean": "149147.482758620689665", 
+                                "p50": "146609", 
+                                "unit": "microseconds", 
+                                "size": "29"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "987.5599999999997749", 
+                                "min": "503", 
+                                "max": "1267", 
+                                "p95": "743.599999999999909051", 
+                                "std_dev": "65.8116034758817877795", 
+                                "mean": "647.531017369727047162", 
+                                "p50": "634", 
+                                "unit": "microseconds", 
+                                "size": "403"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:batch_size": {
+                                "p99": "16", 
+                                "min": "10", 
+                                "max": "16", 
+                                "p95": "16", 
+                                "std_dev": "1.96036833152439937851", 
+                                "mean": "13.8620689655172413795", 
+                                "p50": "14", 
+                                "unit": "queries", 
+                                "size": "29"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "185.49203145612628", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:prediction_throughput": {
+                                "rate": "185.49117555724641", 
+                                "rate_1min": "62", 
+                                "rate_5min": "62", 
+                                "unit": "events per second", 
+                                "rate_15min": "62"
+                            }
+                        }, 
+                        {
+                            "app:inception:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "185.46764143291747", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "185.45985509218787", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "185.91390755973003", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:inception:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:inception:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "403"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:num_predictions": {
+                                "count": "402"
+                            }
+                        }, 
+                        {
+                            "app:inception:num_predictions": {
+                                "count": "402"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:inception:prediction_latency": {
+                                "p99": "207211.79999999999427", 
+                                "min": "129154", 
+                                "max": "209311", 
+                                "p95": "200402.199999999995043", 
+                                "std_dev": "19930.8202728932979131", 
+                                "mean": "169066.67774936061376", 
+                                "p50": "168682", 
+                                "unit": "microseconds", 
+                                "size": "391"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "31.0799999999999840838", 
+                                "min": "1", 
+                                "max": "41", 
+                                "p95": "28", 
+                                "std_dev": "8.90868504620945220532", 
+                                "mean": "9.35549872122762147739", 
+                                "p50": "5", 
+                                "unit": "microseconds", 
+                                "size": "391"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "inception:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "392"
+                            }
+                        }, 
+                        {
+                            "inception:1:queue_size": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "31"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:prediction_latency": {
+                                "p99": "145529", 
+                                "min": "127325", 
+                                "max": "145529", 
+                                "p95": "144271.399999999997021", 
+                                "std_dev": "4263.4326118511649093", 
+                                "mean": "135272.903225806451601", 
+                                "p50": "135760", 
+                                "unit": "microseconds", 
+                                "size": "31"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "753.909999999999911324", 
+                                "min": "585", 
+                                "max": "889", 
+                                "p95": "676.349999999999965894", 
+                                "std_dev": "29.9867255747182416114", 
+                                "mean": "639.67602040816326503", 
+                                "p50": "637.5", 
+                                "unit": "microseconds", 
+                                "size": "392"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:batch_size": {
+                                "p99": "14", 
+                                "min": "10", 
+                                "max": "14", 
+                                "p95": "14", 
+                                "std_dev": "0.939369017971679776786", 
+                                "mean": "12.6129032258064516098", 
+                                "p50": "13", 
+                                "unit": "queries", 
+                                "size": "31"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "185.80276774844111", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "186.27699293810613", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "185.79049579452996", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "app:inception:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:prediction_throughput": {
+                                "rate": "185.77001671930151", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "185.76339729422071", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:inception:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:inception:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "model:inception:1:num_predictions": {
+                                "count": "391"
+                            }
+                        }, 
+                        {
+                            "app:inception:num_predictions": {
+                                "count": "391"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "392"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:inception:prediction_latency": {
+                                "p99": "215992.640000000011014", 
+                                "min": "131254", 
+                                "max": "217597", 
+                                "p95": "209444.79999999999734", 
+                                "std_dev": "20925.9174729853673469", 
+                                "mean": "176040.540540540540519", 
+                                "p50": "175732", 
+                                "unit": "microseconds", 
+                                "size": "407"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "32", 
+                                "min": "1", 
+                                "max": "33", 
+                                "p95": "28", 
+                                "std_dev": "8.58508864716424786433", 
+                                "mean": "9.52825552825552826372", 
+                                "p50": "5", 
+                                "unit": "microseconds", 
+                                "size": "407"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "inception:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "406"
+                            }
+                        }, 
+                        {
+                            "inception:1:queue_size": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "31"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:prediction_latency": {
+                                "p99": "147424", 
+                                "min": "128417", 
+                                "max": "147424", 
+                                "p95": "146835.399999999998613", 
+                                "std_dev": "4540.76327225864397352", 
+                                "mean": "140902.258064516129039", 
+                                "p50": "141683", 
+                                "unit": "microseconds", 
+                                "size": "31"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "743.230000000000075033", 
+                                "min": "590", 
+                                "max": "915", 
+                                "p95": "681.649999999999977263", 
+                                "std_dev": "29.255460577437512576", 
+                                "mean": "644.440886699507388846", 
+                                "p50": "642", 
+                                "unit": "microseconds", 
+                                "size": "406"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:batch_size": {
+                                "p99": "15", 
+                                "min": "11", 
+                                "max": "15", 
+                                "p95": "14.3999999999999985789", 
+                                "std_dev": "0.975239771472966067867", 
+                                "mean": "13.1290322580645161255", 
+                                "p50": "13", 
+                                "unit": "queries", 
+                                "size": "31"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "model:inception:1:prediction_throughput": {
+                                "rate": "186.34413412016036", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "186.34319563471607", 
+                                "rate_1min": "12.800000000000001", 
+                                "rate_5min": "12.800000000000001", 
+                                "unit": "events per second", 
+                                "rate_15min": "12.800000000000001"
+                            }
+                        }, 
+                        {
+                            "app:inception:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "186.31990716049836", 
+                                "rate_1min": "12.800000000000001", 
+                                "rate_5min": "12.800000000000001", 
+                                "unit": "events per second", 
+                                "rate_15min": "12.800000000000001"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "185.85531209730397", 
+                                "rate_1min": "12.800000000000001", 
+                                "rate_5min": "12.800000000000001", 
+                                "unit": "events per second", 
+                                "rate_15min": "12.800000000000001"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "186.30634622585455", 
+                                "rate_1min": "12.800000000000001", 
+                                "rate_5min": "12.800000000000001", 
+                                "unit": "events per second", 
+                                "rate_15min": "12.800000000000001"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:inception:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:inception:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "app:inception:num_predictions": {
+                                "count": "407"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "406"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:num_predictions": {
+                                "count": "407"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:inception:prediction_latency": {
+                                "p99": "213983.440000000040641", 
+                                "min": "123603", 
+                                "max": "220780", 
+                                "p95": "199751.199999999999932", 
+                                "std_dev": "20834.3123828630369552", 
+                                "mean": "166382.468354430379804", 
+                                "p50": "166225", 
+                                "unit": "microseconds", 
+                                "size": "395"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "33.0400000000000204636", 
+                                "min": "1", 
+                                "max": "38", 
+                                "p95": "29", 
+                                "std_dev": "8.92662176804378706355", 
+                                "mean": "9.91898734177215189722", 
+                                "p50": "5", 
+                                "unit": "microseconds", 
+                                "size": "395"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "inception:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "395"
+                            }
+                        }, 
+                        {
+                            "inception:1:queue_size": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "32"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:prediction_latency": {
+                                "p99": "146307", 
+                                "min": "119924", 
+                                "max": "146307", 
+                                "p95": "145508.799999999997397", 
+                                "std_dev": "6666.62383514886791458", 
+                                "mean": "133355.375", 
+                                "p50": "132321.5", 
+                                "unit": "microseconds", 
+                                "size": "32"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "802.160000000002639808", 
+                                "min": "516", 
+                                "max": "1326", 
+                                "p95": "685.199999999999988631", 
+                                "std_dev": "49.5224979988245621182", 
+                                "mean": "647.493670886075949333", 
+                                "p50": "644", 
+                                "unit": "microseconds", 
+                                "size": "395"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:batch_size": {
+                                "p99": "15", 
+                                "min": "10", 
+                                "max": "15", 
+                                "p95": "14.3499999999999978684", 
+                                "std_dev": "1.04908814572465739975", 
+                                "mean": "12.34375", 
+                                "p50": "12", 
+                                "unit": "queries", 
+                                "size": "32"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "185.24858484150693", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "185.24797669345963", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "185.23772565589394", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "app:inception:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "185.21844288027341", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:prediction_throughput": {
+                                "rate": "185.21149511627766", 
+                                "rate_1min": "10.6", 
+                                "rate_5min": "10.6", 
+                                "unit": "events per second", 
+                                "rate_15min": "10.6"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:inception:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:inception:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "395"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:num_predictions": {
+                                "count": "395"
+                            }
+                        }, 
+                        {
+                            "app:inception:num_predictions": {
+                                "count": "395"
+                            }
+                        }
+                    ]
+                }
+            ], 
+            "thrus": [
+                84.82897418442244, 
+                183.48295603885987, 
+                181.16179967943418, 
+                191.3058200491369, 
+                190.03648225368067, 
+                189.58163598524865, 
+                183.00170374586187, 
+                189.09391396510554, 
+                186.32547986962808, 
+                191.0884926032033, 
+                183.9097371010308, 
+                188.07447937457712, 
+                184.24366593306982
+            ], 
+            "all_lats": [
+                "[0.034564, 0.060697, 0.189643, 0.195333, 0.179252, 0.184771, 0.314668, 0.309588, 0.304405, 0.320618, 0.293931, 0.299329, 0.508699, 0.503892, 0.493337, 0.477592, 0.483341, 0.467635, 0.446607, 0.51636, 0.500592, 0.473984, 0.452801, 0.436935, 0.490586, 0.442805, 0.464375, 0.459234, 0.509632, 0.488584, 0.472765, 0.478266, 0.46222, 0.446628, 0.516262, 0.45214, 0.505819, 0.500644, 0.495535, 0.468756, 0.442197, 0.458403, 0.485324, 0.437253, 0.505836, 0.495393, 0.500941, 0.490419, 0.485226, 0.458855, 0.453673, 0.448529, 0.464665, 0.475895, 0.438621, 0.433372, 0.470789, 0.444165, 0.428306, 0.481763, 0.493567, 0.500039, 0.473615, 0.457964, 0.442262, 0.4264, 0.490488, 0.485264, 0.464176, 0.453636, 0.448359, 0.480326, 0.469729, 0.432516, 0.437933, 0.421924, 0.481162, 0.476083, 0.471153, 0.466054, 0.444981, 0.429037, 0.488215, 0.451005, 0.434997, 0.462071, 0.456959, 0.414271, 0.494684, 0.419905, 0.425371, 0.441664, 0.480383, 0.448718, 0.475658, 0.41719, 0.444087, 0.46025, 0.406838, 0.465761, 0.412655, 0.471541, 0.428932, 0.487725, 0.455832, 0.434527, 0.4399, 0.423971, 0.463694, 0.426488, 0.458808, 0.432205, 0.421749, 0.480796, 0.470226, 0.44891, 0.438397, 0.454711, 0.401372, 0.476552, 0.444454, 0.407204, 0.418036, 0.412764, 0.466658, 0.472277, 0.446103, 0.43577, 0.425185, 0.441393, 0.409592, 0.45766, 0.39937, 0.463499, 0.453004, 0.4051, 0.431889, 0.42135, 0.416093, 0.395159, 0.450703, 0.440192, 0.418297, 0.435039, 0.407723, 0.380305, 0.457836, 0.425261, 0.392172, 0.403316, 0.447375, 0.375565, 0.431052, 0.386711, 0.414585, 0.398056, 0.444976, 0.434832, 0.378972, 0.429946, 0.368303, 0.396837, 0.419345, 0.425085, 0.363389, 0.414314, 0.386398, 0.442108, 0.408975, 0.392313, 0.40357, 0.375173, 0.401284, 0.429168, 0.407454, 0.357654, 0.391115, 0.374667, 0.435783, 0.42506, 0.397611, 0.353127, 0.381017, 0.41988, 0.414405, 0.36462, 0.370225, 0.386967, 0.406267, 0.401184, 0.395831, 0.39063, 0.362958, 0.385508, 0.357765, 0.419369, 0.413858, 0.375037, 0.369424, 0.380657, 0.425616, 0.347489, 0.353081, 0.342047, 0.403521, 0.409273, 0.370565, 0.3762, 0.38742, 0.365527, 0.393487, 0.399153, 0.382633, 0.344178, 0.355625, 0.361634, 0.350769, 0.339896, 0.334427, 0.328863, 0.378938, 0.373712, 0.362684, 0.396346, 0.385294, 0.352124, 0.335756, 0.319344, 0.369439, 0.3473, 0.392054, 0.358726, 0.342395, 0.325969, 0.314965, 0.331786, 0.384228, 0.379164, 0.362836, 0.351917, 0.346513, 0.32974, 0.36906, 0.335573, 0.313381, 0.358149, 0.319073, 0.374862, 0.341575, 0.308151, 0.324877, 0.30279, 0.371488, 0.360532, 0.355516, 0.328014, 0.3227, 0.339603, 0.295149, 0.350979, 0.289754, 0.367687, 0.334521, 0.306621, 0.345708, 0.317888, 0.30122, 0.312364, 0.325172, 0.342171, 0.314647, 0.309453, 0.287808, 0.293426, 0.360001, 0.349116, 0.332502, 0.321494, 0.27752, 0.305057, 0.354942, 0.299724, 0.283316, 0.338471, 0.336358, 0.331271, 0.320552, 0.348266, 0.309918, 0.343089, 0.293923, 0.315858, 0.283372, 0.299807, 0.272827, 0.327391, 0.289575, 0.306099, 0.268093, 0.279027, 0.335018, 0.297151, 0.313746, 0.286584, 0.292395, 0.270711, 0.325463, 0.304025, 0.282304, 0.276964, 0.34267, 0.266388, 0.321037, 0.261029, 0.332079, 0.310354, 0.304524, 0.293768, 0.277526, 0.272333, 0.267347, 0.316935, 0.289563, 0.246032, 0.328308, 0.312151, 0.257502, 0.323474, 0.301779, 0.263504, 0.252623, 0.285412, 0.313979, 0.298068, 0.287365, 0.265568, 0.309353, 0.249513, 0.293369, 0.304463, 0.271875, 0.26116, 0.277658, 0.321406, 0.283313, 0.245732, 0.240585, 0.256994, 0.309549, 0.293836, 0.283167, 0.289083, 0.300316, 0.273448, 0.278897, 0.240932, 0.262769, 0.268226, 0.251956, 0.230371, 0.306446, 0.236028, 0.246949, 0.257861, 0.289256, 0.278806, 0.284714, 0.268656, 0.274349, 0.247126, 0.252651, 0.236436, 0.296651, 0.264081, 0.220722, 0.302694, 0.259051, 0.242789, 0.231835, 0.226463, 0.289731, 0.273913, 0.252462, 0.26343, 0.214326, 0.285513, 0.258726, 0.237002, 0.280811, 0.248562, 0.232279, 0.270579, 0.243415, 0.226871, 0.221455, 0.210597, 0.25589, 0.27257, 0.234594, 0.212978]", 
+                "[0.231308, 0.291733, 0.27553, 0.259183, 0.248363, 0.237289, 0.226448, 0.210108, 0.270463, 0.28693, 0.2158, 0.254275, 0.26795, 0.263002, 0.274172, 0.252492, 0.247058, 0.258118, 0.242121, 0.231235, 0.237158, 0.226106, 0.209729, 0.215259, 0.220915, 0.194244, 0.199747, 0.205286, 0.245377, 0.240207, 0.256704, 0.251472, 0.235335, 0.26264, 0.229942, 0.219236, 0.224959, 0.197732, 0.214319, 0.187267, 0.203869, 0.182229, 0.193278, 0.210151, 0.24887, 0.238218, 0.226463, 0.220955, 0.255178, 0.216022, 0.244755, 0.210808, 0.233599, 0.205537, 0.194708, 0.200188, 0.183859, 0.189409, 0.173047, 0.178564, 0.376298, 0.371093, 0.365813, 0.36001, 0.354689, 0.349342, 0.344107, 0.338786, 0.333413, 0.328055, 0.317345, 0.311858, 0.306362, 0.323074, 0.301003, 0.370093, 0.364953, 0.354248, 0.348838, 0.360063, 0.338319, 0.344051, 0.32787, 0.333365, 0.317043, 0.322562, 0.306199, 0.311709, 0.300856, 0.29545, 0.366366, 0.333704, 0.345399, 0.323533, 0.296615, 0.286058, 0.362903, 0.313742, 0.292015, 0.35226, 0.341474, 0.330551, 0.319904, 0.30372, 0.358521, 0.309301, 0.343258, 0.349138, 0.332975, 0.322217, 0.316948, 0.311644, 0.306436, 0.301518, 0.290735, 0.340048, 0.296379, 0.280032, 0.329478, 0.285932, 0.356948, 0.362437, 0.333629, 0.350246, 0.306547, 0.312226, 0.2742, 0.357169, 0.323916, 0.302233, 0.329917, 0.28069, 0.346484, 0.341034, 0.319168, 0.291836, 0.297324, 0.286442, 0.330518, 0.292391, 0.2815, 0.325553, 0.254672, 0.336994, 0.304392, 0.271626, 0.321106, 0.315763, 0.310345, 0.299513, 0.288664, 0.261284, 0.266835, 0.277787, 0.316744, 0.322833, 0.312357, 0.296136, 0.290887, 0.274761, 0.285888, 0.264238, 0.307966, 0.302698, 0.259269, 0.330083, 0.281382, 0.254187, 0.270534, 0.248834, 0.315682, 0.299518, 0.272773, 0.294897, 0.306203, 0.262884, 0.284802, 0.26902, 0.258379, 0.253014, 0.312991, 0.28025, 0.242309, 0.236897, 0.247881, 0.291435, 0.289454, 0.284315, 0.251991, 0.312259, 0.279717, 0.236409, 0.263812, 0.296865, 0.307856, 0.275135, 0.258814, 0.247963, 0.269823, 0.242614, 0.231749, 0.302729, 0.297568, 0.286919, 0.281769, 0.271047, 0.293019, 0.260405, 0.276915, 0.255346, 0.266385, 0.250092, 0.244955, 0.239629, 0.228443, 0.234816, 0.218417, 0.224195, 0.285824, 0.2807, 0.269921, 0.259058, 0.275589, 0.25373, 0.265004, 0.248636, 0.237858, 0.243453, 0.227077, 0.232908, 0.216689, 0.222313, 0.206099, 0.211649, 0.272454, 0.261864, 0.256606, 0.251429, 0.246144, 0.23536, 0.230223, 0.225257, 0.219987, 0.269212, 0.215151, 0.242494, 0.20467, 0.210148, 0.193988, 0.199446, 0.266058, 0.26126, 0.250854, 0.240418, 0.257148, 0.235682, 0.246493, 0.224834, 0.230582, 0.21422, 0.219652, 0.208984, 0.203693, 0.193022, 0.198457, 0.187734, 0.255535, 0.245428, 0.240415, 0.230005, 0.224661, 0.214262, 0.209135, 0.25219, 0.203829, 0.236303, 0.198464, 0.22023, 0.187521, 0.19308, 0.176613, 0.182218, 0.237601, 0.227163, 0.244111, 0.22245, 0.233832, 0.217625, 0.212204, 0.206752, 0.201391, 0.195965, 0.184875, 0.190606, 0.173869, 0.179479, 0.162832, 0.168474, 0.32562, 0.309711, 0.304697, 0.321252, 0.294132, 0.343673, 0.316797, 0.300627, 0.355655, 0.35014, 0.33926, 0.284509, 0.290113, 0.334114, 0.346758, 0.341563, 0.325494, 0.309454, 0.2933, 0.332001, 0.299467, 0.33779, 0.277755, 0.321505, 0.316069, 0.288846, 0.283402, 0.305331, 0.297683, 0.308974, 0.287504, 0.342969, 0.321251, 0.349001, 0.327077, 0.316085, 0.272164, 0.354794, 0.338381, 0.332868, 0.305375, 0.283494, 0.294534, 0.278064, 0.348456, 0.337967, 0.332836, 0.343975, 0.321966, 0.300129, 0.294891, 0.328135, 0.306167, 0.311712, 0.317249, 0.289854, 0.284418, 0.267806, 0.278986, 0.273409, 0.312735, 0.296247, 0.290908, 0.252201, 0.302638, 0.269461, 0.241991, 0.320203, 0.286722, 0.25888, 0.328401, 0.309252, 0.281356, 0.247974, 0.275928, 0.264764, 0.309872, 0.304875, 0.294101, 0.288655, 0.283566, 0.23909, 0.322932, 0.267399, 0.25622, 0.317566, 0.301043, 0.273153, 0.262021, 0.245363, 0.278953, 0.251179, 0.293015, 0.287875, 0.277092, 0.261178, 0.250384, 0.233782, 0.25622, 0.228657, 0.300974, 0.268108]", 
+                "[0.229706, 0.246345, 0.290717, 0.252005, 0.312782, 0.279947, 0.267433, 0.26226, 0.2242, 0.257498, 0.246843, 0.214191, 0.236145, 0.280205, 0.252753, 0.241779, 0.285857, 0.22005, 0.203536, 0.231127, 0.209269, 0.275252, 0.27106, 0.260616, 0.255729, 0.250586, 0.238143, 0.233121, 0.268011, 0.22792, 0.246095, 0.222504, 0.217136, 0.211553, 0.206124, 0.20062, 0.195151, 0.189634, 0.253997, 0.243272, 0.237991, 0.232757, 0.222044, 0.216866, 0.249957, 0.211591, 0.228163, 0.206391, 0.195623, 0.201468, 0.185144, 0.19067, 0.174264, 0.179862, 0.238204, 0.227566, 0.22236, 0.217104, 0.212101, 0.201315, 0.190759, 0.234585, 0.185548, 0.207431, 0.180271, 0.197203, 0.169851, 0.175368, 0.164526, 0.15911, 0.219162, 0.208016, 0.202877, 0.192314, 0.187132, 0.21516, 0.182106, 0.198728, 0.176849, 0.171462, 0.166055, 0.160642, 0.155181, 0.149799, 0.344577, 0.333876, 0.328526, 0.32311, 0.318054, 0.340144, 0.307314, 0.313125, 0.302216, 0.296899, 0.291396, 0.280327, 0.285945, 0.470344, 0.460024, 0.449097, 0.466224, 0.455476, 0.417146, 0.439662, 0.445461, 0.429349, 0.412957, 0.434987, 0.424011, 0.471851, 0.466538, 0.455741, 0.483606, 0.440138, 0.429452, 0.451497, 0.479401, 0.446579, 0.408245, 0.463572, 0.436402, 0.42553, 0.414915, 0.420616, 0.403908, 0.417281, 0.445834, 0.457365, 0.401965, 0.44136, 0.463861, 0.430562, 0.425007, 0.453008, 0.469828, 0.436447, 0.414092, 0.392078, 0.397669, 0.408826, 0.386791, 0.446257, 0.429006, 0.423962, 0.413269, 0.418963, 0.391743, 0.408446, 0.453677, 0.442238, 0.398301, 0.371022, 0.436997, 0.404083, 0.37672, 0.387732, 0.382301, 0.439827, 0.423571, 0.429489, 0.402281, 0.408019, 0.391839, 0.419326, 0.381098, 0.386584, 0.413934, 0.436265, 0.397609, 0.375934, 0.359566, 0.370577, 0.365115, 0.400631, 0.412121, 0.390351, 0.385029, 0.424324, 0.408027, 0.397044, 0.380616, 0.369916, 0.375601, 0.431298, 0.420301, 0.364906, 0.348414, 0.359487, 0.354024, 0.394535, 0.367281, 0.356566, 0.406359, 0.379034, 0.340722, 0.39042, 0.412822, 0.402077, 0.374757, 0.363962, 0.353287, 0.347824, 0.331384, 0.386515, 0.337019, 0.389083, 0.394945, 0.373147, 0.384436, 0.368049, 0.379622, 0.363134, 0.35769, 0.346787, 0.335994, 0.330839, 0.352632, 0.320394, 0.341944, 0.315298, 0.326007, 0.385354, 0.375118, 0.370058, 0.364834, 0.354335, 0.349292, 0.38166, 0.344628, 0.360915, 0.339813, 0.329367, 0.334785, 0.31901, 0.324474, 0.308523, 0.313891, 0.37949, 0.369295, 0.364178, 0.359244, 0.354122, 0.375757, 0.349259, 0.344227, 0.33913, 0.33404, 0.328782, 0.3182, 0.323584, 0.307657, 0.302314, 0.313085, 0.37616, 0.366241, 0.361185, 0.356102, 0.350875, 0.372311, 0.345758, 0.340523, 0.335297, 0.330053, 0.324834, 0.319759, 0.314623, 0.309355, 0.304087, 0.298819, 0.346399, 0.325579, 0.320426, 0.304785, 0.299784, 0.359136, 0.33264, 0.311557, 0.365268, 0.35466, 0.344038, 0.338759, 0.31748, 0.285251, 0.290686, 0.296093, 0.351137, 0.345943, 0.324949, 0.282557, 0.277615, 0.331225, 0.336863, 0.310615, 0.316079, 0.342982, 0.321753, 0.273814, 0.305855, 0.28996, 0.300719, 0.295444, 0.345011, 0.334655, 0.32978, 0.319279, 0.314214, 0.30911, 0.304342, 0.341846, 0.299367, 0.326519, 0.294638, 0.289332, 0.284053, 0.278778, 0.273531, 0.268274, 0.34265, 0.332321, 0.327216, 0.316705, 0.311596, 0.306689, 0.338786, 0.301517, 0.323086, 0.296753, 0.286411, 0.291973, 0.276028, 0.281445, 0.265391, 0.270848, 0.324889, 0.314456, 0.303831, 0.298848, 0.293759, 0.331357, 0.288839, 0.321202, 0.278568, 0.311445, 0.273993, 0.284728, 0.263411, 0.268874, 0.25826, 0.252977, 0.323695, 0.318611, 0.308147, 0.303041, 0.29784, 0.287433, 0.277032, 0.314872, 0.27226, 0.294104, 0.267453, 0.283603, 0.256935, 0.262321, 0.246342, 0.251765, 0.297644, 0.276493, 0.255335, 0.239526, 0.314664, 0.293375, 0.272215, 0.283058, 0.310076, 0.304949, 0.289269, 0.268146, 0.262881, 0.32192, 0.252333, 0.24705, 0.313957, 0.303436, 0.29304, 0.287798, 0.282811, 0.277682, 0.272693, 0.310361, 0.267943, 0.300207, 0.257687, 0.263194, 0.252589, 0.24725, 0.241826, 0.236353, 0.303368, 0.293158, 0.288042]", 
+                "[0.289717, 0.284462, 0.279184, 0.268531, 0.26325, 0.306087, 0.257999, 0.274103, 0.252755, 0.247474, 0.242202, 0.236929, 0.231812, 0.296584, 0.286159, 0.281315, 0.276382, 0.271264, 0.266025, 0.260835, 0.255602, 0.292974, 0.250427, 0.239821, 0.245232, 0.229113, 0.234634, 0.218547, 0.223968, 0.290539, 0.285625, 0.275271, 0.270055, 0.259671, 0.281118, 0.254536, 0.265468, 0.24435, 0.250029, 0.233985, 0.239433, 0.228707, 0.223424, 0.212746, 0.218193, 0.281215, 0.27074, 0.265593, 0.260669, 0.250326, 0.245113, 0.239953, 0.234364, 0.228777, 0.277958, 0.223975, 0.257115, 0.213938, 0.219715, 0.203719, 0.209108, 0.263254, 0.258334, 0.248018, 0.243143, 0.238037, 0.227552, 0.222587, 0.270604, 0.217386, 0.254729, 0.212172, 0.233508, 0.20163, 0.207007, 0.19104, 0.196488, 0.261968, 0.251872, 0.246874, 0.236363, 0.231348, 0.258565, 0.226745, 0.243116, 0.222136, 0.21693, 0.21165, 0.206369, 0.201059, 0.195776, 0.190548, 0.185262, 0.256676, 0.24657, 0.241479, 0.236725, 0.231641, 0.253308, 0.22663, 0.221341, 0.200069, 0.216144, 0.194885, 0.211001, 0.184331, 0.205779, 0.179186, 0.189956, 0.245335, 0.23513, 0.229864, 0.225119, 0.220243, 0.215095, 0.209869, 0.199262, 0.204656, 0.188641, 0.194053, 0.252903, 0.178088, 0.183512, 0.242383, 0.258469, 0.233305, 0.222926, 0.217872, 0.212839, 0.202527, 0.197481, 0.229561, 0.192272, 0.208399, 0.187033, 0.171103, 0.176485, 0.240749, 0.160607, 0.166134, 0.182296, 0.225247, 0.215076, 0.210085, 0.205072, 0.189229, 0.221936, 0.184583, 0.200832, 0.179608, 0.233197, 0.168981, 0.174409, 0.195883, 0.153159, 0.158587, 0.163984, 0.191023, 0.202024, 0.207704, 0.175737, 0.197494, 0.181584, 0.155208, 0.214344, 0.187764, 0.166514, 0.171925, 0.16131, 0.22243, 0.206653, 0.180157, 0.201681, 0.169887, 0.191398, 0.213344, 0.186798, 0.197563, 0.219178, 0.15499, 0.176387, 0.160434, 0.149817, 0.16589, 0.199746, 0.194947, 0.18447, 0.179306, 0.174233, 0.206665, 0.169005, 0.190483, 0.158448, 0.163896, 0.14792, 0.153405, 0.198017, 0.187563, 0.171558, 0.20949, 0.166895, 0.215416, 0.177981, 0.151468, 0.194604, 0.184069, 0.162685, 0.205874, 0.147062, 0.157815, 0.202215, 0.197135, 0.18684, 0.171042, 0.160646, 0.182459, 0.209481, 0.19352, 0.166868, 0.150997, 0.177752, 0.156466, 0.211884, 0.164009, 0.201649, 0.154211, 0.191885, 0.181404, 0.219004, 0.208891, 0.187943, 0.172261, 0.161674, 0.177739, 0.199154, 0.151184, 0.203733, 0.193632, 0.183115, 0.178061, 0.173133, 0.200015, 0.168167, 0.189716, 0.157965, 0.163388, 0.153071, 0.147948, 0.142694, 0.199469, 0.194796, 0.184323, 0.179075, 0.206167, 0.168882, 0.190547, 0.164321, 0.175043, 0.159083, 0.15378, 0.148478, 0.14321, 0.195407, 0.179426, 0.174197, 0.16914, 0.164026, 0.191017, 0.159307, 0.186078, 0.148959, 0.154528, 0.13873, 0.144115, 0.195487, 0.185037, 0.190617, 0.175185, 0.18073, 0.170282, 0.164987, 0.154382, 0.159773, 0.14381, 0.149211, 0.13319, 0.138603, 0.312006, 0.306938, 0.291084, 0.301994, 0.286134, 0.270367, 0.297201, 0.281367, 0.26015, 0.276192, 0.26559, 0.302038, 0.297088, 0.324115, 0.329797, 0.281956, 0.292901, 0.30915, 0.314568, 0.319946, 0.271848, 0.277243, 0.288048, 0.329054, 0.313218, 0.318876, 0.324273, 0.278082, 0.268281, 0.295125, 0.305936, 0.263289, 0.284828, 0.290468, 0.312236, 0.301712, 0.253677, 0.275106, 0.259135, 0.321605, 0.305992, 0.301034, 0.296089, 0.291017, 0.275209, 0.269986, 0.264868, 0.318484, 0.313419, 0.260402, 0.287256, 0.281939, 0.244673, 0.255408, 0.250113, 0.272356, 0.299477, 0.262198, 0.289518, 0.257171, 0.29555, 0.268925, 0.235531, 0.311798, 0.285233, 0.279966, 0.317876, 0.252446, 0.246876, 0.241416, 0.306865, 0.30068, 0.289583, 0.284526, 0.274042, 0.307816, 0.26922, 0.296971, 0.258786, 0.280791, 0.253417, 0.264413, 0.248076, 0.242733, 0.237372, 0.226645, 0.232338, 0.298894, 0.288461, 0.283233, 0.278032, 0.267266, 0.262153, 0.256987, 0.251541, 0.295727, 0.246531, 0.274157, 0.240987, 0.235323, 0.229893, 0.224514, 0.21915, 0.283629, 0.278662, 0.267981, 0.262665, 0.290605, 0.252117, 0.274357, 0.246918, 0.25809, 0.241662]", 
+                "[0.236246, 0.241762, 0.225368, 0.230936, 0.214468, 0.220051, 0.277449, 0.272207, 0.266928, 0.255968, 0.250591, 0.239752, 0.23454, 0.22905, 0.262834, 0.223849, 0.246471, 0.218536, 0.213056, 0.207621, 0.202138, 0.196625, 0.268707, 0.257977, 0.252724, 0.242023, 0.231002, 0.22579, 0.264735, 0.220408, 0.248281, 0.215009, 0.237208, 0.20958, 0.204102, 0.19865, 0.193262, 0.187795, 0.2506, 0.218052, 0.245598, 0.207683, 0.257233, 0.224325, 0.230035, 0.192918, 0.187783, 0.182513, 0.236187, 0.241823, 0.214615, 0.198712, 0.177433, 0.204139, 0.248384, 0.237975, 0.232837, 0.227659, 0.222451, 0.21199, 0.20679, 0.244345, 0.20192, 0.218194, 0.197016, 0.191929, 0.186656, 0.181317, 0.176041, 0.170756, 0.220178, 0.209942, 0.204977, 0.199875, 0.232203, 0.189703, 0.21664, 0.184719, 0.195489, 0.238268, 0.179619, 0.174329, 0.227785, 0.169111, 0.163821, 0.231958, 0.22125, 0.216005, 0.210928, 0.205746, 0.227683, 0.195436, 0.200894, 0.190372, 0.179837, 0.185221, 0.169255, 0.174665, 0.158586, 0.163999, 0.222959, 0.217901, 0.207641, 0.202543, 0.192095, 0.186902, 0.213854, 0.182072, 0.19822, 0.176853, 0.171561, 0.166238, 0.160945, 0.155762, 0.189512, 0.205853, 0.179228, 0.217036, 0.158325, 0.223321, 0.212193, 0.196107, 0.185539, 0.169911, 0.164675, 0.175456, 0.202276, 0.154168, 0.221094, 0.210746, 0.205553, 0.200446, 0.195275, 0.216892, 0.184913, 0.190405, 0.179924, 0.174857, 0.169754, 0.159174, 0.16456, 0.173492, 0.200586, 0.163191, 0.211756, 0.190666, 0.169403, 0.207062, 0.21809, 0.180631, 0.186157, 0.196981, 0.154212, 0.148987, 0.15976, 0.212086, 0.196269, 0.169955, 0.16483, 0.186555, 0.149205, 0.202852, 0.181572, 0.160233, 0.176342, 0.192457, 0.155053, 0.144359, 0.208684, 0.185462, 0.169778, 0.180767, 0.19159, 0.159705, 0.165246, 0.197459, 0.176095, 0.154949, 0.149784, 0.144561, 0.203467, 0.207502, 0.191803, 0.175974, 0.213502, 0.170815, 0.197789, 0.181988, 0.203476, 0.187506, 0.155364, 0.160817, 0.16646, 0.150396, 0.193282, 0.204396, 0.188415, 0.199279, 0.183656, 0.173093, 0.178557, 0.162741, 0.168178, 0.1576, 0.152459, 0.147167, 0.209313, 0.199219, 0.194044, 0.188975, 0.178419, 0.173407, 0.205727, 0.168399, 0.184531, 0.163193, 0.157905, 0.152624, 0.141963, 0.147386, 0.19121, 0.196782, 0.18116, 0.159882, 0.170951, 0.165707, 0.187248, 0.17674, 0.144638, 0.150056, 0.155544, 0.20402, 0.201598, 0.191523, 0.180933, 0.1758, 0.165229, 0.1707, 0.197742, 0.15509, 0.149847, 0.208995, 0.160629, 0.144676, 0.187484, 0.208211, 0.197552, 0.192477, 0.18725, 0.203458, 0.182189, 0.171925, 0.177426, 0.161585, 0.167169, 0.151277, 0.156663, 0.218182, 0.207629, 0.202535, 0.191987, 0.186821, 0.213718, 0.181813, 0.197943, 0.17665, 0.171397, 0.166438, 0.161223, 0.156003, 0.205229, 0.194831, 0.184318, 0.17914, 0.211719, 0.174303, 0.201364, 0.169187, 0.190712, 0.163933, 0.158578, 0.153275, 0.147966, 0.142639, 0.211861, 0.201199, 0.190796, 0.185795, 0.180677, 0.207634, 0.175643, 0.197268, 0.170555, 0.165252, 0.159981, 0.154736, 0.149465, 0.198078, 0.187834, 0.182663, 0.17778, 0.194011, 0.172635, 0.162133, 0.167571, 0.1517, 0.15714, 0.141249, 0.146666, 0.202248, 0.191881, 0.181399, 0.208296, 0.176448, 0.197997, 0.17141, 0.1876, 0.161114, 0.167052, 0.156417, 0.15111, 0.145836, 0.140679, 0.173768, 0.158166, 0.195674, 0.153364, 0.180262, 0.170049, 0.186245, 0.14362, 0.149039, 0.165209, 0.192082, 0.206297, 0.195241, 0.190238, 0.179626, 0.174637, 0.201617, 0.169458, 0.185622, 0.164174, 0.158825, 0.153498, 0.14816, 0.142832, 0.201523, 0.19635, 0.191127, 0.185989, 0.180965, 0.175745, 0.170495, 0.159896, 0.165335, 0.144038, 0.154952, 0.149618, 0.197467, 0.192432, 0.187187, 0.181907, 0.176815, 0.150381, 0.209879, 0.172684, 0.167412, 0.215617, 0.156822, 0.162221, 0.205116, 0.207048, 0.180377, 0.202305, 0.170192, 0.186576, 0.19749, 0.160049, 0.192482, 0.154729, 0.149425, 0.165715, 0.176466, 0.207694, 0.197181, 0.192187, 0.187166, 0.203282, 0.176985, 0.182388, 0.17178, 0.166682, 0.161455, 0.150946, 0.156352, 0.140342, 0.145847, 0.204209, 0.193772]", 
+                "[0.195109, 0.189841, 0.206189, 0.184597, 0.179126, 0.173875, 0.168643, 0.163367, 0.152686, 0.158116, 0.208585, 0.203447, 0.192932, 0.187822, 0.182673, 0.177894, 0.199509, 0.173273, 0.162704, 0.168149, 0.1472, 0.158086, 0.153021, 0.21127, 0.200482, 0.195421, 0.190106, 0.206671, 0.180055, 0.185777, 0.175216, 0.169927, 0.164614, 0.153991, 0.15941, 0.213979, 0.171058, 0.197994, 0.18207, 0.160869, 0.187802, 0.209678, 0.204586, 0.194021, 0.17836, 0.168124, 0.157619, 0.222429, 0.152354, 0.211048, 0.217011, 0.206116, 0.18483, 0.163453, 0.201203, 0.190791, 0.180237, 0.174983, 0.169973, 0.159326, 0.154026, 0.197006, 0.211385, 0.201039, 0.185044, 0.169181, 0.217669, 0.158986, 0.164517, 0.207631, 0.19706, 0.191847, 0.149112, 0.176122, 0.181812, 0.155029, 0.213741, 0.202916, 0.192386, 0.187277, 0.182739, 0.210217, 0.178002, 0.199786, 0.172831, 0.167538, 0.162208, 0.156884, 0.151488, 0.210453, 0.199853, 0.189451, 0.216499, 0.184504, 0.206254, 0.179597, 0.19593, 0.174472, 0.169447, 0.164076, 0.158779, 0.153497, 0.213895, 0.203374, 0.198217, 0.220055, 0.193765, 0.209974, 0.188868, 0.18367, 0.17852, 0.167995, 0.173433, 0.152195, 0.157699, 0.163149, 0.215537, 0.20492, 0.199925, 0.189403, 0.211046, 0.184333, 0.195296, 0.173978, 0.179602, 0.168915, 0.163577, 0.158282, 0.153, 0.199441, 0.189076, 0.173216, 0.216216, 0.184272, 0.152185, 0.211309, 0.206182, 0.195594, 0.179739, 0.222667, 0.169208, 0.163928, 0.158606, 0.211858, 0.217476, 0.208473, 0.197961, 0.182072, 0.166497, 0.204325, 0.162098, 0.194246, 0.188955, 0.157004, 0.173169, 0.178557, 0.222667, 0.212215, 0.206987, 0.201903, 0.196825, 0.191594, 0.218896, 0.186682, 0.181405, 0.176105, 0.165368, 0.170848, 0.154736, 0.160162, 0.218161, 0.207731, 0.202606, 0.197757, 0.192706, 0.182104, 0.214199, 0.176872, 0.187621, 0.166235, 0.171672, 0.155616, 0.161033, 0.211265, 0.200868, 0.206424, 0.163625, 0.223159, 0.217941, 0.196356, 0.169846, 0.191438, 0.186198, 0.180998, 0.159542, 0.175748, 0.207177, 0.196671, 0.175379, 0.180915, 0.170328, 0.165054, 0.186727, 0.160115, 0.219375, 0.214159, 0.203688, 0.155461, 0.193036, 0.150201, 0.211101, 0.200515, 0.195313, 0.190273, 0.179988, 0.206821, 0.17485, 0.185605, 0.169616, 0.164269, 0.158976, 0.153681, 0.148418, 0.21101, 0.200537, 0.19018, 0.184951, 0.20668, 0.180203, 0.196461, 0.175126, 0.169808, 0.164482, 0.159091, 0.153761, 0.148452, 0.207957, 0.197624, 0.19255, 0.187442, 0.182281, 0.177128, 0.204294, 0.172452, 0.167209, 0.161992, 0.156698, 0.151415, 0.146154, 0.207119, 0.196762, 0.191645, 0.181121, 0.175965, 0.202874, 0.170925, 0.18724, 0.166059, 0.160782, 0.155494, 0.150212, 0.144923, 0.207025, 0.196521, 0.191432, 0.18616, 0.202489, 0.176032, 0.181622, 0.170961, 0.165641, 0.160361, 0.155078, 0.149787, 0.144516, 0.20837, 0.20342, 0.192924, 0.18772, 0.182527, 0.172098, 0.199439, 0.167205, 0.178535, 0.15715, 0.162593, 0.151923, 0.146635, 0.207969, 0.202962, 0.187227, 0.18207, 0.198303, 0.193166, 0.166611, 0.177421, 0.172201, 0.150919, 0.162076, 0.157001, 0.212439, 0.201913, 0.180805, 0.1971, 0.175902, 0.17076, 0.165521, 0.208404, 0.18717, 0.155032, 0.160868, 0.193035, 0.150119, 0.182085, 0.160941, 0.188326, 0.145478, 0.199449, 0.172818, 0.205702, 0.211441, 0.195171, 0.168331, 0.17932, 0.152429, 0.157853, 0.187031, 0.15541, 0.144862, 0.198733, 0.177704, 0.210155, 0.194178, 0.1677, 0.162596, 0.20556, 0.173499, 0.152075, 0.184309, 0.201304, 0.196089, 0.185758, 0.180731, 0.175503, 0.207611, 0.170593, 0.192002, 0.165432, 0.160261, 0.155136, 0.149916, 0.144869, 0.206978, 0.201755, 0.191571, 0.186372, 0.175748, 0.170637, 0.197413, 0.165587, 0.18171, 0.155144, 0.160748, 0.144921, 0.150356, 0.209638, 0.199091, 0.183279, 0.204788, 0.194367, 0.167929, 0.189551, 0.179045, 0.163211, 0.173969, 0.158071, 0.147492, 0.152996, 0.207785, 0.202695, 0.192117, 0.187119, 0.171185, 0.182079, 0.198256, 0.161134, 0.166649, 0.177397, 0.151039, 0.145762, 0.156532, 0.203372, 0.160614, 0.187717, 0.150247, 0.199058, 0.177915, 0.183415, 0.146222, 0.173255]", 
+                "[0.216274, 0.173447, 0.162857, 0.200529, 0.208755, 0.198158, 0.193158, 0.182634, 0.177467, 0.204335, 0.172567, 0.188833, 0.167745, 0.162641, 0.157311, 0.152019, 0.146712, 0.194135, 0.183646, 0.167771, 0.151922, 0.211085, 0.173634, 0.206242, 0.190285, 0.179688, 0.163757, 0.147862, 0.201547, 0.15874, 0.208977, 0.171233, 0.187641, 0.198655, 0.177523, 0.167193, 0.15142, 0.162218, 0.204969, 0.194388, 0.157121, 0.183863, 0.146527, 0.208751, 0.192798, 0.171927, 0.161577, 0.167054, 0.15104, 0.199292, 0.188663, 0.156734, 0.178244, 0.205019, 0.183739, 0.212824, 0.202177, 0.191634, 0.207893, 0.186656, 0.197478, 0.181482, 0.176302, 0.171096, 0.160756, 0.166247, 0.150206, 0.155665, 0.217169, 0.206546, 0.201428, 0.190904, 0.185679, 0.180489, 0.212868, 0.1758, 0.197301, 0.170817, 0.165562, 0.160282, 0.155018, 0.149757, 0.20779, 0.197126, 0.191959, 0.181446, 0.20316, 0.176611, 0.187685, 0.171799, 0.166548, 0.161295, 0.155987, 0.150662, 0.18956, 0.205789, 0.168492, 0.179478, 0.217072, 0.211857, 0.20143, 0.174961, 0.164419, 0.15935, 0.196875, 0.148741, 0.154186, 0.186364, 0.210163, 0.194407, 0.205249, 0.184201, 0.200557, 0.190112, 0.179481, 0.163402, 0.174212, 0.15817, 0.16892, 0.152935, 0.147657, 0.205343, 0.200404, 0.190023, 0.211748, 0.185052, 0.195824, 0.180158, 0.169544, 0.174939, 0.158941, 0.164349, 0.148349, 0.153776, 0.210368, 0.19998, 0.194804, 0.184332, 0.205789, 0.173797, 0.190232, 0.169021, 0.179924, 0.15864, 0.164143, 0.153648, 0.148431, 0.206025, 0.195599, 0.190553, 0.185352, 0.180506, 0.212698, 0.170142, 0.202454, 0.159841, 0.175885, 0.149248, 0.165329, 0.154683, 0.20519, 0.194817, 0.189649, 0.211148, 0.179285, 0.200848, 0.174322, 0.185212, 0.169318, 0.16409, 0.153557, 0.159013, 0.148421, 0.206579, 0.212097, 0.174862, 0.180349, 0.201943, 0.170341, 0.197239, 0.186749, 0.165571, 0.154957, 0.160341, 0.1924, 0.149849, 0.21483, 0.193697, 0.209909, 0.199324, 0.183567, 0.189302, 0.205529, 0.178754, 0.162693, 0.168095, 0.173555, 0.152243, 0.157659, 0.21542, 0.17845, 0.21067, 0.205501, 0.15206, 0.200437, 0.189997, 0.163487, 0.195647, 0.18501, 0.169011, 0.158365, 0.174473, 0.203529, 0.177352, 0.193514, 0.214931, 0.188631, 0.162166, 0.19968, 0.183935, 0.210713, 0.221423, 0.157477, 0.168205, 0.173603, 0.152269, 0.207106, 0.202046, 0.191549, 0.170384, 0.159892, 0.218844, 0.154833, 0.17651, 0.214137, 0.198168, 0.182182, 0.166174, 0.18764, 0.221395, 0.211065, 0.205886, 0.200809, 0.19575, 0.217263, 0.190879, 0.185589, 0.17481, 0.180254, 0.169587, 0.164311, 0.159068, 0.153802, 0.216085, 0.205607, 0.200556, 0.195642, 0.185106, 0.180127, 0.174894, 0.16967, 0.212543, 0.164725, 0.191534, 0.154245, 0.159631, 0.149021, 0.20768, 0.197249, 0.19231, 0.214099, 0.18747, 0.203726, 0.182529, 0.166686, 0.177727, 0.156424, 0.172551, 0.15116, 0.161961, 0.215024, 0.20472, 0.199504, 0.183673, 0.210763, 0.178964, 0.195162, 0.189878, 0.173916, 0.168632, 0.163383, 0.158082, 0.152804, 0.218575, 0.208108, 0.197715, 0.192637, 0.214075, 0.188118, 0.204358, 0.177852, 0.183329, 0.172722, 0.167431, 0.162141, 0.156865, 0.151581, 0.210995, 0.200486, 0.195393, 0.190375, 0.206582, 0.185692, 0.175038, 0.180499, 0.159166, 0.153884, 0.169939, 0.164649, 0.148708, 0.203781, 0.198885, 0.188399, 0.2153, 0.210135, 0.19432, 0.178358, 0.183955, 0.173367, 0.162685, 0.168167, 0.157696, 0.152461, 0.147223, 0.20824, 0.197516, 0.192324, 0.187145, 0.181987, 0.203662, 0.177029, 0.171745, 0.166634, 0.161419, 0.156379, 0.151102, 0.22169, 0.211173, 0.206131, 0.200965, 0.195767, 0.217369, 0.18542, 0.190975, 0.180434, 0.17527, 0.170072, 0.164836, 0.159533, 0.154231, 0.20564, 0.195289, 0.190237, 0.179506, 0.174324, 0.201795, 0.169574, 0.185935, 0.159, 0.164457, 0.14837, 0.153783, 0.215357, 0.204591, 0.199431, 0.189124, 0.183907, 0.178835, 0.211329, 0.173818, 0.195238, 0.168565, 0.163261, 0.15796, 0.15266, 0.147367, 0.142051, 0.187392, 0.182547, 0.198837, 0.166769, 0.193951, 0.161992, 0.173014, 0.178441, 0.205312, 0.151716, 0.157149, 0.219601, 0.209403]", 
+                "[0.211841, 0.206621, 0.201313, 0.222775, 0.1907, 0.196146, 0.180041, 0.185453, 0.169436, 0.174834, 0.158847, 0.164246, 0.213716, 0.203517, 0.198428, 0.193212, 0.209298, 0.182695, 0.188177, 0.172522, 0.17821, 0.167851, 0.162578, 0.157424, 0.152195, 0.221239, 0.210751, 0.205514, 0.200255, 0.195209, 0.184717, 0.216958, 0.179702, 0.190515, 0.174783, 0.169565, 0.164457, 0.153771, 0.159178, 0.207517, 0.196521, 0.191302, 0.186123, 0.175653, 0.170466, 0.202797, 0.165407, 0.182011, 0.155193, 0.160593, 0.144634, 0.150026, 0.202472, 0.197404, 0.186869, 0.181749, 0.176563, 0.17171, 0.16651, 0.20955, 0.161532, 0.193809, 0.15131, 0.156818, 0.146386, 0.141087, 0.201478, 0.196332, 0.185747, 0.175113, 0.191507, 0.16998, 0.181132, 0.159649, 0.165182, 0.149085, 0.154612, 0.206502, 0.190777, 0.174963, 0.169716, 0.180487, 0.159261, 0.154174, 0.164909, 0.213201, 0.202718, 0.197748, 0.149824, 0.144558, 0.187221, 0.194922, 0.152471, 0.190079, 0.179606, 0.142343, 0.18523, 0.169343, 0.158764, 0.164182, 0.175048, 0.148464, 0.201964, 0.203847, 0.193632, 0.188704, 0.183644, 0.178595, 0.20016, 0.168474, 0.173975, 0.163419, 0.158126, 0.152828, 0.147521, 0.142225, 0.184725, 0.201152, 0.163675, 0.169294, 0.196443, 0.153548, 0.191265, 0.180789, 0.175582, 0.148652, 0.143361, 0.159642, 0.177451, 0.167111, 0.183564, 0.156812, 0.173237, 0.151843, 0.14665, 0.136018, 0.200602, 0.141676, 0.19009, 0.195467, 0.16334, 0.190055, 0.195791, 0.174535, 0.185367, 0.180197, 0.153659, 0.169742, 0.164459, 0.159148, 0.148554, 0.137959, 0.143329, 0.1946, 0.18423, 0.189662, 0.173677, 0.179289, 0.200918, 0.158178, 0.163605, 0.16907, 0.148638, 0.154107, 0.207747, 0.202258, 0.191596, 0.175795, 0.181263, 0.197394, 0.149157, 0.186876, 0.170817, 0.160129, 0.15483, 0.165637, 0.144238, 0.195297, 0.18504, 0.174552, 0.158604, 0.147911, 0.142661, 0.137387, 0.191344, 0.18096, 0.170379, 0.165067, 0.202552, 0.132773, 0.154539, 0.193151, 0.188225, 0.1834, 0.178346, 0.173149, 0.162573, 0.157508, 0.152424, 0.147272, 0.142115, 0.168992, 0.19358, 0.183309, 0.178179, 0.172989, 0.162588, 0.189471, 0.157506, 0.168417, 0.152428, 0.147116, 0.141827, 0.136535, 0.20097, 0.190441, 0.185417, 0.180096, 0.169579, 0.196667, 0.16447, 0.175414, 0.159316, 0.148659, 0.154155, 0.138016, 0.143468, 0.199774, 0.189162, 0.184144, 0.178876, 0.195207, 0.168581, 0.174081, 0.158049, 0.163476, 0.152802, 0.147526, 0.202558, 0.1921, 0.19769, 0.181844, 0.150087, 0.187774, 0.172057, 0.140145, 0.156403, 0.177926, 0.162202, 0.146268, 0.167804, 0.205425, 0.195003, 0.189856, 0.211453, 0.179581, 0.201303, 0.174477, 0.185493, 0.169251, 0.163957, 0.158641, 0.147988, 0.153392, 0.207648, 0.202461, 0.186493, 0.19214, 0.170849, 0.181723, 0.160442, 0.214035, 0.17672, 0.198177, 0.155484, 0.166197, 0.195014, 0.200691, 0.184885, 0.174274, 0.169241, 0.163991, 0.223276, 0.158944, 0.191632, 0.15399, 0.21874, 0.208102, 0.181333, 0.213581, 0.203203, 0.171299, 0.192903, 0.21454, 0.209297, 0.198696, 0.188614, 0.167408, 0.156784, 0.183828, 0.178522, 0.151667, 0.162522, 0.22011, 0.214821, 0.204624, 0.199433, 0.189, 0.183819, 0.21113, 0.179056, 0.195202, 0.173829, 0.16857, 0.163244, 0.157953, 0.152669, 0.199057, 0.215749, 0.183902, 0.20561, 0.189759, 0.179458, 0.195651, 0.163555, 0.211999, 0.174553, 0.169413, 0.153442, 0.158898, 0.205419, 0.200385, 0.184634, 0.190183, 0.158017, 0.169056, 0.217592, 0.147787, 0.212581, 0.196795, 0.180833, 0.175526, 0.154027, 0.164816, 0.191861, 0.186753, 0.203381, 0.176395, 0.19812, 0.165722, 0.182187, 0.155015, 0.171453, 0.149825, 0.209472, 0.16088, 0.209638, 0.204682, 0.215655, 0.199802, 0.189318, 0.194787, 0.178753, 0.184261, 0.173596, 0.168633, 0.163525, 0.158244, 0.147591, 0.153006, 0.211624, 0.206744, 0.196456, 0.191231, 0.180791, 0.175738, 0.202585, 0.170652, 0.186752, 0.160128, 0.165516, 0.149543, 0.15495, 0.213745, 0.203276, 0.198058, 0.192749, 0.187666, 0.182834, 0.209921, 0.172545, 0.178054, 0.162177, 0.167693, 0.156946, 0.151633, 0.200635, 0.206158, 0.163625, 0.174523]", 
+                "[0.168531, 0.206131, 0.211606, 0.174332, 0.217171, 0.190611, 0.164019, 0.201465, 0.180177, 0.202924, 0.19257, 0.171182, 0.16594, 0.198697, 0.160933, 0.155883, 0.188687, 0.150926, 0.210343, 0.178106, 0.140453, 0.183685, 0.145924, 0.185701, 0.191313, 0.153858, 0.159585, 0.175872, 0.197744, 0.181613, 0.171008, 0.165815, 0.149985, 0.144674, 0.186465, 0.176057, 0.197655, 0.165829, 0.192796, 0.203752, 0.155592, 0.182548, 0.161289, 0.15064, 0.145399, 0.172487, 0.140284, 0.197497, 0.192518, 0.176562, 0.171441, 0.160876, 0.166509, 0.139897, 0.188481, 0.183229, 0.145827, 0.156759, 0.151547, 0.197946, 0.17132, 0.176806, 0.166372, 0.193398, 0.139962, 0.183192, 0.145545, 0.188699, 0.161794, 0.151078, 0.156487, 0.18231, 0.171874, 0.166679, 0.199174, 0.177841, 0.156554, 0.151464, 0.140765, 0.18914, 0.19479, 0.146659, 0.162779, 0.196106, 0.190673, 0.185521, 0.17484, 0.169587, 0.202958, 0.164318, 0.180521, 0.153705, 0.159108, 0.148445, 0.143128, 0.193128, 0.187875, 0.177379, 0.172402, 0.162036, 0.183827, 0.15717, 0.168145, 0.146829, 0.152323, 0.136244, 0.14171, 0.195678, 0.190469, 0.179987, 0.174679, 0.164001, 0.158929, 0.18618, 0.154013, 0.170472, 0.143603, 0.149075, 0.138502, 0.133208, 0.187058, 0.176628, 0.160837, 0.155653, 0.182966, 0.151075, 0.17297, 0.167689, 0.135584, 0.141127, 0.146621, 0.192453, 0.160683, 0.177028, 0.155793, 0.182897, 0.151014, 0.145965, 0.172856, 0.199671, 0.140811, 0.189035, 0.16775, 0.180614, 0.170014, 0.175666, 0.159624, 0.143607, 0.154588, 0.133259, 0.193001, 0.166161, 0.187912, 0.150073, 0.139364, 0.197358, 0.181555, 0.192581, 0.171184, 0.166002, 0.161252, 0.177779, 0.134883, 0.188896, 0.151293, 0.15671, 0.146015, 0.140721, 0.315584, 0.310382, 0.30526, 0.294756, 0.300759, 0.29042, 0.279739, 0.285194, 0.269173, 0.274574, 0.333133, 0.322919, 0.317894, 0.312756, 0.307666, 0.329261, 0.29728, 0.302791, 0.292223, 0.286943, 0.281623, 0.270921, 0.276363, 0.33724, 0.310771, 0.268324, 0.300588, 0.332881, 0.263503, 0.328051, 0.317656, 0.2911, 0.323357, 0.34496, 0.307665, 0.297379, 0.286877, 0.281743, 0.276499, 0.334208, 0.329663, 0.308582, 0.303663, 0.265792, 0.282626, 0.293461, 0.277745, 0.272644, 0.315427, 0.320817, 0.299517, 0.288907, 0.326337, 0.26174, 0.256456, 0.325627, 0.315361, 0.320991, 0.299921, 0.31106, 0.295375, 0.279494, 0.28521, 0.258826, 0.307479, 0.291896, 0.276213, 0.271281, 0.250062, 0.266268, 0.255659, 0.309773, 0.282696, 0.29375, 0.261799, 0.304969, 0.278606, 0.268219, 0.252319, 0.317751, 0.236726, 0.301226, 0.290641, 0.274637, 0.258553, 0.242601, 0.247992, 0.299262, 0.294214, 0.283801, 0.278725, 0.273651, 0.263107, 0.306301, 0.257876, 0.290103, 0.252641, 0.268765, 0.247388, 0.242088, 0.236773, 0.226106, 0.231521, 0.29799, 0.287706, 0.282613, 0.277475, 0.272276, 0.267278, 0.256611, 0.251287, 0.294493, 0.246305, 0.262957, 0.24137, 0.235909, 0.230509, 0.224861, 0.219445, 0.293488, 0.282873, 0.277637, 0.267092, 0.261819, 0.289468, 0.256572, 0.273352, 0.245937, 0.251593, 0.235231, 0.241121, 0.225137, 0.219749, 0.230729, 0.214555, 0.274948, 0.24326, 0.206126, 0.281039, 0.249113, 0.222773, 0.271057, 0.239268, 0.201969, 0.26609, 0.260819, 0.255513, 0.234224, 0.212934, 0.228989, 0.218408, 0.271745, 0.218505, 0.197507, 0.261978, 0.256928, 0.246549, 0.225318, 0.214847, 0.193676, 0.26886, 0.252933, 0.242252, 0.231665, 0.237079, 0.205076, 0.210459, 0.228144, 0.222992, 0.218037, 0.250452, 0.207758, 0.20271, 0.256535, 0.246022, 0.235647, 0.214324, 0.241436, 0.188225, 0.198957, 0.193661, 0.183153, 0.177877, 0.246855, 0.236669, 0.231951, 0.226944, 0.216638, 0.211469, 0.206292, 0.243808, 0.201193, 0.222594, 0.195967, 0.190697, 0.185431, 0.180155, 0.174803, 0.169518, 0.200098, 0.238175, 0.190172, 0.19585, 0.222957, 0.180383, 0.218132, 0.175384, 0.229053, 0.207615, 0.234543, 0.213075, 0.165018, 0.170437, 0.186564, 0.219906, 0.199075, 0.204941, 0.194379, 0.183961, 0.163087, 0.227832, 0.233274, 0.216889, 0.211557, 0.190158, 0.179475, 0.174208, 0.168934, 0.158335, 0.192733, 0.187661, 0.182626]", 
+                "[0.190472, 0.217455, 0.185257, 0.179985, 0.228904, 0.174852, 0.164209, 0.169589, 0.212557, 0.223343, 0.159092, 0.195809, 0.206996, 0.175122, 0.186224, 0.170324, 0.154334, 0.14906, 0.213551, 0.159957, 0.192325, 0.181669, 0.203143, 0.165597, 0.144197, 0.201859, 0.164904, 0.197352, 0.187098, 0.160589, 0.171481, 0.209202, 0.182408, 0.177124, 0.150355, 0.193293, 0.156022, 0.191373, 0.197089, 0.176006, 0.160191, 0.181909, 0.166086, 0.20391, 0.171971, 0.14511, 0.188264, 0.151055, 0.140499, 0.156805, 0.193055, 0.182457, 0.188004, 0.204502, 0.167884, 0.157591, 0.200906, 0.179709, 0.174453, 0.147673, 0.153077, 0.16386, 0.142478, 0.137324, 0.187135, 0.177018, 0.166505, 0.15068, 0.161721, 0.194272, 0.183587, 0.172899, 0.146072, 0.15684, 0.211626, 0.200804, 0.168656, 0.206763, 0.185336, 0.164193, 0.175138, 0.148443, 0.159266, 0.196999, 0.180885, 0.143309, 0.191733, 0.154171, 0.183538, 0.178406, 0.168108, 0.173577, 0.201634, 0.15807, 0.195582, 0.163535, 0.152981, 0.190483, 0.147792, 0.211163, 0.190055, 0.195672, 0.201372, 0.179997, 0.169271, 0.163969, 0.174753, 0.153412, 0.148117, 0.185719, 0.207252, 0.143083, 0.159176, 0.20235, 0.186609, 0.181477, 0.197751, 0.176773, 0.171645, 0.166469, 0.161481, 0.193743, 0.145672, 0.151157, 0.156564, 0.20772, 0.176322, 0.203373, 0.182375, 0.145236, 0.188033, 0.172085, 0.198861, 0.150895, 0.193675, 0.156401, 0.167162, 0.161927, 0.171707, 0.14052, 0.183456, 0.178227, 0.205256, 0.194875, 0.189755, 0.157879, 0.163569, 0.201155, 0.169089, 0.153099, 0.147822, 0.196291, 0.169812, 0.191656, 0.144, 0.186926, 0.154851, 0.1817, 0.165709, 0.160392, 0.203465, 0.176578, 0.149932, 0.164972, 0.154884, 0.144439, 0.160658, 0.139528, 0.198922, 0.177827, 0.194324, 0.183614, 0.173013, 0.13564, 0.189146, 0.151793, 0.15206, 0.189746, 0.142153, 0.174512, 0.18016, 0.137666, 0.196935, 0.186053, 0.170195, 0.159539, 0.148925, 0.165074, 0.188063, 0.183153, 0.162148, 0.151869, 0.200289, 0.19505, 0.179166, 0.168557, 0.157853, 0.174001, 0.141934, 0.14734, 0.193946, 0.183411, 0.167637, 0.146457, 0.189552, 0.152466, 0.163369, 0.20108, 0.174491, 0.179909, 0.206895, 0.158588, 0.175672, 0.170704, 0.192588, 0.160969, 0.214981, 0.150886, 0.198942, 0.204455, 0.209904, 0.188524, 0.167232, 0.183293, 0.156729, 0.198474, 0.182995, 0.1673, 0.146634, 0.211074, 0.194911, 0.189665, 0.179082, 0.157793, 0.205983, 0.163399, 0.152853, 0.174391, 0.199676, 0.162809, 0.152313, 0.17906, 0.184604, 0.14228, 0.158425, 0.211903, 0.196165, 0.191074, 0.169939, 0.175393, 0.207456, 0.148876, 0.201999, 0.170221, 0.175818, 0.181293, 0.197679, 0.165872, 0.155837, 0.145237, 0.18805, 0.193435, 0.150757, 0.16153, 0.194526, 0.173363, 0.163007, 0.147238, 0.179459, 0.201388, 0.142748, 0.153619, 0.207656, 0.170032, 0.186269, 0.191721, 0.159534, 0.188403, 0.177987, 0.146416, 0.184235, 0.157733, 0.205902, 0.200853, 0.195708, 0.174531, 0.169273, 0.164052, 0.153508, 0.200676, 0.179583, 0.152942, 0.207255, 0.16964, 0.213325, 0.148683, 0.192004, 0.186933, 0.176409, 0.160507, 0.198212, 0.16614, 0.208934, 0.193081, 0.204263, 0.188777, 0.178261, 0.157098, 0.200159, 0.162752, 0.146756, 0.184336, 0.173713, 0.168403, 0.15238, 0.199147, 0.194248, 0.184066, 0.162957, 0.152447, 0.206308, 0.168717, 0.17949, 0.174304, 0.190546, 0.15864, 0.142601, 0.148115, 0.19099, 0.180423, 0.186038, 0.202495, 0.197259, 0.170536, 0.143947, 0.138813, 0.176585, 0.150026, 0.155418, 0.166151, 0.160901, 0.169113, 0.18029, 0.159331, 0.154198, 0.186507, 0.197829, 0.192172, 0.176183, 0.165555, 0.14955, 0.144244, 0.138965, 0.189142, 0.184104, 0.179062, 0.173894, 0.2012, 0.195935, 0.158673, 0.143042, 0.153784, 0.164502, 0.169989, 0.137929, 0.148672, 0.19233, 0.187742, 0.166344, 0.171894, 0.156104, 0.1778, 0.16208, 0.183878, 0.141016, 0.146415, 0.151811, 0.199077, 0.204692, 0.17831, 0.194792, 0.146928, 0.173854, 0.152549, 0.184977, 0.163713, 0.190524, 0.142356, 0.169311, 0.158689, 0.188234, 0.172518, 0.1943, 0.167671, 0.200096, 0.184148, 0.157506, 0.162938, 0.206107, 0.152602]", 
+                "[0.220401, 0.188477, 0.203193, 0.192739, 0.187492, 0.198537, 0.177846, 0.18351, 0.16742, 0.156814, 0.162212, 0.172968, 0.140804, 0.151684, 0.146355, 0.208304, 0.203246, 0.198152, 0.193053, 0.177132, 0.161454, 0.183051, 0.167242, 0.172807, 0.151618, 0.189502, 0.146807, 0.141518, 0.15773, 0.201533, 0.196373, 0.159175, 0.186038, 0.148683, 0.16481, 0.170549, 0.176182, 0.154868, 0.181816, 0.192617, 0.20993, 0.189152, 0.200102, 0.179013, 0.157915, 0.195377, 0.168731, 0.217238, 0.184904, 0.147475, 0.206418, 0.163785, 0.153141, 0.17463, 0.187776, 0.161172, 0.199092, 0.20485, 0.156937, 0.168052, 0.195153, 0.179394, 0.211807, 0.15256, 0.184928, 0.174269, 0.221314, 0.205529, 0.211435, 0.179338, 0.190464, 0.158463, 0.18541, 0.169436, 0.164153, 0.217851, 0.196493, 0.175023, 0.201981, 0.153747, 0.210839, 0.194999, 0.168204, 0.162969, 0.157794, 0.201203, 0.185109, 0.206678, 0.152924, 0.174457, 0.179916, 0.190824, 0.222202, 0.217209, 0.195792, 0.211994, 0.190658, 0.185405, 0.164163, 0.207154, 0.175307, 0.180905, 0.170294, 0.159643, 0.148928, 0.202548, 0.154406, 0.204711, 0.188994, 0.183995, 0.173615, 0.200774, 0.195659, 0.169117, 0.158453, 0.211949, 0.153236, 0.163969, 0.180082, 0.2071, 0.175283, 0.196911, 0.186679, 0.144094, 0.171059, 0.214209, 0.182164, 0.156045, 0.204285, 0.193954, 0.16194, 0.15127, 0.167423, 0.208122, 0.197709, 0.144824, 0.150321, 0.177121, 0.166775, 0.204318, 0.1939, 0.183736, 0.173456, 0.189595, 0.157813, 0.163239, 0.19757, 0.171152, 0.160853, 0.209476, 0.16657, 0.150483, 0.182915, 0.193752, 0.204569, 0.156164, 0.177786, 0.188574, 0.20798, 0.2031, 0.18198, 0.187734, 0.193382, 0.150589, 0.199487, 0.161875, 0.156581, 0.216214, 0.178446, 0.172863, 0.167565, 0.146197, 0.202051, 0.186395, 0.170712, 0.19239, 0.155086, 0.209013, 0.176663, 0.14458, 0.166082, 0.182188, 0.160855, 0.198365, 0.150251, 0.209537, 0.215631, 0.20538, 0.184366, 0.195268, 0.200967, 0.190409, 0.15847, 0.179997, 0.174824, 0.164256, 0.169706, 0.205389, 0.200218, 0.189636, 0.195328, 0.173899, 0.157822, 0.185232, 0.163791, 0.142443, 0.212912, 0.180475, 0.153547, 0.169695, 0.148239, 0.200715, 0.195545, 0.169358, 0.190925, 0.185798, 0.180623, 0.175596, 0.165104, 0.143793, 0.207888, 0.159951, 0.138546, 0.149371, 0.154762, 0.195016, 0.178661, 0.184379, 0.168413, 0.163168, 0.190009, 0.158269, 0.147723, 0.153332, 0.174794, 0.142687, 0.203942, 0.209782, 0.199492, 0.173142, 0.178822, 0.189638, 0.16815, 0.157507, 0.195195, 0.184498, 0.152336, 0.147007, 0.16316, 0.195797, 0.212196, 0.180328, 0.191271, 0.186119, 0.175529, 0.170515, 0.165233, 0.208368, 0.160025, 0.154784, 0.203286, 0.199216, 0.215798, 0.210746, 0.189544, 0.184273, 0.205795, 0.173786, 0.152639, 0.195619, 0.222564, 0.179844, 0.164042, 0.158776, 0.16952, 0.217275, 0.191, 0.212874, 0.186259, 0.20248, 0.159648, 0.165099, 0.208064, 0.197471, 0.176075, 0.181462, 0.154793, 0.170912, 0.209251, 0.215037, 0.22061, 0.15701, 0.178641, 0.19485, 0.184449, 0.152484, 0.168588, 0.206013, 0.190072, 0.174116, 0.200867, 0.163538, 0.216612, 0.211597, 0.201237, 0.196049, 0.190855, 0.185749, 0.180734, 0.207743, 0.1652, 0.159932, 0.154657, 0.170724, 0.176107, 0.205197, 0.216006, 0.200329, 0.18983, 0.195543, 0.174322, 0.163679, 0.212164, 0.158839, 0.223085, 0.185799, 0.170082, 0.180923, 0.154214, 0.209985, 0.188628, 0.205207, 0.15745, 0.179023, 0.163102, 0.195494, 0.184964, 0.153102, 0.217929, 0.169366, 0.17476, 0.201669, 0.203872, 0.215205, 0.177941, 0.183587, 0.157294, 0.221702, 0.195034, 0.211367, 0.173987, 0.20097, 0.16355, 0.190426, 0.169029, 0.152995, 0.21129, 0.217013, 0.206608, 0.19619, 0.201663, 0.159074, 0.191266, 0.169961, 0.181029, 0.165176, 0.18669, 0.176035, 0.154679, 0.190688, 0.164026, 0.212637, 0.21816, 0.15411, 0.181212, 0.186857, 0.149495, 0.176469, 0.203473, 0.198189, 0.160642, 0.209002, 0.171538, 0.208132, 0.187332, 0.192992, 0.161526, 0.204473, 0.167287, 0.151416, 0.199685, 0.173253, 0.21659, 0.157356, 0.184215, 0.178929, 0.192311, 0.208658, 0.203448, 0.15555]", 
+                "[0.206124, 0.174122, 0.179572, 0.222408, 0.195735, 0.168952, 0.190503, 0.185218, 0.158385, 0.214112, 0.203678, 0.1877, 0.193175, 0.166391, 0.209732, 0.172253, 0.161744, 0.220985, 0.151248, 0.199874, 0.157047, 0.178651, 0.184199, 0.19959, 0.205398, 0.178698, 0.211544, 0.18984, 0.195324, 0.173828, 0.184754, 0.163243, 0.168951, 0.147547, 0.152984, 0.15841, 0.202159, 0.197384, 0.181381, 0.17607, 0.165345, 0.154771, 0.210044, 0.144451, 0.193124, 0.161105, 0.188254, 0.17214, 0.15065, 0.198589, 0.155207, 0.182828, 0.166727, 0.20491, 0.194306, 0.172645, 0.162062, 0.140619, 0.151847, 0.179369, 0.190515, 0.146999, 0.196659, 0.185969, 0.175332, 0.18123, 0.192208, 0.165329, 0.170934, 0.1602, 0.144047, 0.154907, 0.149585, 0.138932, 0.201223, 0.180219, 0.196762, 0.186153, 0.148303, 0.170195, 0.154025, 0.137813, 0.143298, 0.192196, 0.175987, 0.159778, 0.165288, 0.175374, 0.170287, 0.165165, 0.181623, 0.160303, 0.144325, 0.187744, 0.13921, 0.15551, 0.150174, 0.193787, 0.195513, 0.179785, 0.174756, 0.185749, 0.143061, 0.164792, 0.154266, 0.202748, 0.191915, 0.170498, 0.159855, 0.138506, 0.149308, 0.19239, 0.187428, 0.144715, 0.182595, 0.177679, 0.156642, 0.162194, 0.17302, 0.15163, 0.140951, 0.167855, 0.193458, 0.188161, 0.199605, 0.156612, 0.162408, 0.184284, 0.168491, 0.152315, 0.206337, 0.174091, 0.179528, 0.1472, 0.141906, 0.187895, 0.193634, 0.183613, 0.162419, 0.173588, 0.200574, 0.157989, 0.147657, 0.169184, 0.142514, 0.179979, 0.153343, 0.204608, 0.199344, 0.178217, 0.183787, 0.167721, 0.157305, 0.146838, 0.195581, 0.190423, 0.174303, 0.163609, 0.142174, 0.152969, 0.192187, 0.171067, 0.198462, 0.182546, 0.145395, 0.161943, 0.178047, 0.151368, 0.18889, 0.140856, 0.167686, 0.157088, 0.182919, 0.17257, 0.146035, 0.178553, 0.195039, 0.201143, 0.168515, 0.136456, 0.141892, 0.190176, 0.158074, 0.15278, 0.163545, 0.171014, 0.176848, 0.161303, 0.167176, 0.146129, 0.140861, 0.151604, 0.194577, 0.183812, 0.135769, 0.189288, 0.157255, 0.186239, 0.181561, 0.160537, 0.149867, 0.133887, 0.171372, 0.166116, 0.193037, 0.177142, 0.155853, 0.13984, 0.145259, 0.191628, 0.186668, 0.170844, 0.160586, 0.155576, 0.14002, 0.166788, 0.150837, 0.177602, 0.183135, 0.135033, 0.145758, 0.195189, 0.179299, 0.1849, 0.174398, 0.153198, 0.148049, 0.191101, 0.164483, 0.17005, 0.159385, 0.143712, 0.138425, 0.191359, 0.186211, 0.170542, 0.160039, 0.154962, 0.176595, 0.182221, 0.145015, 0.166433, 0.150476, 0.139874, 0.134652, 0.180786, 0.175777, 0.187098, 0.149395, 0.193045, 0.14437, 0.15547, 0.172025, 0.166697, 0.134018, 0.161416, 0.139656, 0.176652, 0.154779, 0.166431, 0.12818, 0.150403, 0.161574, 0.145027, 0.139539, 0.172776, 0.183655, 0.134205, 0.177672, 0.16716, 0.189141, 0.156608, 0.145849, 0.140623, 0.18444, 0.15191, 0.174129, 0.130422, 0.163416, 0.13607, 0.178682, 0.146515, 0.185142, 0.174119, 0.136168, 0.152592, 0.169072, 0.141831, 0.163748, 0.158345, 0.172156, 0.177917, 0.183632, 0.161929, 0.145681, 0.167767, 0.151397, 0.140594, 0.189811, 0.135375, 0.195389, 0.157241, 0.194705, 0.178881, 0.168222, 0.184831, 0.152409, 0.174208, 0.158238, 0.147868, 0.202167, 0.142698, 0.191567, 0.164458, 0.186166, 0.197398, 0.181298, 0.154528, 0.165515, 0.149342, 0.204077, 0.171587, 0.177144, 0.193579, 0.160893, 0.198754, 0.193677, 0.21019, 0.161216, 0.188821, 0.150547, 0.221808, 0.205511, 0.183831, 0.156757, 0.216869, 0.167826, 0.173464, 0.178982, 0.182274, 0.204385, 0.166402, 0.193818, 0.188525, 0.150718, 0.172786, 0.211172, 0.178633, 0.156991, 0.200542, 0.162522, 0.219737, 0.192844, 0.225433, 0.160666, 0.198881, 0.188545, 0.156219, 0.167279, 0.216209, 0.211091, 0.184221, 0.205981, 0.173517, 0.179091, 0.208028, 0.197597, 0.192515, 0.155461, 0.182477, 0.177335, 0.17211, 0.188509, 0.167262, 0.204975, 0.146505, 0.162722, 0.152049, 0.217832, 0.202157, 0.19728, 0.192133, 0.20848, 0.214034, 0.187813, 0.182684, 0.177499, 0.150675, 0.172298, 0.145493, 0.167078, 0.156428, 0.161878, 0.18454, 0.200931, 0.153061, 0.195971, 0.169595, 0.180601, 0.175485]", 
+                "[0.197092, 0.170508, 0.154698, 0.165479, 0.226611, 0.205446, 0.184314, 0.163337, 0.2221, 0.201041, 0.2173, 0.190884, 0.174996, 0.212327, 0.196383, 0.169813, 0.180507, 0.153922, 0.159295, 0.213041, 0.218684, 0.181616, 0.224625, 0.1981, 0.203571, 0.192896, 0.209172, 0.187833, 0.17196, 0.177433, 0.2253, 0.231076, 0.215338, 0.242305, 0.194437, 0.18385, 0.211011, 0.189979, 0.174085, 0.238186, 0.163487, 0.222281, 0.200989, 0.179693, 0.20643, 0.169095, 0.212069, 0.180344, 0.191249, 0.20741, 0.148757, 0.219024, 0.186911, 0.160504, 0.203331, 0.176636, 0.198087, 0.15539, 0.171463, 0.166183, 0.188843, 0.205155, 0.216099, 0.157513, 0.18439, 0.179346, 0.211471, 0.174375, 0.153137, 0.201204, 0.196015, 0.148244, 0.143083, 0.169907, 0.164613, 0.191235, 0.154248, 0.186379, 0.149348, 0.181533, 0.203224, 0.160947, 0.198623, 0.17766, 0.167145, 0.172587, 0.22303, 0.20196, 0.196878, 0.21298, 0.170465, 0.208006, 0.165513, 0.219071, 0.181873, 0.23006, 0.192714, 0.176762, 0.187479, 0.160893, 0.194441, 0.189363, 0.20024, 0.163246, 0.2061, 0.158357, 0.211917, 0.169398, 0.185677, 0.175178, 0.180579, 0.153824, 0.213685, 0.182028, 0.209015, 0.225506, 0.171939, 0.220462, 0.188389, 0.177903, 0.23192, 0.199535, 0.16751, 0.19432, 0.20506, 0.16232, 0.157047, 0.151774, 0.204786, 0.194307, 0.199832, 0.162382, 0.173485, 0.168195, 0.179293, 0.157388, 0.190242, 0.184987, 0.151975, 0.215628, 0.210579, 0.183323, 0.177839, 0.205695, 0.150605, 0.195186, 0.145758, 0.223286, 0.190353, 0.173683, 0.201428, 0.168317, 0.157218, 0.162904, 0.171332, 0.19948, 0.177519, 0.188681, 0.145095, 0.183686, 0.167299, 0.1948, 0.156505, 0.151103, 0.1621, 0.209859, 0.177124, 0.182855, 0.199808, 0.14511, 0.194952, 0.150883, 0.189459, 0.167574, 0.206168, 0.173196, 0.162194, 0.156752, 0.140377, 0.202896, 0.197644, 0.187314, 0.193118, 0.161392, 0.172457, 0.183356, 0.178116, 0.167469, 0.156822, 0.151531, 0.216636, 0.20623, 0.185125, 0.201238, 0.180195, 0.153566, 0.212732, 0.170213, 0.1972, 0.149077, 0.192209, 0.176133, 0.160067, 0.165553, 0.179279, 0.190227, 0.174562, 0.148054, 0.201573, 0.159338, 0.186232, 0.14383, 0.197296, 0.170706, 0.154782, 0.165519, 0.204134, 0.188227, 0.177691, 0.183327, 0.156741, 0.211233, 0.168186, 0.195912, 0.152915, 0.201577, 0.174515, 0.147685, 0.163957, 0.142397, 0.186801, 0.19773, 0.181891, 0.155481, 0.166586, 0.193837, 0.150849, 0.172785, 0.178418, 0.162262, 0.146133, 0.213652, 0.192488, 0.176317, 0.198488, 0.160854, 0.209949, 0.183275, 0.145458, 0.20533, 0.167664, 0.18935, 0.151453, 0.173241, 0.157045, 0.200984, 0.169181, 0.18534, 0.180493, 0.207616, 0.175693, 0.19737, 0.192291, 0.154935, 0.165661, 0.160389, 0.211103, 0.216811, 0.179216, 0.184871, 0.20663, 0.147957, 0.190929, 0.153696, 0.202118, 0.175463, 0.197233, 0.159727, 0.170488, 0.16523, 0.202536, 0.197432, 0.192638, 0.182047, 0.187915, 0.145529, 0.210137, 0.17799, 0.156815, 0.172914, 0.167694, 0.151936, 0.162633, 0.199458, 0.188922, 0.183843, 0.14651, 0.178916, 0.141637, 0.195188, 0.163182, 0.17402, 0.206229, 0.152997, 0.15841, 0.16917, 0.174165, 0.190459, 0.163888, 0.185646, 0.201793, 0.196625, 0.180961, 0.159898, 0.208068, 0.154716, 0.144109, 0.170865, 0.149708, 0.194578, 0.189419, 0.200384, 0.163258, 0.179454, 0.15825, 0.206468, 0.169249, 0.185426, 0.148268, 0.175004, 0.153723, 0.207118, 0.19123, 0.202106, 0.170323, 0.15441, 0.213296, 0.181492, 0.176344, 0.198063, 0.166156, 0.187671, 0.150663, 0.161419, 0.201008, 0.196082, 0.212291, 0.185799, 0.180677, 0.175505, 0.207788, 0.170547, 0.191948, 0.165325, 0.149377, 0.160098, 0.154819, 0.206709, 0.212205, 0.180403, 0.17532, 0.191588, 0.186347, 0.149161, 0.202697, 0.17083, 0.160321, 0.198077, 0.155512, 0.14489, 0.166338, 0.20698, 0.201752, 0.191885, 0.17608, 0.171121, 0.187392, 0.160695, 0.182123, 0.145179, 0.198934, 0.156222, 0.150959, 0.16703, 0.202098, 0.175813, 0.15988, 0.181324, 0.197439, 0.187074, 0.144464, 0.192619, 0.171514, 0.150362, 0.155867, 0.166748, 0.20102, 0.206759, 0.185894, 0.180813]"
+            ], 
+            "mean_batch_sizes": [
+                {
+                    "inception": 13.35
+                }, 
+                {
+                    "inception": 15.76
+                }, 
+                {
+                    "inception": 15.65
+                }, 
+                {
+                    "inception": 14.56
+                }, 
+                {
+                    "inception": 13.47
+                }, 
+                {
+                    "inception": 13.13
+                }, 
+                {
+                    "inception": 13.16
+                }, 
+                {
+                    "inception": 12.81
+                }, 
+                {
+                    "inception": 13.86
+                }, 
+                {
+                    "inception": 12.61
+                }, 
+                {
+                    "inception": 13.13
+                }, 
+                {
+                    "inception": 12.34
+                }
+            ], 
+            "mean_lats": [
+                0.36642244500000004, 
+                0.2750410725, 
+                0.31994796000000003, 
+                0.226369875, 
+                0.18817489, 
+                0.18162819249999998, 
+                0.18197304250000002, 
+                0.17757708749999998, 
+                0.21845730000000002, 
+                0.17484513499999998, 
+                0.1818457925, 
+                0.17209288, 
+                0.1815230725
+            ]
+        }
+    ], 
+    "node_configs": [
+        {
+            "model_image": "gcr.io/clipper-model-comp/inception-feats:bench", 
+            "name": "inception", 
+            "cpus_per_replica": 2, 
+            "input_type": "floats", 
+            "batch_size": 16, 
+            "num_replicas": 1, 
+            "gpu_type": "p100", 
+            "no_diverge": true, 
+            "slo": 5000000, 
+            "input_size": -1, 
+            "cloud": "gcp"
+        }
+    ]
+}
