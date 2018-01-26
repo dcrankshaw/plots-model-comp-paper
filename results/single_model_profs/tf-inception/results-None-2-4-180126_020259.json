@@ -1,0 +1,2750 @@
+{
+    "client_metrics": [
+        {
+            "p99_lats": [
+                1.10721663, 
+                1.10873072, 
+                1.10711762, 
+                1.1101187399999999, 
+                1.10745115, 
+                1.1065461, 
+                1.10650223, 
+                1.1065455800000001, 
+                1.10653444, 
+                1.11131482, 
+                1.11216875, 
+                1.1103427099999998, 
+                1.1063857000000001
+            ], 
+            "all_metrics": [
+                {
+                    "histograms": [
+                        {
+                            "app:inception:prediction_latency": {
+                                "p99": "1102529", 
+                                "min": "1004633", 
+                                "max": "1102529", 
+                                "p95": "1102231.69999999999891", 
+                                "std_dev": "17109.9203583808441902", 
+                                "mean": "1098366.67741935483855", 
+                                "p50": "1101452.5", 
+                                "unit": "microseconds", 
+                                "size": "62"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "22", 
+                                "min": "6", 
+                                "max": "22", 
+                                "p95": "20.0999999999999658939", 
+                                "std_dev": "3.14429268402774251276", 
+                                "mean": "9.12903225806451612372", 
+                                "p50": "8", 
+                                "unit": "microseconds", 
+                                "size": "62"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "inception:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "63"
+                            }
+                        }, 
+                        {
+                            "inception:1:queue_size": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "63"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:prediction_latency": {
+                                "p99": "1102430", 
+                                "min": "1004518", 
+                                "max": "1102430", 
+                                "p95": "1102150.74999999999898", 
+                                "std_dev": "17116.5182468012496475", 
+                                "mean": "1098280.24193548387109", 
+                                "p50": "1101374.5", 
+                                "unit": "microseconds", 
+                                "size": "62"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "716", 
+                                "min": "529", 
+                                "max": "716", 
+                                "p95": "681.199999999999988631", 
+                                "std_dev": "44.9938267370585455555", 
+                                "mean": "602.666666666666666685", 
+                                "p50": "599", 
+                                "unit": "microseconds", 
+                                "size": "63"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:batch_size": {
+                                "p99": "1", 
+                                "min": "1", 
+                                "max": "1", 
+                                "p95": "1", 
+                                "std_dev": "6.50521303491302660404e-19", 
+                                "mean": "0.999999999999999999349", 
+                                "p50": "1", 
+                                "unit": "queries", 
+                                "size": "62"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "0.52189127674724367", 
+                                "rate_1min": "0.5955832677282723", 
+                                "rate_5min": "0.17416480578164656", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.062213683612820522"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:prediction_throughput": {
+                                "rate": "0.57943419447161082", 
+                                "rate_1min": "0.61050497399156767", 
+                                "rate_5min": "0.17977567084458088", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.064310575432083697"
+                            }
+                        }, 
+                        {
+                            "app:inception:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "0.52194864779605665", 
+                                "rate_1min": "0.59430468860187868", 
+                                "rate_5min": "0.17411016721389239", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.062207544955994752"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "0.52189078033050551", 
+                                "rate_1min": "0.5955832677282723", 
+                                "rate_5min": "0.17416480578164656", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.062213683612820522"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "0.53030820393273026", 
+                                "rate_1min": "0.60146607094121229", 
+                                "rate_5min": "0.17687129159362885", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.063250253790731736"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:inception:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:inception:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "model:inception:1:num_predictions": {
+                                "count": "62"
+                            }
+                        }, 
+                        {
+                            "app:inception:num_predictions": {
+                                "count": "62"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "63"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:inception:prediction_latency": {
+                                "p99": "1105800", 
+                                "min": "1099875", 
+                                "max": "1105800", 
+                                "p95": "1102540.54999999999905", 
+                                "std_dev": "839.565244635579230603", 
+                                "mean": "1101486", 
+                                "p50": "1101440.5", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "26", 
+                                "min": "7", 
+                                "max": "26", 
+                                "p95": "15", 
+                                "std_dev": "3.07336225582920106818", 
+                                "mean": "9.56666666666666666661", 
+                                "p50": "9", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "inception:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "inception:1:queue_size": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:prediction_latency": {
+                                "p99": "1105706", 
+                                "min": "1099797", 
+                                "max": "1105706", 
+                                "p95": "1102451.34999999999923", 
+                                "std_dev": "839.461046677503010982", 
+                                "mean": "1101394.46666666666647", 
+                                "p50": "1101357.5", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "1375", 
+                                "min": "518", 
+                                "max": "1375", 
+                                "p95": "666.949999999999995737", 
+                                "std_dev": "106.223112937920540974", 
+                                "mean": "623.316666666666666652", 
+                                "p50": "621", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:batch_size": {
+                                "p99": "1", 
+                                "min": "1", 
+                                "max": "1", 
+                                "p95": "1", 
+                                "std_dev": "2.71050543121376108502e-19", 
+                                "mean": "0.999999999999999999729", 
+                                "p50": "1", 
+                                "unit": "queries", 
+                                "size": "60"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "0.91034566887116986", 
+                                "rate_1min": "0.64275583069834741", 
+                                "rate_5min": "0.32693204118437874", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.24515081567428768"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "0.9103455307496513", 
+                                "rate_1min": "0.64275583069834741", 
+                                "rate_5min": "0.32693204118437874", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.24515081567428768"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "0.91034463296080259", 
+                                "rate_1min": "0.64275583069834741", 
+                                "rate_5min": "0.32693204118437874", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.24515081567428768"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "app:inception:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:prediction_throughput": {
+                                "rate": "0.91034269926775824", 
+                                "rate_1min": "0.72640408466154582", 
+                                "rate_5min": "0.49363329929341648", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.43331851087630968"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "0.91034195341692226", 
+                                "rate_1min": "0.64275583069834741", 
+                                "rate_5min": "0.32693204118437874", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.24515081567428768"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:inception:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:inception:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "app:inception:num_predictions": {
+                                "count": "60"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "60"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:num_predictions": {
+                                "count": "60"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:inception:prediction_latency": {
+                                "p99": "1103045", 
+                                "min": "1100191", 
+                                "max": "1103045", 
+                                "p95": "1102374.94999999999948", 
+                                "std_dev": "584.165954350492957758", 
+                                "mean": "1101399.26666666666677", 
+                                "p50": "1101318.5", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "30", 
+                                "min": "4", 
+                                "max": "30", 
+                                "p95": "21.8999999999999914735", 
+                                "std_dev": "4.3492017147466907937", 
+                                "mean": "10.5333333333333333329", 
+                                "p50": "9", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "inception:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "inception:1:queue_size": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:prediction_latency": {
+                                "p99": "1102902", 
+                                "min": "1100107", 
+                                "max": "1102902", 
+                                "p95": "1102279.09999999999945", 
+                                "std_dev": "581.926851073225525512", 
+                                "mean": "1101303.79999999999984", 
+                                "p50": "1101197.5", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "989", 
+                                "min": "533", 
+                                "max": "989", 
+                                "p95": "771.449999999999953104", 
+                                "std_dev": "71.8807963846317501885", 
+                                "mean": "650.46666666666666673", 
+                                "p50": "633.5", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:batch_size": {
+                                "p99": "1", 
+                                "min": "1", 
+                                "max": "1", 
+                                "p95": "1", 
+                                "std_dev": "2.71050543121376108502e-19", 
+                                "mean": "0.999999999999999999729", 
+                                "p50": "1", 
+                                "unit": "queries", 
+                                "size": "60"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "model:inception:1:prediction_throughput": {
+                                "rate": "0.91036506154841623", 
+                                "rate_1min": "0.65151074632374073", 
+                                "rate_5min": "0.32979149896129617", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.24620537008541044"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "0.91036495104649029", 
+                                "rate_1min": "0.60207002895555339", 
+                                "rate_5min": "0.17691831944471528", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.0632560930617313"
+                            }
+                        }, 
+                        {
+                            "app:inception:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "0.91036246476024829", 
+                                "rate_1min": "0.60207002895555339", 
+                                "rate_5min": "0.17691831944471528", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.0632560930617313"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "0.91036174650230672", 
+                                "rate_1min": "0.60207002895555339", 
+                                "rate_5min": "0.17691831944471528", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.0632560930617313"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "0.91036108349598199", 
+                                "rate_1min": "0.60207002895555339", 
+                                "rate_5min": "0.17691831944471528", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.0632560930617313"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:inception:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:inception:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "60"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:num_predictions": {
+                                "count": "60"
+                            }
+                        }, 
+                        {
+                            "app:inception:num_predictions": {
+                                "count": "60"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:inception:prediction_latency": {
+                                "p99": "1110081", 
+                                "min": "1100075", 
+                                "max": "1110081", 
+                                "p95": "1102211.04999999999916", 
+                                "std_dev": "1246.64133263028874365", 
+                                "mean": "1101334.23333333333323", 
+                                "p50": "1101331.5", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "29", 
+                                "min": "6", 
+                                "max": "29", 
+                                "p95": "18.799999999999982947", 
+                                "std_dev": "3.9306134663970994723", 
+                                "mean": "10.3166666666666666666", 
+                                "p50": "9", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "inception:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "inception:1:queue_size": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:prediction_latency": {
+                                "p99": "1109987", 
+                                "min": "1099995", 
+                                "max": "1109987", 
+                                "p95": "1102104.49999999999932", 
+                                "std_dev": "1246.67287197653507858", 
+                                "mean": "1101230.51666666666665", 
+                                "p50": "1101161", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "937", 
+                                "min": "525", 
+                                "max": "937", 
+                                "p95": "777.749999999999893419", 
+                                "std_dev": "82.1300374744560527304", 
+                                "mean": "639.08333333333333337", 
+                                "p50": "629.5", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:batch_size": {
+                                "p99": "1", 
+                                "min": "1", 
+                                "max": "1", 
+                                "p95": "1", 
+                                "std_dev": "2.71050543121376108502e-19", 
+                                "mean": "0.999999999999999999729", 
+                                "p50": "1", 
+                                "unit": "queries", 
+                                "size": "60"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "0.91038370913264766", 
+                                "rate_1min": "0.79738394366592413", 
+                                "rate_5min": "0.65722916162473477", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.62040202544123157"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "0.91038355718628172", 
+                                "rate_1min": "0.79738394366592413", 
+                                "rate_5min": "0.65722916162473477", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.62040202544123157"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "0.91038257644277665", 
+                                "rate_1min": "0.86456578926553174", 
+                                "rate_5min": "0.818223340333607", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.80646107752031593"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "app:inception:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "0.91038064258853513", 
+                                "rate_1min": "0.79738394366592413", 
+                                "rate_5min": "0.65722916162473477", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.62040202544123157"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:prediction_throughput": {
+                                "rate": "0.91037989667552321", 
+                                "rate_1min": "0.64275583069834741", 
+                                "rate_5min": "0.32693204118437874", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.24515081567428768"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:inception:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:inception:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "model:inception:1:num_predictions": {
+                                "count": "60"
+                            }
+                        }, 
+                        {
+                            "app:inception:num_predictions": {
+                                "count": "60"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "60"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:inception:prediction_latency": {
+                                "p99": "1102732", 
+                                "min": "1100224", 
+                                "max": "1102732", 
+                                "p95": "1102194.99999999999966", 
+                                "std_dev": "509.170301132691315776", 
+                                "mean": "1101228.26666666666665", 
+                                "p50": "1101252", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "22", 
+                                "min": "7", 
+                                "max": "22", 
+                                "p95": "14.9499999999999957367", 
+                                "std_dev": "2.63581107061944028085", 
+                                "mean": "9.45000000000000000069", 
+                                "p50": "9", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "inception:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "inception:1:queue_size": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:prediction_latency": {
+                                "p99": "1102622", 
+                                "min": "1100138", 
+                                "max": "1102622", 
+                                "p95": "1102112.74999999999955", 
+                                "std_dev": "506.156335916966358762", 
+                                "mean": "1101141.7833333333333", 
+                                "p50": "1101160", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "762", 
+                                "min": "508", 
+                                "max": "762", 
+                                "p95": "671.299999999999855049", 
+                                "std_dev": "48.4845336164018391178", 
+                                "mean": "580.5", 
+                                "p50": "578.5", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:batch_size": {
+                                "p99": "1", 
+                                "min": "1", 
+                                "max": "1", 
+                                "p95": "1", 
+                                "std_dev": "2.71050543121376108502e-19", 
+                                "mean": "0.999999999999999999729", 
+                                "p50": "1", 
+                                "unit": "queries", 
+                                "size": "60"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "0.91036361121277254", 
+                                "rate_1min": "0.78899146518981744", 
+                                "rate_5min": "0.65437322765378525", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.61934760594015281"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:prediction_throughput": {
+                                "rate": "0.91036350071119876", 
+                                "rate_1min": "0.60207002895555339", 
+                                "rate_5min": "0.17691831944471528", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.0632560930617313"
+                            }
+                        }, 
+                        {
+                            "app:inception:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "0.91036126306009957", 
+                                "rate_1min": "0.78899146518981744", 
+                                "rate_5min": "0.65437322765378525", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.61934760594015281"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "0.91036062767969395", 
+                                "rate_1min": "0.78899146518981744", 
+                                "rate_5min": "0.65437322765378525", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.61934760594015281"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "0.9103598541743102", 
+                                "rate_1min": "0.78899146518981744", 
+                                "rate_5min": "0.65437322765378525", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.61934760594015281"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:inception:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:inception:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "app:inception:num_predictions": {
+                                "count": "60"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "60"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:num_predictions": {
+                                "count": "60"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:inception:prediction_latency": {
+                                "p99": "1102335", 
+                                "min": "1099854", 
+                                "max": "1102335", 
+                                "p95": "1102190.19999999999891", 
+                                "std_dev": "552.257098691864309281", 
+                                "mean": "1101166.7166666666667", 
+                                "p50": "1101208.5", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "22", 
+                                "min": "6", 
+                                "max": "22", 
+                                "p95": "14.9499999999999957367", 
+                                "std_dev": "2.94788059459673501897", 
+                                "mean": "8.90000000000000000139", 
+                                "p50": "8", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "inception:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "inception:1:queue_size": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:prediction_latency": {
+                                "p99": "1102261", 
+                                "min": "1099751", 
+                                "max": "1102261", 
+                                "p95": "1102105.39999999999895", 
+                                "std_dev": "553.790948072164381621", 
+                                "mean": "1101088.54999999999995", 
+                                "p50": "1101137.5", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "742", 
+                                "min": "509", 
+                                "max": "742", 
+                                "p95": "651.899999999999906208", 
+                                "std_dev": "41.5161916204589587914", 
+                                "mean": "561.849999999999999978", 
+                                "p50": "555.5", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:batch_size": {
+                                "p99": "1", 
+                                "min": "1", 
+                                "max": "1", 
+                                "p95": "1", 
+                                "std_dev": "2.71050543121376108502e-19", 
+                                "mean": "0.999999999999999999729", 
+                                "p50": "1", 
+                                "unit": "queries", 
+                                "size": "60"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "0.91030832233908454", 
+                                "rate_1min": "0.71464007951450259", 
+                                "rate_5min": "0.49057763801761706", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.432240271526112"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "0.91030819803991525", 
+                                "rate_1min": "0.71464007951450259", 
+                                "rate_5min": "0.49057763801761706", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.432240271526112"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "0.91030710697088602", 
+                                "rate_1min": "0.71398363510297436", 
+                                "rate_5min": "0.49052981980092786", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.43223439972443867"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "app:inception:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:prediction_throughput": {
+                                "rate": "0.91030522868096264", 
+                                "rate_1min": "0.79738394366592413", 
+                                "rate_5min": "0.65722916162473477", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.62040202544123157"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "0.9103045795678647", 
+                                "rate_1min": "0.71464007951450259", 
+                                "rate_5min": "0.49057763801761706", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.432240271526112"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:inception:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:inception:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "60"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:num_predictions": {
+                                "count": "60"
+                            }
+                        }, 
+                        {
+                            "app:inception:num_predictions": {
+                                "count": "60"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:inception:prediction_latency": {
+                                "p99": "1102432", 
+                                "min": "1099687", 
+                                "max": "1102432", 
+                                "p95": "1101691.79999999999995", 
+                                "std_dev": "503.806390281910664919", 
+                                "mean": "1101030.56666666666661", 
+                                "p50": "1100981", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "22", 
+                                "min": "4", 
+                                "max": "22", 
+                                "p95": "14.8999999999999914735", 
+                                "std_dev": "2.70077149471529091569", 
+                                "mean": "8.65000000000000000226", 
+                                "p50": "8", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "inception:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "inception:1:queue_size": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:prediction_latency": {
+                                "p99": "1102358", 
+                                "min": "1099597", 
+                                "max": "1102358", 
+                                "p95": "1101623.14999999999998", 
+                                "std_dev": "504.597013026787105189", 
+                                "mean": "1100948.43333333333339", 
+                                "p50": "1100900", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "669", 
+                                "min": "508", 
+                                "max": "669", 
+                                "p95": "648.69999999999997442", 
+                                "std_dev": "37.8120314479693384047", 
+                                "mean": "582.683333333333333293", 
+                                "p50": "583.5", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:batch_size": {
+                                "p99": "1", 
+                                "min": "1", 
+                                "max": "1", 
+                                "p95": "1", 
+                                "std_dev": "2.71050543121376108502e-19", 
+                                "mean": "0.999999999999999999729", 
+                                "p50": "1", 
+                                "unit": "queries", 
+                                "size": "60"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "model:inception:1:prediction_throughput": {
+                                "rate": "0.91039647280846026", 
+                                "rate_1min": "0.78899146518981744", 
+                                "rate_5min": "0.65437322765378525", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.61934760594015281"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "0.91039633467152492", 
+                                "rate_1min": "0.65466684616115622", 
+                                "rate_5min": "0.32998939240026587", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.24622912154885127"
+                            }
+                        }, 
+                        {
+                            "app:inception:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "0.91039394490917946", 
+                                "rate_1min": "0.65466684616115622", 
+                                "rate_5min": "0.32998939240026587", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.24622912154885127"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "0.91039330948315289", 
+                                "rate_1min": "0.65466684616115622", 
+                                "rate_5min": "0.32998939240026587", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.24622912154885127"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "0.91039264643085349", 
+                                "rate_1min": "0.65466684616115622", 
+                                "rate_5min": "0.32998939240026587", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.24622912154885127"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:inception:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:inception:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "model:inception:1:num_predictions": {
+                                "count": "60"
+                            }
+                        }, 
+                        {
+                            "app:inception:num_predictions": {
+                                "count": "60"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "60"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:inception:prediction_latency": {
+                                "p99": "1102840", 
+                                "min": "1100134", 
+                                "max": "1102840", 
+                                "p95": "1101816.69999999999982", 
+                                "std_dev": "458.02129832816969357", 
+                                "mean": "1101111.08333333333326", 
+                                "p50": "1101082", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "29", 
+                                "min": "3", 
+                                "max": "29", 
+                                "p95": "12.9499999999999957367", 
+                                "std_dev": "3.27257119437029547174", 
+                                "mean": "8.91666666666666666782", 
+                                "p50": "8", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "inception:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "inception:1:queue_size": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:prediction_latency": {
+                                "p99": "1102759", 
+                                "min": "1100071", 
+                                "max": "1102759", 
+                                "p95": "1101737.59999999999968", 
+                                "std_dev": "457.723478811777313935", 
+                                "mean": "1101026.48333333333335", 
+                                "p50": "1100986", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "869", 
+                                "min": "514", 
+                                "max": "869", 
+                                "p95": "668.349999999999944578", 
+                                "std_dev": "54.6323545773625490578", 
+                                "mean": "588.350000000000000033", 
+                                "p50": "578", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:batch_size": {
+                                "p99": "1", 
+                                "min": "1", 
+                                "max": "1", 
+                                "p95": "1", 
+                                "std_dev": "2.71050543121376108502e-19", 
+                                "mean": "0.999999999999999999729", 
+                                "p50": "1", 
+                                "unit": "queries", 
+                                "size": "60"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "0.91032949512625516", 
+                                "rate_1min": "0.59690231911062575", 
+                                "rate_5min": "0.17661776584633562", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.063220328403020984"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "0.91032927413969822", 
+                                "rate_1min": "0.59767781655165197", 
+                                "rate_5min": "0.17666720486690748", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.063226265810738203"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "0.91032829351314626", 
+                                "rate_1min": "0.59690231911062575", 
+                                "rate_5min": "0.17661776584633562", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.063220328403020984"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "app:inception:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "0.9103262908316806", 
+                                "rate_1min": "0.59767781655165197", 
+                                "rate_5min": "0.17666720486690748", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.063226265810738203"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:prediction_throughput": {
+                                "rate": "0.91032557263081892", 
+                                "rate_1min": "0.71464007951450259", 
+                                "rate_5min": "0.49057763801761706", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.432240271526112"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:inception:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:inception:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "app:inception:num_predictions": {
+                                "count": "60"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "60"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:num_predictions": {
+                                "count": "60"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:inception:prediction_latency": {
+                                "p99": "1102519", 
+                                "min": "1099587", 
+                                "max": "1102519", 
+                                "p95": "1101965.69999999999993", 
+                                "std_dev": "569.705230555435766127", 
+                                "mean": "1101084.31666666666661", 
+                                "p50": "1101121.5", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "20", 
+                                "min": "5", 
+                                "max": "20", 
+                                "p95": "14.9499999999999957367", 
+                                "std_dev": "2.37691443308803655862", 
+                                "mean": "8.68333333333333333339", 
+                                "p50": "8", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "inception:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "inception:1:queue_size": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:prediction_latency": {
+                                "p99": "1102444", 
+                                "min": "1099532", 
+                                "max": "1102444", 
+                                "p95": "1101888.59999999999991", 
+                                "std_dev": "568.590607457500029909", 
+                                "mean": "1101001.76666666666688", 
+                                "p50": "1101036.5", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "697", 
+                                "min": "510", 
+                                "max": "697", 
+                                "p95": "657.399999999999948841", 
+                                "std_dev": "42.489096640589257569", 
+                                "mean": "571.899999999999999967", 
+                                "p50": "569.5", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:batch_size": {
+                                "p99": "1", 
+                                "min": "1", 
+                                "max": "1", 
+                                "p95": "1", 
+                                "std_dev": "2.71050543121376108502e-19", 
+                                "mean": "0.999999999999999999729", 
+                                "p50": "1", 
+                                "unit": "queries", 
+                                "size": "60"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "0.9103671610901064", 
+                                "rate_1min": "0.87712652864568674", 
+                                "rate_5min": "0.8213278302677971", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.80754522413610652"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:prediction_throughput": {
+                                "rate": "0.91036703677486819", 
+                                "rate_1min": "0.65466684616115622", 
+                                "rate_5min": "0.32998939240026587", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.24622912154885127"
+                            }
+                        }, 
+                        {
+                            "app:inception:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "0.91036461954087344", 
+                                "rate_1min": "0.87712652864568674", 
+                                "rate_5min": "0.8213278302677971", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.80754522413610652"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "0.91036395653036384", 
+                                "rate_1min": "0.87712652864568674", 
+                                "rate_5min": "0.8213278302677971", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.80754522413610652"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "0.91036329352082002", 
+                                "rate_1min": "0.87712652864568674", 
+                                "rate_5min": "0.8213278302677971", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.80754522413610652"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:inception:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:inception:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "60"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:num_predictions": {
+                                "count": "60"
+                            }
+                        }, 
+                        {
+                            "app:inception:num_predictions": {
+                                "count": "60"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:inception:prediction_latency": {
+                                "p99": "1112450", 
+                                "min": "1100165", 
+                                "max": "1112450", 
+                                "p95": "1102753.34999999999923", 
+                                "std_dev": "1526.85007368110638604", 
+                                "mean": "1101575.94999999999993", 
+                                "p50": "1101352", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "26", 
+                                "min": "5", 
+                                "max": "26", 
+                                "p95": "12.8999999999999914735", 
+                                "std_dev": "2.70370116691915491724", 
+                                "mean": "8.70000000000000000243", 
+                                "p50": "8", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "inception:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "inception:1:queue_size": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:prediction_latency": {
+                                "p99": "1112371", 
+                                "min": "1100087", 
+                                "max": "1112371", 
+                                "p95": "1102673.94999999999936", 
+                                "std_dev": "1527.82154817097522037", 
+                                "mean": "1101492.01666666666665", 
+                                "p50": "1101265.5", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "668", 
+                                "min": "495", 
+                                "max": "668", 
+                                "p95": "648.899999999999991473", 
+                                "std_dev": "43.4835090069276211724", 
+                                "mean": "579.866666666666666585", 
+                                "p50": "582", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:batch_size": {
+                                "p99": "1", 
+                                "min": "1", 
+                                "max": "1", 
+                                "p95": "1", 
+                                "std_dev": "2.71050543121376108502e-19", 
+                                "mean": "0.999999999999999999729", 
+                                "p50": "1", 
+                                "unit": "queries", 
+                                "size": "60"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "0.91021147595539098", 
+                                "rate_1min": "0.80181862262973325", 
+                                "rate_5min": "0.6574816936314587", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.62043191556149813"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "0.91021132406651228", 
+                                "rate_1min": "0.80181862262973325", 
+                                "rate_5min": "0.6574816936314587", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.62043191556149813"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "0.91021035750210855", 
+                                "rate_1min": "0.80082286420487914", 
+                                "rate_5min": "0.65742971981809828", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.62042587836774532"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "app:inception:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:prediction_throughput": {
+                                "rate": "0.91020845199543943", 
+                                "rate_1min": "0.59767781655165197", 
+                                "rate_5min": "0.17666720486690748", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.063226265810738203"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "0.91020755447694612", 
+                                "rate_1min": "0.80181862262973325", 
+                                "rate_5min": "0.6574816936314587", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.62043191556149813"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:inception:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:inception:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "model:inception:1:num_predictions": {
+                                "count": "60"
+                            }
+                        }, 
+                        {
+                            "app:inception:num_predictions": {
+                                "count": "60"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "60"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:inception:prediction_latency": {
+                                "p99": "1115998", 
+                                "min": "1094529", 
+                                "max": "1115998", 
+                                "p95": "1102119.44999999999959", 
+                                "std_dev": "2154.84886109598569859", 
+                                "mean": "1101262.44999999999982", 
+                                "p50": "1101161.5", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "25", 
+                                "min": "4", 
+                                "max": "25", 
+                                "p95": "11", 
+                                "std_dev": "3.12245451883966153349", 
+                                "mean": "8.31666666666666666661", 
+                                "p50": "8", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "inception:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "inception:1:queue_size": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:prediction_latency": {
+                                "p99": "1115928", 
+                                "min": "1094468", 
+                                "max": "1115928", 
+                                "p95": "1102039.59999999999957", 
+                                "std_dev": "2155.19009885954659445", 
+                                "mean": "1101184.06666666666672", 
+                                "p50": "1101086", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "653", 
+                                "min": "491", 
+                                "max": "653", 
+                                "p95": "641.949999999999995737", 
+                                "std_dev": "42.0362905383220299936", 
+                                "mean": "565.016666666666666718", 
+                                "p50": "556", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:batch_size": {
+                                "p99": "1", 
+                                "min": "1", 
+                                "max": "1", 
+                                "p95": "1", 
+                                "std_dev": "2.71050543121376108502e-19", 
+                                "mean": "0.999999999999999999729", 
+                                "p50": "1", 
+                                "unit": "queries", 
+                                "size": "60"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "model:inception:1:prediction_throughput": {
+                                "rate": "0.91032250647834811", 
+                                "rate_1min": "0.87712652864568674", 
+                                "rate_5min": "0.8213278302677971", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.80754522413610652"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "0.91032236836385805", 
+                                "rate_1min": "0.72640408466154582", 
+                                "rate_5min": "0.49363329929341648", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.43331851087630968"
+                            }
+                        }, 
+                        {
+                            "app:inception:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "0.91031986849883317", 
+                                "rate_1min": "0.72640408466154582", 
+                                "rate_5min": "0.49363329929341648", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.43331851087630968"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "0.9103192193648566", 
+                                "rate_1min": "0.72640408466154582", 
+                                "rate_5min": "0.49363329929341648", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.43331851087630968"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "0.91031854260914347", 
+                                "rate_1min": "0.72640408466154582", 
+                                "rate_5min": "0.49363329929341648", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.43331851087630968"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:inception:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:inception:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "app:inception:num_predictions": {
+                                "count": "60"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "60"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:num_predictions": {
+                                "count": "60"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:inception:prediction_latency": {
+                                "p99": "1110053", 
+                                "min": "1099845", 
+                                "max": "1110053", 
+                                "p95": "1102348.29999999999768", 
+                                "std_dev": "1288.71705055411169916", 
+                                "mean": "1101219.11666666666656", 
+                                "p50": "1101156.5", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "19", 
+                                "min": "6", 
+                                "max": "19", 
+                                "p95": "9.94999999999999573674", 
+                                "std_dev": "1.85674446276271415185", 
+                                "mean": "8.05000000000000000017", 
+                                "p50": "8", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "inception:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "inception:1:queue_size": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:prediction_latency": {
+                                "p99": "1109945", 
+                                "min": "1099768", 
+                                "max": "1109945", 
+                                "p95": "1102272.29999999999768", 
+                                "std_dev": "1284.94383751024525298", 
+                                "mean": "1101139.03333333333319", 
+                                "p50": "1101068.5", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "655", 
+                                "min": "512", 
+                                "max": "655", 
+                                "p95": "631.84999999999998721", 
+                                "std_dev": "36.081678176049406144", 
+                                "mean": "570.249999999999999944", 
+                                "p50": "573.5", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:batch_size": {
+                                "p99": "1", 
+                                "min": "1", 
+                                "max": "1", 
+                                "p95": "1", 
+                                "std_dev": "2.71050543121376108502e-19", 
+                                "mean": "0.999999999999999999729", 
+                                "p50": "1", 
+                                "unit": "queries", 
+                                "size": "60"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "0.9103921215151346", 
+                                "rate_1min": "0.65151074632374073", 
+                                "rate_5min": "0.32979149896129617", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.24620537008541044"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "0.91039196956596058", 
+                                "rate_1min": "0.65151074632374073", 
+                                "rate_5min": "0.32979149896129617", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.24620537008541044"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "0.91039100261785966", 
+                                "rate_1min": "0.65023216719734722", 
+                                "rate_5min": "0.32973686039354194", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.24619923142858469"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "app:inception:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "0.91038879245848492", 
+                                "rate_1min": "0.65151074632374073", 
+                                "rate_5min": "0.32979149896129617", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.24620537008541044"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:prediction_throughput": {
+                                "rate": "0.91038814322620776", 
+                                "rate_1min": "0.80181862262973325", 
+                                "rate_5min": "0.6574816936314587", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.62043191556149813"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:inception:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:inception:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "60"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:num_predictions": {
+                                "count": "60"
+                            }
+                        }, 
+                        {
+                            "app:inception:num_predictions": {
+                                "count": "60"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:inception:prediction_latency": {
+                                "p99": "1102086", 
+                                "min": "1100327", 
+                                "max": "1102086", 
+                                "p95": "1101979.84999999999945", 
+                                "std_dev": "435.815735782400995618", 
+                                "mean": "1101134.66666666666686", 
+                                "p50": "1101100.5", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "27", 
+                                "min": "6", 
+                                "max": "27", 
+                                "p95": "16", 
+                                "std_dev": "3.64539283053128430434", 
+                                "mean": "8.66666666666666666609", 
+                                "p50": "8", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "inception:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "inception:1:queue_size": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:prediction_latency": {
+                                "p99": "1101986", 
+                                "min": "1100261", 
+                                "max": "1101986", 
+                                "p95": "1101852.14999999999964", 
+                                "std_dev": "433.529271086611738689", 
+                                "mean": "1101047.26666666666654", 
+                                "p50": "1101005.5", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "823", 
+                                "min": "517", 
+                                "max": "823", 
+                                "p95": "723.599999999999965894", 
+                                "std_dev": "64.9052814149631089602", 
+                                "mean": "598.933333333333333237", 
+                                "p50": "595", 
+                                "unit": "microseconds", 
+                                "size": "60"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:batch_size": {
+                                "p99": "1", 
+                                "min": "1", 
+                                "max": "1", 
+                                "p95": "1", 
+                                "std_dev": "2.71050543121376108502e-19", 
+                                "mean": "0.999999999999999999729", 
+                                "p50": "1", 
+                                "unit": "queries", 
+                                "size": "60"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "0.91032551738464573", 
+                                "rate_1min": "0.64275583069834741", 
+                                "rate_5min": "0.32693204118437874", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.24515081567428768"
+                            }
+                        }, 
+                        {
+                            "model:inception:1:prediction_throughput": {
+                                "rate": "0.91032537926924206", 
+                                "rate_1min": "0.72640408466154582", 
+                                "rate_5min": "0.49363329929341648", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.43331851087630968"
+                            }
+                        }, 
+                        {
+                            "app:inception:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "0.91032316942848346", 
+                                "rate_1min": "0.64275583069834741", 
+                                "rate_5min": "0.32693204118437874", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.24515081567428768"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "0.91032253410125108", 
+                                "rate_1min": "0.64275583069834741", 
+                                "rate_5min": "0.32693204118437874", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.24515081567428768"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "0.9103218849634731", 
+                                "rate_1min": "0.64275583069834741", 
+                                "rate_5min": "0.32693204118437874", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.24515081567428768"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:inception:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:inception:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "model:inception:1:num_predictions": {
+                                "count": "60"
+                            }
+                        }, 
+                        {
+                            "app:inception:num_predictions": {
+                                "count": "60"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "60"
+                            }
+                        }
+                    ]
+                }
+            ], 
+            "thrus": [
+                0.8798268418658035, 
+                0.9104076482254038, 
+                0.9104214486553258, 
+                0.9104418116153257, 
+                0.910420357314802, 
+                0.9103704209240265, 
+                0.9104553229558017, 
+                0.9103882261068723, 
+                0.9104269330264304, 
+                0.9102716831759354, 
+                0.9103877426365411, 
+                0.910449769166083, 
+                0.9103819824723853
+            ], 
+            "all_lats": [
+                "[1.107199, 1.106118, 1.106477, 1.107044, 1.105739, 1.105718, 1.106029, 1.107242, 1.106538, 1.105569, 1.105574, 1.105697, 1.105748, 1.105819, 1.106723, 1.106718, 1.106718, 1.10586, 1.105482, 1.106543, 1.105825, 1.106443, 1.1067, 1.106256, 1.106148, 1.10595, 1.10557, 1.105977, 1.107091, 1.106896, 1.106662, 1.105702, 1.106423, 1.10615, 1.107005, 1.105726, 1.105959, 1.106279, 1.106469, 1.105668, 1.105867, 1.105764, 1.106632, 1.106068, 1.106086, 1.106748, 1.10643, 1.105679, 1.106798, 1.105909, 1.105872, 1.106118, 1.105353, 1.106636, 1.106049, 1.105276, 1.106027, 1.105481, 1.10569, 1.105395]", 
+                "[1.105781, 1.106302, 1.105342, 1.104951, 1.105794, 1.104427, 1.105154, 1.10642, 1.107259, 1.105968, 1.107791, 1.105616, 1.105445, 1.105974, 1.10603, 1.106448, 1.105485, 1.106107, 1.10539, 1.106235, 1.105477, 1.106546, 1.105615, 1.106588, 1.105806, 1.105491, 1.10648, 1.105168, 1.105017, 1.105568, 1.105631, 1.105791, 1.105668, 1.105842, 1.105693, 1.105484, 1.105812, 1.110083, 1.106898, 1.105066, 1.106171, 1.105061, 1.105179, 1.105003, 1.105029, 1.106002, 1.105494, 1.106583, 1.104821, 1.104979, 1.10722, 1.105589, 1.105174, 1.105719, 1.105801, 1.105911, 1.106188, 1.106924, 1.105822, 1.105224]", 
+                "[1.105694, 1.106851, 1.105463, 1.105313, 1.105896, 1.105836, 1.106056, 1.106639, 1.106044, 1.106664, 1.107284, 1.105816, 1.106686, 1.105182, 1.106004, 1.105355, 1.105676, 1.105916, 1.105605, 1.106731, 1.106366, 1.10664, 1.105426, 1.105628, 1.106252, 1.105185, 1.106082, 1.105484, 1.105279, 1.105999, 1.105468, 1.105827, 1.105624, 1.1057, 1.105099, 1.106038, 1.105372, 1.105778, 1.106297, 1.105109, 1.10597, 1.105024, 1.10514, 1.106089, 1.107002, 1.106591, 1.10642, 1.105595, 1.105943, 1.105556, 1.10618, 1.105032, 1.105147, 1.106176, 1.105522, 1.105643, 1.10554, 1.106395, 1.105645, 1.105694]", 
+                "[1.106115, 1.106336, 1.10623, 1.105763, 1.105909, 1.105486, 1.105357, 1.106264, 1.114847, 1.106029, 1.105829, 1.10536, 1.106123, 1.104797, 1.10597, 1.104752, 1.105064, 1.106465, 1.105873, 1.104685, 1.105799, 1.105773, 1.106136, 1.105819, 1.10482, 1.105211, 1.105977, 1.104898, 1.105383, 1.105246, 1.105236, 1.105461, 1.105517, 1.105681, 1.105492, 1.106328, 1.106126, 1.106142, 1.106122, 1.105024, 1.10563, 1.106157, 1.105533, 1.105699, 1.105554, 1.105422, 1.104986, 1.106404, 1.105304, 1.105005, 1.105484, 1.106218, 1.105245, 1.106547, 1.105169, 1.105385, 1.105306, 1.105398, 1.105323, 1.106833]", 
+                "[1.107076, 1.105542, 1.107991, 1.105244, 1.105966, 1.104992, 1.105893, 1.10612, 1.104912, 1.106055, 1.10586, 1.105701, 1.10569, 1.105917, 1.104229, 1.104991, 1.105667, 1.105012, 1.105027, 1.105359, 1.104935, 1.105714, 1.106266, 1.105844, 1.106861, 1.105075, 1.105259, 1.10532, 1.104905, 1.105045, 1.105657, 1.10494, 1.106206, 1.105573, 1.104981, 1.105409, 1.105058, 1.105101, 1.1053, 1.105687, 1.105152, 1.10564, 1.105647, 1.105305, 1.105432, 1.105482, 1.10583, 1.105423, 1.105983, 1.106441, 1.105511, 1.105192, 1.105082, 1.106501, 1.105629, 1.104879, 1.105394, 1.104828, 1.105377, 1.105359]", 
+                "[1.105666, 1.105978, 1.105041, 1.105053, 1.105663, 1.105223, 1.106284, 1.105638, 1.105502, 1.105335, 1.105316, 1.105617, 1.105111, 1.1048, 1.105828, 1.104995, 1.104559, 1.105046, 1.105494, 1.10548, 1.105211, 1.106451, 1.105298, 1.105496, 1.106064, 1.104952, 1.10596, 1.105285, 1.105401, 1.105486, 1.105268, 1.104383, 1.105643, 1.105769, 1.105257, 1.105468, 1.105168, 1.105901, 1.10553, 1.10531, 1.105453, 1.105171, 1.105113, 1.106542, 1.104336, 1.105618, 1.105253, 1.105381, 1.105757, 1.105319, 1.10517, 1.106068, 1.105215, 1.105154, 1.104288, 1.105656, 1.105409, 1.105232, 1.10549, 1.106552]", 
+                "[1.10404, 1.105525, 1.105903, 1.105327, 1.105084, 1.104578, 1.105098, 1.105607, 1.105261, 1.106062, 1.105368, 1.105854, 1.105344, 1.104972, 1.106143, 1.104806, 1.104739, 1.105457, 1.106419, 1.10464, 1.1053, 1.106094, 1.106031, 1.104582, 1.104829, 1.105547, 1.106622, 1.105356, 1.10567, 1.10541, 1.105939, 1.105132, 1.104767, 1.105623, 1.105592, 1.105507, 1.105704, 1.10513, 1.104709, 1.104935, 1.105359, 1.105196, 1.105941, 1.10543, 1.10576, 1.105716, 1.105755, 1.10493, 1.105819, 1.105493, 1.105206, 1.104415, 1.105964, 1.105165, 1.104777, 1.104549, 1.106041, 1.105178, 1.105184, 1.104608]", 
+                "[1.105884, 1.10586, 1.105675, 1.104806, 1.105584, 1.104441, 1.105599, 1.105254, 1.105777, 1.104615, 1.10503, 1.104995, 1.104316, 1.104481, 1.104927, 1.105652, 1.105594, 1.105398, 1.105392, 1.104757, 1.105741, 1.104563, 1.105584, 1.105305, 1.104554, 1.104599, 1.105303, 1.106863, 1.105272, 1.105416, 1.105624, 1.105327, 1.104552, 1.104952, 1.104399, 1.106264, 1.106088, 1.105382, 1.105598, 1.105763, 1.105503, 1.105411, 1.105726, 1.105105, 1.104734, 1.105604, 1.104392, 1.105129, 1.105223, 1.104997, 1.105514, 1.105665, 1.105439, 1.106325, 1.104771, 1.105342, 1.106072, 1.105682, 1.105899, 1.105835]", 
+                "[1.105239, 1.105847, 1.105133, 1.105451, 1.105751, 1.105526, 1.105879, 1.104187, 1.105548, 1.10604, 1.104731, 1.104936, 1.105092, 1.105861, 1.105313, 1.105681, 1.105646, 1.106879, 1.105296, 1.105944, 1.105922, 1.105676, 1.10502, 1.105675, 1.104889, 1.105702, 1.106079, 1.104758, 1.10558, 1.105203, 1.104316, 1.104729, 1.105684, 1.104879, 1.105006, 1.105678, 1.105742, 1.105966, 1.10582, 1.104655, 1.105333, 1.105349, 1.106215, 1.106046, 1.105432, 1.105481, 1.105706, 1.105551, 1.104716, 1.104414, 1.105602, 1.104842, 1.10429, 1.105932, 1.106295, 1.10462, 1.104218, 1.104457, 1.105163, 1.104574]", 
+                "[1.116508, 1.104567, 1.105223, 1.104775, 1.107706, 1.106011, 1.105149, 1.105648, 1.105693, 1.105719, 1.106229, 1.105979, 1.106043, 1.106195, 1.105961, 1.105222, 1.105215, 1.106339, 1.10548, 1.105833, 1.106254, 1.10556, 1.105582, 1.105178, 1.10617, 1.105317, 1.104972, 1.106541, 1.105245, 1.105562, 1.105988, 1.106162, 1.104787, 1.104649, 1.104522, 1.105447, 1.104933, 1.105102, 1.106094, 1.106044, 1.105224, 1.104959, 1.106226, 1.105551, 1.10552, 1.105751, 1.105635, 1.105761, 1.105249, 1.105889, 1.105961, 1.105358, 1.105646, 1.105467, 1.105093, 1.104688, 1.105376, 1.106573, 1.10557, 1.104942]", 
+                "[1.105617, 1.104534, 1.105538, 1.105623, 1.104362, 1.105867, 1.105419, 1.10549, 1.105206, 1.105298, 1.105881, 1.106155, 1.105609, 1.104849, 1.105804, 1.10586, 1.120768, 1.105984, 1.105268, 1.105125, 1.105631, 1.106039, 1.104723, 1.105386, 1.105126, 1.104797, 1.104467, 1.105458, 1.105593, 1.105242, 1.104569, 1.104825, 1.10522, 1.105938, 1.105074, 1.106078, 1.104652, 1.105608, 1.106193, 1.105505, 1.104698, 1.105698, 1.105088, 1.105798, 1.105862, 1.104768, 1.10543, 1.104836, 1.104736, 1.105869, 1.105465, 1.10522, 1.106154, 1.105135, 1.105861, 1.105174, 1.106039, 1.105209, 1.104541, 1.10583]", 
+                "[1.107583, 1.105939, 1.104985, 1.105644, 1.104198, 1.105983, 1.105232, 1.105131, 1.10461, 1.105212, 1.104568, 1.104956, 1.105104, 1.105051, 1.105448, 1.10509, 1.106125, 1.105824, 1.104978, 1.105078, 1.106006, 1.105146, 1.105325, 1.104526, 1.104953, 1.105398, 1.105309, 1.104431, 1.105374, 1.10549, 1.104347, 1.105576, 1.105192, 1.104596, 1.104814, 1.105802, 1.105834, 1.106136, 1.114314, 1.105505, 1.105483, 1.105056, 1.105945, 1.105806, 1.106074, 1.105839, 1.105401, 1.105482, 1.104645, 1.104905, 1.105115, 1.105356, 1.104082, 1.104415, 1.105505, 1.104394, 1.105718, 1.105792, 1.105201, 1.104509]", 
+                "[1.104657, 1.105496, 1.104893, 1.105054, 1.105831, 1.105657, 1.105416, 1.105644, 1.10576, 1.104804, 1.105822, 1.105001, 1.105643, 1.10561, 1.106226, 1.104895, 1.105281, 1.104888, 1.105905, 1.105725, 1.106249, 1.105921, 1.105265, 1.10443, 1.105027, 1.104949, 1.105952, 1.105205, 1.106427, 1.104808, 1.10471, 1.104616, 1.105064, 1.105562, 1.105216, 1.106175, 1.105504, 1.10494, 1.106163, 1.104878, 1.105349, 1.106357, 1.105684, 1.104908, 1.105411, 1.105349, 1.104765, 1.105606, 1.105793, 1.104705, 1.104389, 1.10522, 1.105531, 1.105385, 1.105819, 1.104539, 1.105314, 1.105983, 1.105358, 1.10553]"
+            ], 
+            "mean_batch_sizes": [
+                {
+                    "inception": 1.0
+                }, 
+                {
+                    "inception": 1.0
+                }, 
+                {
+                    "inception": 1.0
+                }, 
+                {
+                    "inception": 1.0
+                }, 
+                {
+                    "inception": 1.0
+                }, 
+                {
+                    "inception": 1.0
+                }, 
+                {
+                    "inception": 1.0
+                }, 
+                {
+                    "inception": 1.0
+                }, 
+                {
+                    "inception": 1.0
+                }, 
+                {
+                    "inception": 1.0
+                }, 
+                {
+                    "inception": 1.0
+                }, 
+                {
+                    "inception": 1.0
+                }, 
+                {
+                    "inception": 1.0
+                }
+            ], 
+            "mean_lats": [
+                1.106155533333333, 
+                1.1058589500000005, 
+                1.1058611333333332, 
+                1.105800783333333, 
+                1.1055411166666669, 
+                1.1054184499999997, 
+                1.1053532, 
+                1.1053259, 
+                1.10535325, 
+                1.1057673833333332, 
+                1.1056298666666666, 
+                1.1054256, 
+                1.1053710666666667
+            ]
+        }
+    ], 
+    "node_configs": [
+        {
+            "model_image": "gcr.io/clipper-model-comp/inception-feats:bench-nogpu", 
+            "name": "inception", 
+            "cpus_per_replica": 2, 
+            "input_type": "floats", 
+            "batch_size": 4, 
+            "num_replicas": 1, 
+            "gpu_type": null, 
+            "no_diverge": true, 
+            "slo": 5000000, 
+            "input_size": -1, 
+            "cloud": "gcp"
+        }
+    ]
+}
