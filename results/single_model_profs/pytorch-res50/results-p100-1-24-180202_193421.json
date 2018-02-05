@@ -1,0 +1,2159 @@
+{
+    "client_metrics": [
+        {
+            "p99_lats": [
+                0.9409761, 
+                1.06730481, 
+                1.1717030400000001, 
+                1.17093183, 
+                1.0675863600000002, 
+                1.0851544499999999, 
+                1.04885337, 
+                1.05824198, 
+                1.05681994, 
+                1.16829465, 
+                1.02625732
+            ], 
+            "all_metrics": [
+                {
+                    "histograms": [
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "12201353.25", 
+                                "min": "223057", 
+                                "max": "12237825", 
+                                "p95": "1087169.25", 
+                                "std_dev": "2141507.26956924187766", 
+                                "mean": "1047911.18842729970311", 
+                                "p50": "670140.5", 
+                                "unit": "microseconds", 
+                                "size": "674"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "53.25", 
+                                "min": "3", 
+                                "max": "203", 
+                                "p95": "30.25", 
+                                "std_dev": "11.8823023738765657254", 
+                                "mean": "9.29970326409495549966", 
+                                "p50": "6", 
+                                "unit": "microseconds", 
+                                "size": "674"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "733"
+                            }
+                        }, 
+                        {
+                            "res50:1:queue_size": {
+                                "p99": "71", 
+                                "min": "0", 
+                                "max": "71", 
+                                "p95": "66.5", 
+                                "std_dev": "22.9309177666175664709", 
+                                "mean": "31.2352941176470588237", 
+                                "p50": "33", 
+                                "unit": "microseconds", 
+                                "size": "34"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "11377417", 
+                                "min": "16064", 
+                                "max": "11377417", 
+                                "p95": "3599735.5", 
+                                "std_dev": "1885662.04918612903475", 
+                                "mean": "611377.852941176470608", 
+                                "p50": "251915.5", 
+                                "unit": "microseconds", 
+                                "size": "34"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "438.659999999999968168", 
+                                "min": "173", 
+                                "max": "1591", 
+                                "p95": "343", 
+                                "std_dev": "74.6513882869975479786", 
+                                "mean": "239.211459754433833497", 
+                                "p50": "226", 
+                                "unit": "microseconds", 
+                                "size": "733"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "24", 
+                                "min": "1", 
+                                "max": "24", 
+                                "p95": "24", 
+                                "std_dev": "8.67881324306258346291", 
+                                "mean": "19.8235294117647058831", 
+                                "p50": "24", 
+                                "unit": "queries", 
+                                "size": "34"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "37.300353180109681", 
+                                "rate_1min": "9.5270281395797376", 
+                                "rate_5min": "5.7625679809183206", 
+                                "unit": "events per second", 
+                                "rate_15min": "5.1217699827892398"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "40.565477218250898", 
+                                "rate_1min": "6.8921714589523324", 
+                                "rate_5min": "1.4247606805765722", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.47756110197790197"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "37.29997129451764", 
+                                "rate_1min": "9.5270281395797376", 
+                                "rate_5min": "5.7625679809183206", 
+                                "unit": "events per second", 
+                                "rate_15min": "5.1217699827892398"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "37.299366486308919", 
+                                "rate_1min": "6.3978153722987079", 
+                                "rate_5min": "5.125270830722398", 
+                                "unit": "events per second", 
+                                "rate_15min": "4.9087343068678422"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "37.299162135750024", 
+                                "rate_1min": "9.5270281395797376", 
+                                "rate_5min": "5.7625679809183206", 
+                                "unit": "events per second", 
+                                "rate_15min": "5.1217699827892398"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "674"
+                            }
+                        }, 
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "674"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "733"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "961944.620000000003984", 
+                                "min": "681461", 
+                                "max": "1054053", 
+                                "p95": "923245.799999999811462", 
+                                "std_dev": "54300.1084536970689207", 
+                                "mean": "823722.908333333333132", 
+                                "p50": "822896", 
+                                "unit": "microseconds", 
+                                "size": "600"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "60", 
+                                "min": "3", 
+                                "max": "1097", 
+                                "p95": "31", 
+                                "std_dev": "45.6170104420123816887", 
+                                "mean": "12.0050000000000000096", 
+                                "p50": "7", 
+                                "unit": "microseconds", 
+                                "size": "600"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "619"
+                            }
+                        }, 
+                        {
+                            "res50:1:queue_size": {
+                                "p99": "86", 
+                                "min": "54", 
+                                "max": "86", 
+                                "p95": "85.0999999999999978684", 
+                                "std_dev": "8.51821577561874162653", 
+                                "mean": "69.4000000000000000014", 
+                                "p50": "69", 
+                                "unit": "microseconds", 
+                                "size": "25"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "422282", 
+                                "min": "158404", 
+                                "max": "422282", 
+                                "p95": "420623.299999999996089", 
+                                "std_dev": "80155.8039985028158441", 
+                                "mean": "267360.439999999999998", 
+                                "p50": "253188", 
+                                "unit": "microseconds", 
+                                "size": "25"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "439.599999999999454303", 
+                                "min": "174", 
+                                "max": "1434", 
+                                "p95": "324", 
+                                "std_dev": "86.2047555096689702772", 
+                                "mean": "236.166397415185783659", 
+                                "p50": "219", 
+                                "unit": "microseconds", 
+                                "size": "619"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "24", 
+                                "min": "24", 
+                                "max": "24", 
+                                "p95": "24", 
+                                "std_dev": "6.93889390390722837765e-18", 
+                                "mean": "23.9999999999999999931", 
+                                "p50": "24", 
+                                "unit": "queries", 
+                                "size": "25"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "148.4461033021588", 
+                                "rate_1min": "38.399999999999999", 
+                                "rate_5min": "38.399999999999999", 
+                                "unit": "events per second", 
+                                "rate_15min": "38.399999999999999"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "148.44735203324626", 
+                                "rate_1min": "86.400000000000006", 
+                                "rate_5min": "86.400000000000006", 
+                                "unit": "events per second", 
+                                "rate_15min": "86.400000000000006"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "148.43464533891711", 
+                                "rate_1min": "86.400000000000006", 
+                                "rate_5min": "86.400000000000006", 
+                                "unit": "events per second", 
+                                "rate_15min": "86.400000000000006"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "153.13022674405804", 
+                                "rate_1min": "92.799999999999997", 
+                                "rate_5min": "92.799999999999997", 
+                                "unit": "events per second", 
+                                "rate_15min": "92.799999999999997"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "148.4249515207002", 
+                                "rate_1min": "86.400000000000006", 
+                                "rate_5min": "86.400000000000006", 
+                                "unit": "events per second", 
+                                "rate_15min": "86.400000000000006"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "600"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "619"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "600"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "1025255.96000000002914", 
+                                "min": "754226", 
+                                "max": "1168259", 
+                                "p95": "973096.249999999986699", 
+                                "std_dev": "58591.235533796894746", 
+                                "mean": "878678.121666666667181", 
+                                "p50": "870610", 
+                                "unit": "microseconds", 
+                                "size": "600"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "51.9700000000000272848", 
+                                "min": "3", 
+                                "max": "679", 
+                                "p95": "31", 
+                                "std_dev": "36.1208726592626312019", 
+                                "mean": "11.8150000000000000161", 
+                                "p50": "7", 
+                                "unit": "microseconds", 
+                                "size": "600"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "617"
+                            }
+                        }, 
+                        {
+                            "res50:1:queue_size": {
+                                "p99": "93", 
+                                "min": "64", 
+                                "max": "93", 
+                                "p95": "92.3999999999999985789", 
+                                "std_dev": "8.20789863485167560386", 
+                                "mean": "77.5200000000000000039", 
+                                "p50": "77", 
+                                "unit": "microseconds", 
+                                "size": "25"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "416285", 
+                                "min": "160325", 
+                                "max": "416285", 
+                                "p95": "415446.499999999997954", 
+                                "std_dev": "76534.0652750133220081", 
+                                "mean": "268458.200000000000017", 
+                                "p50": "255176", 
+                                "unit": "microseconds", 
+                                "size": "25"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "518.5200000000018008", 
+                                "min": "172", 
+                                "max": "1195", 
+                                "p95": "329.100000000000022737", 
+                                "std_dev": "80.2883133833731989296", 
+                                "mean": "231.025931928687196196", 
+                                "p50": "217", 
+                                "unit": "microseconds", 
+                                "size": "617"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "24", 
+                                "min": "24", 
+                                "max": "24", 
+                                "p95": "24", 
+                                "std_dev": "6.93889390390722837765e-18", 
+                                "mean": "23.9999999999999999931", 
+                                "p50": "24", 
+                                "unit": "queries", 
+                                "size": "25"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "152.94351823138794", 
+                                "rate_1min": "121.59999999999999", 
+                                "rate_5min": "121.59999999999999", 
+                                "unit": "events per second", 
+                                "rate_15min": "121.59999999999999"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "148.72877795264426", 
+                                "rate_1min": "115.2", 
+                                "rate_5min": "115.2", 
+                                "unit": "events per second", 
+                                "rate_15min": "115.2"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "148.72420657494845", 
+                                "rate_1min": "120", 
+                                "rate_5min": "120", 
+                                "unit": "events per second", 
+                                "rate_15min": "120"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "148.71591245391664", 
+                                "rate_1min": "115.2", 
+                                "rate_5min": "115.2", 
+                                "unit": "events per second", 
+                                "rate_15min": "115.2"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "148.71311109315536", 
+                                "rate_1min": "67.200000000000003", 
+                                "rate_5min": "67.200000000000003", 
+                                "unit": "events per second", 
+                                "rate_15min": "67.200000000000003"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "617"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "600"
+                            }
+                        }, 
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "600"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "1050461.71000000009235", 
+                                "min": "816507", 
+                                "max": "1168161", 
+                                "p95": "1022299.29999999995175", 
+                                "std_dev": "51572.8368206400677742", 
+                                "mean": "936147.949652777778113", 
+                                "p50": "940991", 
+                                "unit": "microseconds", 
+                                "size": "576"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "65.1500000000000909495", 
+                                "min": "2", 
+                                "max": "225", 
+                                "p95": "31.1499999999999772626", 
+                                "std_dev": "15.4644248029442792445", 
+                                "mean": "10.5295138888888888951", 
+                                "p50": "6", 
+                                "unit": "microseconds", 
+                                "size": "576"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "20", 
+                                "p95": "0", 
+                                "std_dev": "0.984738529579098443049", 
+                                "mean": "0.0603907637655417406776", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "563"
+                            }
+                        }, 
+                        {
+                            "res50:1:queue_size": {
+                                "p99": "97", 
+                                "min": "61", 
+                                "max": "97", 
+                                "p95": "96.75", 
+                                "std_dev": "9.45567143159184768288", 
+                                "mean": "83.5833333333333333426", 
+                                "p50": "84.5", 
+                                "unit": "microseconds", 
+                                "size": "24"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "405931", 
+                                "min": "161888", 
+                                "max": "405931", 
+                                "p95": "404962.75", 
+                                "std_dev": "70153.7551242977338859", 
+                                "mean": "264663.958333333333343", 
+                                "p50": "255479", 
+                                "unit": "microseconds", 
+                                "size": "24"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "648.000000000001364242", 
+                                "min": "172", 
+                                "max": "3324", 
+                                "p95": "348.799999999999727152", 
+                                "std_dev": "161.993949445264660281", 
+                                "mean": "237.275310834813499106", 
+                                "p50": "210", 
+                                "unit": "microseconds", 
+                                "size": "563"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "24", 
+                                "min": "24", 
+                                "max": "24", 
+                                "p95": "24", 
+                                "std_dev": "0", 
+                                "mean": "24", 
+                                "p50": "24", 
+                                "unit": "queries", 
+                                "size": "24"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "151.91111301000004", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "151.91123320273189", 
+                                "rate_1min": "100.8", 
+                                "rate_5min": "100.8", 
+                                "unit": "events per second", 
+                                "rate_15min": "100.8"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "151.90069702904916", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "151.89777279890635", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "148.46607906095602", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "576"
+                            }
+                        }, 
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "576"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "563"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "977982.5", 
+                                "min": "712347", 
+                                "max": "1056281", 
+                                "p95": "945032", 
+                                "std_dev": "51334.552346328879274", 
+                                "mean": "849236.149038461538623", 
+                                "p50": "840976.5", 
+                                "unit": "microseconds", 
+                                "size": "624"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "108.75", 
+                                "min": "2", 
+                                "max": "3641", 
+                                "p95": "34", 
+                                "std_dev": "194.859550791962713029", 
+                                "mean": "23.724358974358974372", 
+                                "p50": "6", 
+                                "unit": "microseconds", 
+                                "size": "624"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "603"
+                            }
+                        }, 
+                        {
+                            "res50:1:queue_size": {
+                                "p99": "81", 
+                                "min": "59", 
+                                "max": "81", 
+                                "p95": "81", 
+                                "std_dev": "6.75785757864535332985", 
+                                "mean": "70.1538461538461538408", 
+                                "p50": "70", 
+                                "unit": "microseconds", 
+                                "size": "26"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "422565", 
+                                "min": "162203", 
+                                "max": "422565", 
+                                "p95": "418508.149999999983265", 
+                                "std_dev": "77057.4141925544982072", 
+                                "mean": "267926.730769230769255", 
+                                "p50": "255261", 
+                                "unit": "microseconds", 
+                                "size": "26"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "438.720000000001164153", 
+                                "min": "172", 
+                                "max": "638", 
+                                "p95": "308.799999999999727152", 
+                                "std_dev": "47.6212652741839708413", 
+                                "mean": "222.860696517412935236", 
+                                "p50": "214", 
+                                "unit": "microseconds", 
+                                "size": "603"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "24", 
+                                "min": "24", 
+                                "max": "24", 
+                                "p95": "24", 
+                                "std_dev": "6.93889390390722837765e-18", 
+                                "mean": "23.9999999999999999931", 
+                                "p50": "24", 
+                                "unit": "queries", 
+                                "size": "26"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "154.50568843816325", 
+                                "rate_1min": "29.800000000000001", 
+                                "rate_5min": "29.800000000000001", 
+                                "unit": "events per second", 
+                                "rate_15min": "29.800000000000001"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "149.54511500837751", 
+                                "rate_1min": "28.199999999999999", 
+                                "rate_5min": "28.199999999999999", 
+                                "unit": "events per second", 
+                                "rate_15min": "28.199999999999999"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "154.74893225716693", 
+                                "rate_1min": "33.600000000000001", 
+                                "rate_5min": "33.600000000000001", 
+                                "unit": "events per second", 
+                                "rate_15min": "33.600000000000001"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "154.74091188521794", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "154.73803396400655", 
+                                "rate_1min": "29.800000000000001", 
+                                "rate_5min": "29.800000000000001", 
+                                "unit": "events per second", 
+                                "rate_15min": "29.800000000000001"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "624"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "603"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "624"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "984550.959999999382489", 
+                                "min": "745498", 
+                                "max": "1058983", 
+                                "p95": "954046.299999999992565", 
+                                "std_dev": "51206.0161914853140566", 
+                                "mean": "858953.779487179487091", 
+                                "p50": "847521", 
+                                "unit": "microseconds", 
+                                "size": "585"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "60", 
+                                "min": "2", 
+                                "max": "106", 
+                                "p95": "31", 
+                                "std_dev": "10.3481735209977111899", 
+                                "mean": "9.56996587030716723467", 
+                                "p50": "6", 
+                                "unit": "microseconds", 
+                                "size": "586"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "604"
+                            }
+                        }, 
+                        {
+                            "res50:1:queue_size": {
+                                "p99": "83", 
+                                "min": "59", 
+                                "max": "83", 
+                                "p95": "83", 
+                                "std_dev": "6.66874967458085220803", 
+                                "mean": "72.1666666666666666782", 
+                                "p50": "71.5", 
+                                "unit": "microseconds", 
+                                "size": "24"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "426341", 
+                                "min": "162101", 
+                                "max": "426341", 
+                                "p95": "421703.299999999988358", 
+                                "std_dev": "77226.6895760785540688", 
+                                "mean": "268438.400000000000034", 
+                                "p50": "255815", 
+                                "unit": "microseconds", 
+                                "size": "25"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "327.750000000000227374", 
+                                "min": "172", 
+                                "max": "1149", 
+                                "p95": "266.75", 
+                                "std_dev": "55.3215321560350863465", 
+                                "mean": "218.400662251655629104", 
+                                "p50": "215", 
+                                "unit": "microseconds", 
+                                "size": "604"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "24", 
+                                "min": "24", 
+                                "max": "24", 
+                                "p95": "24", 
+                                "std_dev": "6.93889390390722837765e-18", 
+                                "mean": "23.9999999999999999931", 
+                                "p50": "24", 
+                                "unit": "queries", 
+                                "size": "25"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "149.23342520308805", 
+                                "rate_1min": "9.5999999999999996", 
+                                "rate_5min": "9.5999999999999996", 
+                                "unit": "events per second", 
+                                "rate_15min": "9.5999999999999996"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "145.00471203133694", 
+                                "rate_1min": "57.600000000000001", 
+                                "rate_5min": "57.600000000000001", 
+                                "unit": "events per second", 
+                                "rate_15min": "57.600000000000001"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "149.22377522721186", 
+                                "rate_1min": "57.600000000000001", 
+                                "rate_5min": "57.600000000000001", 
+                                "unit": "events per second", 
+                                "rate_15min": "57.600000000000001"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "150.21564898880496", 
+                                "rate_1min": "63.200000000000003", 
+                                "rate_5min": "63.200000000000003", 
+                                "unit": "events per second", 
+                                "rate_15min": "63.200000000000003"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "144.24308441453474", 
+                                "rate_1min": "57.799999999999997", 
+                                "rate_5min": "57.799999999999997", 
+                                "unit": "events per second", 
+                                "rate_15min": "57.799999999999997"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "604"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "600"
+                            }
+                        }, 
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "583"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "948977.999999999328793", 
+                                "min": "670334", 
+                                "max": "1030953", 
+                                "p95": "917631.100000000071418", 
+                                "std_dev": "54185.2723018251617226", 
+                                "mean": "821075.393634840870902", 
+                                "p50": "813779", 
+                                "unit": "microseconds", 
+                                "size": "597"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "70.0999999999999090505", 
+                                "min": "3", 
+                                "max": "256", 
+                                "p95": "31", 
+                                "std_dev": "15.034439671510552489", 
+                                "mean": "9.70351758793969848636", 
+                                "p50": "6", 
+                                "unit": "microseconds", 
+                                "size": "597"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "585"
+                            }
+                        }, 
+                        {
+                            "res50:1:queue_size": {
+                                "p99": "81", 
+                                "min": "50", 
+                                "max": "81", 
+                                "p95": "80.3999999999999985789", 
+                                "std_dev": "8.22192191643778626242", 
+                                "mean": "65.1999999999999999972", 
+                                "p50": "65", 
+                                "unit": "microseconds", 
+                                "size": "25"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "405941", 
+                                "min": "160292", 
+                                "max": "405941", 
+                                "p95": "404251.099999999995816", 
+                                "std_dev": "72788.3562552582993845", 
+                                "mean": "264583.759999999999991", 
+                                "p50": "256493", 
+                                "unit": "microseconds", 
+                                "size": "25"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "350.399999999999863576", 
+                                "min": "170", 
+                                "max": "409", 
+                                "p95": "300.699999999999931788", 
+                                "std_dev": "37.9500802096294108344", 
+                                "mean": "216.058119658119658121", 
+                                "p50": "207", 
+                                "unit": "microseconds", 
+                                "size": "585"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "24", 
+                                "min": "24", 
+                                "max": "24", 
+                                "p95": "24", 
+                                "std_dev": "6.93889390390722837765e-18", 
+                                "mean": "23.9999999999999999931", 
+                                "p50": "24", 
+                                "unit": "queries", 
+                                "size": "25"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "148.42404114263678", 
+                                "rate_1min": "91.200000000000003", 
+                                "rate_5min": "91.200000000000003", 
+                                "unit": "events per second", 
+                                "rate_15min": "91.200000000000003"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "151.97568389057753", 
+                                "rate_1min": "95.400000000000006", 
+                                "rate_5min": "95.400000000000006", 
+                                "unit": "events per second", 
+                                "rate_15min": "95.400000000000006"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "152.22387667024478", 
+                                "rate_1min": "91.200000000000003", 
+                                "rate_5min": "91.200000000000003", 
+                                "unit": "events per second", 
+                                "rate_15min": "91.200000000000003"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "151.70807307661181", 
+                                "rate_1min": "94.400000000000006", 
+                                "rate_5min": "94.400000000000006", 
+                                "unit": "events per second", 
+                                "rate_15min": "94.400000000000006"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "152.21240734069701", 
+                                "rate_1min": "38.399999999999999", 
+                                "rate_5min": "38.399999999999999", 
+                                "unit": "events per second", 
+                                "rate_15min": "38.399999999999999"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "600"
+                            }
+                        }, 
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "598"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "585"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "939100.139999999938937", 
+                                "min": "660908", 
+                                "max": "1041352", 
+                                "p95": "893936.799999999993815", 
+                                "std_dev": "55439.5622576110910984", 
+                                "mean": "807183.4632107023412", 
+                                "p50": "812937", 
+                                "unit": "microseconds", 
+                                "size": "598"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "73.0799999999999272404", 
+                                "min": "2", 
+                                "max": "2177", 
+                                "p95": "27", 
+                                "std_dev": "100.077950505720158145", 
+                                "mean": "13.9882747068676716864", 
+                                "p50": "6", 
+                                "unit": "microseconds", 
+                                "size": "597"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "67", 
+                                "p95": "0", 
+                                "std_dev": "2.72618758808562158813", 
+                                "mean": "0.11111111111111111111", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "603"
+                            }
+                        }, 
+                        {
+                            "res50:1:queue_size": {
+                                "p99": "72", 
+                                "min": "50", 
+                                "max": "72", 
+                                "p95": "72", 
+                                "std_dev": "5.55697759577992180316", 
+                                "mean": "63.3999999999999999979", 
+                                "p50": "63", 
+                                "unit": "microseconds", 
+                                "size": "25"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "418272", 
+                                "min": "161295", 
+                                "max": "418272", 
+                                "p95": "416412.299999999995634", 
+                                "std_dev": "75668.893514162079363", 
+                                "mean": "270881.320000000000022", 
+                                "p50": "258725", 
+                                "unit": "microseconds", 
+                                "size": "25"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "387.950000000000045475", 
+                                "min": "170", 
+                                "max": "3040", 
+                                "p95": "294.5", 
+                                "std_dev": "137.912436410432362191", 
+                                "mean": "225.596026490066225142", 
+                                "p50": "211.5", 
+                                "unit": "microseconds", 
+                                "size": "604"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "24", 
+                                "min": "24", 
+                                "max": "24", 
+                                "p95": "24", 
+                                "std_dev": "6.93889390390722837765e-18", 
+                                "mean": "23.9999999999999999931", 
+                                "p50": "24", 
+                                "unit": "queries", 
+                                "size": "25"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "147.57285763136449", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "147.81904091557143", 
+                                "rate_1min": "72", 
+                                "rate_5min": "72", 
+                                "unit": "events per second", 
+                                "rate_15min": "72"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "147.80990070130869", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "148.79258756714756", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "148.54342456395852", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "601"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "604"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "600"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "1009666.99999999992906", 
+                                "min": "714012", 
+                                "max": "1034898", 
+                                "p95": "955680.899999999989177", 
+                                "std_dev": "57629.0265167241815618", 
+                                "mean": "849827.919093851132857", 
+                                "p50": "837242", 
+                                "unit": "microseconds", 
+                                "size": "618"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "47", 
+                                "min": "2", 
+                                "max": "987", 
+                                "p95": "30.0499999999999545253", 
+                                "std_dev": "40.2307277157684033755", 
+                                "mean": "10.601941747572815559", 
+                                "p50": "6", 
+                                "unit": "microseconds", 
+                                "size": "618"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "624"
+                            }
+                        }, 
+                        {
+                            "res50:1:queue_size": {
+                                "p99": "93", 
+                                "min": "56", 
+                                "max": "93", 
+                                "p95": "91.5999999999999943157", 
+                                "std_dev": "9.32642742537087773499", 
+                                "mean": "74.6923076923076923114", 
+                                "p50": "75", 
+                                "unit": "microseconds", 
+                                "size": "26"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "415065", 
+                                "min": "162686", 
+                                "max": "415065", 
+                                "p95": "413654.999999999996817", 
+                                "std_dev": "74914.9541155462498594", 
+                                "mean": "267575.839999999999975", 
+                                "p50": "255551", 
+                                "unit": "microseconds", 
+                                "size": "25"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "308.879999999999881766", 
+                                "min": "170", 
+                                "max": "630", 
+                                "p95": "259.799999999999954525", 
+                                "std_dev": "33.9059904657389665911", 
+                                "mean": "209.19261637239165337", 
+                                "p50": "201", 
+                                "unit": "microseconds", 
+                                "size": "623"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "24", 
+                                "min": "24", 
+                                "max": "24", 
+                                "p95": "24", 
+                                "std_dev": "6.93889390390722837765e-18", 
+                                "mean": "23.9999999999999999931", 
+                                "p50": "24", 
+                                "unit": "queries", 
+                                "size": "25"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "156.13350779189574", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "157.64892897258881", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "151.58144926013094", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "151.57363750457247", 
+                                "rate_1min": "100.8", 
+                                "rate_5min": "100.8", 
+                                "unit": "events per second", 
+                                "rate_15min": "100.8"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "156.11788871017572", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "623"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "600"
+                            }
+                        }, 
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "618"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "1033256.95000000001187", 
+                                "min": "765409", 
+                                "max": "1157985", 
+                                "p95": "992559.999999999905867", 
+                                "std_dev": "60293.0969254767220527", 
+                                "mean": "904530.541666666666401", 
+                                "p50": "913470", 
+                                "unit": "microseconds", 
+                                "size": "600"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "77.9600000000000363798", 
+                                "min": "2", 
+                                "max": "4134", 
+                                "p95": "31", 
+                                "std_dev": "169.035455320934239656", 
+                                "mean": "16.8133333333333333387", 
+                                "p50": "6", 
+                                "unit": "microseconds", 
+                                "size": "600"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "2", 
+                                "p95": "0", 
+                                "std_dev": "0.081581588336802781053", 
+                                "mean": "0.00333333333333333333341", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "600"
+                            }
+                        }, 
+                        {
+                            "res50:1:queue_size": {
+                                "p99": "96", 
+                                "min": "68", 
+                                "max": "96", 
+                                "p95": "95.0999999999999978684", 
+                                "std_dev": "8.18545050684444612781", 
+                                "mean": "80.7200000000000000011", 
+                                "p50": "81", 
+                                "unit": "microseconds", 
+                                "size": "25"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "409944", 
+                                "min": "163523", 
+                                "max": "409944", 
+                                "p95": "409100.699999999997999", 
+                                "std_dev": "72451.4441253340374018", 
+                                "mean": "264440.559999999999974", 
+                                "p50": "254037", 
+                                "unit": "microseconds", 
+                                "size": "25"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "358.98000000000001819", 
+                                "min": "170", 
+                                "max": "423", 
+                                "p95": "308.649999999999522515", 
+                                "std_dev": "40.3784150258526120976", 
+                                "mean": "214.559999999999999942", 
+                                "p50": "204", 
+                                "unit": "microseconds", 
+                                "size": "600"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "24", 
+                                "min": "24", 
+                                "max": "24", 
+                                "p95": "24", 
+                                "std_dev": "6.93889390390722837765e-18", 
+                                "mean": "23.9999999999999999931", 
+                                "p50": "24", 
+                                "unit": "queries", 
+                                "size": "25"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "152.23202596469434", 
+                                "rate_1min": "-1", 
+                                "rate_5min": "-1", 
+                                "unit": "events per second", 
+                                "rate_15min": "-1"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "152.23206458902035", 
+                                "rate_1min": "28.600000000000001", 
+                                "rate_5min": "28.600000000000001", 
+                                "unit": "events per second", 
+                                "rate_15min": "28.600000000000001"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "152.22202292412925", 
+                                "rate_1min": "28.800000000000001", 
+                                "rate_5min": "28.800000000000001", 
+                                "unit": "events per second", 
+                                "rate_15min": "28.800000000000001"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "152.21908791844712", 
+                                "rate_1min": "27.800000000000001", 
+                                "rate_5min": "27.800000000000001", 
+                                "unit": "events per second", 
+                                "rate_15min": "27.800000000000001"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "152.2161144096907", 
+                                "rate_1min": "28.600000000000001", 
+                                "rate_5min": "28.600000000000001", 
+                                "unit": "events per second", 
+                                "rate_15min": "28.600000000000001"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "600"
+                            }
+                        }, 
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "600"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "600"
+                            }
+                        }
+                    ]
+                }
+            ], 
+            "thrus": [
+                75.02655940202831, 
+                150.07019533386742, 
+                150.36226027556893, 
+                159.84880434426424, 
+                150.0145514114869, 
+                150.67286735740132, 
+                153.98039316327055, 
+                149.71613820196907, 
+                153.2497764468886, 
+                154.42898467318065, 
+                153.19386223684486
+            ], 
+            "mean_queue_sizes": [
+                {
+                    "res50": 31.24
+                }, 
+                {
+                    "res50": 69.4
+                }, 
+                {
+                    "res50": 77.52
+                }, 
+                {
+                    "res50": 83.58
+                }, 
+                {
+                    "res50": 70.15
+                }, 
+                {
+                    "res50": 72.17
+                }, 
+                {
+                    "res50": 65.2
+                }, 
+                {
+                    "res50": 63.4
+                }, 
+                {
+                    "res50": 74.69
+                }, 
+                {
+                    "res50": 80.72
+                }
+            ], 
+            "all_lats": [
+                "[0.25335, 0.249231, 0.250054, 0.498994, 0.502972, 0.501097, 0.488358, 0.517147, 0.53392, 0.5106, 0.544997, 0.484086, 0.500661, 0.505776, 0.523483, 0.502473, 0.535991, 0.475046, 0.490999, 0.504399, 0.523053, 0.531761, 0.510824, 0.508705, 0.489568, 0.511865, 0.51378, 0.527477, 0.513145, 0.505715, 0.483031, 0.50269, 0.506235, 0.52006, 0.504312, 0.491059, 0.481972, 0.48642, 0.504549, 0.482836, 0.462124, 0.493276, 0.469502, 0.482671, 0.467211, 0.494428, 0.47559, 0.578481, 0.599218, 0.604987, 0.619728, 0.608681, 0.614437, 0.591833, 0.597585, 0.613044, 0.590411, 0.596694, 0.631868, 0.56997, 0.584701, 0.585132, 0.602441, 0.587336, 0.61388, 0.564348, 0.562242, 0.582757, 0.590409, 0.561118, 0.564974, 0.55853, 0.592065, 0.56637, 0.587395, 0.594181, 0.56516, 0.586699, 0.577386, 0.566498, 0.563686, 0.546574, 0.58039, 0.570624, 0.582317, 0.574866, 0.570519, 0.565655, 0.542879, 0.548575, 0.565311, 0.585615, 0.577509, 0.550897, 0.557469, 0.546384, 0.565812, 0.534759, 0.55982, 0.560101, 0.548713, 0.733926, 0.737774, 0.711556, 0.728904, 0.730943, 0.725268, 0.704978, 0.704975, 0.722475, 0.726823, 0.703111, 0.693738, 0.716454, 0.703581, 0.693515, 0.698542, 0.694872, 0.698186, 0.693283, 0.684444, 0.701507, 0.69685, 0.681121, 0.655873, 0.664968, 0.681479, 0.708531, 0.704646, 0.675931, 0.658227, 0.660394, 0.676661, 0.69084, 0.686877, 0.66259, 0.644324, 0.674079, 0.651786, 0.674266, 0.651768, 0.682883, 0.657265, 0.649691, 0.63462, 0.658082, 0.633221, 0.619381, 0.658165, 0.638348, 0.652685, 0.650816, 0.629336, 0.644375, 0.636398, 0.621616, 0.602131, 0.61535, 0.618726, 0.63603, 0.616847, 0.608452, 0.585096, 0.604093, 0.607079, 0.622528, 0.607037, 0.598458, 0.584433, 0.590635, 0.611624, 0.586958, 0.591822, 0.572455, 0.589472, 0.594549, 0.577809, 0.589585, 0.587677, 0.756784, 0.762167, 0.757602, 0.758063, 0.750958, 0.754296, 0.737534, 0.757878, 0.763285, 0.742502, 0.759516, 0.75374, 0.745769, 0.746576, 0.72716, 0.750188, 0.752367, 0.743466, 0.710038, 0.728142, 0.732137, 0.751469, 0.729082, 0.754731, 0.698724, 0.712831, 0.714475, 0.730909, 0.735882, 0.720013, 0.716817, 0.689548, 0.705639, 0.705966, 0.723939, 0.700011, 0.690737, 0.707608, 0.712618, 0.726771, 0.706985, 0.683663, 0.718486, 0.693773, 0.710577, 0.693771, 0.725356, 0.701303, 0.681834, 0.682856, 0.700485, 0.704151, 0.677473, 0.655787, 0.668658, 0.690474, 0.684979, 0.660083, 0.67377, 0.667168, 0.65534, 0.680506, 0.679278, 0.669458, 0.647951, 0.691139, 0.668031, 0.689807, 0.678668, 0.654317, 0.632537, 0.674977, 0.652461, 0.672961, 0.6631, 0.641313, 0.661506, 0.635114, 0.655982, 0.645061, 0.78353, 0.776027, 0.795122, 0.787125, 0.780018, 0.782548, 0.789174, 0.802522, 0.786905, 0.80118, 0.780854, 0.79147, 0.786683, 0.819769, 0.825028, 0.798574, 0.779056, 0.772955, 0.804957, 0.794189, 0.816736, 0.790013, 0.772372, 0.766551, 0.768934, 0.795042, 0.788249, 0.803916, 0.771506, 0.761191, 0.779704, 0.768208, 0.759141, 0.765964, 0.754567, 0.758589, 0.738791, 0.757836, 0.748074, 0.733542, 0.763007, 0.741865, 0.718741, 0.735763, 0.725555, 0.742579, 0.710964, 0.7298, 0.718031, 0.734746, 0.715225, 0.724037, 0.71338, 0.730742, 0.721563, 0.750249, 0.748533, 0.742769, 0.722608, 0.717726, 0.745032, 0.739124, 0.758526, 0.738373, 0.717834, 0.730774, 0.722394, 0.748029, 0.72239, 0.72597, 0.712791, 0.715811, 0.693603, 0.711946, 0.701019, 0.7167, 0.693794, 0.6838, 0.704285, 0.695809, 0.728162, 0.711189, 0.912541, 0.907086, 0.918239, 0.916827, 0.908407, 0.916547, 0.903327, 0.893175, 0.882376, 0.917845, 0.903767, 0.894935, 0.889348, 0.875942, 0.894464, 0.881347, 0.873058, 0.878347, 0.872136, 0.847801, 0.869011, 0.860175, 0.884526, 0.879525, 0.865001, 0.837605, 0.866345, 0.854143, 0.881823, 0.873745, 0.834197, 0.852832, 0.842193, 0.860706, 0.839467, 0.81842, 0.850545, 0.8413, 0.831814, 0.849075, 0.825492, 0.829504, 0.822449, 0.823384, 0.79976, 0.81968, 0.810225, 0.828704, 0.802923, 0.795233, 0.807911, 0.797645, 0.782443, 0.790093, 0.776233, 0.780412, 0.771847, 0.760443, 0.744196, 0.77444, 0.761305, 0.791884, 0.771024, 0.745096, 0.752075, 0.77043, 0.745093, 0.772903, 0.750742, 0.768543, 0.760895, 0.778802, 0.744933, 0.760881, 0.753145, 0.768452, 0.74921, 0.730553, 0.754348, 0.752839, 0.746564, 0.762145, 0.736875, 0.743227, 0.726475, 0.73533, 0.728709, 0.716393, 0.731342, 0.72268, 0.714085, 0.752537, 0.748133, 0.737653, 0.757501, 0.744048, 0.721486, 0.734614, 0.736853, 0.728787, 0.932347, 0.939, 0.930729, 0.925838, 0.940964, 0.934062, 0.925552, 0.909111, 0.93507, 0.925424, 0.928621, 0.90743, 0.926566, 0.913984, 0.909863, 0.905649, 0.918746, 0.91021, 0.900684, 0.903596, 0.896591, 0.89993, 0.882506, 0.900088, 0.891269, 0.908142, 0.863407, 0.879948, 0.868874, 0.894799, 0.883456, 0.906961, 0.844988, 0.863391, 0.857666, 0.886604, 0.892261, 0.881846, 0.861377, 0.86029, 0.875641, 0.858209, 0.839282, 0.879709, 0.876656, 0.875943, 0.864641, 0.881218, 0.858485, 0.84259, 0.872162, 0.862707, 0.854114, 0.871727, 0.849522, 0.830599, 0.861064, 0.848758, 0.834311, 0.85757, 0.826937, 0.831618, 0.819547, 0.849021, 0.844336, 0.846398, 0.843185, 0.825449, 0.853752, 0.844827, 0.833156, 0.85198, 0.827898, 0.831896, 0.8145, 0.801853, 0.835658, 0.826557, 0.84268, 0.815119, 0.794105, 0.782351, 0.814421, 0.803401, 0.82143, 0.796067, 0.784533, 0.78883, 0.823648, 0.79803, 0.816455, 0.819001, 0.793454, 0.783342, 0.788002, 0.810526, 0.784992, 0.778587, 0.795178, 0.772024, 0.79295, 0.764091, 0.767192, 0.78208, 0.764459, 0.76649, 0.756875, 0.912538, 0.924714, 0.916613, 0.906562, 0.942174, 0.921176, 0.942561, 0.917711, 0.943272, 0.91993, 0.961075, 0.944219, 0.92498, 0.918281, 0.944574, 0.937943, 0.91819, 0.920925, 0.939692, 0.913483, 0.909495, 0.926894, 0.906499, 0.906999, 0.92853, 0.909664, 0.916906, 0.909543, 0.914488, 0.892888, 0.898499, 0.915698, 0.919791, 0.902567, 0.909128, 0.886772, 0.883861, 0.9018, 0.917315, 0.919445, 0.902276, 0.879739, 0.888393, 0.905816, 0.907694, 0.886066, 0.86013, 0.893926, 0.872629, 0.886829, 0.893779, 0.875437]", 
+                "[0.922286, 0.902638, 0.909097, 0.92028, 0.921995, 0.903962, 0.871988, 0.889727, 0.881004, 0.91636, 0.901357, 0.84654, 0.868855, 0.857239, 0.889076, 0.883725, 0.89915, 0.833376, 0.850733, 0.839343, 0.868549, 0.872333, 0.865821, 0.841363, 0.841304, 0.836996, 0.863714, 0.858102, 0.849493, 0.823615, 0.845262, 0.839467, 0.859675, 0.829474, 0.838628, 0.826871, 0.818798, 0.832832, 0.814385, 0.828215, 0.819802, 0.810468, 0.786149, 0.806462, 0.797966, 0.828205, 0.821763, 0.800748, 0.824274, 0.818215, 0.816576, 1.045247, 1.049525, 1.028179, 1.049206, 1.052394, 1.069598, 1.036762, 1.040804, 1.032355, 1.021949, 1.038967, 1.030904, 1.019498, 1.022921, 1.018003, 1.024676, 1.015082, 1.018509, 1.016723, 1.024947, 1.017117, 1.002649, 0.994569, 1.019743, 1.011363, 1.002095, 0.974592, 0.988651, 0.977877, 1.003631, 0.998031, 1.015452, 0.957482, 0.97369, 0.964192, 0.993493, 0.996981, 0.992195, 0.967019, 0.942324, 0.956419, 0.947872, 0.973962, 0.96801, 0.948983, 0.951605, 0.926601, 0.943505, 0.931976, 0.950264, 0.925044, 0.897934, 0.914096, 0.904601, 0.935454, 0.924474, 0.899374, 0.874987, 0.90547, 0.903576, 0.895889, 0.876038, 0.914687, 0.883617, 0.853142, 0.869452, 0.864048, 0.884944, 0.861238, 0.863622, 0.882311, 0.882902, 0.909858, 0.902096, 0.864796, 0.855249, 0.88528, 0.875332, 0.890559, 0.863057, 0.833995, 0.825852, 0.854306, 0.845355, 0.861695, 0.836964, 0.824208, 0.82205, 0.836677, 0.816769, 0.831022, 0.82376, 0.814414, 0.849338, 0.841291, 0.836955, 0.855946, 0.842418, 0.823019, 0.811922, 0.847667, 0.842658, 0.85737, 0.828292, 0.797925, 0.810207, 0.80546, 0.827117, 0.819782, 0.836568, 0.775829, 0.792309, 0.780411, 0.812025, 0.807547, 0.827422, 0.786729, 0.820901, 1.044664, 1.049661, 1.039493, 1.045855, 1.040585, 1.033328, 1.048704, 1.024315, 1.041721, 1.030935, 1.02253, 1.029272, 1.018866, 1.029915, 1.018356, 1.021191, 1.011373, 1.016284, 1.015491, 1.015224, 1.008503, 1.011631, 1.008942, 1.011395, 1.003971, 0.995411, 1.010522, 1.004108, 0.995756, 0.970737, 0.988012, 0.982728, 1.007221, 1.003479, 0.956354, 0.984809, 0.979742, 0.971593, 0.990269, 1.002989, 0.94339, 0.96853, 0.984498, 0.978751, 0.999519, 0.973702, 0.96592, 0.96892, 0.963612, 0.966744, 0.942134, 0.936029, 0.954387, 0.967089, 0.980084, 0.959206, 0.931388, 0.922397, 0.942893, 0.961858, 0.970103, 0.946316, 0.925723, 0.919868, 0.938577, 0.954876, 0.963648, 0.938589, 0.916203, 0.931599, 0.935646, 0.926654, 0.920244, 0.923327, 0.903292, 0.899405, 0.914704, 0.928584, 0.932579, 0.912031, 0.889021, 0.879948, 0.8942, 0.911263, 0.918388, 0.893256, 0.866756, 0.861171, 0.876222, 0.894807, 0.903871, 0.882412, 0.857675, 0.876798, 0.87882, 0.857184, 0.873434, 0.866029, 0.859346, 0.852081, 0.842574, 0.854302, 0.866988, 0.887187, 0.840416, 0.837567, 0.854893, 0.873567, 0.882222, 0.857961, 0.836044, 0.831412, 0.846406, 0.868574, 0.874031, 0.850116, 0.825999, 0.842739, 0.848292, 0.840483, 0.832068, 0.832233, 1.049973, 1.054311, 1.03493, 1.048665, 1.043597, 1.0615, 1.039612, 1.047015, 1.038719, 1.044258, 1.040147, 1.043358, 1.035028, 1.025139, 1.038635, 1.031976, 1.02274, 1.024663, 1.016294, 1.004488, 1.023062, 1.013018, 1.001071, 0.981769, 1.014772, 0.979199, 0.9962, 1.019769, 1.025078, 1.000324, 0.977296, 0.967802, 0.983166, 0.998933, 1.007918, 0.980936, 0.962038, 0.965278, 0.979218, 0.9863, 0.961307, 0.965347, 0.952899, 0.961256, 0.948222, 0.948861, 0.93335, 0.943334, 0.909934, 0.924853, 0.919955, 0.936927, 0.953973, 0.9626, 0.920277, 0.907336, 0.913822, 0.92984, 0.945215, 0.951929, 0.899617, 0.890557, 0.905447, 0.92724, 0.934943, 0.915582, 0.886029, 0.904786, 0.913086, 0.891849, 0.906626, 0.898109, 0.889374, 0.900866, 0.879095, 0.896721, 0.890022, 0.906981, 0.885427, 0.874903, 0.872872, 0.886218, 0.903998, 0.881352, 0.864245, 0.856, 0.873625, 0.890995, 0.895954, 0.870024, 0.851858, 0.868787, 0.873789, 0.860595, 0.883653, 0.873674, 0.861111, 0.863182, 0.842989, 0.857198, 0.853688, 0.86833, 0.850735, 0.857837, 0.832115, 0.850188, 0.842153, 0.860525, 0.833311, 0.839731, 0.813593, 0.836425, 0.84132, 0.832919, 0.803746, 0.828407, 0.829649, 0.837493, 0.829943, 1.067299, 1.056832, 1.040921, 1.044277, 1.06154, 1.035881, 1.037583, 1.0171, 1.030233, 1.039745, 1.018016, 1.031895, 1.027114, 1.01689, 1.002155, 0.994383, 1.015597, 1.03317, 1.009897, 1.001943, 1.004894, 0.995472, 0.986215, 1.0025, 0.994685, 0.977972, 0.980669, 0.992593, 0.996063, 0.977782, 0.963244, 0.988509, 0.971178, 0.98374, 0.992596, 0.971715, 0.976151, 0.953604, 0.94568, 0.962062, 0.980449, 0.98572, 0.96286, 0.938791, 0.95388, 0.961159, 0.971333, 0.965061, 0.971569, 0.938791, 0.955547, 0.945276, 0.969005, 0.982554, 0.984708, 0.920964, 0.940607, 0.930916, 0.948968, 0.964988, 0.974466, 0.91676, 0.906941, 0.91932, 0.936309, 0.94049, 0.915175, 0.895483, 0.908556, 0.912936, 0.941497, 0.931156, 0.937098, 0.925392, 0.929611, 0.906282, 0.924678, 0.927784, 0.921845, 0.905, 0.921255, 0.925837, 0.89663, 0.921503, 0.912387, 0.899639, 0.90143, 0.870494, 0.893295, 0.883782, 0.905081, 0.868012, 0.886454, 0.893041, 0.906587, 0.901171, 0.906984, 0.88819, 0.902875, 0.911449, 0.907497, 0.901487, 0.881525, 0.910379, 0.888887, 0.90237, 0.906383, 0.880858, 0.856266, 0.895632, 0.871783, 0.893869, 0.898716, 0.871961, 0.87785, 0.84976, 0.869116, 0.877514, 0.877037, 0.893659, 0.887551, 0.87986, 0.868111, 0.877059, 0.893418, 1.070197, 1.072385, 1.06788, 1.072436, 1.047746, 1.065491, 1.057399, 1.072799, 1.046528, 1.058439, 1.046487, 1.055155, 1.047564, 1.055023, 1.048415, 1.045146, 1.063079, 1.04606, 1.058524, 1.052785, 1.044103, 1.020144, 1.039541, 1.055766, 1.035245, 1.050904, 1.03229, 1.03928, 1.021727, 1.03558, 1.03459, 1.048761, 1.031391, 1.03465, 1.032101, 1.024787, 1.038319, 1.028757, 1.012243, 1.026445, 1.031484, 1.023932, 1.017575, 1.016942, 0.984267, 0.999803, 0.994562, 1.011498, 1.029187, 1.032732, 0.974908, 0.994104, 0.986872, 1.001011, 1.015228, 1.026066, 0.97864, 0.989553, 0.993344, 0.969514, 0.996153, 0.989327, 0.963219, 0.97835, 0.984822]", 
+                "[1.032299, 1.02601, 1.031788, 1.000185, 1.016804, 1.009195, 1.02561, 1.041327, 1.049955, 0.987053, 1.00673, 1.001616, 1.021526, 1.038001, 1.043609, 0.979097, 1.000225, 0.990115, 1.017273, 1.010967, 1.025404, 0.98943, 0.980766, 0.998088, 0.976778, 0.991022, 0.98435, 0.97814, 0.984987, 0.960115, 0.976251, 0.968067, 0.985543, 0.966608, 0.968459, 0.953277, 0.967419, 0.972411, 0.963914, 0.942077, 0.956, 0.962244, 0.937199, 0.952158, 0.943744, 0.931874, 0.924761, 0.938424, 0.932797, 0.927512, 0.935795, 0.927868, 0.905293, 0.924267, 0.914878, 0.929646, 0.908599, 0.954312, 0.893755, 0.912579, 0.905105, 0.935435, 0.928642, 0.906208, 0.909664, 0.900757, 0.905751, 1.046058, 1.051211, 1.0317, 1.046331, 1.049358, 1.054261, 1.049632, 1.022007, 1.057742, 1.027968, 1.050698, 1.053394, 1.031662, 1.036304, 1.015289, 1.009725, 1.029334, 1.046639, 1.055276, 1.034393, 1.013124, 1.018122, 1.03437, 1.0368, 1.013878, 1.017703, 1.005765, 0.998533, 1.011229, 1.022037, 1.015795, 1.018899, 0.990401, 0.982251, 0.990361, 1.005418, 1.021572, 1.025006, 0.975916, 0.970146, 0.987436, 1.005013, 1.008848, 0.98454, 0.969228, 0.976747, 0.996912, 0.995987, 0.974072, 0.976466, 0.966693, 0.964999, 0.954066, 0.967452, 0.983174, 0.978449, 0.946908, 0.966685, 0.979988, 0.962193, 0.982142, 0.96597, 1.000213, 0.954299, 0.945402, 0.966997, 0.983921, 0.956829, 0.933572, 0.937521, 0.95901, 0.963636, 0.93902, 0.938933, 0.915195, 0.932027, 0.935579, 0.940196, 0.957556, 0.952861, 0.918362, 0.939251, 0.943435, 0.957832, 0.962065, 0.940505, 0.903999, 0.923381, 0.926082, 0.942254, 0.94795, 0.9245, 0.88084, 0.899072, 0.919862, 0.902363, 0.920102, 0.883725, 0.904314, 0.879672, 0.894692, 0.913858, 0.909338, 0.904686, 0.92076, 0.882373, 0.904929, 0.909942, 0.925725, 0.889198, 0.914977, 0.888136, 0.890352, 0.906483, 0.887596, 0.888067, 0.871175, 0.876281, 0.895476, 0.898107, 1.026766, 1.031503, 1.021965, 1.015326, 1.032501, 1.020552, 1.033324, 1.010898, 1.015935, 1.031443, 1.013467, 1.000828, 0.979851, 1.021884, 1.001498, 1.007392, 1.027462, 0.989687, 1.006988, 0.988863, 0.995329, 1.008675, 0.981074, 0.998526, 1.000597, 0.982289, 0.99682, 0.974983, 0.987895, 0.988993, 1.007531, 1.001935, 0.98042, 0.983229, 0.998312, 1.000647, 0.976685, 0.981549, 0.961765, 0.964141, 0.983075, 0.987275, 0.964428, 0.968967, 0.944606, 0.946514, 0.964106, 0.972478, 0.94803, 0.946941, 0.924051, 0.940657, 0.947906, 0.95874, 0.98078, 0.955907, 0.985309, 0.938753, 0.960331, 0.966419, 0.982997, 0.960037, 0.920809, 0.942783, 0.943586, 0.965009, 0.96715, 0.939247, 0.897141, 0.913837, 0.916232, 0.934104, 0.939689, 0.914138, 0.885549, 0.89917, 0.904576, 0.921155, 0.913546, 0.919413, 0.882788, 0.901548, 0.905184, 0.922342, 0.93197, 0.905096, 0.869266, 0.888883, 0.890757, 0.911661, 0.920119, 0.894349, 0.867678, 0.885266, 0.898398, 0.898533, 0.912805, 0.881755, 0.898216, 0.875189, 0.893896, 0.871844, 0.890854, 0.864557, 0.882144, 0.864788, 0.858255, 0.884614, 0.845801, 0.879714, 0.863162, 0.866453, 0.881562, 0.851031, 0.866483, 0.859286, 1.034929, 1.038708, 1.029959, 1.032348, 1.025372, 1.027659, 1.020269, 1.007755, 1.020142, 1.022362, 1.043639, 1.036154, 1.014084, 1.017022, 1.034648, 1.039649, 1.017254, 1.008416, 1.027102, 0.992531, 1.023049, 1.015004, 1.0182, 1.000806, 1.003669, 1.019262, 0.979751, 1.000548, 1.00128, 0.980489, 0.986989, 1.004186, 0.981167, 1.008652, 0.997436, 0.99001, 1.003873, 0.968049, 0.986231, 0.989745, 1.006875, 0.97321, 0.989723, 0.969798, 0.978466, 0.996789, 0.975512, 0.979766, 0.963944, 0.970886, 0.962253, 0.946437, 0.918996, 0.968865, 0.940228, 0.946439, 0.963738, 0.958441, 0.977672, 0.977648, 0.951995, 0.953903, 0.971461, 0.978758, 0.950267, 0.940546, 0.946338, 0.960298, 0.925559, 0.940777, 0.943853, 0.939991, 0.902086, 0.921711, 0.934196, 0.925435, 0.937228, 0.909496, 0.926294, 0.903843, 0.917608, 0.944773, 0.937788, 0.913616, 0.911611, 0.933587, 0.93722, 0.954585, 0.910556, 0.887329, 0.894373, 0.912886, 0.935754, 0.923868, 0.902141, 0.9037, 0.883979, 0.887482, 0.905528, 0.907721, 0.88732, 0.886451, 0.868013, 0.883372, 0.887729, 0.919288, 0.912197, 0.893435, 0.909439, 0.914213, 0.931118, 0.892809, 0.87428, 0.915121, 0.892263, 0.894483, 0.910061, 0.885749, 1.063577, 1.063814, 1.060669, 1.065752, 1.048556, 1.063437, 1.066446, 1.05158, 1.064561, 1.0421, 1.057699, 1.032278, 1.052239, 1.028786, 1.047883, 1.012162, 1.039126, 1.030622, 1.035218, 1.015343, 1.017016, 1.037778, 1.014081, 1.003418, 0.988704, 1.022091, 1.002752, 1.009233, 1.02216, 0.993499, 0.972604, 1.012816, 0.990836, 0.995708, 1.011265, 1.016737, 1.032677, 1.024182, 0.998827, 1.000449, 1.015008, 1.020639, 0.998257, 1.000251, 0.977316, 0.983272, 1.003116, 1.008738, 0.986771, 0.990697, 0.974496, 0.98134, 0.994939, 0.99675, 0.979011, 0.978434, 0.965397, 0.96848, 0.962337, 0.987258, 1.003261, 0.981807, 0.986868, 0.999897, 0.959902, 0.984375, 0.987508, 0.967108, 0.972204, 0.989074, 0.980456, 0.972258, 0.955083, 0.987625, 0.969714, 0.973081, 0.987388, 0.954887, 0.971168, 0.948701, 0.954748, 0.971539, 0.947523, 0.980796, 0.982662, 0.988591, 0.968033, 0.969306, 0.989983, 0.9929, 0.967977, 0.969326, 0.9519, 0.953897, 0.972043, 0.975828, 0.959854, 0.962188, 0.923351, 0.944008, 0.94043, 0.958429, 0.966041, 0.940681, 0.919665, 0.934073, 0.936969, 0.962807, 0.958266, 0.949666, 0.953321, 0.966899, 0.9494, 0.936249, 0.919982, 0.962935, 0.943251, 0.947002, 0.959649, 0.925232, 0.900604, 0.946719, 0.924145, 0.928656, 0.947404, 0.912341, 0.890369, 0.927974, 0.907391, 0.911382, 0.928447, 1.17886, 1.177711, 1.181712, 1.174479, 1.163248, 1.177917, 1.176464, 1.161245, 1.163847, 1.148845, 1.164708, 1.171675, 1.16035, 1.156381, 1.159243, 1.156478, 1.157887, 1.155267, 1.152848, 1.14611, 1.151894, 1.127638, 1.141651, 1.146088, 1.13764, 1.130408, 1.113251, 1.114267, 1.131288, 1.138313, 1.150295, 1.121814, 1.103718, 1.105182, 1.122898, 1.127263, 1.14267, 1.11169, 1.07499, 1.097374, 1.100617, 1.1371, 1.12821, 1.131589, 1.101968, 1.078651, 1.091972, 1.095043]", 
+                "[1.119593, 1.113509, 1.101522, 1.104305, 1.119836, 1.084164, 1.101581, 1.101153, 1.093924, 1.083932, 1.089594, 1.062819, 1.085187, 1.087537, 1.075927, 1.049907, 1.052384, 1.068982, 1.078843, 1.052785, 1.056032, 1.036122, 1.053888, 1.056123, 1.024763, 1.048257, 1.038034, 1.015144, 1.019236, 1.031191, 1.03414, 1.014288, 1.014366, 0.995816, 0.995719, 1.011598, 1.012868, 0.990269, 0.994405, 0.971474, 0.973796, 0.989205, 0.995253, 0.97498, 0.976625, 0.955334, 0.97241, 0.981281, 0.989674, 1.008182, 0.988087, 1.004127, 0.964825, 0.985828, 0.994238, 1.00868, 0.992074, 0.980547, 0.983849, 0.976658, 0.978935, 0.958739, 0.972339, 0.977212, 0.942284, 0.973865, 0.965018, 0.967733, 0.946619, 0.940129, 0.959334, 0.971373, 0.972035, 0.958391, 0.951393, 0.969099, 0.986698, 1.003929, 0.949153, 0.934251, 0.94079, 0.962184, 0.979361, 0.922447, 0.94235, 0.945518, 0.898175, 0.928975, 0.945029, 0.924344, 0.936396, 0.913806, 0.929897, 0.906102, 1.070069, 1.067074, 1.081647, 1.071755, 1.067461, 1.080731, 1.096996, 1.110297, 1.072593, 1.063621, 1.05583, 1.077042, 1.088055, 1.104083, 1.062563, 1.051496, 1.044495, 1.067072, 1.079432, 1.09284, 1.048203, 1.040488, 1.032242, 1.046063, 1.063523, 1.08462, 1.062672, 1.056087, 1.069798, 1.091965, 1.041459, 1.076058, 1.066232, 1.043813, 1.060732, 1.08256, 1.059339, 1.038862, 1.039154, 1.067277, 1.046068, 1.059375, 1.078373, 1.036777, 1.051549, 1.032085, 1.045894, 1.061119, 1.04333, 1.034547, 1.050633, 1.048131, 1.031399, 1.019822, 1.040448, 1.060591, 1.036374, 1.027754, 0.991891, 1.016628, 1.011883, 1.03118, 1.056465, 1.028731, 0.984127, 1.007931, 1.000797, 1.0152, 1.034017, 1.013, 0.990958, 0.983506, 0.999438, 1.013228, 1.017179, 1.029051, 1.04688, 0.997331, 1.031265, 1.030416, 1.027002, 1.00727, 1.025985, 1.044903, 1.028863, 1.008553, 0.996644, 1.024306, 1.004318, 1.021337, 1.041365, 0.992356, 0.982053, 1.015172, 0.989175, 1.002474, 1.017431, 0.984053, 0.986231, 0.982965, 0.995648, 1.010811, 0.966391, 0.998804, 0.988158, 0.963494, 0.979008, 0.996925, 0.972534, 0.953031, 0.938201, 0.973131, 0.953079, 0.967511, 0.983553, 0.933769, 0.927319, 0.958172, 0.935688, 0.950864, 0.964504, 0.932362, 0.970432, 0.963426, 0.963061, 0.95748, 0.974627, 0.986618, 1.159493, 1.177602, 1.154781, 1.15259, 1.169687, 1.183262, 1.163435, 1.152649, 1.1432, 1.152719, 1.16894, 1.137492, 1.152035, 1.154531, 1.137681, 1.149365, 1.140625, 1.131149, 1.130222, 1.118029, 1.133228, 1.15145, 1.124462, 1.104474, 1.091353, 1.125963, 1.097792, 1.116122, 1.135939, 1.088304, 1.078914, 1.105435, 1.091173, 1.106143, 1.12335, 1.079545, 1.097635, 1.086759, 1.104204, 1.082082, 1.071591, 1.083921, 1.06456, 1.08456, 1.040633, 1.064478, 1.07939, 1.059641, 1.07094, 1.053635, 1.076348, 1.029169, 1.062157, 1.051409, 1.068617, 1.04177, 1.059927, 1.037052, 1.032541, 1.047727, 1.028772, 1.016389, 1.014103, 1.028131, 1.04374, 1.059438, 1.054927, 1.043162, 1.051215, 1.068842, 1.085157, 1.041268, 1.053022, 1.04395, 1.065384, 1.013239, 1.051076, 1.053035, 1.049532, 1.022166, 1.039783, 1.060761, 1.038715, 1.015976, 0.999604, 1.040064, 1.011601, 1.03131, 1.048252, 1.006092, 1.011871, 1.017043, 1.032747, 0.991679, 1.017631, 1.011331, 1.03075, 1.02138, 0.999318, 0.975604, 0.997395, 1.013459, 1.025927, 1.008001, 0.985022, 0.991646, 1.005329, 0.969704, 0.989795, 0.95644, 0.964673, 0.978053, 1.005369, 0.963768, 0.990291, 0.980967, 0.959126, 0.977284, 0.978754, 0.996223, 0.973479, 0.969328, 0.937177, 0.954822, 0.968975, 0.972432, 0.986802, 0.968001, 0.925905, 0.940051, 0.95699, 0.96416, 0.978822, 0.959373, 0.917323, 0.93521, 0.941605, 0.965002, 0.96396, 0.957233, 0.95093, 0.953376, 0.965618, 1.161676, 1.167996, 1.158238, 1.148817, 1.159472, 1.173489, 1.140867, 1.154121, 1.137279, 1.151689, 1.166307, 1.135581, 1.150272, 1.129146, 1.119566, 1.133934, 1.152687, 1.126599, 1.138508, 1.11875, 1.108882, 1.122643, 1.138047, 1.091791, 1.106532, 1.119465, 1.111243, 1.082959, 1.094749, 1.098507, 1.112294, 1.086384, 1.066858, 1.080547, 1.088131, 1.103563, 1.124024, 1.077604, 1.046484, 1.064157, 1.075544, 1.095747, 1.116588, 1.058045, 1.059007, 1.076919, 1.026196, 1.042971, 1.057539, 1.065106, 1.038478, 1.056201, 1.016941, 1.033876, 1.04922, 1.053887, 1.045113, 1.018836, 1.035009, 1.037967, 1.051586, 1.031804, 1.024294, 1.011698, 1.028954, 1.006569, 1.026095, 1.032976, 1.034617, 1.054453, 1.008163, 1.026342, 1.043024, 1.050456, 1.040345, 1.060746, 1.016338, 1.037766, 1.050091, 1.053732, 1.035409, 1.051505, 1.021092, 1.034828, 1.039859, 1.028697, 1.018657, 1.00837, 1.012369, 1.027427, 1.00525, 1.022104, 1.03496, 1.000528, 1.020298, 1.027978, 1.039463, 1.013221, 1.001795, 0.980493, 0.993839, 0.99802, 1.010552, 0.995516, 0.988162, 0.949857, 0.965033, 0.978606, 0.990106, 1.004038, 0.977539, 0.944163, 0.965548, 0.972835, 0.987858, 0.972732, 0.971234, 0.985157, 1.003858, 0.955283, 0.972396, 0.990024, 0.973091, 0.98935, 0.95806, 0.974147, 0.977057, 0.970308, 0.978575, 0.950839, 0.980985, 0.988994, 1.004417, 0.982033, 0.972334, 0.961386, 0.981899, 0.992312, 1.02149, 0.991681, 1.002793, 1.021508, 1.181829, 1.170906, 1.188114, 1.167993, 1.159331, 1.170281, 1.185977, 1.1579, 1.170701, 1.164107, 1.156256, 1.158033, 1.152058, 1.147962, 1.16028, 1.147672, 1.159484, 1.140809, 1.155249, 1.133373, 1.144822, 1.124835, 1.112305, 1.115039, 1.135392, 1.148311, 1.105296, 1.120469, 1.098755, 1.106392, 1.12136, 1.139362, 1.106241, 1.091805, 1.069055, 1.085402, 1.089801, 1.101906, 1.122836, 1.065887, 1.045841, 1.060528, 1.063471, 1.079536, 1.097684, 1.063627, 1.075325, 1.062168, 1.067302, 1.100536, 1.055619, 1.074036, 1.053923, 1.067956, 1.061096, 1.086672, 1.043144, 1.059167, 1.047649, 1.064855, 1.024579, 1.039707, 1.052412, 1.031593, 1.05985, 1.048479, 1.016267, 1.033228, 1.034474, 1.052539, 1.046328, 1.021842, 1.011677, 1.044328, 1.057961, 1.049685, 1.035947, 0.985983, 1.008025, 1.02498, 1.045053, 1.034158, 1.024964, 0.992163, 1.01021, 1.000027, 1.03033, 1.018446, 0.987578, 0.947501, 0.972974, 0.998151, 0.984021]", 
+                "[0.996831, 0.96344, 0.966303, 0.982234, 1.000121, 0.990816, 1.006752, 0.95363, 0.959524, 0.976204, 0.994119, 0.998403, 0.990399, 0.968015, 0.935269, 0.971605, 0.946594, 0.970323, 0.937773, 0.977204, 0.948848, 0.927587, 0.942592, 0.951113, 0.955493, 0.912963, 0.924575, 0.943904, 0.958961, 0.951391, 0.96754, 0.890873, 0.90148, 0.917823, 0.939321, 0.939888, 0.931962, 0.897182, 0.899993, 0.889749, 1.078063, 1.061689, 1.059109, 1.047117, 1.049344, 1.018412, 1.042445, 1.00764, 1.013908, 0.975998, 0.982665, 0.993407, 1.018624, 1.006544, 1.033466, 0.934716, 0.944414, 0.966649, 0.989758, 0.98006, 1.004441, 0.908958, 0.914198, 0.931323, 0.96842, 0.966649, 0.941952, 0.918616, 0.897842, 0.913273, 0.93641, 0.928145, 0.925775, 0.918656, 0.899342, 0.926601, 0.905147, 0.919631, 0.893947, 0.930258, 0.908335, 0.881087, 0.888417, 0.903013, 0.881059, 0.91287, 0.891024, 0.87144, 0.88415, 0.892051, 0.8811, 0.850947, 0.870934, 0.88708, 0.876197, 0.89275, 0.910041, 0.872881, 0.878765, 0.892741, 0.911091, 0.914189, 0.906488, 0.885507, 0.863037, 0.866914, 0.881457, 0.902796, 0.89301, 0.844753, 0.856751, 0.874262, 0.866294, 0.88342, 0.858218, 0.826503, 0.845652, 0.857914, 0.848996, 0.86305, 0.881202, 0.845761, 0.861527, 0.877433, 0.868838, 0.883482, 0.857971, 0.819394, 0.83293, 0.849904, 0.870564, 0.865801, 0.878143, 0.813082, 0.816764, 0.835417, 0.853164, 0.847369, 0.865251, 0.799094, 0.810655, 0.827239, 0.820065, 0.839614, 0.844522, 0.82729, 0.844177, 0.836694, 0.852039, 1.047049, 1.050354, 1.04425, 1.049035, 1.023046, 1.028105, 1.042822, 1.049934, 1.029718, 1.032774, 1.020751, 1.02832, 1.020166, 1.025157, 1.018112, 1.014201, 1.029564, 1.008689, 1.024843, 1.012665, 1.003354, 1.011108, 0.98175, 0.992188, 1.007874, 1.013692, 0.966397, 0.969033, 0.982383, 1.000855, 1.003883, 0.996436, 0.978891, 0.956171, 0.959417, 0.976279, 0.995621, 0.988549, 0.966864, 0.944932, 0.959387, 0.976351, 0.970032, 0.9641, 0.957502, 0.967193, 0.946691, 0.952932, 0.97084, 0.977245, 0.957347, 0.950658, 0.970267, 0.946806, 0.951598, 0.966749, 0.936378, 0.933107, 0.953617, 0.940876, 0.938703, 0.942583, 0.913633, 0.933077, 0.924761, 0.941477, 0.91164, 0.933306, 0.925076, 0.895196, 0.904105, 0.919597, 0.940931, 0.936035, 0.907787, 0.881378, 0.885531, 0.898526, 0.914739, 0.878994, 0.90709, 0.891043, 0.865835, 0.876964, 0.892571, 0.861803, 0.899277, 0.873542, 0.86191, 0.868571, 0.858404, 0.89413, 0.893408, 0.874692, 0.901533, 0.884027, 0.898288, 0.88394, 0.909487, 0.89229, 0.86702, 0.872725, 0.885887, 0.863031, 0.894816, 0.870346, 0.845724, 0.850976, 0.869671, 0.869869, 0.846025, 0.841529, 0.861613, 0.840796, 0.858461, 0.881913, 0.875532, 0.853882, 0.860447, 0.878421, 0.890646, 0.88507, 1.067273, 1.069701, 1.059248, 1.070489, 1.064687, 1.07064, 1.04983, 1.063866, 1.055577, 1.070003, 1.049123, 1.054157, 1.046595, 1.054126, 1.041573, 1.033944, 1.046673, 1.036591, 1.015977, 1.02964, 1.021513, 1.040111, 1.019776, 1.024316, 1.003139, 1.018859, 1.011812, 1.026115, 1.006934, 1.008955, 0.974094, 0.99489, 1.009064, 1.004844, 1.021932, 0.999599, 0.961716, 0.978671, 0.996619, 0.989144, 1.006537, 0.989316, 0.979787, 0.975483, 0.993407, 0.966981, 0.972362, 0.985222, 0.963331, 0.968906, 0.947691, 0.952754, 0.968795, 0.946092, 0.980056, 0.959453, 0.935727, 0.943505, 0.961654, 0.96208, 0.938645, 0.932781, 0.94853, 0.930055, 0.949201, 0.961968, 0.925128, 0.927543, 0.942647, 0.967954, 0.955615, 0.973284, 0.914218, 0.916125, 0.933006, 0.953193, 0.945481, 0.961265, 0.896367, 0.9074, 0.922816, 0.945071, 0.935257, 0.953956, 0.893847, 0.906993, 0.923111, 0.916884, 0.92947, 0.933471, 0.910216, 0.930999, 0.918096, 0.938164, 0.914967, 0.920102, 0.91157, 0.905265, 0.920748, 0.89626, 0.90009, 0.917767, 0.890688, 0.863729, 0.870338, 0.887783, 0.909819, 0.909999, 0.886118, 0.865363, 0.87909, 0.894499, 0.887123, 0.910799, 0.874981, 0.893285, 0.911238, 0.900445, 0.920801, 0.894878, 0.859774, 0.874624, 0.893632, 0.887074, 0.903185, 0.876031, 1.057841, 1.033399, 1.050262, 1.066915, 1.06132, 1.054691, 1.04434, 1.048196, 1.024513, 1.041765, 1.04699, 1.038073, 1.006364, 1.021643, 1.038855, 1.034666, 1.047561, 1.022645, 0.992447, 1.005357, 1.024534, 1.014745, 1.035691, 1.010025, 0.974248, 0.976452, 0.992211, 1.00675, 1.001362, 1.018863, 0.963241, 0.978043, 0.992707, 0.986827, 0.999514, 1.002828, 0.980368, 0.997832, 0.98984, 1.007642, 0.97906, 0.990515, 0.968453, 0.98345, 0.978885, 0.991149, 0.972489, 0.968136, 0.934507, 0.952051, 0.971821, 0.968878, 0.983321, 0.956002, 0.924216, 0.942846, 0.962916, 0.955595, 0.970306, 0.958057, 0.954229, 0.933533, 0.945474, 0.965178, 0.960124, 0.953249, 0.946841, 0.935968, 0.951944, 0.931966, 0.939823, 0.952082, 0.924611, 0.915744, 0.933679, 0.903057, 0.912466, 0.930038, 0.909346, 0.902684, 0.92108, 0.900467, 0.915822, 0.931066, 0.891111, 0.914695, 0.929599, 0.924616, 0.946025, 0.917617, 0.910463, 0.906643, 0.921327, 0.911717, 0.901473, 0.904201, 0.874572, 0.896751, 0.888092, 0.908488, 0.883987, 0.888962, 0.865945, 0.881538, 0.870757, 0.896533, 0.87206, 0.906351, 0.870467, 0.890658, 0.908383, 0.903571, 0.92007, 0.893885, 0.859142, 0.862613, 0.87746, 0.893222, 0.883731, 0.905585, 1.051858, 1.056607, 1.053769, 1.045437, 1.051641, 1.070126, 1.054715, 1.040893, 1.067565, 1.038826, 1.053976, 1.051851, 1.023781, 1.038545, 1.050687, 1.046958, 1.059619, 1.039178, 1.010646, 1.021546, 1.032074, 1.03033, 1.046339, 1.028576, 0.992204, 0.997724, 1.01294, 1.031262, 1.022723, 1.043099, 1.015254, 1.00879, 1.019778, 1.000515, 1.020096, 1.009299, 0.979154, 0.994702, 1.011418, 1.004089, 1.020398, 1.00142, 0.99404, 1.001881, 0.979696, 0.981898, 1.003761, 1.011287, 0.947352, 0.954777, 0.976249, 0.996968, 0.992629, 1.010197, 0.965656, 0.969121, 0.942781, 0.958619, 0.971966, 0.961065, 0.961961, 0.968921, 0.949218, 0.953073, 0.970753, 0.9735, 0.946726, 0.936774, 0.954763, 0.926424, 0.936296, 0.954791, 0.929661, 0.918619, 0.938335, 0.913051, 0.917978, 0.93907, 0.919425, 0.900641, 0.912694, 0.925042, 0.916961]", 
+                "[0.952723, 0.94259, 0.947055, 0.923873, 0.929028, 0.943742, 0.951826, 0.904724, 0.91802, 0.93237, 0.931311, 0.949445, 0.926145, 0.902452, 0.916281, 0.912404, 0.925691, 0.901258, 0.907541, 0.881136, 0.899742, 0.891349, 0.912183, 0.885976, 0.896051, 0.89107, 0.866664, 0.870803, 0.893224, 0.911387, 0.904051, 0.884298, 0.856655, 0.860556, 0.874412, 0.898226, 0.883588, 1.056715, 1.060153, 1.053039, 1.058806, 1.046936, 1.050482, 1.035299, 1.027461, 1.043381, 1.018762, 1.036661, 1.037411, 1.028533, 1.026309, 1.038857, 1.019897, 1.02477, 1.038691, 1.017254, 1.024079, 0.992809, 0.998179, 1.013908, 0.987281, 1.028408, 1.005357, 0.979124, 0.984611, 1.0033, 1.004381, 0.990593, 0.982354, 0.999778, 0.976505, 0.994346, 1.01604, 0.977481, 0.999305, 1.013233, 1.007597, 1.026092, 0.993227, 0.985957, 0.978423, 0.995903, 0.970221, 0.979384, 0.990661, 0.960893, 0.954611, 0.959614, 0.978361, 0.951266, 0.956833, 0.933615, 0.950759, 0.944661, 0.961417, 0.942902, 0.978776, 0.972938, 0.949544, 0.95684, 0.972763, 0.989964, 0.980864, 0.959354, 0.929913, 0.938761, 0.957679, 0.97682, 0.968741, 0.938375, 0.925662, 0.946511, 0.940643, 0.930832, 0.934357, 0.902665, 0.920249, 0.912385, 0.938587, 0.906652, 0.943879, 0.906961, 0.928657, 0.920806, 0.946018, 0.917564, 0.925157, 0.887367, 0.90656, 0.92544, 0.911161, 0.930151, 0.905366, 0.861344, 0.881036, 0.904408, 0.89408, 0.913383, 0.87986, 0.846926, 0.861876, 0.880993, 0.868683, 0.889257, 0.883467, 0.877856, 0.880298, 0.856445, 0.862846, 0.882339, 0.88989, 1.07939, 1.086246, 1.089615, 1.081511, 1.085793, 1.100506, 1.083057, 1.077655, 1.092935, 1.076978, 1.083468, 1.096823, 1.077607, 1.085148, 1.074831, 1.077055, 1.071916, 1.073127, 1.065843, 1.060145, 1.07473, 1.056661, 1.057658, 1.070983, 1.04872, 1.042035, 1.061307, 1.051199, 1.048357, 1.051934, 1.033015, 1.047741, 1.04001, 1.060425, 1.033813, 1.042218, 1.017572, 1.035382, 1.02757, 1.043706, 1.027424, 1.026331, 0.985807, 1.000606, 1.017489, 1.011089, 1.028851, 1.001952, 0.979728, 0.99661, 0.989461, 1.006991, 0.980406, 0.985681, 0.978638, 0.971363, 0.986135, 0.981153, 0.973486, 0.951181, 0.979731, 0.971954, 0.967455, 0.982223, 0.961314, 0.975892, 0.972183, 0.960935, 0.956736, 0.960518, 0.989999, 0.980493, 0.947979, 0.940078, 0.970611, 0.960774, 0.979671, 0.953391, 0.928758, 0.950706, 0.933765, 0.956243, 0.927212, 0.936906, 0.9299, 0.937474, 0.929581, 0.922014, 0.937583, 0.948749, 0.938898, 0.942433, 0.919705, 0.940897, 0.942445, 0.937185, 0.921536, 0.913777, 0.934502, 0.908267, 0.931626, 0.922439, 0.909526, 0.914149, 0.890855, 0.912679, 0.920436, 0.912319, 0.904087, 0.895291, 0.908525, 0.89843, 0.889839, 0.91568, 0.909923, 0.889324, 0.903412, 0.895183, 0.930803, 0.921377, 0.902217, 0.876426, 0.904993, 0.893069, 0.884362, 0.872533, 0.905016, 0.884402, 1.054307, 1.047211, 1.060519, 1.055223, 1.028768, 1.046597, 1.035343, 1.053568, 1.030469, 1.03807, 1.039232, 1.03321, 1.047285, 1.021593, 1.045707, 1.037095, 1.027208, 1.03176, 1.01161, 1.029765, 1.022606, 1.038811, 1.020198, 0.996382, 1.010884, 1.00485, 1.034628, 1.026416, 0.988417, 0.982554, 1.011347, 1.001447, 1.019849, 1.017244, 1.010819, 0.975484, 1.001603, 0.994274, 1.029508, 1.023061, 0.991863, 0.969461, 0.981404, 0.97552, 0.998739, 0.989972, 0.9793, 0.96447, 0.985951, 0.980019, 0.965022, 0.940153, 0.975483, 0.960428, 0.951566, 0.979226, 0.948838, 0.97822, 0.969816, 0.956133, 0.980376, 0.953133, 0.971639, 0.963298, 0.955461, 0.946104, 0.964175, 0.949235, 0.932225, 0.904868, 0.942281, 0.922721, 0.916487, 0.937389, 0.909091, 0.918989, 0.895344, 0.886176, 0.916635, 0.905226, 0.923087, 0.935145, 0.925356, 0.929526, 0.896458, 0.919895, 0.907602, 0.93233, 0.899347, 0.887371, 0.8772, 0.908715, 0.900112, 0.889489, 0.870264, 0.885689, 0.881161, 0.901537, 0.876367, 0.883404, 0.872903, 0.878109, 0.86888, 0.862321, 0.877634, 0.903011, 0.879987, 0.871769, 0.878789, 0.906492, 0.898648, 0.91538, 0.859952, 0.880604, 0.872082, 0.903168, 0.895444, 0.913189, 1.043108, 1.043522, 1.040978, 1.044809, 1.033132, 1.011421, 1.042622, 1.029852, 1.025481, 1.045431, 1.02013, 1.019215, 0.986509, 1.002787, 0.997234, 1.027841, 1.016974, 1.03455, 0.972663, 0.987142, 0.976937, 1.016183, 1.021543, 1.012238, 0.987559, 0.962412, 0.977561, 0.969716, 0.99926, 0.962112, 0.993247, 0.973315, 0.961518, 0.949286, 0.968278, 0.986967, 0.954164, 0.982812, 0.972335, 1.00002, 0.997481, 1.010638, 0.962718, 0.955432, 0.987452, 0.98547, 1.003701, 0.979373, 0.951589, 0.968665, 0.963474, 0.985719, 0.95508, 0.96032, 0.954134, 0.947609, 0.961923, 0.950776, 0.944835, 0.959613, 0.948647, 0.921883, 0.938954, 0.934248, 0.962274, 0.952394, 0.929625, 0.929865, 0.923273, 0.919495, 0.937525, 0.928032, 0.89604, 0.890198, 0.902906, 0.922371, 0.931258, 0.908877, 0.884362, 0.876876, 0.890113, 0.90092, 0.910003, 0.922752, 0.897528, 0.906029, 0.921917, 0.925055, 0.896255, 0.900615, 0.881352, 0.876149, 0.89281, 0.91074, 0.916504, 0.894984, 0.875623, 0.867038, 0.886, 0.899935, 0.905546, 0.882924, 0.865046, 0.862014, 0.876277, 0.892618, 0.898479, 0.895457, 0.879311, 0.891426, 0.894882, 0.870367, 0.890699, 0.88099, 0.86512, 0.877587, 0.881226, 0.867798, 0.882594, 0.873457, 0.86411, 0.869866, 1.03588, 1.043404, 1.036631, 1.04123, 1.032269, 1.03059, 1.044841, 1.035446, 1.025213, 1.027066, 1.006775, 1.010082, 1.023048, 1.026966, 1.009273, 0.987846, 1.015606, 1.001058, 1.011883, 1.019062, 1.002705, 0.98141, 1.007498, 0.986302, 0.997327, 1.003793, 0.982301, 0.981561, 0.957075, 0.950879, 0.970384, 0.985869, 0.991983, 1.006506, 0.99081, 1.005593, 1.01242, 0.984987, 1.00316, 0.993861, 0.971891, 0.986704, 0.994962, 0.968015, 0.984793, 0.974594, 0.946899, 0.959645, 0.96797, 0.943112, 0.963554, 0.958039, 0.947915, 0.951343, 0.944456, 0.939188, 0.955082, 0.96017, 0.951922, 0.945257, 0.939459, 0.956421, 0.972774, 0.952334, 0.908064, 0.932648, 0.927701, 0.948708, 0.962949, 0.966176, 0.906052, 0.891657, 0.914822, 0.928055, 0.935693, 0.907794, 0.879009, 0.885627, 0.903323, 0.908061, 0.886666]", 
+                "[0.927734, 0.916684, 0.924843, 0.891662, 0.91535, 0.903503, 0.868853, 0.927103, 0.891159, 0.90817, 0.891544, 0.919029, 0.915264, 0.893496, 0.896578, 0.889808, 0.88198, 0.879566, 0.898415, 0.876267, 0.885637, 0.866646, 0.856349, 0.875473, 0.859673, 0.868777, 0.881759, 0.862277, 0.86583, 0.858641, 0.856749, 0.836846, 0.840803, 0.859643, 0.865757, 1.040936, 1.033016, 1.044775, 1.0096, 1.02749, 1.028052, 1.047671, 1.026937, 1.023036, 1.025347, 1.008392, 1.021862, 1.02825, 1.019966, 0.983936, 1.002622, 1.005188, 1.022409, 1.025097, 1.00018, 0.972581, 0.986136, 0.99215, 1.009715, 1.019501, 1.002779, 0.979042, 0.992969, 1.00533, 0.997435, 1.011137, 0.981179, 0.996396, 0.960204, 0.979752, 0.981772, 0.997637, 0.978894, 0.995553, 0.966775, 0.980754, 0.986122, 1.004463, 0.940044, 0.959891, 0.962528, 0.978138, 0.983176, 1.001274, 0.925665, 0.942488, 0.949817, 0.964156, 0.968321, 0.986318, 0.929871, 0.928955, 0.944543, 0.947773, 0.965213, 0.933374, 0.968194, 0.93473, 0.949205, 0.953558, 0.972717, 0.977207, 0.952961, 0.922705, 0.939718, 0.941868, 0.960667, 0.964671, 0.938213, 0.903774, 0.924669, 0.939452, 0.925341, 0.944528, 0.904265, 0.922549, 0.888226, 0.90381, 0.912239, 0.92892, 0.934136, 0.896386, 0.921266, 0.927558, 0.945868, 0.949847, 0.921518, 0.88619, 0.911086, 0.928528, 0.917841, 0.93553, 0.905212, 0.921225, 0.889571, 0.908119, 0.911087, 0.926601, 0.876355, 0.881922, 0.899237, 0.908308, 0.923355, 0.889219, 0.900018, 0.867792, 0.886268, 0.88766, 0.904942, 0.911599, 0.898348, 0.86292, 0.875342, 0.882631, 0.898627, 0.905534, 1.056095, 1.050511, 1.054274, 1.05106, 1.051373, 1.042841, 1.037641, 1.048837, 1.01272, 1.031461, 1.03131, 1.050474, 0.987283, 0.999248, 1.002464, 1.021067, 1.025156, 1.040918, 0.994087, 1.013873, 0.977576, 0.995731, 0.993507, 1.011437, 0.951543, 0.965708, 0.972083, 0.986287, 0.989319, 1.004166, 0.93316, 0.961148, 0.959978, 0.982642, 0.991917, 1.008759, 0.955671, 0.968694, 0.969844, 0.986221, 0.989714, 1.004353, 0.93092, 0.948061, 0.947488, 0.965635, 0.97025, 0.984705, 0.900174, 0.929292, 0.92923, 0.95312, 0.960079, 0.976108, 0.910073, 0.927727, 0.932399, 0.944432, 0.91315, 0.930156, 0.949249, 0.927214, 0.932355, 0.950896, 0.95724, 0.937717, 0.914895, 0.913561, 0.932908, 0.94022, 0.955536, 0.919674, 0.898281, 0.915546, 0.918448, 0.93051, 0.901698, 0.921102, 0.906992, 0.922816, 0.890643, 0.907943, 0.908578, 0.925977, 0.927106, 0.889318, 0.906063, 0.907412, 0.926077, 0.929351, 0.879558, 0.888775, 0.908999, 0.911945, 0.924104, 0.892011, 0.881585, 0.897642, 0.881235, 0.884925, 0.898992, 0.884639, 0.860106, 0.865382, 0.882295, 0.888507, 0.902919, 0.866384, 0.870268, 0.888652, 0.853601, 0.875549, 0.879684, 0.89583, 0.85406, 0.868758, 0.850508, 0.865899, 0.880333, 1.019892, 1.021977, 0.995234, 1.014088, 1.018804, 0.996494, 1.01252, 0.991232, 0.995022, 1.010453, 0.97604, 0.98864, 0.99196, 0.986459, 0.964487, 0.96522, 0.985519, 0.990334, 0.969961, 0.963316, 0.971579, 0.984228, 0.955194, 0.972145, 0.975718, 0.957745, 0.961846, 0.975232, 0.946206, 0.964669, 0.963762, 0.949345, 0.955279, 0.968542, 0.937739, 0.959129, 0.958813, 0.936653, 0.950976, 0.958702, 0.973721, 0.941732, 0.925402, 0.967112, 0.944676, 0.947984, 0.961976, 0.933817, 0.951415, 0.928419, 0.938402, 0.952826, 0.920679, 0.936175, 0.937417, 0.921362, 0.937804, 0.902469, 0.920655, 0.922787, 0.938199, 0.905193, 0.906588, 0.92941, 0.934829, 0.950396, 0.91808, 0.902932, 0.901759, 0.917303, 0.920516, 0.940856, 0.905222, 0.879965, 0.897967, 0.903556, 0.920777, 0.880846, 0.864422, 0.905655, 0.881579, 0.884602, 0.90056, 0.86462, 0.881523, 0.894886, 0.868733, 0.888978, 0.894505, 0.909071, 0.913515, 0.857145, 0.871398, 0.878874, 0.900103, 0.908242, 0.926638, 0.856259, 0.874829, 0.881311, 0.89727, 0.903473, 0.928356, 0.861601, 0.859992, 0.883207, 0.889947, 0.907295, 0.864659, 0.866401, 0.829347, 0.844418, 0.854484, 0.870912, 0.877864, 0.831827, 0.835839, 0.853647, 0.857181, 0.869377, 0.84201, 0.846352, 0.973, 0.988226, 0.996045, 1.018578, 1.025432, 1.001353, 0.969812, 0.988922, 1.000888, 0.96807, 0.979352, 0.958914, 0.967941, 1.000152, 0.984401, 0.979069, 0.959005, 1.003421, 0.984327, 0.99271, 1.003912, 0.974394, 0.989172, 0.956486, 0.961625, 0.976584, 0.980629, 1.005419, 0.970181, 0.948934, 0.95373, 0.971877, 0.97417, 0.993117, 0.962506, 0.935735, 0.927093, 0.94721, 0.96515, 0.968172, 0.985429, 0.910165, 0.932936, 0.93323, 0.948996, 0.958647, 0.975403, 0.901252, 0.916894, 0.918147, 0.937312, 0.951475, 0.964423, 0.882863, 0.900018, 0.906602, 0.92815, 0.934489, 0.953045, 0.900715, 0.915821, 0.878669, 0.901265, 0.919407, 0.908585, 0.882942, 0.888176, 0.904794, 0.86774, 0.887453, 0.881297, 0.858461, 0.864547, 0.878987, 0.844951, 0.85754, 0.858637, 0.841491, 0.846331, 0.861294, 0.826001, 0.842523, 0.844157, 0.84081, 0.864127, 0.870802, 0.885132, 0.862067, 0.854204, 0.822822, 0.823651, 0.845268, 0.851901, 0.868907, 0.827631, 0.804173, 0.808268, 0.824049, 0.828352, 0.842669, 0.813314, 0.788702, 0.789993, 0.810376, 0.817923, 0.833628, 0.795775, 0.809292, 0.819445, 0.843706, 0.819503, 1.012571, 1.004167, 1.004955, 0.982251, 1.000212, 1.006584, 0.987846, 1.005844, 0.992813, 0.974207, 0.962025, 0.979298, 1.002282, 1.005321, 0.98179, 0.962887, 0.964943, 0.981756, 0.988788, 0.969392, 0.949858, 0.949069, 0.962262, 0.964196, 0.976008, 0.950162, 0.911715, 0.937722, 0.939909, 0.954856, 0.965445, 0.977676, 0.902457, 0.920406, 0.920242, 0.940884, 0.944154, 0.959931, 0.894337, 0.915427, 0.921763, 0.938219, 0.900256, 0.91768, 0.901931, 0.88835, 0.861977, 0.878521, 0.893185, 0.884222, 0.853718, 0.86779, 0.881327, 0.840059, 0.857638, 0.859521, 0.830959, 0.836739, 0.858172, 0.832429, 0.830812, 0.807579, 0.84754, 0.829611, 0.835328, 0.846894, 0.80702, 0.822288, 0.828364, 0.844862, 0.806895, 0.834495, 0.827144, 0.832124, 0.813498, 0.820852, 0.83412, 0.802076, 0.819288, 0.817955, 0.79789, 0.801397, 0.818237, 0.803224, 0.790269, 0.772512, 0.819275, 0.790884, 0.79483, 0.810722, 0.778619, 0.790374]", 
+                "[0.828678, 0.844982, 0.812086, 0.826057, 0.836252, 0.789228, 0.854865, 0.806727, 0.826112, 0.817132, 0.851363, 0.842593, 0.808394, 0.82093, 0.780674, 0.800212, 0.795856, 0.823347, 0.777774, 0.792814, 0.771598, 0.789692, 0.896683, 0.908188, 0.905792, 0.917745, 0.926739, 0.940189, 0.923614, 0.91422, 0.896482, 0.895837, 0.91627, 0.925706, 0.937966, 0.908513, 0.8752, 0.894313, 0.895069, 0.912458, 0.917935, 0.931907, 0.859959, 0.873608, 0.878873, 0.895642, 0.898483, 0.916467, 0.897473, 0.905778, 0.923131, 0.890731, 0.90591, 0.917847, 0.894086, 0.895772, 0.910991, 0.896021, 0.891414, 0.870258, 0.908433, 0.89209, 0.898303, 0.910748, 0.88127, 0.895313, 0.87674, 0.88522, 0.89917, 0.867952, 0.883469, 0.890707, 0.881391, 0.897643, 0.861279, 0.880406, 0.886051, 0.905583, 0.878011, 0.890694, 0.849643, 0.886505, 0.881034, 0.882402, 0.857403, 0.866532, 0.885283, 0.854116, 0.866318, 0.873944, 0.860159, 0.819592, 0.842057, 0.840583, 0.857392, 0.861882, 0.854206, 0.831877, 0.84155, 0.859331, 0.86457, 0.840185, 0.815132, 0.830327, 0.833234, 0.848282, 0.820053, 0.838399, 0.829037, 0.805739, 0.806721, 0.828968, 0.803177, 0.837604, 0.778345, 0.796173, 0.798348, 0.8119, 0.816135, 0.827764, 0.822864, 0.83869, 1.051499, 1.032459, 1.051681, 1.058558, 1.027022, 1.037767, 1.041963, 1.059272, 1.026703, 1.041365, 1.021763, 1.040738, 1.02944, 1.019336, 1.01975, 1.015138, 0.996094, 1.010467, 1.013556, 1.031579, 0.99774, 1.014878, 0.964174, 0.983944, 0.983399, 1.000768, 1.008427, 1.02728, 0.949509, 0.962621, 0.966259, 0.995469, 0.990933, 0.997257, 0.973539, 0.939642, 0.95362, 0.95814, 0.974968, 0.977953, 0.95253, 0.917526, 0.935517, 0.938731, 0.956748, 0.961412, 0.92473, 0.935238, 0.949838, 0.915398, 0.933644, 0.892853, 0.940804, 0.922131, 0.923664, 0.937737, 0.898892, 0.878306, 0.920792, 0.892945, 0.897036, 0.911095, 0.894087, 0.883303, 0.857122, 0.861294, 0.88547, 0.892329, 0.903996, 0.861994, 0.870827, 0.869752, 0.892798, 0.850198, 0.868391, 0.826307, 0.876661, 0.849953, 0.851839, 0.867847, 0.836659, 0.820724, 0.855548, 0.834821, 0.839744, 0.855165, 0.825698, 0.800951, 0.845473, 0.819845, 0.824595, 0.838164, 0.818275, 0.812433, 0.832676, 0.845093, 0.853505, 0.865675, 0.846328, 0.837078, 0.81489, 0.819484, 0.835087, 0.839009, 0.851369, 0.81848, 0.789447, 0.812477, 0.81834, 0.831153, 0.794, 0.813878, 0.791748, 0.805615, 0.77704, 0.796724, 0.79887, 0.81269, 0.818906, 0.821772, 0.837321, 1.028166, 1.026291, 1.041333, 1.033197, 1.021124, 1.024488, 1.018878, 1.024701, 1.016725, 1.02071, 1.010677, 1.015966, 0.99427, 1.00868, 1.012699, 1.003089, 0.994024, 0.998878, 0.988788, 0.990313, 0.983043, 0.969957, 0.973746, 0.987329, 0.959543, 0.979834, 0.979754, 0.957968, 0.96428, 0.97954, 0.961413, 0.952774, 0.930016, 0.968324, 0.949258, 0.958229, 0.972281, 0.939707, 0.916735, 0.955872, 0.933495, 0.941392, 0.959805, 0.92753, 0.939733, 0.94756, 0.909085, 0.929638, 0.932158, 0.955321, 0.958719, 0.932483, 0.892686, 0.911884, 0.916373, 0.934023, 0.942264, 0.91544, 0.874131, 0.891004, 0.914639, 0.899616, 0.919492, 0.883192, 0.897459, 0.866114, 0.883591, 0.88925, 0.904342, 0.903156, 0.906435, 0.929268, 0.896954, 0.913591, 0.918158, 0.891436, 0.905329, 0.919614, 0.890989, 0.877821, 0.855706, 0.89643, 0.875893, 0.883512, 0.896543, 0.871711, 0.868303, 0.845754, 0.850541, 0.867505, 0.876734, 0.892972, 0.855788, 0.849453, 0.870987, 0.8772, 0.893846, 0.862016, 0.843555, 0.881959, 0.86426, 0.869461, 0.879948, 0.863881, 0.853675, 0.833729, 0.835271, 0.846587, 0.851708, 0.869052, 0.837145, 0.814586, 0.819295, 0.835762, 0.838003, 0.855142, 0.825073, 0.841937, 0.856837, 0.846715, 1.05824, 1.058438, 1.054043, 1.041047, 1.047061, 1.063751, 1.028601, 1.041929, 1.044617, 1.011424, 1.027056, 1.034081, 1.0488, 1.015612, 0.997142, 1.038068, 1.015444, 1.020775, 1.034717, 1.001975, 1.017358, 0.996616, 1.014542, 0.979143, 0.997908, 0.995899, 1.016108, 0.996129, 0.977393, 0.978736, 0.996549, 1.000098, 0.978933, 0.943991, 0.963668, 0.966538, 0.981815, 0.989386, 1.001553, 0.934183, 0.951529, 0.953348, 0.970263, 0.975942, 0.988805, 0.937634, 0.953494, 0.959783, 0.974288, 0.953764, 0.941939, 0.922152, 0.924969, 0.942142, 0.947142, 0.959913, 0.928225, 0.906985, 0.911473, 0.93347, 0.936437, 0.949697, 0.912202, 0.871565, 0.889659, 0.89333, 0.910567, 0.917855, 0.932255, 0.914755, 0.930565, 0.921737, 0.940251, 0.952637, 0.91644, 0.888679, 0.89352, 0.911426, 0.918247, 0.934637, 0.900041, 0.855566, 0.87496, 0.876002, 0.890726, 0.895562, 0.915998, 0.823823, 0.843732, 0.844132, 0.867667, 0.876561, 0.891548, 0.859759, 0.86157, 0.881323, 0.892909, 0.905567, 0.875107, 0.861153, 0.865411, 0.884996, 0.84149, 0.833763, 0.870726, 0.87503, 0.849783, 0.862667, 0.824422, 0.846271, 0.814807, 0.851634, 0.812636, 0.827267, 0.842191, 0.808673, 0.822346, 0.842379, 0.849363, 0.866182, 1.055319, 1.046219, 1.062676, 1.051995, 1.045175, 1.03572, 1.042504, 1.058586, 1.037065, 1.032655, 1.03763, 1.05808, 1.041163, 1.045838, 1.032012, 1.032251, 1.018995, 1.029671, 1.00607, 1.020274, 1.026504, 1.001725, 1.006312, 1.022576, 0.994903, 1.012024, 0.989697, 1.019772, 0.984986, 0.999445, 1.01614, 0.980679, 0.970445, 1.003407, 0.981206, 0.994171, 0.962858, 0.952425, 0.982309, 0.987199, 0.963719, 0.977355, 0.942531, 0.958102, 0.966785, 0.952707, 0.920011, 0.948453, 0.937306, 0.942447, 0.95668, 0.917211, 0.90199, 0.926828, 0.944253, 0.889306, 0.904319, 0.882666, 0.918517, 0.906106, 0.919474, 0.884093, 0.854389, 0.906242, 0.870662, 0.881427, 0.899907, 0.861834, 0.878299, 0.904022, 0.869924, 0.885141, 0.901884, 0.889816, 0.912387, 0.877001, 0.889594, 0.853403, 0.869316, 0.874765, 0.899302, 0.864883, 0.885477, 0.855291, 0.874294, 0.876339, 0.894124, 0.829142, 0.841315, 0.847282, 0.861949, 0.87325, 0.891163, 0.877543, 0.844115, 0.861522, 0.864458, 0.8831, 0.888303, 0.863765, 0.832321, 0.847495, 0.850417, 0.869949, 0.874345, 0.855099, 0.832763, 0.848154, 0.853697, 0.870879, 0.873989, 0.853185, 0.826334, 0.842578, 0.847101, 0.860724, 0.873993]", 
+                "[0.89925, 0.86212, 0.877614, 0.877606, 0.890518, 0.896934, 1.020796, 1.035662, 1.043132, 1.054125, 1.016534, 1.034736, 1.016334, 1.030545, 1.014747, 1.026956, 1.011388, 1.026511, 1.004001, 1.024672, 0.985155, 1.000468, 1.00104, 1.018966, 0.975641, 0.99475, 0.998222, 1.011032, 0.972691, 0.987875, 0.952482, 0.969039, 0.972025, 0.986326, 0.947247, 0.965901, 0.94223, 0.956234, 0.925884, 0.940284, 0.941365, 0.95639, 0.902375, 0.919192, 0.921242, 0.936964, 0.939272, 0.952914, 0.94099, 0.92867, 0.940919, 0.965451, 0.971912, 0.987412, 0.931429, 0.936642, 0.94984, 0.953898, 0.966632, 0.938815, 0.925826, 0.931109, 0.947352, 0.916753, 0.929648, 0.934022, 0.91789, 0.935033, 0.900958, 0.917116, 0.919652, 0.934489, 0.93989, 0.918421, 0.920141, 0.936061, 0.941069, 0.919537, 0.896652, 0.910873, 0.914505, 0.930126, 0.897718, 0.877554, 0.923772, 0.898378, 0.905576, 0.92034, 0.88062, 0.856809, 0.902569, 0.87887, 0.884063, 0.90139, 0.869273, 0.882733, 0.888433, 0.899199, 0.85938, 0.879165, 0.878094, 0.900231, 0.863906, 0.878031, 0.843918, 0.862667, 0.866233, 0.886503, 0.851762, 0.867021, 0.830595, 0.859556, 0.849345, 0.852396, 0.829599, 0.839914, 0.855003, 0.814212, 0.836566, 0.841319, 0.841112, 0.85784, 0.837681, 0.842379, 0.857131, 1.046913, 1.027691, 1.047374, 1.050322, 1.066111, 1.031455, 1.04708, 1.026913, 1.040259, 1.02108, 1.037703, 1.025015, 1.010967, 1.004114, 1.00906, 1.025068, 1.005712, 1.009177, 1.001963, 0.990637, 0.992143, 1.012571, 0.977293, 0.991394, 0.99112, 0.975201, 0.98062, 0.993564, 0.961828, 0.976929, 0.98175, 0.965126, 0.956072, 0.980438, 0.992214, 0.95615, 0.929308, 0.976851, 0.947064, 0.953668, 0.977417, 0.936624, 0.94968, 0.942701, 0.924061, 0.936951, 0.943459, 0.931837, 0.925722, 0.897977, 0.902677, 0.920846, 0.927185, 0.941926, 0.907154, 0.886339, 0.889646, 0.906799, 0.91061, 0.923471, 0.891137, 0.857722, 0.872279, 0.874163, 0.893191, 0.898546, 0.912487, 0.918008, 0.895862, 0.898057, 0.918912, 0.921277, 0.895657, 0.87049, 0.886322, 0.895037, 0.910454, 0.869733, 0.887377, 0.868383, 0.873035, 0.884513, 0.852341, 0.865653, 0.869473, 0.842624, 0.850467, 0.864899, 0.826803, 0.843147, 0.846269, 0.849105, 0.862206, 0.868627, 0.889147, 0.854884, 0.868567, 0.854549, 0.858768, 0.871424, 0.840249, 0.858496, 0.86413, 0.825207, 0.842103, 0.853597, 0.877616, 0.843532, 0.858054, 0.82504, 0.826299, 0.842178, 0.845661, 0.863858, 0.829464, 0.823682, 0.827897, 0.849499, 0.8545, 0.867346, 1.039582, 1.033961, 1.053642, 1.03434, 1.041385, 1.060675, 1.041709, 1.016185, 1.014407, 1.036071, 1.040885, 1.054022, 1.01891, 1.016785, 0.984636, 1.00064, 1.003951, 1.020973, 1.024729, 0.978561, 0.995902, 0.998504, 1.013561, 0.981173, 0.996737, 0.977079, 0.981378, 0.998642, 0.964701, 0.980383, 0.979445, 0.963601, 0.971148, 0.983731, 0.946834, 0.968239, 0.925543, 0.975665, 0.948336, 0.953214, 0.971651, 0.933653, 0.945428, 0.939952, 0.904193, 0.92193, 0.92639, 0.943681, 0.952999, 0.925364, 0.89576, 0.909451, 0.911388, 0.926971, 0.935332, 0.914518, 0.87641, 0.896982, 0.911851, 0.903054, 0.917687, 0.876052, 0.894689, 0.867898, 0.881075, 0.885224, 0.898252, 0.891518, 0.896439, 0.914378, 0.924207, 0.937287, 0.906314, 0.878066, 0.893237, 0.898401, 0.9147, 0.918532, 0.932866, 0.883896, 0.896621, 0.899786, 0.911153, 0.883161, 0.860103, 0.898449, 0.877951, 0.880383, 0.900876, 0.866037, 0.879462, 0.911391, 0.874105, 0.888324, 0.892501, 0.911696, 0.919093, 0.894625, 0.862538, 0.873658, 0.889193, 0.878414, 0.892057, 0.86441, 0.875708, 0.856177, 0.856006, 0.872484, 0.859063, 0.84417, 0.852526, 0.869772, 0.828539, 0.85273, 0.852698, 0.856071, 0.870101, 0.87551, 0.890685, 0.898414, 0.911906, 0.856067, 0.850979, 0.863134, 0.878902, 0.885304, 0.899585, 0.868593, 1.037884, 1.04094, 1.034115, 1.035635, 1.027653, 1.023156, 1.017274, 1.035827, 1.051581, 1.023314, 1.034147, 1.026508, 1.000684, 1.02494, 1.029779, 1.023826, 1.024437, 1.00837, 1.022818, 0.989465, 1.013696, 1.004881, 1.008725, 0.992503, 1.00833, 1.001547, 0.987564, 0.976819, 1.004122, 1.00597, 0.986781, 1.000829, 0.971008, 0.984013, 0.98574, 1.000378, 0.990717, 0.99586, 1.01876, 1.031337, 1.001865, 0.992618, 0.984364, 0.985354, 1.003179, 1.018682, 0.987804, 0.978093, 0.972339, 0.98526, 0.998579, 0.951803, 0.97127, 0.94709, 0.987249, 0.967276, 0.982944, 0.946976, 0.961467, 0.946819, 0.965975, 0.982968, 0.978617, 0.994781, 1.010807, 0.936087, 0.948784, 0.969693, 0.970691, 0.988566, 0.974931, 0.952873, 0.968238, 0.928587, 0.952302, 0.969801, 0.951321, 0.931589, 0.946626, 0.920238, 0.934642, 0.948357, 0.940962, 0.948997, 0.938672, 0.956647, 0.975524, 0.938565, 0.913762, 0.931522, 0.96297, 0.943757, 0.956642, 0.923096, 0.881345, 0.940534, 0.899363, 0.919411, 0.905384, 0.930528, 0.945805, 0.88346, 0.898549, 0.903888, 0.917963, 0.885295, 0.899029, 0.924785, 0.905676, 0.920513, 0.911336, 0.926832, 0.906839, 0.864359, 0.884592, 0.901458, 0.892828, 0.916519, 0.932517, 0.851278, 0.864529, 0.879478, 0.901134, 0.877372, 0.897557, 0.873933, 0.865928, 1.025271, 1.017862, 1.019897, 1.010243, 1.064673, 1.03626, 1.050706, 1.060854, 1.056781, 1.069084, 1.046718, 1.018121, 1.036034, 1.051729, 1.054572, 1.044839, 1.02741, 1.039432, 1.012921, 1.029494, 1.042553, 1.036777, 1.017674, 1.031919, 1.012299, 1.025152, 1.023536, 1.017333, 1.029581, 1.035819, 1.054626, 1.032855, 1.023482, 1.010841, 1.026766, 1.049903, 1.031748, 1.044472, 1.015259, 0.999165, 1.014499, 1.039013, 1.022804, 1.037009, 1.009876, 0.994734, 1.008633, 1.033878, 1.012948, 1.025284, 0.994496, 1.009052, 1.017404, 1.007167, 1.035889, 1.029622, 1.045889, 1.062531, 0.985907, 1.004156, 1.020353, 1.010011, 1.032455, 1.051143, 0.988271, 1.006173, 1.011908, 1.026978, 0.988083, 1.00202, 0.968445, 0.98658, 0.980061, 1.002954, 1.021955, 0.986108, 0.978539, 0.992068, 1.001971, 1.017722, 0.988999, 0.974146, 1.006055, 0.982799, 1.00198, 0.967101, 0.980703, 0.985948, 0.97625, 0.935238, 0.952795, 0.96833, 0.955572, 0.977578, 0.950735, 0.916331, 0.938459, 0.958322, 0.947286, 0.97005]", 
+                "[0.979669, 0.985546, 1.000834, 0.968018, 0.984098, 0.988741, 0.967608, 0.987051, 0.963054, 0.976517, 0.953332, 0.933321, 0.950491, 0.978921, 0.964817, 0.980203, 0.943564, 0.95587, 0.925716, 0.939043, 0.931932, 0.946453, 0.960246, 0.928762, 1.173707, 1.165025, 1.148762, 1.167118, 1.182915, 1.177031, 1.154812, 1.15939, 1.175373, 1.138016, 1.154058, 1.154734, 1.147845, 1.130015, 1.145894, 1.151917, 1.130483, 1.148113, 1.13562, 1.125208, 1.13471, 1.1116, 1.127673, 1.128528, 1.09803, 1.114347, 1.118758, 1.132536, 1.102514, 1.115999, 1.080278, 1.10062, 1.08885, 1.107801, 1.121877, 1.088441, 1.056815, 1.073104, 1.084464, 1.078269, 1.100257, 1.113935, 1.045247, 1.066339, 1.083228, 1.074238, 1.090953, 1.111331, 1.049601, 1.063393, 1.067918, 1.079968, 1.045895, 1.01953, 1.038057, 1.067919, 1.042546, 1.056798, 1.019654, 1.003417, 1.046967, 1.016416, 1.033553, 1.001478, 1.018057, 0.994984, 1.022335, 1.004446, 1.018482, 0.991482, 1.004657, 1.010658, 0.978371, 0.998947, 1.022816, 1.036697, 1.017519, 1.036831, 1.010002, 0.979339, 0.995139, 1.011531, 1.012523, 1.004014, 0.984811, 0.997294, 0.963929, 0.981584, 0.998684, 0.987262, 0.984203, 0.949293, 0.9655, 0.981156, 0.97225, 0.990682, 0.991635, 0.976651, 0.994963, 0.998523, 0.983755, 0.954482, 0.971651, 1.001836, 0.978922, 0.996291, 0.965777, 0.942699, 0.957495, 0.980001, 0.964281, 0.975696, 0.943741, 0.926584, 0.943141, 0.969688, 0.953466, 0.969776, 0.934365, 0.953536, 0.947103, 0.961324, 0.955056, 0.972651, 0.984486, 0.954996, 0.931811, 0.946946, 0.940064, 0.961472, 0.978456, 0.932425, 0.914953, 0.927981, 0.919754, 0.941368, 0.959447, 0.923397, 0.903435, 0.916935, 0.908427, 0.92538, 0.938313, 1.046366, 1.070755, 1.067142, 1.094714, 1.088716, 1.105014, 1.124964, 1.055338, 1.067911, 1.083147, 1.080036, 1.094096, 1.110555, 1.05709, 1.071421, 1.077301, 1.093059, 1.064439, 1.052831, 1.084554, 1.069372, 1.08334, 1.04926, 1.065959, 1.065841, 1.056848, 1.069211, 1.063341, 1.079673, 1.094988, 1.065735, 1.072665, 1.058989, 1.078394, 1.083618, 1.062244, 1.051195, 1.080048, 1.061958, 1.078329, 1.042821, 1.060665, 1.032945, 1.062934, 1.041674, 1.054569, 1.020165, 1.034367, 1.041166, 1.062781, 1.040312, 1.054464, 1.045076, 1.067924, 1.037141, 1.017176, 1.032837, 1.026292, 1.043167, 1.055897, 1.029387, 0.997171, 1.01723, 1.032728, 1.021981, 1.041136, 1.057615, 0.979478, 0.998281, 1.013315, 1.001178, 1.022361, 1.040418, 1.023664, 0.988571, 1.014751, 1.03096, 1.022829, 1.040995, 0.982684, 0.99747, 1.002845, 1.018463, 0.981796, 0.95961, 0.978615, 1.012053, 0.994917, 1.009296, 0.97424, 0.952044, 0.968032, 0.99328, 0.979067, 0.994315, 0.96175, 0.980247, 0.997295, 0.965009, 0.979155, 0.994195, 0.986763, 1.006309, 0.982637, 0.945949, 0.961226, 0.981522, 0.987835, 0.970824, 0.955202, 0.971631, 0.948692, 0.963846, 0.975601, 0.968962, 0.957719, 0.924124, 0.942668, 0.965041, 0.951165, 0.97251, 1.170636, 1.164125, 1.168271, 1.147013, 1.16237, 1.163914, 1.129308, 1.145015, 1.153635, 1.170815, 1.133507, 1.151046, 1.132917, 1.146896, 1.135127, 1.11202, 1.134167, 1.133684, 1.122772, 1.105962, 1.122523, 1.110873, 1.131435, 1.108253, 1.111436, 1.079544, 1.0975, 1.111652, 1.115647, 1.104995, 1.089302, 1.102603, 1.069772, 1.083812, 1.099606, 1.093012, 1.074187, 1.086402, 1.058109, 1.077511, 1.089511, 1.082119, 1.047833, 1.071336, 1.059451, 1.076186, 1.093125, 1.057768, 1.047312, 1.039362, 1.054851, 1.070696, 1.040251, 1.05856, 1.03776, 1.052894, 1.033815, 1.050885, 1.039869, 1.027814, 1.015664, 1.018863, 1.037952, 1.017477, 1.009064, 0.984729, 1.001288, 1.029176, 1.010802, 1.024422, 0.988578, 0.999619, 1.001025, 1.006339, 1.023925, 0.983039, 1.004716, 1.008706, 0.981558, 0.997659, 0.967566, 0.987305, 1.001187, 0.994575, 0.947493, 0.965789, 0.989007, 0.980209, 1.001833, 1.015308, 0.939353, 0.954252, 0.970926, 0.958401, 0.980111, 1.004413, 0.984487, 0.978795, 0.955202, 0.975328, 0.991142, 0.977894, 0.954804, 0.970486, 0.963273, 0.946797, 0.962847, 0.937599, 0.980376, 0.957608, 0.978511, 0.93737, 0.953167, 0.923267, 0.957024, 0.928143, 0.941167, 0.904124, 0.919667, 0.919665, 0.920771, 0.932864, 0.92374, 0.946009, 0.962607, 0.929816, 0.907237, 0.919445, 0.909532, 0.925045, 0.938686, 0.905999, 0.873371, 0.889077, 0.903572, 0.895291, 0.917747, 0.937333, 0.868805, 0.884925, 0.900494, 0.891244, 0.914997, 0.929718, 0.922748, 1.125593, 1.113293, 1.13547, 1.111418, 1.100604, 1.128094, 1.112994, 1.130561, 1.10989, 1.102755, 1.077762, 1.091952, 1.127909, 1.103479, 1.125449, 1.090937, 1.103848, 1.074457, 1.085381, 1.078444, 1.092902, 1.105452, 1.077436, 1.078182, 1.046879, 1.064344, 1.079614, 1.08018, 1.068804, 1.04721, 1.061932, 1.030219, 1.046474, 1.061727, 1.05643, 1.035312, 1.050936, 1.011508, 1.03061, 1.047947, 1.037979, 1.019163, 1.03439, 1.0033, 1.021628, 1.038224, 1.02919, 1.019064, 0.98431, 0.998922, 1.013083, 1.010798, 1.026969, 1.0043, 0.969737, 0.995958, 1.010409, 0.999441, 1.019043, 0.991875, 0.952356, 0.970822, 0.986137, 0.987894, 0.979951, 0.957216, 0.971217, 0.937032, 0.951257, 0.968333, 0.962318, 0.945374, 0.966793, 0.953435, 0.974621, 0.991228, 0.953343, 0.913486, 0.929721, 0.943628, 0.932972, 0.95245, 0.967453, 0.889849, 0.910115, 0.927141, 0.913522, 0.936147, 0.950709, 0.875449, 0.892156, 0.904647, 0.896738, 0.910726, 0.925919, 0.935829, 0.897922, 0.917484, 0.931169, 0.919229, 0.94195, 0.873985, 0.893014, 0.903974, 0.899815, 0.919601, 0.937551, 0.877829, 0.890523, 0.894076, 0.906306, 0.878143, 0.86553, 0.893559, 0.869229, 0.88376, 0.84509, 0.863665, 0.866902, 0.860314, 0.882444, 0.898624, 0.890885, 0.913532, 0.931554, 0.848002, 0.867807, 0.886145, 0.875646, 0.901898, 0.921148, 0.863781, 0.868137, 0.882416, 1.006173, 0.998499, 1.014449, 1.004322, 0.986008, 1.002899, 1.006108, 0.984051, 1.006402, 0.970536, 0.9905, 0.996738, 1.011005, 0.975751, 0.954951, 0.968638, 0.994587, 0.976225, 0.98783, 0.957138, 0.943874, 0.973661, 0.954153, 0.970549, 0.940456, 0.959445, 0.958712, 0.943896, 0.956526, 0.925894, 0.948974, 0.964965, 0.955278]", 
+                "[0.978438, 0.994682, 1.005145, 1.019338, 0.98112, 0.998466, 0.989795, 0.959965, 0.975472, 0.990779, 0.99263, 0.985299, 0.961435, 0.978494, 0.949824, 0.963598, 0.979032, 0.971186, 0.952912, 0.965676, 0.929531, 0.948138, 0.961124, 0.951099, 0.926026, 0.939225, 0.952625, 0.967262, 0.929422, 0.917035, 0.95051, 0.928058, 0.942755, 0.911369, 0.926258, 0.902616, 0.939507, 0.917869, 0.932583, 0.894142, 0.912212, 0.877912, 0.914624, 0.884786, 0.905616, 0.870019, 0.886101, 0.893425, 0.919711, 0.887856, 0.903757, 0.916103, 0.908486, 0.922648, 0.862275, 0.881095, 0.89737, 0.915522, 0.895344, 0.913912, 0.893061, 0.875438, 0.887912, 0.879667, 0.895094, 0.877358, 0.858565, 0.870434, 0.874543, 0.886051, 0.850908, 0.868612, 0.874492, 0.888487, 0.883525, 0.902659, 0.916282, 0.884345, 0.842571, 0.860779, 0.876703, 0.862935, 0.883538, 0.901881, 0.854111, 0.859282, 0.874776, 1.009394, 1.009673, 1.00559, 1.009696, 1.008787, 1.004999, 1.020945, 1.009246, 1.003454, 0.986295, 0.99502, 1.008978, 0.987852, 0.986454, 0.963324, 0.981452, 1.012344, 0.990858, 1.006381, 0.975448, 0.994225, 0.966412, 0.981499, 0.972305, 0.990108, 1.0019, 0.971198, 0.952548, 0.965554, 0.959071, 0.973944, 0.987437, 0.957447, 0.96703, 0.97335, 0.9866, 0.954231, 0.971909, 0.950596, 0.98121, 0.958383, 0.980697, 0.946083, 0.965052, 0.947448, 0.971416, 0.956081, 0.96743, 0.949338, 0.946215, 0.923737, 0.936343, 0.966503, 0.943241, 0.962144, 0.920123, 0.93808, 0.938467, 0.958088, 0.967807, 0.986432, 0.967253, 0.984983, 0.949841, 0.964309, 0.952782, 0.985274, 1.000669, 0.963511, 0.935569, 0.948338, 0.940508, 0.957586, 0.975302, 0.93856, 0.904139, 0.92324, 0.938868, 0.932063, 0.952504, 0.963825, 0.89524, 0.912653, 0.901217, 0.929444, 0.944439, 0.904675, 0.880044, 0.897401, 0.886213, 0.903141, 0.922037, 0.88882, 0.866005, 0.882905, 0.876211, 0.891986, 0.903807, 0.873698, 0.86494, 0.874132, 0.889392, 0.854861, 0.871293, 0.871848, 0.860444, 0.880586, 0.870865, 0.894507, 0.910277, 0.871008, 0.847406, 0.864228, 0.851615, 0.873998, 0.889123, 0.853961, 0.855723, 1.018424, 1.013989, 1.025678, 1.00495, 1.023848, 1.000937, 1.013877, 1.003252, 0.999871, 1.000312, 0.991896, 0.981474, 0.995348, 0.996922, 1.010966, 0.987887, 0.971892, 0.984284, 1.011536, 0.99027, 1.005654, 0.980283, 0.997076, 0.978121, 0.995652, 0.965087, 0.981689, 0.995273, 0.964309, 0.994308, 0.976369, 0.991965, 0.952156, 0.974813, 0.973635, 0.976703, 0.968931, 0.985463, 0.996282, 0.96777, 0.944247, 0.958515, 0.990741, 0.97032, 0.98874, 0.957479, 0.948847, 0.976254, 0.955867, 0.971434, 0.953341, 0.953168, 0.943531, 0.925103, 0.940231, 0.943121, 0.959116, 0.919992, 0.94106, 0.935685, 0.950175, 0.957487, 0.973406, 0.941838, 0.957197, 0.930916, 0.950224, 0.906194, 0.926469, 0.939221, 0.928951, 0.899337, 0.923049, 0.880374, 0.898277, 0.913835, 0.901329, 0.88502, 0.898632, 0.863123, 0.88341, 0.899765, 0.888512, 0.897634, 0.91731, 0.876569, 0.893971, 0.911258, 0.896575, 0.873124, 0.887963, 0.853449, 0.870747, 0.889213, 0.882329, 0.858905, 0.877975, 0.832838, 0.849487, 0.871635, 0.857939, 0.831693, 0.8513, 0.812141, 0.831704, 0.851885, 0.838375, 0.853001, 0.836032, 0.853106, 0.85674, 0.833673, 0.854134, 0.841975, 1.032478, 1.025394, 1.038013, 1.030693, 1.023272, 1.027972, 1.017264, 1.02411, 1.004164, 1.019655, 1.022202, 1.012315, 1.004906, 1.009089, 0.984999, 1.004228, 1.009596, 0.998718, 0.970635, 0.98333, 0.996245, 0.988184, 1.005217, 0.985886, 0.949489, 0.966557, 0.986133, 0.991417, 0.982717, 0.965807, 0.982684, 0.960518, 0.972213, 0.988495, 0.981386, 0.972482, 0.942939, 0.956661, 0.972632, 0.96355, 0.98216, 0.949499, 0.969939, 0.930674, 0.949821, 0.964995, 0.952304, 0.906936, 0.920247, 0.937992, 0.926693, 0.957241, 0.950094, 0.929491, 0.897894, 0.911589, 0.9259, 0.918252, 0.934423, 0.909207, 0.872191, 0.89029, 0.901762, 0.89341, 0.912346, 0.917977, 0.922428, 0.938329, 0.898772, 0.918661, 0.922535, 0.905259, 0.918235, 0.918926, 0.895211, 0.921496, 0.899108, 0.926187, 0.907658, 0.920385, 0.888451, 0.90748, 0.871483, 0.887918, 0.925214, 0.912637, 0.926078, 0.890072, 0.901816, 0.895405, 0.895683, 0.910978, 0.871673, 0.892821, 0.867405, 0.897892, 0.876823, 0.89532, 0.86228, 0.87902, 0.87779, 0.869902, 0.830028, 0.848976, 0.864046, 0.856853, 0.875651, 0.849322, 0.813507, 0.829361, 0.844885, 0.832321, 0.85225, 0.850115, 0.861145, 0.875538, 0.85233, 0.845543, 0.862146, 0.852787, 0.849507, 0.852814, 1.023052, 1.030073, 1.006231, 1.023547, 1.016015, 1.029278, 1.006362, 1.002905, 1.020833, 1.006162, 1.001996, 0.993574, 1.010249, 1.005845, 0.99836, 0.973043, 0.990672, 0.970341, 0.990939, 1.011244, 1.024048, 0.969716, 0.983816, 0.968095, 0.982765, 0.996099, 1.00979, 0.95171, 0.967964, 0.944259, 0.983952, 0.965135, 0.982119, 0.95805, 0.938179, 0.954816, 0.931298, 0.948533, 0.966182, 0.941672, 0.958087, 0.950893, 0.947438, 0.928661, 0.942217, 0.960897, 0.940017, 0.952311, 0.931982, 0.913482, 0.930139, 0.950628, 0.926151, 0.940175, 0.909809, 0.920522, 0.894316, 0.91771, 0.893002, 0.909222, 0.927091, 0.906715, 0.89702, 0.904208, 0.921239, 0.895741, 0.916909, 0.935032, 0.949301, 0.886614, 0.903914, 0.885268, 0.902532, 0.917309, 0.932619, 0.87732, 0.894131, 0.871958, 0.9139, 0.900071, 0.915252, 0.895103, 0.872923, 0.888339, 0.870119, 0.88264, 0.897965, 0.896398, 0.883532, 0.902312, 0.919094, 0.893957, 0.868553, 0.890003, 0.876815, 0.894133, 0.869178, 0.844544, 0.864329, 0.881594, 0.856619, 0.87073, 0.851237, 0.821468, 0.847334, 0.863592, 0.835657, 0.861538, 0.831291, 0.822272, 0.842447, 0.842307, 0.859104, 0.838394, 0.85689, 0.873592, 0.887555, 0.828508, 0.844444, 0.838399, 0.856762, 0.868898, 1.01473, 1.017348, 1.006595, 1.01565, 1.009025, 1.015233, 0.992097, 1.011862, 1.005807, 1.018838, 1.001488, 0.994797, 1.013489, 0.983591, 0.999342, 0.983107, 0.996952, 1.011494, 1.02624, 0.981703, 0.988277, 1.004615, 0.981664, 0.961476, 0.980472, 0.996619, 0.974943, 0.992748, 0.965579, 0.971838, 0.945884, 0.968457, 0.945177, 0.961874, 0.982655, 0.959517, 0.947824]"
+            ], 
+            "mean_batch_sizes": [
+                {
+                    "res50": 19.82
+                }, 
+                {
+                    "res50": 24.0
+                }, 
+                {
+                    "res50": 24.0
+                }, 
+                {
+                    "res50": 24.0
+                }, 
+                {
+                    "res50": 24.0
+                }, 
+                {
+                    "res50": 24.0
+                }, 
+                {
+                    "res50": 24.0
+                }, 
+                {
+                    "res50": 24.0
+                }, 
+                {
+                    "res50": 24.0
+                }, 
+                {
+                    "res50": 24.0
+                }
+            ], 
+            "mean_lats": [
+                0.7378275933333334, 
+                0.9360706633333332, 
+                0.9783207350000002, 
+                1.0389457266666666, 
+                0.9484066200000001, 
+                0.96010184, 
+                0.9248912266666666, 
+                0.9112499816666667, 
+                0.9469135483333332, 
+                1.0093111583333332, 
+                0.9338134216666667
+            ]
+        }
+    ], 
+    "node_configs": [
+        {
+            "model_image": "gcr.io/clipper-model-comp/pytorch-res50:bench", 
+            "name": "res50", 
+            "cpus_per_replica": 1, 
+            "input_type": "floats", 
+            "batch_size": 24, 
+            "num_replicas": 1, 
+            "gpu_type": "p100", 
+            "no_diverge": true, 
+            "slo": 5000000, 
+            "input_size": -1, 
+            "cloud": "gcp"
+        }
+    ]
+}

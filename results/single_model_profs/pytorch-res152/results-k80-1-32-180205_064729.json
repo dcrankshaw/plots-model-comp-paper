@@ -1,0 +1,2367 @@
+{
+    "client_metrics": [
+        {
+            "p99_lats": [
+                1.8600254200000002, 
+                1.9334668000000002, 
+                1.9431943999999999, 
+                1.95782143, 
+                1.9855553799999999, 
+                1.9645141300000002, 
+                2.0025331000000004, 
+                2.01050329, 
+                1.96511236, 
+                1.98302039, 
+                1.9734024499999998
+            ], 
+            "all_metrics": [
+                {
+                    "histograms": [
+                        {
+                            "app:res152:prediction_latency": {
+                                "p99": "178458822.599999999977", 
+                                "min": "134812", 
+                                "max": "178467308", 
+                                "p95": "168884937.5", 
+                                "std_dev": "52469747.1353436556965", 
+                                "mean": "19222347.4972497249801", 
+                                "p50": "1336913", 
+                                "unit": "microseconds", 
+                                "size": "909"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "51", 
+                                "min": "1", 
+                                "max": "178", 
+                                "p95": "26", 
+                                "std_dev": "10.6799690677098899107", 
+                                "mean": "6.85588558855885587748", 
+                                "p50": "4", 
+                                "unit": "microseconds", 
+                                "size": "909"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "res152:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "874"
+                            }
+                        }, 
+                        {
+                            "res152:1:queue_size": {
+                                "p99": "141714", 
+                                "min": "0", 
+                                "max": "141714", 
+                                "p95": "0", 
+                                "std_dev": "19105.4350527685067842", 
+                                "mean": "2624.33333333333333326", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "54"
+                            }
+                        }, 
+                        {
+                            "model:res152:1:prediction_latency": {
+                                "p99": "10314349", 
+                                "min": "74406", 
+                                "max": "10314349", 
+                                "p95": "1409270.25", 
+                                "std_dev": "1338085.57635128074173", 
+                                "mean": "957858.648148148148152", 
+                                "p50": "799499", 
+                                "unit": "microseconds", 
+                                "size": "54"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "328.25", 
+                                "min": "174", 
+                                "max": "966", 
+                                "p95": "262.25", 
+                                "std_dev": "41.4940200299298265971", 
+                                "mean": "211.581235697940503504", 
+                                "p50": "200", 
+                                "unit": "microseconds", 
+                                "size": "874"
+                            }
+                        }, 
+                        {
+                            "model:res152:1:batch_size": {
+                                "p99": "32", 
+                                "min": "1", 
+                                "max": "32", 
+                                "p95": "32", 
+                                "std_dev": "9.54860858585825194016", 
+                                "mean": "16.8333333333333333339", 
+                                "p50": "16", 
+                                "unit": "queries", 
+                                "size": "54"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "27.958057009154096", 
+                                "rate_1min": "18.385235176043217", 
+                                "rate_5min": "13.983583877935629", 
+                                "unit": "events per second", 
+                                "rate_15min": "13.198181901585285"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "26.881545148754597", 
+                                "rate_1min": "10.561594190913148", 
+                                "rate_5min": "2.5008424211191489", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.98074970298276243"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "27.957909966302875", 
+                                "rate_1min": "18.355827856136166", 
+                                "rate_5min": "13.982327190877283", 
+                                "unit": "events per second", 
+                                "rate_15min": "13.198040712478292"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "app:res152:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "model:res152:1:prediction_throughput": {
+                                "rate": "27.957678656409939", 
+                                "rate_1min": "18.728857197324185", 
+                                "rate_5min": "14.076613466016143", 
+                                "unit": "events per second", 
+                                "rate_15min": "13.230726299341965"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "27.957609866102118", 
+                                "rate_1min": "18.385235176043217", 
+                                "rate_5min": "13.983583877935629", 
+                                "unit": "events per second", 
+                                "rate_15min": "13.198181901585285"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res152:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res152:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "app:res152:num_predictions": {
+                                "count": "909"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "874"
+                            }
+                        }, 
+                        {
+                            "model:res152:1:num_predictions": {
+                                "count": "909"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:res152:prediction_latency": {
+                                "p99": "1931134.24000000003389", 
+                                "min": "1227715", 
+                                "max": "1957431", 
+                                "p95": "1880697.59999999996546", 
+                                "std_dev": "185378.601581278932613", 
+                                "mean": "1581930.27686472819266", 
+                                "p50": "1578098", 
+                                "unit": "microseconds", 
+                                "size": "791"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "40", 
+                                "min": "1", 
+                                "max": "57", 
+                                "p95": "26", 
+                                "std_dev": "8.35060870161372943189", 
+                                "mean": "7.04298356510745891985", 
+                                "p50": "4", 
+                                "unit": "microseconds", 
+                                "size": "791"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "res152:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "20", 
+                                "p95": "0", 
+                                "std_dev": "0.931540123030802812468", 
+                                "mean": "0.0467171717171717171719", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "792"
+                            }
+                        }, 
+                        {
+                            "res152:1:queue_size": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "28"
+                            }
+                        }, 
+                        {
+                            "model:res152:1:prediction_latency": {
+                                "p99": "1295600", 
+                                "min": "1140428", 
+                                "max": "1295600", 
+                                "p95": "1290973.54999999997108", 
+                                "std_dev": "42821.121167608636167", 
+                                "mean": "1231842.14285714285722", 
+                                "p50": "1245685.5", 
+                                "unit": "microseconds", 
+                                "size": "28"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "331.349999999999681677", 
+                                "min": "172", 
+                                "max": "577", 
+                                "p95": "263", 
+                                "std_dev": "30.8047414981108403191", 
+                                "mean": "210.611111111111111091", 
+                                "p50": "201", 
+                                "unit": "microseconds", 
+                                "size": "792"
+                            }
+                        }, 
+                        {
+                            "model:res152:1:batch_size": {
+                                "p99": "32", 
+                                "min": "24", 
+                                "max": "32", 
+                                "p95": "31.5499999999999971578", 
+                                "std_dev": "2.70746323019485213052", 
+                                "mean": "28.2499999999999999948", 
+                                "p50": "30", 
+                                "unit": "queries", 
+                                "size": "28"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "model:res152:1:prediction_throughput": {
+                                "rate": "44.554971315272887", 
+                                "rate_1min": "22.984380324534861", 
+                                "rate_5min": "18.007792618863967", 
+                                "unit": "events per second", 
+                                "rate_15min": "17.077118019059156"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "44.554946218631287", 
+                                "rate_1min": "19.158424310434604", 
+                                "rate_5min": "13.422433274148126", 
+                                "unit": "events per second", 
+                                "rate_15min": "12.349849590855404"
+                            }
+                        }, 
+                        {
+                            "app:res152:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "44.55425858165151", 
+                                "rate_1min": "19.158424310434604", 
+                                "rate_5min": "13.422433274148126", 
+                                "unit": "events per second", 
+                                "rate_15min": "12.349849590855404"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "44.610316214481216", 
+                                "rate_1min": "19.847671286693163", 
+                                "rate_5min": "14.354101636073553", 
+                                "unit": "events per second", 
+                                "rate_15min": "13.326703555567027"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "44.553673855954877", 
+                                "rate_1min": "19.158424310434604", 
+                                "rate_5min": "13.422433274148126", 
+                                "unit": "events per second", 
+                                "rate_15min": "12.349849590855404"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res152:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res152:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "792"
+                            }
+                        }, 
+                        {
+                            "model:res152:1:num_predictions": {
+                                "count": "791"
+                            }
+                        }, 
+                        {
+                            "app:res152:num_predictions": {
+                                "count": "791"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:res152:prediction_latency": {
+                                "p99": "1939768.87999999999192", 
+                                "min": "1256883", 
+                                "max": "1957788", 
+                                "p95": "1895607.79999999998017", 
+                                "std_dev": "186388.837832807702767", 
+                                "mean": "1594491.31578947368439", 
+                                "p50": "1593459.5", 
+                                "unit": "microseconds", 
+                                "size": "798"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "53.0099999999999909051", 
+                                "min": "1", 
+                                "max": "101", 
+                                "p95": "26", 
+                                "std_dev": "9.7352460444708206061", 
+                                "mean": "8.05639097744360904371", 
+                                "p50": "4", 
+                                "unit": "microseconds", 
+                                "size": "798"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "res152:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "43", 
+                                "p95": "0", 
+                                "std_dev": "1.7231938305836712556", 
+                                "mean": "0.0826032540675844806016", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "799"
+                            }
+                        }, 
+                        {
+                            "res152:1:queue_size": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "28"
+                            }
+                        }, 
+                        {
+                            "model:res152:1:prediction_latency": {
+                                "p99": "1298160", 
+                                "min": "1158320", 
+                                "max": "1298160", 
+                                "p95": "1294388.99999999997635", 
+                                "std_dev": "41128.1262305954794201", 
+                                "mean": "1241692.78571428571433", 
+                                "p50": "1256945", 
+                                "unit": "microseconds", 
+                                "size": "28"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "321", 
+                                "min": "171", 
+                                "max": "388", 
+                                "p95": "252", 
+                                "std_dev": "25.8266019097970597543", 
+                                "mean": "205.509386733416770959", 
+                                "p50": "197", 
+                                "unit": "microseconds", 
+                                "size": "799"
+                            }
+                        }, 
+                        {
+                            "model:res152:1:batch_size": {
+                                "p99": "32", 
+                                "min": "24", 
+                                "max": "32", 
+                                "p95": "32", 
+                                "std_dev": "2.80942291989959084869", 
+                                "mean": "28.4999999999999999948", 
+                                "p50": "30", 
+                                "unit": "queries", 
+                                "size": "28"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "44.696157590484404", 
+                                "rate_1min": "34.796803108343013", 
+                                "rate_5min": "33.383598943644408", 
+                                "unit": "events per second", 
+                                "rate_15min": "33.129283514589524"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "44.640125072903814", 
+                                "rate_1min": "31.020687477428119", 
+                                "rate_5min": "28.960413446770559", 
+                                "unit": "events per second", 
+                                "rate_15min": "28.588926857775036"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "44.639777969128403", 
+                                "rate_1min": "31.020687477428119", 
+                                "rate_5min": "28.960413446770559", 
+                                "unit": "events per second", 
+                                "rate_15min": "28.588926857775036"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "app:res152:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "44.639236098486016", 
+                                "rate_1min": "31.020687477428119", 
+                                "rate_5min": "28.960413446770559", 
+                                "unit": "events per second", 
+                                "rate_15min": "28.588926857775036"
+                            }
+                        }, 
+                        {
+                            "model:res152:1:prediction_throughput": {
+                                "rate": "44.63903383677922", 
+                                "rate_1min": "40.139862243141422", 
+                                "rate_5min": "39.71223019830974", 
+                                "unit": "events per second", 
+                                "rate_15min": "39.637654617596226"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res152:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res152:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "model:res152:1:num_predictions": {
+                                "count": "798"
+                            }
+                        }, 
+                        {
+                            "app:res152:num_predictions": {
+                                "count": "798"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "799"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:res152:prediction_latency": {
+                                "p99": "1954050.22999999998763", 
+                                "min": "1261598", 
+                                "max": "1976148", 
+                                "p95": "1911694.0499999998342", 
+                                "std_dev": "187399.026823057817694", 
+                                "mean": "1609931.32469135802478", 
+                                "p50": "1608089", 
+                                "unit": "microseconds", 
+                                "size": "810"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "55.8899999999999863576", 
+                                "min": "1", 
+                                "max": "83", 
+                                "p95": "28", 
+                                "std_dev": "11.2168481203870235852", 
+                                "mean": "9.88518518518518518861", 
+                                "p50": "4", 
+                                "unit": "microseconds", 
+                                "size": "810"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "res152:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "98", 
+                                "p95": "0", 
+                                "std_dev": "3.45234370116018509755", 
+                                "mean": "0.130864197530864197533", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "810"
+                            }
+                        }, 
+                        {
+                            "res152:1:queue_size": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "28"
+                            }
+                        }, 
+                        {
+                            "model:res152:1:prediction_latency": {
+                                "p99": "1299066", 
+                                "min": "1168213", 
+                                "max": "1299066", 
+                                "p95": "1298223.59999999999468", 
+                                "std_dev": "41100.6011486524640226", 
+                                "mean": "1254431.07142857142844", 
+                                "p50": "1273790", 
+                                "unit": "microseconds", 
+                                "size": "28"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "372.669999999999959073", 
+                                "min": "173", 
+                                "max": "931", 
+                                "p95": "268", 
+                                "std_dev": "45.3666843383838020026", 
+                                "mean": "211.798765432098765521", 
+                                "p50": "201", 
+                                "unit": "microseconds", 
+                                "size": "810"
+                            }
+                        }, 
+                        {
+                            "model:res152:1:batch_size": {
+                                "p99": "32", 
+                                "min": "25", 
+                                "max": "32", 
+                                "p95": "32", 
+                                "std_dev": "2.60396087622259777747", 
+                                "mean": "28.9285714285714285702", 
+                                "p50": "30.5", 
+                                "unit": "queries", 
+                                "size": "28"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "44.866266123537436", 
+                                "rate_1min": "14.630903298101456", 
+                                "rate_5min": "8.0595744869985975", 
+                                "unit": "events per second", 
+                                "rate_15min": "6.830264323726543"
+                            }
+                        }, 
+                        {
+                            "model:res152:1:prediction_throughput": {
+                                "rate": "44.866236301604133", 
+                                "rate_1min": "19.483028515434171", 
+                                "rate_5min": "13.960829556449136", 
+                                "unit": "events per second", 
+                                "rate_15min": "12.928932165751457"
+                            }
+                        }, 
+                        {
+                            "app:res152:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "44.865483310926443", 
+                                "rate_1min": "14.627374249349756", 
+                                "rate_5min": "8.0594132805836054", 
+                                "unit": "events per second", 
+                                "rate_15min": "6.8302460097833411"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "44.865286990778301", 
+                                "rate_1min": "14.630903298101456", 
+                                "rate_5min": "8.0595744869985975", 
+                                "unit": "events per second", 
+                                "rate_15min": "6.830264323726543"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "44.865008666424174", 
+                                "rate_1min": "15.688841830203588", 
+                                "rate_5min": "9.2273252329089726", 
+                                "unit": "events per second", 
+                                "rate_15min": "8.0192756574705299"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res152:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res152:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "app:res152:num_predictions": {
+                                "count": "810"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "810"
+                            }
+                        }, 
+                        {
+                            "model:res152:1:num_predictions": {
+                                "count": "810"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:res152:prediction_latency": {
+                                "p99": "1982358.34999999996148", 
+                                "min": "1281070", 
+                                "max": "2005842", 
+                                "p95": "1937190.75", 
+                                "std_dev": "189969.861031348991276", 
+                                "mean": "1636913.64231738035357", 
+                                "p50": "1637318.5", 
+                                "unit": "microseconds", 
+                                "size": "794"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "60.1499999999998635758", 
+                                "min": "1", 
+                                "max": "88", 
+                                "p95": "29.25", 
+                                "std_dev": "11.4789490494088537338", 
+                                "mean": "9.48992443324937028776", 
+                                "p50": "4", 
+                                "unit": "microseconds", 
+                                "size": "794"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "res152:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "56", 
+                                "p95": "0", 
+                                "std_dev": "2.47633985763162093718", 
+                                "mean": "0.171934260429835651066", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "791"
+                            }
+                        }, 
+                        {
+                            "res152:1:queue_size": {
+                                "p99": "1", 
+                                "min": "0", 
+                                "max": "1", 
+                                "p95": "0.599999999999997868372", 
+                                "std_dev": "0.188852574577510549253", 
+                                "mean": "0.0370370370370370370377", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "27"
+                            }
+                        }, 
+                        {
+                            "model:res152:1:prediction_latency": {
+                                "p99": "1321204", 
+                                "min": "1187269", 
+                                "max": "1321204", 
+                                "p95": "1319701.19999999999209", 
+                                "std_dev": "36511.7306108636043191", 
+                                "mean": "1278700.85185185185208", 
+                                "p50": "1293213", 
+                                "unit": "microseconds", 
+                                "size": "27"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "361.080000000000040927", 
+                                "min": "173", 
+                                "max": "497", 
+                                "p95": "266.399999999999977263", 
+                                "std_dev": "32.482185544467429214", 
+                                "mean": "210.61061946902654847", 
+                                "p50": "200", 
+                                "unit": "microseconds", 
+                                "size": "791"
+                            }
+                        }, 
+                        {
+                            "model:res152:1:batch_size": {
+                                "p99": "32", 
+                                "min": "26", 
+                                "max": "32", 
+                                "p95": "32", 
+                                "std_dev": "2.04140944881787693064", 
+                                "mean": "29.4074074074074074091", 
+                                "p50": "30", 
+                                "unit": "queries", 
+                                "size": "27"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "45.018639360953046", 
+                                "rate_1min": "26.949672920000978", 
+                                "rate_5min": "24.469556490115636", 
+                                "unit": "events per second", 
+                                "rate_15min": "24.025497999599544"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "44.84851323209741", 
+                                "rate_1min": "27.869086923061321", 
+                                "rate_5min": "25.455623351792131", 
+                                "unit": "events per second", 
+                                "rate_15min": "25.02098607546473"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "45.018315196924512", 
+                                "rate_1min": "26.949672920000978", 
+                                "rate_5min": "24.469556490115636", 
+                                "unit": "events per second", 
+                                "rate_15min": "24.025497999599544"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "app:res152:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "model:res152:1:prediction_throughput": {
+                                "rate": "45.017620940065441", 
+                                "rate_1min": "31.651613205596615", 
+                                "rate_5min": "29.884327495782244", 
+                                "unit": "events per second", 
+                                "rate_15min": "29.563436019940735"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "45.017411646242515", 
+                                "rate_1min": "26.949672920000978", 
+                                "rate_5min": "24.469556490115636", 
+                                "unit": "events per second", 
+                                "rate_15min": "24.025497999599544"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res152:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res152:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "791"
+                            }
+                        }, 
+                        {
+                            "model:res152:1:num_predictions": {
+                                "count": "794"
+                            }
+                        }, 
+                        {
+                            "app:res152:num_predictions": {
+                                "count": "794"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:res152:prediction_latency": {
+                                "p99": "1962035.69999999998629", 
+                                "min": "1251504", 
+                                "max": "1984967", 
+                                "p95": "1915614", 
+                                "std_dev": "188774.775314440496985", 
+                                "mean": "1612688.05933250927092", 
+                                "p50": "1612817", 
+                                "unit": "microseconds", 
+                                "size": "809"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "43.5999999999999090505", 
+                                "min": "1", 
+                                "max": "81", 
+                                "p95": "29", 
+                                "std_dev": "10.5699670217858737566", 
+                                "mean": "9.66996291718170579692", 
+                                "p50": "4", 
+                                "unit": "microseconds", 
+                                "size": "809"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "res152:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "49", 
+                                "p95": "0", 
+                                "std_dev": "1.72274693776175187349", 
+                                "mean": "0.0606435643564356435655", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "808"
+                            }
+                        }, 
+                        {
+                            "res152:1:queue_size": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "28"
+                            }
+                        }, 
+                        {
+                            "model:res152:1:prediction_latency": {
+                                "p99": "1308241", 
+                                "min": "1164955", 
+                                "max": "1308241", 
+                                "p95": "1305384.3999999999819", 
+                                "std_dev": "42220.1900067868438455", 
+                                "mean": "1255501.92857142857144", 
+                                "p50": "1272648.5", 
+                                "unit": "microseconds", 
+                                "size": "28"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "322.009999999999649845", 
+                                "min": "173", 
+                                "max": "416", 
+                                "p95": "261.099999999999909051", 
+                                "std_dev": "26.5595618830371616812", 
+                                "mean": "206.074257425742574157", 
+                                "p50": "197", 
+                                "unit": "microseconds", 
+                                "size": "808"
+                            }
+                        }, 
+                        {
+                            "model:res152:1:batch_size": {
+                                "p99": "32", 
+                                "min": "25", 
+                                "max": "32", 
+                                "p95": "32", 
+                                "std_dev": "2.67714247598716603639", 
+                                "mean": "28.8928571428571428579", 
+                                "p50": "30", 
+                                "unit": "queries", 
+                                "size": "28"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "model:res152:1:prediction_throughput": {
+                                "rate": "44.773147357448998", 
+                                "rate_1min": "14.778241582857468", 
+                                "rate_5min": "8.2468415909734993", 
+                                "unit": "events per second", 
+                                "rate_15min": "7.0258873820237095"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "44.773107710814649", 
+                                "rate_1min": "9.8315427235712569", 
+                                "rate_5min": "2.1632936356935888", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.73289385820767905"
+                            }
+                        }, 
+                        {
+                            "app:res152:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "44.772436206611346", 
+                                "rate_1min": "9.8315427235712569", 
+                                "rate_5min": "2.1632936356935888", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.73289385820767905"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "44.716858166980721", 
+                                "rate_1min": "10.672534584398328", 
+                                "rate_5min": "3.1328454976330491", 
+                                "unit": "events per second", 
+                                "rate_15min": "1.7228422922141362"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "44.772002589138893", 
+                                "rate_1min": "9.8315427235712569", 
+                                "rate_5min": "2.1632936356935888", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.73289385820767905"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res152:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res152:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "model:res152:1:num_predictions": {
+                                "count": "809"
+                            }
+                        }, 
+                        {
+                            "app:res152:num_predictions": {
+                                "count": "809"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "808"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:res152:prediction_latency": {
+                                "p99": "1999128.21999999994068", 
+                                "min": "1304824", 
+                                "max": "2020236", 
+                                "p95": "1953561.8499999999068", 
+                                "std_dev": "191347.217117096911537", 
+                                "mean": "1651498.16582914572814", 
+                                "p50": "1650320.5", 
+                                "unit": "microseconds", 
+                                "size": "796"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "43.0299999999999727152", 
+                                "min": "1", 
+                                "max": "96", 
+                                "p95": "23", 
+                                "std_dev": "8.36517282840465697859", 
+                                "mean": "6.50376884422110552314", 
+                                "p50": "4", 
+                                "unit": "microseconds", 
+                                "size": "796"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "res152:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "799"
+                            }
+                        }, 
+                        {
+                            "res152:1:queue_size": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "26"
+                            }
+                        }, 
+                        {
+                            "model:res152:1:prediction_latency": {
+                                "p99": "1334546", 
+                                "min": "1200450", 
+                                "max": "1334546", 
+                                "p95": "1331771.5999999999849", 
+                                "std_dev": "42251.2234484592454535", 
+                                "mean": "1284380.18518518518522", 
+                                "p50": "1300790", 
+                                "unit": "microseconds", 
+                                "size": "27"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "325.990000000000009095", 
+                                "min": "177", 
+                                "max": "467", 
+                                "p95": "259", 
+                                "std_dev": "28.5019832369170408887", 
+                                "mean": "210.678749999999999951", 
+                                "p50": "201", 
+                                "unit": "microseconds", 
+                                "size": "800"
+                            }
+                        }, 
+                        {
+                            "model:res152:1:batch_size": {
+                                "p99": "32", 
+                                "min": "26", 
+                                "max": "32", 
+                                "p95": "32", 
+                                "std_dev": "2.21542169314639709153", 
+                                "mean": "29.5925925925925925961", 
+                                "p50": "31", 
+                                "unit": "queries", 
+                                "size": "27"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "44.681737964143437", 
+                                "rate_1min": "24.226123138551063", 
+                                "rate_5min": "19.684345857984891", 
+                                "unit": "events per second", 
+                                "rate_15min": "18.835257832014836"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "44.513954313807609", 
+                                "rate_1min": "23.276492425437336", 
+                                "rate_5min": "18.85176967558483", 
+                                "unit": "events per second", 
+                                "rate_15min": "18.024232367826961"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "44.681445618682282", 
+                                "rate_1min": "23.276492425437336", 
+                                "rate_5min": "18.85176967558483", 
+                                "unit": "events per second", 
+                                "rate_15min": "18.024232367826961"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "app:res152:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "44.513137834539855", 
+                                "rate_1min": "23.276492425437336", 
+                                "rate_5min": "18.85176967558483", 
+                                "unit": "events per second", 
+                                "rate_15min": "18.024232367826961"
+                            }
+                        }, 
+                        {
+                            "model:res152:1:prediction_throughput": {
+                                "rate": "44.680718519637765", 
+                                "rate_1min": "27.539690456229987", 
+                                "rate_5min": "24.001359115088711", 
+                                "unit": "events per second", 
+                                "rate_15min": "23.339379680784738"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res152:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res152:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "app:res152:num_predictions": {
+                                "count": "796"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "800"
+                            }
+                        }, 
+                        {
+                            "model:res152:1:num_predictions": {
+                                "count": "799"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:res152:prediction_latency": {
+                                "p99": "2001015.84999999997376", 
+                                "min": "1285352", 
+                                "max": "2041454", 
+                                "p95": "1957258.94999999998458", 
+                                "std_dev": "192473.110151112746834", 
+                                "mean": "1646815.36716791979916", 
+                                "p50": "1643190.5", 
+                                "unit": "microseconds", 
+                                "size": "798"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "49", 
+                                "min": "1", 
+                                "max": "75", 
+                                "p95": "24", 
+                                "std_dev": "8.40382429162344956209", 
+                                "mean": "6.16917293233082707823", 
+                                "p50": "4", 
+                                "unit": "microseconds", 
+                                "size": "798"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "res152:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "795"
+                            }
+                        }, 
+                        {
+                            "res152:1:queue_size": {
+                                "p99": "1", 
+                                "min": "0", 
+                                "max": "1", 
+                                "p95": "1", 
+                                "std_dev": "0.25753937681885637808", 
+                                "mean": "0.0714285714285714285705", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "28"
+                            }
+                        }, 
+                        {
+                            "model:res152:1:prediction_latency": {
+                                "p99": "1348186", 
+                                "min": "1202417", 
+                                "max": "1348186", 
+                                "p95": "1345352.79999999998472", 
+                                "std_dev": "41558.6720753522954332", 
+                                "mean": "1284972.99999999999989", 
+                                "p50": "1291617", 
+                                "unit": "microseconds", 
+                                "size": "27"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "327.249999999999772626", 
+                                "min": "175", 
+                                "max": "436", 
+                                "p95": "256.5", 
+                                "std_dev": "25.795126388285762634", 
+                                "mean": "209.658690176322417956", 
+                                "p50": "201", 
+                                "unit": "microseconds", 
+                                "size": "794"
+                            }
+                        }, 
+                        {
+                            "model:res152:1:batch_size": {
+                                "p99": "32", 
+                                "min": "26", 
+                                "max": "32", 
+                                "p95": "32", 
+                                "std_dev": "2.28251539824157079943", 
+                                "mean": "29.4444444444444444475", 
+                                "p50": "31", 
+                                "unit": "queries", 
+                                "size": "27"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "44.950721504143523", 
+                                "rate_1min": "37.184852045806238", 
+                                "rate_5min": "36.092568964942586", 
+                                "unit": "events per second", 
+                                "rate_15min": "35.898430545808068"
+                            }
+                        }, 
+                        {
+                            "model:res152:1:prediction_throughput": {
+                                "rate": "44.781721216717678", 
+                                "rate_1min": "41.963977711314371", 
+                                "rate_5min": "41.681112850994793", 
+                                "unit": "events per second", 
+                                "rate_15min": "41.627528877584396"
+                            }
+                        }, 
+                        {
+                            "app:res152:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "44.780931682210621", 
+                                "rate_1min": "36.676963010871873", 
+                                "rate_5min": "35.512239304653384", 
+                                "unit": "events per second", 
+                                "rate_15min": "35.305060312231717"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "44.949688455849774", 
+                                "rate_1min": "37.184852045806238", 
+                                "rate_5min": "36.092568964942586", 
+                                "unit": "events per second", 
+                                "rate_15min": "35.898430545808068"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "44.780467559902753", 
+                                "rate_1min": "38.690619042839835", 
+                                "rate_5min": "37.832793005861632", 
+                                "unit": "events per second", 
+                                "rate_15min": "37.678455305341565"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res152:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res152:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "794"
+                            }
+                        }, 
+                        {
+                            "model:res152:1:num_predictions": {
+                                "count": "795"
+                            }
+                        }, 
+                        {
+                            "app:res152:num_predictions": {
+                                "count": "798"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:res152:prediction_latency": {
+                                "p99": "1959135.90000000000623", 
+                                "min": "1274088", 
+                                "max": "1986606", 
+                                "p95": "1923425.14999999974634", 
+                                "std_dev": "188706.152516840082654", 
+                                "mean": "1619050.4187192118236", 
+                                "p50": "1616762", 
+                                "unit": "microseconds", 
+                                "size": "812"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "51.4800000000000181899", 
+                                "min": "1", 
+                                "max": "90", 
+                                "p95": "23", 
+                                "std_dev": "8.55870183651445431711", 
+                                "mean": "6.09852216748768472801", 
+                                "p50": "4", 
+                                "unit": "microseconds", 
+                                "size": "812"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "res152:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "6", 
+                                "p95": "0", 
+                                "std_dev": "0.210558561836118969079", 
+                                "mean": "0.00739827373612823674488", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "811"
+                            }
+                        }, 
+                        {
+                            "res152:1:queue_size": {
+                                "p99": "1", 
+                                "min": "0", 
+                                "max": "1", 
+                                "p95": "0.549999999999997157829", 
+                                "std_dev": "0.185576872239522567163", 
+                                "mean": "0.0357142857142857142852", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "28"
+                            }
+                        }, 
+                        {
+                            "model:res152:1:prediction_latency": {
+                                "p99": "1317249", 
+                                "min": "1183273", 
+                                "max": "1317249", 
+                                "p95": "1311161.84999999996126", 
+                                "std_dev": "40082.6775836583826909", 
+                                "mean": "1259580.71428571428589", 
+                                "p50": "1276510.5", 
+                                "unit": "microseconds", 
+                                "size": "28"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "301.399999999999977263", 
+                                "min": "175", 
+                                "max": "473", 
+                                "p95": "258", 
+                                "std_dev": "24.8837993025936174626", 
+                                "mean": "210.889025893958076463", 
+                                "p50": "203", 
+                                "unit": "microseconds", 
+                                "size": "811"
+                            }
+                        }, 
+                        {
+                            "model:res152:1:batch_size": {
+                                "p99": "32", 
+                                "min": "25", 
+                                "max": "32", 
+                                "p95": "32", 
+                                "std_dev": "2.44948974278317809818", 
+                                "mean": "28.9999999999999999983", 
+                                "p50": "30.5", 
+                                "unit": "queries", 
+                                "size": "28"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "44.81664088238005", 
+                                "rate_1min": "18.96531201748105", 
+                                "rate_5min": "13.217552227923104", 
+                                "unit": "events per second", 
+                                "rate_15min": "12.147829286893952"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "44.76146032746513", 
+                                "rate_1min": "19.8636624037673", 
+                                "rate_5min": "14.357407345309229", 
+                                "unit": "events per second", 
+                                "rate_15min": "13.327811585966048"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "44.816230275063475", 
+                                "rate_1min": "18.96531201748105", 
+                                "rate_5min": "13.217552227923104", 
+                                "unit": "events per second", 
+                                "rate_15min": "12.147829286893952"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "app:res152:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "model:res152:1:prediction_throughput": {
+                                "rate": "44.815453604691271", 
+                                "rate_1min": "23.715199866279484", 
+                                "rate_5min": "19.098700752216899", 
+                                "unit": "events per second", 
+                                "rate_15min": "18.239818287249701"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "44.814978711229386", 
+                                "rate_1min": "18.96531201748105", 
+                                "rate_5min": "13.217552227923104", 
+                                "unit": "events per second", 
+                                "rate_15min": "12.147829286893952"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res152:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res152:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "model:res152:1:num_predictions": {
+                                "count": "812"
+                            }
+                        }, 
+                        {
+                            "app:res152:num_predictions": {
+                                "count": "812"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "811"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:res152:prediction_latency": {
+                                "p99": "1979275.17000000001633", 
+                                "min": "1266261", 
+                                "max": "2001722", 
+                                "p95": "1931363.09999999995921", 
+                                "std_dev": "189995.053323797064522", 
+                                "mean": "1630503.24683544303787", 
+                                "p50": "1630401.5", 
+                                "unit": "microseconds", 
+                                "size": "790"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "48.0900000000000318323", 
+                                "min": "1", 
+                                "max": "68", 
+                                "p95": "24", 
+                                "std_dev": "8.19744763525422823983", 
+                                "mean": "6.15696202531645568785", 
+                                "p50": "4", 
+                                "unit": "microseconds", 
+                                "size": "790"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "res152:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "27", 
+                                "p95": "0", 
+                                "std_dev": "0.959402456912744102085", 
+                                "mean": "0.034134007585335018962", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "791"
+                            }
+                        }, 
+                        {
+                            "res152:1:queue_size": {
+                                "p99": "1", 
+                                "min": "0", 
+                                "max": "1", 
+                                "p95": "0.599999999999997868372", 
+                                "std_dev": "0.188852574577510549253", 
+                                "mean": "0.0370370370370370370377", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "27"
+                            }
+                        }, 
+                        {
+                            "model:res152:1:prediction_latency": {
+                                "p99": "1313162", 
+                                "min": "1169783", 
+                                "max": "1313162", 
+                                "p95": "1312605.59999999999707", 
+                                "std_dev": "42548.747505160331297", 
+                                "mean": "1269719.03703703703729", 
+                                "p50": "1288520", 
+                                "unit": "microseconds", 
+                                "size": "27"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "300.480000000000245564", 
+                                "min": "169", 
+                                "max": "1025", 
+                                "p95": "253.399999999999977263", 
+                                "std_dev": "37.0987449966598666316", 
+                                "mean": "208.437420986093552414", 
+                                "p50": "199", 
+                                "unit": "microseconds", 
+                                "size": "791"
+                            }
+                        }, 
+                        {
+                            "model:res152:1:batch_size": {
+                                "p99": "32", 
+                                "min": "26", 
+                                "max": "32", 
+                                "p95": "32", 
+                                "std_dev": "2.3819163245649669408", 
+                                "mean": "29.2592592592592592639", 
+                                "p50": "31", 
+                                "unit": "queries", 
+                                "size": "27"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "model:res152:1:prediction_throughput": {
+                                "rate": "44.629972054293326", 
+                                "rate_1min": "36.491462501614222", 
+                                "rate_5min": "35.472843986664031", 
+                                "unit": "events per second", 
+                                "rate_15min": "35.291794640727602"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "44.629959447750011", 
+                                "rate_1min": "31.153935047684961", 
+                                "rate_5min": "29.29918948975758", 
+                                "unit": "events per second", 
+                                "rate_15min": "28.968052301241592"
+                            }
+                        }, 
+                        {
+                            "app:res152:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "44.628933299008601", 
+                                "rate_1min": "31.153935047684961", 
+                                "rate_5min": "29.29918948975758", 
+                                "unit": "events per second", 
+                                "rate_15min": "28.968052301241592"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "44.685140366137951", 
+                                "rate_1min": "31.918765243714923", 
+                                "rate_5min": "30.095064202005588", 
+                                "unit": "events per second", 
+                                "rate_15min": "29.766852190990189"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "44.628184517545037", 
+                                "rate_1min": "31.153935047684961", 
+                                "rate_5min": "29.29918948975758", 
+                                "unit": "events per second", 
+                                "rate_15min": "28.968052301241592"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res152:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res152:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "app:res152:num_predictions": {
+                                "count": "790"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "791"
+                            }
+                        }, 
+                        {
+                            "model:res152:1:num_predictions": {
+                                "count": "790"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:res152:prediction_latency": {
+                                "p99": "1969791.70000000000414", 
+                                "min": "1270795", 
+                                "max": "2002808", 
+                                "p95": "1927222.5", 
+                                "std_dev": "189313.374278426754344", 
+                                "mean": "1621682.82309582309642", 
+                                "p50": "1620941", 
+                                "unit": "microseconds", 
+                                "size": "814"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "41.7000000000000454747", 
+                                "min": "1", 
+                                "max": "110", 
+                                "p95": "22", 
+                                "std_dev": "8.41760722630296978966", 
+                                "mean": "6.250614250614250628", 
+                                "p50": "4", 
+                                "unit": "microseconds", 
+                                "size": "814"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "res152:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "11", 
+                                "p95": "0", 
+                                "std_dev": "0.385549508822939923403", 
+                                "mean": "0.0135301353013530135297", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "813"
+                            }
+                        }, 
+                        {
+                            "res152:1:queue_size": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "28"
+                            }
+                        }, 
+                        {
+                            "model:res152:1:prediction_latency": {
+                                "p99": "1327880", 
+                                "min": "1175172", 
+                                "max": "1327880", 
+                                "p95": "1322112.7999999999638", 
+                                "std_dev": "42587.2076430277023036", 
+                                "mean": "1262427.75", 
+                                "p50": "1280576", 
+                                "unit": "microseconds", 
+                                "size": "28"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "332.040000000000190994", 
+                                "min": "173", 
+                                "max": "651", 
+                                "p95": "260.299999999999954525", 
+                                "std_dev": "32.3908307785190014462", 
+                                "mean": "210.161131611316113546", 
+                                "p50": "200", 
+                                "unit": "microseconds", 
+                                "size": "813"
+                            }
+                        }, 
+                        {
+                            "model:res152:1:batch_size": {
+                                "p99": "32", 
+                                "min": "25", 
+                                "max": "32", 
+                                "p95": "32", 
+                                "std_dev": "2.46299137850952391381", 
+                                "mean": "29.0714285714285714298", 
+                                "p50": "30", 
+                                "unit": "queries", 
+                                "size": "28"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "44.743431094703354", 
+                                "rate_1min": "14.226769460215205", 
+                                "rate_5min": "7.5020524444721524", 
+                                "unit": "events per second", 
+                                "rate_15min": "6.24461330095692"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "44.798478392714252", 
+                                "rate_1min": "10.24637396928628", 
+                                "rate_5min": "2.259594355363439", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.76581037362110504"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "44.797926131191659", 
+                                "rate_1min": "10.294347320508686", 
+                                "rate_5min": "2.2695114830704686", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.76913446481816705"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "app:res152:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "44.797282665075095", 
+                                "rate_1min": "10.24637396928628", 
+                                "rate_5min": "2.259594355363439", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.76581037362110504"
+                            }
+                        }, 
+                        {
+                            "model:res152:1:prediction_throughput": {
+                                "rate": "44.797045992532766", 
+                                "rate_1min": "18.898892620474218", 
+                                "rate_5min": "13.204221016940977", 
+                                "unit": "events per second", 
+                                "rate_15min": "12.143384921993308"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res152:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res152:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "813"
+                            }
+                        }, 
+                        {
+                            "model:res152:1:num_predictions": {
+                                "count": "814"
+                            }
+                        }, 
+                        {
+                            "app:res152:num_predictions": {
+                                "count": "814"
+                            }
+                        }
+                    ]
+                }
+            ], 
+            "thrus": [
+                36.701840487194914, 
+                45.07901929466549, 
+                44.76696556077339, 
+                44.32898713473053, 
+                45.37137148128, 
+                44.291844276962216, 
+                44.75099622709945, 
+                45.07588497062377, 
+                44.168399310155856, 
+                45.209149676361825, 
+                44.045359232298196
+            ], 
+            "mean_queue_sizes": [
+                {
+                    "res152": 2624.33
+                }, 
+                {
+                    "res152": 0.0
+                }, 
+                {
+                    "res152": 0.0
+                }, 
+                {
+                    "res152": 0.0
+                }, 
+                {
+                    "res152": 0.04
+                }, 
+                {
+                    "res152": 0.0
+                }, 
+                {
+                    "res152": 0.0
+                }, 
+                {
+                    "res152": 0.07
+                }, 
+                {
+                    "res152": 0.04
+                }, 
+                {
+                    "res152": 0.04
+                }, 
+                {
+                    "res152": 0.0
+                }
+            ], 
+            "all_lats": [
+                "[0.158133, 0.137663, 0.215305, 0.193011, 0.392551, 0.371096, 0.326473, 0.348877, 0.351624, 0.284713, 0.307231, 0.329676, 0.433762, 0.366861, 0.411663, 0.344491, 0.45653, 0.389437, 0.401369, 0.437787, 0.348242, 0.415764, 0.370853, 0.393464, 0.466641, 0.534154, 0.399722, 0.377322, 0.557079, 0.512378, 0.44516, 0.422756, 0.490122, 0.522773, 0.478327, 0.500931, 0.568326, 0.545941, 0.591056, 0.615081, 0.525756, 0.548389, 0.59349, 0.504018, 0.571294, 0.481566, 0.414426, 0.459244, 0.43688, 0.596872, 0.463092, 0.530329, 0.485656, 0.575127, 0.508108, 0.552866, 0.518802, 0.636053, 0.591099, 0.6141, 0.569122, 0.546903, 0.502315, 0.457293, 0.525003, 0.480301, 0.660024, 0.673488, 0.651382, 0.629098, 0.562435, 0.517772, 0.540291, 0.495507, 0.607741, 0.585395, 0.756748, 0.824426, 0.779747, 0.712681, 0.690455, 0.802892, 0.73574, 0.623996, 0.646611, 0.669137, 0.601824, 0.653698, 0.564388, 0.743647, 0.633561, 0.611331, 0.544408, 0.701185, 0.723712, 0.589595, 0.679118, 0.864035, 0.729939, 0.707674, 0.797496, 0.775318, 0.641157, 0.753246, 0.842871, 0.82069, 0.686446, 0.597101, 0.619687, 0.664527, 0.6534, 0.631142, 0.668999, 0.713988, 0.647022, 0.759146, 0.736978, 0.625158, 0.580409, 0.692401, 0.602909, 0.8657, 0.843658, 0.731905, 0.687308, 0.597874, 0.911468, 0.889229, 0.643245, 0.710521, 0.777783, 0.665955, 0.8227, 0.621291, 0.755589, 0.800441, 0.654584, 0.720975, 0.698877, 0.788472, 0.676859, 0.744119, 0.766572, 0.65493, 0.632596, 0.610238, 0.950475, 0.928402, 0.861479, 0.794391, 0.705022, 0.839584, 0.772433, 0.906932, 0.884654, 0.66069, 0.683262, 0.750759, 0.728463, 0.817985, 0.638915, 0.616601, 0.883899, 0.906649, 0.929189, 0.862117, 0.951815, 0.751313, 0.773917, 0.796485, 0.729414, 0.818951, 0.841467, 0.681359, 0.771239, 0.905895, 0.659508, 0.749336, 0.861663, 0.884248, 0.951621, 0.929356, 0.817265, 0.63815, 0.974679, 0.728203, 0.840305, 0.795478, 0.705863, 0.972817, 0.950758, 0.839047, 0.884043, 0.928954, 0.861881, 0.817035, 0.906728, 0.749932, 0.794758, 0.727654, 0.772436, 0.784539, 0.762181, 0.957058, 0.912585, 0.935174, 0.890454, 0.800826, 0.756421, 1.003277, 0.980892, 0.84628, 0.71198, 0.868827, 0.779192, 0.824005, 0.734517, 1.070025, 1.047767, 1.11507, 1.003236, 1.025764, 1.093222, 0.958939, 0.936649, 0.981692, 0.825138, 0.802881, 0.847888, 0.915047, 0.78081, 0.870376, 0.892786, 0.837648, 1.007336, 1.052549, 0.918132, 0.985395, 0.87362, 1.030537, 1.075528, 0.896364, 0.963643, 0.941496, 0.807378, 0.852277, 0.829965, 0.785085, 1.242484, 1.220334, 1.108594, 1.153474, 1.086538, 1.198579, 1.131575, 1.064485, 0.97483, 0.883792, 0.930237, 0.952862, 1.177368, 0.861791, 0.908221, 1.020689, 1.04314, 0.839632, 0.998383, 1.245628, 1.112214, 1.202045, 1.000596, 1.224896, 1.090626, 1.046129, 1.135732, 1.068704, 1.180824, 1.158491, 0.956892, 0.979377, 1.024538, 0.934845, 1.250259, 1.20578, 1.228253, 1.183489, 1.362828, 1.09434, 1.049714, 1.161868, 1.139705, 1.005509, 1.117525, 1.29674, 1.274653, 1.028461, 1.07339, 1.342085, 1.319782, 0.961591, 0.939221, 0.984104, 0.894514, 0.916954, 1.296723, 1.34184, 1.274619, 1.319631, 1.162867, 1.073433, 1.140785, 1.20801, 1.051587, 1.118784, 1.029256, 1.253284, 1.186275, 1.096908, 1.231198, 1.086808, 1.064532, 1.042811, 1.371909, 1.439528, 1.34997, 1.394886, 1.417365, 1.327924, 1.283481, 1.261298, 1.306293, 1.1498, 1.015508, 1.060377, 1.127658, 1.195147, 0.993371, 1.239972, 1.217642, 1.105599, 1.038462, 1.172976, 1.083308, 1.515274, 1.493101, 1.403488, 1.381232, 1.359057, 1.314249, 1.269568, 1.337118, 1.449455, 1.292347, 1.247681, 1.42742, 1.472349, 1.225481, 1.203172, 1.091301, 1.18087, 1.136129, 1.158538, 1.069121, 1.113878, 1.126142, 1.544259, 1.499563, 1.410201, 1.522396, 1.477661, 1.164472, 1.299021, 1.25446, 1.142675, 1.34441, 1.322096, 1.210077, 1.277394, 1.45685, 1.434519, 1.232933, 1.38984, 1.367692, 1.121553, 1.188783, 1.076384, 1.099282, 1.57176, 1.594664, 1.617314, 1.550186, 1.639963, 1.460684, 1.326287, 1.191948, 1.304129, 1.506046, 1.484005, 1.349692, 1.148156, 1.529257, 1.394827, 1.372561, 1.171019, 1.440037, 1.417641, 1.283117, 1.260753, 1.216061, 1.238468, 1.126495, 1.70986, 1.732498, 1.755037, 1.688297, 1.554207, 1.576784, 1.666483, 1.532382, 1.442815, 1.42044, 1.398252, 1.30877, 1.600107, 1.28659, 1.376293, 1.645204, 1.623026, 1.488866, 1.511556, 1.466798, 1.354835, 1.265273, 1.332511, 1.675297, 1.742842, 1.720639, 1.653673, 1.609075, 1.698608, 1.631545, 1.521431, 1.432043, 1.499317, 1.477107, 1.298087, 1.275955, 1.455121, 1.163956, 1.589744, 1.254051, 1.366006, 1.343829, 1.20956, 1.232165, 1.568235, 1.546004, 1.411741, 1.322249, 1.187735, 1.389429, 1.73008, 1.551296, 1.640943, 1.708493, 1.462492, 1.529721, 1.619467, 1.440704, 1.39578, 1.597533, 1.575244, 1.373649, 1.687323, 1.665042, 1.306925, 1.777686, 1.755414, 1.509183, 1.48686, 1.329946, 1.419639, 1.352405, 1.285333, 1.240401, 1.263039, 1.250289, 1.228091, 1.273093, 1.295578, 1.562931, 1.652974, 1.608285, 1.541071, 1.630785, 1.586004, 1.429611, 1.407447, 1.519522, 1.273018, 1.385347, 1.250856, 1.475245, 1.34101, 1.318724, 1.363758, 1.498278, 1.229331, 1.296716, 1.184649, 1.207124, 1.453868, 1.796519, 1.662428, 1.774562, 1.819409, 1.50628, 1.641095, 1.461951, 1.484406, 1.618924, 1.439837, 1.350271, 1.372754, 1.305741, 1.328297, 1.709508, 1.687169, 1.552785, 1.239162, 1.418319, 1.39592, 1.284067, 1.754591, 1.73231, 1.597965, 1.575572, 1.21721, 1.530948, 1.262098, 1.194972, 1.25023, 1.578455, 1.556306, 1.623663, 1.422439, 1.601712, 1.400504, 1.490213, 1.266274, 1.356105, 1.669714, 1.244234, 1.22195, 1.334165, 1.647756, 1.513609, 1.536146, 1.469102, 1.446949, 1.312628, 1.2007, 1.379915, 1.290356, 1.615237, 1.593185, 1.458947, 1.436712, 1.840844, 1.661112, 1.303024, 1.25825, 1.41505, 1.728992, 1.706755, 1.684441, 1.550251, 1.527974, 1.393693, 1.281921, 1.775214, 1.752849, 1.640435, 1.506142, 1.483899, 1.34972, 1.327476, 1.238037, 1.821239, 1.798913, 1.574429, 1.372861, 1.193716, 1.216183, 1.835121, 1.700951, 1.813149, 1.768501, 1.791114, 1.724018, 1.746529, 1.679545, 1.545292, 1.567797, 1.523068, 1.433595, 1.657722, 1.635467, 1.411707, 1.591199, 1.389911, 1.613896, 1.479831, 1.457565, 1.502522, 1.368325, 1.345924, 1.736878, 1.71476, 1.826831, 1.692512, 1.603009, 1.872119, 1.849832, 1.805153, 1.782824, 1.762898, 1.673153, 1.583818, 1.628663, 1.651188, 1.561519, 1.539368, 1.360389, 1.315678, 1.405491, 1.338353, 1.450529, 1.293723, 1.495459, 1.271558, 1.51798, 1.383677, 1.428646, 1.473468, 1.249621, 1.885937, 1.706872, 1.796759, 1.864233, 1.685046, 1.774832, 1.595583, 1.550791, 1.416439, 1.573421, 1.842612, 1.820347, 1.461759, 1.529098, 1.753534, 1.731227, 1.619101, 1.395078, 1.6645, 1.642136, 1.507734, 1.48549, 1.351139, 1.440804, 1.373589, 1.328857, 1.306503, 1.361886, 1.339665, 1.31744, 1.712458, 1.690259, 1.57853, 1.780117, 1.55647, 1.444623, 1.534342, 1.42262, 1.400344, 1.512385, 1.31108, 1.266419, 1.378627, 1.625, 1.60271, 1.289372, 1.670048, 1.244831, 1.759869, 1.737656, 1.491418, 1.357366, 1.469275, 1.648513, 1.335196, 1.800394, 1.778231, 1.666427, 1.711322, 1.644209, 1.689185, 1.398366, 1.443375, 1.532955, 1.376314, 1.891513, 1.757051, 1.734879, 1.488673, 1.466437, 1.421763, 1.623322, 1.601078, 1.511659, 1.870194, 1.847814, 1.825437, 1.579408, 1.333304, 1.355761, 1.557392, 1.244015, 1.288961, 1.26661, 1.311512, 1.298564, 1.71695, 1.69476, 1.672531, 1.448659, 1.650511, 1.426637, 1.538786, 1.292581, 1.58379, 1.516669, 1.763115, 1.740902, 1.494672, 1.472503, 1.338292, 1.27124, 1.405688, 1.383372, 1.562774, 1.630107, 1.607784, 1.316837, 1.249587, 1.361678, 1.862443, 1.817765, 1.683371, 1.840301, 1.795716, 1.661348, 1.594365, 1.415482, 1.549921, 1.460639, 1.393651, 1.52794, 1.438492, 1.259657, 1.73002, 1.707629, 1.282747, 1.775221, 1.752955, 1.506864, 1.484655, 1.372879, 1.305837, 1.887813, 1.641478, 1.619123, 1.350736, 1.574436, 1.238942, 1.328481, 1.882193, 1.860001, 1.793326, 1.815783, 1.838473, 1.659252, 1.681771, 1.771541, 1.704453, 1.749462, 1.727252, 1.615374, 1.6379, 1.593219]", 
+                "[1.579136, 1.534418, 1.444899, 1.400089, 1.489781, 1.556952, 1.512261, 1.422724, 1.355529, 1.377952, 1.467618, 1.789562, 1.767392, 1.745136, 1.700478, 1.85732, 1.812704, 1.723429, 1.835436, 1.56703, 1.634394, 1.432767, 1.679501, 1.388364, 1.410887, 1.657518, 1.366425, 1.277598, 1.52436, 1.23322, 1.614077, 1.479744, 1.457316, 1.255753, 1.502236, 1.59193, 1.323081, 1.345571, 1.547338, 1.300838, 1.676697, 1.766492, 1.744216, 1.654688, 1.587663, 1.498211, 1.87917, 1.856912, 1.633175, 1.521281, 1.723053, 1.566316, 1.835144, 1.812868, 1.79074, 1.611759, 1.701574, 1.544913, 1.477683, 1.455285, 1.388214, 1.343611, 1.433198, 1.366136, 1.321442, 1.299116, 1.411011, 1.331149, 1.308871, 1.353767, 1.670265, 1.558512, 1.648226, 1.536496, 1.514181, 1.424668, 1.379988, 1.402472, 1.761072, 1.73879, 1.604515, 1.358066, 1.62718, 1.492858, 1.784136, 1.717218, 1.694918, 1.471237, 1.448845, 1.314459, 1.292076, 1.583594, 1.337056, 1.269745, 1.845839, 1.823895, 1.600108, 1.913813, 1.57794, 1.936714, 1.80214, 1.779826, 1.757483, 1.556124, 1.892321, 1.869932, 1.735636, 1.646084, 1.690943, 1.66873, 1.534619, 1.624286, 1.713961, 1.512639, 1.445601, 1.311151, 1.423463, 1.288829, 1.468306, 1.401187, 1.378851, 1.490867, 1.334137, 1.356544, 1.344724, 1.722194, 1.632847, 1.677751, 1.610734, 1.70038, 1.767853, 1.588795, 1.812826, 1.656192, 1.745795, 1.790874, 1.567073, 1.477742, 1.433511, 1.456019, 1.41157, 1.322211, 1.344685, 1.277645, 1.389606, 1.300153, 1.523918, 1.546405, 1.367514, 1.501686, 1.850566, 1.828331, 1.604553, 1.694253, 1.582466, 1.672231, 1.448321, 1.784525, 1.538291, 1.426176, 1.762539, 1.516348, 1.2925, 1.404428, 1.651018, 1.628794, 1.49468, 1.382591, 1.898007, 1.875703, 1.741648, 1.719424, 1.361076, 1.271785, 1.943759, 1.921469, 1.809573, 1.563375, 1.47377, 1.339474, 1.31716, 1.825461, 1.915166, 1.803553, 1.893192, 1.870871, 1.848602, 1.669779, 1.692294, 1.782015, 1.536104, 1.446788, 1.760083, 1.626089, 1.603832, 1.648781, 1.73843, 1.514949, 1.716446, 1.582409, 1.470618, 1.493077, 1.560291, 1.403896, 1.381647, 1.426463, 1.937679, 1.915468, 1.960325, 1.893248, 1.871529, 1.737233, 1.714855, 1.580521, 1.782304, 1.446483, 1.53611, 1.424312, 1.850213, 1.402107, 1.671198, 1.648859, 1.514637, 1.492471, 1.358139, 1.291123, 1.828995, 1.806749, 1.694691, 1.560419, 1.38137, 1.762321, 1.628047, 1.605761, 1.337056, 1.314822, 1.471688, 1.931185, 1.909029, 1.797316, 1.663181, 1.708025, 1.6411, 1.685942, 1.775546, 1.395028, 1.52974, 1.440172, 1.372961, 1.753757, 1.731653, 1.485493, 1.507945, 1.843825, 1.821569, 1.575572, 1.418864, 1.889176, 1.866893, 1.620871, 1.464228, 1.553931, 1.598697, 1.362049, 1.406927, 1.384704, 1.429635, 1.825831, 1.848398, 1.602143, 1.803706, 1.580194, 1.781838, 1.446151, 1.558166, 1.423896, 1.737546, 1.536153, 1.64818, 1.625843, 1.491707, 1.402151, 1.7605, 1.715857, 1.693553, 1.469957, 1.514882, 1.671701, 1.268606, 1.358352, 1.313712, 1.3362, 1.381041, 1.291469, 1.901807, 1.879471, 1.924409, 1.857804, 1.723622, 1.701258, 1.81332, 1.567183, 1.791302, 1.545089, 1.433064, 1.298815, 1.410886, 1.63568, 1.277301, 1.770334, 1.748111, 1.613872, 1.591533, 1.344928, 1.38985, 1.681364, 1.659072, 1.524604, 1.502313, 1.838599, 1.480087, 1.323473, 1.368456, 1.458061, 1.335298, 1.724328, 1.702256, 1.6801, 1.545856, 1.523591, 1.501305, 1.366984, 1.569034, 1.479686, 1.614244, 1.59192, 1.457766, 1.435509, 1.300854, 1.345832, 1.793976, 1.659843, 1.32367, 1.771963, 1.749706, 1.414226, 1.391525, 1.279436, 1.638299, 1.257057, 1.892726, 1.82593, 1.870828, 1.781476, 1.848678, 1.804148, 1.75944, 1.714891, 1.580716, 1.737538, 1.648075, 1.558747, 1.491687, 1.402637, 1.313187, 1.47023, 1.694126, 1.6718, 1.448109, 1.381141, 1.538098, 1.515813, 1.269486, 1.291907, 1.627927, 1.60561, 1.359354, 1.426568, 1.247355, 1.337089, 1.853595, 1.898641, 1.764323, 1.809333, 1.83177, 1.787081, 1.876789, 1.518355, 1.496176, 1.653279, 1.608695, 1.36222, 1.698612, 1.676343, 1.541767, 1.40741, 1.631763, 1.564652, 1.475222, 1.744187, 1.721867, 1.587347, 1.385641, 1.430617, 1.453089, 1.794006, 1.906387, 1.772038, 1.839312, 1.884233, 1.63807, 1.503944, 1.549011, 1.616404, 1.70598, 1.459814, 1.482299, 1.863009, 1.818389, 1.684237, 1.52776, 1.66213, 1.393574, 1.371363, 1.752049, 1.729814, 1.595681, 1.438966, 1.416721, 1.573585, 1.349773, 1.305087, 1.260372, 1.282817, 1.327613, 1.794792, 1.772513, 1.840029, 1.884964, 1.907536, 1.818011, 1.863092, 1.751003, 1.616791, 1.639411, 1.594754, 1.550184, 1.483222, 1.416269, 1.461126, 1.327005, 1.685179, 1.662855, 1.52861, 1.506288, 1.371943, 1.394397, 1.730236, 1.707828, 1.439285, 1.349791, 1.573655, 1.338669, 1.383562, 1.361223, 1.785983, 1.763819, 1.719198, 1.741635, 1.808852, 1.495761, 1.406323, 1.473679, 1.384104, 1.630627, 1.608339, 1.339669, 1.698274, 1.586435, 1.564145, 1.452414, 1.430091, 1.295827, 1.363166, 1.676915, 1.654632, 1.542735, 1.318725, 1.27401, 1.520503, 1.893369, 1.871212, 1.938424, 1.916125, 1.849143, 1.692726, 1.603416, 1.782482, 1.558827, 1.648527, 1.581632, 1.827799, 1.805476, 1.760962, 1.738721, 1.53748, 1.627079, 1.671991, 1.716834, 1.448433, 1.515654, 1.403751, 1.493376, 1.470978, 1.313657, 1.426292, 1.291353, 1.381609, 1.336365, 1.269107, 1.359305, 1.322724, 1.794029, 1.750348, 1.570871, 1.61579, 1.548848, 1.593733, 1.728589, 1.414575, 1.481933, 1.347668, 1.28075, 1.774071, 1.527455, 1.460311, 1.70726, 1.684849, 1.438304, 1.326558, 1.662782, 1.640329, 1.393918, 1.506045, 1.304521, 1.371646, 1.775231, 1.865024, 1.820357, 1.753295, 1.731085, 1.79843, 1.619439, 1.485215, 1.552455, 1.933434, 1.687189, 1.664843, 1.530633, 1.598183, 1.844819, 1.710813, 1.352519, 1.57664, 1.44244, 1.464907, 1.912852, 1.890639, 1.644396, 1.510237, 1.398235, 1.420808, 1.375922, 1.308705, 1.331178, 1.264142, 1.286544, 1.916496, 1.871805, 1.894249, 1.939235, 1.849983, 1.626164, 1.783181, 1.761008, 1.604178, 1.828325, 1.537379, 1.716718, 1.582289, 1.739284, 1.806554, 1.672444, 1.650261, 1.515856, 1.695263, 1.560854, 1.493733, 1.404122, 1.44897, 1.471376, 1.381874, 1.426678, 1.907282, 1.885168, 1.930131, 1.862884, 1.773702, 1.818751, 1.751693, 1.796586, 1.616971, 1.662292, 1.841837, 1.595051, 1.528037, 1.707919, 1.461079, 1.730632, 1.573298, 1.394326, 1.641096, 1.506547, 1.484391, 1.372614, 1.68652, 1.551768, 1.439868, 1.350399, 1.417573, 1.32805, 1.305724, 1.283401, 1.944394, 1.81044, 1.766412, 1.676789, 1.923261, 1.744331, 1.65472, 1.789373, 1.722301, 1.520779, 1.5433, 1.476251, 1.857032, 1.83475, 1.700526, 1.566129, 1.387174, 1.90244, 1.880236, 1.633994, 1.499777, 1.410405, 1.611928, 1.589576, 1.432999, 1.365833, 1.455453, 1.420454, 1.353079, 1.375767, 1.398358, 1.823606, 1.689169, 1.666912, 1.644731, 1.577688, 1.398841, 1.555527, 1.331893, 1.735327, 1.712929, 1.488945, 1.265089, 1.802855, 1.780614, 1.758396, 1.623908, 1.601608, 1.467381, 1.445232, 1.310951, 1.423142, 1.534987, 1.512664, 1.356163, 1.288825, 1.378628, 1.877979, 1.855793, 1.699194, 1.721781, 1.677206, 1.834095, 1.744632, 1.632773, 1.923931, 1.901832, 1.767677, 1.790117, 1.812639, 1.655897, 1.58887, 1.454634, 1.432268, 1.54451, 1.320719, 1.522287, 1.500049, 1.298526, 1.612217, 1.365853, 1.276283, 1.477909, 1.410737, 1.343631, 1.567614, 1.388475, 1.331379, 1.738215, 1.715941, 1.806151, 1.582134, 1.604627, 1.559924, 1.448172, 1.470745, 1.426166, 1.314449, 1.784934, 1.762579, 1.62823, 1.516357, 1.494142, 1.337627, 1.651099, 1.292916, 1.695953, 1.673596, 1.539307, 1.405116, 1.38281, 1.360494, 1.270832, 1.867738, 1.845622, 1.733641, 1.913218, 1.890866, 1.711654, 1.823769, 1.756526, 1.778999, 1.801445, 1.601023, 1.467104, 1.691176, 1.579299, 1.445107, 1.557233, 1.333541, 1.288958, 1.53547, 1.311819, 1.625283, 1.267273, 1.647764, 1.513635, 1.491317, 1.4019, 1.670574, 1.379685, 1.357367, 1.424672, 1.871309, 1.938666, 1.827017, 1.849469, 1.804989, 1.917045, 1.894721, 1.715773, 1.738326, 1.58184, 1.604302, 1.693904, 1.559805, 1.470226, 1.67203, 1.537819, 1.448092, 1.784103, 1.649877, 1.515561, 1.425804, 1.761886, 1.627685, 1.403452]", 
+                "[1.387573, 1.49973, 1.795491, 1.885728, 1.751604, 1.77421, 1.863991, 1.617773, 1.729866, 1.640537, 1.481053, 1.596002, 1.506695, 1.842745, 1.820499, 1.686255, 1.552045, 1.459652, 1.574656, 1.933068, 1.910778, 1.53031, 1.709464, 1.664719, 1.437944, 1.303684, 1.370864, 1.326177, 1.281443, 1.393364, 1.348688, 1.415883, 1.802997, 1.8715, 1.82669, 1.782007, 1.939262, 1.737311, 1.894739, 1.692619, 1.850069, 1.917558, 1.760508, 1.71575, 1.536471, 1.402305, 1.492013, 1.380184, 1.671517, 1.649298, 1.358388, 1.627283, 1.605074, 1.560367, 1.582787, 1.448511, 1.515836, 1.471178, 1.426446, 1.390084, 1.345547, 1.41287, 1.368157, 1.814655, 1.680502, 1.792656, 1.547259, 1.63711, 1.659697, 1.704548, 1.525527, 1.771993, 1.749764, 1.503508, 1.727652, 1.571236, 1.48136, 1.616122, 1.59378, 1.414274, 1.436782, 1.279921, 1.36997, 1.392478, 1.459726, 1.302844, 1.347706, 1.325362, 1.941275, 1.716934, 1.806934, 1.919405, 1.694993, 1.785017, 1.672956, 1.561115, 1.538899, 1.651061, 1.42728, 1.293152, 1.517235, 1.405488, 1.854018, 1.831666, 1.585072, 1.338882, 1.271769, 1.899376, 1.877007, 1.630138, 1.383923, 1.495884, 1.764761, 1.742356, 1.607979, 1.473693, 1.31705, 1.361869, 1.451426, 1.326086, 1.748688, 1.614304, 1.704294, 1.79401, 1.68229, 1.771978, 1.727348, 1.660219, 1.63783, 1.54828, 1.570831, 1.414119, 1.369448, 1.593581, 1.459291, 1.436987, 1.325341, 1.526891, 1.280973, 1.504808, 1.482459, 1.303494, 1.392978, 1.348302, 1.815709, 1.860747, 1.793801, 1.838692, 1.659728, 1.772003, 1.705097, 1.951875, 1.929083, 1.727732, 1.906916, 1.884629, 1.750519, 1.638544, 1.683586, 1.616431, 1.571657, 1.526914, 1.437454, 1.504713, 1.415194, 1.594652, 1.370466, 1.280627, 1.550126, 1.348216, 1.483161, 1.460788, 1.393485, 1.303499, 1.325987, 1.916292, 1.894062, 1.827157, 1.782539, 1.648225, 1.93969, 1.805437, 1.69352, 1.760914, 1.872874, 1.626572, 1.738565, 1.671407, 1.850669, 1.71633, 1.559592, 1.492748, 1.537535, 1.426209, 1.605144, 1.515785, 1.471352, 1.404534, 1.58318, 1.449213, 1.939771, 1.806077, 1.761407, 1.962621, 1.784167, 1.851311, 1.739654, 1.717213, 1.896408, 1.829615, 1.919016, 1.874622, 1.695665, 1.606133, 1.561438, 1.427179, 1.583981, 1.539343, 1.405183, 1.472434, 1.450193, 1.338315, 1.674403, 1.652151, 1.629845, 1.38349, 1.294031, 1.517958, 1.316464, 1.361264, 1.495635, 1.95196, 1.929158, 1.794939, 1.862311, 1.548825, 1.728106, 1.840252, 1.526719, 1.504437, 1.594177, 1.391863, 1.885748, 1.639452, 1.617157, 1.370004, 1.908761, 1.774359, 1.752058, 1.707409, 1.461037, 1.573178, 1.819593, 1.685474, 1.66303, 1.483846, 1.438299, 1.415905, 1.422968, 1.401617, 1.379418, 1.357073, 1.827736, 1.805568, 1.69345, 1.78336, 1.850861, 1.73875, 1.67147, 1.761246, 1.716514, 1.604588, 1.649509, 1.470688, 1.51557, 1.627548, 1.33698, 1.381955, 1.538766, 1.315147, 1.4494, 1.427084, 1.359976, 1.404811, 1.583792, 1.293029, 1.494402, 1.561532, 1.94388, 1.921765, 1.675799, 1.653584, 1.899885, 1.519365, 1.855283, 1.877732, 1.497088, 1.833129, 1.631973, 1.362857, 1.475157, 1.721967, 1.699742, 1.56546, 1.543177, 1.386272, 1.812254, 1.790133, 1.341847, 1.767941, 1.745679, 1.611585, 1.589209, 1.454529, 1.432136, 1.297672, 1.320104, 1.409843, 1.355724, 1.685922, 1.663851, 1.82068, 1.529938, 1.798725, 1.507907, 1.552876, 1.373857, 1.418663, 1.776984, 1.351909, 1.732603, 1.710344, 1.598644, 1.576481, 1.442154, 1.308047, 1.285707, 1.397577, 1.643862, 1.621528, 1.755829, 1.464991, 1.263611, 1.487499, 1.330856, 1.844924, 1.822741, 1.71109, 1.733675, 1.689026, 1.621838, 1.577278, 1.801291, 1.510614, 1.55549, 1.600402, 1.399252, 1.354605, 1.489005, 1.287607, 1.914582, 1.892253, 1.870099, 1.758269, 1.46734, 1.445183, 1.266282, 1.781313, 1.669579, 1.647267, 1.535314, 1.423528, 1.378794, 1.333988, 1.311642, 1.886905, 1.931865, 1.909665, 1.865101, 1.820215, 1.842914, 1.686343, 1.753543, 1.70896, 1.552563, 1.798782, 1.776571, 1.731971, 1.664997, 1.57572, 1.620519, 1.531114, 1.643147, 1.598558, 1.44195, 1.486978, 1.509517, 1.419867, 1.397503, 1.373982, 1.464956, 1.913656, 1.66757, 1.712465, 1.645552, 1.847176, 1.690673, 1.623703, 1.802732, 1.82533, 1.892596, 1.870394, 1.758548, 1.736377, 1.781349, 1.602486, 1.557989, 1.535808, 1.580637, 1.491201, 1.513819, 1.357305, 1.268048, 1.33529, 1.402491, 1.469725, 1.447404, 1.425096, 1.31331, 1.380463, 1.291053, 1.809143, 1.787082, 1.876937, 1.675559, 1.765477, 1.855405, 1.542054, 1.744065, 1.721804, 1.52034, 1.498126, 1.699975, 1.386608, 1.633043, 1.610834, 1.364742, 1.476974, 1.925104, 1.903119, 1.589855, 1.56755, 1.433483, 1.455965, 1.836799, 1.344332, 1.411517, 1.657866, 1.399523, 1.377221, 1.33429, 1.356735, 1.776935, 1.732396, 1.799818, 1.755322, 1.710722, 1.645106, 1.69006, 1.511193, 1.556199, 1.668288, 1.489429, 1.422552, 1.534495, 1.467571, 1.288384, 1.400955, 1.333849, 1.266129, 1.378706, 1.60247, 1.580152, 1.311714, 1.624964, 1.446037, 1.356556, 1.862977, 1.818549, 1.841343, 1.796755, 1.93103, 1.596011, 1.551361, 1.685675, 1.574212, 1.417863, 1.66373, 1.306232, 1.395754, 1.731103, 1.708861, 1.463173, 1.440976, 1.530373, 1.776282, 1.753916, 1.508157, 1.485871, 1.374059, 1.284727, 1.910661, 1.888314, 1.642502, 1.329558, 1.351947, 1.620289, 1.340485, 1.721104, 1.699014, 1.676893, 1.52067, 1.43141, 1.476249, 1.498723, 1.409551, 1.454464, 1.767517, 1.745277, 1.611519, 1.36576, 1.567168, 1.388329, 1.813011, 1.790749, 1.590031, 1.657163, 1.344255, 1.545638, 1.635242, 1.300016, 1.322429, 1.277766, 1.929708, 1.907541, 1.885345, 1.796099, 1.863436, 1.751795, 1.841522, 1.774585, 1.730032, 1.819595, 1.640877, 1.506629, 1.6188, 1.484551, 1.350492, 1.596811, 1.574546, 1.440498, 1.4184, 1.664659, 1.70951, 1.463413, 1.329248, 1.262234, 1.687336, 1.553156, 1.530654, 1.396648, 1.284812, 1.3072, 1.374279, 1.888367, 1.866298, 1.754647, 1.732422, 1.84443, 1.800163, 1.91201, 1.822803, 1.711027, 1.778408, 1.599526, 1.510216, 1.577588, 1.667284, 1.376682, 1.689834, 1.555848, 1.533648, 1.444338, 1.422274, 1.646118, 1.623934, 1.400449, 1.46764, 1.490042, 1.898231, 1.920879, 1.876243, 1.943333, 1.76488, 1.742752, 1.608713, 1.832433, 1.586782, 1.698807, 1.453049, 1.676819, 1.520466, 1.431153, 1.319657, 1.856481, 1.722343, 1.47647, 1.364989, 1.499508, 1.790476, 1.656877, 1.634709, 1.299502, 1.813882, 1.567973, 1.545906, 1.411977, 1.344991, 1.27802, 1.39002, 1.912237, 1.867731, 1.890197, 1.733964, 1.845789, 1.644737, 1.711963, 1.600417, 1.623093, 1.466826, 1.578769, 1.780051, 1.757915, 1.512135, 1.377792, 1.825104, 1.802807, 1.557083, 1.445338, 1.937209, 1.691288, 1.668997, 1.423117, 1.490271, 1.535055, 1.400716, 1.431825, 1.409561, 1.387782, 1.36551, 1.758614, 1.66927, 1.736656, 1.535948, 1.603171, 1.446776, 1.514079, 1.469482, 1.805021, 1.782847, 1.648719, 1.626557, 1.425463, 1.380936, 1.85069, 1.828462, 1.716731, 1.694424, 1.582738, 1.493461, 1.359285, 1.40406, 1.560651, 1.337043, 1.292267, 1.314641, 1.850391, 1.738686, 1.716569, 1.470788, 1.89583, 1.448739, 1.829165, 1.65042, 1.315035, 1.606205, 1.628757, 1.919649, 1.785416, 1.763248, 1.517513, 1.495354, 1.361352, 1.294354, 1.965433, 1.943193, 1.809051, 1.563337, 1.541127, 1.407001, 1.58596, 1.87668, 1.697784, 1.675496, 1.340059, 1.384806, 1.42966, 1.347563, 1.603289, 1.693044, 1.581295, 1.670853, 1.55932, 1.626562, 1.649179, 1.313855, 1.492867, 1.537955, 1.292063, 1.403938, 1.471025, 1.829061, 1.806678, 1.784349, 1.448865, 1.516035, 1.762102, 1.739802, 1.717581, 1.359731, 1.38216, 1.426911, 1.337524, 1.926877, 1.904682, 1.88242, 1.949544, 1.860451, 1.63695, 1.61494, 1.838733, 1.59284, 1.704775, 1.481482, 1.571179, 1.459763, 1.549319, 1.795246, 1.326045, 1.415437, 1.661281, 1.303902, 1.393304, 1.818056, 1.683973, 1.527541, 1.281866, 1.77349, 1.751196, 1.505394, 1.371371, 1.438464, 1.729004, 1.349168, 1.943852, 1.921687, 1.899393, 1.855248, 1.833021, 1.810814, 1.721767, 1.699563, 1.454003, 1.588155, 1.677517, 1.432008, 1.878752, 1.744821, 1.611244, 1.566799, 1.790107, 1.656416, 1.634211, 1.5452, 1.768436, 1.479606, 1.502184, 1.524627, 1.413071, 1.390863]", 
+                "[1.902156, 1.924807, 1.880428, 1.769279, 1.947885, 1.814341, 1.792118, 1.970555, 1.836907, 1.747666, 1.859298, 1.680875, 1.703186, 1.725521, 1.637178, 1.503542, 1.615135, 1.392229, 1.659992, 1.593243, 1.370173, 1.437394, 1.526982, 1.571632, 1.549542, 1.460318, 1.482681, 1.348779, 1.304116, 1.415859, 1.326495, 1.927902, 1.950417, 1.972707, 1.906674, 1.817637, 1.884547, 1.684162, 1.795692, 1.751144, 1.439092, 1.528558, 1.729317, 1.417235, 1.86329, 1.618306, 1.484546, 1.395459, 1.841518, 1.707856, 1.574466, 1.59683, 1.775105, 1.663788, 1.641556, 1.463097, 1.552481, 1.507816, 1.428495, 1.406502, 1.384251, 1.451141, 1.88549, 1.86345, 1.729622, 1.796611, 1.707672, 1.752418, 1.77484, 1.574145, 1.618838, 1.64144, 1.329439, 1.507957, 1.374406, 1.307716, 1.597637, 1.463883, 1.486399, 1.553496, 1.352835, 1.843855, 1.821656, 1.687821, 1.665515, 1.420198, 1.442536, 1.53186, 1.398063, 1.91432, 1.758402, 1.936795, 1.781212, 1.625284, 1.69228, 1.670161, 1.491605, 1.558889, 1.536975, 1.358273, 1.894176, 1.871965, 1.738282, 1.60457, 1.470593, 1.425989, 1.983819, 1.850392, 1.716714, 1.583021, 1.448883, 1.40431, 1.962133, 1.828609, 1.806399, 1.650475, 1.51671, 1.338089, 1.315894, 1.38285, 1.369202, 1.781889, 1.737549, 1.826845, 1.849273, 1.760241, 1.804818, 1.715935, 1.693787, 1.560033, 1.582464, 1.604995, 1.426843, 1.44952, 1.62804, 1.494319, 1.472141, 1.338215, 1.360751, 1.53936, 1.517285, 1.294291, 1.673799, 1.651567, 1.316895, 1.383998, 1.406402, 1.882255, 1.837772, 1.90497, 1.703981, 1.748919, 1.8607, 1.771513, 1.927854, 1.682269, 1.950318, 1.727304, 1.794539, 1.817046, 1.616081, 1.593933, 1.349019, 1.639021, 1.438439, 1.327171, 1.483153, 1.39422, 1.662036, 1.528106, 1.506026, 1.41713, 1.573336, 1.551134, 1.306185, 1.462325, 1.373303, 1.284229, 1.938459, 1.872725, 1.806097, 1.91764, 1.784049, 1.850936, 1.895581, 1.762046, 1.829021, 1.740029, 1.673212, 1.695639, 1.606796, 1.540144, 1.562456, 1.47354, 1.651759, 1.518407, 1.40718, 1.629895, 1.429632, 1.719137, 1.585558, 1.385232, 1.496665, 1.452167, 1.935795, 1.891422, 1.958458, 1.913862, 1.758608, 1.625119, 1.870218, 1.781626, 1.492508, 1.848647, 1.648344, 1.470662, 1.604155, 1.51554, 1.337665, 1.738282, 1.716119, 1.582779, 1.449595, 1.360707, 1.828141, 1.69466, 1.561292, 1.428041, 1.383723, 1.806555, 1.672957, 1.539545, 1.317113, 1.294844, 1.406277, 1.945234, 1.923147, 1.901816, 1.879728, 1.768459, 1.81322, 1.635284, 1.746734, 1.680161, 1.613508, 1.502211, 1.658329, 1.368735, 1.859077, 1.836898, 1.591923, 1.480547, 1.725722, 1.70355, 1.458494, 1.414083, 1.792956, 1.54808, 1.525854, 1.570503, 1.436868, 1.392379, 1.404024, 1.426429, 1.382053, 1.829633, 1.785359, 1.696569, 1.808043, 1.65249, 1.5634, 1.675051, 1.630515, 1.54154, 1.430514, 1.386159, 1.297041, 1.764624, 1.519949, 1.408988, 1.87646, 1.854374, 1.609593, 1.587403, 1.454053, 1.34272, 1.365096, 1.743478, 1.721289, 1.498706, 1.32064, 1.476572, 1.926692, 1.860074, 1.904758, 1.971614, 1.793627, 1.949624, 1.83861, 1.771874, 1.883425, 1.816661, 1.727502, 1.705573, 1.616745, 1.59457, 1.372209, 1.461333, 1.661745, 1.350361, 1.639837, 1.506334, 1.439779, 1.75148, 1.573463, 1.328761, 1.528973, 1.684908, 1.551286, 1.417966, 1.484702, 1.306831, 1.395871, 1.360665, 1.77313, 1.7956, 1.751277, 1.729193, 1.662738, 1.818487, 1.70758, 1.618678, 1.596543, 1.841425, 1.57465, 1.686224, 1.530442, 1.642027, 1.552946, 1.463949, 1.286104, 1.330635, 1.486464, 1.508831, 1.375292, 1.442054, 1.419861, 1.308682, 1.353219, 1.397768, 1.807102, 1.874364, 1.829934, 1.674023, 1.629558, 1.585035, 1.540631, 1.607724, 1.563187, 1.853041, 1.719497, 1.519095, 1.898118, 1.764253, 1.742286, 1.475197, 1.943368, 1.921259, 1.787585, 1.698612, 1.498217, 1.654177, 1.320294, 1.298023, 1.453856, 1.387206, 1.342789, 1.409514, 1.431803, 1.365153, 1.276038, 1.941459, 1.852585, 1.808261, 1.89753, 1.875263, 1.919888, 1.830877, 1.721809, 1.699736, 1.677573, 1.766605, 1.566283, 1.54416, 1.633638, 1.432891, 1.745113, 1.611646, 1.410997, 1.789973, 1.656702, 1.523153, 1.500918, 1.590123, 1.478525, 1.389535, 1.456313, 1.956417, 1.9121, 1.778982, 1.823737, 1.890695, 1.935404, 1.757581, 1.846814, 1.802495, 1.869443, 1.691396, 1.713873, 1.736246, 1.647249, 1.625063, 1.669715, 1.513826, 1.491578, 1.536177, 1.380221, 1.558532, 1.42483, 1.358104, 1.580958, 1.447237, 1.402735, 1.603342, 1.46965, 1.29153, 1.313883, 1.33624, 1.952352, 1.930322, 1.819258, 1.686037, 1.79744, 1.908779, 1.864459, 1.731157, 1.664463, 1.887078, 1.642416, 1.776072, 1.842962, 1.709601, 1.754321, 1.553909, 1.420324, 1.509558, 1.398137, 1.598794, 1.487373, 1.576564, 1.532037, 1.621274, 1.465235, 1.443004, 1.376211, 1.435372, 1.368596, 1.413237, 1.390993, 1.846397, 1.80197, 1.824421, 1.780032, 1.579475, 1.534938, 1.557562, 1.513098, 1.423966, 1.37953, 1.625094, 1.402113, 1.669857, 1.647695, 1.357882, 1.759382, 1.737237, 1.492288, 1.603948, 1.715496, 1.693325, 1.448054, 1.336641, 1.292002, 1.470511, 1.314442, 1.961856, 1.939904, 1.806185, 1.917899, 1.71737, 1.673255, 1.784822, 1.851941, 1.651351, 1.896838, 1.87466, 1.696364, 1.830265, 1.741248, 1.763609, 1.540789, 1.563314, 1.407319, 1.429793, 1.38518, 1.58611, 1.452282, 1.519208, 1.608507, 1.496996, 1.296116, 1.630918, 1.474834, 1.318599, 1.363288, 1.34099, 1.353076, 1.728822, 1.818237, 1.706855, 1.796231, 1.662505, 1.640306, 1.595833, 1.685326, 1.573972, 1.774859, 1.752746, 1.618994, 1.530054, 1.552483, 1.507988, 1.48575, 1.463482, 1.418826, 1.374264, 1.441289, 1.352048, 1.396678, 1.3075, 1.329852, 1.285313, 1.941016, 1.807662, 1.718611, 1.919459, 1.674418, 1.696937, 1.875364, 1.630216, 1.786477, 1.897883, 1.764447, 1.652918, 1.853799, 1.831696, 1.608754, 1.742848, 1.586581, 1.542069, 1.40846, 1.520042, 1.297176, 1.453326, 1.386664, 1.498273, 1.476158, 1.342422, 1.275675, 1.56545, 1.364905, 1.320398, 1.431871, 1.846343, 1.935784, 1.824482, 1.913751, 1.869294, 1.891631, 1.802696, 1.669147, 1.602528, 1.535893, 1.691882, 1.469314, 1.781229, 1.759071, 1.625612, 1.403218, 1.737319, 1.715191, 1.581876, 1.559741, 1.448614, 1.649229, 1.5157, 1.493506, 1.426771, 1.382247, 1.911725, 1.889621, 1.800718, 1.845501, 1.868009, 1.778917, 1.823774, 1.623327, 1.645777, 1.935674, 1.690635, 1.757519, 1.601677, 1.668677, 1.735598, 1.713406, 1.446271, 1.513268, 1.424393, 1.380046, 1.536016, 1.291319, 1.491836, 1.469656, 1.336106, 1.358383, 1.581085, 1.403043, 1.314072, 1.558995, 1.911913, 1.93433, 1.889996, 1.801071, 1.756755, 1.667773, 1.73481, 1.623621, 1.534531, 1.957815, 1.824436, 1.602144, 1.713689, 1.468714, 1.869667, 1.847467, 1.69174, 1.491466, 1.781169, 1.580774, 1.647669, 1.447166, 1.558577, 1.514056, 1.402728, 1.358057, 1.425074, 1.380527, 1.389068, 1.411507, 1.367005, 1.855764, 1.811463, 1.833914, 1.789488, 1.700488, 1.745277, 1.678596, 1.767806, 1.634177, 1.723659, 1.612239, 1.65701, 1.59022, 1.568009, 1.434521, 1.545983, 1.412623, 1.479473, 1.457247, 1.301341, 1.524129, 1.390622, 1.501933, 1.323768, 1.368463, 1.346181, 1.966792, 1.94476, 1.855695, 1.811318, 1.922775, 1.833752, 1.900814, 1.878667, 1.767539, 1.723082, 1.789992, 1.74554, 1.701163, 1.679055, 1.567429, 1.590085, 1.545323, 1.433934, 1.456584, 1.41199, 1.635683, 1.50168, 1.300627, 1.658214, 1.524183, 1.323112, 1.613787, 1.479797, 1.368029, 1.390436, 1.345662, 1.355013, 1.71749, 1.628472, 1.695725, 1.606732, 1.450472, 1.584635, 1.562492, 1.473356, 1.830586, 1.808409, 1.674927, 1.541044, 1.652832, 1.407249, 1.786777, 1.76459, 1.742543, 1.430055, 1.519342, 1.497088, 1.340927, 1.296052, 1.318656, 1.273817, 1.385757, 1.363468, 1.888148, 1.84411, 1.933591, 1.866854, 1.822315, 1.800249, 1.911993, 1.77825, 1.57738, 1.733948, 1.555409, 1.600156, 1.756681, 1.422165, 1.466768, 1.622826, 1.400141, 1.33371, 1.712718, 1.690459, 1.645887, 1.512123, 1.378833, 1.490141, 1.66856, 1.4457, 1.312216, 1.267689, 1.35685, 1.290058, 1.534913, 1.924377, 1.880125, 1.902605, 1.858245, 1.769356, 1.72488, 1.747251, 1.814232, 1.702908, 1.792183, 1.613938, 1.837186, 1.592052, 1.68144, 1.659226]", 
+                "[1.575919, 1.642997, 1.464348, 1.553756, 1.531491, 1.442228, 1.509259, 1.42004, 1.39775, 1.487025, 1.962194, 1.940141, 1.895965, 1.80709, 1.874032, 1.762826, 1.851957, 1.785291, 1.740968, 1.718875, 1.919443, 1.830483, 1.630344, 1.652757, 1.608398, 1.497169, 1.5196, 1.586641, 1.364162, 1.475434, 1.342007, 1.386516, 1.564606, 1.431055, 1.453382, 1.698275, 1.676052, 1.542554, 1.320071, 1.297847, 1.409128, 1.903596, 1.926205, 1.859516, 1.881943, 1.948854, 1.793358, 1.83814, 1.815904, 1.77138, 1.749203, 1.660348, 1.638177, 1.615983, 1.526954, 1.504904, 1.482704, 1.705597, 1.571942, 1.393881, 1.728303, 1.594731, 1.372033, 1.683922, 1.550198, 1.439013, 1.461293, 1.416853, 1.430098, 1.385777, 1.408087, 1.904172, 1.881958, 1.860613, 1.838509, 1.616075, 1.705221, 1.772161, 1.59413, 1.572214, 1.63926, 1.483665, 1.439098, 1.506284, 1.461593, 1.305823, 1.795985, 1.66248, 1.529015, 1.37289, 1.818803, 1.68533, 1.551854, 1.329023, 1.752412, 1.730346, 1.396147, 1.41851, 1.351666, 1.845829, 1.823958, 1.936156, 1.758335, 1.802985, 1.91438, 1.736539, 1.892719, 1.781677, 1.959821, 1.871042, 1.715438, 1.58213, 1.671172, 1.604619, 1.44892, 1.538021, 1.471348, 1.31562, 1.649551, 1.516146, 1.404984, 1.694517, 1.561215, 1.338715, 1.628157, 1.494629, 1.383337, 1.42793, 1.361147, 1.898094, 1.875948, 1.987687, 1.742656, 1.854458, 1.698465, 1.609663, 1.96651, 1.832831, 1.721599, 2.011712, 1.76644, 1.677697, 1.945616, 1.923489, 1.78939, 1.811833, 1.6337, 1.655993, 1.589336, 1.47809, 1.545015, 1.567274, 1.455937, 1.522875, 1.411535, 1.43382, 1.500645, 1.795494, 1.929305, 1.751504, 1.773948, 1.885332, 1.907707, 1.952263, 1.707604, 1.729922, 1.974868, 1.841444, 1.863786, 1.685933, 1.819451, 1.663872, 1.641722, 1.530585, 1.397023, 1.486311, 1.508838, 1.620299, 1.598103, 1.353392, 1.37579, 1.442714, 1.465052, 1.576443, 1.331472, 1.420648, 1.554416, 1.957983, 1.936596, 1.825434, 1.892319, 1.914615, 1.803391, 1.981765, 1.781725, 1.87083, 1.84893, 2.005067, 1.693463, 1.560185, 1.649244, 1.42666, 1.671615, 1.515986, 1.404627, 1.738945, 1.605446, 1.471939, 1.538879, 1.717136, 1.383059, 1.7618, 1.62808, 1.450038, 1.583714, 1.494723, 1.392553, 1.415041, 1.437394, 1.87443, 1.897479, 1.852294, 1.742182, 1.764528, 1.831468, 1.609109, 1.631564, 1.698465, 1.476001, 1.4984, 1.565294, 1.342945, 1.676972, 1.654853, 1.365648, 1.810768, 1.78861, 1.543937, 1.410529, 1.432849, 1.722284, 1.588815, 1.455348, 1.522159, 1.388745, 1.322032, 1.900057, 1.922534, 1.989581, 1.767723, 1.790234, 1.679012, 1.857546, 1.634927, 1.54593, 1.724271, 1.501619, 1.969342, 1.947213, 1.813834, 1.658153, 1.413284, 1.836637, 1.703128, 1.569612, 1.592028, 1.881636, 1.748081, 1.614506, 1.525386, 1.480937, 1.391907, 1.436522, 1.458801, 1.369801, 1.347574, 1.325379, 1.379153, 1.877081, 1.721874, 1.744289, 1.811149, 1.588671, 1.499797, 1.789482, 1.566977, 1.856478, 1.834343, 1.478161, 1.76777, 1.634293, 1.656671, 1.679045, 1.434153, 1.545591, 1.7018, 1.612899, 1.523753, 1.323465, 1.41255, 1.301313, 1.368104, 1.390395, 1.457259, 1.345972, 1.855848, 1.923426, 1.834484, 1.723415, 1.790277, 1.812636, 1.701495, 1.879865, 1.635291, 1.657729, 1.902679, 1.769188, 1.680289, 1.969786, 1.613883, 1.947824, 1.74748, 1.591848, 1.56963, 1.436172, 1.525617, 1.54808, 1.30326, 1.481492, 1.392493, 1.503854, 1.414867, 1.459398, 1.348123, 1.370475, 1.326002, 1.986385, 1.965292, 1.876457, 1.832067, 1.943459, 1.854673, 1.921463, 1.810545, 1.899609, 1.788603, 1.744308, 1.699942, 1.722285, 1.588879, 1.566777, 1.611396, 1.455675, 1.6561, 1.433704, 1.678618, 1.545208, 1.478541, 1.767982, 1.6347, 1.52352, 1.412275, 1.501387, 1.913957, 1.780438, 1.758502, 1.892352, 1.937044, 1.625363, 1.981815, 1.848313, 1.714793, 1.648134, 1.871043, 1.737542, 1.693209, 1.960689, 1.827222, 1.8051, 1.582617, 1.60498, 1.671888, 1.560678, 1.382548, 1.51633, 1.427325, 1.360384, 1.33814, 1.494262, 1.472061, 1.40523, 1.316019, 1.449987, 1.539201, 1.866745, 1.9339, 1.844604, 1.800084, 1.956724, 1.711275, 1.666779, 1.778583, 1.823276, 1.912732, 1.89049, 1.689774, 2.002455, 1.980297, 1.757167, 1.623242, 1.645623, 1.735109, 1.534372, 1.579168, 1.556949, 1.401056, 1.445784, 1.423573, 1.602053, 1.490584, 1.512964, 1.468361, 1.388933, 1.433897, 1.456277, 1.411678, 1.866077, 1.732972, 1.688572, 1.711001, 1.822429, 1.844793, 1.778168, 1.666711, 1.800552, 1.756051, 1.578831, 1.556664, 1.646022, 1.601463, 1.311914, 1.534853, 1.401374, 1.512887, 1.446269, 1.468628, 1.624723, 1.49123, 1.357655, 1.379963, 1.424576, 1.335494, 1.841281, 1.908422, 1.863923, 1.707941, 1.774983, 1.619076, 1.574704, 1.641631, 1.374325, 1.44138, 1.508356, 1.352523, 1.932578, 1.798809, 1.665095, 1.420022, 1.308562, 1.977736, 1.955592, 1.821902, 1.688256, 1.554833, 1.532732, 1.488212, 1.889722, 1.755946, 1.733827, 1.60019, 1.466572, 1.399641, 1.288064, 1.332774, 1.802297, 1.757925, 1.936423, 1.781017, 1.736552, 1.848135, 1.914989, 1.892814, 1.959684, 1.826284, 1.870921, 1.670562, 1.648365, 1.536674, 1.402341, 1.715624, 1.581831, 1.604271, 1.693727, 1.447849, 1.515379, 1.627282, 1.493023, 1.560287, 1.425878, 1.470696, 1.977869, 1.955827, 1.866568, 1.821979, 1.755071, 1.889372, 1.844797, 1.934377, 1.912122, 1.80046, 1.733586, 1.778506, 1.711694, 1.577623, 1.510645, 1.33167, 1.555576, 1.488677, 1.689977, 1.667708, 1.421782, 1.310016, 1.601056, 1.467085, 1.534291, 1.646189, 1.623945, 1.378054, 1.400573, 1.445583, 1.356015, 1.956477, 1.912048, 1.867455, 1.934787, 1.845408, 1.890267, 1.801042, 1.666753, 1.778898, 1.532592, 1.644782, 1.622563, 1.399031, 1.510943, 1.824809, 1.690546, 1.556017, 1.489051, 1.713381, 1.578804, 1.377735, 1.758528, 1.736172, 1.601579, 1.422663, 1.445031, 1.467391, 1.432817, 1.388274, 1.410669, 1.867095, 1.845113, 1.599205, 1.73369, 1.778545, 1.577378, 1.711784, 1.756581, 1.443445, 1.465937, 1.510693, 1.913419, 1.891227, 1.645565, 1.623377, 1.310435, 1.802669, 1.55674, 1.53446, 1.377999, 1.333377, 1.82544, 1.691388, 1.669024, 1.422984, 1.490082, 1.355975, 1.400746, 1.97208, 1.927934, 1.950388, 1.883325, 1.905881, 1.816357, 1.861209, 1.794223, 1.727168, 1.749692, 1.660545, 1.593642, 1.616121, 1.526761, 1.459892, 1.482376, 1.393047, 1.773121, 1.639094, 1.505033, 1.438254, 1.684234, 1.550234, 1.349133, 1.841115, 1.707074, 1.573092, 1.371969, 1.416733, 1.327277, 1.381426, 1.752493, 1.730433, 1.708284, 1.596773, 1.686375, 1.351011, 1.552518, 1.329059, 1.843352, 1.821192, 1.575545, 1.441592, 1.396966, 1.888975, 1.866728, 1.621123, 1.487175, 1.30843, 1.800459, 1.778205, 1.666686, 1.644526, 1.533078, 1.510789, 1.421343, 1.466283, 1.376905, 1.977721, 1.955728, 1.866404, 1.821857, 1.777351, 1.911673, 1.889539, 1.845081, 1.800509, 1.755969, 1.934936, 1.733852, 1.711569, 1.622191, 1.488238, 1.577755, 1.600319, 1.354752, 1.444251, 1.466698, 1.667844, 1.533786, 1.399817, 1.332854, 1.645699, 1.422332, 1.690595, 1.55646, 1.377814, 1.511865, 1.310876, 1.987304, 1.920465, 1.942964, 1.965483, 1.786763, 1.898652, 1.854075, 1.653227, 1.765078, 1.720547, 1.519848, 1.810301, 1.676359, 1.631907, 1.832997, 1.699228, 1.587826, 1.878295, 1.744283, 1.543601, 1.566024, 1.610953, 1.499418, 1.454817, 1.410304, 1.432754, 1.477461, 1.986726, 1.920119, 1.741532, 1.965061, 1.898256, 1.60801, 1.943289, 1.764759, 1.474477, 1.698059, 1.631266, 1.452502, 1.564431, 1.497567, 1.319097, 1.877883, 1.855722, 1.721847, 1.58801, 1.431746, 1.789419, 1.655538, 1.365051, 1.834347, 1.812038, 1.678034, 1.543955, 1.521654, 1.342942, 1.410024, 1.387749, 1.985547, 1.918725, 1.874101, 1.851916, 1.8969, 1.74044, 1.718287, 1.651419, 1.606781, 1.584614, 1.517656, 1.47309, 1.786343, 1.764103, 1.630249, 1.451383, 1.966009, 1.943833, 1.809694, 1.675821, 1.541728, 1.385561, 1.832871, 1.698874, 1.564751, 1.497671, 1.408338, 1.430756, 1.440396, 1.418976, 1.396712, 1.806817, 1.851706, 1.673179, 1.829593, 1.651333, 1.785429, 1.696246, 1.517785, 1.540207, 1.562637, 1.384086, 1.719354, 1.585488, 1.451545, 1.406892, 1.764561, 1.630759, 1.608536, 1.4747, 1.429871, 1.899124, 1.876874, 1.742898]", 
+                "[1.504468, 1.325632, 1.370353, 1.348066, 1.987656, 1.943913, 1.854803, 1.966903, 1.810885, 1.721709, 1.833687, 1.789257, 1.588345, 1.700237, 1.655757, 1.45459, 1.566712, 1.522095, 1.879732, 1.633998, 1.432829, 1.924576, 1.678937, 1.544827, 1.410683, 1.321368, 1.902456, 1.768485, 1.746176, 1.612127, 1.500407, 1.366326, 1.478119, 1.388746, 1.344105, 1.375288, 1.854423, 1.765252, 1.832787, 1.631796, 1.743846, 1.587614, 1.811217, 1.789083, 1.610374, 1.722233, 1.699988, 1.499149, 1.477012, 1.678208, 1.655978, 1.544413, 1.566859, 1.522341, 1.455293, 1.321338, 1.298963, 1.410761, 1.366164, 1.343838, 1.388587, 1.433241, 1.914784, 1.892724, 1.736567, 1.64739, 1.781665, 1.714739, 1.826565, 1.804398, 1.558929, 1.625935, 1.87185, 1.849751, 1.604125, 1.760748, 1.961753, 1.939545, 1.693983, 1.537799, 1.515592, 1.582747, 1.672275, 1.471439, 1.337611, 1.382488, 1.31481, 1.360258, 1.494265, 1.427319, 1.292657, 1.449753, 1.405125, 1.918078, 1.873722, 1.940934, 1.896277, 1.963363, 1.807206, 1.740316, 1.673425, 1.785339, 1.606807, 1.54004, 1.651863, 1.473284, 1.853282, 1.719275, 1.585335, 1.563127, 1.407022, 1.764484, 1.630575, 1.496599, 1.831735, 1.697679, 1.429715, 1.5191, 1.452143, 1.934209, 1.867457, 1.979531, 1.957291, 1.823168, 1.890452, 1.845963, 1.913143, 1.734101, 1.600013, 1.689592, 1.577982, 1.555738, 1.466369, 1.802185, 1.421803, 1.332415, 1.668356, 1.399938, 1.646163, 1.623957, 1.31062, 1.713602, 1.534741, 1.780969, 1.758614, 1.512568, 1.378249, 1.490449, 1.445752, 1.356137, 1.97828, 1.866463, 1.956359, 1.934328, 1.844697, 1.822477, 1.733229, 1.912574, 1.890194, 1.800851, 1.778694, 1.756554, 1.711984, 1.689781, 1.555823, 1.444129, 1.488972, 1.668155, 1.534102, 1.511793, 1.422319, 1.646079, 1.57902, 1.623793, 1.601461, 1.377758, 1.400192, 1.467376, 1.408873, 1.431421, 1.386674, 1.891317, 1.847018, 1.869512, 1.802371, 1.824831, 1.780166, 1.713137, 1.579012, 1.735826, 1.557031, 1.4901, 1.669221, 1.445714, 1.468227, 1.647262, 1.311946, 1.692195, 1.334653, 1.759832, 1.625697, 1.603355, 1.513981, 1.536495, 1.40243, 1.424918, 1.357926, 1.380398, 1.872328, 1.89571, 1.739489, 1.851408, 1.605574, 1.98575, 1.963548, 1.829408, 1.762394, 1.807362, 1.785187, 1.651122, 1.718326, 1.942186, 1.584435, 1.920193, 1.696628, 1.629671, 1.674544, 1.473204, 1.518192, 1.339187, 1.384083, 1.31708, 1.36185, 1.451652, 1.563602, 1.541505, 1.429676, 1.496916, 1.407433, 1.369489, 1.772809, 1.817599, 1.795567, 1.750958, 1.68406, 1.550085, 1.617267, 1.639861, 1.505883, 1.662596, 1.841519, 1.528792, 1.864167, 1.730307, 1.596281, 1.484539, 1.708172, 1.574131, 1.373157, 1.418005, 1.462873, 1.395894, 1.328868, 1.351247, 1.440716, 1.306633, 1.96449, 1.898361, 1.943472, 1.765209, 1.809987, 1.832444, 1.631731, 1.922296, 1.788423, 1.699261, 1.877962, 1.744125, 1.654852, 1.610262, 1.856021, 1.677564, 1.588286, 1.722642, 1.521616, 1.566339, 1.4994, 1.544106, 1.365415, 1.387762, 1.410139, 1.454863, 1.43254, 1.343248, 1.320967, 1.298689, 1.477425, 1.955342, 1.977851, 1.91155, 1.822489, 1.844959, 1.778114, 1.934528, 1.889921, 1.86765, 1.800761, 1.689486, 1.712042, 1.555848, 1.57832, 1.64536, 1.422109, 1.757187, 1.623455, 1.601313, 1.445141, 1.735562, 1.512435, 1.668816, 1.534958, 1.467986, 1.490506, 1.40129, 1.950895, 1.861761, 1.884298, 1.81739, 1.72825, 1.750672, 1.683809, 1.617071, 1.594898, 1.907881, 1.773856, 1.640098, 1.483826, 1.930804, 1.796801, 1.662893, 1.551248, 1.84168, 1.707761, 1.506797, 1.529209, 1.573997, 1.462386, 1.328481, 1.350908, 1.418279, 1.440708, 1.373641, 1.396082, 1.306767, 1.907784, 1.885729, 1.95296, 1.930685, 1.975687, 1.863815, 1.819108, 1.796939, 1.774717, 1.841838, 1.640895, 1.752628, 1.730378, 1.507349, 1.619153, 1.596846, 1.373567, 1.686407, 1.664262, 1.530401, 1.485897, 1.553053, 1.46385, 1.709709, 1.575761, 1.397071, 1.419437, 1.44184, 1.429345, 1.407283, 1.385211, 1.362908, 1.819105, 1.796963, 1.774726, 1.841895, 1.752683, 1.730361, 1.686088, 1.664034, 1.552536, 1.641932, 1.306951, 1.396362, 1.530631, 1.285069, 1.709611, 1.575704, 1.441755, 1.374875, 1.620738, 1.598491, 1.509325, 1.487022, 1.46474, 1.4201, 1.353143, 1.330842, 1.939184, 1.84999, 1.917233, 1.962011, 1.7164, 1.783573, 1.828561, 1.583122, 1.650323, 1.695187, 1.449672, 1.516793, 1.561609, 1.315924, 1.874647, 1.740781, 1.60676, 1.495143, 1.383426, 1.808042, 1.673951, 1.428203, 1.540018, 1.294257, 1.897619, 1.763588, 1.629543, 1.473214, 1.361524, 1.406259, 1.339273, 1.349489, 1.816872, 1.727907, 1.683377, 1.705898, 1.63904, 1.795523, 1.661815, 1.527847, 1.550257, 1.572643, 1.773682, 1.751509, 1.617663, 1.506142, 1.595611, 1.48407, 1.417126, 1.439579, 1.395019, 1.283388, 1.305896, 1.350828, 1.373219, 1.462637, 1.328627, 1.854676, 1.83257, 1.698803, 1.944624, 1.721622, 1.565412, 1.922656, 1.588313, 1.432028, 1.677933, 1.812101, 1.789851, 1.65593, 1.544517, 1.522575, 1.388619, 1.455924, 1.902639, 1.880487, 1.635061, 1.411748, 1.769227, 1.74701, 1.613177, 1.479332, 1.367577, 1.501898, 1.345495, 1.323285, 1.301031, 1.278704, 1.908314, 1.930815, 1.819952, 1.864831, 1.842683, 1.686314, 1.73106, 1.708786, 1.887704, 1.776072, 1.79856, 1.753924, 1.440956, 1.485873, 1.575568, 1.419036, 1.64288, 1.531147, 1.464242, 1.665718, 1.397309, 1.554238, 1.62143, 1.509606, 1.375356, 1.59919, 1.902805, 1.880761, 1.769026, 1.858729, 1.747197, 1.836701, 1.635463, 1.814686, 1.725384, 1.926817, 1.613795, 1.792832, 1.703402, 1.681211, 1.658924, 1.592068, 1.457944, 1.50282, 1.48057, 1.323976, 1.570383, 1.436194, 1.369068, 1.548163, 1.413942, 1.346796, 1.525923, 1.30202, 1.279644, 1.391782, 1.873174, 1.895786, 1.739173, 1.851421, 1.806873, 1.829432, 1.695132, 1.762563, 1.941711, 1.919388, 1.717993, 1.67328, 1.78538, 1.606348, 1.472339, 1.561984, 1.517332, 1.450317, 1.539952, 1.428307, 1.49553, 1.652238, 1.629902, 1.383818, 1.585261, 1.406268, 1.361557, 1.414963, 1.393554, 1.371409, 1.349223, 1.760093, 1.827542, 1.738284, 1.693814, 1.626746, 1.671628, 1.537585, 1.604852, 1.716893, 1.560412, 1.806573, 1.784321, 1.515892, 1.583135, 1.650343, 1.49385, 1.47159, 1.426976, 1.359949, 1.337755, 1.449792, 1.293247, 1.382977, 1.315843, 1.405476, 1.909485, 1.775451, 1.730827, 1.887704, 1.641748, 1.597318, 1.753998, 1.620218, 1.575661, 1.508782, 1.374909, 1.330312, 1.487011, 1.822424, 1.800228, 1.666245, 1.420547, 1.353605, 1.867575, 1.845283, 1.71118, 1.465416, 1.30913, 1.957429, 1.935083, 1.689019, 1.554924, 1.532692, 1.398755, 1.443426, 1.287142, 1.340312, 1.797014, 1.774871, 1.663449, 1.529529, 1.730678, 1.507404, 1.641834, 1.7536, 1.485554, 1.619845, 1.463378, 1.709322, 1.575542, 1.687351, 1.598193, 1.553557, 1.37475, 1.441997, 1.397389, 1.330692, 1.420212, 1.286122, 1.308528, 1.353282, 1.263905, 1.8791, 1.924378, 1.835371, 1.857899, 1.902665, 1.81341, 1.79126, 1.545739, 1.702403, 1.724882, 1.412324, 1.457225, 1.591641, 1.390573, 1.435405, 1.569813, 1.256983, 1.748632, 1.614678, 1.301845, 1.771085, 1.637133, 1.503061, 1.369046, 1.324407, 1.682019, 1.65976, 1.525691, 1.481035, 1.347016, 1.280013, 1.893896, 1.849425, 1.916752, 1.872099, 1.805375, 1.760814, 1.559937, 1.738866, 1.448658, 1.716868, 1.605348, 1.426834, 1.784416, 1.650576, 1.628361, 1.472181, 1.516904, 1.583985, 1.829677, 1.695719, 1.673432, 1.539501, 1.494824, 1.383145, 1.405554, 1.885218, 1.930201, 1.863312, 1.908242, 1.796658, 1.729945, 1.663078, 1.775082, 1.596525, 1.529487, 1.641411, 1.462805, 1.9546, 1.709206, 1.575297, 1.396374, 1.843664, 1.821403, 1.687592, 1.553697, 1.508961, 1.754943, 1.620969, 1.442199, 1.41981, 1.487048, 1.375328, 1.33089, 1.353274, 1.308609, 1.880507, 1.791451, 1.858704, 1.948295, 1.769871, 1.74792, 1.815107, 1.636525, 1.614339, 1.681794, 1.502679, 1.480424, 1.726955, 1.592651, 1.548127, 1.973329, 1.839403, 1.705525, 1.571155, 1.436924, 1.369867, 1.929526, 1.907402, 1.661702, 1.52728, 1.460125, 1.415407, 1.393049, 1.42232, 1.377523, 1.400045, 1.813616, 1.791387, 1.76925, 1.657423, 1.612799, 1.635414, 1.478519, 1.500995, 1.456478, 1.366999, 1.322337, 1.882721, 1.748546, 1.726334]", 
+                "[1.598024, 1.575684, 1.441085, 1.351538, 1.867069, 1.844703, 1.710296, 1.688026, 1.553615, 1.531196, 1.307095, 1.419142, 1.396799, 1.896529, 1.874407, 1.852259, 1.762855, 1.628784, 1.830319, 1.740984, 1.606901, 1.696572, 1.495315, 1.473072, 1.562644, 1.361497, 1.809085, 1.786857, 1.540787, 1.339556, 1.966368, 1.720156, 1.586086, 1.452007, 1.429778, 1.944674, 1.922407, 1.676263, 1.653941, 1.519743, 1.407886, 1.318412, 1.385604, 1.372446, 1.755216, 1.822538, 1.800418, 1.73347, 1.68889, 1.778536, 1.599628, 1.554938, 1.644618, 1.577674, 1.533022, 1.510926, 1.444151, 1.377118, 1.869486, 1.623446, 1.489373, 1.400031, 1.668683, 1.310721, 1.847798, 1.713639, 1.467541, 1.355647, 1.422889, 1.333368, 1.961258, 1.939283, 1.984048, 1.872624, 1.917643, 1.850709, 1.895673, 1.828676, 1.58273, 1.806604, 1.560672, 1.739675, 1.672753, 1.427226, 1.494268, 1.539205, 1.785394, 1.763279, 1.629227, 1.607017, 1.47317, 1.450938, 1.406412, 1.719244, 1.697171, 1.362152, 1.652682, 1.518736, 1.31786, 1.340226, 1.384974, 2.000577, 1.978422, 1.933895, 1.956296, 1.867214, 1.844924, 1.800376, 1.733539, 1.711447, 1.667096, 1.60035, 1.890945, 1.756898, 1.578357, 1.913631, 1.779622, 1.645767, 1.623614, 1.534572, 1.825011, 1.691048, 1.512525, 1.490191, 1.557269, 1.467919, 1.445659, 1.423378, 2.005119, 1.938532, 1.804529, 1.983498, 1.916682, 1.782618, 1.849785, 1.671196, 1.648899, 1.827864, 1.537347, 1.515146, 1.582343, 1.403603, 1.761568, 1.739363, 1.605348, 1.471409, 1.382178, 1.963708, 1.717964, 1.69567, 1.561547, 1.449772, 1.897042, 1.874757, 1.628845, 1.494685, 1.338169, 1.427697, 1.360631, 1.935626, 2.00284, 1.846407, 1.913723, 1.7572, 1.824562, 1.891837, 1.780101, 1.981674, 1.959468, 1.713448, 1.735883, 1.870464, 1.691535, 1.803401, 1.579949, 1.53534, 1.49073, 1.557963, 1.625245, 1.513538, 1.446499, 1.468905, 1.670234, 1.647914, 1.603226, 1.424361, 1.402063, 1.435999, 1.458623, 1.413987, 1.932559, 1.864922, 1.84271, 1.798288, 1.731404, 1.709191, 1.664565, 1.597542, 1.575565, 1.53106, 1.82159, 1.687716, 1.464447, 1.911397, 1.889218, 1.755181, 1.554205, 1.621218, 1.442898, 1.778002, 1.644065, 1.420963, 1.510376, 1.488176, 1.399008, 1.332018, 1.376789, 1.354462, 2.008614, 1.852471, 1.897378, 1.763568, 1.71911, 1.87555, 1.630074, 1.585668, 1.742331, 1.608381, 1.452145, 1.988554, 1.966415, 1.832555, 1.698983, 1.565119, 1.386417, 1.945119, 1.922938, 1.788924, 1.543302, 1.476318, 1.811423, 1.677505, 1.655211, 1.521182, 1.498883, 1.431816, 1.34242, 1.409574, 1.364897, 1.395787, 1.859666, 1.837658, 1.703916, 1.815689, 1.793463, 1.57038, 1.682051, 1.548448, 1.436851, 1.660332, 1.4149, 1.906164, 1.772401, 1.638525, 1.616315, 1.482366, 1.393009, 1.88442, 1.75065, 1.505392, 1.527891, 1.728925, 1.595091, 1.461019, 1.349391, 1.37175, 1.327153, 1.950635, 1.928447, 1.794571, 1.973605, 1.99602, 1.772707, 1.839886, 1.862345, 1.7283, 1.907278, 1.750828, 1.81804, 1.88531, 1.59471, 1.684266, 1.460787, 1.617518, 1.662371, 1.438833, 1.640319, 1.506452, 1.484331, 1.37248, 1.708189, 1.57415, 1.529445, 1.551931, 1.417623, 1.350677, 1.328407, 1.395518, 2.024368, 1.89041, 1.957667, 2.00253, 1.935629, 1.91348, 1.980698, 1.869318, 1.757727, 1.713142, 1.73564, 1.62406, 1.57941, 1.602059, 1.490289, 1.803414, 1.781284, 1.647369, 1.468463, 1.669806, 1.44621, 1.848672, 1.826404, 1.692337, 1.558135, 1.513471, 1.535871, 1.424181, 1.931392, 1.909316, 1.775975, 1.84318, 1.642167, 1.798852, 1.709576, 1.620447, 1.665299, 1.576222, 1.487099, 1.531952, 1.442685, 1.979016, 1.956721, 1.822801, 1.688643, 1.5547, 1.35377, 2.001781, 1.756003, 1.510262, 1.398648, 1.890135, 1.867885, 1.733914, 1.599844, 1.465866, 1.42125, 1.376634, 1.332006, 2.008556, 1.807514, 1.964296, 1.763225, 1.785656, 1.718817, 1.629562, 1.651958, 1.584917, 1.495986, 1.987906, 1.854051, 1.831889, 1.698205, 1.564018, 1.519587, 1.944528, 1.92227, 1.676488, 1.54254, 1.453554, 1.900543, 1.878278, 1.744122, 1.610063, 1.43136, 1.408932, 1.476183, 1.462929, 1.419139, 1.44157, 1.396876, 1.861497, 1.839414, 1.817317, 1.906623, 1.795124, 1.884385, 1.50504, 1.482899, 1.661643, 1.684113, 1.349069, 1.528114, 1.550577, 1.327383, 1.752084, 1.729918, 1.595984, 1.573817, 1.39518, 1.775207, 1.641155, 1.618871, 1.417858, 1.708403, 1.440292, 1.373255, 1.462729, 1.95035, 1.928784, 1.861937, 1.772783, 1.817771, 1.840268, 1.751141, 1.796018, 1.595274, 1.37218, 1.662425, 1.573394, 1.350273, 1.997801, 1.975742, 1.730279, 1.708112, 1.462676, 1.529871, 1.686167, 1.552353, 1.418415, 1.329238, 1.909654, 1.887399, 1.641826, 1.619561, 1.50789, 1.441026, 1.396499, 1.485727, 1.38372, 1.895148, 1.828318, 1.873175, 1.806279, 1.694495, 1.739442, 1.784472, 1.672751, 1.650467, 1.717647, 1.762537, 1.628259, 1.852031, 1.516852, 1.47227, 1.494855, 1.42792, 1.450521, 1.36121, 1.406096, 1.562736, 1.316834, 1.339283, 1.607725, 1.540736, 1.384304, 1.5857, 1.889497, 1.845178, 1.867743, 1.979629, 1.823357, 1.756344, 1.957695, 1.689591, 1.935719, 1.734583, 1.801964, 1.712589, 1.913969, 1.779828, 1.623396, 1.601267, 1.46729, 1.444995, 1.355677, 1.31102, 1.579364, 1.557109, 1.333876, 1.647019, 1.513034, 1.401447, 1.490922, 1.669811, 1.42399, 1.379353, 1.535823, 1.916276, 1.894193, 1.983457, 1.938879, 2.005867, 1.96129, 1.782976, 1.760757, 1.805557, 1.649307, 1.627135, 1.672046, 1.515726, 1.873498, 1.7398, 1.605757, 1.494135, 1.851762, 1.717893, 1.583768, 1.539126, 1.829755, 1.695799, 1.561605, 1.472229, 1.449829, 1.427506, 1.999989, 1.978013, 1.844043, 1.642783, 1.956346, 1.822317, 1.621097, 1.598907, 1.688451, 1.487315, 1.576796, 1.666428, 1.465454, 1.443187, 1.935437, 1.91312, 1.779092, 1.756868, 1.421405, 1.801702, 1.555681, 1.533482, 1.399587, 1.33272, 1.891704, 1.869419, 1.735179, 1.712868, 1.511684, 1.377658, 1.355379, 2.011579, 1.967069, 1.989635, 1.900266, 1.945223, 1.923032, 1.856198, 1.744641, 1.722534, 1.700293, 1.879341, 1.566518, 1.61145, 1.678642, 1.432706, 1.58955, 1.544932, 1.410774, 1.835809, 1.813626, 1.634956, 1.455927, 1.523236, 1.791546, 1.769243, 1.501028, 1.478533, 1.657607, 1.421974, 1.444415, 1.466825, 1.399787, 1.85415, 1.809861, 1.89953, 1.832736, 1.788249, 1.877851, 1.721618, 1.744197, 1.475872, 1.386682, 1.431612, 1.454058, 1.364741, 1.700207, 1.565989, 1.409711, 1.678001, 1.655727, 1.521896, 1.3209, 1.768184, 1.633987, 1.611717, 1.58947, 1.544889, 1.500346, 1.343997, 2.011585, 1.98958, 1.833156, 1.878484, 1.811505, 1.968286, 1.789506, 1.923992, 1.901943, 1.857321, 1.947056, 1.768296, 1.678971, 1.656846, 1.523024, 1.389269, 1.747096, 1.546268, 1.367765, 1.613645, 1.591557, 1.457767, 1.726126, 1.703999, 1.41371, 1.637357, 1.503414, 1.48118, 1.436601, 1.570754, 1.347515, 1.401656, 1.881158, 1.85888, 1.815212, 1.681257, 1.659071, 1.614645, 1.52563, 1.83835, 1.481409, 1.39235, 1.704629, 1.347784, 1.370223, 1.638002, 1.459833, 1.75009, 1.727789, 1.593953, 1.571822, 1.438219, 1.326739, 1.795662, 1.773463, 1.505732, 1.416739, 1.550516, 1.977012, 1.910199, 1.95505, 1.888119, 1.932935, 2.000284, 1.821671, 1.79959, 1.64349, 1.66593, 1.621508, 1.532393, 1.487821, 1.510304, 1.465786, 1.376604, 1.332085, 1.778545, 1.354686, 1.868086, 1.73425, 1.60067, 1.578465, 1.310741, 1.690274, 1.556611, 1.445022, 1.757553, 1.846861, 1.400558, 1.422928, 1.713083, 1.899857, 1.945241, 1.878363, 1.96776, 1.990764, 1.923394, 1.610661, 1.767129, 1.588493, 1.74497, 1.812279, 1.56665, 1.633842, 1.678654, 1.455276, 1.500123, 1.544907, 1.43323, 1.858018, 1.724251, 1.701952, 1.478507, 1.791458, 1.657409, 1.836269, 1.523452, 1.41167, 1.943443, 1.854267, 1.765055, 1.921612, 1.832533, 1.743527, 1.989311, 1.967289, 1.721824, 1.788944, 1.900817, 1.811573, 1.699992, 1.87906, 1.477256, 1.611319, 1.656395, 1.343803, 1.589542, 1.522675, 1.321853, 1.679361, 1.433812, 1.45618, 1.567793, 1.500851, 1.634921, 1.389433, 1.411818, 1.545742, 1.367186, 1.900709, 1.878648, 1.767143, 1.946042, 1.745371, 1.924252, 1.566854, 1.522247, 1.61183, 1.544965, 1.857919, 1.835714, 1.701829, 1.679572, 1.433839, 1.500871, 1.992633, 1.970576, 1.724886]", 
+                "[1.484866, 1.596648, 1.82018, 1.797907, 1.663846, 1.641496, 1.418171, 1.462912, 1.39592, 1.445179, 1.422961, 1.400703, 1.836352, 1.814373, 1.792224, 1.904166, 1.658599, 1.703451, 1.882111, 1.636724, 1.68152, 1.525025, 1.391088, 1.435982, 1.503273, 1.77169, 1.749483, 1.727301, 1.481384, 1.459168, 1.369951, 1.571266, 1.414791, 1.861833, 1.616284, 1.594, 1.325544, 1.549219, 1.34798, 1.963229, 1.941124, 1.874074, 1.695215, 1.829525, 1.852183, 1.673398, 1.807597, 1.607049, 1.428832, 1.562623, 1.585249, 1.407092, 1.652562, 1.518799, 1.541323, 2.010928, 1.98864, 1.742714, 1.720499, 1.475216, 1.341582, 1.922356, 1.900117, 1.788343, 1.766048, 1.632202, 1.387002, 1.498474, 1.453956, 1.364812, 1.394224, 1.889254, 1.911698, 1.711256, 1.867433, 1.66704, 1.689534, 1.399381, 1.53352, 1.556029, 1.377523, 1.757058, 1.734959, 1.601246, 1.578954, 1.512161, 1.802375, 1.780252, 1.646687, 1.624362, 1.490492, 1.423546, 1.847612, 1.825552, 1.35693, 1.446395, 1.468803, 1.334825, 1.957254, 2.002245, 1.935392, 1.980187, 1.913271, 1.735318, 1.713057, 1.578955, 1.824591, 1.691053, 1.556968, 1.802764, 1.669179, 1.423683, 1.334312, 1.870152, 1.847956, 1.602522, 1.535803, 1.781614, 1.759575, 1.647955, 1.625635, 1.491731, 1.469538, 1.402744, 1.893915, 1.514601, 1.358455, 1.44798, 1.38094, 2.021981, 1.888093, 1.932951, 2.000208, 1.866171, 1.799349, 1.754801, 2.045586, 1.911542, 1.732823, 1.979033, 1.844878, 1.957023, 1.778106, 1.822912, 1.621714, 1.599498, 1.666859, 1.465557, 1.532812, 1.711963, 1.443491, 1.644839, 1.488347, 1.68981, 1.5779, 1.510836, 1.55563, 1.757054, 1.734933, 1.802076, 1.712922, 1.601474, 1.780181, 1.691111, 1.579625, 1.937133, 1.914961, 1.66945, 1.535593, 1.982292, 1.960166, 1.848574, 1.558453, 2.027549, 2.005486, 1.893964, 1.871912, 1.6488, 1.827534, 1.626644, 1.515044, 1.448043, 1.380981, 1.425732, 1.40343, 1.35879, 1.470574, 1.493008, 1.988119, 1.966134, 1.720726, 1.899509, 1.698559, 1.855036, 1.877536, 1.564883, 1.833404, 1.632445, 1.543269, 1.81149, 1.789386, 1.588485, 2.035432, 2.013222, 1.76778, 1.745556, 1.611552, 1.477632, 1.455516, 1.500261, 1.947082, 1.925008, 1.679379, 1.657102, 1.411327, 1.4338, 1.523169, 1.422231, 1.444874, 1.467335, 1.843552, 1.821588, 1.687732, 1.554047, 1.710461, 1.665886, 1.532265, 1.465221, 1.398319, 1.42069, 1.889831, 1.443355, 1.934912, 1.912618, 1.801158, 1.778932, 1.645134, 1.511345, 1.489076, 1.355045, 1.377578, 1.757574, 1.735317, 1.623748, 1.601627, 1.869633, 1.3336, 1.579559, 2.004779, 1.960421, 1.982929, 1.938398, 1.916137, 1.804873, 1.871965, 1.782791, 1.514671, 1.850042, 1.559713, 1.492709, 1.71647, 1.537731, 1.35891, 1.582659, 1.403921, 1.336992, 1.828792, 1.694951, 1.672664, 1.449072, 1.650565, 1.38239, 1.896386, 1.76288, 1.740661, 1.606566, 1.427664, 1.629032, 1.472486, 1.393656, 1.750906, 1.70643, 1.796243, 1.908174, 1.886049, 1.729792, 1.841966, 1.775199, 1.864672, 1.820338, 1.66393, 1.418074, 1.462862, 1.39596, 1.619581, 1.441149, 1.642558, 1.508507, 1.374631, 1.598074, 1.575959, 1.352901, 1.688458, 1.554048, 1.487174, 1.330875, 1.531903, 1.819459, 1.998407, 1.797501, 1.976277, 1.574205, 1.909542, 1.864949, 1.552193, 1.887587, 1.843091, 1.440808, 1.642091, 1.597592, 1.955205, 1.933095, 1.687371, 1.665181, 1.419455, 1.777226, 1.754999, 1.621036, 1.487115, 1.397676, 1.733119, 1.710853, 1.509899, 1.37586, 1.532602, 1.465624, 1.353837, 1.331504, 1.965313, 2.032708, 2.010499, 1.988376, 1.899054, 1.921557, 1.944057, 1.832601, 1.877669, 1.699117, 1.744, 1.677097, 1.722009, 1.85633, 1.454102, 1.58829, 1.499045, 1.432129, 1.789909, 1.767628, 1.656042, 1.633753, 1.566688, 1.812657, 1.54446, 1.477488, 1.611618, 1.522246, 1.800338, 1.778167, 1.666556, 1.890116, 1.64451, 1.935032, 1.868047, 1.510664, 1.913245, 1.622971, 1.377151, 1.533905, 1.601113, 2.003576, 1.757886, 1.735637, 1.489654, 1.467367, 1.35576, 1.95939, 1.713747, 1.691523, 1.400843, 1.982398, 1.848412, 1.826203, 1.580477, 1.446227, 1.33466, 1.558274, 1.423991, 1.971426, 1.949389, 1.726304, 1.927455, 1.816194, 1.704718, 1.772005, 1.906019, 2.017669, 1.995483, 1.861913, 1.795065, 1.750461, 1.839967, 1.884651, 1.549545, 1.460327, 1.684043, 1.527693, 1.416076, 1.505442, 1.662058, 1.594983, 1.572655, 1.394023, 1.639922, 1.483475, 1.438903, 1.617805, 1.427666, 1.405449, 1.450169, 1.86131, 1.839282, 1.705418, 1.750391, 1.906994, 1.572022, 1.728732, 1.88523, 1.550199, 1.483164, 1.662255, 1.416583, 1.349742, 1.796839, 1.774553, 1.528762, 1.506482, 1.640673, 1.819434, 1.685436, 1.394886, 1.618484, 1.596172, 1.46202, 1.372758, 1.328107, 1.43983, 1.94656, 1.902024, 1.879935, 1.92478, 1.634577, 1.724257, 1.679757, 1.612812, 1.814157, 1.702514, 1.769606, 1.658064, 1.993516, 1.971336, 1.859803, 1.792905, 1.748374, 1.838012, 1.57003, 1.43595, 1.36896, 1.548018, 1.525774, 1.302258, 1.503463, 1.481174, 1.347048, 1.414206, 1.593084, 1.391968, 1.32492, 1.45912, 1.977969, 1.95577, 1.82223, 1.800033, 1.666159, 1.733276, 1.532503, 1.867776, 1.711732, 1.399107, 1.935393, 1.689652, 1.555754, 1.846231, 1.779236, 1.757086, 1.623207, 1.601055, 1.467096, 1.578973, 1.914169, 1.89211, 1.646389, 1.512465, 1.423174, 1.445684, 1.490399, 1.959189, 1.914698, 1.892615, 1.937332, 1.848612, 1.714743, 1.692646, 1.827007, 1.782488, 1.447672, 1.581746, 1.537348, 1.425946, 1.872851, 1.62727, 1.605035, 1.493477, 1.560568, 1.76172, 1.739494, 1.360003, 1.337707, 1.516428, 1.806856, 1.672815, 1.650537, 1.404966, 1.472078, 1.315729, 1.382811, 1.976744, 1.887422, 1.865251, 1.843102, 1.955065, 1.79864, 1.731784, 1.821315, 1.933203, 1.776989, 1.754753, 1.710193, 1.911527, 1.688099, 1.44281, 1.57693, 1.420742, 1.599436, 1.644411, 1.622148, 1.488171, 1.555178, 1.666978, 1.532952, 1.510679, 1.399081, 1.466112, 1.376819, 1.410019, 1.432555, 1.387994, 1.815428, 1.860301, 1.793572, 1.659569, 1.838503, 1.68217, 1.525982, 1.593242, 1.548704, 1.392666, 1.459786, 1.415392, 1.772868, 1.638877, 1.371104, 1.885146, 1.751117, 1.505455, 1.483157, 1.349242, 1.438623, 1.728947, 1.706675, 1.617392, 1.327134, 1.572829, 1.304903, 1.980182, 1.801583, 1.846479, 1.667697, 1.757334, 1.712635, 1.534026, 1.735364, 1.578983, 1.512148, 1.490019, 1.557091, 1.959753, 1.937477, 1.825782, 1.691682, 1.446024, 1.379052, 1.781582, 1.647584, 1.469015, 1.91625, 1.89396, 1.871754, 1.625825, 1.603626, 1.357935, 1.335793, 1.425333, 1.403033, 1.313656, 1.367743, 1.690498, 1.802446, 1.645959, 1.668497, 1.557081, 1.624203, 1.423378, 1.535277, 1.378845, 1.736684, 1.714407, 1.468636, 1.446371, 1.401826, 1.849197, 1.82701, 1.603509, 1.290644, 1.782734, 1.760486, 1.514816, 1.492543, 1.358527, 1.313903, 1.582291, 1.336428, 1.966648, 1.944611, 1.810639, 1.855532, 1.72143, 1.766286, 1.788947, 1.92324, 1.901023, 1.834098, 1.699952, 1.744906, 1.879175, 1.677988, 1.655876, 1.588885, 1.544355, 1.611548, 1.567062, 1.410658, 1.634365, 1.522778, 1.500568, 1.47835, 1.344209, 1.321923, 1.366605, 1.456174, 1.389038, 1.299824, 1.433962, 1.968262, 1.946183, 1.902309, 1.835433, 1.924936, 1.768778, 1.701826, 1.813752, 1.880833, 1.746899, 1.791724, 1.858856, 1.724827, 1.52363, 1.568466, 1.501635, 1.658307, 1.546533, 1.613723, 1.591463, 1.457552, 1.435293, 1.681299, 1.636537, 1.413091, 1.480171, 1.984117, 1.894998, 1.962314, 1.873027, 1.9401, 1.828516, 1.850932, 1.917995, 1.806489, 1.695021, 1.739873, 1.672984, 1.717772, 1.539032, 1.58387, 1.516943, 1.450058, 1.561862, 1.383138, 1.495105, 1.316351, 1.651841, 1.428376, 1.786095, 1.763948, 1.630007, 1.607775, 1.362014, 1.473951, 1.4069, 1.339908, 1.944108, 1.98903, 1.922215, 1.788328, 1.810962, 1.856028, 1.96787, 1.901146, 1.767368, 1.834586, 1.879482, 1.544454, 1.72345, 1.522407, 1.589846, 1.679436, 1.411227, 1.456071, 1.657322, 1.635163, 1.501157, 1.389392, 1.702584, 1.434414, 1.747454, 1.479374, 1.568812, 1.6136, 1.376955, 1.421852, 1.399579, 1.44428, 1.866371, 1.844254, 1.732573, 1.598566, 1.643438, 1.71078, 1.576753, 1.621676, 1.465187, 1.331241, 1.376057, 1.443305, 1.68955, 1.667344, 1.42135, 1.309774, 1.779553, 1.757262, 1.511117]", 
+                "[1.36056, 1.830288, 1.807986, 1.561941, 1.405442, 1.494982, 1.539752, 1.909706, 1.887582, 1.865494, 1.731505, 1.77646, 1.709623, 1.53095, 1.75472, 1.620816, 1.576304, 1.50954, 1.845039, 1.822977, 1.800767, 1.666749, 1.488111, 1.555376, 1.980336, 1.958215, 1.935962, 1.645302, 1.60063, 1.690092, 1.377131, 1.421907, 1.466707, 1.354892, 1.444441, 1.399737, 1.31035, 1.332729, 1.365009, 1.79682, 1.707759, 1.685592, 1.663432, 1.57411, 1.842611, 1.641654, 1.619537, 1.552712, 1.754089, 1.821236, 1.598017, 1.732471, 1.777208, 1.509166, 1.442183, 1.464593, 1.375176, 1.419965, 1.330493, 1.352949, 1.285784, 1.531952, 1.308218, 1.487326, 1.397898, 1.90625, 1.884288, 1.750208, 1.66103, 1.616355, 1.728315, 1.639082, 1.594456, 1.482778, 1.505419, 1.460794, 1.349422, 1.864073, 1.841883, 1.707846, 1.573801, 1.439748, 1.372895, 1.932427, 1.6865, 1.552218, 1.4181, 1.328752, 1.955081, 1.820905, 1.798529, 1.776205, 1.530223, 1.306762, 1.284461, 1.396221, 1.929077, 1.906865, 1.951541, 1.885124, 1.68407, 1.773716, 1.751586, 1.550544, 1.640189, 1.618072, 1.439284, 1.864313, 1.84213, 1.708192, 1.574233, 1.507377, 1.730997, 1.596934, 1.485216, 1.820603, 1.798235, 1.664198, 1.418275, 1.463077, 1.530203, 1.396072, 1.889388, 1.956704, 1.934537, 1.644237, 1.82308, 1.80084, 1.622347, 1.868343, 1.846188, 1.734645, 1.690135, 1.913572, 1.77968, 1.668113, 1.712905, 1.757714, 1.400248, 1.556889, 1.534651, 1.378196, 1.579661, 1.423336, 1.490509, 1.513045, 1.602672, 1.468753, 1.334539, 1.446499, 1.356994, 1.312343, 1.931642, 1.909532, 1.797998, 1.842871, 1.776011, 1.820953, 1.664815, 1.977893, 1.709867, 1.643041, 1.889135, 1.866961, 1.62134, 1.956738, 1.75578, 1.68892, 1.599615, 1.733745, 1.5774, 1.555127, 1.398817, 1.532896, 1.510616, 1.44365, 1.488393, 1.421415, 1.376788, 1.466193, 1.387857, 1.410356, 1.432727, 1.66347, 1.797828, 1.619266, 1.641829, 1.776016, 1.485727, 1.508248, 1.419099, 1.352236, 1.687603, 1.553678, 1.375068, 1.84434, 1.822185, 1.71077, 1.576818, 1.398097, 1.88967, 1.867366, 1.755738, 1.733451, 1.599441, 1.465458, 1.331421, 1.532549, 1.443317, 1.309306, 1.929496, 1.974242, 1.907509, 1.952503, 1.885567, 1.863286, 1.775197, 1.842322, 1.797937, 1.641741, 1.463046, 1.552806, 1.620078, 1.441548, 1.531207, 1.821832, 1.688187, 1.66599, 1.420169, 1.375497, 1.733225, 1.710959, 1.599203, 1.308635, 1.755744, 1.509973, 1.487649, 1.353551, 1.398309, 1.577205, 1.331334, 1.989764, 1.856093, 1.722145, 1.878835, 1.700238, 1.968613, 1.946567, 1.812597, 1.678848, 1.835392, 1.924938, 1.902766, 1.768956, 1.746866, 1.657599, 1.635192, 1.79169, 1.59058, 1.568292, 1.613005, 1.456604, 1.43433, 1.479116, 1.546198, 1.523879, 1.501587, 1.412233, 1.938351, 1.983131, 1.916345, 1.961144, 1.805086, 1.872621, 1.895171, 1.82848, 1.851098, 1.784145, 1.762004, 1.650427, 1.628389, 1.517118, 1.383201, 1.67352, 1.69621, 1.562369, 1.540394, 1.428973, 1.496298, 1.742466, 1.608534, 1.586724, 1.47522, 1.363649, 1.721123, 1.341456, 1.408425, 1.453102, 1.319302, 1.980337, 1.802018, 1.824505, 1.668433, 1.847169, 1.69113, 1.423242, 1.602068, 1.55759, 1.40141, 1.580268, 1.959902, 1.93772, 1.915596, 1.781858, 1.759635, 1.514199, 1.536826, 1.894138, 1.871997, 1.738316, 1.716164, 1.470762, 1.381576, 1.649766, 1.493519, 1.448912, 1.62764, 1.41362, 1.391558, 1.436315, 1.88486, 1.750559, 1.6168, 1.728786, 1.661959, 1.48375, 1.70698, 1.640101, 1.81908, 1.685095, 1.551479, 1.462284, 1.797316, 1.775029, 1.529745, 1.440575, 1.865057, 1.842921, 1.597347, 1.419048, 1.508466, 1.575437, 1.396901, 1.352197, 1.307514, 1.37469, 1.329946, 1.983781, 1.961494, 1.91689, 1.939428, 1.626718, 1.895236, 1.873083, 1.605037, 1.76176, 1.851291, 1.471549, 1.739978, 1.717891, 1.338255, 1.494763, 1.69625, 1.316521, 1.830776, 1.808551, 1.585308, 1.563412, 1.362547, 1.675895, 1.653844, 1.519945, 1.453143, 1.788412, 1.43091, 1.542738, 1.386358, 1.408724, 1.369805, 1.761799, 1.73978, 1.605984, 1.584024, 1.785181, 1.450438, 1.807747, 1.651643, 1.42863, 1.629582, 1.67437, 1.719322, 1.69707, 1.563282, 1.541346, 1.519172, 1.385296, 1.854228, 1.831935, 1.497092, 1.407886, 1.475017, 1.296416, 1.31883, 1.363524, 1.341228, 1.950164, 1.839492, 1.92899, 1.817539, 1.907081, 1.4608, 1.505716, 1.662305, 1.439036, 1.483964, 1.640396, 1.305553, 1.350491, 1.618545, 1.283835, 1.797628, 1.775544, 1.418526, 1.329273, 1.708991, 1.686726, 1.552764, 1.374173, 1.887782, 1.865501, 1.753899, 1.731643, 1.597693, 1.39678, 1.530829, 1.575506, 1.921609, 1.832459, 1.944271, 1.877948, 1.788813, 1.900686, 1.766931, 1.811734, 1.856541, 1.745034, 1.700538, 1.678297, 1.544495, 1.656396, 1.56725, 1.52275, 1.634746, 1.433835, 1.501027, 1.724531, 1.479066, 1.389729, 1.613222, 1.412151, 1.456945, 1.591043, 1.850497, 1.828572, 1.895588, 1.717218, 1.96293, 1.76231, 1.874217, 1.80753, 1.785383, 1.696144, 1.942108, 1.919957, 1.741546, 1.65238, 1.674985, 1.585851, 1.563642, 1.429531, 1.630779, 1.407258, 1.496801, 1.4745, 1.340307, 1.608668, 1.519344, 1.385234, 1.452326, 1.541836, 1.318242, 1.363089, 1.296008, 1.809648, 1.94406, 1.676013, 1.653907, 1.922296, 1.519767, 1.76612, 1.788617, 1.497988, 1.744333, 1.543283, 1.856591, 1.834392, 1.588615, 1.566499, 1.43249, 1.410621, 1.365982, 1.9028, 1.880516, 1.634559, 1.477979, 1.724135, 1.701818, 1.388714, 1.612461, 1.455861, 1.377005, 1.421946, 1.399655, 1.836987, 1.814939, 1.65831, 1.68081, 1.478906, 1.524095, 1.860475, 1.726563, 1.704387, 1.569981, 1.547879, 1.413253, 1.436029, 1.88481, 1.750589, 1.503799, 1.346639, 1.795508, 1.77318, 1.638744, 1.616307, 1.593923, 1.459186, 1.32462, 1.391859, 1.369502, 1.302412, 1.8978, 1.965077, 1.875942, 1.719636, 1.742192, 1.585969, 1.608637, 1.452605, 1.944476, 1.922469, 1.69938, 1.565387, 1.54337, 1.789435, 1.767465, 1.633559, 1.477125, 1.857189, 1.834908, 1.812621, 1.678568, 1.656277, 1.432764, 1.499886, 1.522272, 1.410548, 1.365864, 1.321213, 1.388334, 1.343656, 1.375947, 1.742546, 1.832372, 1.810171, 1.720773, 1.67621, 1.78817, 1.654265, 1.699177, 1.856028, 1.76664, 1.431466, 1.387001, 1.342449, 1.40987, 1.566754, 1.544623, 1.365911, 1.612207, 1.589897, 1.478035, 1.321627, 1.634782, 1.523017, 1.299435, 1.455927, 1.500765, 1.955323, 1.934227, 1.91207, 1.688603, 1.867771, 1.554885, 1.733966, 1.890614, 1.778886, 1.756598, 1.62253, 1.600376, 1.846618, 1.824363, 1.802289, 1.534214, 1.668562, 1.713393, 1.579387, 1.646642, 1.46789, 1.445589, 1.423353, 1.311465, 1.401067, 1.512887, 1.490582, 1.378813, 1.289292, 1.35648, 1.334167, 1.95386, 1.797738, 1.820295, 1.775708, 1.932439, 1.843202, 1.865603, 1.910338, 1.888044, 1.575925, 1.553798, 1.419853, 1.531927, 1.711038, 1.398181, 1.73377, 1.510477, 1.667096, 1.689549, 1.756778, 1.622639, 1.600291, 1.466199, 1.48863, 1.645177, 1.443994, 1.847899, 1.825811, 1.803626, 1.691724, 1.96053, 1.781901, 1.44641, 1.714979, 1.670539, 1.424705, 1.581477, 1.537099, 1.291354, 1.940145, 1.917923, 1.649485, 1.515466, 1.560265, 1.761853, 1.739585, 1.4937, 1.404396, 1.896558, 1.874264, 1.628115, 1.605786, 1.471666, 1.337688, 1.38241, 1.360133, 1.315439, 1.778089, 1.957112, 1.75621, 1.935214, 1.622596, 1.82365, 1.600584, 1.801733, 1.734849, 1.467052, 1.668271, 1.690812, 1.579294, 1.557379, 1.423788, 1.446201, 1.915384, 1.893079, 1.647369, 1.51342, 1.535782, 1.870762, 1.848517, 1.714617, 1.402074, 1.491419, 1.379848, 1.411438, 1.389399, 1.36723, 1.43435, 1.740302, 1.785163, 1.718676, 1.763564, 1.629813, 1.607497, 1.652517, 1.496483, 1.363015, 1.519367, 1.854347, 1.832266, 1.586783, 1.564662, 1.319421, 1.475827, 1.810859, 1.543277, 1.409588, 1.342702, 1.699876, 1.677576, 1.454356, 1.298222, 1.387571, 1.432219, 1.960827, 1.939588, 1.694435, 1.917612, 1.783937, 1.561166, 1.739605, 1.896093, 1.82944, 1.807256, 1.673846, 1.651803, 1.76329, 1.874998, 1.54066, 1.852991, 1.607991, 1.719531, 1.63056, 1.58604, 1.430097, 1.407854, 1.519726, 1.475149, 1.296663, 1.385965, 1.497681, 1.341455, 1.453137, 1.36388, 1.319324, 1.34959, 1.704601, 1.682539, 1.81668, 1.481868, 1.660824, 1.526953]", 
+                "[1.556432, 1.802226, 1.77997, 1.578924, 1.757747, 1.735536, 1.623921, 1.601594, 1.512302, 1.646453, 1.467736, 1.423095, 1.378431, 1.289139, 1.445586, 1.333913, 1.356286, 1.401017, 1.311728, 1.697071, 1.786821, 1.675266, 1.742471, 1.765268, 1.564221, 1.720893, 1.542256, 1.520293, 1.587582, 1.408945, 1.431543, 1.454174, 1.297597, 1.901695, 1.879466, 1.656166, 1.633951, 1.611759, 1.500014, 1.388108, 1.320987, 1.947215, 1.924887, 1.34358, 1.857958, 1.835694, 1.478098, 1.276556, 1.813499, 1.366253, 1.933316, 1.889548, 1.867482, 1.913132, 1.756757, 1.734548, 1.779445, 1.622974, 1.846763, 1.824656, 1.690657, 1.71322, 1.601684, 1.646464, 1.803056, 1.668916, 1.579518, 1.557192, 1.512406, 1.490083, 1.467757, 1.378536, 1.423187, 1.535105, 1.445636, 1.401064, 1.936423, 1.91435, 1.669016, 1.803171, 1.535488, 1.781649, 1.714691, 1.513765, 1.648118, 1.69289, 1.402583, 1.760286, 1.738088, 1.604402, 1.582299, 1.560121, 1.426267, 1.314933, 1.381974, 1.895574, 1.873338, 1.627916, 1.493759, 1.449183, 1.851238, 1.829028, 1.47167, 1.293181, 1.360228, 1.337921, 1.842847, 1.954975, 1.821256, 1.910661, 1.933233, 1.68795, 1.777489, 1.799901, 1.88923, 1.643766, 1.867211, 1.733682, 1.666804, 1.756285, 1.711703, 1.421706, 1.600238, 1.510998, 1.399645, 1.555761, 1.578163, 1.623076, 1.489252, 1.467186, 1.534271, 1.378164, 1.445266, 1.409491, 1.431944, 1.365087, 1.387495, 1.858101, 1.702255, 1.613104, 1.791896, 1.680542, 1.368261, 1.770603, 1.458301, 1.347005, 1.749113, 1.726897, 1.593017, 1.570737, 1.548458, 1.436776, 1.414472, 1.526299, 1.838863, 1.816672, 1.303145, 1.660491, 1.638196, 1.504292, 1.392587, 1.325663, 1.482011, 1.929306, 1.974312, 1.952178, 1.863288, 1.908121, 1.819045, 1.841573, 1.88632, 1.685625, 1.79752, 1.730754, 1.66398, 1.574767, 1.552676, 1.419296, 1.397174, 1.531126, 1.776896, 1.754629, 1.620616, 1.598316, 1.464599, 1.442409, 1.710226, 1.643281, 1.509389, 1.487179, 1.353449, 1.375779, 1.309013, 1.331372, 1.362137, 1.804466, 1.849527, 1.760292, 1.782718, 1.827552, 1.738353, 1.604711, 1.58254, 1.694405, 1.4489, 1.560756, 1.427002, 1.5388, 1.673023, 1.293081, 1.494378, 1.472121, 1.338065, 1.405267, 1.651041, 1.628734, 1.516963, 1.383103, 1.718227, 1.316005, 1.360933, 1.846278, 1.958166, 1.824405, 1.936418, 1.534566, 1.579348, 1.557113, 1.713743, 1.512935, 1.803711, 1.781484, 1.669849, 1.424171, 1.759546, 1.737353, 1.491663, 1.469407, 1.692996, 1.916708, 1.402798, 1.894577, 1.872351, 1.626796, 1.649288, 1.448383, 1.605058, 1.314684, 1.359445, 1.381859, 1.292509, 1.33723, 1.95586, 1.934377, 1.80037, 1.91261, 1.778496, 1.666893, 1.711834, 1.75678, 1.533769, 1.846671, 1.824378, 1.690331, 1.579015, 1.646077, 1.892322, 1.870199, 1.624314, 1.736114, 1.557753, 1.602418, 1.424159, 1.513476, 1.468945, 1.491287, 1.401928, 1.446767, 1.97932, 1.733963, 1.711734, 1.913156, 1.577863, 1.891294, 1.779854, 1.556077, 1.533834, 1.757912, 1.422065, 1.37744, 1.959338, 1.93724, 1.825743, 1.624478, 1.87065, 1.848422, 1.602373, 1.468246, 1.446081, 1.40145, 1.804636, 1.670495, 1.648368, 1.514106, 1.491754, 1.357453, 1.69366, 1.312917, 1.335346, 1.974749, 1.930224, 1.952664, 1.818809, 1.595256, 1.796819, 1.573153, 1.662739, 1.685198, 1.439635, 1.529149, 1.551588, 1.909852, 1.775645, 1.753358, 1.418115, 1.8657, 1.843491, 1.731605, 1.709299, 1.508232, 1.888664, 1.642517, 1.62018, 1.39677, 1.463867, 1.48622, 1.451243, 1.429746, 1.385273, 1.407664, 1.859422, 1.881874, 1.837355, 1.638491, 1.705816, 1.616633, 1.773311, 1.57206, 1.482595, 1.75139, 1.438248, 1.349044, 1.505624, 1.729767, 1.595619, 1.41666, 1.81949, 1.797277, 1.551199, 1.327596, 1.685732, 1.663447, 1.528965, 1.394787, 1.461863, 1.305575, 1.372579, 1.969349, 1.790499, 1.947413, 1.925224, 1.992464, 1.880764, 1.768898, 1.836149, 1.903513, 1.858697, 1.814161, 1.747157, 1.702518, 1.635632, 1.680413, 1.591273, 1.65849, 1.569247, 1.345704, 1.524925, 1.547586, 1.614769, 1.391115, 1.324099, 1.726815, 1.481016, 1.503461, 1.43639, 1.369269, 1.458876, 1.414153, 1.378472, 1.74737, 1.725242, 1.770167, 1.703143, 1.591348, 1.636324, 1.681473, 1.457728, 1.81608, 1.793983, 1.659692, 1.503036, 1.570244, 1.861606, 1.839313, 1.615502, 1.526019, 1.548414, 1.48139, 1.324988, 1.369655, 1.302799, 1.347406, 1.436823, 1.39216, 1.414636, 1.759398, 1.849009, 1.737457, 1.827095, 1.894263, 1.626145, 1.58148, 1.805147, 1.78289, 1.671334, 1.87259, 1.962036, 1.559909, 1.940105, 1.716825, 1.605147, 1.650128, 1.694926, 1.918478, 1.49388, 1.471682, 1.337633, 1.29301, 1.449705, 1.315721, 1.539497, 1.517332, 1.383273, 1.405727, 1.428129, 1.361144, 1.85729, 1.94685, 1.836365, 1.769712, 1.903927, 1.814848, 1.926722, 1.972197, 1.882363, 1.793145, 1.703817, 1.569955, 1.6818, 1.547847, 1.435904, 1.614947, 1.525647, 1.749254, 1.726956, 1.481018, 1.413838, 1.659905, 1.637574, 1.592971, 1.458775, 1.503663, 1.870927, 1.983019, 1.849042, 1.781808, 1.7372, 1.603077, 1.759784, 1.715366, 1.581141, 1.514182, 1.469543, 1.335211, 1.492129, 1.8281, 1.805735, 1.559681, 1.447927, 1.918312, 1.896083, 1.649918, 1.627614, 1.381404, 1.314274, 1.963873, 1.941691, 1.695493, 1.673322, 1.427116, 1.539167, 1.360081, 1.404924, 1.938777, 1.916687, 1.89458, 1.872352, 1.984136, 1.805602, 1.783409, 1.738821, 1.850767, 1.962675, 1.76171, 1.828923, 1.627654, 1.605438, 1.583233, 1.717736, 1.449206, 1.561361, 1.695856, 1.673649, 1.539416, 1.472342, 1.651535, 1.517407, 1.427973, 1.405515, 1.38309, 1.495429, 1.412597, 1.435161, 1.39102, 1.90534, 1.794491, 1.772339, 1.660484, 1.414181, 1.817519, 1.638395, 1.50429, 1.392503, 1.459971, 1.482442, 1.370421, 1.885795, 1.751521, 1.729368, 1.595071, 1.438472, 1.864143, 1.348994, 1.842198, 1.326846, 1.708016, 1.685652, 1.551267, 1.573693, 1.618497, 1.528985, 1.934674, 1.912404, 1.778109, 2.002238, 1.756127, 1.980296, 1.734094, 1.958317, 1.600315, 1.712282, 1.578169, 1.802218, 1.667983, 1.690585, 1.847619, 1.82543, 1.556972, 1.892921, 1.870552, 1.646672, 1.534846, 1.624394, 1.467725, 1.445351, 1.512656, 1.333569, 1.423112, 1.490339, 1.378503, 1.400896, 1.356234, 1.38777, 1.888849, 1.66538, 1.800053, 1.755586, 1.643873, 1.845232, 1.778395, 1.867957, 1.733864, 1.711659, 1.823629, 1.622531, 1.689796, 1.600537, 1.376737, 1.533564, 1.354673, 1.578562, 1.556216, 1.421898, 1.511506, 1.466736, 1.489188, 1.332607, 1.399739, 1.444523, 1.310432, 1.928129, 1.905901, 1.771788, 1.794546, 1.637778, 1.525976, 1.615645, 1.503808, 1.5935, 1.481712, 1.974367, 1.952181, 1.818003, 1.459939, 1.684091, 1.728938, 1.885727, 1.437907, 1.863511, 1.841309, 1.707097, 1.572704, 1.662724, 1.752417, 1.55087, 1.371825, 1.349584, 1.304997, 1.327452, 1.394704, 1.417136, 1.983158, 1.806151, 1.784336, 1.874035, 1.717375, 1.650358, 1.628195, 1.471677, 1.561295, 1.538986, 1.516691, 1.964888, 1.942632, 1.920252, 1.897949, 1.763652, 1.741344, 1.60736, 1.585076, 1.451063, 1.495909, 1.854114, 1.831825, 1.69753, 1.406747, 1.429138, 1.675282, 1.898644, 1.943632, 1.988459, 1.966282, 1.876857, 1.921721, 1.832164, 1.854813, 1.787815, 1.519671, 1.810479, 1.497453, 1.676492, 1.363561, 1.654434, 1.632239, 1.341581, 1.766986, 1.744928, 1.588458, 1.543818, 1.722784, 1.700477, 1.477054, 1.387955, 1.611727, 1.567045, 1.43295, 1.321155, 1.455457, 1.410785, 1.904808, 1.882622, 1.748597, 1.726268, 1.994757, 1.838523, 1.592501, 1.861083, 1.816563, 1.570521, 1.615508, 1.459012, 1.503901, 1.660661, 1.481765, 1.929401, 1.795408, 1.773191, 1.527181, 1.437818, 1.974779, 1.95251, 1.706638, 1.684526, 1.639857, 1.416188, 1.550462, 1.471158, 1.449699, 1.427435, 1.405124, 1.822556, 1.80033, 1.68878, 1.912505, 1.666768, 1.778723, 1.734022, 1.532828, 1.756758, 1.712279, 1.645238, 1.62295, 1.488812, 1.511429, 1.891747, 1.86949, 1.84723, 1.377274, 1.601322, 1.579134, 1.444932, 1.400244, 1.467617, 1.422951, 1.557503, 1.355944, 1.333621, 1.916215, 1.849127, 1.782289, 1.827197, 1.760418, 1.60439, 1.69371, 1.515759, 1.895441, 1.873201, 1.739418, 1.583454, 1.985614, 1.963357, 1.941083, 1.806863, 1.561978, 1.673492, 2.008893, 1.6513, 1.629077, 1.495352, 1.473106]", 
+                "[1.725973, 1.547737, 1.458537, 1.436259, 1.391582, 1.369289, 1.324673, 1.347073, 1.414166, 1.979915, 2.00232, 1.958156, 1.891409, 1.846871, 1.914009, 1.824715, 1.757716, 1.936814, 1.780621, 1.87018, 1.803174, 1.691667, 1.714111, 1.66963, 1.468533, 1.558159, 1.625196, 1.446418, 1.647746, 1.53633, 1.737445, 1.603483, 1.491779, 1.514299, 1.58132, 1.424806, 2.006174, 1.917173, 1.984295, 1.895267, 1.71695, 1.650212, 1.695083, 1.962862, 1.628438, 1.561462, 1.940874, 1.383122, 1.42791, 1.584501, 1.361366, 1.874926, 1.852801, 1.74127, 1.607642, 1.47379, 1.407015, 1.831234, 1.809139, 1.67537, 1.452228, 1.787061, 1.764959, 1.519527, 1.340884, 1.541916, 1.497345, 1.963407, 1.94137, 1.919144, 1.696267, 1.785616, 1.674327, 1.76373, 2.009676, 1.429375, 1.51891, 1.653021, 1.407612, 1.898603, 1.876386, 1.854267, 1.609181, 1.497724, 1.988696, 1.743408, 1.72115, 1.475778, 1.632053, 1.833028, 1.811147, 1.565962, 1.588415, 1.454624, 1.544041, 1.441059, 1.463647, 1.419082, 1.396778, 1.73958, 1.874184, 1.71778, 1.852228, 1.606468, 1.584224, 1.830389, 1.472864, 1.562349, 1.696727, 1.808757, 1.786525, 1.540756, 1.518648, 1.451766, 1.675352, 1.653093, 1.429675, 1.899138, 1.765329, 1.631384, 1.497274, 1.36366, 1.386143, 1.319049, 1.408762, 1.341723, 1.912331, 1.890141, 1.867889, 1.733779, 1.979888, 1.711871, 1.823913, 1.80165, 1.645182, 1.958488, 1.936186, 1.846775, 1.779987, 1.668265, 1.690784, 1.758027, 1.579092, 1.556871, 1.422723, 1.377976, 1.400434, 1.535007, 1.490328, 1.333726, 1.356358, 1.625209, 1.603028, 1.468836, 1.513676, 1.312172, 1.446618, 1.36554, 1.802673, 1.847568, 1.713364, 1.78078, 1.825918, 1.758945, 1.691871, 1.736893, 1.647408, 1.625219, 1.67011, 1.580907, 1.558756, 1.424374, 1.4021, 1.604032, 1.469708, 1.335465, 1.447736, 1.290859, 1.537722, 1.51545, 1.381135, 1.31399, 1.493555, 1.35912, 1.944689, 1.855221, 1.810742, 1.922886, 1.900671, 1.878513, 1.833852, 1.789205, 1.766852, 1.722242, 1.700074, 1.565767, 1.543419, 1.745179, 1.409087, 1.431622, 1.588824, 1.31993, 1.275705, 1.679378, 1.657101, 1.522668, 1.500285, 1.366186, 1.388619, 1.635408, 1.613087, 1.478677, 1.299695, 1.344529, 1.456494, 1.871466, 1.849401, 1.938567, 1.894156, 1.916468, 1.738268, 1.80545, 1.492582, 1.827989, 1.671884, 1.470658, 1.716952, 1.582875, 1.560646, 1.694973, 1.762097, 1.628186, 1.538816, 1.784866, 1.650826, 1.44949, 1.427258, 1.60657, 1.517264, 1.405108, 1.382736, 1.908861, 1.886721, 1.752419, 1.93179, 1.618306, 1.797605, 1.596184, 1.66351, 1.462119, 1.865295, 1.641465, 1.440046, 1.73125, 1.395595, 1.776287, 1.530058, 1.507727, 1.373619, 1.306578, 1.955933, 1.821761, 1.575546, 1.553319, 1.486294, 1.844676, 1.710331, 1.687972, 1.352189, 1.419387, 1.329888, 1.946998, 1.81333, 1.925176, 1.791298, 1.746702, 1.679816, 1.769302, 1.612874, 1.657835, 1.635581, 1.590923, 1.97139, 1.72553, 1.70329, 1.569113, 1.524286, 1.882367, 1.502066, 1.860187, 1.904953, 1.547349, 1.838391, 1.390989, 1.45813, 1.413454, 1.435886, 1.480607, 1.424347, 1.379788, 1.402335, 1.447107, 1.879605, 1.8574, 1.746264, 1.724195, 1.813777, 1.612488, 1.791694, 1.590252, 1.568094, 1.456117, 1.545983, 1.434075, 1.411805, 1.367133, 1.300098, 1.770559, 1.389957, 1.659068, 1.636731, 1.502354, 1.345484, 1.838268, 1.704087, 1.681756, 1.524973, 1.480123, 1.323309, 1.84552, 1.890473, 1.823432, 1.935675, 1.868644, 1.555495, 1.913661, 1.622825, 1.533639, 1.958915, 1.712863, 1.690578, 1.780204, 1.802753, 1.668697, 1.646463, 1.490185, 1.758638, 1.736581, 1.602568, 1.580325, 1.468871, 1.513498, 1.446695, 1.424411, 1.379758, 1.402202, 1.33524, 1.357648, 1.313133, 1.366533, 1.863113, 1.840943, 1.81865, 1.752462, 1.707845, 1.730338, 1.46183, 1.596315, 1.439574, 1.574253, 1.798027, 1.775928, 1.641883, 1.395623, 1.619814, 1.687144, 1.552972, 1.418596, 1.665111, 1.530876, 1.508638, 1.486381, 1.352255, 1.374753, 1.307628, 1.330059, 1.9425, 1.920548, 1.786445, 1.764177, 1.898724, 1.74221, 1.876676, 1.496537, 1.966531, 1.631195, 1.474843, 1.720943, 1.609271, 1.810565, 1.676475, 1.452994, 1.855677, 1.83328, 1.587412, 1.565097, 1.431034, 1.699494, 1.543125, 1.655123, 1.409279, 1.521228, 1.364828, 1.319986, 1.342479, 1.297716, 1.387411, 1.928019, 1.97265, 1.950446, 1.884306, 1.90674, 1.795076, 1.750429, 1.772901, 1.661118, 1.862613, 1.616644, 1.840761, 1.639526, 1.818593, 1.729178, 1.706973, 1.684808, 1.595539, 1.52855, 1.461565, 1.506391, 1.48412, 1.551373, 1.417031, 1.439456, 1.573883, 1.394755, 1.951948, 1.92995, 1.907652, 1.795662, 1.863144, 1.818392, 1.885834, 1.841144, 1.729201, 1.483179, 1.662294, 1.461093, 1.528394, 1.327079, 1.573481, 1.394517, 1.775309, 1.641157, 1.50707, 1.305671, 1.753559, 1.619313, 1.596993, 1.552244, 1.708955, 1.686608, 1.440446, 1.373297, 1.350943, 1.418229, 1.865837, 1.843715, 1.821515, 1.978298, 1.687656, 1.732674, 1.956784, 1.665989, 1.71091, 1.487369, 1.532351, 1.577386, 1.46569, 1.93596, 1.913722, 1.443905, 1.511103, 1.802164, 1.779897, 1.757714, 1.623745, 1.556771, 1.892751, 1.646732, 1.400929, 1.42345, 1.60264, 1.379127, 1.410035, 1.388148, 1.366064, 1.433215, 1.786825, 1.652537, 1.854347, 1.630592, 1.720401, 1.765497, 1.385275, 1.586608, 1.519634, 1.363401, 1.743856, 1.609655, 1.475764, 1.341696, 1.453699, 1.811914, 1.565778, 1.498879, 1.834866, 1.700852, 1.678519, 1.432561, 1.320725, 1.544443, 1.410359, 1.298489, 1.902822, 1.880586, 1.858454, 1.925911, 1.724603, 1.791709, 1.702532, 1.948901, 1.658011, 1.456933, 1.591373, 1.412512, 1.434946, 1.569361, 1.390615, 1.770827, 1.74863, 1.502783, 1.301676, 1.637219, 1.614908, 1.369118, 1.32447, 1.973353, 1.838831, 1.816576, 1.68261, 1.548577, 1.481516, 1.347549, 1.526481, 1.357079, 1.797627, 1.752703, 1.775499, 1.820225, 1.709133, 1.57494, 1.62002, 1.553007, 1.732349, 1.486289, 1.30762, 1.598461, 1.352472, 1.285631, 1.464585, 1.442583, 1.420348, 1.330917, 1.688902, 1.666558, 1.532312, 1.509942, 1.644325, 1.398286, 1.375932, 1.861968, 1.906716, 1.951508, 1.840148, 1.929502, 1.795914, 1.885297, 1.818484, 1.773983, 1.75153, 1.595058, 1.617553, 1.572952, 1.505925, 1.662744, 1.327239, 1.484048, 1.41699, 1.305438, 1.730623, 1.708368, 1.462199, 1.350432, 1.686129, 1.551876, 1.529562, 1.395266, 1.641544, 1.440097, 1.283696, 1.373065, 1.94583, 1.856717, 1.901576, 1.812287, 1.879468, 1.834825, 1.924353, 1.72313, 1.700871, 1.768064, 1.67886, 1.589602, 1.746127, 1.612305, 1.478298, 1.455948, 1.634972, 1.657519, 1.523748, 1.568511, 1.791983, 1.54622, 1.41209, 1.43449, 1.501636, 1.389839, 1.940152, 1.918016, 1.784033, 1.761791, 1.538273, 1.516148, 1.807002, 1.382263, 1.628251, 1.673335, 1.360451, 1.897252, 1.875002, 1.740928, 1.718684, 1.495225, 1.473, 1.607174, 1.96515, 1.585139, 1.56298, 1.4291, 1.65277, 1.854068, 1.831782, 1.697785, 1.451986, 1.318086, 1.340508, 1.407717, 1.295885, 1.921182, 1.765013, 1.899272, 1.854684, 1.519895, 1.564777, 1.609747, 1.498226, 1.878373, 1.744377, 1.722144, 1.476695, 1.5441, 1.946303, 1.81241, 1.790178, 1.656244, 1.634032, 1.388194, 1.58956, 1.83531, 1.70128, 1.678988, 1.433245, 1.455695, 1.36629, 1.411034, 1.421171, 1.398933, 1.376674, 1.805713, 1.873111, 1.783748, 1.850991, 1.627513, 1.672414, 1.829241, 1.605758, 1.650586, 1.583661, 1.718033, 1.695788, 1.561796, 1.494936, 1.76323, 1.517429, 1.539955, 1.741257, 1.383762, 1.428661, 1.339342, 1.473581, 1.451443, 1.317513, 1.362288, 1.407137, 1.29553, 1.946334, 1.924193, 1.812274, 1.96901, 1.902125, 1.87998, 1.768408, 1.790913, 1.858176, 1.835926, 1.746595, 1.724432, 1.679958, 1.545806, 1.411672, 1.658015, 1.456794, 1.703007, 1.591154, 1.568875, 1.389988, 1.636111, 1.501999, 1.479708, 1.345515, 1.5246, 1.614151, 1.435426, 1.323652, 1.368385, 1.380017, 1.834587, 1.857157, 1.812692, 1.790497, 1.701958, 1.590507, 1.724402, 1.679993, 1.457006, 1.546439, 1.568964, 1.323655, 1.412951, 1.435372, 1.301804, 1.770308, 1.748245, 1.614827, 1.391811, 1.659747, 1.525969, 1.503807, 1.370204, 1.638013, 1.481851, 1.348152, 1.951208, 1.884473, 1.929278, 1.683855, 1.728876, 1.862925, 1.550517, 1.595228, 1.528641]"
+            ], 
+            "mean_batch_sizes": [
+                {
+                    "res152": 16.83
+                }, 
+                {
+                    "res152": 28.25
+                }, 
+                {
+                    "res152": 28.5
+                }, 
+                {
+                    "res152": 28.93
+                }, 
+                {
+                    "res152": 29.41
+                }, 
+                {
+                    "res152": 28.89
+                }, 
+                {
+                    "res152": 29.59
+                }, 
+                {
+                    "res152": 29.44
+                }, 
+                {
+                    "res152": 29.0
+                }, 
+                {
+                    "res152": 29.26
+                }, 
+                {
+                    "res152": 29.07
+                }
+            ], 
+            "mean_lats": [
+                1.2036677525000001, 
+                1.58657777875, 
+                1.600663255, 
+                1.6174545912500002, 
+                1.6424999525, 
+                1.6186791274999999, 
+                1.657390065, 
+                1.6533518900000002, 
+                1.6280689824999999, 
+                1.6366298075, 
+                1.62727485
+            ]
+        }
+    ], 
+    "node_configs": [
+        {
+            "model_image": "gcr.io/clipper-model-comp/pytorch-res152:bench", 
+            "name": "res152", 
+            "cpus_per_replica": 1, 
+            "input_type": "floats", 
+            "batch_size": 32, 
+            "num_replicas": 1, 
+            "gpu_type": "k80", 
+            "no_diverge": true, 
+            "slo": 5000000, 
+            "input_size": -1, 
+            "cloud": "gcp"
+        }
+    ]
+}
