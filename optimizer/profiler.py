@@ -12,7 +12,7 @@ class LogicalPipeline(object):
     def __init__(self, root_node, paths):
         """
         root_node : str
-            The name of any node that all queries get sent to. Used to estimate relative prob of
+            The name of any node that all queries get sent to. Used to estimate relative scale_factor of
             each node in the pipline.
         paths : list
             A list of tuples of nodes. Each tuple should represent a unique path through the
@@ -25,13 +25,13 @@ class LogicalPipeline(object):
         self.paths = paths
 
 
-def get_node_probs(exp, root_node):
+def get_node_scale_factors(exp, root_node):
     """
     Parameters
     ----------
     exp : dict
         A dict containing the results of an end-to-end experiment. The node
-        prob should be the same under any pipeline configuration, so the experiment
+        scale_factor should be the same under any pipeline configuration, so the experiment
         JSON can be from any run and only needs to be computed once per logical
         pipeline.
     root_node : str
@@ -77,7 +77,7 @@ def find_closest_batch_size_index(batch_size, profile):
     return closest_batch
 
 
-def get_node_perf_from_profile(name, profile, batch_size, num_gpus, num_cpus):
+def get_node_perf_from_profile(name, profile, batch_size, gpu_type, num_cpus):
     """Finds the relevant row in a model profile for the provided physical
     configuration (batch size and resource bundle).
 
@@ -87,22 +87,22 @@ def get_node_perf_from_profile(name, profile, batch_size, num_gpus, num_cpus):
         The model profile as loaded by single_model_profiles.load_single_model_profiles()
     batch_size : int
         Batch size configured for node
-    num_gpus : int
-        Num gpus for node (either 0 or 1)
+    gpu_type : String
+        Which gpu was used (can also be None)
     num_cpus : int
         Num cpus for node (should always be 1)
     """
 
-    result = profile[(profile.num_gpus_per_replica == num_gpus)
+    result = profile[(profile.gpu_type == gpu_type)
                      & (profile.num_cpus_per_replica == num_cpus)
                      & (profile.mean_batch_size <= (batch_size))
                      & (profile.mean_batch_size > (batch_size - 0.1))
                      ]
     if len(result) < 1:
         closest_batch = find_closest_batch_size_index(batch_size, profile[
-            (profile.num_gpus_per_replica == num_gpus) &
+            (profile.gpu_type == gpu_type) &
             (profile.num_cpus_per_replica == num_cpus)])
-        result = profile[(profile.num_gpus_per_replica == num_gpus)
+        result = profile[(profile.gpu_type == gpu_type)
                          & (profile.num_cpus_per_replica == num_cpus)
                          & (profile.mean_batch_size <= (closest_batch + 0.1))
                          & (profile.mean_batch_size > (closest_batch - 0.1))
@@ -121,7 +121,7 @@ def get_node_perf_from_profile(name, profile, batch_size, num_gpus, num_cpus):
         return result
 
 
-def predict_performance_for_pipeline_config(node_configs, node_profs, logical_pipeline, node_probs):
+def predict_performance_for_pipeline_config(node_configs, node_profs, logical_pipeline, node_scale_factors):
     """
     Parameters
     ----------
@@ -131,8 +131,8 @@ def predict_performance_for_pipeline_config(node_configs, node_profs, logical_pi
         Single model profs dict as loaded by load_single_model_profiles()
     logical_pipeline : LogicalPipeline
         The logical pipeline structure
-    node_probs : dict
-        Relative prob each node in the pipeline performs. Provided by get_node_probs().
+    node_scale_factors : dict
+        Relative scale_factor each node in the pipeline performs. Provided by get_node_scale_factors().
 
     Returns
     -------
@@ -150,14 +150,12 @@ def predict_performance_for_pipeline_config(node_configs, node_profs, logical_pi
         prof = node_profs[node["name"]]
         num_reps = node["num_replicas"]
         batch_size = node["batch_size"]
-        num_gpus = node["gpus_per_replica"]
+        gpu_type = node["gpu_type"]
         num_cpus = node["cpus_per_replica"]
         expected_perf_prof = get_node_perf_from_profile(node["name"], prof, batch_size,
-                                                        num_gpus, num_cpus)
-        prob = node_probs[node["name"]]
-        # TODO: Alexey fix this to scale up throughput by less than 2 when doubling number of
-        # replicas
-        adjusted_throughput = expected_perf_prof.mean_throughput_qps.tolist()[0] / prob * num_reps
+                                                        gpu_type, num_cpus)
+        scale_factor = node_scale_factors[node["name"]]
+        adjusted_throughput = expected_perf_prof.mean_throughput_qps.tolist()[0] / scale_factor * num_reps
         p99_lat = expected_perf_prof.p99_latency.tolist()[0]
         cost = expected_perf_prof.cost.tolist()[0] * num_reps
         total_cost += cost
@@ -179,14 +177,14 @@ def predict_performance_for_pipeline_config(node_configs, node_profs, logical_pi
 
 
 def estimate_end_to_end_exp(name, pipeline, empirical_results_df, experiments, single_model_profs):
-    node_probs = get_node_probs(experiments[next(iter(experiments))], pipeline.root)
+    node_scale_factors = get_node_scale_factors(experiments[next(iter(experiments))], pipeline.root)
 
     def apply_func(row):
         node_configs = row["config"]
         return predict_performance_for_pipeline_config(node_configs,
                                                        single_model_profs,
                                                        pipeline,
-                                                       node_probs)
+                                                       node_scale_factors)
 
     return empirical_results_df.apply(apply_func, axis=1)
 
@@ -197,6 +195,13 @@ def get_logical_pipeline(pipeline_name):
         paths = [("tf-resnet-feats", "tf-kernel-svm"),
                  ("inception", "tf-log-reg")]
         root_node = "inception"
+        return LogicalPipeline(root_node, paths)
+
+    if pipeline_name == "pipeline_two":
+        paths = [("tf-lang-detect",),
+                 ("tf-lang-detect", "tf-lstm"),
+                 ("tf-lang-detect", "tf-nmt", "tf-lstm")]
+        root_node = "tf-lang-detect"
         return LogicalPipeline(root_node, paths)
 
     # Resnet Cascade
