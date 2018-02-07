@@ -35,13 +35,29 @@ def load_results(results_dir):
 
 # heuristic to determine when latencies have flattened out
 def select_valid_trials(results_json):
-    p99_lats = results_json["client_metrics"][0]["p99_lats"]
-
-    num_good_trials = 4
+    client_metrics = results_json["client_metrics"][0]
+    configured_batch_size = results_json["node_configs"][0]["batch_size"]
+    node_name = results_json["node_configs"][0]["name"]
+    if "mean_batch_sizes" in client_metrics and "mean_queue_sizes" in client_metrics:
+        last_good_trial = len(client_metrics["mean_queue_sizes"]) - 1
+        first_good_trial = 2
+        # for i in range(first_good_trial, len(client_metrics["mean_queue_sizes"])):
+        #     if client_metrics["mean_queue_sizes"][i][node_name] > 0.0:
+        #         first_good_trial = i
+        #         break
+        # if last_good_trial - first_good_trial < 3:
+        #     print("First trial: {}, last trial: {}".format(
+        #         first_good_trial, last_good_trial))
+        #     raise Exception()
+        return first_good_trial, last_good_trial
+    else:
+        p99_lats = results_json["client_metrics"][0]["p99_lats"]
+        num_good_trials = 4
+        return max(0, len(p99_lats) - num_good_trials - 1), len(p99_lats) - 1
 
     # We assume that at least the last 8 trials were good
-    last_8_mean = np.mean(p99_lats[-1*num_good_trials:])
-    last_8_stdev = np.std(p99_lats[-1*num_good_trials:])
+    # last_8_mean = np.mean(p99_lats[-1*num_good_trials:])
+    # last_8_stdev = np.std(p99_lats[-1*num_good_trials:])
 
     # good_trials = []
     # for i in reversed(range(len(p99_lats))):
@@ -57,8 +73,6 @@ def select_valid_trials(results_json):
     # assert len(good_trials) > 1
     # assert last_good_trial == len(p99_lats) - 1
     # return first_good_trial, last_good_trial
-    return max(0, len(p99_lats) - num_good_trials - 1), len(p99_lats) - 1
-
 
 def extract_good_results(results_json, first_good_trial, last_good_trial):
     node_configs = results_json["node_configs"]
@@ -87,8 +101,6 @@ def format_client_metrics(data):
         num_words = data["node_configs"][0]["input_length_words"]
         data["node_configs"].pop(0)
         data["node_configs"][0]["input_length_words"] = num_words
-
-
 
 
 def num_gpus(exp):

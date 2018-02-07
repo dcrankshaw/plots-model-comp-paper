@@ -3,9 +3,8 @@ import json
 import os
 # import sys
 import pandas as pd
-
-COST_PER_CPU = 4.75 / 100.0
-COST_PER_GPU = 70.0 / 100.0
+from utils import COST_PER_GPU, COST_PER_CPU
+import single_model_profiles as smp
 
 
 def load_end_to_end_results(results_dir):
@@ -81,7 +80,9 @@ def get_throughput(results_json):
         client_mean_thrus.append(np.mean(client["thrus"]))
         client_var_thrus.append(np.var(client["thrus"]))
     mean_thru = np.sum(client_mean_thrus)
-    std_thru = np.sqrt(np.sum(client_var_thrus))
+    std_thru = None
+    if len(client_metrics) > 1:
+        std_thru = np.sqrt(np.sum(client_var_thrus))
     return (mean_thru, std_thru)
 
 
@@ -99,16 +100,16 @@ def extract_all_latencies(results_json):
     return all_lats
 
 
-def compute_cost(results_json):
-    nodes = results_json["node_configs"]
-    total_cost = 0.0
-    for n in nodes:
-        num_reps = n["num_replicas"]
-        num_gpus = n["gpus_per_replica"] * num_reps
-        num_cpus = n["cpus_per_replica"] * num_reps
-        cost = float(num_gpus) * COST_PER_GPU + float(num_cpus) * COST_PER_CPU
-        total_cost += cost
-    return total_cost
+# def compute_cost(results_json):
+#     nodes = results_json["node_configs"]
+#     total_cost = 0.0
+#     for n in nodes:
+#         num_reps = n["num_replicas"]
+#         num_gpus = n["gpus_per_replica"] * num_reps
+#         num_cpus = n["cpus_per_replica"] * num_reps
+#         cost = float(num_gpus) * COST_PER_GPU + float(num_cpus) * COST_PER_CPU
+#         total_cost += cost
+#     return total_cost
 
 
 def load_end_to_end_experiment(name, results_dir):
@@ -145,7 +146,7 @@ def load_end_to_end_experiment(name, results_dir):
         thru_mean, thru_std = get_throughput(experiments[e])
         thru_means.append(thru_mean)
         thru_stds.append(thru_std)
-        costs.append(compute_cost(experiments[e]))
+        costs.append(smp.compute_cost(experiments[e]))
         all_lats = extract_all_latencies(experiments[e])
         latencies.append(all_lats)
         configs.append(experiments[e]["node_configs"])
