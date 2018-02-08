@@ -1,0 +1,2583 @@
+{
+    "client_metrics": [
+        {
+            "p99_lats": [
+                0.26813367999999993, 
+                0.26165776999999996, 
+                0.25532451, 
+                0.25547439999999993, 
+                0.28628942, 
+                0.25272953, 
+                0.24866657999999997, 
+                0.24931684999999998, 
+                0.24945516999999998, 
+                0.25405439, 
+                0.25591138, 
+                0.25209616999999995, 
+                0.28495402999999997
+            ], 
+            "all_metrics": [
+                {
+                    "histograms": [
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "929003.699999983306043", 
+                                "min": "95142", 
+                                "max": "11051469", 
+                                "p95": "251910", 
+                                "std_dev": "757871.953761459156169", 
+                                "mean": "241030.268948655256722", 
+                                "p50": "180009", 
+                                "unit": "microseconds", 
+                                "size": "409"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "26", 
+                                "min": "3", 
+                                "max": "631", 
+                                "p95": "14", 
+                                "std_dev": "31.0403316819304171976", 
+                                "mean": "9.77017114914425425891", 
+                                "p50": "8", 
+                                "unit": "microseconds", 
+                                "size": "409"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "417"
+                            }
+                        }, 
+                        {
+                            "res50:1:queue_size": {
+                                "p99": "9", 
+                                "min": "0", 
+                                "max": "9", 
+                                "p95": "9", 
+                                "std_dev": "1.67025448734915150126", 
+                                "mean": "6.46376811594202897769", 
+                                "p50": "7", 
+                                "unit": "microseconds", 
+                                "size": "207"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "1003850.99999999997135", 
+                                "min": "15417", 
+                                "max": "10842048", 
+                                "p95": "113801.999999999998948", 
+                                "std_dev": "754468.392866817134404", 
+                                "mean": "107473.381642512077292", 
+                                "p50": "33134", 
+                                "unit": "microseconds", 
+                                "size": "207"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "1166.79999999999972715", 
+                                "min": "209", 
+                                "max": "1503", 
+                                "p95": "484.2999999999988745", 
+                                "std_dev": "141.792952376399000194", 
+                                "mean": "360.625899280575539563", 
+                                "p50": "328", 
+                                "unit": "microseconds", 
+                                "size": "417"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "2", 
+                                "min": "1", 
+                                "max": "2", 
+                                "p95": "2", 
+                                "std_dev": "0.153528971807446409079", 
+                                "mean": "1.97584541062801931951", 
+                                "p50": "2", 
+                                "unit": "queries", 
+                                "size": "207"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "20.993057867800296", 
+                                "rate_1min": "5.4990528968688137", 
+                                "rate_5min": "1.4570602092757414", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.75448371847286477"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "20.993037394810255", 
+                                "rate_1min": "2.6622145231264569", 
+                                "rate_5min": "0.86643102744473133", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.5562690501846832"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "20.992736769712604", 
+                                "rate_1min": "5.5457476689648253", 
+                                "rate_5min": "1.4669226984150168", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.75780167101310103"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "20.992635485776514", 
+                                "rate_1min": "5.4990528968688137", 
+                                "rate_5min": "1.4570602092757414", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.75448371847286477"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "21.403150512959609", 
+                                "rate_1min": "5.3225025834227147", 
+                                "rate_5min": "1.1059373526222651", 
+                                "unit": "events per second", 
+                                "rate_15min": "0.37102443993762341"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "409"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "417"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "409"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "251538.650000000002137", 
+                                "min": "159205", 
+                                "max": "258246", 
+                                "p95": "246571.199999999998226", 
+                                "std_dev": "22948.9261046998667659", 
+                                "mean": "184210.645000000000124", 
+                                "p50": "179189", 
+                                "unit": "microseconds", 
+                                "size": "400"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "32.9800000000000181899", 
+                                "min": "3", 
+                                "max": "68", 
+                                "p95": "23.9499999999999886313", 
+                                "std_dev": "6.16465530261019541494", 
+                                "mean": "8.70499999999999999993", 
+                                "p50": "7", 
+                                "unit": "microseconds", 
+                                "size": "400"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "398"
+                            }
+                        }, 
+                        {
+                            "res50:1:queue_size": {
+                                "p99": "9.99000000000000909495", 
+                                "min": "5", 
+                                "max": "10", 
+                                "p95": "8", 
+                                "std_dev": "1.14147930336033688321", 
+                                "mean": "6.7950000000000000005", 
+                                "p50": "7", 
+                                "unit": "microseconds", 
+                                "size": "200"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "114449.280000000006112", 
+                                "min": "18213", 
+                                "max": "114964", 
+                                "p95": "111797.699999999999477", 
+                                "std_dev": "32501.7203118542634463", 
+                                "mean": "45539.7000000000000028", 
+                                "p50": "33058", 
+                                "unit": "microseconds", 
+                                "size": "200"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "1150.04999999999995453", 
+                                "min": "205", 
+                                "max": "1230", 
+                                "p95": "499.699999999999363354", 
+                                "std_dev": "129.619036410103903062", 
+                                "mean": "356.846733668341708545", 
+                                "p50": "322", 
+                                "unit": "microseconds", 
+                                "size": "398"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "2", 
+                                "min": "2", 
+                                "max": "2", 
+                                "p95": "2", 
+                                "std_dev": "1.40946282423115576421e-18", 
+                                "mean": "1.99999999999999999859", 
+                                "p50": "2", 
+                                "unit": "queries", 
+                                "size": "200"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "62.609654940973968", 
+                                "rate_1min": "47.200000000000003", 
+                                "rate_5min": "47.200000000000003", 
+                                "unit": "events per second", 
+                                "rate_15min": "47.200000000000003"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "62.296567662603039", 
+                                "rate_1min": "47", 
+                                "rate_5min": "47", 
+                                "unit": "events per second", 
+                                "rate_15min": "47"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "62.60831238041812", 
+                                "rate_1min": "47.600000000000001", 
+                                "rate_5min": "47.600000000000001", 
+                                "unit": "events per second", 
+                                "rate_15min": "47.600000000000001"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "62.605823405875739", 
+                                "rate_1min": "13.85363714172", 
+                                "rate_5min": "10.47931865668995", 
+                                "unit": "events per second", 
+                                "rate_15min": "9.8947360861394937"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "62.605019920917336", 
+                                "rate_1min": "47.200000000000003", 
+                                "rate_5min": "47.200000000000003", 
+                                "unit": "events per second", 
+                                "rate_15min": "47.200000000000003"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "398"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "400"
+                            }
+                        }, 
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "400"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "246922.760000000007494", 
+                                "min": "141835", 
+                                "max": "252814", 
+                                "p95": "239557.499999999993292", 
+                                "std_dev": "24073.4914774399727087", 
+                                "mean": "175752.175000000000082", 
+                                "p50": "170541", 
+                                "unit": "microseconds", 
+                                "size": "400"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "37.9200000000000727596", 
+                                "min": "3", 
+                                "max": "48", 
+                                "p95": "15", 
+                                "std_dev": "5.02388731462002439705", 
+                                "mean": "8.20750000000000000128", 
+                                "p50": "7", 
+                                "unit": "microseconds", 
+                                "size": "400"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "402"
+                            }
+                        }, 
+                        {
+                            "res50:1:queue_size": {
+                                "p99": "8.99000000000000909495", 
+                                "min": "3", 
+                                "max": "9", 
+                                "p95": "8", 
+                                "std_dev": "1.20494813166376584814", 
+                                "mean": "6.08999999999999999493", 
+                                "p50": "6", 
+                                "unit": "microseconds", 
+                                "size": "200"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "111389.500000000002274", 
+                                "min": "17811", 
+                                "max": "112557", 
+                                "p95": "110133.599999999997863", 
+                                "std_dev": "32690.5809783353345637", 
+                                "mean": "45480.1700000000000017", 
+                                "p50": "32499.5", 
+                                "unit": "microseconds", 
+                                "size": "200"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "1278.33999999999934971", 
+                                "min": "207", 
+                                "max": "1713", 
+                                "p95": "971.699999999998567546", 
+                                "std_dev": "200.77065886282133958", 
+                                "mean": "385.027363184079602088", 
+                                "p50": "325", 
+                                "unit": "microseconds", 
+                                "size": "402"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "2", 
+                                "min": "2", 
+                                "max": "2", 
+                                "p95": "2", 
+                                "std_dev": "1.40946282423115576421e-18", 
+                                "mean": "1.99999999999999999859", 
+                                "p50": "2", 
+                                "unit": "queries", 
+                                "size": "200"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "62.047114235252252", 
+                                "rate_1min": "54.799999999999997", 
+                                "rate_5min": "54.799999999999997", 
+                                "unit": "events per second", 
+                                "rate_15min": "54.799999999999997"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "62.046912119080432", 
+                                "rate_1min": "29.600000000000001", 
+                                "rate_5min": "29.600000000000001", 
+                                "unit": "events per second", 
+                                "rate_15min": "29.600000000000001"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "62.044361718628821", 
+                                "rate_1min": "30", 
+                                "rate_5min": "30", 
+                                "unit": "events per second", 
+                                "rate_15min": "30"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "62.353829130033787", 
+                                "rate_1min": "29.800000000000001", 
+                                "rate_5min": "29.800000000000001", 
+                                "unit": "events per second", 
+                                "rate_15min": "29.800000000000001"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "62.042841202278581", 
+                                "rate_1min": "29.600000000000001", 
+                                "rate_5min": "29.600000000000001", 
+                                "unit": "events per second", 
+                                "rate_15min": "29.600000000000001"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "400"
+                            }
+                        }, 
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "400"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "402"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "247015.250000000007049", 
+                                "min": "137007", 
+                                "max": "253172", 
+                                "p95": "236033.449999999998283", 
+                                "std_dev": "24331.5311159150802425", 
+                                "mean": "171366.947500000000005", 
+                                "p50": "163020.5", 
+                                "unit": "microseconds", 
+                                "size": "400"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "35.9900000000000090949", 
+                                "min": "3", 
+                                "max": "41", 
+                                "p95": "15.9499999999999886313", 
+                                "std_dev": "5.25318415344446115484", 
+                                "mean": "8.1075000000000000018", 
+                                "p50": "7", 
+                                "unit": "microseconds", 
+                                "size": "400"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "18", 
+                                "p95": "0", 
+                                "std_dev": "0.901124269379605408344", 
+                                "mean": "0.0452261306532663316577", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "398"
+                            }
+                        }, 
+                        {
+                            "res50:1:queue_size": {
+                                "p99": "8", 
+                                "min": "3", 
+                                "max": "8", 
+                                "p95": "8", 
+                                "std_dev": "1.13578166916005472166", 
+                                "mean": "5.7999999999999999928", 
+                                "p50": "6", 
+                                "unit": "microseconds", 
+                                "size": "200"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "111274.050000000005411", 
+                                "min": "17807", 
+                                "max": "115018", 
+                                "p95": "108975.049999999999784", 
+                                "std_dev": "32388.6320824622045311", 
+                                "mean": "45015.370000000000001", 
+                                "p50": "32388.5", 
+                                "unit": "microseconds", 
+                                "size": "200"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "1238.12999999999988177", 
+                                "min": "192", 
+                                "max": "1307", 
+                                "p95": "1096.04999999999995453", 
+                                "std_dev": "229.767064706602990629", 
+                                "mean": "401.56532663316582929", 
+                                "p50": "320", 
+                                "unit": "microseconds", 
+                                "size": "398"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "2", 
+                                "min": "2", 
+                                "max": "2", 
+                                "p95": "2", 
+                                "std_dev": "1.40946282423115576421e-18", 
+                                "mean": "1.99999999999999999859", 
+                                "p50": "2", 
+                                "unit": "queries", 
+                                "size": "200"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "62.502345800980912", 
+                                "rate_1min": "15.829761502682107", 
+                                "rate_5min": "12.633038727390479", 
+                                "unit": "events per second", 
+                                "rate_15min": "12.079223660553206"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "62.502198569798942", 
+                                "rate_1min": "16.029761502682106", 
+                                "rate_5min": "12.833038727390479", 
+                                "unit": "events per second", 
+                                "rate_15min": "12.279223660553205"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "62.81509622644591", 
+                                "rate_1min": "16.397779268533835", 
+                                "rate_5min": "13.226427308919126", 
+                                "unit": "events per second", 
+                                "rate_15min": "12.677007599755164"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "62.655874153085733", 
+                                "rate_1min": "16.029761502682106", 
+                                "rate_5min": "12.833038727390479", 
+                                "unit": "events per second", 
+                                "rate_15min": "12.279223660553205"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "62.812087746602216", 
+                                "rate_1min": "37.200000000000003", 
+                                "rate_5min": "37.200000000000003", 
+                                "unit": "events per second", 
+                                "rate_15min": "37.200000000000003"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "398"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "398"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "400"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "278708.380000000026939", 
+                                "min": "144932", 
+                                "max": "283194", 
+                                "p95": "247463.899999999986449", 
+                                "std_dev": "27019.7483014882098313", 
+                                "mean": "189934.564999999999969", 
+                                "p50": "185378.5", 
+                                "unit": "microseconds", 
+                                "size": "400"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "37", 
+                                "min": "3", 
+                                "max": "41", 
+                                "p95": "29.9499999999999886313", 
+                                "std_dev": "7.67441813755283990623", 
+                                "mean": "9.68249999999999999816", 
+                                "p50": "7", 
+                                "unit": "microseconds", 
+                                "size": "400"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "401"
+                            }
+                        }, 
+                        {
+                            "res50:1:queue_size": {
+                                "p99": "10.9900000000000090949", 
+                                "min": "4", 
+                                "max": "11", 
+                                "p95": "10", 
+                                "std_dev": "1.55047573344441608407", 
+                                "mean": "7.14500000000000000389", 
+                                "p50": "7", 
+                                "unit": "microseconds", 
+                                "size": "200"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "113268.830000000002883", 
+                                "min": "18019", 
+                                "max": "114194", 
+                                "p95": "111631.349999999991951", 
+                                "std_dev": "30863.332341598743831", 
+                                "mean": "46967.5449999999999946", 
+                                "p50": "35461.5", 
+                                "unit": "microseconds", 
+                                "size": "200"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "1163.62000000000034561", 
+                                "min": "204", 
+                                "max": "1329", 
+                                "p95": "1017.09999999999934062", 
+                                "std_dev": "189.682458770451930513", 
+                                "mean": "379.678304239401496228", 
+                                "p50": "322", 
+                                "unit": "microseconds", 
+                                "size": "401"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "2", 
+                                "min": "2", 
+                                "max": "2", 
+                                "p95": "2", 
+                                "std_dev": "1.40946282423115576421e-18", 
+                                "mean": "1.99999999999999999859", 
+                                "p50": "2", 
+                                "unit": "queries", 
+                                "size": "200"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "62.170863562620511", 
+                                "rate_1min": "55.600000000000001", 
+                                "rate_5min": "55.600000000000001", 
+                                "unit": "events per second", 
+                                "rate_15min": "55.600000000000001"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "62.170747606348499", 
+                                "rate_1min": "19.600000000000001", 
+                                "rate_5min": "19.600000000000001", 
+                                "unit": "events per second", 
+                                "rate_15min": "19.600000000000001"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "62.16821600222314", 
+                                "rate_1min": "56.399999999999999", 
+                                "rate_5min": "56.399999999999999", 
+                                "unit": "events per second", 
+                                "rate_15min": "56.399999999999999"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "62.478231698190982", 
+                                "rate_1min": "56", 
+                                "rate_5min": "56", 
+                                "unit": "events per second", 
+                                "rate_15min": "56"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "62.322048017506127", 
+                                "rate_1min": "56", 
+                                "rate_5min": "56", 
+                                "unit": "events per second", 
+                                "rate_15min": "56"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "401"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "400"
+                            }
+                        }, 
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "402"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "243207.090000000006285", 
+                                "min": "141742", 
+                                "max": "246963", 
+                                "p95": "237380.149999999993724", 
+                                "std_dev": "24136.8069917522437819", 
+                                "mean": "171464.269999999999953", 
+                                "p50": "163734.5", 
+                                "unit": "microseconds", 
+                                "size": "400"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "36.9400000000000545697", 
+                                "min": "3", 
+                                "max": "43", 
+                                "p95": "16.9499999999999886313", 
+                                "std_dev": "5.07380466218399069989", 
+                                "mean": "8.32249999999999999761", 
+                                "p50": "7", 
+                                "unit": "microseconds", 
+                                "size": "400"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "401"
+                            }
+                        }, 
+                        {
+                            "res50:1:queue_size": {
+                                "p99": "8", 
+                                "min": "3", 
+                                "max": "9", 
+                                "p95": "7", 
+                                "std_dev": "1.06243823349877615394", 
+                                "mean": "5.78499999999999999292", 
+                                "p50": "6", 
+                                "unit": "microseconds", 
+                                "size": "200"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "112482.060000000005402", 
+                                "min": "17897", 
+                                "max": "113448", 
+                                "p95": "109251.199999999999818", 
+                                "std_dev": "32385.3233652124430986", 
+                                "mean": "45576.4749999999999943", 
+                                "p50": "32939.5", 
+                                "unit": "microseconds", 
+                                "size": "200"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "1329.10000000000172804", 
+                                "min": "263", 
+                                "max": "2387", 
+                                "p95": "856.099999999999113243", 
+                                "std_dev": "214.240116097805278816", 
+                                "mean": "383.875311720698254442", 
+                                "p50": "323", 
+                                "unit": "microseconds", 
+                                "size": "401"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "2", 
+                                "min": "2", 
+                                "max": "2", 
+                                "p95": "2", 
+                                "std_dev": "1.40946282423115576421e-18", 
+                                "mean": "1.99999999999999999859", 
+                                "p50": "2", 
+                                "unit": "queries", 
+                                "size": "200"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "62.149583170514376", 
+                                "rate_1min": "38.399999999999999", 
+                                "rate_5min": "38.399999999999999", 
+                                "unit": "events per second", 
+                                "rate_15min": "38.399999999999999"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "62.304792559222953", 
+                                "rate_1min": "38.200000000000003", 
+                                "rate_5min": "38.200000000000003", 
+                                "unit": "events per second", 
+                                "rate_15min": "38.200000000000003"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "62.147980245021522", 
+                                "rate_1min": "38.799999999999997", 
+                                "rate_5min": "38.799999999999997", 
+                                "unit": "events per second", 
+                                "rate_15min": "38.799999999999997"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "62.145807737028775", 
+                                "rate_1min": "7.1333706539440609", 
+                                "rate_5min": "3.3784899337602443", 
+                                "unit": "events per second", 
+                                "rate_15min": "2.7279769981101136"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "62.145025671333286", 
+                                "rate_1min": "38.399999999999999", 
+                                "rate_5min": "38.399999999999999", 
+                                "unit": "events per second", 
+                                "rate_15min": "38.399999999999999"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "400"
+                            }
+                        }, 
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "400"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "401"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "240549.110000000000809", 
+                                "min": "138081", 
+                                "max": "246949", 
+                                "p95": "233404.699999999994247", 
+                                "std_dev": "23897.9771878812736876", 
+                                "mean": "169139.997500000000045", 
+                                "p50": "160738.5", 
+                                "unit": "microseconds", 
+                                "size": "400"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "36.9900000000000090949", 
+                                "min": "3", 
+                                "max": "55", 
+                                "p95": "24.9499999999999886313", 
+                                "std_dev": "6.7002196792344055217", 
+                                "mean": "8.93249999999999999816", 
+                                "p50": "7", 
+                                "unit": "microseconds", 
+                                "size": "400"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "396"
+                            }
+                        }, 
+                        {
+                            "res50:1:queue_size": {
+                                "p99": "8", 
+                                "min": "4", 
+                                "max": "8", 
+                                "p95": "7", 
+                                "std_dev": "1.03168551409816741714", 
+                                "mean": "5.62499999999999999263", 
+                                "p50": "6", 
+                                "unit": "microseconds", 
+                                "size": "200"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "109545.110000000000809", 
+                                "min": "17758", 
+                                "max": "111744", 
+                                "p95": "108230.949999999999761", 
+                                "std_dev": "32124.4212166067670626", 
+                                "mean": "44829.3049999999999962", 
+                                "p50": "32198", 
+                                "unit": "microseconds", 
+                                "size": "200"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "1135.01999999999634383", 
+                                "min": "210", 
+                                "max": "1482", 
+                                "p95": "743.449999999997203304", 
+                                "std_dev": "178.316331641091475324", 
+                                "mean": "374.810606060606060719", 
+                                "p50": "321", 
+                                "unit": "microseconds", 
+                                "size": "396"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "2", 
+                                "min": "2", 
+                                "max": "2", 
+                                "p95": "2", 
+                                "std_dev": "1.40946282423115576421e-18", 
+                                "mean": "1.99999999999999999859", 
+                                "p50": "2", 
+                                "unit": "queries", 
+                                "size": "200"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "63.13389388865486", 
+                                "rate_1min": "47.200000000000003", 
+                                "rate_5min": "47.200000000000003", 
+                                "unit": "events per second", 
+                                "rate_15min": "47.200000000000003"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "63.133784276909836", 
+                                "rate_1min": "21.199999999999999", 
+                                "rate_5min": "21.199999999999999", 
+                                "unit": "events per second", 
+                                "rate_15min": "21.199999999999999"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "63.131163673065799", 
+                                "rate_1min": "21.600000000000001", 
+                                "rate_5min": "21.600000000000001", 
+                                "unit": "events per second", 
+                                "rate_15min": "21.600000000000001"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "62.499033316719526", 
+                                "rate_1min": "21.199999999999999", 
+                                "rate_5min": "21.199999999999999", 
+                                "unit": "events per second", 
+                                "rate_15min": "21.199999999999999"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "62.971328160004624", 
+                                "rate_1min": "21.199999999999999", 
+                                "rate_5min": "21.199999999999999", 
+                                "unit": "events per second", 
+                                "rate_15min": "21.199999999999999"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "400"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "396"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "400"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "242787.490000000001373", 
+                                "min": "138762", 
+                                "max": "244483", 
+                                "p95": "233440.349999999999625", 
+                                "std_dev": "24175.6293980482543304", 
+                                "mean": "168713.135000000000005", 
+                                "p50": "160420", 
+                                "unit": "microseconds", 
+                                "size": "400"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "35.9900000000000090949", 
+                                "min": "2", 
+                                "max": "61", 
+                                "p95": "25.9499999999999886313", 
+                                "std_dev": "6.74329111042968394954", 
+                                "mean": "8.94499999999999999886", 
+                                "p50": "7", 
+                                "unit": "microseconds", 
+                                "size": "400"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "401"
+                            }
+                        }, 
+                        {
+                            "res50:1:queue_size": {
+                                "p99": "8", 
+                                "min": "4", 
+                                "max": "8", 
+                                "p95": "7", 
+                                "std_dev": "1.03574852160164824447", 
+                                "mean": "5.5849999999999999931", 
+                                "p50": "5.5", 
+                                "unit": "microseconds", 
+                                "size": "200"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "109146.940000000000055", 
+                                "min": "17734", 
+                                "max": "109176", 
+                                "p95": "108401.849999999999511", 
+                                "std_dev": "32412.2593258029453285", 
+                                "mean": "45213.6300000000000026", 
+                                "p50": "32265", 
+                                "unit": "microseconds", 
+                                "size": "200"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "1085.8000000000001819", 
+                                "min": "259", 
+                                "max": "1299", 
+                                "p95": "454.399999999999863576", 
+                                "std_dev": "114.45731404470725974", 
+                                "mean": "352.890274314214463763", 
+                                "p50": "326", 
+                                "unit": "microseconds", 
+                                "size": "401"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "2", 
+                                "min": "2", 
+                                "max": "2", 
+                                "p95": "2", 
+                                "std_dev": "1.40946282423115576421e-18", 
+                                "mean": "1.99999999999999999859", 
+                                "p50": "2", 
+                                "unit": "queries", 
+                                "size": "200"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "62.454298171771121", 
+                                "rate_1min": "8.7173795368699256", 
+                                "rate_5min": "4.9751842245245683", 
+                                "unit": "events per second", 
+                                "rate_15min": "4.3268689677110928"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "62.45421062861643", 
+                                "rate_1min": "8.5493617710181979", 
+                                "rate_5min": "4.7817956429959212", 
+                                "unit": "events per second", 
+                                "rate_15min": "4.1290850285091345"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "62.29728075484369", 
+                                "rate_1min": "8.7333706539440605", 
+                                "rate_5min": "4.9784899337602448", 
+                                "unit": "events per second", 
+                                "rate_15min": "4.3279769981101133"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "62.294942569513758", 
+                                "rate_1min": "8.3653528880923318", 
+                                "rate_5min": "4.5851013522315975", 
+                                "unit": "events per second", 
+                                "rate_15min": "3.9301930589081548"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "62.294156745803086", 
+                                "rate_1min": "29.199999999999999", 
+                                "rate_5min": "29.199999999999999", 
+                                "unit": "events per second", 
+                                "rate_15min": "29.199999999999999"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "401"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "400"
+                            }
+                        }, 
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "400"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "243964.540000000024975", 
+                                "min": "139418", 
+                                "max": "246933", 
+                                "p95": "232538.199999999998226", 
+                                "std_dev": "24013.7093665134333413", 
+                                "mean": "169628.875", 
+                                "p50": "161329.5", 
+                                "unit": "microseconds", 
+                                "size": "400"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "30", 
+                                "min": "3", 
+                                "max": "36", 
+                                "p95": "22", 
+                                "std_dev": "5.12748476350734756681", 
+                                "mean": "8.3300000000000000008", 
+                                "p50": "7", 
+                                "unit": "microseconds", 
+                                "size": "400"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "401"
+                            }
+                        }, 
+                        {
+                            "res50:1:queue_size": {
+                                "p99": "8", 
+                                "min": "3", 
+                                "max": "8", 
+                                "p95": "7", 
+                                "std_dev": "1.10905365064094171596", 
+                                "mean": "5.69999999999999999245", 
+                                "p50": "6", 
+                                "unit": "microseconds", 
+                                "size": "200"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "109296.8900000000001", 
+                                "min": "17647", 
+                                "max": "111327", 
+                                "p95": "108156.84999999999701", 
+                                "std_dev": "32251.0561994018267207", 
+                                "mean": "45424.1949999999999967", 
+                                "p50": "32686.5", 
+                                "unit": "microseconds", 
+                                "size": "200"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "1283.76000000000021828", 
+                                "min": "192", 
+                                "max": "1525", 
+                                "p95": "1017.59999999999809006", 
+                                "std_dev": "205.540538167399209402", 
+                                "mean": "357.930174563591022491", 
+                                "p50": "307", 
+                                "unit": "microseconds", 
+                                "size": "401"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "2", 
+                                "min": "2", 
+                                "max": "2", 
+                                "p95": "2", 
+                                "std_dev": "1.40946282423115576421e-18", 
+                                "mean": "1.99999999999999999859", 
+                                "p50": "2", 
+                                "unit": "queries", 
+                                "size": "200"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "62.13064303506949", 
+                                "rate_1min": "48.399999999999999", 
+                                "rate_5min": "48.399999999999999", 
+                                "unit": "events per second", 
+                                "rate_15min": "48.399999999999999"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "62.130536879288748", 
+                                "rate_1min": "15.997779268533836", 
+                                "rate_5min": "12.826427308919126", 
+                                "unit": "events per second", 
+                                "rate_15min": "12.277007599755164"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "62.128027848267202", 
+                                "rate_1min": "48.799999999999997", 
+                                "rate_5min": "48.799999999999997", 
+                                "unit": "events per second", 
+                                "rate_15min": "48.799999999999997"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "62.127072539725212", 
+                                "rate_1min": "48.399999999999999", 
+                                "rate_5min": "48.399999999999999", 
+                                "unit": "events per second", 
+                                "rate_15min": "48.399999999999999"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "62.281616346175198", 
+                                "rate_1min": "48.600000000000001", 
+                                "rate_5min": "48.600000000000001", 
+                                "unit": "events per second", 
+                                "rate_15min": "48.600000000000001"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "400"
+                            }
+                        }, 
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "400"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "401"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "248223.590000000020154", 
+                                "min": "141501", 
+                                "max": "254391", 
+                                "p95": "238643.149999999999352", 
+                                "std_dev": "24392.9945351343394684", 
+                                "mean": "172313.162499999999966", 
+                                "p50": "163777", 
+                                "unit": "microseconds", 
+                                "size": "400"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "36", 
+                                "min": "3", 
+                                "max": "41", 
+                                "p95": "28", 
+                                "std_dev": "7.75048022705690153574", 
+                                "mean": "9.86749999999999999941", 
+                                "p50": "7", 
+                                "unit": "microseconds", 
+                                "size": "400"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "402"
+                            }
+                        }, 
+                        {
+                            "res50:1:queue_size": {
+                                "p99": "8", 
+                                "min": "3", 
+                                "max": "9", 
+                                "p95": "7.94999999999998863132", 
+                                "std_dev": "1.09745159346551590933", 
+                                "mean": "5.83999999999999999277", 
+                                "p50": "6", 
+                                "unit": "microseconds", 
+                                "size": "200"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "111826.720000000004802", 
+                                "min": "17924", 
+                                "max": "112654", 
+                                "p95": "110070.149999999996169", 
+                                "std_dev": "32478.3312388856426001", 
+                                "mean": "45600.5849999999999866", 
+                                "p50": "32970.5", 
+                                "unit": "microseconds", 
+                                "size": "200"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "1183.30999999999932015", 
+                                "min": "228", 
+                                "max": "1412", 
+                                "p95": "664.049999999998192379", 
+                                "std_dev": "164.201157817049790702", 
+                                "mean": "370.310945273631840935", 
+                                "p50": "321", 
+                                "unit": "microseconds", 
+                                "size": "402"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "2", 
+                                "min": "2", 
+                                "max": "2", 
+                                "p95": "2", 
+                                "std_dev": "1.40946282423115576421e-18", 
+                                "mean": "1.99999999999999999859", 
+                                "p50": "2", 
+                                "unit": "queries", 
+                                "size": "200"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "62.033989042936518", 
+                                "rate_1min": "31.199999999999999", 
+                                "rate_5min": "31.199999999999999", 
+                                "unit": "events per second", 
+                                "rate_15min": "31.199999999999999"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "62.344013958855747", 
+                                "rate_1min": "31.199999999999999", 
+                                "rate_5min": "31.199999999999999", 
+                                "unit": "events per second", 
+                                "rate_15min": "31.199999999999999"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "62.032680677161153", 
+                                "rate_1min": "31.600000000000001", 
+                                "rate_5min": "31.600000000000001", 
+                                "unit": "events per second", 
+                                "rate_15min": "31.600000000000001"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "62.030554700481595", 
+                                "rate_1min": "56.399999999999999", 
+                                "rate_5min": "56.399999999999999", 
+                                "unit": "events per second", 
+                                "rate_15min": "56.399999999999999"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "62.029746675166805", 
+                                "rate_1min": "31.199999999999999", 
+                                "rate_5min": "31.199999999999999", 
+                                "unit": "events per second", 
+                                "rate_15min": "31.199999999999999"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "400"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "402"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "400"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "247005.86999999999199", 
+                                "min": "139966", 
+                                "max": "254473", 
+                                "p95": "241565.849999999993827", 
+                                "std_dev": "24367.4551290762433631", 
+                                "mean": "176086.087064676616947", 
+                                "p50": "170986.5", 
+                                "unit": "microseconds", 
+                                "size": "402"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "29.9699999999999704414", 
+                                "min": "3", 
+                                "max": "35", 
+                                "p95": "14", 
+                                "std_dev": "4.36572833799700248331", 
+                                "mean": "8.08706467661691542903", 
+                                "p50": "7", 
+                                "unit": "microseconds", 
+                                "size": "402"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "401"
+                            }
+                        }, 
+                        {
+                            "res50:1:queue_size": {
+                                "p99": "8", 
+                                "min": "4", 
+                                "max": "9", 
+                                "p95": "8", 
+                                "std_dev": "1.18003825569086457086", 
+                                "mean": "6.12437810945273632905", 
+                                "p50": "6", 
+                                "unit": "microseconds", 
+                                "size": "201"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "112008.399999999999693", 
+                                "min": "18180", 
+                                "max": "115273", 
+                                "p95": "110285.299999999996203", 
+                                "std_dev": "32370.82746210194939", 
+                                "mean": "45577.1442786069651767", 
+                                "p50": "33119", 
+                                "unit": "microseconds", 
+                                "size": "201"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "1236.74000000000023647", 
+                                "min": "228", 
+                                "max": "1339", 
+                                "p95": "970.899999999994292921", 
+                                "std_dev": "180.254584823878800937", 
+                                "mean": "372.324189526184538501", 
+                                "p50": "324", 
+                                "unit": "microseconds", 
+                                "size": "401"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "2", 
+                                "min": "2", 
+                                "max": "2", 
+                                "p95": "2", 
+                                "std_dev": "3.90312782094781596243e-18", 
+                                "mean": "2.0000000000000000039", 
+                                "p50": "2", 
+                                "unit": "queries", 
+                                "size": "201"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "62.2743522925172", 
+                                "rate_1min": "38.799999999999997", 
+                                "rate_5min": "38.799999999999997", 
+                                "unit": "events per second", 
+                                "rate_15min": "38.799999999999997"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "62.274236528703923", 
+                                "rate_1min": "16.965797034385567", 
+                                "rate_5min": "13.819815890447773", 
+                                "unit": "events per second", 
+                                "rate_15min": "13.274791538957123"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "62.271680187521405", 
+                                "rate_1min": "17.165797034385562", 
+                                "rate_5min": "14.019815890447772", 
+                                "unit": "events per second", 
+                                "rate_15min": "13.474791538957122"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "62.116005745653084", 
+                                "rate_1min": "16.581788151459698", 
+                                "rate_5min": "13.423121599683448", 
+                                "unit": "events per second", 
+                                "rate_15min": "12.875899569356143"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "62.270107900775528", 
+                                "rate_1min": "16.965797034385567", 
+                                "rate_5min": "13.819815890447773", 
+                                "unit": "events per second", 
+                                "rate_15min": "13.274791538957123"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "401"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "402"
+                            }
+                        }, 
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "402"
+                            }
+                        }
+                    ]
+                }, 
+                {
+                    "histograms": [
+                        {
+                            "app:res50:prediction_latency": {
+                                "p99": "243710.099999999966258", 
+                                "min": "137988", 
+                                "max": "248475", 
+                                "p95": "234858.799999999976535", 
+                                "std_dev": "24386.6454081639847047", 
+                                "mean": "169509.27204030226703", 
+                                "p50": "161077", 
+                                "unit": "microseconds", 
+                                "size": "397"
+                            }
+                        }, 
+                        {
+                            "query_cache:queue_submit_latency": {
+                                "p99": "32.0799999999999272404", 
+                                "min": "3", 
+                                "max": "37", 
+                                "p95": "18.3999999999998635758", 
+                                "std_dev": "5.25485723957999390984", 
+                                "mean": "8.37027707808564230569", 
+                                "p50": "7", 
+                                "unit": "microseconds", 
+                                "size": "397"
+                            }
+                        }, 
+                        {
+                            "internal:rpc_request_queueing_delay": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "0"
+                            }
+                        }, 
+                        {
+                            "res50:1:lock_latency": {
+                                "p99": "0", 
+                                "min": "0", 
+                                "max": "0", 
+                                "p95": "0", 
+                                "std_dev": "0", 
+                                "mean": "0", 
+                                "p50": "0", 
+                                "unit": "microseconds", 
+                                "size": "395"
+                            }
+                        }, 
+                        {
+                            "res50:1:queue_size": {
+                                "p99": "8", 
+                                "min": "4", 
+                                "max": "8", 
+                                "p95": "7", 
+                                "std_dev": "1.02807245173862873771", 
+                                "mean": "5.60606060606060605661", 
+                                "p50": "6", 
+                                "unit": "microseconds", 
+                                "size": "198"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_latency": {
+                                "p99": "112144", 
+                                "min": "17539", 
+                                "max": "114254", 
+                                "p95": "108499", 
+                                "std_dev": "32321.3936749786858265", 
+                                "mean": "44943.9497487437185974", 
+                                "p50": "32180", 
+                                "unit": "microseconds", 
+                                "size": "199"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:recv_latency": {
+                                "p99": "1202.72000000000036835", 
+                                "min": "257", 
+                                "max": "1351", 
+                                "p95": "702.399999999999238298", 
+                                "std_dev": "176.63542186563548235", 
+                                "mean": "376.939240506329113767", 
+                                "p50": "328", 
+                                "unit": "microseconds", 
+                                "size": "395"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:batch_size": {
+                                "p99": "2", 
+                                "min": "2", 
+                                "max": "2", 
+                                "p95": "2", 
+                                "std_dev": "3.46944695195361418882e-18", 
+                                "mean": "2.00000000000000000347", 
+                                "p50": "2", 
+                                "unit": "queries", 
+                                "size": "199"
+                            }
+                        }
+                    ], 
+                    "meters": [
+                        {
+                            "frontend_rpc:request_enqueue": {
+                                "rate": "62.305521988565118", 
+                                "rate_1min": "57", 
+                                "rate_5min": "57", 
+                                "unit": "events per second", 
+                                "rate_15min": "57"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_dequeue": {
+                                "rate": "62.620923843177017", 
+                                "rate_1min": "56.799999999999997", 
+                                "rate_5min": "56.799999999999997", 
+                                "unit": "events per second", 
+                                "rate_15min": "56.799999999999997"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_model_throughput": {
+                                "rate": "62.777451096681055", 
+                                "rate_1min": "57.200000000000003", 
+                                "rate_5min": "57.200000000000003", 
+                                "unit": "events per second", 
+                                "rate_15min": "57.200000000000003"
+                            }
+                        }, 
+                        {
+                            "zmq_frontend:request_rate": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "app:res50:prediction_throughput": {
+                                "rate": "0", 
+                                "rate_1min": "0", 
+                                "rate_5min": "0", 
+                                "unit": "events per second", 
+                                "rate_15min": "0"
+                            }
+                        }, 
+                        {
+                            "frontend_rpc:response_enqueue": {
+                                "rate": "62.617318751647254", 
+                                "rate_1min": "56.799999999999997", 
+                                "rate_5min": "56.799999999999997", 
+                                "unit": "events per second", 
+                                "rate_15min": "56.799999999999997"
+                            }
+                        }, 
+                        {
+                            "model:res50:1:prediction_throughput": {
+                                "rate": "62.774193497508357", 
+                                "rate_1min": "20.399999999999999", 
+                                "rate_5min": "20.399999999999999", 
+                                "unit": "events per second", 
+                                "rate_15min": "20.399999999999999"
+                            }
+                        }
+                    ], 
+                    "ratio_counters": [
+                        {
+                            "model:res50:1:cache_hit_ratio": {
+                                "ratio": "nan"
+                            }
+                        }, 
+                        {
+                            "app:res50:default_prediction_ratio": {
+                                "ratio": "nan"
+                            }
+                        }
+                    ], 
+                    "counters": [
+                        {
+                            "model:res50:1:num_predictions": {
+                                "count": "398"
+                            }
+                        }, 
+                        {
+                            "app:res50:num_predictions": {
+                                "count": "397"
+                            }
+                        }, 
+                        {
+                            "internal:aggregate_num_predictions": {
+                                "count": "395"
+                            }
+                        }
+                    ]
+                }
+            ], 
+            "thrus": [
+                42.3986484158858, 
+                62.838167525926245, 
+                62.316798349851176, 
+                63.03926148244388, 
+                62.40342095553678, 
+                62.36445475536763, 
+                63.366517322346425, 
+                62.55450060865529, 
+                62.375414854985735, 
+                62.249978796100976, 
+                62.165530021754826, 
+                63.33648696258001, 
+                62.182451707942086
+            ], 
+            "mean_queue_sizes": [
+                {
+                    "res50": 6.46
+                }, 
+                {
+                    "res50": 6.79
+                }, 
+                {
+                    "res50": 6.09
+                }, 
+                {
+                    "res50": 5.8
+                }, 
+                {
+                    "res50": 7.14
+                }, 
+                {
+                    "res50": 5.79
+                }, 
+                {
+                    "res50": 5.63
+                }, 
+                {
+                    "res50": 5.58
+                }, 
+                {
+                    "res50": 5.7
+                }, 
+                {
+                    "res50": 5.84
+                }, 
+                {
+                    "res50": 6.12
+                }, 
+                {
+                    "res50": 5.61
+                }
+            ], 
+            "all_lats": [
+                "[0.102934, 0.190553, 0.177165, 0.167336, 0.183632, 0.148888, 0.16737, 0.237631, 0.224669, 0.194378, 0.211853, 0.176521, 0.194242, 0.176159, 0.162786, 0.161113, 0.237732, 0.210204, 0.227845, 0.209707, 0.195945, 0.179188, 0.197139, 0.166087, 0.183739, 0.257815, 0.244759, 0.215095, 0.232481, 0.192626, 0.212553, 0.196036, 0.1816, 0.163633, 0.181338, 0.253923, 0.241747, 0.228785, 0.216276, 0.194735, 0.212313, 0.19642, 0.180733, 0.17805, 0.16415, 0.25273, 0.241364, 0.210336, 0.228182, 0.207677, 0.194892, 0.1773, 0.197276, 0.165011, 0.182539, 0.258065, 0.243087, 0.213399, 0.230509, 0.195981, 0.215007, 0.194043, 0.178794, 0.177074, 0.163389, 0.254277, 0.243433, 0.231021, 0.217148, 0.196139, 0.215284, 0.184049, 0.202721, 0.184176, 0.170815, 0.169103, 0.244604, 0.212326, 0.230297, 0.214247, 0.199755, 0.181119, 0.199435, 0.164541, 0.185005, 0.251635, 0.237279, 0.208714, 0.225673, 0.192642, 0.210248, 0.196132, 0.18309, 0.165604, 0.182708, 0.168434, 0.243586, 0.231472, 0.220143, 0.201084, 0.223525, 0.18662, 0.203835, 0.186901, 0.172702, 0.17229, 0.246083, 0.216632, 0.235164, 0.218333, 0.204403, 0.188308, 0.20574, 0.172369, 0.191796, 0.173747, 0.249727, 0.222828, 0.240326, 0.207107, 0.22467, 0.207762, 0.193482, 0.193251, 0.178256, 0.178184, 0.254303, 0.238665, 0.22847, 0.208553, 0.226566, 0.194498, 0.212392, 0.194289, 0.181679, 0.178373, 0.252842, 0.237248, 0.223006, 0.222697, 0.207712, 0.189838, 0.206862, 0.174885, 0.19298, 0.175041, 0.255887, 0.242375, 0.228531, 0.20913, 0.227541, 0.211421, 0.197422, 0.180183, 0.199225, 0.181409, 0.258632, 0.22789, 0.247561, 0.213474, 0.230143, 0.199306, 0.216379, 0.198072, 0.184224, 0.181414, 0.262009, 0.232852, 0.252697, 0.214541, 0.232539, 0.199191, 0.219081, 0.182934, 0.202885, 0.183888, 0.261285, 0.233302, 0.24906, 0.216616, 0.237619, 0.217789, 0.207062, 0.185237, 0.202843, 0.185883, 0.260397, 0.248208, 0.235366, 0.216687, 0.235547, 0.201932, 0.220274, 0.184935, 0.200979, 0.169152, 0.186641, 0.244067, 0.264806, 0.219509, 0.238249, 0.202637, 0.22262, 0.184042, 0.201848, 0.16952, 0.187525, 0.247325, 0.266487, 0.21845, 0.237584, 0.204778, 0.222397, 0.187059, 0.205196, 0.174533, 0.197552, 0.172937, 0.255413, 0.229491, 0.246775, 0.214989, 0.232963, 0.200869, 0.217669, 0.185882, 0.206104, 0.186659, 0.262491, 0.249602, 0.234608, 0.219762, 0.236525, 0.203823, 0.222534, 0.186614, 0.206822, 0.187401, 0.266285, 0.235258, 0.254781, 0.221767, 0.240516, 0.220793, 0.207926, 0.190962, 0.209449, 0.190311, 0.176825, 0.256622, 0.274438, 0.230093, 0.247333, 0.21489, 0.233993, 0.199948, 0.218893, 0.182994, 0.200866, 0.181073, 0.259408, 0.231535, 0.249757, 0.215369, 0.235861, 0.201654, 0.217326, 0.186667, 0.204216, 0.171248, 0.187556, 0.248232, 0.266016, 0.221054, 0.239522, 0.20587, 0.225315, 0.188434, 0.207717, 0.176074, 0.193915, 0.178312, 0.2567, 0.228362, 0.246891, 0.211694, 0.228769, 0.193737, 0.21371, 0.180676, 0.197402, 0.180138, 0.25893, 0.23266, 0.250591, 0.215058, 0.233437, 0.201387, 0.217235, 0.182367, 0.200735, 0.183417, 0.264105, 0.233447, 0.251405, 0.216282, 0.233006, 0.217969, 0.20382, 0.184784, 0.202844, 0.183886, 0.262236, 0.232719, 0.249165, 0.217469, 0.2353, 0.200938, 0.219684, 0.185954, 0.202379, 0.187627, 0.264992, 0.2377, 0.254863, 0.237358, 0.226427, 0.205578, 0.223519, 0.192173, 0.210497, 0.175746, 0.195288, 0.258525, 0.278049, 0.229917, 0.248067, 0.21274, 0.23107, 0.19767, 0.216936, 0.179141, 0.198489, 0.17767, 0.25658, 0.229974, 0.248489, 0.215005, 0.233114, 0.198832, 0.217168, 0.184561, 0.206121, 0.181745, 0.263826, 0.234456, 0.252937, 0.22188, 0.238361, 0.20441, 0.222615, 0.191191, 0.207672, 0.193064, 0.27451, 0.246204, 0.264048, 0.229005, 0.247428, 0.229445, 0.215892, 0.212969, 0.198209, 0.182043, 0.198833, 0.261296, 0.280223, 0.233782, 0.252385, 0.216411, 0.23513, 0.200617, 0.21762, 0.184478, 0.202911, 0.186553, 0.260034, 0.233163, 0.251589, 0.216315, 0.236042, 0.200348, 0.219245, 0.186183, 0.203247, 0.17087, 0.188647, 0.250684, 0.26807, 0.222856]", 
+                "[0.263635, 0.218048, 0.236539, 0.192573, 0.20965, 0.176685, 0.194632, 0.176991, 0.257485, 0.242687, 0.230378, 0.214092, 0.23223, 0.201002, 0.217097, 0.197791, 0.181761, 0.180621, 0.256166, 0.246933, 0.234842, 0.229537, 0.215063, 0.197767, 0.215018, 0.181115, 0.198867, 0.180516, 0.25343, 0.243125, 0.227955, 0.212025, 0.230272, 0.196102, 0.21444, 0.180595, 0.19786, 0.181981, 0.257497, 0.247752, 0.234739, 0.215322, 0.232939, 0.200009, 0.220138, 0.198112, 0.185329, 0.183008, 0.256232, 0.228368, 0.245366, 0.216211, 0.233359, 0.19896, 0.216469, 0.185038, 0.204174, 0.18546, 0.261648, 0.248498, 0.235992, 0.218189, 0.235279, 0.20243, 0.218755, 0.18732, 0.207142, 0.175274, 0.193667, 0.248231, 0.268876, 0.223705, 0.239754, 0.205669, 0.224052, 0.191342, 0.208374, 0.174654, 0.191899, 0.175286, 0.250464, 0.224317, 0.24188, 0.207623, 0.229478, 0.190617, 0.208853, 0.174502, 0.19511, 0.173886, 0.252309, 0.223509, 0.241192, 0.210054, 0.226944, 0.195136, 0.213212, 0.180015, 0.196543, 0.177281, 0.254506, 0.240198, 0.227088, 0.210672, 0.226997, 0.195476, 0.218399, 0.178166, 0.19664, 0.177519, 0.253858, 0.239582, 0.225951, 0.207299, 0.22418, 0.210388, 0.195779, 0.177317, 0.195729, 0.176861, 0.253658, 0.224697, 0.242709, 0.21136, 0.231013, 0.196218, 0.213145, 0.179679, 0.197386, 0.179246, 0.256562, 0.227759, 0.247888, 0.20946, 0.229604, 0.209116, 0.198454, 0.180018, 0.196664, 0.180508, 0.253402, 0.224932, 0.243221, 0.214792, 0.231786, 0.193569, 0.213353, 0.193769, 0.178333, 0.179512, 0.252129, 0.224362, 0.241594, 0.212363, 0.229133, 0.197796, 0.215059, 0.201338, 0.186097, 0.185995, 0.258223, 0.22966, 0.246747, 0.216795, 0.233156, 0.200247, 0.218958, 0.187666, 0.205504, 0.17096, 0.188263, 0.245085, 0.262625, 0.219724, 0.235939, 0.202062, 0.219256, 0.185096, 0.205029, 0.185643, 0.17197, 0.172663, 0.248181, 0.217987, 0.237011, 0.205171, 0.223039, 0.188165, 0.207813, 0.173909, 0.191936, 0.175201, 0.246194, 0.215712, 0.234453, 0.20406, 0.220428, 0.185359, 0.204916, 0.170834, 0.189141, 0.17084, 0.246807, 0.217386, 0.237097, 0.202236, 0.220357, 0.187645, 0.207931, 0.173021, 0.192528, 0.173421, 0.248233, 0.217164, 0.23757, 0.202171, 0.219563, 0.186275, 0.204944, 0.171489, 0.189541, 0.172907, 0.249157, 0.221737, 0.241006, 0.206676, 0.225707, 0.194247, 0.212403, 0.175033, 0.192878, 0.17631, 0.251365, 0.221349, 0.24067, 0.206989, 0.22271, 0.190442, 0.20844, 0.175243, 0.193275, 0.174785, 0.250902, 0.2237, 0.242695, 0.205141, 0.222831, 0.190304, 0.207296, 0.176086, 0.194663, 0.174694, 0.250343, 0.222529, 0.238886, 0.207453, 0.225266, 0.190855, 0.209668, 0.174703, 0.194441, 0.174446, 0.254847, 0.22537, 0.24353, 0.209083, 0.22808, 0.194389, 0.213863, 0.175841, 0.194154, 0.176234, 0.256468, 0.244521, 0.230736, 0.209112, 0.227942, 0.192583, 0.211848, 0.176043, 0.194859, 0.181348, 0.253657, 0.223843, 0.24209, 0.210251, 0.227469, 0.196987, 0.21302, 0.177132, 0.196349, 0.17619, 0.255178, 0.228452, 0.244866, 0.210528, 0.229191, 0.195491, 0.213657, 0.180729, 0.200142, 0.181131, 0.253118, 0.225821, 0.245367, 0.223354, 0.209525, 0.192181, 0.210847, 0.17836, 0.194664, 0.179577, 0.253687, 0.224775, 0.24172, 0.208512, 0.22665, 0.19344, 0.210785, 0.191498, 0.17714, 0.178164, 0.253994, 0.226061, 0.244558, 0.209756, 0.22795, 0.193685, 0.21268, 0.195247, 0.180769, 0.179859, 0.255086, 0.242653, 0.227974, 0.212865, 0.229804, 0.211978, 0.199062, 0.178476, 0.198725, 0.179509, 0.258714, 0.230561, 0.247941, 0.214423, 0.232727, 0.212542, 0.198305, 0.180983, 0.198546, 0.181157, 0.255509, 0.242639, 0.229031, 0.212375, 0.230571, 0.19995, 0.216597, 0.200775, 0.186695, 0.170475, 0.187321, 0.243739, 0.263028, 0.216124, 0.234119, 0.202179, 0.220601, 0.186702, 0.203388, 0.173915, 0.192435, 0.175404, 0.248361, 0.221639, 0.238894, 0.222725, 0.207534, 0.196, 0.214087, 0.180196, 0.19708, 0.181453, 0.253735, 0.241742, 0.228306, 0.225687, 0.214719, 0.195233, 0.213548, 0.180253, 0.199347, 0.18149, 0.255311, 0.226533, 0.245215, 0.212809, 0.230854, 0.196512]", 
+                "[0.247463, 0.217024, 0.202886, 0.188801, 0.260146, 0.227877, 0.247287, 0.212665, 0.232452, 0.196806, 0.214816, 0.195264, 0.18142, 0.179576, 0.252056, 0.239534, 0.225605, 0.223212, 0.210842, 0.192394, 0.213532, 0.177522, 0.195595, 0.177635, 0.252302, 0.220416, 0.238175, 0.223168, 0.211468, 0.19001, 0.206744, 0.176118, 0.194641, 0.176669, 0.250932, 0.221569, 0.240916, 0.222236, 0.209198, 0.193571, 0.211088, 0.177218, 0.195078, 0.176299, 0.251933, 0.220873, 0.240226, 0.203364, 0.222592, 0.187862, 0.206051, 0.18651, 0.172272, 0.170646, 0.245784, 0.215996, 0.233875, 0.201657, 0.219418, 0.185665, 0.204418, 0.171785, 0.191759, 0.172236, 0.247322, 0.234952, 0.220642, 0.20216, 0.221092, 0.187958, 0.206189, 0.187874, 0.173242, 0.169903, 0.247134, 0.217305, 0.234601, 0.215917, 0.202393, 0.18513, 0.202764, 0.168589, 0.189289, 0.170897, 0.245255, 0.217843, 0.234178, 0.198836, 0.21783, 0.201325, 0.188041, 0.18503, 0.173214, 0.171233, 0.244692, 0.232799, 0.216984, 0.202176, 0.221346, 0.187235, 0.204484, 0.18719, 0.171838, 0.247209, 0.263774, 0.235047, 0.221809, 0.218044, 0.207285, 0.188186, 0.20605, 0.172281, 0.190683, 0.172669, 0.251153, 0.221499, 0.239678, 0.203919, 0.222923, 0.206825, 0.192475, 0.174912, 0.191752, 0.172247, 0.251652, 0.237333, 0.223868, 0.205257, 0.222649, 0.190676, 0.209636, 0.192291, 0.175955, 0.173934, 0.246053, 0.219189, 0.236276, 0.22115, 0.207431, 0.204349, 0.190416, 0.170581, 0.188762, 0.168753, 0.244769, 0.215997, 0.234987, 0.200482, 0.219386, 0.199496, 0.185981, 0.168159, 0.186145, 0.255318, 0.241813, 0.231182, 0.21731, 0.197445, 0.217432, 0.184962, 0.20084, 0.183483, 0.169495, 0.167239, 0.244978, 0.214036, 0.233524, 0.215309, 0.200829, 0.19883, 0.185079, 0.183584, 0.170721, 0.170303, 0.242646, 0.215654, 0.23212, 0.213631, 0.199609, 0.199071, 0.184993, 0.168216, 0.187215, 0.168883, 0.243943, 0.231555, 0.219009, 0.204331, 0.222413, 0.201962, 0.186517, 0.185981, 0.173092, 0.170914, 0.247586, 0.235155, 0.220787, 0.217201, 0.203955, 0.182881, 0.202776, 0.181488, 0.167792, 0.254279, 0.241711, 0.209532, 0.227611, 0.207635, 0.194819, 0.190973, 0.177268, 0.157488, 0.177388, 0.24774, 0.234472, 0.22045, 0.207372, 0.188445, 0.205392, 0.188128, 0.173416, 0.173401, 0.158989, 0.247043, 0.233, 0.218379, 0.205859, 0.201524, 0.187027, 0.169919, 0.189637, 0.169673, 0.155103, 0.246662, 0.231858, 0.201638, 0.220237, 0.198342, 0.186169, 0.182473, 0.17132, 0.166506, 0.150766, 0.244923, 0.229289, 0.21687, 0.203478, 0.180376, 0.198615, 0.18176, 0.168317, 0.16618, 0.237716, 0.210147, 0.2275, 0.208258, 0.195951, 0.194197, 0.181658, 0.165273, 0.182555, 0.252421, 0.239434, 0.227237, 0.213276, 0.19446, 0.2132, 0.197207, 0.181188, 0.180044, 0.166142, 0.238595, 0.255969, 0.227445, 0.210785, 0.209241, 0.193604, 0.17702, 0.1937, 0.175978, 0.16233, 0.252081, 0.237937, 0.209139, 0.226705, 0.207706, 0.193778, 0.192161, 0.177154, 0.156584, 0.175101, 0.251004, 0.240169, 0.22538, 0.210512, 0.187777, 0.207344, 0.190531, 0.177221, 0.175425, 0.161544, 0.241625, 0.259337, 0.229002, 0.214131, 0.209621, 0.196944, 0.192194, 0.177948, 0.173686, 0.159696, 0.248563, 0.236066, 0.206529, 0.223676, 0.203801, 0.189433, 0.189018, 0.173211, 0.157319, 0.17492, 0.244373, 0.231847, 0.218001, 0.207594, 0.188666, 0.205712, 0.186645, 0.171898, 0.170642, 0.156682, 0.247013, 0.234228, 0.222847, 0.210397, 0.204089, 0.190373, 0.174241, 0.192573, 0.170955, 0.154884, 0.241557, 0.22822, 0.197531, 0.215377, 0.197403, 0.182622, 0.183346, 0.169884, 0.152587, 0.169048, 0.240995, 0.228746, 0.216009, 0.203383, 0.185375, 0.203063, 0.184248, 0.170412, 0.171784, 0.157883, 0.221519, 0.240689, 0.21058, 0.199587, 0.19339, 0.179477, 0.16192, 0.179084, 0.160344, 0.234918, 0.223565, 0.210422, 0.190925, 0.209565, 0.190638, 0.177166, 0.176883, 0.162976, 0.234071, 0.252811, 0.222965, 0.207719, 0.203286, 0.190646, 0.171899, 0.189051, 0.171304, 0.156594, 0.239505, 0.227136, 0.197166, 0.215952, 0.196714, 0.183887, 0.180715, 0.167275, 0.15312, 0.169326, 0.24008]", 
+                "[0.249815, 0.233391, 0.219525, 0.189195, 0.206204, 0.177314, 0.163553, 0.161982, 0.233761, 0.201954, 0.221995, 0.204962, 0.190548, 0.187541, 0.173119, 0.157081, 0.175385, 0.246109, 0.235143, 0.221023, 0.207539, 0.187682, 0.204968, 0.187896, 0.17475, 0.172876, 0.158532, 0.23315, 0.251843, 0.222174, 0.209719, 0.200105, 0.18605, 0.168476, 0.187854, 0.169783, 0.156882, 0.240626, 0.227358, 0.197041, 0.216403, 0.199192, 0.184694, 0.183081, 0.168448, 0.16678, 0.151042, 0.237795, 0.223119, 0.208353, 0.197159, 0.17974, 0.19741, 0.177611, 0.163307, 0.162563, 0.231871, 0.202065, 0.220239, 0.204116, 0.190075, 0.18752, 0.172914, 0.169754, 0.156608, 0.239543, 0.228405, 0.213834, 0.199627, 0.181902, 0.19947, 0.183355, 0.169635, 0.166252, 0.152731, 0.219357, 0.238391, 0.206889, 0.193226, 0.188605, 0.173778, 0.159627, 0.17927, 0.157846, 0.229543, 0.198618, 0.217016, 0.18026, 0.199436, 0.177755, 0.16481, 0.150411, 0.16755, 0.220157, 0.237572, 0.211879, 0.198499, 0.172439, 0.192607, 0.159506, 0.176009, 0.159143, 0.233585, 0.204342, 0.223773, 0.189224, 0.207545, 0.192172, 0.176892, 0.157982, 0.174799, 0.227058, 0.24612, 0.214987, 0.202017, 0.200004, 0.186462, 0.168207, 0.18771, 0.169093, 0.155757, 0.241027, 0.227498, 0.198599, 0.21697, 0.196257, 0.18171, 0.180312, 0.165591, 0.148827, 0.169289, 0.23897, 0.226651, 0.197949, 0.214112, 0.178703, 0.196599, 0.178862, 0.163803, 0.162874, 0.232543, 0.205544, 0.223505, 0.205215, 0.190308, 0.171797, 0.190148, 0.173232, 0.158561, 0.24563, 0.232505, 0.204227, 0.221147, 0.186757, 0.202856, 0.186602, 0.171708, 0.153508, 0.171729, 0.227583, 0.246678, 0.218418, 0.204781, 0.185555, 0.204285, 0.169535, 0.186575, 0.17083, 0.156834, 0.232147, 0.252847, 0.206212, 0.223544, 0.202159, 0.18812, 0.167574, 0.185738, 0.152741, 0.16985, 0.241474, 0.227715, 0.199884, 0.21656, 0.199064, 0.185192, 0.184062, 0.167664, 0.166206, 0.244312, 0.215801, 0.234455, 0.216557, 0.202006, 0.185183, 0.203554, 0.169994, 0.187179, 0.261143, 0.246753, 0.217725, 0.234869, 0.201367, 0.21993, 0.201251, 0.187172, 0.169107, 0.187676, 0.170012, 0.244371, 0.233805, 0.218727, 0.201506, 0.218468, 0.183463, 0.200169, 0.183793, 0.170795, 0.168116, 0.245463, 0.215881, 0.234038, 0.216354, 0.201295, 0.18658, 0.203286, 0.170364, 0.188657, 0.172183, 0.246207, 0.217967, 0.234768, 0.203121, 0.222668, 0.202562, 0.189141, 0.184661, 0.17151, 0.171968, 0.242976, 0.230951, 0.218499, 0.199526, 0.216573, 0.182156, 0.203117, 0.183398, 0.169605, 0.168039, 0.243301, 0.228788, 0.214433, 0.215137, 0.200472, 0.180885, 0.199121, 0.164587, 0.185375, 0.25591, 0.242656, 0.212483, 0.230412, 0.195083, 0.215183, 0.195176, 0.182759, 0.164869, 0.18172, 0.25538, 0.240821, 0.226516, 0.212829, 0.194521, 0.214329, 0.179698, 0.197344, 0.182408, 0.168477, 0.253932, 0.240944, 0.212491, 0.228651, 0.213953, 0.199805, 0.196898, 0.184561, 0.16398, 0.182043, 0.251468, 0.237782, 0.223045, 0.211122, 0.192915, 0.21024, 0.191182, 0.178515, 0.160562, 0.177234, 0.239656, 0.258208, 0.229811, 0.216666, 0.192899, 0.214328, 0.176442, 0.194819, 0.179593, 0.164465, 0.235043, 0.253753, 0.206609, 0.22683, 0.207533, 0.192388, 0.174682, 0.191771, 0.160036, 0.17737, 0.249328, 0.234232, 0.204948, 0.224373, 0.185561, 0.202463, 0.184903, 0.17174, 0.151535, 0.170189, 0.228936, 0.245851, 0.217606, 0.203737, 0.184922, 0.203501, 0.167193, 0.18678, 0.169364, 0.154755, 0.243164, 0.22824, 0.197612, 0.214204, 0.199049, 0.185291, 0.167759, 0.187402, 0.152748, 0.170155, 0.240003, 0.229392, 0.19812, 0.216307, 0.185021, 0.202522, 0.182267, 0.169634, 0.149752, 0.168246, 0.239404, 0.224913, 0.211565, 0.197352, 0.178259, 0.196925, 0.164452, 0.181468, 0.164836, 0.238792, 0.209647, 0.228017, 0.193461, 0.212486, 0.194993, 0.180968, 0.163244, 0.183879, 0.241575, 0.261481, 0.231598, 0.218232, 0.196854, 0.215704, 0.180591, 0.198831, 0.180055, 0.16722, 0.236106, 0.25547, 0.210521, 0.230152, 0.210587, 0.197219, 0.177772, 0.196552, 0.162068, 0.180329, 0.25113, 0.238074, 0.210105, 0.227996, 0.192279]", 
+                "[0.233706, 0.203249, 0.187447, 0.158882, 0.177639, 0.236207, 0.254635, 0.226057, 0.211433, 0.211616, 0.198791, 0.198516, 0.183289, 0.183263, 0.167827, 0.240871, 0.259455, 0.214104, 0.230953, 0.215876, 0.203347, 0.183721, 0.202715, 0.169122, 0.186813, 0.262052, 0.247371, 0.21694, 0.235725, 0.205322, 0.222528, 0.205855, 0.191423, 0.175278, 0.193605, 0.178461, 0.250657, 0.238607, 0.22407, 0.208894, 0.228655, 0.191869, 0.211543, 0.196702, 0.181885, 0.178912, 0.254385, 0.226324, 0.244458, 0.227173, 0.214106, 0.195315, 0.213752, 0.182362, 0.200562, 0.179401, 0.254438, 0.227071, 0.245897, 0.227095, 0.213492, 0.212333, 0.196692, 0.185025, 0.201661, 0.185723, 0.259562, 0.249129, 0.234787, 0.217327, 0.235261, 0.205095, 0.223002, 0.205351, 0.191741, 0.173712, 0.195133, 0.246117, 0.264086, 0.235215, 0.222664, 0.205103, 0.221109, 0.186783, 0.203063, 0.188564, 0.174566, 0.170844, 0.243476, 0.216501, 0.234279, 0.216023, 0.203052, 0.185701, 0.202678, 0.169368, 0.188768, 0.170078, 0.242731, 0.213227, 0.231054, 0.196486, 0.216234, 0.198052, 0.185027, 0.167035, 0.183716, 0.167356, 0.241403, 0.226812, 0.213265, 0.194518, 0.214653, 0.180248, 0.197179, 0.181482, 0.169943, 0.236157, 0.25814, 0.211593, 0.228965, 0.209723, 0.195952, 0.174649, 0.193506, 0.160082, 0.181931, 0.249231, 0.23523, 0.204892, 0.222816, 0.189425, 0.206825, 0.188438, 0.174947, 0.159095, 0.175541, 0.228079, 0.245113, 0.217014, 0.202151, 0.185517, 0.202427, 0.169824, 0.188024, 0.169753, 0.155164, 0.240412, 0.225424, 0.194917, 0.21173, 0.198134, 0.183511, 0.165072, 0.184451, 0.163966, 0.240714, 0.228031, 0.213511, 0.200067, 0.218333, 0.184371, 0.201619, 0.187063, 0.172781, 0.247681, 0.264258, 0.221145, 0.238726, 0.223738, 0.210019, 0.195961, 0.213871, 0.180136, 0.198498, 0.268669, 0.256257, 0.240523, 0.226807, 0.218401, 0.235613, 0.219125, 0.205647, 0.2101, 0.196057, 0.199746, 0.274041, 0.259147, 0.244458, 0.232514, 0.252257, 0.220312, 0.240106, 0.22546, 0.213281, 0.199933, 0.219036, 0.276397, 0.294396, 0.264082, 0.250325, 0.237402, 0.255297, 0.225149, 0.243909, 0.226977, 0.21346, 0.214528, 0.202323, 0.202404, 0.275046, 0.264913, 0.250524, 0.234769, 0.252215, 0.224666, 0.241345, 0.229177, 0.214314, 0.198081, 0.216275, 0.200319, 0.274836, 0.262784, 0.247305, 0.233716, 0.250967, 0.218382, 0.235982, 0.221651, 0.207801, 0.196203, 0.21272, 0.271611, 0.289361, 0.25814, 0.24506, 0.232033, 0.252028, 0.217231, 0.236354, 0.22075, 0.205771, 0.208668, 0.196141, 0.271897, 0.288928, 0.256624, 0.244112, 0.227605, 0.246861, 0.215852, 0.23708, 0.219708, 0.20636, 0.189996, 0.208066, 0.268675, 0.286529, 0.257009, 0.242174, 0.24356, 0.22954, 0.228275, 0.215131, 0.218995, 0.204719, 0.190365, 0.210055, 0.284679, 0.271817, 0.259134, 0.246356, 0.229835, 0.24712, 0.215817, 0.234685, 0.220061, 0.20653, 0.19051, 0.207629, 0.267137, 0.286287, 0.255097, 0.243266, 0.22795, 0.246238, 0.213914, 0.234249, 0.219066, 0.203677, 0.188939, 0.205608, 0.281563, 0.268731, 0.254162, 0.240969, 0.223345, 0.241462, 0.224595, 0.21038, 0.211075, 0.198852, 0.182182, 0.19976, 0.258293, 0.277386, 0.24692, 0.23093, 0.216815, 0.235105, 0.204744, 0.221964, 0.208425, 0.194376, 0.195574, 0.26533, 0.237557, 0.255678, 0.241397, 0.227316, 0.214176, 0.234245, 0.194425, 0.213191, 0.195547, 0.181712, 0.251159, 0.270814, 0.225117, 0.242523, 0.222669, 0.208632, 0.191558, 0.208788, 0.179408, 0.198042, 0.178094, 0.25025, 0.221888, 0.239341, 0.204748, 0.222663, 0.207726, 0.193153, 0.173359, 0.193566, 0.173315, 0.248116, 0.233282, 0.219009, 0.204475, 0.222265, 0.204499, 0.190137, 0.189532, 0.174988, 0.173555, 0.245843, 0.232166, 0.219167, 0.21933, 0.204644, 0.184736, 0.200754, 0.184304, 0.173488, 0.171534, 0.245464, 0.231701, 0.217141, 0.202999, 0.219907, 0.203422, 0.190345, 0.171227, 0.188989, 0.173724, 0.243063, 0.228988, 0.21675, 0.199295, 0.21932, 0.185446, 0.202854, 0.184804, 0.170944, 0.168022, 0.238685, 0.211871, 0.229453, 0.211014, 0.197965, 0.18002, 0.199216, 0.165021, 0.184031, 0.164106, 0.236812, 0.210627]", 
+                "[0.251979, 0.207396, 0.223517, 0.19496, 0.181057, 0.17585, 0.165495, 0.233839, 0.25307, 0.223243, 0.208114, 0.190823, 0.208462, 0.173778, 0.192263, 0.173967, 0.159629, 0.23097, 0.25102, 0.205435, 0.222038, 0.203465, 0.19066, 0.173034, 0.189817, 0.158267, 0.178363, 0.249267, 0.234923, 0.203768, 0.222088, 0.203679, 0.18822, 0.189451, 0.174335, 0.158383, 0.175733, 0.233528, 0.252729, 0.221523, 0.207941, 0.188086, 0.205496, 0.174859, 0.192028, 0.176776, 0.162769, 0.249903, 0.236593, 0.205187, 0.225213, 0.205081, 0.191862, 0.188985, 0.174737, 0.15707, 0.178421, 0.247496, 0.233367, 0.20385, 0.220653, 0.188487, 0.20661, 0.189127, 0.175952, 0.158971, 0.175243, 0.231186, 0.249886, 0.220193, 0.206162, 0.186969, 0.205104, 0.174759, 0.19357, 0.172286, 0.158154, 0.228918, 0.246219, 0.216866, 0.202434, 0.200457, 0.185173, 0.16567, 0.183826, 0.164901, 0.237867, 0.223856, 0.210164, 0.193773, 0.211834, 0.177708, 0.196762, 0.180621, 0.166571, 0.238089, 0.257417, 0.211329, 0.231662, 0.211259, 0.198456, 0.178075, 0.196775, 0.162499, 0.181911, 0.249444, 0.234976, 0.20579, 0.224185, 0.187303, 0.204625, 0.189958, 0.17563, 0.156921, 0.177517, 0.230673, 0.247616, 0.219527, 0.204935, 0.189908, 0.206487, 0.174923, 0.1928, 0.1759, 0.1656, 0.234501, 0.251309, 0.207244, 0.225303, 0.206132, 0.190657, 0.173331, 0.19128, 0.158064, 0.176033, 0.245303, 0.230821, 0.203584, 0.219575, 0.188339, 0.207625, 0.192815, 0.177743, 0.159595, 0.176543, 0.237332, 0.255455, 0.225521, 0.21024, 0.189329, 0.207226, 0.18904, 0.174042, 0.173455, 0.161492, 0.252782, 0.237915, 0.206585, 0.22512, 0.207765, 0.194227, 0.179318, 0.197452, 0.161757, 0.180596, 0.249952, 0.236483, 0.207332, 0.224314, 0.205104, 0.19159, 0.188838, 0.174384, 0.154952, 0.174452, 0.245647, 0.231955, 0.219571, 0.20487, 0.184937, 0.203337, 0.184536, 0.170252, 0.170197, 0.153975, 0.225192, 0.245048, 0.198661, 0.215157, 0.19999, 0.186529, 0.168104, 0.186364, 0.153444, 0.1711, 0.246134, 0.233187, 0.20437, 0.222208, 0.183467, 0.200219, 0.184365, 0.17063, 0.154428, 0.171445, 0.239604, 0.226371, 0.213036, 0.199416, 0.181736, 0.198667, 0.167351, 0.18439, 0.168776, 0.154801, 0.242705, 0.23009, 0.200167, 0.2179, 0.200852, 0.187211, 0.17059, 0.187725, 0.151393, 0.172011, 0.242084, 0.228149, 0.197761, 0.216695, 0.181321, 0.201565, 0.182526, 0.169069, 0.152701, 0.17009, 0.22689, 0.247486, 0.217089, 0.201339, 0.194922, 0.179184, 0.179031, 0.167149, 0.167549, 0.153317, 0.237725, 0.223335, 0.192499, 0.212576, 0.192991, 0.178017, 0.16233, 0.180529, 0.161975, 0.233374, 0.221491, 0.206556, 0.188656, 0.206527, 0.173986, 0.19326, 0.172633, 0.158554, 0.245807, 0.231874, 0.219916, 0.205208, 0.199644, 0.185927, 0.169965, 0.188305, 0.154058, 0.173372, 0.244951, 0.229153, 0.197676, 0.217294, 0.181849, 0.200598, 0.181218, 0.170007, 0.151199, 0.168907, 0.226657, 0.244969, 0.213757, 0.200283, 0.181059, 0.199168, 0.164138, 0.184224, 0.16672, 0.153147, 0.237402, 0.225565, 0.210085, 0.197008, 0.191426, 0.178209, 0.157569, 0.179499, 0.160094, 0.231432, 0.218953, 0.205685, 0.187167, 0.204533, 0.171016, 0.188608, 0.175155, 0.160868, 0.244454, 0.232202, 0.201015, 0.217507, 0.202855, 0.187507, 0.170364, 0.189733, 0.154211, 0.173215, 0.246063, 0.232936, 0.202116, 0.221146, 0.186213, 0.203951, 0.185517, 0.170644, 0.153456, 0.170792, 0.229571, 0.249558, 0.217816, 0.204691, 0.183499, 0.201236, 0.170608, 0.18792, 0.165675, 0.151729, 0.225838, 0.243361, 0.199628, 0.216939, 0.199696, 0.186167, 0.168875, 0.187081, 0.165886, 0.152825, 0.238103, 0.223612, 0.194839, 0.213264, 0.177129, 0.195778, 0.175925, 0.165324, 0.159485, 0.234075, 0.204293, 0.22411, 0.206048, 0.191671, 0.175274, 0.193268, 0.156933, 0.174711, 0.24903, 0.234143, 0.202784, 0.222273, 0.184387, 0.201758, 0.185095, 0.17148, 0.153778, 0.171392, 0.23073, 0.248119, 0.217454, 0.20347, 0.185431, 0.204925, 0.171077, 0.189958, 0.170509, 0.156915, 0.23088, 0.248215, 0.202568, 0.219747, 0.200484, 0.183636, 0.168289, 0.186057, 0.153386, 0.170742, 0.240182]", 
+                "[0.252882, 0.222906, 0.239965, 0.191657, 0.210913, 0.178945, 0.166725, 0.162219, 0.232327, 0.204332, 0.222597, 0.204905, 0.191818, 0.175915, 0.193359, 0.158364, 0.176423, 0.242611, 0.229365, 0.198723, 0.217432, 0.181013, 0.198224, 0.18229, 0.16853, 0.152102, 0.168377, 0.241561, 0.227994, 0.212765, 0.197824, 0.176974, 0.194822, 0.164992, 0.182619, 0.164835, 0.150619, 0.224382, 0.244219, 0.198796, 0.216445, 0.195891, 0.181199, 0.166647, 0.184111, 0.166882, 0.240473, 0.232253, 0.217576, 0.197058, 0.214199, 0.181076, 0.198866, 0.18147, 0.168838, 0.165958, 0.241842, 0.213981, 0.232832, 0.213768, 0.19985, 0.183968, 0.202306, 0.168458, 0.18654, 0.166375, 0.240239, 0.209232, 0.229867, 0.208552, 0.195044, 0.194785, 0.180888, 0.163108, 0.181443, 0.239254, 0.25669, 0.227978, 0.214636, 0.194486, 0.214561, 0.177827, 0.196577, 0.176763, 0.164503, 0.235405, 0.253244, 0.206309, 0.224488, 0.20648, 0.192422, 0.175496, 0.193007, 0.159469, 0.179327, 0.246961, 0.235278, 0.205473, 0.223954, 0.18807, 0.207458, 0.189968, 0.173561, 0.154754, 0.17252, 0.243328, 0.230029, 0.216081, 0.202506, 0.178838, 0.197177, 0.165043, 0.181564, 0.165964, 0.151254, 0.239804, 0.227521, 0.197363, 0.214377, 0.197548, 0.183197, 0.1654, 0.185561, 0.152026, 0.169489, 0.239119, 0.224992, 0.194834, 0.213243, 0.193233, 0.182703, 0.179917, 0.164102, 0.16146, 0.236802, 0.207626, 0.22765, 0.206669, 0.191921, 0.189756, 0.175633, 0.159135, 0.17727, 0.246153, 0.234425, 0.204202, 0.222908, 0.1871, 0.204762, 0.190997, 0.176404, 0.157922, 0.174992, 0.245784, 0.233019, 0.218911, 0.20507, 0.201199, 0.186279, 0.167973, 0.186369, 0.167992, 0.15624, 0.227489, 0.24497, 0.200976, 0.217838, 0.202015, 0.188701, 0.168199, 0.189312, 0.153295, 0.171838, 0.241273, 0.227726, 0.197347, 0.215002, 0.178845, 0.197141, 0.180421, 0.166296, 0.163946, 0.151463, 0.223769, 0.240929, 0.211109, 0.195736, 0.175002, 0.191958, 0.176934, 0.163794, 0.162955, 0.231596, 0.203473, 0.220059, 0.186644, 0.205748, 0.185894, 0.171991, 0.171616, 0.158483, 0.22879, 0.248624, 0.21864, 0.205568, 0.184369, 0.201728, 0.170369, 0.187122, 0.168328, 0.156652, 0.225287, 0.243629, 0.20071, 0.217378, 0.198958, 0.183259, 0.168738, 0.186479, 0.153622, 0.170663, 0.241268, 0.226521, 0.199399, 0.218551, 0.18202, 0.199894, 0.182299, 0.167987, 0.152975, 0.170745, 0.244042, 0.230006, 0.217827, 0.203461, 0.1834, 0.200729, 0.166325, 0.184008, 0.168128, 0.152485, 0.22209, 0.241337, 0.195001, 0.212979, 0.19692, 0.18415, 0.164805, 0.18549, 0.164143, 0.237568, 0.223595, 0.209914, 0.19101, 0.211245, 0.175531, 0.194515, 0.17507, 0.161014, 0.23488, 0.253818, 0.207691, 0.227692, 0.203967, 0.18969, 0.172027, 0.19153, 0.155649, 0.174198, 0.244765, 0.230839, 0.202105, 0.218264, 0.184961, 0.202703, 0.185559, 0.171498, 0.169284, 0.1556, 0.238764, 0.22333, 0.207949, 0.192276, 0.175491, 0.193196, 0.159243, 0.175796, 0.157953, 0.228234, 0.214911, 0.199809, 0.182314, 0.199583, 0.182512, 0.167922, 0.165699, 0.150577, 0.237748, 0.221951, 0.211844, 0.197642, 0.17838, 0.1967, 0.162916, 0.179612, 0.161612, 0.234061, 0.202377, 0.22141, 0.188412, 0.205819, 0.187464, 0.173525, 0.170345, 0.158644, 0.248292, 0.233686, 0.218816, 0.20523, 0.190247, 0.206782, 0.174523, 0.191386, 0.172287, 0.157553, 0.248443, 0.235206, 0.222496, 0.20684, 0.20586, 0.192261, 0.18854, 0.175239, 0.174005, 0.158598, 0.24579, 0.230991, 0.201905, 0.220563, 0.203328, 0.188838, 0.185439, 0.17144, 0.15165, 0.168604, 0.242333, 0.229643, 0.215823, 0.201901, 0.179597, 0.19878, 0.180941, 0.168575, 0.166642, 0.153923, 0.223922, 0.241394, 0.214228, 0.199954, 0.196149, 0.180652, 0.162346, 0.181875, 0.164052, 0.149877, 0.234207, 0.219941, 0.191429, 0.208145, 0.191624, 0.178127, 0.17579, 0.162332, 0.158176, 0.233158, 0.218451, 0.204499, 0.203865, 0.189511, 0.173085, 0.190698, 0.169437, 0.157156, 0.243661, 0.229453, 0.199113, 0.217889, 0.199199, 0.184776, 0.184212, 0.170002, 0.152144, 0.16841, 0.24274, 0.228629, 0.215502, 0.200689, 0.179281, 0.197301, 0.179957]", 
+                "[0.195021, 0.180508, 0.166308, 0.237673, 0.224657, 0.210572, 0.1951, 0.198698, 0.185779, 0.181948, 0.16779, 0.165796, 0.239916, 0.228054, 0.213588, 0.192645, 0.211258, 0.195598, 0.180881, 0.177449, 0.162303, 0.237213, 0.255012, 0.22576, 0.21081, 0.205655, 0.195366, 0.174911, 0.194848, 0.176505, 0.160628, 0.251468, 0.23854, 0.209885, 0.2274, 0.204914, 0.193023, 0.190535, 0.175742, 0.157417, 0.175785, 0.248389, 0.234162, 0.220234, 0.20679, 0.201057, 0.184938, 0.180294, 0.166302, 0.165219, 0.151763, 0.236477, 0.221625, 0.208533, 0.195282, 0.19187, 0.179816, 0.162128, 0.179402, 0.161673, 0.234534, 0.224336, 0.21069, 0.190752, 0.209078, 0.190784, 0.178503, 0.17372, 0.158125, 0.228378, 0.245063, 0.214441, 0.200761, 0.198436, 0.184793, 0.167012, 0.185402, 0.163914, 0.149044, 0.232223, 0.219278, 0.205027, 0.190664, 0.187102, 0.173166, 0.17248, 0.157971, 0.156406, 0.229354, 0.216132, 0.204796, 0.197925, 0.184664, 0.167474, 0.188219, 0.166403, 0.152639, 0.241274, 0.228973, 0.199493, 0.216461, 0.202168, 0.187452, 0.183294, 0.168819, 0.152196, 0.173408, 0.244321, 0.232747, 0.216824, 0.205749, 0.19993, 0.18535, 0.183347, 0.169995, 0.171339, 0.156097, 0.224034, 0.240324, 0.21179, 0.197493, 0.196052, 0.181356, 0.165743, 0.183249, 0.164633, 0.151483, 0.240443, 0.227326, 0.197166, 0.21375, 0.1952, 0.184319, 0.178418, 0.165432, 0.162508, 0.235687, 0.22272, 0.207224, 0.206803, 0.192915, 0.1764, 0.194067, 0.176493, 0.162988, 0.24876, 0.234934, 0.206347, 0.227026, 0.209397, 0.194791, 0.195671, 0.182635, 0.160119, 0.176656, 0.249302, 0.237837, 0.223914, 0.209664, 0.190268, 0.207701, 0.19213, 0.179786, 0.17548, 0.161112, 0.245213, 0.230174, 0.215768, 0.201808, 0.204108, 0.190017, 0.170403, 0.187582, 0.169819, 0.154249, 0.242433, 0.230521, 0.200872, 0.217961, 0.199501, 0.185192, 0.183294, 0.17155, 0.169169, 0.155617, 0.241728, 0.229601, 0.21632, 0.202532, 0.18415, 0.202072, 0.182105, 0.166619, 0.165637, 0.239464, 0.209201, 0.228442, 0.212096, 0.199594, 0.195883, 0.182057, 0.161363, 0.182425, 0.25327, 0.238402, 0.226763, 0.210885, 0.191096, 0.2078, 0.19049, 0.176362, 0.173231, 0.158837, 0.229448, 0.247365, 0.218745, 0.203526, 0.19837, 0.187762, 0.165991, 0.182846, 0.165856, 0.153337, 0.240194, 0.225902, 0.196375, 0.214942, 0.196654, 0.183668, 0.179477, 0.166346, 0.150007, 0.166792, 0.238762, 0.2249, 0.212551, 0.19786, 0.175108, 0.195088, 0.174985, 0.162682, 0.159366, 0.232819, 0.207409, 0.223645, 0.202361, 0.188127, 0.186293, 0.172699, 0.153411, 0.172924, 0.23974, 0.227703, 0.213512, 0.198428, 0.178998, 0.198193, 0.179227, 0.165135, 0.16287, 0.233667, 0.204244, 0.222062, 0.205076, 0.192024, 0.186705, 0.17193, 0.15646, 0.174869, 0.242861, 0.231459, 0.217786, 0.203339, 0.185167, 0.203008, 0.18398, 0.169752, 0.169502, 0.154277, 0.240716, 0.228239, 0.215365, 0.202946, 0.194728, 0.182362, 0.162268, 0.182448, 0.163122, 0.149308, 0.235702, 0.221941, 0.210672, 0.19852, 0.191465, 0.177058, 0.176463, 0.163416, 0.161683, 0.234955, 0.222064, 0.207455, 0.206053, 0.192976, 0.177438, 0.19523, 0.179552, 0.164798, 0.250787, 0.235947, 0.206436, 0.225134, 0.209159, 0.195242, 0.189331, 0.176079, 0.159663, 0.176977, 0.247656, 0.233034, 0.218221, 0.206635, 0.18514, 0.204169, 0.18567, 0.171653, 0.170647, 0.155872, 0.240296, 0.226655, 0.213089, 0.19875, 0.19493, 0.182621, 0.16508, 0.182966, 0.164025, 0.151091, 0.237238, 0.223443, 0.194107, 0.212905, 0.19335, 0.179355, 0.177667, 0.163434, 0.164111, 0.237115, 0.221802, 0.208777, 0.206544, 0.192667, 0.173352, 0.193941, 0.172515, 0.160651, 0.248685, 0.234644, 0.203313, 0.22164, 0.198338, 0.18486, 0.184725, 0.171438, 0.156278, 0.173752, 0.244579, 0.229758, 0.216744, 0.202228, 0.179668, 0.198765, 0.180274, 0.168854, 0.16627, 0.152179, 0.224043, 0.244189, 0.212465, 0.198481, 0.196435, 0.182117, 0.164303, 0.181503, 0.162587, 0.149828, 0.23655, 0.226714, 0.197701, 0.214361, 0.194083, 0.181122, 0.17834, 0.163856, 0.148828, 0.167006, 0.234987, 0.220931, 0.208968, 0.195965, 0.175663]", 
+                "[0.218733, 0.189872, 0.175442, 0.162433, 0.237382, 0.206647, 0.22658, 0.206978, 0.192825, 0.192342, 0.180012, 0.158089, 0.178768, 0.248475, 0.236265, 0.223577, 0.210557, 0.202222, 0.188668, 0.188338, 0.174245, 0.173633, 0.159035, 0.230964, 0.248082, 0.218982, 0.205475, 0.203448, 0.189451, 0.172715, 0.191214, 0.173711, 0.244107, 0.22861, 0.216292, 0.197976, 0.216551, 0.20016, 0.185327, 0.185454, 0.170764, 0.170224, 0.241543, 0.230191, 0.214831, 0.21271, 0.197744, 0.18235, 0.200053, 0.182772, 0.167739, 0.166272, 0.238898, 0.211139, 0.22946, 0.211389, 0.197612, 0.192694, 0.18123, 0.162946, 0.181551, 0.164341, 0.235679, 0.224338, 0.211861, 0.194653, 0.212587, 0.193681, 0.179166, 0.173302, 0.158478, 0.229602, 0.246727, 0.218633, 0.205314, 0.202903, 0.188752, 0.170657, 0.189038, 0.171722, 0.155894, 0.242883, 0.231228, 0.200906, 0.217631, 0.199098, 0.183484, 0.1862, 0.171134, 0.170418, 0.15666, 0.2438, 0.232183, 0.216591, 0.201854, 0.182415, 0.202204, 0.184191, 0.17023, 0.168019, 0.153734, 0.224453, 0.240826, 0.213, 0.198252, 0.197873, 0.183761, 0.163734, 0.180863, 0.165112, 0.15336, 0.236665, 0.226945, 0.19555, 0.217569, 0.192304, 0.176823, 0.172224, 0.157145, 0.155036, 0.225645, 0.213308, 0.19811, 0.19814, 0.184192, 0.168449, 0.18501, 0.170755, 0.157954, 0.24225, 0.229544, 0.20036, 0.216595, 0.197156, 0.18487, 0.183904, 0.169553, 0.14903, 0.166708, 0.237626, 0.226385, 0.2125, 0.198135, 0.179625, 0.197845, 0.180257, 0.164445, 0.165624, 0.238404, 0.211886, 0.229371, 0.212052, 0.197986, 0.196353, 0.1827, 0.165468, 0.182302, 0.253658, 0.240211, 0.226489, 0.213786, 0.191536, 0.210757, 0.19411, 0.18152, 0.177233, 0.165691, 0.23376, 0.251452, 0.220906, 0.209176, 0.204954, 0.191997, 0.174705, 0.193105, 0.174228, 0.160063, 0.249435, 0.237497, 0.205034, 0.222144, 0.207299, 0.191759, 0.18929, 0.176385, 0.159064, 0.17789, 0.2472, 0.231478, 0.218321, 0.204762, 0.186959, 0.204165, 0.186176, 0.173073, 0.171812, 0.158226, 0.242837, 0.230683, 0.217082, 0.202092, 0.201985, 0.1884, 0.16556, 0.185724, 0.166941, 0.152499, 0.241842, 0.224813, 0.194947, 0.214653, 0.193921, 0.179552, 0.179906, 0.164636, 0.162048, 0.23516, 0.223072, 0.21064, 0.209205, 0.195855, 0.194189, 0.180342, 0.17954, 0.166539, 0.25511, 0.241119, 0.213767, 0.231722, 0.213235, 0.199073, 0.196136, 0.183404, 0.165932, 0.184122, 0.254041, 0.240175, 0.22479, 0.209119, 0.191595, 0.208669, 0.192221, 0.17775, 0.176059, 0.161242, 0.230431, 0.248892, 0.217364, 0.202596, 0.20186, 0.188049, 0.170279, 0.190846, 0.174761, 0.159771, 0.242834, 0.229153, 0.201552, 0.218827, 0.198361, 0.184468, 0.184927, 0.169486, 0.170908, 0.157485, 0.243135, 0.228865, 0.214159, 0.19993, 0.198016, 0.184215, 0.179288, 0.164194, 0.161494, 0.233613, 0.203669, 0.222765, 0.203832, 0.191674, 0.186361, 0.172888, 0.156956, 0.174785, 0.240925, 0.230469, 0.216491, 0.202335, 0.182085, 0.2009, 0.182523, 0.16685, 0.163351, 0.15168, 0.238039, 0.225328, 0.209028, 0.195917, 0.188454, 0.175454, 0.158635, 0.175025, 0.158834, 0.233659, 0.22001, 0.204027, 0.186013, 0.202782, 0.185013, 0.17057, 0.168794, 0.155706, 0.240748, 0.227446, 0.215956, 0.200637, 0.194649, 0.182574, 0.163853, 0.185279, 0.164836, 0.150581, 0.243027, 0.228952, 0.200344, 0.218299, 0.196356, 0.180764, 0.17857, 0.163611, 0.162898, 0.235374, 0.223087, 0.209593, 0.206548, 0.193185, 0.17473, 0.192774, 0.175414, 0.161491, 0.246238, 0.231119, 0.200209, 0.218273, 0.201829, 0.18627, 0.182214, 0.17054, 0.150671, 0.169108, 0.23703, 0.225729, 0.21106, 0.197197, 0.196834, 0.183445, 0.17794, 0.16384, 0.16277, 0.148329, 0.218362, 0.236342, 0.207029, 0.192479, 0.190322, 0.1761, 0.158783, 0.177649, 0.157693, 0.229403, 0.219072, 0.207524, 0.191973, 0.210417, 0.192549, 0.176613, 0.17512, 0.162009, 0.246053, 0.232638, 0.217607, 0.203609, 0.201529, 0.186174, 0.171094, 0.188911, 0.170112, 0.154765, 0.240448, 0.227184, 0.196887, 0.216275, 0.195619, 0.181032, 0.182659, 0.168221, 0.165795, 0.237869, 0.22503, 0.208671, 0.206653]", 
+                "[0.218334, 0.187118, 0.204563, 0.178992, 0.164264, 0.251186, 0.23616, 0.206658, 0.224176, 0.205723, 0.192608, 0.191338, 0.178126, 0.162889, 0.180055, 0.249784, 0.237387, 0.222332, 0.209823, 0.194342, 0.212292, 0.192563, 0.178266, 0.175971, 0.161543, 0.230497, 0.250365, 0.220269, 0.20711, 0.201747, 0.187239, 0.185952, 0.170791, 0.169566, 0.154956, 0.241506, 0.228156, 0.198805, 0.216751, 0.200459, 0.186779, 0.185139, 0.171348, 0.153733, 0.170763, 0.243187, 0.229461, 0.217462, 0.202884, 0.199, 0.188655, 0.186332, 0.172237, 0.169436, 0.155301, 0.227777, 0.247505, 0.216733, 0.203276, 0.199299, 0.185995, 0.168594, 0.186731, 0.167329, 0.152269, 0.237936, 0.226408, 0.195365, 0.212384, 0.193679, 0.180321, 0.17818, 0.166936, 0.163365, 0.236297, 0.224752, 0.212244, 0.207575, 0.194544, 0.175785, 0.193816, 0.174673, 0.160264, 0.247856, 0.231563, 0.218284, 0.205458, 0.204645, 0.189787, 0.18996, 0.174829, 0.155376, 0.173055, 0.246867, 0.232313, 0.215861, 0.201246, 0.179693, 0.199097, 0.181463, 0.168216, 0.165131, 0.151693, 0.223939, 0.243589, 0.214843, 0.200184, 0.197932, 0.182646, 0.169259, 0.187637, 0.168172, 0.153842, 0.244476, 0.230797, 0.199401, 0.219513, 0.201257, 0.186722, 0.183914, 0.170926, 0.153896, 0.170755, 0.244698, 0.232022, 0.218889, 0.204729, 0.18635, 0.204052, 0.189234, 0.173695, 0.171311, 0.156641, 0.227122, 0.244874, 0.214674, 0.201435, 0.202118, 0.188606, 0.167813, 0.186647, 0.168507, 0.156586, 0.240731, 0.22866, 0.19812, 0.216704, 0.198025, 0.184124, 0.183007, 0.168914, 0.148391, 0.165898, 0.236674, 0.22252, 0.209164, 0.192753, 0.174175, 0.194781, 0.17545, 0.160477, 0.158263, 0.230252, 0.19974, 0.218045, 0.201919, 0.189148, 0.185211, 0.171899, 0.169293, 0.155724, 0.242427, 0.23087, 0.217108, 0.203351, 0.182712, 0.201664, 0.185598, 0.171728, 0.168653, 0.156508, 0.223917, 0.244747, 0.213903, 0.198894, 0.195924, 0.183521, 0.162145, 0.180639, 0.164617, 0.235277, 0.222136, 0.207354, 0.190132, 0.207518, 0.192495, 0.178576, 0.1784, 0.163936, 0.252018, 0.237346, 0.223728, 0.210166, 0.205542, 0.190681, 0.174483, 0.193288, 0.176512, 0.162054, 0.249737, 0.235779, 0.203183, 0.22176, 0.203009, 0.189607, 0.187747, 0.173066, 0.156118, 0.175, 0.244442, 0.230582, 0.216449, 0.202813, 0.182235, 0.20122, 0.183351, 0.168878, 0.166825, 0.152043, 0.244099, 0.229896, 0.214265, 0.200619, 0.195448, 0.182104, 0.165341, 0.182697, 0.165732, 0.240923, 0.224733, 0.213597, 0.195807, 0.213011, 0.198018, 0.18276, 0.183206, 0.168446, 0.256957, 0.243811, 0.231159, 0.21759, 0.211234, 0.196988, 0.17656, 0.197266, 0.178002, 0.162787, 0.254489, 0.239309, 0.211179, 0.232837, 0.209293, 0.195439, 0.195368, 0.1796, 0.160619, 0.180404, 0.249666, 0.236015, 0.224498, 0.20983, 0.191289, 0.210071, 0.190185, 0.176505, 0.17334, 0.158809, 0.229231, 0.249347, 0.219121, 0.204762, 0.202623, 0.1884, 0.171277, 0.1902, 0.169535, 0.155648, 0.247077, 0.234132, 0.218769, 0.205641, 0.20339, 0.19034, 0.186862, 0.173891, 0.155664, 0.175169, 0.247604, 0.235597, 0.222107, 0.206497, 0.20424, 0.190713, 0.188645, 0.175253, 0.174489, 0.161095, 0.232218, 0.252035, 0.220405, 0.207001, 0.203267, 0.190417, 0.173298, 0.19239, 0.17174, 0.159311, 0.253314, 0.238605, 0.207518, 0.227749, 0.209436, 0.195454, 0.191753, 0.17732, 0.156747, 0.175496, 0.248644, 0.234756, 0.220917, 0.207987, 0.187602, 0.207193, 0.18862, 0.175858, 0.174201, 0.157873, 0.230435, 0.249295, 0.22025, 0.207069, 0.203619, 0.191295, 0.172701, 0.189331, 0.172202, 0.15888, 0.249805, 0.237403, 0.205044, 0.221797, 0.205131, 0.191286, 0.18882, 0.173344, 0.157026, 0.173981, 0.248935, 0.233297, 0.219172, 0.204173, 0.186236, 0.204548, 0.187095, 0.173279, 0.173698, 0.160761, 0.235315, 0.25405, 0.223437, 0.208803, 0.208706, 0.195821, 0.177127, 0.197285, 0.178775, 0.163896, 0.252151, 0.23845, 0.211991, 0.228671, 0.212474, 0.197828, 0.195796, 0.182744, 0.168467, 0.1871, 0.259193, 0.246094, 0.233675, 0.218741, 0.19862, 0.218378, 0.198298, 0.184188, 0.184493, 0.172348, 0.24655, 0.265499, 0.236518]", 
+                "[0.247432, 0.233082, 0.21873, 0.187885, 0.205248, 0.186798, 0.173255, 0.172013, 0.248485, 0.219105, 0.23646, 0.221325, 0.208353, 0.203566, 0.188665, 0.170108, 0.190497, 0.262523, 0.248077, 0.234319, 0.219868, 0.203134, 0.22071, 0.205203, 0.193456, 0.187839, 0.173883, 0.171904, 0.250012, 0.236781, 0.224213, 0.22343, 0.208039, 0.190375, 0.20878, 0.189527, 0.175166, 0.173655, 0.250867, 0.220229, 0.240064, 0.221919, 0.207862, 0.206694, 0.192768, 0.191266, 0.174346, 0.174582, 0.252084, 0.238628, 0.225037, 0.222113, 0.209969, 0.206825, 0.192417, 0.190573, 0.177322, 0.176685, 0.254241, 0.241151, 0.226718, 0.225422, 0.211155, 0.206954, 0.193725, 0.194241, 0.178051, 0.177989, 0.253838, 0.223423, 0.241611, 0.224018, 0.211494, 0.208801, 0.192928, 0.176356, 0.195235, 0.174573, 0.258488, 0.243859, 0.227373, 0.209846, 0.228184, 0.209993, 0.195311, 0.19568, 0.183234, 0.182321, 0.255584, 0.24342, 0.229302, 0.227626, 0.212325, 0.19407, 0.212402, 0.194924, 0.178527, 0.176809, 0.251434, 0.221665, 0.240218, 0.221919, 0.208562, 0.205914, 0.192589, 0.176545, 0.194641, 0.17637, 0.250755, 0.236608, 0.221557, 0.203961, 0.22169, 0.20414, 0.190269, 0.18999, 0.173908, 0.176396, 0.251923, 0.238423, 0.226368, 0.225377, 0.211048, 0.191493, 0.212111, 0.192072, 0.179892, 0.175579, 0.249853, 0.220565, 0.23888, 0.223673, 0.211335, 0.20741, 0.194987, 0.177755, 0.196829, 0.177851, 0.25501, 0.241306, 0.227355, 0.224578, 0.210851, 0.21129, 0.19748, 0.195657, 0.182087, 0.178637, 0.25011, 0.237708, 0.223496, 0.221147, 0.208729, 0.191021, 0.210295, 0.190635, 0.177093, 0.17493, 0.248868, 0.218167, 0.236885, 0.216777, 0.204164, 0.202813, 0.192075, 0.174694, 0.191479, 0.174612, 0.24732, 0.236962, 0.22192, 0.20274, 0.21956, 0.204032, 0.1884, 0.187869, 0.174525, 0.171394, 0.247174, 0.232642, 0.219559, 0.214287, 0.201265, 0.184028, 0.203278, 0.185752, 0.170972, 0.168258, 0.239767, 0.225915, 0.213915, 0.216929, 0.201576, 0.199995, 0.185411, 0.170399, 0.187745, 0.16997, 0.24226, 0.228913, 0.216971, 0.197554, 0.215483, 0.199092, 0.182725, 0.181002, 0.167088, 0.238545, 0.256444, 0.227746, 0.212952, 0.211715, 0.197705, 0.178779, 0.197583, 0.18035, 0.166563, 0.257694, 0.244401, 0.232855, 0.216987, 0.212506, 0.197311, 0.19784, 0.185529, 0.166223, 0.184738, 0.255606, 0.241259, 0.229631, 0.217069, 0.194498, 0.211877, 0.193486, 0.181236, 0.178889, 0.166917, 0.237233, 0.255906, 0.2254, 0.212761, 0.208187, 0.194891, 0.175625, 0.194336, 0.174752, 0.158152, 0.244843, 0.229386, 0.198611, 0.21698, 0.199425, 0.18393, 0.181585, 0.168041, 0.146736, 0.164291, 0.233852, 0.219174, 0.206604, 0.194727, 0.173066, 0.190783, 0.175982, 0.161324, 0.159309, 0.231959, 0.202694, 0.220504, 0.202131, 0.188874, 0.188344, 0.175449, 0.15666, 0.176129, 0.242869, 0.229128, 0.216146, 0.203905, 0.183077, 0.201258, 0.183221, 0.169587, 0.168156, 0.152913, 0.222609, 0.240762, 0.213651, 0.197833, 0.190861, 0.17709, 0.160262, 0.178099, 0.161397, 0.23328, 0.21864, 0.206011, 0.189257, 0.207926, 0.186876, 0.173238, 0.171153, 0.157479, 0.230138, 0.248643, 0.219141, 0.20434, 0.201688, 0.188808, 0.167025, 0.187233, 0.169472, 0.15464, 0.244645, 0.23259, 0.20418, 0.22135, 0.199844, 0.18766, 0.18421, 0.170526, 0.150902, 0.17258, 0.238333, 0.225354, 0.212141, 0.19886, 0.178192, 0.197339, 0.181602, 0.166025, 0.16407, 0.237383, 0.223659, 0.208886, 0.21096, 0.195764, 0.195988, 0.180618, 0.165465, 0.183268, 0.25216, 0.239319, 0.22618, 0.211977, 0.191824, 0.209889, 0.191035, 0.177037, 0.172202, 0.157375, 0.243853, 0.232371, 0.217762, 0.207684, 0.202636, 0.188599, 0.172079, 0.189239, 0.171361, 0.156794, 0.245396, 0.232766, 0.202454, 0.22104, 0.201564, 0.187117, 0.187398, 0.173254, 0.156634, 0.173984, 0.2441, 0.230722, 0.216081, 0.202555, 0.181402, 0.197929, 0.182205, 0.16691, 0.166265, 0.153729, 0.230914, 0.249768, 0.217895, 0.20283, 0.198126, 0.185455, 0.165478, 0.185728, 0.168726, 0.239492, 0.227484, 0.21364, 0.195431, 0.212952, 0.195558, 0.181546, 0.179252, 0.164614, 0.252757]", 
+                "[0.267811, 0.252905, 0.238756, 0.223709, 0.209589, 0.177637, 0.194711, 0.179189, 0.164309, 0.248806, 0.23515, 0.220165, 0.204833, 0.205422, 0.190148, 0.186277, 0.17057, 0.166098, 0.151084, 0.241722, 0.226868, 0.211651, 0.197678, 0.195302, 0.18068, 0.180244, 0.165772, 0.164063, 0.236566, 0.22421, 0.211727, 0.208631, 0.19695, 0.196955, 0.183476, 0.179062, 0.165274, 0.250852, 0.236547, 0.225857, 0.209659, 0.206072, 0.194101, 0.189782, 0.175749, 0.175798, 0.160388, 0.250185, 0.235841, 0.221173, 0.206649, 0.20443, 0.191486, 0.193576, 0.179588, 0.173857, 0.161108, 0.248046, 0.233946, 0.22057, 0.208042, 0.204316, 0.188869, 0.190221, 0.177379, 0.17487, 0.160533, 0.248358, 0.235186, 0.221422, 0.207678, 0.207338, 0.193941, 0.188801, 0.174025, 0.172501, 0.157361, 0.243382, 0.228283, 0.213975, 0.200052, 0.196218, 0.183608, 0.183099, 0.169576, 0.167513, 0.153572, 0.239138, 0.224999, 0.211637, 0.200331, 0.19189, 0.178725, 0.178062, 0.165618, 0.163846, 0.15082, 0.233008, 0.218771, 0.207015, 0.19139, 0.184859, 0.170567, 0.17091, 0.156653, 0.153941, 0.230887, 0.217155, 0.202, 0.201313, 0.187082, 0.183488, 0.170733, 0.168743, 0.154822, 0.24226, 0.228906, 0.214752, 0.202004, 0.199106, 0.185727, 0.184032, 0.171477, 0.170468, 0.157895, 0.242685, 0.229718, 0.214756, 0.20109, 0.198268, 0.186501, 0.186155, 0.171907, 0.167898, 0.154834, 0.240099, 0.225774, 0.213147, 0.198084, 0.194993, 0.184687, 0.179902, 0.166008, 0.164492, 0.23424, 0.221699, 0.207777, 0.20233, 0.189817, 0.190173, 0.175915, 0.172225, 0.157443, 0.245257, 0.232024, 0.217828, 0.203179, 0.199015, 0.186249, 0.185503, 0.17125, 0.1667, 0.239386, 0.22818, 0.214989, 0.212537, 0.196405, 0.195385, 0.183716, 0.180718, 0.166174, 0.254249, 0.238082, 0.224071, 0.209977, 0.208384, 0.195578, 0.194719, 0.181366, 0.177229, 0.162596, 0.252088, 0.238473, 0.224453, 0.210185, 0.208288, 0.194058, 0.191745, 0.179958, 0.175815, 0.160486, 0.250316, 0.235479, 0.22226, 0.212148, 0.204939, 0.194599, 0.188705, 0.176672, 0.173054, 0.158938, 0.249574, 0.237099, 0.22291, 0.209075, 0.208829, 0.194037, 0.189032, 0.177612, 0.173396, 0.161011, 0.246858, 0.234938, 0.219512, 0.207012, 0.202851, 0.188145, 0.188271, 0.173709, 0.171884, 0.15782, 0.242703, 0.229573, 0.216309, 0.200906, 0.197026, 0.182351, 0.182066, 0.169599, 0.166022, 0.150109, 0.232027, 0.219297, 0.206323, 0.191276, 0.186694, 0.17145, 0.170497, 0.156612, 0.154691, 0.231209, 0.219559, 0.204637, 0.2014, 0.187018, 0.182144, 0.168213, 0.168475, 0.154317, 0.237017, 0.224828, 0.211058, 0.196342, 0.194256, 0.180678, 0.181234, 0.166565, 0.161974, 0.147141, 0.235148, 0.220315, 0.206496, 0.191567, 0.188778, 0.174005, 0.175045, 0.160601, 0.157883, 0.23578, 0.225418, 0.210912, 0.208598, 0.195302, 0.193742, 0.179666, 0.179092, 0.16447, 0.25178, 0.237904, 0.22579, 0.211498, 0.208318, 0.198155, 0.193769, 0.179632, 0.176323, 0.164064, 0.248502, 0.235779, 0.222406, 0.207775, 0.207099, 0.194558, 0.188715, 0.174964, 0.17434, 0.158696, 0.246903, 0.232428, 0.218368, 0.2037, 0.201491, 0.186871, 0.183767, 0.169234, 0.166852, 0.152437, 0.239234, 0.225034, 0.213758, 0.197828, 0.193118, 0.179399, 0.179398, 0.166353, 0.162107, 0.235645, 0.222436, 0.207904, 0.208618, 0.194644, 0.191499, 0.177299, 0.175391, 0.161996, 0.246342, 0.232957, 0.220406, 0.206174, 0.203385, 0.190678, 0.188018, 0.174308, 0.173576, 0.160919, 0.246073, 0.232019, 0.216041, 0.201972, 0.199169, 0.18648, 0.185271, 0.170405, 0.168153, 0.154277, 0.241974, 0.227621, 0.214297, 0.199251, 0.197122, 0.182498, 0.178675, 0.165083, 0.163742, 0.236272, 0.220865, 0.208665, 0.209619, 0.195308, 0.192438, 0.180831, 0.178603, 0.166009, 0.255731, 0.24386, 0.230135, 0.215523, 0.21039, 0.198057, 0.196458, 0.183448, 0.177476, 0.163798, 0.250578, 0.235906, 0.222682, 0.209449, 0.206414, 0.191127, 0.189102, 0.175, 0.173895, 0.160583, 0.243905, 0.230105, 0.216813, 0.204914, 0.200984, 0.186469, 0.184035, 0.169194, 0.166679, 0.152494, 0.240557, 0.226185, 0.212691, 0.199068, 0.192694, 0.17762, 0.175919]", 
+                "[0.182604, 0.166847, 0.233373, 0.220383, 0.207552, 0.203848, 0.188548, 0.187486, 0.174734, 0.170782, 0.155203, 0.245968, 0.232292, 0.217986, 0.204948, 0.203098, 0.18925, 0.18714, 0.171511, 0.16817, 0.15487, 0.25045, 0.239355, 0.224911, 0.211112, 0.207666, 0.193617, 0.191786, 0.1781, 0.175913, 0.161638, 0.252558, 0.239392, 0.225412, 0.210624, 0.20339, 0.189505, 0.190352, 0.172373, 0.1701, 0.154461, 0.241151, 0.228048, 0.216339, 0.199028, 0.194953, 0.181538, 0.179072, 0.165395, 0.167112, 0.151612, 0.233523, 0.217816, 0.204993, 0.1904, 0.189635, 0.176123, 0.173474, 0.161288, 0.157952, 0.228647, 0.21671, 0.204543, 0.20081, 0.185802, 0.184657, 0.170466, 0.165601, 0.150908, 0.233571, 0.22272, 0.209153, 0.198499, 0.188956, 0.173803, 0.171525, 0.155405, 0.154252, 0.228357, 0.213867, 0.200733, 0.199282, 0.186791, 0.180915, 0.167817, 0.166007, 0.153128, 0.237904, 0.223927, 0.208264, 0.195448, 0.189211, 0.175909, 0.173331, 0.159877, 0.157259, 0.229145, 0.216511, 0.201956, 0.201602, 0.187956, 0.187003, 0.172592, 0.168711, 0.153461, 0.239169, 0.227789, 0.213915, 0.199553, 0.19602, 0.181943, 0.183621, 0.169427, 0.173035, 0.15913, 0.249008, 0.235146, 0.220891, 0.206632, 0.209436, 0.195212, 0.195759, 0.18094, 0.185593, 0.171512, 0.258983, 0.245064, 0.231634, 0.219179, 0.21759, 0.203109, 0.201869, 0.187202, 0.188146, 0.174805, 0.173926, 0.245237, 0.235342, 0.220075, 0.220281, 0.206641, 0.206212, 0.193735, 0.196063, 0.181817, 0.182481, 0.259521, 0.245638, 0.230312, 0.232023, 0.220283, 0.224083, 0.210615, 0.210819, 0.198072, 0.197886, 0.183588, 0.274231, 0.258266, 0.245316, 0.231374, 0.234406, 0.22097, 0.221243, 0.207152, 0.208014, 0.193976, 0.194975, 0.18187, 0.267813, 0.254499, 0.240853, 0.225235, 0.230501, 0.215574, 0.213757, 0.202111, 0.207275, 0.193399, 0.191248, 0.262597, 0.251215, 0.237285, 0.238615, 0.225844, 0.228392, 0.217037, 0.219918, 0.204042, 0.201781, 0.188886, 0.279466, 0.264575, 0.248636, 0.23451, 0.237489, 0.22453, 0.222421, 0.21029, 0.210937, 0.195824, 0.196722, 0.182922, 0.269858, 0.255503, 0.243681, 0.228826, 0.229379, 0.217986, 0.216181, 0.20121, 0.199717, 0.18654, 0.189476, 0.176583, 0.266151, 0.252266, 0.237497, 0.223943, 0.22482, 0.209404, 0.211734, 0.199118, 0.20302, 0.189138, 0.185118, 0.258093, 0.245075, 0.230675, 0.235674, 0.221426, 0.223165, 0.209855, 0.207763, 0.194017, 0.193466, 0.267338, 0.25584, 0.242254, 0.246812, 0.233273, 0.231382, 0.216587, 0.218809, 0.204895, 0.204047, 0.187238, 0.276037, 0.261084, 0.248803, 0.234622, 0.234882, 0.220399, 0.220753, 0.207405, 0.208175, 0.193905, 0.195603, 0.181392, 0.271034, 0.258408, 0.244846, 0.23038, 0.229273, 0.216421, 0.218307, 0.205601, 0.203468, 0.191615, 0.191461, 0.264779, 0.2505, 0.236178, 0.237914, 0.22331, 0.228259, 0.214409, 0.214502, 0.200314, 0.203929, 0.188397, 0.2783, 0.265334, 0.252388, 0.237094, 0.244119, 0.229375, 0.23308, 0.219789, 0.227538, 0.211587, 0.216866, 0.204162, 0.296183, 0.284571, 0.270112, 0.257515, 0.260143, 0.247449, 0.251943, 0.238499, 0.24402, 0.228809, 0.231479, 0.216877, 0.221962, 0.296237, 0.284939, 0.270098, 0.274158, 0.259802, 0.262272, 0.247541, 0.252414, 0.237897, 0.240268, 0.226825, 0.228224, 0.217477, 0.301835, 0.286442, 0.273233, 0.259063, 0.261142, 0.247352, 0.248492, 0.233529, 0.234928, 0.217828, 0.220167, 0.205016, 0.207339, 0.278366, 0.267514, 0.254694, 0.253697, 0.240379, 0.239522, 0.224998, 0.230677, 0.215924, 0.216292, 0.201993, 0.20224, 0.271585, 0.256907, 0.240669, 0.24465, 0.233387, 0.233127, 0.221406, 0.222534, 0.207125, 0.206953, 0.19188, 0.281518, 0.26823, 0.253618, 0.237033, 0.237593, 0.223516, 0.22594, 0.213505, 0.213833, 0.19831, 0.20033, 0.185625, 0.271438, 0.257714, 0.244233, 0.230922, 0.230946, 0.216267, 0.217387, 0.20362, 0.205392, 0.191509, 0.192881, 0.181312, 0.267154, 0.253065, 0.240319, 0.226435, 0.225651, 0.211565, 0.211109, 0.196479, 0.197345, 0.185139, 0.185873, 0.262056, 0.249062, 0.235798, 0.237789, 0.225898, 0.225772, 0.211783, 0.212478, 0.200393, 0.201545]"
+            ], 
+            "mean_batch_sizes": [
+                {
+                    "res50": 1.98
+                }, 
+                {
+                    "res50": 2.0
+                }, 
+                {
+                    "res50": 2.0
+                }, 
+                {
+                    "res50": 2.0
+                }, 
+                {
+                    "res50": 2.0
+                }, 
+                {
+                    "res50": 2.0
+                }, 
+                {
+                    "res50": 2.0
+                }, 
+                {
+                    "res50": 2.0
+                }, 
+                {
+                    "res50": 2.0
+                }, 
+                {
+                    "res50": 2.0
+                }, 
+                {
+                    "res50": 2.0
+                }, 
+                {
+                    "res50": 2.0
+                }
+            ], 
+            "mean_lats": [
+                0.2128821875, 
+                0.212010695, 
+                0.203352775, 
+                0.1995025875, 
+                0.21642274, 
+                0.19804606249999998, 
+                0.19639253500000003, 
+                0.196126295, 
+                0.1971931575, 
+                0.19942654, 
+                0.2037970175, 
+                0.1980240825, 
+                0.2167562875
+            ]
+        }
+    ], 
+    "node_configs": [
+        {
+            "model_image": "gcr.io/clipper-model-comp/pytorch-res50:bench", 
+            "name": "res50", 
+            "cpus_per_replica": 1, 
+            "input_type": "floats", 
+            "batch_size": 2, 
+            "num_replicas": 1, 
+            "gpu_type": "p100", 
+            "no_diverge": true, 
+            "slo": 5000000, 
+            "input_size": -1, 
+            "cloud": "gcp"
+        }
+    ]
+}
