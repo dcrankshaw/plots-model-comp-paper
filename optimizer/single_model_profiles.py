@@ -4,7 +4,7 @@ import os
 # import sys
 import pandas as pd
 
-from utils import COST_PER_GPU, COST_PER_CPU
+from .utils import COST_PER_GPU, COST_PER_CPU
 
 
 def load_results(results_dir):
