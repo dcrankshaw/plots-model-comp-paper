@@ -4,7 +4,7 @@ import os
 # import sys
 import pandas as pd
 from utils import COST_PER_GPU, COST_PER_CPU
-import single_model_profiles as smp
+import single_node_profiles as snp
 
 
 def load_end_to_end_results(results_dir):
@@ -121,8 +121,8 @@ def load_end_to_end_experiment(name, results_dir):
     results_dir : str
         Path to a directory containing all of the JSON results files for this experiment.
         Generally, each file represents an end-to-end run of the experiment with a fixed number
-        of replicas per model. The different files in the directory hold everything else fixed
-        and vary the number of model replicas.
+        of replicas per node. The different files in the directory hold everything else fixed
+        and vary the number of node replicas.
 
     Returns
     --------
@@ -146,7 +146,7 @@ def load_end_to_end_experiment(name, results_dir):
         thru_mean, thru_std = get_throughput(experiments[e])
         thru_means.append(thru_mean)
         thru_stds.append(thru_std)
-        costs.append(smp.compute_cost(experiments[e]))
+        costs.append(snp.compute_cost(experiments[e]))
         all_lats = extract_all_latencies(experiments[e])
         latencies.append(all_lats)
         configs.append(experiments[e]["node_configs"])

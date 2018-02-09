@@ -4,7 +4,7 @@ import os
 # import sys
 import pandas as pd
 
-from .utils import COST_PER_GPU, COST_PER_CPU
+from utils import COST_PER_GPU, COST_PER_CPU
 
 
 def load_results(results_dir):
@@ -104,7 +104,8 @@ def format_client_metrics(data):
 
 
 def num_gpus(exp):
-    cloud, gpu_type = get_gpu_type(exp)
+    node_config = exp["node_configs"][0]
+    cloud, gpu_type = get_gpu_type(node_config)
     if gpu_type == "none":
         return 0
     else:
@@ -119,7 +120,7 @@ def batch_size(exp):
     return exp["node_configs"][0]["batch_size"]
 
 
-def model_name(exp):
+def node_name(exp):
     return exp["node_configs"][0]["name"]
 
 
@@ -130,26 +131,26 @@ def instance_type(exp):
         return "g3.4xlarge"
 
 
-def get_gpu_type(exp):
-    if "instance_type" in exp["node_configs"][0]:
-        if "p2" in exp["node_configs"][0]["instance_type"]:
-            if exp["node_configs"][0]["gpus_per_replica"] > 0:
+def get_gpu_type(node_config):
+    if "instance_type" in node_config:
+        if "p2" in node_config["instance_type"]:
+            if node_config["gpus_per_replica"] > 0:
                 return ("aws", "k80")
             else:
                 return ("aws", "none")
-        elif "p3" in exp["node_configs"][0]["instance_type"]:
-            if exp["node_configs"][0]["gpus_per_replica"] > 0:
+        elif "p3" in node_config["instance_type"]:
+            if node_config["gpus_per_replica"] > 0:
                 return ("aws", "v100")
             else:
                 return ("aws", "none")
         else:
             print("Error: unknown GPU type for instance type {}".format(
-                exp["node_configs"][0]["instance_type"]))
+                node_config["instance_type"]))
             return None
-    elif "cloud" in exp["node_configs"][0]:
-        return (exp["node_configs"][0]["cloud"], exp["node_configs"][0]["gpu_type"])
+    elif "cloud" in node_config:
+        return (node_config["cloud"], node_config["gpu_type"])
     else:
-        print("Error: unknown cloud for exp:\n{}".format(json.dumps(exp["node_configs"][0], indent=2)))
+        print("Error: unknown cloud for exp:\n{}".format(json.dumps(node_config, indent=2)))
 
 
 def throughput(exp):
@@ -167,7 +168,7 @@ def throughput(exp):
 
 
 def extract_client_metrics_old(exp):
-    name = model_name(exp)
+    name = node_name(exp)
     hists = exp["clipper_metrics"]["histograms"]
     lat_key = "model:{name}:1:prediction_latency".format(name=name)
     batch_key = "model:{name}:1:batch_size".format(name=name)
@@ -183,7 +184,7 @@ def extract_client_metrics_new(exp):
     clipper_metrics = exp["client_metrics"][0]["all_metrics"]
     p99_lats = []
     mean_batch_sizes = []
-    name = model_name(exp)
+    name = node_name(exp)
 
     for trial in clipper_metrics:
         hists = trial["histograms"]
@@ -229,7 +230,7 @@ def extract_all_latencies(results_json):
     return all_lats
 
 
-def create_model_profile_df(results_dir):
+def create_node_profile_df(results_dir):
     experiments = load_results(results_dir)
     if len(experiments) == 0:
         return None
@@ -246,7 +247,7 @@ def create_model_profile_df(results_dir):
     clouds = []
     gpu_types = []
 
-    model_name = experiments[next(iter(experiments))]["node_configs"][0]["name"]
+    node_name = experiments[next(iter(experiments))]["node_configs"][0]["name"]
 
     for fname, e in experiments.items():
         # inst_types.append(instance_type(e))
@@ -257,10 +258,11 @@ def create_model_profile_df(results_dir):
         std_thrus.append(std_thru)
         costs.append(compute_cost(e))
         all_lats = extract_all_latencies(e)
-        model_p99_lat, mean_batch = extract_client_metrics(e)
+        node_p99_lat, mean_batch = extract_client_metrics(e)
         p99_lats.append(np.percentile(all_lats, 99))
         mean_batches.append(mean_batch)
-        cloud, gpu_type = get_gpu_type(e)
+        node_config = e["node_configs"][0]
+        cloud, gpu_type = get_gpu_type(node_config)
         clouds.append(cloud)
         gpu_types.append(gpu_type)
         if gpu_type == "none":
@@ -285,26 +287,26 @@ def create_model_profile_df(results_dir):
 
     df = pd.DataFrame.from_dict(results_dict)
     df = df[list(results_dict.keys())]
-    return (model_name, df)
+    return (node_name, df)
 
 
-def load_single_model_profiles(
-        single_model_profs_dir=os.path.abspath("../results/single_model_profs/")):
+def load_single_node_profiles(
+        single_node_profs_dir=os.path.abspath("../results/single_model_profs/")):
     """
     Returns
     -------
     dict :
-        A dict that maps model name to a DataFrame containing single model profile for that
-        model. The model name is set based on the node config in the experimental results. It will
+        A dict that maps node name to a DataFrame containing single node profile for that
+        node. The node name is set based on the node config in the experimental results. It will
         not necessarily match the directory name of the directory containing the profiling results
-        for that model.
+        for that node.
     """
     profs = {}
-    for m in os.listdir(single_model_profs_dir):
-        fname = os.path.join(single_model_profs_dir, m)
+    for m in os.listdir(single_node_profs_dir):
+        fname = os.path.join(single_node_profs_dir, m)
         if os.path.isdir(fname):
-            res = create_model_profile_df(fname)
+            res = create_node_profile_df(fname)
             if res is not None:
-                model_name, df = res
-                profs[model_name] = df
+                node_name, df = res
+                profs[node_name] = df
     return profs
