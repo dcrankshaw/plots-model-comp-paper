@@ -4,7 +4,7 @@ import os
 # import sys
 import pandas as pd
 
-from utils import COST_PER_GPU, COST_PER_CPU
+from utils import get_cpu_cost, get_gpu_cost
 
 
 def load_results(results_dir):
@@ -207,14 +207,14 @@ def extract_client_metrics(exp):
 
 
 def compute_cost(results_json):
-    # TODO: update cost to factor in varying GPU costs
     nodes = results_json["node_configs"]
     total_cost = 0.0
     for n in nodes:
         num_reps = n["num_replicas"]
-        n_gpus = num_gpus(results_json) * num_reps
         n_cpus = num_cpus(results_json) * num_reps
-        cost = float(n_gpus) * COST_PER_GPU + float(n_cpus) * COST_PER_CPU
+        cloud, gpu_type = get_gpu_type(n)
+        cost = get_cpu_cost(cloud, n_cpus) + get_gpu_cost(cloud, gpu_type)
+        # cost = float(n_gpus) * COST_PER_GPU + float(n_cpus) * COST_PER_CPU
         total_cost += cost
     return total_cost
 
