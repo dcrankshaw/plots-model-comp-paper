@@ -3,9 +3,9 @@ import json
 import os
 # import sys
 import pandas as pd
-
-COST_PER_CPU = 4.75 / 100.0
-COST_PER_GPU = 70.0 / 100.0
+# from utils import COST_PER_GPU, COST_PER_CPU
+import utils
+import single_node_profiles as snp
 
 
 def load_end_to_end_results(results_dir):
@@ -81,7 +81,9 @@ def get_throughput(results_json):
         client_mean_thrus.append(np.mean(client["thrus"]))
         client_var_thrus.append(np.var(client["thrus"]))
     mean_thru = np.sum(client_mean_thrus)
-    std_thru = np.sqrt(np.sum(client_var_thrus))
+    std_thru = None
+    if len(client_metrics) > 1:
+        std_thru = np.sqrt(np.sum(client_var_thrus))
     return (mean_thru, std_thru)
 
 
@@ -99,18 +101,6 @@ def extract_all_latencies(results_json):
     return all_lats
 
 
-def compute_cost(results_json):
-    nodes = results_json["node_configs"]
-    total_cost = 0.0
-    for n in nodes:
-        num_reps = n["num_replicas"]
-        num_gpus = n["gpus_per_replica"] * num_reps
-        num_cpus = n["cpus_per_replica"] * num_reps
-        cost = float(num_gpus) * COST_PER_GPU + float(num_cpus) * COST_PER_CPU
-        total_cost += cost
-    return total_cost
-
-
 def load_end_to_end_experiment(name, results_dir):
     """
     Parameters
@@ -120,8 +110,8 @@ def load_end_to_end_experiment(name, results_dir):
     results_dir : str
         Path to a directory containing all of the JSON results files for this experiment.
         Generally, each file represents an end-to-end run of the experiment with a fixed number
-        of replicas per model. The different files in the directory hold everything else fixed
-        and vary the number of model replicas.
+        of replicas per node. The different files in the directory hold everything else fixed
+        and vary the number of node replicas.
 
     Returns
     --------
@@ -145,7 +135,7 @@ def load_end_to_end_experiment(name, results_dir):
         thru_mean, thru_std = get_throughput(experiments[e])
         thru_means.append(thru_mean)
         thru_stds.append(thru_std)
-        costs.append(compute_cost(experiments[e]))
+        costs.append(snp.compute_cost(experiments[e]))
         all_lats = extract_all_latencies(experiments[e])
         latencies.append(all_lats)
         configs.append(experiments[e]["node_configs"])
@@ -230,6 +220,11 @@ def load_single_proc_end_to_end(name, results_dir):
         total_gpus = np.sum([len(n["gpus"]) for n in single_rep_config]) * cur_num_replicas
 
         total_cpus = len(single_rep_config[0]["allocated_cpus"]) * cur_num_replicas
+
+        print("WARNING: Using old cost model. Assumes single-process drivers were "
+              "run on p2.8xlarge")
+        COST_PER_GPU = utils.AWS_K80_COST
+        COST_PER_CPU = utils.AWS_CPU_COST
         total_cost.append(total_gpus * COST_PER_GPU + total_cpus * COST_PER_CPU)
         num_replicas.append(cur_num_replicas)
 
