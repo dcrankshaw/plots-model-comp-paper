@@ -3,7 +3,8 @@ import json
 import os
 # import sys
 import pandas as pd
-from utils import COST_PER_GPU, COST_PER_CPU
+# from utils import COST_PER_GPU, COST_PER_CPU
+import utils
 import single_node_profiles as snp
 
 
@@ -98,18 +99,6 @@ def extract_all_latencies(results_json):
             latencies.append(cur_lats)
     all_lats = np.array(latencies).flatten()
     return all_lats
-
-
-# def compute_cost(results_json):
-#     nodes = results_json["node_configs"]
-#     total_cost = 0.0
-#     for n in nodes:
-#         num_reps = n["num_replicas"]
-#         num_gpus = n["gpus_per_replica"] * num_reps
-#         num_cpus = n["cpus_per_replica"] * num_reps
-#         cost = float(num_gpus) * COST_PER_GPU + float(num_cpus) * COST_PER_CPU
-#         total_cost += cost
-#     return total_cost
 
 
 def load_end_to_end_experiment(name, results_dir):
@@ -231,6 +220,11 @@ def load_single_proc_end_to_end(name, results_dir):
         total_gpus = np.sum([len(n["gpus"]) for n in single_rep_config]) * cur_num_replicas
 
         total_cpus = len(single_rep_config[0]["allocated_cpus"]) * cur_num_replicas
+
+        print("WARNING: Using old cost model. Assumes single-process drivers were "
+              "run on p2.8xlarge")
+        COST_PER_GPU = utils.AWS_K80_COST
+        COST_PER_CPU = utils.AWS_CPU_COST
         total_cost.append(total_gpus * COST_PER_GPU + total_cpus * COST_PER_CPU)
         num_replicas.append(cur_num_replicas)
 
