@@ -1,6 +1,9 @@
 import numpy as np
 import single_node_profiles as snp
 import networkx as nx
+import copy
+import math
+from matplotlib import pyplot as plt
 
 
 class LogicalDAG(object):
@@ -136,6 +139,77 @@ class NodeProfile(object):
                                           entry.cloud))
         return configs
 
+    def check_monotonicity(self):
+
+        resource_bundle_groups = self.profile.groupby(["cloud",
+                                                       "gpu_type",
+                                                       "num_cpus_per_replica"])
+        for bundle, df in resource_bundle_groups:
+            sorted_df = df.sort_values("mean_batch_size")
+            if not np.all(np.diff(sorted_df["mean_throughput_qps"]) >= 0):
+                print("Profile for node {name} bundle {bundle} is non-monotonic".format(
+                    name=self.name, bundle=bundle))
+
+    def plot_profile(self):
+        resource_bundle_groups = self.profile.groupby(["cloud",
+                                                       "gpu_type",
+                                                       "num_cpus_per_replica"])
+        for bundle, df in resource_bundle_groups:
+            title = "_".join([str(b) for b in bundle])
+            sorted_df = df.sort_values("mean_batch_size")
+            fig, (ax_thru, ax_lat) = plt.subplots(nrows=1, ncols=2, figsize=(10, 5))
+            fig.suptitle(title)
+            ax_thru.plot(sorted_df["mean_batch_size"],
+                         sorted_df["mean_throughput_qps"],
+                         color="blue")
+            ax_lat.plot(sorted_df["mean_batch_size"],
+                        sorted_df["p99_latency"],
+                        color="blue")
+            non_monotonic_points_idx = (np.diff(sorted_df["mean_throughput_qps"]) < 0)
+            non_monotonic_points_idx = np.insert(non_monotonic_points_idx, 0, False)
+            non_monotonic_points = sorted_df.loc[non_monotonic_points_idx]
+            ax_thru.scatter(non_monotonic_points["mean_batch_size"],
+                            non_monotonic_points["mean_throughput_qps"],
+                            color="red", s=60)
+            ax_lat.scatter(non_monotonic_points["mean_batch_size"],
+                           non_monotonic_points["p99_latency"],
+                           color="red", s=60)
+            ax_thru.set_xlabel("batch size")
+            ax_thru.set_ylabel("mean throughput")
+            ax_lat.set_xlabel("batch size")
+            ax_lat.set_ylabel("p99 latency (s)")
+            ax_lat.set_ylim(bottom=0)
+            ax_lat.set_xlim(left=0)
+            ax_thru.set_ylim(bottom=0)
+            ax_thru.set_xlim(left=0)
+        plt.show()
+
+    def increase_batch_size(self, config):
+        """
+        Returns a config with a larger batch size or False if the batch size
+        could not be increased.
+
+        Parameters
+        ----------
+        config : NodeConfig
+            The current config
+
+        """
+        resource_bundle_matches = self.profile[
+            (self.profile.gpu_type == config.gpu_type)
+            & (self.profile.num_cpus_per_replica == config.num_cpus)
+            & (self.profile.cloud == config.cloud)]
+        resource_bundle_matches = resource_bundle_matches.sort_values("mean_batch_size")
+        lub = resource_bundle_matches['mean_batch_size'] >= math.floor(config.batch_size) + 1
+        if sum(lub) == 0:
+            return False
+        idx_lub = resource_bundle_matches.loc[resource_bundle_matches.index[lub],
+                                              'mean_batch_size'].idxmin()
+        relevant_entry = resource_bundle_matches.loc[idx_lub]
+        new_config = copy.deepcopy(config)
+        new_config.batch_size = relevant_entry["mean_batch_size"]
+        return new_config
+
     def estimate_performance(self, config):
         """
         Estimates the node's performance under the specified configuration.
@@ -160,26 +234,49 @@ class NodeProfile(object):
             & (self.profile.num_cpus_per_replica == config.num_cpus)
             & (self.profile.cloud == config.cloud)]
         resource_bundle_matches = resource_bundle_matches.sort_values("mean_batch_size")
+        if len(resource_bundle_matches) == 0:
+            raise Exception("No profiles for node under provided configuration: {}".format(
+                config))
         glb = resource_bundle_matches['mean_batch_size'] <= config.batch_size
         lub = resource_bundle_matches['mean_batch_size'] >= config.batch_size
-        idx_glb = resource_bundle_matches.loc[resource_bundle_matches.index[glb],
-                                              'mean_batch_size'].idxmax()
-        idx_lub = resource_bundle_matches.loc[resource_bundle_matches.index[lub],
-                                              'mean_batch_size'].idxmin()
-        relevant_entries = resource_bundle_matches.loc[idx_glb:idx_lub]
-        assert np.all(np.diff(relevant_entries["mean_throughput_qps"]) > 0)
-        estimated_thruput = np.interp(config.batch_size,
-                                      relevant_entries["mean_batch_size"],
-                                      relevant_entries["mean_throughput_qps"])
-        estimated_thruput = estimated_thruput * config.num_replicas
+        # We take the sum here instead of the length because glb and lub are boolean
+        # arrays and we want to know whether there is at least one True entry in the array
+        if sum(glb) > 0:
+            idx_glb = resource_bundle_matches.loc[resource_bundle_matches.index[glb],
+                                                  'mean_batch_size'].idxmax()
+        else:
+            idx_glb = None
+        if sum(lub) > 0:
+            idx_lub = resource_bundle_matches.loc[resource_bundle_matches.index[lub],
+                                                  'mean_batch_size'].idxmin()
+        else:
+            idx_lub = None
+        if idx_glb is None or idx_lub is None:
+            if idx_glb is None:
+                assert idx_lub is not None
+                relevant_entry = resource_bundle_matches.loc[idx_lub]
+            else:
+                assert idx_glb is not None
+                print("Warning: No profiles found with higher batch size than {}".format(config))
+                relevant_entry = resource_bundle_matches.loc[idx_glb]
+            estimated_thruput = relevant_entry["mean_throughput_qps"] * config.num_replicas
+            estimated_latency = relevant_entry["p99_latency"]
+            cost = relevant_entry["cost"] * config.num_replicas
+        else:
+            relevant_entries = resource_bundle_matches.loc[idx_glb:idx_lub]
+            assert np.all(np.diff(relevant_entries["mean_throughput_qps"]) > 0)
+            estimated_thruput = np.interp(config.batch_size,
+                                          relevant_entries["mean_batch_size"],
+                                          relevant_entries["mean_throughput_qps"])
+            estimated_thruput = estimated_thruput * config.num_replicas
 
-        assert np.all(np.diff(relevant_entries["p99_latency"]) > 0)
-        estimated_latency = np.interp(config.batch_size,
-                                      relevant_entries["mean_batch_size"],
-                                      relevant_entries["p99_latency"])
-        # The cost for all the entries with the same resource bundle is the same,
-        # so we just get it from the first entry
-        cost = relevant_entries["cost"].iloc[0] * config.num_replicas
+            assert np.all(np.diff(relevant_entries["p99_latency"]) > 0)
+            estimated_latency = np.interp(config.batch_size,
+                                          relevant_entries["mean_batch_size"],
+                                          relevant_entries["p99_latency"])
+            # The cost for all the entries with the same resource bundle is the same,
+            # so we just get it from the first entry
+            cost = relevant_entries["cost"].iloc[0] * config.num_replicas
         return (estimated_latency, estimated_thruput, cost)
 
     def prune_profile(self):
@@ -303,12 +400,14 @@ def estimate_pipeline_performance_for_config(dag,
 
     Returns:
     --------
-    dict :
-        Returns estimated latency, throughput, and cost for the pipeline
+    tuple(dict, str) :
+        Returns the estimated performance and the name of the bottleneck node.
+        Estimated performance is a dict of estimated latency, throughput, and cost for the pipeline
         under the specified configuration (and workload via the scale factors).
     """
     paths = dag.enumerate_paths()
     bottleneck_thruput = None
+    bottleneck_node = None
     total_cost = 0.0
     max_latency = None
     for path in paths:
@@ -325,17 +424,22 @@ def estimate_pipeline_performance_for_config(dag,
             path_latency += lat
             if bottleneck_thruput is None:
                 bottleneck_thruput = scaled_thru
-            bottleneck_thruput = min(bottleneck_thruput, scaled_thru)
+                bottleneck_node = node
+            # bottleneck_thruput = min(bottleneck_thruput, scaled_thru)
+            if bottleneck_thruput > scaled_thru:
+                bottleneck_thruput = scaled_thru
+                bottleneck_node = node
+
             total_cost += cost
         # Update latency at the end of the path
         if max_latency is None:
             max_latency = path_latency
         max_latency = max(max_latency, path_latency)
-    return {
+    return ({
         "latency": max_latency,
         "throughput": bottleneck_thruput,
         "cost": total_cost
-    }
+    }, bottleneck_node)
 
 
 def get_node_configs_from_experiment(exp):
