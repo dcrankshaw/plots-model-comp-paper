@@ -1,5 +1,5 @@
 import numpy as np
-import single_node_profiles as snp
+import single_node_profiles_cpp as snp
 import networkx as nx
 import copy
 import math
