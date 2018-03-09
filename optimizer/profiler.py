@@ -157,13 +157,16 @@ class NodeProfile(object):
         for bundle, df in resource_bundle_groups:
             title = "_".join([str(b) for b in bundle])
             sorted_df = df.sort_values("mean_batch_size")
-            fig, (ax_thru, ax_lat) = plt.subplots(nrows=1, ncols=2, figsize=(10, 5))
+            fig, (ax_thru, ax_lat, ax_queue) = plt.subplots(nrows=1, ncols=3, figsize=(14, 5))
             fig.suptitle(title)
             ax_thru.plot(sorted_df["mean_batch_size"],
                          sorted_df["mean_throughput_qps"],
                          color="blue")
             ax_lat.plot(sorted_df["mean_batch_size"],
                         sorted_df["p99_latency"],
+                        color="blue")
+            ax_queue.plot(sorted_df["mean_batch_size"],
+                        sorted_df["mean_queue_size"],
                         color="blue")
             non_monotonic_points_idx = (np.diff(sorted_df["mean_throughput_qps"]) < 0)
             non_monotonic_points_idx = np.insert(non_monotonic_points_idx, 0, False)
@@ -182,6 +185,8 @@ class NodeProfile(object):
             ax_lat.set_xlim(left=0)
             ax_thru.set_ylim(bottom=0)
             ax_thru.set_xlim(left=0)
+            ax_queue.set_xlabel("batch size")
+            ax_queue.set_ylabel("queue size")
         plt.show()
 
     def increase_batch_size(self, config):
