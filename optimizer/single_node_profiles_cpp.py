@@ -130,7 +130,7 @@ def extract_all_latencies(results_json):
             if list(l.keys())[0] == key_name:
                 cur_lats = [float(list(i.values())[0]) for i in l[key_name]["items"]]
                 latencies.extend(cur_lats)
-    all_lats = np.array(latencies).flatten()
+    all_lats = np.array(latencies).flatten() / 1000.0 / 1000.0  # Convert micros to secs
     return all_lats
 
 
