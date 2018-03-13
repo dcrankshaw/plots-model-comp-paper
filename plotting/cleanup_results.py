@@ -1,7 +1,5 @@
 import os
-import sys
 import shutil
-
 
 
 def clean_old_results(results_dir):
@@ -12,12 +10,12 @@ def clean_old_results(results_dir):
     for name in splits:
         if len(name) <= 2:
             continue
-        key =  "-".join(name[:-1])
+        key = "-".join(name[:-1])
         val = name[-1]
         if key in dups_map:
             dups_map[key].append(val)
         else:
-            dups_map[key] = [val,]
+            dups_map[key] = [val, ]
     # print(dups_map)
     for dup in dups_map:
         if len(dups_map[dup]) > 1:
@@ -31,9 +29,5 @@ def clean_old_results(results_dir):
 
 
 if __name__ == "__main__":
-    clean_old_results("/Users/crankshaw/clipper-project/model-comp-project/plots-model-comp-paper/results/single_model_profs/pytorch-res50")
-    # single_model_profs_dir=os.path.abspath("../results/single_model_profs/")
-    # for m in os.listdir(single_model_profs_dir):
-    #     fname = os.path.join(single_model_profs_dir, m)
-    #     if os.path.isdir(fname):
-    #         res = create_model_profile_df(fname)
+    clean_old_results(os.path.abspath(
+        "../results_cpp_benchmarker/single_model_profs/pytorch-res50"))
