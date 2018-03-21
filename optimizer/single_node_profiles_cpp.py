@@ -14,23 +14,15 @@ def load_results(results_dir):
         if exp[-4:] == "json":
             with open(os.path.join(results_dir, exp), "r") as f:
                 data = json.load(f)
-                # Remove first trial
-                data["summary_metrics"] = data["summary_metrics"][1:]
-                data["clipper_metrics"] = data["clipper_metrics"][1:]
-                data["client_metrics"] = data["client_metrics"][1:]
-                experiments[exp] = data
+                for stage in ["latency_results", "throughput_results"]:
+                    # Remove first trial
+                    data[stage]["summary_metrics"] = data[stage]["summary_metrics"][1:]
+                    data[stage]["clipper_metrics"] = data[stage]["clipper_metrics"][1:]
+                    data[stage]["client_metrics"] = data[stage]["client_metrics"][1:]
+                    experiments[exp] = data
         else:
             pass
     return experiments
-
-
-# def format_client_metrics(data):
-#     if type(data["client_metrics"]) == dict:
-#         data["client_metrics"] = [data["client_metrics"]]
-#     if "input_length_words" in data["node_configs"][0]:
-#         num_words = data["node_configs"][0]["input_length_words"]
-#         data["node_configs"].pop(0)
-#         data["node_configs"][0]["input_length_words"] = num_words
 
 
 def num_gpus(exp):
@@ -83,10 +75,10 @@ def get_gpu_type(node_config):
         print("Error: unknown cloud for exp:\n{}".format(json.dumps(node_config, indent=2)))
 
 
-def get_mean_throughput(exp):
+def get_mean_throughput(exp, stage):
     name = node_name(exp)
     thrus = []
-    for cm in exp["summary_metrics"]:
+    for cm in exp[stage]["summary_metrics"]:
         thrus.append(float(cm["client_thrus"][name]))
     return (np.mean(thrus), np.std(thrus))
 
@@ -94,7 +86,7 @@ def get_mean_throughput(exp):
 def get_mean_batch_size(exp):
     name = node_name(exp)
     batch_sizes = []
-    for cm in exp["summary_metrics"]:
+    for cm in exp["latency_results"]["summary_metrics"]:
         batch_sizes.append(float(cm["batch_sizes"][name]))
     return (np.mean(batch_sizes), np.std(batch_sizes))
 
@@ -102,7 +94,7 @@ def get_mean_batch_size(exp):
 def get_mean_queue_size(exp):
     name = node_name(exp)
     queue_sizes = []
-    for cm in exp["summary_metrics"]:
+    for cm in exp["latency_results"]["summary_metrics"]:
         queue_sizes.append(float(cm["queue_sizes"][name]))
     return (np.mean(queue_sizes), np.std(queue_sizes))
 
@@ -121,7 +113,7 @@ def compute_cost(results_json):
 
 
 def extract_all_latencies(results_json):
-    client_metrics = results_json["client_metrics"]
+    client_metrics = results_json["latency_results"]["client_metrics"]
     name = node_name(results_json)
     latencies = []
     key_name = "{}:prediction_latencies".format(name)
@@ -141,8 +133,10 @@ def create_node_profile_df(results_dir):
 
     gpus = []
     cpus = []
-    mean_thrus = []
-    std_thrus = []
+    thru_stage_mean_thrus = []
+    thru_stage_std_thrus = []
+    latency_stage_mean_thrus = []
+    latency_stage_std_thrus = []
     p99_lats = []
     mean_batches = []
     mean_queues = []
@@ -156,9 +150,12 @@ def create_node_profile_df(results_dir):
 
     for fname, e in experiments.items():
         cpus.append(num_cpus(e))
-        mean_thru, std_thru = get_mean_throughput(e)
-        mean_thrus.append(mean_thru)
-        std_thrus.append(std_thru)
+        thru_stage_mean_thru, thru_stage_std_thru = get_mean_throughput(e, "throughput_results")
+        thru_stage_mean_thrus.append(thru_stage_mean_thru)
+        thru_stage_std_thrus.append(thru_stage_std_thru)
+        latency_stage_mean_thru, latency_stage_std_thru = get_mean_throughput(e, "latency_results")
+        latency_stage_mean_thrus.append(latency_stage_mean_thru)
+        latency_stage_std_thrus.append(latency_stage_std_thru)
         costs.append(compute_cost(e))
         all_lats = extract_all_latencies(e)
         p99_lats.append(np.percentile(all_lats, 99))
@@ -179,8 +176,10 @@ def create_node_profile_df(results_dir):
     results_dict = {
         # "num_gpus_per_replica": gpus,
         "num_cpus_per_replica": cpus,
-        "mean_throughput_qps": mean_thrus,
-        "std_throughput_qps": std_thrus,
+        "thru_stage_mean_throughput_qps": thru_stage_mean_thrus,
+        "thru_stage_std_throughput_qps": thru_stage_std_thrus,
+        "latency_stage_mean_throughput_qps": latency_stage_mean_thrus,
+        "latency_stage_std_throughput_qps": latency_stage_std_thrus,
         "p99_latency": p99_lats,
         "mean_batch_size": mean_batches,
         "mean_queue_size": mean_queues,
