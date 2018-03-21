@@ -162,20 +162,27 @@ class NodeProfile(object):
             fig, (ax_thru, ax_lat) = plt.subplots(nrows=1, ncols=2, figsize=(14, 5))
             fig.suptitle(title)
             ax_thru.plot(sorted_df["mean_batch_size"],
-                         sorted_df[self.throughput_field],
-                         color="blue")
+                         sorted_df["latency_stage_mean_throughput_qps"],
+                         color="blue", label="latency_stage")
+            ax_thru.plot(sorted_df["mean_batch_size"],
+                         sorted_df["thru_stage_mean_throughput_qps"],
+                         color="green", label="thru_stage")
+            # ax_thru.plot(sorted_df["mean_batch_size"],
+            #              sorted_df[self.throughput_field],
+            #              color="blue")
             ax_lat.plot(sorted_df["mean_batch_size"],
                         sorted_df["p99_latency"],
                         color="blue")
             non_monotonic_points_idx = (np.diff(sorted_df[self.throughput_field]) < 0)
             non_monotonic_points_idx = np.insert(non_monotonic_points_idx, 0, False)
             non_monotonic_points = sorted_df.loc[non_monotonic_points_idx]
-            ax_thru.scatter(non_monotonic_points["mean_batch_size"],
-                            non_monotonic_points[self.throughput_field],
+            if len(non_monotonic_points) > 0:
+                ax_thru.scatter(non_monotonic_points["mean_batch_size"],
+                                non_monotonic_points[self.throughput_field],
+                                color="red", s=60, label="non-monotonic points")
+                ax_lat.scatter(non_monotonic_points["mean_batch_size"],
+                            non_monotonic_points["p99_latency"],
                             color="red", s=60)
-            ax_lat.scatter(non_monotonic_points["mean_batch_size"],
-                           non_monotonic_points["p99_latency"],
-                           color="red", s=60)
             ax_thru.set_xlabel("batch size")
             ax_thru.set_ylabel("mean throughput")
             ax_lat.set_xlabel("batch size")
@@ -184,6 +191,7 @@ class NodeProfile(object):
             ax_lat.set_xlim(left=0)
             ax_thru.set_ylim(bottom=0)
             ax_thru.set_xlim(left=0)
+            ax_thru.legend(loc=0)
         plt.show()
 
     def increase_batch_size(self, config):
