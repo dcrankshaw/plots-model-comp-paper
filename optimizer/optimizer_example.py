@@ -1,7 +1,7 @@
 import os
 import json
 import profiler
-import single_node_profiles as snp
+import single_node_profiles_cpp as snp
 from optimizer import BruteForceOptimizer
 
 

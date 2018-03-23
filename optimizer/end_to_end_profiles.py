@@ -5,7 +5,7 @@ import os
 import pandas as pd
 # from utils import COST_PER_GPU, COST_PER_CPU
 import utils
-import single_node_profiles as snp
+import single_node_profiles_cpp as snp
 
 
 def load_end_to_end_results(results_dir):

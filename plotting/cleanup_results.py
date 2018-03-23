@@ -31,9 +31,12 @@ def clean_old_results(results_dir):
 def clean_aws_dups(results_dir):
     fs = os.listdir(results_dir)
     for f in fs:
-        if "k80" in f:
+        if "v100" in f:
             shutil.move(os.path.join(results_dir, f),
                         os.path.join(results_dir, "{}.OLD".format(f)))
+        if "k80" in f and f[-4:] == ".OLD":
+            shutil.move(os.path.join(results_dir, f),
+                        os.path.join(results_dir, f[:-4]))
     # sorted_fs = sorted(fs)
     splits = [f.split("-") for f in fs]
     dups_map = {}
