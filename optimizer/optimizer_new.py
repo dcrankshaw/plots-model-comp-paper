@@ -77,13 +77,12 @@ class ArrivalHistory(object):
 
     # Approximately compute the x point at which the service curve starts exceeding the arrival curve
     def _get_max_x(self, service_latency, service_throughput):
-        # If the average arrival rate is higher than the service_throughput, the maximum point infinity
-        # of the entire history
+        # If the average arrival rate is higher than the service_throughput, the maximum point is infinity
         if np.mean(np.diff(self.history)) < 1./service_throughput:
             print ("Service throughput lower than arrival rate!")
             return np.inf
         def get_service_curve_at_x(service_x_value):
-            return 0 if x_coordinate < service_latency else float(service_throughput)*(x_coordinate-service_latency) 
+            return 0 if service_x_value < service_latency else float(service_throughput)*(service_x_value-service_latency) 
         # increase x_coordinate exponentially to find a coordinate where the service curve definately exceeds the arrival curve
         print("Initializing maximum x coordinate")
         x_coordinate = 1.
@@ -182,7 +181,9 @@ class ArrivalHistory(object):
         max_x = self._get_max_x(latency, throughput)
         if max_x == np.inf:
             return (np.inf, np.inf)
-        arrival_x = np.linspace(1, max_x, 200)
+        # Want to plot arrival curve at a granularity of about 200 points. More point means a smoother and a marginally more
+        # accurate estimate plot of the arrival curve, but also requires more computation time
+        arrival_x = np.linspace(1, max_x, 200) 
         arrival_y = [self._get_arrival_curve_at_x(x) for x in arrival_x]
         return (self._max_Q_given_arrival(arrival_x, arrival_y, latency, throughput),
                 self._max_response_time_given_arrival(arrival_x, arrival_y, latency, throughput))
@@ -193,8 +194,11 @@ class GreedyOptimizer(object):
         self.dag = dag
         self.scale_factors = scale_factors
         self.node_profs = node_profs
-        
-    def select_optimal_config(self, cloud, latency_constraint, cost_constraint, initial_config, arrival_history):
+
+    def select_optimal_config(self, cloud, latency_constraint, cost_constraint, initial_config, arrival_history, optimize_what = "throughput"):
+        """
+        optimize_what can be either "throughput" or "cost"
+        """
         arrival_history_obj = ArrivalHistory(arrival_history)
         cur_pipeline_config = initial_config
         if not profiler_new.is_valid_pipeline_config(cur_pipeline_config):
@@ -225,7 +229,6 @@ class GreedyOptimizer(object):
 
             cur_estimated_perf, cur_bottleneck_node = profiler_new.estimate_pipeline_performance_for_config(
                     self.dag, self.scale_factors, cur_pipeline_config, self.node_profs)
-            print (cur_bottleneck_node, cur_estimated_perf["throughput"], cur_pipeline_config)
             
             actions = {"gpu": try_upgrade_gpu,
                        "batch_size": try_increase_batch_size,
@@ -248,9 +251,9 @@ class GreedyOptimizer(object):
                     # model's service time in the NetCalc service time estimation. This means that the first result
                     # (the maximum queue size) isn't correct anymore, and that the second result (response time) no
                     # longer includes the service time, so just the queue waitng time.
-                    print (new_bottleneck_node, new_estimated_perf["throughput"], copied_pipeline_config)
-                    _, Q_waiting_time = arrival_history_obj.get_max_Q_and_time(0, new_estimated_perf["throughput"]/1000.)
-                    response_time = new_estimated_perf["latency"] + Q_waiting_time
+                    _, Q_waiting_time = arrival_history_obj.get_max_Q_and_time(0, new_estimated_perf["throughput"]/1000.) # Convert throughput to queries per ms
+                    response_time = new_estimated_perf["latency"] + Q_waiting_time/1000. # converting time to seconds
+                    print (new_bottleneck_node, new_estimated_perf["throughput"], response_time, copied_pipeline_config)
                     if (new_estimated_perf["latency"] <= latency_constraint and
                             new_estimated_perf["cost"] <= cost_constraint):
                         if new_estimated_perf["throughput"] < cur_estimated_perf["throughput"]:
@@ -258,34 +261,26 @@ class GreedyOptimizer(object):
                                 cur_pipeline_config[cur_bottleneck_node],
                                 new_bottleneck_config
                             ))
-                        # assert new_estimated_perf["throughput"] >= cur_estimated_perf["throughput"]
-                        if best_action is None:
-                            # print("Setting best_action to {} in iteration {}".format(action,
-                            #                                                          iteration))
-                            best_action = action
-                            best_action_thru = new_estimated_perf["throughput"]
-                            best_action_config = new_bottleneck_config
-                        elif best_action_thru < new_estimated_perf["throughput"]:
+                        if best_action is None or best_action_thru < new_estimated_perf["throughput"]:
                             # print("Setting best_action to {} in iteration {}".format(action,
                             #                                                          iteration))
                             best_action = action
                             best_action_thru = new_estimated_perf["throughput"]
                             best_action_config = new_bottleneck_config
                     else:
-                        print("Increasing {action} not taken. Latency: {lat} ({lat_const}) Cost: {cost} ({cost_const})".format(action=action, 
-                                                                                                                               lat = new_estimated_perf["latency"],
-                                                                                                                               lat_const = latency_constraint,
-                                                                                                                               cost = new_estimated_perf["cost"],
-                                                                                                                               cost_const = cost_constraint))
+                        pass
+                        print("Increasing {action} not taken. Latency: {lat} ({lat_const}) Cost: {cost} ({cost_const})".format(action=action, lat = new_estimated_perf["latency"], lat_const = latency_constraint, cost = new_estimated_perf["cost"], cost_const = cost_constraint))
 
             # No more steps can be taken
             if best_action is None:
                 print ("Could not find best action")
                 break
+            elif response_time < latency_constraint and optimize_what == "cost":
+                print ("Response time below latency constraint! Finished optimizing for cost.")
+                break
             else:
                 cur_pipeline_config[cur_bottleneck_node] = best_action_config
-                print("Upgrading bottleneck node {bottleneck} to {new_config}".format(
-                    bottleneck=cur_bottleneck_node, new_config=best_action_config))
+                print("Upgrading bottleneck node {bottleneck} to {new_config}".format(bottleneck=cur_bottleneck_node, new_config=best_action_config))
             iteration += 1
 
         # Finally, check that the selected profile meets the application constraints, in case
@@ -295,7 +290,7 @@ class GreedyOptimizer(object):
 
         if (response_time <= latency_constraint and
                 cur_estimated_perf["cost"] <= cost_constraint):
-            return cur_pipeline_config, cur_estimated_perf
+            return cur_pipeline_config, cur_estimated_perf, response_time
         else:
             print("Error: No configurations found that satisfy application constraints")
             print("Latency constraint given: {lat_const}, estimated response latency: {lat_est}".format(lat_const=latency_constraint, lat_est=response_time))
