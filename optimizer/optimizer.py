@@ -130,28 +130,30 @@ class GreedyOptimizer(object):
                 if new_bottleneck_config:
                     copied_pipeline_config = copy.deepcopy(cur_pipeline_config)
                     copied_pipeline_config[cur_bottleneck_node] = new_bottleneck_config
-                    new_estimated_perf, new_bottleneck_node = profiler.estimate_pipeline_performance_for_config(
+                    result = profiler.estimate_pipeline_performance_for_config(
                             self.dag, self.scale_factors, copied_pipeline_config, self.node_profs)
-                    if (new_estimated_perf["latency"] <= latency_constraint and
-                            new_estimated_perf["cost"] <= cost_constraint):
-                        if new_estimated_perf["throughput"] < cur_estimated_perf["throughput"]:
-                            print("Uh oh: monotonicity violated:\n Old config: {}\n New config: {}".format(
-                                cur_pipeline_config[cur_bottleneck_node],
-                                new_bottleneck_config
-                            ))
-                        # assert new_estimated_perf["throughput"] >= cur_estimated_perf["throughput"]
-                        if best_action is None:
-                            # print("Setting best_action to {} in iteration {}".format(action,
-                            #                                                          iteration))
-                            best_action = action
-                            best_action_thru = new_estimated_perf["throughput"]
-                            best_action_config = new_bottleneck_config
-                        elif best_action_thru < new_estimated_perf["throughput"]:
-                            # print("Setting best_action to {} in iteration {}".format(action,
-                            #                                                          iteration))
-                            best_action = action
-                            best_action_thru = new_estimated_perf["throughput"]
-                            best_action_config = new_bottleneck_config
+                    if result is not None:
+                        new_estimated_perf, new_bottleneck_node = result
+                        if (new_estimated_perf["latency"] <= latency_constraint and
+                                new_estimated_perf["cost"] <= cost_constraint):
+                            if new_estimated_perf["throughput"] < cur_estimated_perf["throughput"]:
+                                print("Uh oh: monotonicity violated:\n Old config: {}\n New config: {}".format(
+                                    cur_pipeline_config[cur_bottleneck_node],
+                                    new_bottleneck_config
+                                ))
+                            # assert new_estimated_perf["throughput"] >= cur_estimated_perf["throughput"]
+                            if best_action is None:
+                                # print("Setting best_action to {} in iteration {}".format(action,
+                                #                                                          iteration))
+                                best_action = action
+                                best_action_thru = new_estimated_perf["throughput"]
+                                best_action_config = new_bottleneck_config
+                            elif best_action_thru < new_estimated_perf["throughput"]:
+                                # print("Setting best_action to {} in iteration {}".format(action,
+                                #                                                          iteration))
+                                best_action = action
+                                best_action_thru = new_estimated_perf["throughput"]
+                                best_action_config = new_bottleneck_config
 
             # No more steps can be taken
             if best_action is None:
@@ -176,7 +178,7 @@ class GreedyOptimizer(object):
 
 def upgrade_gpu(cloud, cur_gpu):
     # gpu_rank = {"aws": ["none", "k80", "v100"],
-    gpu_rank = {"aws": ["none", "k80"],
+    gpu_rank = {"aws": ["none", "v100"],
                 "gcp": ["none", "k80", "p100"]
                 }
     cloud_rank = gpu_rank[cloud]

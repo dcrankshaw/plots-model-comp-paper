@@ -4,6 +4,10 @@ import networkx as nx
 import copy
 import math
 from matplotlib import pyplot as plt
+import logging
+
+
+logger = logging.getLogger(__name__)
 
 
 class LogicalDAG(object):
@@ -245,8 +249,11 @@ class NodeProfile(object):
             & (self.profile.cloud == config.cloud)]
         resource_bundle_matches = resource_bundle_matches.sort_values("mean_batch_size")
         if len(resource_bundle_matches) == 0:
-            raise Exception("No profiles for node under provided configuration: {}".format(
+            logger.error("No profiles for node under provided configuration: {}".format(
                 config))
+            return None
+            #raise Exception("No profiles for node under provided configuration: {}".format(
+                #config))
         glb = resource_bundle_matches['mean_batch_size'] <= config.batch_size
         lub = resource_bundle_matches['mean_batch_size'] >= config.batch_size
         # We take the sum here instead of the length because glb and lub are boolean
@@ -429,7 +436,10 @@ def estimate_pipeline_performance_for_config(dag,
                 continue
             prof = single_node_profiles[node]
             conf = node_configs[node]
-            lat, thru, cost = prof.estimate_performance(conf)
+            perf_estimate = prof.estimate_performance(conf)
+            if perf_estimate is None:
+                return None
+            lat, thru, cost = perf_estimate
             scaled_thru = thru / scale_factors[node]
             path_latency += lat
             if bottleneck_thruput is None:
