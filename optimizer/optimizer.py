@@ -175,7 +175,8 @@ class GreedyOptimizer(object):
             return False
 
 def upgrade_gpu(cloud, cur_gpu):
-    gpu_rank = {"aws": ["none", "k80", "v100"],
+    # gpu_rank = {"aws": ["none", "k80", "v100"],
+    gpu_rank = {"aws": ["none", "k80"],
                 "gcp": ["none", "k80", "p100"]
                 }
     cloud_rank = gpu_rank[cloud]
