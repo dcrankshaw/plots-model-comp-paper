@@ -245,8 +245,13 @@ class GreedyOptimizer(object):
                 if new_bottleneck_config:
                     copied_pipeline_config = copy.deepcopy(cur_pipeline_config)
                     copied_pipeline_config[cur_bottleneck_node] = new_bottleneck_config
-                    new_estimated_perf, new_bottleneck_node = profiler_new.estimate_pipeline_performance_for_config(
-                            self.dag, self.scale_factors, copied_pipeline_config, self.node_profs)
+                    result = profiler_new.estimate_pipeline_performance_for_config(self.dag, 
+                                                                                   self.scale_factors, 
+                                                                                   copied_pipeline_config, 
+                                                                                   self.node_profs)
+                    if result == None:
+                        continue
+                    new_estimated_perf, new_bottleneck_node = result
                     # Notice below how latency argument is zero so we don't double-count and include the bottleneck 
                     # model's service time in the NetCalc service time estimation. This means that the first result
                     # (the maximum queue size) isn't correct anymore, and that the second result (response time) no
@@ -281,6 +286,7 @@ class GreedyOptimizer(object):
             else:
                 cur_pipeline_config[cur_bottleneck_node] = best_action_config
                 print("Upgrading bottleneck node {bottleneck} to {new_config}".format(bottleneck=cur_bottleneck_node, new_config=best_action_config))
+                print(best_action, new_estimated_perf["latency"], Q_waiting_time, response_time)
             iteration += 1
 
         # Finally, check that the selected profile meets the application constraints, in case
