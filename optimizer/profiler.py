@@ -185,8 +185,8 @@ class NodeProfile(object):
                                 non_monotonic_points[self.throughput_field],
                                 color="red", s=60, label="non-monotonic points")
                 ax_lat.scatter(non_monotonic_points["mean_batch_size"],
-                            non_monotonic_points["p99_latency"],
-                            color="red", s=60)
+                               non_monotonic_points["p99_latency"],
+                               color="red", s=60)
             ax_thru.set_xlabel("batch size")
             ax_thru.set_ylabel("mean throughput")
             ax_lat.set_xlabel("batch size")
@@ -224,6 +224,37 @@ class NodeProfile(object):
         new_config.batch_size = relevant_entry["mean_batch_size"]
         return new_config
 
+    def upgrade_gpu(self, config):
+        """
+        Returns a config with a better GPU or False if the batch size
+        could not be increased.
+
+        Parameters
+        ----------
+        config : NodeConfig
+            The current config
+
+        """
+        cloud = config.cloud
+        resource_bundle_matches = self.profile[
+            (self.profile.mean_batch_size == config.batch_size) &
+            (self.profile.num_cpus_per_replica == config.num_cpus) &
+            (self.profile.cloud == config.cloud)
+        ]
+        resource_bundle_matches = resource_bundle_matches.sort_values("gpu_type")
+        gpu_rank = {"aws": ["none", "k80", "v100"],
+                    "gcp": ["none", "k80", "p100"]}
+        cloud_rank = gpu_rank[cloud]
+        lub = np.asarray([cloud_rank.index(x) for x in resource_bundle_matches['gpu_type']])
+        if np.sum(lub > cloud_rank.index(config.gpu_type)) == 0:
+            return False
+        idx_lub = resource_bundle_matches.loc[
+            resource_bundle_matches.index[lub], 'gpu_type'].idxmin()
+        relevant_entry = resource_bundle_matches.loc[idx_lub]
+        new_config = copy.deepcopy(config)
+        new_config.gpu_type = relevant_entry["gpu_type"]
+        return new_config
+
     def estimate_performance(self, config):
         """
         Estimates the node's performance under the specified configuration.
@@ -252,8 +283,8 @@ class NodeProfile(object):
             logger.error("No profiles for node under provided configuration: {}".format(
                 config))
             return None
-            #raise Exception("No profiles for node under provided configuration: {}".format(
-                #config))
+            # raise Exception("No profiles for node under provided configuration: {}".format(
+            #     config))
         glb = resource_bundle_matches['mean_batch_size'] <= config.batch_size
         lub = resource_bundle_matches['mean_batch_size'] >= config.batch_size
         # We take the sum here instead of the length because glb and lub are boolean
