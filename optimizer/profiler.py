@@ -123,7 +123,7 @@ class NodeProfile(object):
         self.throughput_stage = throughput_stage
         self.throughput_field = self.throughput_stage + "_mean_throughput_qps"
         self.profile = profile
-        self.prune_profile()
+        # self.prune_profile()
 
     def enumerate_configs(self, max_replication_factor=1):
         """
@@ -226,8 +226,7 @@ class NodeProfile(object):
 
     def upgrade_gpu(self, config):
         """
-        Returns a config with a better GPU or False if the batch size
-        could not be increased.
+        Returns a config with a better GPU or False if the GPU could not be upgraded.
 
         Parameters
         ----------
@@ -241,19 +240,26 @@ class NodeProfile(object):
             (self.profile.num_cpus_per_replica == config.num_cpus) &
             (self.profile.cloud == config.cloud)
         ]
-        resource_bundle_matches = resource_bundle_matches.sort_values("gpu_type")
-        gpu_rank = {"aws": ["none", "k80", "v100"],
-                    "gcp": ["none", "k80", "p100"]}
+        # resource_bundle_matches = resource_bundle_matches.sort_values("gpu_type")
+        gpu_rank = {
+            "aws": ["none", "k80", "v100"],
+            "gcp": ["none", "k80", "p100"]
+        }
         cloud_rank = gpu_rank[cloud]
-        lub = np.asarray([cloud_rank.index(x) for x in resource_bundle_matches['gpu_type']])
-        if np.sum(lub > cloud_rank.index(config.gpu_type)) == 0:
+        cur_gpu_idx = cloud_rank.index(config.gpu_type)
+        if cur_gpu_idx == len(cloud_rank) - 1:
             return False
-        idx_lub = resource_bundle_matches.loc[
-            resource_bundle_matches.index[lub], 'gpu_type'].idxmin()
-        relevant_entry = resource_bundle_matches.loc[idx_lub]
-        new_config = copy.deepcopy(config)
-        new_config.gpu_type = relevant_entry["gpu_type"]
-        return new_config
+        next_gpu = cloud_rank[cur_gpu_idx + 1]
+        next_gpu_match = resource_bundle_matches[resource_bundle_matches.gpu_type == next_gpu]
+        if len(next_gpu_match) == 0:
+            return False
+        elif len(next_gpu_match) == 1:
+            new_config = copy.deepcopy(config)
+            new_config.gpu_type = next_gpu
+            return new_config
+        else:
+            logger.error("ambiguous gpu upgrade: {}".format(next_gpu_match))
+            return False
 
     def estimate_performance(self, config):
         """

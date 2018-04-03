@@ -66,7 +66,9 @@ def clean_aws_dups(results_dir):
 
 
 if __name__ == "__main__":
-    clean_aws_dups(os.path.abspath(
-        "../results_cpp_benchmarker/single_model_profs/tf-log-reg"))
-    clean_aws_dups(os.path.abspath(
-        "../results_cpp_benchmarker/single_model_profs/tf-kernel-svm"))
+    clean_old_results(os.path.abspath(
+        "../results_cpp_benchmarker/single_model_profs/inception"))
+    # clean_aws_dups(os.path.abspath(
+    #     "../results_cpp_benchmarker/single_model_profs/tf-log-reg"))
+    # clean_aws_dups(os.path.abspath(
+    #     "../results_cpp_benchmarker/single_model_profs/tf-kernel-svm"))

@@ -3,8 +3,11 @@ import json
 import os
 # import sys
 import pandas as pd
-
 from utils import get_cpu_cost, get_gpu_cost
+import logging
+
+
+logger = logging.getLogger(__name__)
 
 
 def load_results(results_dir):
@@ -13,15 +16,20 @@ def load_results(results_dir):
     for exp in fs:
         if exp[-4:] == "json":
             with open(os.path.join(results_dir, exp), "r") as f:
-                data = json.load(f)
+                try:
+                    data = json.load(f)
+                except json.JSONDecodeError as e:
+                    logger.error("Error loading {}: {}".format(f.name, e.msg))
+                    continue
                 for stage in ["latency_results", "throughput_results"]:
+                    if "gcp" in exp:
+                        if type(data[stage]) == list and len(data[stage]) == 1:
+                            data[stage] = data[stage][0]
                     # Remove first trial
                     data[stage]["summary_metrics"] = data[stage]["summary_metrics"][1:]
                     data[stage]["clipper_metrics"] = data[stage]["clipper_metrics"][1:]
                     data[stage]["client_metrics"] = data[stage]["client_metrics"][1:]
                     experiments[exp] = data
-        else:
-            pass
     return experiments
 
 
@@ -70,7 +78,10 @@ def get_gpu_type(node_config):
                 node_config["instance_type"]))
             return None
     elif "cloud" in node_config:
-        return (node_config["cloud"], node_config["gpu_type"])
+        gpu_type = node_config["gpu_type"]
+        if gpu_type is None:
+            gpu_type = "none"
+        return (node_config["cloud"], gpu_type)
     else:
         print("Error: unknown cloud for exp:\n{}".format(json.dumps(node_config, indent=2)))
 
@@ -196,7 +207,8 @@ def create_node_profile_df(results_dir):
 
 
 def load_single_node_profiles(
-        single_node_profs_dir=os.path.abspath("../results_cpp_benchmarker/single_model_profs/")):
+        single_node_profs_dir=os.path.abspath("../results_cpp_benchmarker/single_model_profs/"),
+        models=None):
     """
     Returns
     -------
@@ -210,6 +222,8 @@ def load_single_node_profiles(
     for m in os.listdir(single_node_profs_dir):
         fname = os.path.join(single_node_profs_dir, m)
         if os.path.isdir(fname):
+            if not any(m in fname for m in models):
+                continue
             res = create_node_profile_df(fname)
             if res is not None:
                 node_name, df = res
