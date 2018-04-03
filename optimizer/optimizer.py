@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 
 class ArrivalHistory(object):
 
-    def __init__(self, history, lower_bound_ms=0.047):
+    def __init__(self, history):
         """
         Parameters
         ----------
@@ -23,9 +23,10 @@ class ArrivalHistory(object):
             List of arrival times in milliseconds.
 
         """
-        deltas = np.diff(history)
-        clipped_deltas = np.clip(deltas, a_min=lower_bound_ms, a_max=None)
-        self.history = np.cumsum(clipped_deltas)
+        # deltas = np.diff(history)
+        # clipped_deltas = np.clip(deltas, a_min=lower_bound_ms, a_max=None)
+        # self.history = np.cumsum(deltas)
+        self.history = history
 
     # Approximately compute the x point at which the service curve starts
     # exceeding the arrival curve
@@ -280,6 +281,8 @@ class GreedyOptimizer(object):
 
             best_action = None
             best_action_thru = None
+            # best_action_cost = None
+            best_action_qpsd = None
             best_action_config = None
 
             for action in actions:
@@ -318,10 +321,15 @@ class GreedyOptimizer(object):
                                  "\n New config: {}").format(
                                     cur_pipeline_config[cur_bottleneck_node],
                                      new_bottleneck_config))
+                        cur_action_qpsd = new_estimated_perf["throughput"] / new_estimated_perf["cost"]
                         if best_action is None or \
                                 best_action_thru < new_estimated_perf["throughput"]:
+                        # if best_action is None or \
+                        #         best_action_qpsd < cur_action_qpsd:
                             best_action = action
                             best_action_thru = new_estimated_perf["throughput"]
+                            # best_action_cost = new_estimated_perf["cost"]
+                            best_action_qpsd = cur_action_qpsd
                             best_action_config = new_bottleneck_config
 
             # No more steps can be taken
@@ -333,8 +341,11 @@ class GreedyOptimizer(object):
                 break
             else:
                 cur_pipeline_config[cur_bottleneck_node] = best_action_config
-                logger.info("Upgrading bottleneck node {bottleneck} to {new_config}".format(
-                    bottleneck=cur_bottleneck_node, new_config=best_action_config))
+                logger.info(("Upgrading bottleneck node {bottleneck} to {new_config}."
+                             "\nQPSD: {qpsd}").format(
+                                 bottleneck=cur_bottleneck_node,
+                                 new_config=best_action_config,
+                                 qpsd=best_action_qpsd))
             iteration += 1
 
         # Finally, check that the selected profile meets the application constraints, in case
