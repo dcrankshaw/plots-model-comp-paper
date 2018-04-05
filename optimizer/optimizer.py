@@ -141,7 +141,9 @@ class ArrivalHistory(object):
 
     # Returns np.inf for both if service throughput is lower than mean arrival throughput
     def get_max_Q_and_time(self, latency, throughput):
-        logger.info("Getting max queue")
+        # TODO latency is pparently always called with 0? Do we need the latency argument at all?
+        # @eyal??
+
         max_x = self._get_max_x(latency, throughput)
         if max_x == np.inf:
             return (np.inf, np.inf)
@@ -248,6 +250,10 @@ class GreedyOptimizer(object):
         if not profiler.is_valid_pipeline_config(cur_pipeline_config):
             print("ERROR: provided invalid initial pipeline configuration")
         iteration = 0
+        cur_estimated_perf, _ = profiler.estimate_pipeline_performance_for_config(
+            self.dag, self.scale_factors, cur_pipeline_config, self.node_profs)
+        # initial_qpsd = cur_estimated_perf["throughput"] / cur_estimated_perf["cost"]
+        # logger.info("Initial QPSD: {}".format(initial_qpsd))
         while True:
             def try_upgrade_gpu(bottleneck):
                 """
@@ -271,10 +277,17 @@ class GreedyOptimizer(object):
                 new_bottleneck_config.num_replicas += 1
                 return new_bottleneck_config
 
-            cur_estimated_perf, cur_bottleneck_node = profiler.estimate_pipeline_performance_for_config(
-                self.dag, self.scale_factors, cur_pipeline_config, self.node_profs)
+            cur_estimated_perf, cur_bottleneck_node = \
+                profiler.estimate_pipeline_performance_for_config(
+                    self.dag, self.scale_factors, cur_pipeline_config, self.node_profs)
+            # cur_qpsd = cur_estimated_perf["throughput"] / cur_estimated_perf["cost"]
 
-            actions = {"gpu": try_upgrade_gpu,
+            cur_bottleneck_config = cur_pipeline_config[cur_bottleneck_node]
+            cur_bottleneck_node_lat, cur_bottleneck_node_thru, cur_bottleneck_node_cost = \
+                self.node_profs[cur_bottleneck_node].estimate_performance(cur_bottleneck_config)
+            cur_bottleneck_qpsd = cur_bottleneck_node_thru / cur_bottleneck_node_cost
+
+            actions = { #"gpu": try_upgrade_gpu,
                        "batch_size": try_increase_batch_size,
                        "replication_factor": try_increase_replication_factor
                        }
@@ -282,7 +295,7 @@ class GreedyOptimizer(object):
             best_action = None
             best_action_thru = None
             # best_action_cost = None
-            best_action_qpsd = None
+            best_action_qpsd_delta = None
             best_action_config = None
 
             for action in actions:
@@ -318,18 +331,25 @@ class GreedyOptimizer(object):
                         if new_estimated_perf["throughput"] < cur_estimated_perf["throughput"]:
                             logger.warning(
                                 ("Uh oh: monotonicity violated:\n Old config: {}"
-                                 "\n New config: {}").format(
+                                "\n New config: {}").format(
                                     cur_pipeline_config[cur_bottleneck_node],
-                                     new_bottleneck_config))
-                        cur_action_qpsd = new_estimated_perf["throughput"] / new_estimated_perf["cost"]
+                                    new_bottleneck_config))
+                        # cur_action_qpsd = new_estimated_perf["throughput"] / new_estimated_perf["cost"]
+                        # qpsd_delta = cur_action_qpsd - cur_qpsd
+                        action_bottleneck_node_lat, action_bottleneck_node_thru, action_bottleneck_node_cost = \
+                            self.node_profs[cur_bottleneck_node].estimate_performance(new_bottleneck_config)
+                        action_bottleneck_qpsd = action_bottleneck_node_thru / action_bottleneck_node_cost
+                        qpsd_delta = action_bottleneck_qpsd - cur_bottleneck_qpsd
+                        logger.info("Node: {}, Action: {}, bottleneck qpsd delta: {}".format(
+                            cur_bottleneck_node, action, qpsd_delta))
                         if best_action is None or \
                                 best_action_thru < new_estimated_perf["throughput"]:
                         # if best_action is None or \
-                        #         best_action_qpsd < cur_action_qpsd:
+                        #         best_action_qpsd_delta < qpsd_delta:
                             best_action = action
                             best_action_thru = new_estimated_perf["throughput"]
                             # best_action_cost = new_estimated_perf["cost"]
-                            best_action_qpsd = cur_action_qpsd
+                            best_action_qpsd_delta = qpsd_delta
                             best_action_config = new_bottleneck_config
 
             # No more steps can be taken
@@ -342,10 +362,10 @@ class GreedyOptimizer(object):
             else:
                 cur_pipeline_config[cur_bottleneck_node] = best_action_config
                 logger.info(("Upgrading bottleneck node {bottleneck} to {new_config}."
-                             "\nQPSD: {qpsd}").format(
+                             "\nIncreased QPSD by: {qpsd}").format(
                                  bottleneck=cur_bottleneck_node,
                                  new_config=best_action_config,
-                                 qpsd=best_action_qpsd))
+                                 qpsd=best_action_qpsd_delta))
             iteration += 1
 
         # Finally, check that the selected profile meets the application constraints, in case
