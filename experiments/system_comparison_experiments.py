@@ -87,44 +87,44 @@ def main():
     cloud = "gcp"
     # cloud = "aws"
     results = []
-    inception_gpus = ["k80", "p100"]
-    resnet_gpus = ["k80", "p100"]
-    for inception_gpu in inception_gpus:
-        for resnet_gpu in resnet_gpus:
-            initial_config = {
-                "inception": profiler.NodeConfig(name="inception",
-                                                num_cpus=2,
-                                                gpu_type=inception_gpu,
-                                                batch_size=1,
-                                                num_replicas=1,
-                                                cloud=cloud),
-                "tf-resnet-feats": profiler.NodeConfig(name="tf-resnet-feats",
-                                                    num_cpus=2,
-                                                    gpu_type=resnet_gpu,
-                                                    batch_size=1,
-                                                    num_replicas=1,
-                                                    cloud=cloud),
-                "tf-log-reg": profiler.NodeConfig(name="tf-log-reg",
-                                                num_cpus=2,
-                                                gpu_type="none",
-                                                batch_size=1,
-                                                num_replicas=1,
-                                                cloud=cloud),
-                "tf-kernel-svm": profiler.NodeConfig(name="tf-kernel-svm",
-                                                    num_cpus=2,
-                                                    gpu_type="none",
-                                                    batch_size=1,
-                                                    num_replicas=1,
-                                                    cloud=cloud),
-                            }
-            result = opt.select_optimal_config(
-                cloud, latency_constraint=0.25, cost_constraint=100.0, initial_config=initial_config,
-                arrival_history=arrival_history, optimize_what="cost", use_netcalc=True)
-            results.append(result)
-            print(result)
-            best_config, best_config_perf, response_time = result
-            for b in best_config.items():
-                print(b)
+    # inception_gpus = ["k80", "p100"]
+    # resnet_gpus = ["k80", "p100"]
+    inception_gpu = "k80"
+    resnet_gpu = "k80"
+    initial_config = {
+        "inception": profiler.NodeConfig(name="inception",
+                                        num_cpus=2,
+                                        gpu_type=inception_gpu,
+                                        batch_size=1,
+                                        num_replicas=1,
+                                        cloud=cloud),
+        "tf-resnet-feats": profiler.NodeConfig(name="tf-resnet-feats",
+                                            num_cpus=2,
+                                            gpu_type=resnet_gpu,
+                                            batch_size=1,
+                                            num_replicas=1,
+                                            cloud=cloud),
+        "tf-log-reg": profiler.NodeConfig(name="tf-log-reg",
+                                        num_cpus=2,
+                                        gpu_type="none",
+                                        batch_size=1,
+                                        num_replicas=1,
+                                        cloud=cloud),
+        "tf-kernel-svm": profiler.NodeConfig(name="tf-kernel-svm",
+                                            num_cpus=2,
+                                            gpu_type="none",
+                                            batch_size=1,
+                                            num_replicas=1,
+                                            cloud=cloud),
+                    }
+    result = opt.select_optimal_config(
+        cloud, latency_constraint=0.25, cost_constraint=100.0, initial_config=initial_config,
+        arrival_history=arrival_history, use_netcalc=True)
+    results.append(result)
+    print(result)
+    best_config, best_config_perf, response_time = result
+    for b in best_config.items():
+        print(b)
     print("\n\nFINAL RESULTS:")
     for r in results:
         print(r)
