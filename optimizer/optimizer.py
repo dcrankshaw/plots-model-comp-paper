@@ -236,7 +236,7 @@ class GreedyOptimizer(object):
                               cost_constraint,
                               initial_config,
                               arrival_history,
-                              optimize_what="throughput",
+                              # optimize_what="throughput",
                               use_netcalc=True):
         """
         Parameters
@@ -255,25 +255,25 @@ class GreedyOptimizer(object):
         # initial_qpsd = cur_estimated_perf["throughput"] / cur_estimated_perf["cost"]
         # logger.info("Initial QPSD: {}".format(initial_qpsd))
         while True:
-            def try_upgrade_gpu(bottleneck):
+            def try_upgrade_gpu(bottleneck, pipeline_config):
                 """
                 Returns either the new config or False if the GPU could not be upgraded
                 """
                 return self.node_profs[bottleneck].upgrade_gpu(
-                    cur_pipeline_config[bottleneck])
+                    pipeline_config[bottleneck])
 
-            def try_increase_batch_size(bottleneck):
+            def try_increase_batch_size(bottleneck, pipeline_config):
                 """
                 Returns either the new config or False if the batch_size could not be increased
                 """
                 return self.node_profs[bottleneck].increase_batch_size(
-                    cur_pipeline_config[bottleneck])
+                    pipeline_config[bottleneck])
 
-            def try_increase_replication_factor(bottleneck):
+            def try_increase_replication_factor(bottleneck, pipeline_config):
                 """
                 Returns the new config with an increased replication factor
                 """
-                new_bottleneck_config = copy.deepcopy(cur_pipeline_config[bottleneck])
+                new_bottleneck_config = copy.deepcopy(pipeline_config[bottleneck])
                 new_bottleneck_config.num_replicas += 1
                 return new_bottleneck_config
 
@@ -287,7 +287,7 @@ class GreedyOptimizer(object):
                 self.node_profs[cur_bottleneck_node].estimate_performance(cur_bottleneck_config)
             cur_bottleneck_qpsd = cur_bottleneck_node_thru / cur_bottleneck_node_cost
 
-            actions = { #"gpu": try_upgrade_gpu,
+            actions = {"gpu": try_upgrade_gpu,
                        "batch_size": try_increase_batch_size,
                        "replication_factor": try_increase_replication_factor
                        }
@@ -298,10 +298,24 @@ class GreedyOptimizer(object):
             best_action_qpsd_delta = None
             best_action_config = None
 
+            # for action in itertools.chain(
+            #     itertools.combinations(actions, 1),
+            #      itertools.combinations(actions, 2)):
+            #     new_bottleneck_config = actions[action[0]](cur_bottleneck_node, cur_pipeline_config)
+            #     # logger.info(new_bottleneck_config)
+            #     if new_bottleneck_config:
+            #         if len(action) == 2:
+            #             copied_pipeline_config = copy.deepcopy(cur_pipeline_config)
+            #             copied_pipeline_config[cur_bottleneck_node] = new_bottleneck_config
+            #             new_bottleneck_config = actions[action[1]](cur_bottleneck_node,
+            #                                                        copied_pipeline_config)
             for action in actions:
-                new_bottleneck_config = actions[action](cur_bottleneck_node)
+                new_bottleneck_config = actions[action](cur_bottleneck_node, cur_pipeline_config)
                 # logger.info(new_bottleneck_config)
                 if new_bottleneck_config:
+                    logger.info("Evaluating step {}".format(action))
+                    logger.info("\nOld config: {}\nNew config: {}\n".format(
+                        cur_pipeline_config[cur_bottleneck_node], new_bottleneck_config))
                     copied_pipeline_config = copy.deepcopy(cur_pipeline_config)
                     copied_pipeline_config[cur_bottleneck_node] = new_bottleneck_config
                     result = profiler.estimate_pipeline_performance_for_config(
@@ -316,7 +330,7 @@ class GreedyOptimizer(object):
                     # service time, so just the queue waitng time.
                     if use_netcalc:
                         _, Q_waiting_time = arrival_history_obj.get_max_Q_and_time(
-                            0, new_estimated_perf["throughput"] / 1000.)  # Convert to queries per ms
+                            0, new_estimated_perf["throughput"] / 1000.)  # Convert to queries/ms
                         # converting time to seconds
                         response_time = new_estimated_perf["latency"] + Q_waiting_time / 1000.
                     else:
@@ -331,9 +345,9 @@ class GreedyOptimizer(object):
                         if new_estimated_perf["throughput"] < cur_estimated_perf["throughput"]:
                             logger.warning(
                                 ("Uh oh: monotonicity violated:\n Old config: {}"
-                                "\n New config: {}").format(
-                                    cur_pipeline_config[cur_bottleneck_node],
-                                    new_bottleneck_config))
+                                 "\n New config: {}").format(
+                                     cur_pipeline_config[cur_bottleneck_node],
+                                     new_bottleneck_config))
                         # cur_action_qpsd = new_estimated_perf["throughput"] / new_estimated_perf["cost"]
                         # qpsd_delta = cur_action_qpsd - cur_qpsd
                         action_bottleneck_node_lat, action_bottleneck_node_thru, action_bottleneck_node_cost = \
@@ -356,9 +370,9 @@ class GreedyOptimizer(object):
             if best_action is None:
                 logger.info("No more steps can be taken")
                 break
-            elif response_time < latency_constraint and optimize_what == "cost":
-                logger.info("Response time below latency constraint! Finished optimizing for cost.")
-                break
+            # elif response_time < latency_constraint and optimize_what == "cost":
+            #     logger.info("Response time below latency constraint! Finished optimizing for cost.")
+            #     break
             else:
                 cur_pipeline_config[cur_bottleneck_node] = best_action_config
                 logger.info(("Upgrading bottleneck node {bottleneck} to {new_config}."
