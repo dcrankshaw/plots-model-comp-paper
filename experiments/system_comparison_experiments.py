@@ -2,16 +2,16 @@
 import os
 import sys
 import json
-import time
-from datetime import datetime
+# import time
+# from datetime import datetime
 cur_dir = os.path.dirname(os.path.realpath(__file__))
 sys.path.insert(0, os.path.abspath(os.path.join(cur_dir, "../optimizer")))
 import single_node_profiles_cpp as snp
 import profiler
-import end_to_end_profiles as e2e_profs
+# import end_to_end_profiles as e2e_profs
 import numpy as np
 from optimizer import GreedyOptimizer
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 import logging
 
 logging.basicConfig(
@@ -80,57 +80,73 @@ def get_optimizer_pipeline_three():
     return opt
 
 
-def main():
-    arrival_history = generate_arrival_process(50)
-    opt = get_optimizer_pipeline_one()
-    logger.info("Optimizer initialized")
-    cloud = "gcp"
+def optimize_pipeline_one(throughput, opt, slo, cost, cloud):
+    arrival_history = generate_arrival_process(throughput)
+    # cloud = "gcp"
     # cloud = "aws"
     results = []
     # inception_gpus = ["k80", "p100"]
     # resnet_gpus = ["k80", "p100"]
     inception_gpu = "k80"
     resnet_gpu = "k80"
+    num_cpus = 1
     initial_config = {
         "inception": profiler.NodeConfig(name="inception",
-                                        num_cpus=2,
-                                        gpu_type=inception_gpu,
-                                        batch_size=1,
-                                        num_replicas=1,
-                                        cloud=cloud),
+                                         num_cpus=num_cpus,
+                                         gpu_type=inception_gpu,
+                                         batch_size=1,
+                                         num_replicas=1,
+                                         cloud=cloud),
         "tf-resnet-feats": profiler.NodeConfig(name="tf-resnet-feats",
-                                            num_cpus=2,
-                                            gpu_type=resnet_gpu,
-                                            batch_size=1,
-                                            num_replicas=1,
-                                            cloud=cloud),
+                                               num_cpus=num_cpus,
+                                               gpu_type=resnet_gpu,
+                                               batch_size=1,
+                                               num_replicas=1,
+                                               cloud=cloud),
         "tf-log-reg": profiler.NodeConfig(name="tf-log-reg",
-                                        num_cpus=2,
-                                        gpu_type="none",
-                                        batch_size=1,
-                                        num_replicas=1,
-                                        cloud=cloud),
+                                          num_cpus=num_cpus,
+                                          gpu_type="none",
+                                          batch_size=1,
+                                          num_replicas=1,
+                                          cloud=cloud),
         "tf-kernel-svm": profiler.NodeConfig(name="tf-kernel-svm",
-                                            num_cpus=2,
-                                            gpu_type="none",
-                                            batch_size=1,
-                                            num_replicas=1,
-                                            cloud=cloud),
-                    }
+                                             num_cpus=num_cpus,
+                                             gpu_type="none",
+                                             batch_size=1,
+                                             num_replicas=1,
+                                             cloud=cloud),
+    }
     result = opt.select_optimal_config(
-        cloud, latency_constraint=0.25, cost_constraint=100.0, initial_config=initial_config,
+        cloud, latency_constraint=slo, cost_constraint=cost, initial_config=initial_config,
         arrival_history=arrival_history, use_netcalc=True)
-    results.append(result)
-    print(result)
-    best_config, best_config_perf, response_time = result
-    for b in best_config.items():
-        print(b)
-    print("\n\nFINAL RESULTS:")
-    for r in results:
-        print(r)
+    if result:
+        results.append(result)
+        print(result)
+        best_config, best_config_perf, response_time = result
+        for b in best_config.items():
+            print(b)
+        print("\n\nFINAL RESULTS:")
+        for r in results:
+            print(r)
+    return result
+
+
+def generate_pipeline_one_configs():
+    slo = 0.25
+    throughput = 35
+    cost = 5.5
+    cloud = "aws"
+    opt = get_optimizer_pipeline_one()
+    logger.info("Optimizer initialized")
+    while True:
+        result = optimize_pipeline_one(throughput, opt, slo, cost, cloud)
+        if result:
+            break
+        throughput -= 1
+    print("\n\n\n\nFINAL RESULTS:")
+    print("FINAL THROUGHPUT: {}".format(throughput))
+    print("FINAL CONFIGURATION: {}".format(result))
 
 
 if __name__ == "__main__":
-    main()
-
-
+    generate_pipeline_one_configs()
