@@ -332,9 +332,13 @@ class NodeProfile(object):
             estimated_thruput = estimated_thruput * config.num_replicas
 
             assert np.all(np.diff(relevant_entries["p99_latency"]) > 0)
-            estimated_latency = np.interp(config.batch_size,
-                                          relevant_entries["mean_batch_size"],
-                                          relevant_entries["p99_latency"])
+            # Don't do linear interpolation
+            # estimated_latency = np.interp(config.batch_size,
+            #                               relevant_entries["mean_batch_size"],
+            #                               relevant_entries["p99_latency"])
+            estimated_latency = np.max(relevant_entries["p99_latency"])
+
+
             # The cost for all the entries with the same resource bundle is the same,
             # so we just get it from the first entry
             cost = relevant_entries["cost"].iloc[0] * config.num_replicas

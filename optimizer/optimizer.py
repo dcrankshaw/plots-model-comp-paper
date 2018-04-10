@@ -147,10 +147,23 @@ class ArrivalHistory(object):
             queue.put(result)
         return result
 
-    # Returns np.inf for both if service throughput is lower than mean arrival throughput
     def get_max_Q_and_time(self, latency, throughput):
-        # TODO latency is pparently always called with 0? Do we need the latency argument at all?
-        # @eyal??
+
+        """
+        Given a service curve whose service time is defined by the latency parameter
+        and service throughput defined by the throughput parameter, this function computes
+        two values.
+
+        + First, it computes the maximum horizontal distance between the service curve and the arrival curve.
+          (In units of time. For the current implementation, time is always measured in milliseconds). If the provided
+          latency includes the service time, this value is the maximum response time. If the provided latency does not
+          include the service time, this value is the maximum queue waiting time.
+
+        + Second, it computes the maximum vertical distance between the service curve and the arrival curve.
+          (In units of queries). This value should be ignored unless the provided latency includes the service time.
+          In the current implementation, we are ignoring it.
+
+        """
 
         max_x = self._get_max_x(latency, throughput)
         if max_x == np.inf:
@@ -161,6 +174,7 @@ class ArrivalHistory(object):
         arrival_x = np.linspace(1, max_x, 200)
         chunk_size = 20
         arrival_y = []
+        # This for loop is just to limit the degree of parallelism
         for chunk in range(len(arrival_x) // chunk_size):
             queue = Queue()
             procs = []
@@ -173,6 +187,13 @@ class ArrivalHistory(object):
                 # p.join()
         return (self._max_Q_given_arrival(arrival_x, arrival_y, latency, throughput),
                 self._max_response_time_given_arrival(arrival_x, arrival_y, latency, throughput))
+
+    def get_adjusted_max_Q_and_time(self, max_batch_size, service_time_func, throughput):
+        max_batch_service_time = service_time_func(max_batch_size)
+        max_effective_batch_size = min(self._get_arrival_curve_at_x(max_batch_service_time), max_batch_size)
+        # This is the service time of the maximum effective batch size
+        service_curve_horizontal_shift = service_time_func(max_effective_batch_size)
+        return self.get_max_Q_and_time(service_curve_horizontal_shift, throughput)
 
 
 class BruteForceOptimizer(object):
@@ -341,9 +362,23 @@ class GreedyOptimizer(object):
                     # if use_netcalc and action == 'batch_size':
                     if use_netcalc:
                         logger.info("Doing network calc")
-                        _, Q_waiting_time = arrival_history_obj.get_max_Q_and_time(
-                            0, new_estimated_perf["throughput"] / 1000.)  # Convert to queries/ms
-                            # converting time to seconds
+                        netcalc_config = new_bottleneck_config
+
+                        def service_time_func(batch_size):
+                            netcalc_config.batch_size = batch_size
+
+                            # Return the 0th element because we only need to
+                            # return the p99 latency (in ms)
+                            return self.node_profs[cur_bottleneck_node]\
+                                    .estimate_performance(netcalc_config)[0] * 1000.0
+
+                        _, Q_waiting_time = arrival_history_obj.get_adjusted_max_Q_and_time(
+                                new_bottleneck_config.batch_size,
+                                service_time_func,
+                                # Convert throughput to queries/ms
+                                new_estimated_perf["throughput"] / 1000.)
+
+                        # converting time to seconds
                         T_Q = Q_waiting_time / 1000.0
                         T_S = new_estimated_perf["latency"]
                         response_time = T_Q + T_S
