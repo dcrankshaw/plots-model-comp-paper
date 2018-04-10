@@ -27,24 +27,25 @@ if not os.path.exists(arrival_process_dir):
 
 
 def generate_arrival_process(throughput, cv):
-    if cv == 1:
-        deltas_path = os.path.join(arrival_process_dir,
-                                   "{}.deltas".format(throughput))
-        if not os.path.exists(deltas_path):
-            inter_request_delay_ms = 1.0 / float(throughput) * 1000.0
-            deltas = np.random.exponential(inter_request_delay_ms, size=(50000))
-            deltas = np.clip(deltas, a_min=MIN_DELAY_MS, a_max=None)
-            arrival_history = np.cumsum(deltas)
-            with open(deltas_path, "w") as f:
-                for d in deltas:
-                    f.write("{}\n".format(d))
-        else:
-            with open(deltas_path, "r") as f:
-                deltas = np.array([float(l.strip()) for l in f]).flatten()
-            arrival_history = np.cumsum(deltas)
-        return arrival_history
+    def gamma(mean, CV, size=50000):
+        return np.random.gamma(1./CV, CV*mean, size=size)
+    deltas_path = os.path.join(arrival_process_dir,
+                               "{}.deltas".format(throughput))
+    if not os.path.exists(deltas_path):
+        inter_request_delay_ms = 1.0 / float(throughput) * 1000.0
+        deltas = gamma(inter_request_delay_ms, cv, size=(50000))
+        deltas = np.clip(deltas, a_min=MIN_DELAY_MS, a_max=None)
+        arrival_history = np.cumsum(deltas)
+        with open(deltas_path, "w") as f:
+            for d in deltas:
+                f.write("{}\n".format(d))
     else:
-        raise Exception("Eyal needs to implement this")
+        with open(deltas_path, "r") as f:
+            deltas = np.array([float(l.strip()) for l in f]).flatten()
+        arrival_history = np.cumsum(deltas)
+    return arrival_history
+        
+        
 
 
 def get_optimizer_pipeline_one():
