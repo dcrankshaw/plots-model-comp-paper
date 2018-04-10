@@ -3,14 +3,20 @@ import itertools
 import copy
 import numpy as np
 import logging
+from multiprocessing import Process, Queue
 
 
-logging.basicConfig(
-    format='%(asctime)s %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s',
-    datefmt='%y-%m-%d:%H:%M:%S',
-    level=logging.INFO)
+# logging.basicConfig(
+#     format='%(asctime)s %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s',
+#     datefmt='%y-%m-%d:%H:%M:%S',
+#     level=logging.INFO)
 
 logger = logging.getLogger(__name__)
+# logger.setLevel(logging.WARN)
+
+
+def unwrap_get_arrival_curve_at_x(arg, **kwarg):
+    return ArrivalHistory._get_arrival_curve_at_x(*arg, **kwarg)
 
 
 class ArrivalHistory(object):
@@ -96,7 +102,7 @@ class ArrivalHistory(object):
         return largest_gap
 
     # Compute the arrival curve's y values at a particular x value
-    def _get_arrival_curve_at_x(self, arrival_x_value):
+    def _get_arrival_curve_at_x(self, arrival_x_value, queue=None):
         def get_smallest_delta_2(time_range, timestamps):
             head_index = 0  # the first index less than or equal to time_range's higher end
             tail_index = 0  # the first index less than or equal to time_range's lower end
@@ -137,6 +143,8 @@ class ArrivalHistory(object):
             return max_so_far
         result = get_smallest_delta_2(arrival_x_value, self.history)
         # print("_get_arrival_curve_at_x("+str(arrival_x_value)+") = "+str(result))
+        if queue:
+            queue.put(result)
         return result
 
     # Returns np.inf for both if service throughput is lower than mean arrival throughput
@@ -151,7 +159,18 @@ class ArrivalHistory(object):
         # smoother and a marginally more accurate estimate plot of the arrival curve, but also
         # requires more computation time
         arrival_x = np.linspace(1, max_x, 200)
-        arrival_y = [self._get_arrival_curve_at_x(x) for x in arrival_x]
+        chunk_size = 20
+        arrival_y = []
+        for chunk in range(len(arrival_x) // chunk_size):
+            queue = Queue()
+            procs = []
+            for x in arrival_x[chunk*chunk_size : (chunk+1)*chunk_size]:
+                p = Process(target=self._get_arrival_curve_at_x, args=(x, queue))
+                p.start()
+                procs.append(p)
+            for p in procs:
+                arrival_y.append(queue.get())
+                # p.join()
         return (self._max_Q_given_arrival(arrival_x, arrival_y, latency, throughput),
                 self._max_response_time_given_arrival(arrival_x, arrival_y, latency, throughput))
 
@@ -248,12 +267,12 @@ class GreedyOptimizer(object):
         arrival_history_obj = ArrivalHistory(arrival_history)
         cur_pipeline_config = initial_config
         if not profiler.is_valid_pipeline_config(cur_pipeline_config):
-            print("ERROR: provided invalid initial pipeline configuration")
+            logger.error("ERROR: provided invalid initial pipeline configuration")
         iteration = 0
+        latency_slo_met = False
         cur_estimated_perf, _ = profiler.estimate_pipeline_performance_for_config(
             self.dag, self.scale_factors, cur_pipeline_config, self.node_profs)
-        # initial_qpsd = cur_estimated_perf["throughput"] / cur_estimated_perf["cost"]
-        # logger.info("Initial QPSD: {}".format(initial_qpsd))
+        last_action_response_time = np.inf
         while True:
             def try_upgrade_gpu(bottleneck, pipeline_config):
                 """
@@ -280,7 +299,6 @@ class GreedyOptimizer(object):
             cur_estimated_perf, cur_bottleneck_node = \
                 profiler.estimate_pipeline_performance_for_config(
                     self.dag, self.scale_factors, cur_pipeline_config, self.node_profs)
-            # cur_qpsd = cur_estimated_perf["throughput"] / cur_estimated_perf["cost"]
 
             cur_bottleneck_config = cur_pipeline_config[cur_bottleneck_node]
             cur_bottleneck_node_lat, cur_bottleneck_node_thru, cur_bottleneck_node_cost = \
@@ -294,21 +312,10 @@ class GreedyOptimizer(object):
 
             best_action = None
             best_action_thru = None
-            # best_action_cost = None
             best_action_qpsd_delta = None
             best_action_config = None
+            best_action_response_time = np.inf
 
-            # for action in itertools.chain(
-            #     itertools.combinations(actions, 1),
-            #      itertools.combinations(actions, 2)):
-            #     new_bottleneck_config = actions[action[0]](cur_bottleneck_node, cur_pipeline_config)
-            #     # logger.info(new_bottleneck_config)
-            #     if new_bottleneck_config:
-            #         if len(action) == 2:
-            #             copied_pipeline_config = copy.deepcopy(cur_pipeline_config)
-            #             copied_pipeline_config[cur_bottleneck_node] = new_bottleneck_config
-            #             new_bottleneck_config = actions[action[1]](cur_bottleneck_node,
-            #                                                        copied_pipeline_config)
             for action in actions:
                 new_bottleneck_config = actions[action](cur_bottleneck_node, cur_pipeline_config)
                 # logger.info(new_bottleneck_config)
@@ -323,56 +330,70 @@ class GreedyOptimizer(object):
                     if result is None:
                         continue
                     new_estimated_perf, new_bottleneck_node = result
+                    # We'll never take this action if it violates the cost constraint
+                    if new_estimated_perf["cost"] > cost_constraint:
+                        continue
                     # Notice below how latency argument is zero so we don't double-count and include
                     # the bottleneck model's service time in the NetCalc service time estimation.
                     # This means that the first result (the maximum queue size) isn't correct
                     # anymore, and that the second result (response time) no longer includes the
                     # service time, so just the queue waitng time.
+                    # if use_netcalc and action == 'batch_size':
                     if use_netcalc:
+                        logger.info("Doing network calc")
                         _, Q_waiting_time = arrival_history_obj.get_max_Q_and_time(
                             0, new_estimated_perf["throughput"] / 1000.)  # Convert to queries/ms
-                        # converting time to seconds
-                        response_time = new_estimated_perf["latency"] + Q_waiting_time / 1000.
-                    else:
-                        response_time = new_estimated_perf["latency"]
-                    # logger.info("{}, {}, {}, {}".format(new_bottleneck_node,
-                    #             new_estimated_perf["throughput"],
-                    #             response_time,
-                    #             copied_pipeline_config))
+                            # converting time to seconds
+                        T_Q = Q_waiting_time / 1000.0
+                        T_S = new_estimated_perf["latency"]
+                        response_time = T_Q + T_S
 
-                    if (new_estimated_perf["latency"] <= latency_constraint and
+                        logger.info("Response time: {total}, T_s={ts}, T_q={tq}".format(total=response_time,
+                            ts=T_S, tq=T_Q))
+                    else:
+                        T_Q = 0.0
+                        T_S = new_estimated_perf["latency"]
+                        response_time = T_Q + T_S
+
+                    if latency_slo_met:
+                        latency_to_compare = response_time
+                    else:
+                        latency_to_compare = T_S
+                    if (latency_to_compare <= latency_constraint and
                             new_estimated_perf["cost"] <= cost_constraint):
                         if new_estimated_perf["throughput"] < cur_estimated_perf["throughput"]:
                             logger.warning(
-                                ("Uh oh: monotonicity violated:\n Old config: {}"
-                                 "\n New config: {}").format(
+                                ("Uh oh: monotonicity violated:\n Old config: {}, Thru: {}"
+                                 "\n New config: {}, Thru: {}").format(
                                      cur_pipeline_config[cur_bottleneck_node],
-                                     new_bottleneck_config))
-                        # cur_action_qpsd = new_estimated_perf["throughput"] / new_estimated_perf["cost"]
-                        # qpsd_delta = cur_action_qpsd - cur_qpsd
+                                     cur_estimated_perf["throughput"],
+                                     new_bottleneck_config,
+                                     new_estimated_perf["throughput"]
+                                 ))
+                        #############################################
+                        # QPSD CALCULATION
+                        # Estimate the latency, throughput, and cost for JUST the bottleneck node
+                        # in order to calculate QPSD
                         action_bottleneck_node_lat, action_bottleneck_node_thru, action_bottleneck_node_cost = \
                             self.node_profs[cur_bottleneck_node].estimate_performance(new_bottleneck_config)
                         action_bottleneck_qpsd = action_bottleneck_node_thru / action_bottleneck_node_cost
                         qpsd_delta = action_bottleneck_qpsd - cur_bottleneck_qpsd
                         logger.info("Node: {}, Action: {}, bottleneck qpsd delta: {}".format(
                             cur_bottleneck_node, action, qpsd_delta))
+                        ##############################################
                         if best_action is None or \
                                 best_action_thru < new_estimated_perf["throughput"]:
-                        # if best_action is None or \
-                        #         best_action_qpsd_delta < qpsd_delta:
                             best_action = action
                             best_action_thru = new_estimated_perf["throughput"]
-                            # best_action_cost = new_estimated_perf["cost"]
                             best_action_qpsd_delta = qpsd_delta
                             best_action_config = new_bottleneck_config
+                            best_action_response_time = response_time
+                            logger.info("Setting best action response time to {}".format(best_action_response_time))
 
             # No more steps can be taken
             if best_action is None:
                 logger.info("No more steps can be taken")
                 break
-            # elif response_time < latency_constraint and optimize_what == "cost":
-            #     logger.info("Response time below latency constraint! Finished optimizing for cost.")
-            #     break
             else:
                 cur_pipeline_config[cur_bottleneck_node] = best_action_config
                 logger.info(("Upgrading bottleneck node {bottleneck} to {new_config}."
@@ -380,6 +401,12 @@ class GreedyOptimizer(object):
                                  bottleneck=cur_bottleneck_node,
                                  new_config=best_action_config,
                                  qpsd=best_action_qpsd_delta))
+                # Once latency_slo_met is set to True, it should never be set to False again
+                if not latency_slo_met:
+                    latency_slo_met = best_action_response_time <= latency_constraint
+                    if latency_slo_met:
+                        logger.info("LATENCY SLO MET\nConfig:{}".format(cur_pipeline_config))
+                last_action_response_time = best_action_response_time
             iteration += 1
 
         # Finally, check that the selected profile meets the application constraints, in case
@@ -387,27 +414,16 @@ class GreedyOptimizer(object):
         cur_estimated_perf, _ = profiler.estimate_pipeline_performance_for_config(
             self.dag, self.scale_factors, cur_pipeline_config, self.node_profs)
 
-        if (response_time <= latency_constraint and
+        # last_action_response_time is the response time for the last upgrade action that
+        # the optimizer took before terminating iteration
+        if (last_action_response_time <= latency_constraint and
                 cur_estimated_perf["cost"] <= cost_constraint):
-            return cur_pipeline_config, cur_estimated_perf, response_time
+            return cur_pipeline_config, cur_estimated_perf, last_action_response_time
         else:
             logger.error(("Error: No configurations found that satisfy application constraints.\n"
                           "Latency constraint: {lat_const}, estimated response latency: {lat_est}\n"
-                          "Cost constraint: {cost_const}, estimated latency: {cost_est}").format(
-                              lat_const=latency_constraint, lat_est=response_time,
-                              cost_const=cost_constraint, cost_est=cur_estimated_perf["cost"]))
+                          "Cost constraint: {cost_const}, estimated cost: {cost_est}\nCURRENT CONFIG: {cur_config}").format(
+                              lat_const=latency_constraint, lat_est=last_action_response_time,
+                              cost_const=cost_constraint, cost_est=cur_estimated_perf["cost"],
+                              cur_config=cur_pipeline_config))
             return False
-
-
-def upgrade_gpu(cloud, cur_gpu):
-    # gpu_rank = {"aws": ["none", "k80", "v100"],
-    gpu_rank = {"aws": ["none", "v100"],
-                "gcp": ["none", "k80", "p100"]
-                }
-    cloud_rank = gpu_rank[cloud]
-    cur_gpu_idx = cloud_rank.index(cur_gpu)
-    if cur_gpu_idx + 1 == len(cloud_rank):
-        # print("Ran out of GPU upgrades")
-        return False
-    else:
-        return cloud_rank[cur_gpu_idx + 1]

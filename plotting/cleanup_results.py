@@ -65,9 +65,22 @@ def clean_aws_dups(results_dir):
                 shutil.move(old_fname, new_fname)
 
 
+def clean_aws_non_remote(results_dir):
+    fs = os.listdir(results_dir)
+    for f in fs:
+        if "aws" in f and "k80" in f and "OLD" in f:
+            # shutil.move(os.path.join(results_dir, f),
+            #             os.path.join(results_dir, "{}.OLD".format(f)))
+            shutil.move(os.path.join(results_dir, f),
+                        os.path.join(results_dir, f[:-4]))
+        if "remote" in f:
+            shutil.move(os.path.join(results_dir, f),
+                        os.path.join(results_dir, "{}.OLD".format(f)))
+
+
 if __name__ == "__main__":
-    clean_old_results(os.path.abspath(
-        "../results_cpp_benchmarker/single_model_profs/inception"))
+    clean_aws_non_remote(os.path.abspath(
+        "../results_cpp_benchmarker/single_model_profs/tf-resnet-feats"))
     # clean_aws_dups(os.path.abspath(
     #     "../results_cpp_benchmarker/single_model_profs/tf-log-reg"))
     # clean_aws_dups(os.path.abspath(

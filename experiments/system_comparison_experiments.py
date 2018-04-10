@@ -13,6 +13,7 @@ import numpy as np
 from optimizer import GreedyOptimizer
 # import matplotlib.pyplot as plt
 import logging
+import math
 
 logging.basicConfig(
     format='%(asctime)s %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s',
@@ -29,22 +30,25 @@ if not os.path.exists(arrival_process_dir):
     os.makedirs(arrival_process_dir)
 
 
-def generate_arrival_process(throughput):
-    deltas_path = os.path.join(arrival_process_dir,
-                               "{}.deltas".format(throughput))
-    if not os.path.exists(deltas_path):
-        inter_request_delay_ms = 1.0 / float(throughput) * 1000.0
-        deltas = np.random.exponential(inter_request_delay_ms, size=(50000))
-        deltas = np.clip(deltas, a_min=MIN_DELAY_MS, a_max=None)
-        arrival_history = np.cumsum(deltas)
-        with open(deltas_path, "w") as f:
-            for d in deltas:
-                f.write("{}\n".format(d))
+def generate_arrival_process(throughput, cv=1):
+    if cv == 1:
+        deltas_path = os.path.join(arrival_process_dir,
+                                "{}.deltas".format(throughput))
+        if not os.path.exists(deltas_path):
+            inter_request_delay_ms = 1.0 / float(throughput) * 1000.0
+            deltas = np.random.exponential(inter_request_delay_ms, size=(50000))
+            deltas = np.clip(deltas, a_min=MIN_DELAY_MS, a_max=None)
+            arrival_history = np.cumsum(deltas)
+            with open(deltas_path, "w") as f:
+                for d in deltas:
+                    f.write("{}\n".format(d))
+        else:
+            with open(deltas_path, "r") as f:
+                deltas = np.array([float(l.strip()) for l in f]).flatten()
+            arrival_history = np.cumsum(deltas)
+        return arrival_history
     else:
-        with open(deltas_path, "r") as f:
-            deltas = np.array([float(l.strip()) for l in f]).flatten()
-        arrival_history = np.cumsum(deltas)
-    return arrival_history
+        raise Exception("Eyal needs to implement this")
 
 
 def get_optimizer_pipeline_one():
@@ -80,16 +84,17 @@ def get_optimizer_pipeline_three():
     return opt
 
 
-def optimize_pipeline_one(throughput, opt, slo, cost, cloud):
-    arrival_history = generate_arrival_process(throughput)
-    # cloud = "gcp"
-    # cloud = "aws"
+def optimize_pipeline_one(throughput, opt, slo, cost, cloud, cv=1):
+    arrival_history = generate_arrival_process(throughput, cv)
     results = []
-    # inception_gpus = ["k80", "p100"]
-    # resnet_gpus = ["k80", "p100"]
     inception_gpu = "k80"
     resnet_gpu = "k80"
-    num_cpus = 1
+    if cloud == "aws":
+        num_cpus = 1
+        # TODO(crankshaw): remove this line?
+        resnet_gpu = "v100"
+    else:
+        num_cpus = 2
     initial_config = {
         "inception": profiler.NodeConfig(name="inception",
                                          num_cpus=num_cpus,
@@ -121,32 +126,72 @@ def optimize_pipeline_one(throughput, opt, slo, cost, cloud):
         arrival_history=arrival_history, use_netcalc=True)
     if result:
         results.append(result)
-        print(result)
         best_config, best_config_perf, response_time = result
-        for b in best_config.items():
-            print(b)
-        print("\n\nFINAL RESULTS:")
-        for r in results:
-            print(r)
+        # for b in best_config.items():
+        #     print(b)
+        # print("\n\nFINAL RESULTS:")
+        # for r in results:
+        #     print(r)
     return result
 
+def test_lambda(lam):
+    if lam <= 32:
+        return True
+    else:
+        return False
+
+def probe_throughputs(slo, cloud, cost, opt, cv=1):
+    min = 0
+    max = 2000
+    highest_successful_config = None
+    while True:
+        if max == min:
+            break
+        middle = min + math.ceil((max - min) / 2)
+        logger.info("PROBING. min: {}, max: {}, middle: {}".format(
+            min, max, middle))
+        result = optimize_pipeline_one(middle, opt, slo, cost, cloud, cv)
+        # result = test_lambda(middle)
+        if result:
+            min = middle
+            highest_successful_config = result
+        else:
+            max = middle - 1
+    return (min, highest_successful_config)
+
+class Configuration(object):
+    def __init__(self, slo, cost, lam, node_configs, estimated_perf, response_time):
+        self.slo = slo
+        self.cost = cost
+        self.lam = lam
+        self.node_configs = {n: c.__dict__ for n, c in node_configs.items()}
+        self.estimated_perf = estimated_perf
+        self.response_time = response_time
 
 def generate_pipeline_one_configs():
-    slo = 0.25
-    throughput = 35
-    cost = 5.5
+    results_file = "aws_image_driver_one_ifl_configs.json"
+    costs = [5.4, 8.0, 10.6, 13.2, 15.8, 18.4, 21.0]
     cloud = "aws"
     opt = get_optimizer_pipeline_one()
+    # opt = None
     logger.info("Optimizer initialized")
-    while True:
-        result = optimize_pipeline_one(throughput, opt, slo, cost, cloud)
-        if result:
-            break
-        throughput -= 1
-    print("\n\n\n\nFINAL RESULTS:")
-    print("FINAL THROUGHPUT: {}".format(throughput))
-    print("FINAL CONFIGURATION: {}".format(result))
-
+    configs = []
+    for slo in [0.25, 0.5, 1.0]:
+        for cost in costs:
+            lam, result = probe_throughputs(slo, cloud, cost, opt)
+            if result:
+                logger.info("SLO: {slo}, COST: {cost}, LAMBDA: {lam}".format(
+                    slo=slo, cost=cost, lam=lam))
+                node_configs, perfs, response_time = result
+                # node_configs = {"inception": profiler.NodeConfig("inception", 1, "v100", 8.0, 1, "aws")}
+                # perfs = {"lat": 4}
+                # response_time = .8
+                configs.append(Configuration(
+                    slo, cost, lam, node_configs, perfs, response_time).__dict__)
+                with open(results_file, "w") as f:
+                    json.dump(configs, f, indent=4)
+            else:
+                logger.info("no result")
 
 if __name__ == "__main__":
     generate_pipeline_one_configs()

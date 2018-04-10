@@ -125,6 +125,13 @@ class NodeProfile(object):
         self.profile = profile
         # self.prune_profile()
 
+    # def patch_batch_size_one_profs(self):
+    #     batch_size_one_profs = self.profile[self.profile.batch_size == 1.0]
+    #     resource_bundle_groups = self.profile.groupby(["cloud",
+    #                                                    "num_cpus_per_replica"])
+    #     for bundle, df in resource_bundle_groups:
+    #         df
+
     def enumerate_configs(self, max_replication_factor=1):
         """
         Enumerates all of the configurations under which this node was profiled.
