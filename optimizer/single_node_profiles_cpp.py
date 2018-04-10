@@ -5,31 +5,53 @@ import os
 import pandas as pd
 from utils import get_cpu_cost, get_gpu_cost
 import logging
+from multiprocessing import Process, Queue
+import traceback
 
 
 logger = logging.getLogger(__name__)
 
-
-def load_results(results_dir):
-    fs = os.listdir(results_dir)
-    experiments = {}
-    for exp in fs:
+def load_file(results_dir, exp, queue):
+    result = None
+    try:
         if exp[-4:] == "json":
             with open(os.path.join(results_dir, exp), "r") as f:
                 try:
                     data = json.load(f)
-                except json.JSONDecodeError as e:
-                    logger.error("Error loading {}: {}".format(f.name, e.msg))
-                    continue
-                for stage in ["latency_results", "throughput_results"]:
-                    if "gcp" in exp:
+                    for stage in ["latency_results", "throughput_results"]:
+                        # if "gcp" in exp:
                         if type(data[stage]) == list and len(data[stage]) == 1:
                             data[stage] = data[stage][0]
-                    # Remove first trial
-                    data[stage]["summary_metrics"] = data[stage]["summary_metrics"][1:]
-                    data[stage]["clipper_metrics"] = data[stage]["clipper_metrics"][1:]
-                    data[stage]["client_metrics"] = data[stage]["client_metrics"][1:]
-                    experiments[exp] = data
+                        # Remove first trial
+                        data[stage]["summary_metrics"] = data[stage]["summary_metrics"][1:]
+                        data[stage]["clipper_metrics"] = data[stage]["clipper_metrics"][2:]
+                        data[stage]["client_metrics"] = data[stage]["client_metrics"][1:]
+                        if "remote" in exp:
+                            data["node_configs"][0]["instance_type"] = "p2.8xlarge"
+                    result = (exp, data)
+                except json.JSONDecodeError as e:
+                    logger.error("Error loading {}: {}".format(f.name, e.msg))
+    except Exception as e:
+        traceback.print_exc(e)
+    queue.put(result)
+    return
+
+def load_results(results_dir):
+    fs = os.listdir(results_dir)
+    experiments = {}
+    queue = Queue()
+    procs = []
+
+    for exp in fs:
+        p = Process(target=load_file, args=(results_dir, exp, queue))
+        p.start()
+        procs.append(p)
+    for p in procs:
+        result = queue.get()
+        if result:
+            exp, data = result
+            experiments[exp] = data
+        # p.join()
     return experiments
 
 
@@ -91,7 +113,7 @@ def get_mean_throughput(exp, stage):
     thrus = []
     for cm in exp[stage]["summary_metrics"]:
         thrus.append(float(cm["client_thrus"][name]))
-    return (np.mean(thrus), np.std(thrus))
+    return (round(np.mean(thrus), 1), np.std(thrus))
 
 
 def get_mean_batch_size(exp):
