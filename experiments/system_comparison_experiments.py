@@ -91,7 +91,6 @@ def optimize_pipeline_one(throughput, opt, slo, cost, cloud, cv=1):
     resnet_gpu = "k80"
     if cloud == "aws":
         num_cpus = 1
-        # TODO(crankshaw): remove this line?
         resnet_gpu = "v100"
     else:
         num_cpus = 2
