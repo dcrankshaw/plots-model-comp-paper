@@ -172,7 +172,7 @@ def generate_pipeline_one_configs():
     logger.info("Optimizer initialized")
     configs = []
     cv = 1
-    for slo in [0.25, 0.5, 1.0]:
+    for slo in [0.3, 0.5, 1.0]:
         results_file = "aws_image_driver_one_ifl_configs_slo_{}.json".format(slo)
         for cost in costs:
             lam, result = probe_throughputs(slo, cloud, cost, opt, cv)
@@ -184,6 +184,7 @@ def generate_pipeline_one_configs():
                     slo, cost, lam, cv, node_configs, perfs, response_time).__dict__)
                 with open(results_file, "w") as f:
                     json.dump(configs, f, indent=4)
+                return
             else:
                 logger.info("no result")
 
@@ -229,10 +230,8 @@ def generate_pipeline_one_configs():
 
 
 if __name__ == "__main__":
-    for cv in [0.1, 1, 4]:
-        for throughput in range(1, 2000):
-            generate_arrival_process(throughput, cv)
+    # for cv in [0.1, 1, 4]:
+    #     for throughput in range(1, 2000):
+    #         generate_arrival_process(throughput, cv)
 
-
-
-    # generate_pipeline_one_configs()
+    generate_pipeline_one_configs()
