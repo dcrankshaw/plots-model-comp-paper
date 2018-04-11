@@ -21,19 +21,22 @@ logger = logging.getLogger(__name__)
 MIN_DELAY_MS = 0.047
 
 
-arrival_process_dir = os.path.join(cur_dir, "cached_arrival_processes")
-if not os.path.exists(arrival_process_dir):
-    os.makedirs(arrival_process_dir)
-
-
 def generate_arrival_process(throughput, cv):
-    def gamma(mean, CV, size=50000):
+    arrival_process_dir = os.path.join(cur_dir, "cached_arrival_processes")
+    if not os.path.exists(arrival_process_dir):
+        raise Exception("Error: Cached arrival processes not found")
+
+    def gamma(mean, CV, size):
         return np.random.gamma(1./CV, CV*mean, size=size)
-    deltas_path = os.path.join(arrival_process_dir,
-                               "{}.deltas".format(throughput))
+    if cv == 1:
+        deltas_path = os.path.join(arrival_process_dir,
+                                "{}.deltas".format(throughput))
+    else:
+        deltas_path = os.path.join(arrival_process_dir,
+                                "{lam}_{cv}.deltas".format(lam=throughput, cv=cv))
     if not os.path.exists(deltas_path):
         inter_request_delay_ms = 1.0 / float(throughput) * 1000.0
-        deltas = gamma(inter_request_delay_ms, cv, size=(50000))
+        deltas = gamma(inter_request_delay_ms, cv, size=50000)
         deltas = np.clip(deltas, a_min=MIN_DELAY_MS, a_max=None)
         arrival_history = np.cumsum(deltas)
         with open(deltas_path, "w") as f:
@@ -44,8 +47,8 @@ def generate_arrival_process(throughput, cv):
             deltas = np.array([float(l.strip()) for l in f]).flatten()
         arrival_history = np.cumsum(deltas)
     return arrival_history
-        
-        
+
+
 
 
 def get_optimizer_pipeline_one():
@@ -226,4 +229,10 @@ def generate_pipeline_one_configs():
 
 
 if __name__ == "__main__":
-    generate_pipeline_one_configs()
+    for cv in [0.1, 1, 4]:
+        for throughput in range(1, 2000):
+            generate_arrival_process(throughput, cv)
+
+
+
+    # generate_pipeline_one_configs()
