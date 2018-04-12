@@ -170,10 +170,10 @@ def generate_pipeline_one_configs():
     opt = get_optimizer_pipeline_one()
     # opt = None
     logger.info("Optimizer initialized")
-    configs = []
-    cv = 1
+    cv = 4.0
     for slo in [0.35, 0.5, 1.0]:
         results_file = "aws_image_driver_one_ifl_configs_slo_{}.json".format(slo)
+        configs = []
         for cost in costs:
             lam, result = probe_throughputs(slo, cloud, cost, opt, cv)
             if result:

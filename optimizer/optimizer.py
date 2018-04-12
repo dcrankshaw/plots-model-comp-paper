@@ -482,6 +482,7 @@ class GreedyOptimizer(object):
                     if latency_slo_met:
                         logger.info("LATENCY SLO MET\nConfig:{}".format(cur_pipeline_config))
                 last_action_response_time = best_action_response_time
+                logger.info("Finished iteration {}".format(iteration))
             iteration += 1
 
         # Finally, check that the selected profile meets the application constraints, in case
