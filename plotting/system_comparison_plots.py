@@ -61,7 +61,9 @@ def load_tfs_results(path, slo):
     lam, cv = get_lam_and_cv_from_fname(arrival_process_fname)
     cost = compute_tfs_cost(results)
     slo_miss_rate = compute_tfs_slo_miss_rate(results, slo)
-    return {"cost": cost, "lambda": lam, "CV": cv, "slo_miss_rate": slo_miss_rate}
+    slo_plus_25_miss_rate = compute_tfs_slo_miss_rate(results, slo*1.25)
+    return {"cost": cost, "lambda": lam, "CV": cv, "slo_miss_rate": slo_miss_rate,
+            "slo_plus_25_per_miss_rate": slo_plus_25_miss_rate}
 
 ##########################################################
 ################ SINGLE PROCESS DRIVER ###################
@@ -96,7 +98,9 @@ def load_spd_results(path, slo):
     lam, cv = get_lam_and_cv_from_fname(arrival_process_fname)
     cost = compute_spd_cost(results)
     slo_miss_rate = compute_spd_slo_miss_rate(results, slo)
-    return {"cost": cost, "lambda": lam, "CV": cv, "slo_miss_rate": slo_miss_rate}
+    slo_plus_25_miss_rate = compute_spd_slo_miss_rate(results, slo*1.25)
+    return {"cost": cost, "lambda": lam, "CV": cv, "slo_miss_rate": slo_miss_rate,
+            "slo_plus_25_per_miss_rate": slo_plus_25_miss_rate}
 
 ##########################################################
 ####################### INFERLINE ########################
@@ -135,8 +139,10 @@ def load_inferline_results(path, slo):
                     lats.append(float(list(i.values())[0]) / 1000.0 / 1000.0)
     lats = np.array(lats)
     slo_miss_rate = np.sum(lats > slo) / len(lats)
+    slo_plus_25_miss_rate = np.sum(lats > slo*1.25) / len(lats)
     cost = compute_inferline_cost(results)
-    return {"cost": cost, "lambda": lam, "CV": cv, "slo_miss_rate": slo_miss_rate}
+    return {"cost": cost, "lambda": lam, "CV": cv, "slo_miss_rate": slo_miss_rate,
+            "slo_plus_25_per_miss_rate": slo_plus_25_miss_rate}
 
 
 def load_e2e_experiments():
