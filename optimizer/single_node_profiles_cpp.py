@@ -230,7 +230,7 @@ def create_node_profile_df(results_dir):
 
 def load_single_node_profiles(
         single_node_profs_dir=os.path.abspath("../results_cpp_benchmarker/single_model_profs/"),
-        models=None):
+        models=[]):
     """
     Returns
     -------
