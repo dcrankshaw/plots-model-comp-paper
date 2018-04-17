@@ -147,16 +147,18 @@ def load_inferline_results(path, slo):
 
 def load_e2e_experiments():
     experiments = [
+        {"name": "Inferline", "slo": .35, "path": os.path.abspath("../results_cpp_benchmarker/e2e_results/image_driver_1/image_driver_one_slo_0.35_cv_1")},
         {"name": "TFS Peak", "slo": .35, "path": os.path.abspath("../TFS/image_driver_1/min_latency_arrival_process/v100-8xlarge/peak_350")},
         {"name": "TFS Mean", "slo": .35, "path": os.path.abspath("../TFS/image_driver_1/min_latency_arrival_process/v100-8xlarge/mean")},
-        {"name": "TFS Mean", "slo": .50, "path": os.path.abspath("../TFS/image_driver_1/min_latency_arrival_process/v100-8xlarge/mean")},
-        {"name": "TFS Peak", "slo": .50, "path": os.path.abspath("../TFS/image_driver_1/min_latency_arrival_process/v100-8xlarge/peak_500")},
         {"name": "SPD Mean Batching", "slo": .35, "path": os.path.abspath("../SPD/image_driver_1/v100-8xlarge/mean_provision_350/")},
         {"name": "SPD Peak Batching", "slo": .35, "path": os.path.abspath("../SPD/image_driver_1/v100-8xlarge/peak_provision_350/")},
         {"name": "SPD Mean No Batching", "slo": .35, "path": os.path.abspath("../SPD/image_driver_1/v100-8xlarge/mean_provision_min_lat/")},
         {"name": "SPD Peak No Batching", "slo": .35, "path": os.path.abspath("../SPD/image_driver_1/v100-8xlarge/peak_provision_min_lat/")},
-        {"name": "Inferline", "slo": .35, "path": os.path.abspath("../results_cpp_benchmarker/e2e_results/image_driver_1/image_driver_one_slo_0.35_cv_1")},
         {"name": "Inferline", "slo": .50, "path": os.path.abspath("../results_cpp_benchmarker/e2e_results/image_driver_1/image_driver_one_slo_0.5_cv_1")},
+        {"name": "TFS Mean", "slo": .50, "path": os.path.abspath("../TFS/image_driver_1/min_latency_arrival_process/v100-8xlarge/mean")},
+        {"name": "TFS Peak", "slo": .50, "path": os.path.abspath("../TFS/image_driver_1/min_latency_arrival_process/v100-8xlarge/peak_500")},
+        {"name": "SPD Mean No Batching", "slo": .50, "path": os.path.abspath("../SPD/image_driver_1/v100-8xlarge/mean_provision_min_lat/")},
+        {"name": "SPD Peak No Batching", "slo": .50, "path": os.path.abspath("../SPD/image_driver_1/v100-8xlarge/peak_provision_min_lat/")},
         {"name": "Inferline", "slo": 1.0, "path": os.path.abspath("../results_cpp_benchmarker/e2e_results/image_driver_1/image_driver_one_slo_1.0_cv_1")}
     ]
 
