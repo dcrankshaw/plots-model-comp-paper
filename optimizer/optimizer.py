@@ -172,7 +172,7 @@ class ArrivalHistory(object):
         # smoother and a marginally more accurate estimate plot of the arrival curve, but also
         # requires more computation time
         arrival_x = np.linspace(1, max_x, 200)
-        chunk_size = 20
+        chunk_size = 40
         arrival_y = []
         # This for loop is just to limit the degree of parallelism
         for chunk in range(len(arrival_x) // chunk_size):
@@ -188,12 +188,12 @@ class ArrivalHistory(object):
         return (self._max_Q_given_arrival(arrival_x, arrival_y, latency, throughput),
                 self._max_response_time_given_arrival(arrival_x, arrival_y, latency, throughput))
 
-    def get_adjusted_max_Q_and_time(self, max_batch_size, service_time_func, throughput):
-        max_batch_service_time = service_time_func(max_batch_size)
-        max_effective_batch_size = min(self._get_arrival_curve_at_x(max_batch_service_time), max_batch_size)
-        # This is the service time of the maximum effective batch size
-        service_curve_horizontal_shift = service_time_func(max_effective_batch_size)
-        return self.get_max_Q_and_time(service_curve_horizontal_shift, throughput)
+    # def get_adjusted_max_Q_and_time(self, max_batch_size, service_time_func, throughput):
+    #     max_batch_service_time = service_time_func(max_batch_size)
+    #     max_effective_batch_size = min(self._get_arrival_curve_at_x(max_batch_service_time), max_batch_size)
+    #     # This is the service time of the maximum effective batch size
+    #     service_curve_horizontal_shift = service_time_func(max_effective_batch_size)
+    #     return self.get_max_Q_and_time(service_curve_horizontal_shift, throughput)
 
 
 class BruteForceOptimizer(object):
@@ -354,33 +354,72 @@ class GreedyOptimizer(object):
                     # We'll never take this action if it violates the cost constraint
                     if new_estimated_perf["cost"] > cost_constraint:
                         continue
-                    # Notice below how latency argument is zero so we don't double-count and include
-                    # the bottleneck model's service time in the NetCalc service time estimation.
-                    # This means that the first result (the maximum queue size) isn't correct
-                    # anymore, and that the second result (response time) no longer includes the
-                    # service time, so just the queue waitng time.
-                    # if use_netcalc and action == 'batch_size':
                     if use_netcalc:
                         logger.info("Doing network calc")
                         netcalc_config = new_bottleneck_config
+                        
 
-                        def service_time_func(batch_size):
-                            netcalc_config.batch_size = batch_size
+                        # DEFINING THE SERVICE CURVE FOR A NODE
+                        # -------------------------------------
+                        # The service curve for a node is defined by a throughput and latency. The throughput
+                        # is simply the throughput of that node under the given configuration. The latency
+                        # is composed of two components. First, we need to account for the service time of the
+                        # node under the given configuration (call this T_sb); this is the time spent actually processing
+                        # a batch. But, because we are doing batch processing (even with batch size of 1), we end up
+                        # with a departure flow that is stepwise. We therefore need to shift the service curve of the
+                        # node to be a lower bound on that stepwise function. In order to correct this, we need to account
+                        # for the maximum time that a query *that will be processed in the next batch* can spend in the queue.
+                        # Network calculus will account for variation in queuing time that arises from a bursty arrival
+                        # process, but does not account for the queuing delay induced by batching. This additional queuing
+                        # delay can be bounded by the service time for the node (imagine a query arrives in the queue just
+                        # as the previous batch is dispatched. It therefore must wait in the queue for the entire duration
+                        # of the previous batch (T_sb). Because of this, the latency describing the service curve of the
+                        # node is T_sb + T_sb. Note that because we are trying to estimate queue waiting time here and not
+                        # the response time, we perform network calculus on the service curve that defines the queue waiting
+                        # time, not the response time. Thus, the latency we provide is T_sb (without the multiplication by 2).
+                        #
+                        # Note that there is a potential optimization to account for situations where the arrival curve
+                        # will never result in a full size batch for a model (this frequently occurs when nodes are configured with
+                        # large batch sizes). In this case, using T_sb for the maximum amount of time that a query can wait
+                        # in the queue before being processed, because the node will never be processing a full size batch.
+                        # In this case, we can estimate the maximum effective batch size (T_se) for the given pipeline configuration
+                        # and arrival history, and use that instead.
+                        #
+                        # DEFINING THE SERVICE CURVE FOR THE PIPELINE
+                        # -------------------------------------------
+                        # Given service curves for all the nodes in the pipeline, deriving the aggregate service curve for the
+                        # pipeline is fairly straightforward:
+                        # 
+                        # 1) Convolve the service curves of all the nodes along a given path by summing the latencies and
+                        #    taking a min over the throughputs. This is a convolution under the min-plus algebra.
+                        # 2) Aggregate the service curves of all the parallel paths by taking a max over the latencies
+                        #    and a min over the throughputs.
+                        #
+                        # Finally, we can do network calculus to estimate the maximum response time for the pipeline given
+                        # this aggregate service curve and the provided arrival curve.
 
-                            # Return the 0th element because we only need to
-                            # return the p99 latency (in ms)
-                            return self.node_profs[cur_bottleneck_node]\
-                                    .estimate_performance(netcalc_config)[0] * 1000.0
 
-                        _, Q_waiting_time = arrival_history_obj.get_adjusted_max_Q_and_time(
-                                new_bottleneck_config.batch_size,
-                                service_time_func,
-                                # Convert throughput to queries/ms
+                        T_S = new_estimated_perf["latency"]
+                        _, Q_waiting_time = arrival_history_obj.get_max_Q_and_time(T_S * 1000.0,
                                 new_estimated_perf["throughput"] / 1000.)
+
+
+                        # def service_time_func(batch_size):
+                        #     netcalc_config.batch_size = batch_size
+                        #
+                        #     # Return the 0th element because we only need to
+                        #     # return the p99 latency (in ms)
+                        #     return self.node_profs[cur_bottleneck_node]\
+                        #             .estimate_performance(netcalc_config)[0] * 1000.0
+
+                        # _, Q_waiting_time = arrival_history_obj.get_adjusted_max_Q_and_time(
+                        #         new_bottleneck_config.batch_size,
+                        #         service_time_func,
+                        #         # Convert throughput to queries/ms
+                        #         new_estimated_perf["throughput"] / 1000.)
 
                         # converting time to seconds
                         T_Q = Q_waiting_time / 1000.0
-                        T_S = new_estimated_perf["latency"]
                         response_time = T_Q + T_S
 
                         logger.info("Response time: {total}, T_s={ts}, T_q={tq}".format(total=response_time,
@@ -432,16 +471,18 @@ class GreedyOptimizer(object):
             else:
                 cur_pipeline_config[cur_bottleneck_node] = best_action_config
                 logger.info(("Upgrading bottleneck node {bottleneck} to {new_config}."
-                             "\nIncreased QPSD by: {qpsd}").format(
+                    "\nIncreased QPSD by: {qpsd}.\nNew config: {new_conf}").format(
                                  bottleneck=cur_bottleneck_node,
                                  new_config=best_action_config,
-                                 qpsd=best_action_qpsd_delta))
+                                 qpsd=best_action_qpsd_delta,
+                                 new_conf=cur_pipeline_config))
                 # Once latency_slo_met is set to True, it should never be set to False again
                 if not latency_slo_met:
                     latency_slo_met = best_action_response_time <= latency_constraint
                     if latency_slo_met:
                         logger.info("LATENCY SLO MET\nConfig:{}".format(cur_pipeline_config))
                 last_action_response_time = best_action_response_time
+                logger.info("Finished iteration {}".format(iteration))
             iteration += 1
 
         # Finally, check that the selected profile meets the application constraints, in case

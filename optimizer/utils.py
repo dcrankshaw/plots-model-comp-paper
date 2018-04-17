@@ -10,6 +10,7 @@ GCP_K80_COST = 0.315
 GCP_P100_COST = 1.022
 
 
+# NOTE: This cost is the cost of physical cpus, not virtual cpus
 def get_cpu_cost(cloud, num_cpus):
     if cloud == "aws":
         return num_cpus * AWS_CPU_COST
