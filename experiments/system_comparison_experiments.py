@@ -44,11 +44,11 @@ def generate_arrival_process(throughput, cv):
             deltas = np.array([float(l.strip()) for l in f]).flatten()
         arrival_history = np.cumsum(deltas)
     return arrival_history
-        
-        
 
 
-def get_optimizer_pipeline_one():
+
+
+def get_optimizer_pipeline_one(utilization):
     dag = profiler.get_logical_pipeline("pipeline_one")
     with open(os.path.abspath("../results_python_benchmarker/e2e_profs/systemx/image_driver_1/500ms"
                               "/incep_1-logreg_1-ksvm_1-resnet_1-171221_091209.json")) as f:
@@ -59,9 +59,9 @@ def get_optimizer_pipeline_one():
     node_profs = {}
     for name in node_configs:
         if name in ["tf-log-reg", "tf-kernel-svm"]:
-            node_profs[name] = profiler.NodeProfile(name, profs[name], "latency_stage")
+            node_profs[name] = profiler.NodeProfile(name, profs[name], "latency_stage", utilization)
         else:
-            node_profs[name] = profiler.NodeProfile(name, profs[name], "thru_stage")
+            node_profs[name] = profiler.NodeProfile(name, profs[name], "thru_stage", utilization)
     opt = GreedyOptimizer(dag, scale_factors, node_profs)
     return opt
 
@@ -161,68 +161,27 @@ class Configuration(object):
         self.cv = cv
 
 
-def generate_pipeline_one_configs():
+def generate_pipeline_one_configs(utilization=0.75):
     costs = [5.4, 8.0, 10.6, 13.2, 15.8, 18.4, 21.0]
     cloud = "aws"
-    opt = get_optimizer_pipeline_one()
-    # opt = None
+    opt = get_optimizer_pipeline_one(utilization)
     logger.info("Optimizer initialized")
     configs = []
-    cv = 1
-    for slo in [0.25, 0.5, 1.0]:
-        results_file = "aws_image_driver_one_ifl_configs_slo_{}.json".format(slo)
-        for cost in costs:
-            lam, result = probe_throughputs(slo, cloud, cost, opt, cv)
-            if result:
-                logger.info(("FOUND CONFIG FOR SLO: {slo}, COST: {cost}, LAMBDA: {lam}, "
-                             "CV: {cv}").format(slo=slo, cost=cost, lam=lam, cv=cv))
-                node_configs, perfs, response_time = result
-                configs.append(Configuration(
-                    slo, cost, lam, cv, node_configs, perfs, response_time).__dict__)
-                with open(results_file, "w") as f:
-                    json.dump(configs, f, indent=4)
-            else:
-                logger.info("no result")
-
-
-# def estimate_per_node_perf():
-#     cloud = "aws"
-#     num_cpus = 1
-#     inception_gpu = "v100"
-#     resnet_gpu = "v100"
-#
-#     opt = get_optimizer_pipeline_one()
-#
-#     config = {
-#         "inception": profiler.NodeConfig(name="inception",
-#                                          num_cpus=num_cpus,
-#                                          gpu_type=inception_gpu,
-#                                          batch_size=16,
-#                                          num_replicas=1,
-#                                          cloud=cloud),
-#         "tf-resnet-feats": profiler.NodeConfig(name="tf-resnet-feats",
-#                                                num_cpus=num_cpus,
-#                                                gpu_type=resnet_gpu,
-#                                                batch_size=32,
-#                                                num_replicas=1,
-#                                                cloud=cloud),
-#         "tf-log-reg": profiler.NodeConfig(name="tf-log-reg",
-#                                           num_cpus=num_cpus,
-#                                           gpu_type="none",
-#                                           batch_size=1,
-#                                           num_replicas=1,
-#                                           cloud=cloud),
-#         "tf-kernel-svm": profiler.NodeConfig(name="tf-kernel-svm",
-#                                              num_cpus=num_cpus,
-#                                              gpu_type="none",
-#                                              batch_size=4,
-#                                              num_replicas=1,
-#                                              cloud=cloud),
-#     }
-#
-#     for n in opt.node_profs:
-#         perf = opt.node_profs[n].estimate_performance(config[n])
-#         print("NODE: {}, PERF: {}".format(n, perf))
+    for cv in [1.0, 4.0, 0.1]:
+        for slo in [0.5, 0.35, 1.0]:
+            results_file = "aws_image_driver_one_ifl_configs_slo_{}.json".format(slo)
+            for cost in costs:
+                lam, result = probe_throughputs(slo, cloud, cost, opt, cv)
+                if result:
+                    logger.info(("FOUND CONFIG FOR SLO: {slo}, COST: {cost}, LAMBDA: {lam}, "
+                                "CV: {cv}").format(slo=slo, cost=cost, lam=lam, cv=cv))
+                    node_configs, perfs, response_time = result
+                    configs.append(Configuration(
+                        slo, cost, lam, cv, node_configs, perfs, response_time).__dict__)
+                    with open(results_file, "w") as f:
+                        json.dump(configs, f, indent=4)
+                else:
+                    logger.info("no result")
 
 
 if __name__ == "__main__":

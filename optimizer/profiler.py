@@ -108,7 +108,7 @@ class NodeConfig(object):
 
 class NodeProfile(object):
 
-    def __init__(self, name, profile, throughput_stage):
+    def __init__(self, name, profile, throughput_stage, utilization):
         """
         Parameters:
         -----------
@@ -123,14 +123,9 @@ class NodeProfile(object):
         self.throughput_stage = throughput_stage
         self.throughput_field = self.throughput_stage + "_mean_throughput_qps"
         self.profile = profile
-        # self.prune_profile()
+        self.profile.latency_stage_mean_throughput *= utilization
+        self.profile.thru_stage_mean_throughput *= utilization
 
-    # def patch_batch_size_one_profs(self):
-    #     batch_size_one_profs = self.profile[self.profile.batch_size == 1.0]
-    #     resource_bundle_groups = self.profile.groupby(["cloud",
-    #                                                    "num_cpus_per_replica"])
-    #     for bundle, df in resource_bundle_groups:
-    #         df
 
     def enumerate_configs(self, max_replication_factor=1):
         """
