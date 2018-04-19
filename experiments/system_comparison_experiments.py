@@ -166,9 +166,9 @@ def generate_pipeline_one_configs(utilization):
     cloud = "aws"
     opt = get_optimizer_pipeline_one(utilization)
     logger.info("Optimizer initialized")
-    configs = []
     for cv in [1.0, 4.0, 0.1]:
         for slo in [0.5, 0.35, 1.0]:
+            configs = []
             results_file = "aws_image_driver_one_ifl_configs_slo_{slo}_cv_{cv}_util_{util}.json".format(
                 slo=slo,
                 cv=cv,
