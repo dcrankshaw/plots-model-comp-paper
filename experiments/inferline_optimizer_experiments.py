@@ -163,6 +163,35 @@ class Configuration(object):
         self.cv = cv
         self.utilization = utilization
 
+def sweep_utilization_factor_pipeline_one():
+    results_dir = os.path.abspath("utilization_sweep_pipeline_one")
+    if not os.path.exists(results_dir):
+        os.makedirs(results_dir)
+        logger.info("Created results directory: %s" % results_dir)
+    costs = [5.4, 10.6]
+    cloud = "aws"
+    logger.info("Optimizer initialized")
+    cv = 1.0
+    slo = 0.5
+    for cost in costs:
+        configs = []
+        for utilization in [0.5, 0.6, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1.0]:
+            opt = get_optimizer_pipeline_one(utilization)
+            results_fname = "aws_image_driver_one_utilization_sweep_slo_{slo}_cv_{cv}_cost_{cost}.json".format(
+                slo=slo, cv=cv, cost=cost)
+            results_file = os.path.join(results_dir, results_fname)
+            lam, result = probe_throughputs(slo, cloud, cost, opt, cv)
+            if result:
+                logger.info(("FOUND CONFIG FOR UTIL: {util}, COST: {cost}, LAMBDA: {lam}, "
+                            "CV: {cv}").format(util=utilization, cost=cost, lam=lam, cv=cv))
+                node_configs, perfs, response_time = result
+                configs.append(Configuration(
+                    slo, cost, lam, cv, node_configs, perfs,
+                    response_time, utilization).__dict__)
+                with open(results_file, "w") as f:
+                    json.dump(configs, f, indent=4)
+            else:
+                logger.info("no result")
 
 def generate_pipeline_one_configs(utilization):
     costs = [5.4, 8.0, 10.6, 13.2, 15.8, 18.4, 21.0]
@@ -192,4 +221,5 @@ def generate_pipeline_one_configs(utilization):
 
 
 if __name__ == "__main__":
-    generate_pipeline_one_configs(utilization=0.75)
+    # generate_pipeline_one_configs(utilization=0.75)
+    sweep_utilization_factor_pipeline_one()
