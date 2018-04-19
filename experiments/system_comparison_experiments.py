@@ -27,13 +27,21 @@ if not os.path.exists(arrival_process_dir):
 
 
 def generate_arrival_process(throughput, cv):
-    def gamma(mean, CV, size=50000):
+    arrival_process_dir = os.path.join(cur_dir, "cached_arrival_processes")
+    if not os.path.exists(arrival_process_dir):
+        raise Exception("Error: Cached arrival processes not found")
+
+    def gamma(mean, CV, size):
         return np.random.gamma(1./CV, CV*mean, size=size)
+    # if cv == 1:
+    #     deltas_path = os.path.join(arrival_process_dir,
+    #                             "{}.deltas".format(throughput))
+    # else:
     deltas_path = os.path.join(arrival_process_dir,
-                               "{}.deltas".format(throughput))
+                            "{lam}_{cv}.deltas".format(lam=throughput, cv=cv))
     if not os.path.exists(deltas_path):
         inter_request_delay_ms = 1.0 / float(throughput) * 1000.0
-        deltas = gamma(inter_request_delay_ms, cv, size=(50000))
+        deltas = gamma(inter_request_delay_ms, cv, size=50000)
         deltas = np.clip(deltas, a_min=MIN_DELAY_MS, a_max=None)
         arrival_history = np.cumsum(deltas)
         with open(deltas_path, "w") as f:
@@ -121,11 +129,6 @@ def optimize_pipeline_one(throughput, opt, slo, cost, cloud, cv):
     if result:
         results.append(result)
         best_config, best_config_perf, response_time = result
-        # for b in best_config.items():
-        #     print(b)
-        # print("\n\nFINAL RESULTS:")
-        # for r in results:
-        #     print(r)
     return result
 
 
