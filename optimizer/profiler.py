@@ -123,8 +123,8 @@ class NodeProfile(object):
         self.throughput_stage = throughput_stage
         self.throughput_field = self.throughput_stage + "_mean_throughput_qps"
         self.profile = profile
-        self.profile.latency_stage_mean_throughput *= utilization
-        self.profile.thru_stage_mean_throughput *= utilization
+        self.profile.latency_stage_mean_throughput_qps *= utilization
+        self.profile.thru_stage_mean_throughput_qps *= utilization
 
 
     def enumerate_configs(self, max_replication_factor=1):
