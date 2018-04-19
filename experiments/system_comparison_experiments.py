@@ -33,12 +33,12 @@ def generate_arrival_process(throughput, cv):
 
     def gamma(mean, CV, size):
         return np.random.gamma(1./CV, CV*mean, size=size)
-    # if cv == 1:
-    #     deltas_path = os.path.join(arrival_process_dir,
-    #                             "{}.deltas".format(throughput))
-    # else:
-    deltas_path = os.path.join(arrival_process_dir,
-                            "{lam}_{cv}.deltas".format(lam=throughput, cv=cv))
+    if cv == 1:
+        deltas_path = os.path.join(arrival_process_dir,
+                                   "{}.deltas".format(throughput))
+    else:
+        deltas_path = os.path.join(arrival_process_dir,
+                                   "{lam}_{cv}.deltas".format(lam=throughput, cv=cv))
     if not os.path.exists(deltas_path):
         inter_request_delay_ms = 1.0 / float(throughput) * 1000.0
         deltas = gamma(inter_request_delay_ms, cv, size=50000)
