@@ -193,18 +193,24 @@ def sweep_utilization_factor_pipeline_one():
             else:
                 logger.info("no result")
 
-def generate_pipeline_one_configs(utilization):
+def generate_pipeline_one_configs(utilization=0.8):
+    results_dir = os.path.abspath("e2e_sys_comp_pipeline_one")
+    if not os.path.exists(results_dir):
+        os.makedirs(results_dir)
+        logger.info("Created results directory: %s" % results_dir)
     costs = [5.4, 8.0, 10.6, 13.2, 15.8, 18.4, 21.0]
     cloud = "aws"
     opt = get_optimizer_pipeline_one(utilization)
     logger.info("Optimizer initialized")
-    for cv in [1.0, 4.0, 0.1]:
+    # for cv in [1.0, 4.0, 0.1]:
+    for cv in [1.0, 0.1]:
         for slo in [0.5, 0.35, 1.0]:
             configs = []
-            results_file = "aws_image_driver_one_ifl_configs_slo_{slo}_cv_{cv}_util_{util}.json".format(
+            results_fname = "aws_image_driver_one_ifl_configs_slo_{slo}_cv_{cv}.json".format(
                 slo=slo,
                 cv=cv,
                 util=utilization)
+            results_file = os.path.join(results_dir, results_fname)
             for cost in costs:
                 lam, result = probe_throughputs(slo, cloud, cost, opt, cv)
                 if result:
@@ -221,5 +227,5 @@ def generate_pipeline_one_configs(utilization):
 
 
 if __name__ == "__main__":
-    # generate_pipeline_one_configs(utilization=0.75)
-    sweep_utilization_factor_pipeline_one()
+    generate_pipeline_one_configs()
+    # sweep_utilization_factor_pipeline_one()
