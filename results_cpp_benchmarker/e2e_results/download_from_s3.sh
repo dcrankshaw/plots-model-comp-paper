@@ -14,4 +14,4 @@ DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 # Let the user start this script from anywhere in the filesystem.
 cd $DIR/..
 
-aws s3 sync $DIR s3://inferline-results
+aws s3 sync s3://inferline-results $DIR
