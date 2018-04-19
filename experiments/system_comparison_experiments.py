@@ -46,8 +46,6 @@ def generate_arrival_process(throughput, cv):
     return arrival_history
 
 
-
-
 def get_optimizer_pipeline_one(utilization):
     dag = profiler.get_logical_pipeline("pipeline_one")
     with open(os.path.abspath("../results_python_benchmarker/e2e_profs/systemx/image_driver_1/500ms"
@@ -151,7 +149,8 @@ def probe_throughputs(slo, cloud, cost, opt, cv):
 
 
 class Configuration(object):
-    def __init__(self, slo, cost, lam, cv, node_configs, estimated_perf, response_time):
+    def __init__(self, slo, cost, lam, cv, node_configs, estimated_perf, response_time,
+                 utilization):
         self.slo = slo
         self.cost = cost
         self.lam = lam
@@ -159,9 +158,10 @@ class Configuration(object):
         self.estimated_perf = estimated_perf
         self.response_time = response_time
         self.cv = cv
+        self.utilization = utilization
 
 
-def generate_pipeline_one_configs(utilization=0.75):
+def generate_pipeline_one_configs(utilization):
     costs = [5.4, 8.0, 10.6, 13.2, 15.8, 18.4, 21.0]
     cloud = "aws"
     opt = get_optimizer_pipeline_one(utilization)
@@ -169,7 +169,10 @@ def generate_pipeline_one_configs(utilization=0.75):
     configs = []
     for cv in [1.0, 4.0, 0.1]:
         for slo in [0.5, 0.35, 1.0]:
-            results_file = "aws_image_driver_one_ifl_configs_slo_{}.json".format(slo)
+            results_file = "aws_image_driver_one_ifl_configs_slo_{slo}_cv_{cv}_util_{util}.json".format(
+                slo=slo,
+                cv=cv,
+                util=utilization)
             for cost in costs:
                 lam, result = probe_throughputs(slo, cloud, cost, opt, cv)
                 if result:
@@ -177,7 +180,8 @@ def generate_pipeline_one_configs(utilization=0.75):
                                 "CV: {cv}").format(slo=slo, cost=cost, lam=lam, cv=cv))
                     node_configs, perfs, response_time = result
                     configs.append(Configuration(
-                        slo, cost, lam, cv, node_configs, perfs, response_time).__dict__)
+                        slo, cost, lam, cv, node_configs, perfs,
+                        response_time, utilization).__dict__)
                     with open(results_file, "w") as f:
                         json.dump(configs, f, indent=4)
                 else:
@@ -185,4 +189,4 @@ def generate_pipeline_one_configs(utilization=0.75):
 
 
 if __name__ == "__main__":
-    generate_pipeline_one_configs()
+    generate_pipeline_one_configs(utilization=0.75)
