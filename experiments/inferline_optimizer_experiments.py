@@ -194,7 +194,7 @@ def sweep_utilization_factor_pipeline_one():
                 logger.info("no result")
 
 def generate_pipeline_one_configs(utilization=0.8):
-    results_dir = os.path.abspath("e2e_sys_comp_pipeline_one")
+    results_dir = os.path.abspath("e2e_sys_comp_pipeline_one/util_{}".format(utilization))
     if not os.path.exists(results_dir):
         os.makedirs(results_dir)
         logger.info("Created results directory: %s" % results_dir)
@@ -203,7 +203,7 @@ def generate_pipeline_one_configs(utilization=0.8):
     opt = get_optimizer_pipeline_one(utilization)
     logger.info("Optimizer initialized")
     # for cv in [1.0, 4.0, 0.1]:
-    for cv in [1.0, 0.1]:
+    for cv in [1.0, 4.0]:
         for slo in [0.5, 0.35, 1.0]:
             configs = []
             results_fname = "aws_image_driver_one_ifl_configs_slo_{slo}_cv_{cv}.json".format(
@@ -227,5 +227,5 @@ def generate_pipeline_one_configs(utilization=0.8):
 
 
 if __name__ == "__main__":
-    # generate_pipeline_one_configs()
-    sweep_utilization_factor_pipeline_one()
+    generate_pipeline_one_configs(0.7)
+    # sweep_utilization_factor_pipeline_one()
