@@ -172,7 +172,7 @@ def sweep_utilization_factor_pipeline_one():
     cloud = "aws"
     logger.info("Optimizer initialized")
     cv = 1.0
-    slo = 0.5
+    slo = 1.0
     for cost in costs:
         configs = []
         for utilization in [0.5, 0.6, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1.0]:
@@ -227,5 +227,5 @@ def generate_pipeline_one_configs(utilization=0.8):
 
 
 if __name__ == "__main__":
-    generate_pipeline_one_configs()
-    # sweep_utilization_factor_pipeline_one()
+    # generate_pipeline_one_configs()
+    sweep_utilization_factor_pipeline_one()
