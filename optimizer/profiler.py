@@ -469,6 +469,7 @@ def estimate_pipeline_performance_for_config(dag,
     bottleneck_thruput = None
     bottleneck_node = None
     total_cost = 0.0
+    cost_map = {}
     max_latency = None
     for path in paths:
         path_latency = 0
@@ -482,7 +483,11 @@ def estimate_pipeline_performance_for_config(dag,
             perf_estimate = prof.estimate_performance(conf)
             if perf_estimate is None:
                 return None
+            # If a node appears in more than one path (e.g. due to conditionals),
+            # this will naively double-count the cost. Instead, we put the <node,cost>
+            # entry in a dict to avoid double counting
             lat, thru, cost = perf_estimate
+            cost_map[prof.name] = cost
             scaled_thru = thru / scale_factors[node]
             path_latency += lat
             if bottleneck_thruput is None:
@@ -493,11 +498,12 @@ def estimate_pipeline_performance_for_config(dag,
                 bottleneck_thruput = scaled_thru
                 bottleneck_node = node
 
-            total_cost += cost
         # Update latency at the end of the path
         if max_latency is None:
             max_latency = path_latency
         max_latency = max(max_latency, path_latency)
+    for _, cost in cost_map.items():
+        total_cost += cost
     return ({
         "latency": max_latency,
         "throughput": bottleneck_thruput,
