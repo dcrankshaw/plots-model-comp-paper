@@ -27,10 +27,11 @@ def load_run(path):
     with open(path, "r") as f:
         results = json.load(f)
     slo = results["loaded_config"]["slo"]
+    lam = results["loaded_config"]["lam"]
     utilization = results["loaded_config"]["utilization"]
     lats = get_latencies_inferline_e2e(results) 
     slo_miss_rate = np.sum(lats > slo) / len(lats)
-    return {"utilization": utilization, "slo_miss_rate": slo_miss_rate}
+    return {"utilization": utilization, "slo_miss_rate": slo_miss_rate, "lam": lam}
 
 def load_exp_slo_500(dir_path):
     """
