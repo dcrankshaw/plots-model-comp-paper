@@ -279,7 +279,7 @@ def sweep_utilization_factor_pipeline_three():
     if not os.path.exists(results_dir):
         os.makedirs(results_dir)
         logger.info("Created results directory: %s" % results_dir)
-    costs = [5.4, 10.6]
+    costs =[11.08]
     cloud = "aws"
     logger.info("Optimizer initialized")
     cv = 1.0
@@ -344,6 +344,7 @@ def generate_pipeline_three_configs(utilization=0.8):
 
 if __name__ == "__main__":
     # generate_pipeline_one_configs(0.7)
-    generate_pipeline_three_configs()
+    # generate_pipeline_three_configs()
+    sweep_utilization_factor_pipeline_three()
 
 
