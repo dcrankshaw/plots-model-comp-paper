@@ -320,7 +320,7 @@ def generate_pipeline_three_configs(utilization=0.7):
     opt = get_optimizer_pipeline_three(utilization)
     logger.info("Optimizer initialized")
     # for cv in [1.0, 4.0, 0.1]:
-    for cv in [1.0]:
+    for cv in [4.0, 0.1]:
         for slo in [0.5, 0.35, 1.0]:
             configs = []
             results_fname = "aws_resnet_cascade_ifl_configs_slo_{slo}_cv_{cv}.json".format(
