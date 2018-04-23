@@ -304,8 +304,8 @@ def sweep_utilization_factor_pipeline_three():
             else:
                 logger.info("no result")
 
-def generate_pipeline_three_configs(utilization=0.8):
-    results_dir = os.path.abspath("e2e_sys_comp_pipeline_three")
+def generate_pipeline_three_configs(utilization=0.7):
+    results_dir = os.path.abspath("e2e_sys_comp_pipeline_three/util_{}".format(utilization))
     if not os.path.exists(results_dir):
         os.makedirs(results_dir)
         logger.info("Created results directory: %s" % results_dir)
@@ -344,7 +344,5 @@ def generate_pipeline_three_configs(utilization=0.8):
 
 if __name__ == "__main__":
     # generate_pipeline_one_configs(0.7)
-    # generate_pipeline_three_configs()
-    sweep_utilization_factor_pipeline_three()
-
-
+    generate_pipeline_three_configs(0.7)
+    # sweep_utilization_factor_pipeline_three()
