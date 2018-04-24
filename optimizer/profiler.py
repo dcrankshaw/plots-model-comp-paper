@@ -125,7 +125,7 @@ class NodeProfile(object):
         self.profile = profile
         self.profile.latency_stage_mean_throughput_qps *= utilization
         self.profile.thru_stage_mean_throughput_qps *= utilization
-        self.profile.prune()
+        self.prune_profile()
 
 
     def enumerate_configs(self, max_replication_factor=1):
@@ -347,13 +347,13 @@ class NodeProfile(object):
         """
         pruned = self.profile.copy(deep=True)
 
-        from IPython.display import display, Markdown
-
 
         resource_bundle_groups = pruned.groupby(["cloud",
             "gpu_type",
             "num_cpus_per_replica"])
 
+        # Drop all indexes at once
+        idxs_to_prune = []
         for bundle, df in resource_bundle_groups:
             # if bundle != ("aws", "v100", 1):
             #     continue
@@ -373,11 +373,13 @@ class NodeProfile(object):
                     # pruned.iloc[prev_idx]))
                     # print("Dropping batch size {} (row {})".format(
                     #     pruned.iloc[cur_idx]["mean_batch_size"], cur_idx))
-                    pruned = pruned.drop(index=cur_idx)
+                    idxs_to_prune.append(cur_idx)
                     idx_idx_cur += 1
                 else:
                     idx_idx_prev += 1
                     idx_idx_cur += 1
+
+        pruned = pruned.drop(index=idxs_to_prune)
 
         #     if not np.all(np.diff(sorted_df[self.throughput_field]) >= 0):
         #         print("Profile for node {name} bundle {bundle} is non-monotonic".format(
