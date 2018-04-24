@@ -61,15 +61,21 @@ def load_exp_slo_1000(dir_path):
     return df
     
 
-def load_all(slo):
-    if slo == 0.5:
-        high_load_df = load_exp_slo_500(os.path.abspath(
-            "../results_cpp_benchmarker/e2e_results/image_driver_1/util_sweep/slo_0.5/high_load"))
-        low_load_df = load_exp_slo_500(os.path.abspath(
-            "../results_cpp_benchmarker/e2e_results/image_driver_1/util_sweep/slo_0.5/low_load"))
-        return high_load_df, low_load_df
-    if slo == 1.0:
-        return load_exp_slo_1000(os.path.abspath(
-            "../results_cpp_benchmarker/e2e_results/image_driver_1/util_sweep/"
-            "slo_1.0/util-sweep-image_driver_one_slo_1.0_cost_10.6"))
+def load_all(slo, pipeline):
+    if pipeline == "pipeline_one":
+        if slo == 0.5:
+            high_load_df = load_exp_slo_500(os.path.abspath(
+                "../results_cpp_benchmarker/e2e_results/image_driver_1/util_sweep/slo_0.5/high_load"))
+            low_load_df = load_exp_slo_500(os.path.abspath(
+                "../results_cpp_benchmarker/e2e_results/image_driver_1/util_sweep/slo_0.5/low_load"))
+            return high_load_df, low_load_df
+        if slo == 1.0:
+            return load_exp_slo_1000(os.path.abspath(
+                "../results_cpp_benchmarker/e2e_results/image_driver_1/util_sweep/"
+                "slo_1.0/util-sweep-image_driver_one_slo_1.0_cost_10.6"))
+    if pipeline == "pipeline_three":
+        if slo == 1.0:
+            return load_exp_slo_1000(os.path.abspath(
+                "../results_cpp_benchmarker/e2e_results/resnet_cascade/util_sweep/slo_1.0/"
+                "resnet-cascade_utilization_sweep_slo_1.0_cv_1.0"))
 

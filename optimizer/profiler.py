@@ -125,6 +125,7 @@ class NodeProfile(object):
         self.profile = profile
         self.profile.latency_stage_mean_throughput_qps *= utilization
         self.profile.thru_stage_mean_throughput_qps *= utilization
+        self.profile.prune()
 
 
     def enumerate_configs(self, max_replication_factor=1):
@@ -346,12 +347,52 @@ class NodeProfile(object):
         """
         pruned = self.profile.copy(deep=True)
 
-        # Iterate over the original dataframe but filter the copy
-        for index, row in self.profile.iterrows():
-            # Keep any configs that have higher throughput, lower cost, or lower latency
-            pruned = pruned[(pruned[self.throughput_field] >= row[self.throughput_field])
-                            | (pruned.cost <= row["cost"])
-                            | (pruned.p99_latency <= row["p99_latency"])]
+        from IPython.display import display, Markdown
+
+
+        resource_bundle_groups = pruned.groupby(["cloud",
+            "gpu_type",
+            "num_cpus_per_replica"])
+
+        for bundle, df in resource_bundle_groups:
+            # if bundle != ("aws", "v100", 1):
+            #     continue
+            # print(bundle)
+            sorted_df = df.sort_values("mean_batch_size")
+            # display(sorted_df)
+            sorted_idxs = [idx for idx, _ in sorted_df.iterrows()]
+            idx_idx_prev = 0
+            idx_idx_cur = 1
+            while idx_idx_cur < len(sorted_idxs):
+                # print(idx_idx_prev, idx_idx_cur)
+                prev_idx = sorted_idxs[idx_idx_prev]
+                cur_idx = sorted_idxs[idx_idx_cur]
+                if pruned.iloc[cur_idx][self.throughput_field] <= pruned.iloc[prev_idx][self.throughput_field]:
+                    # print("Cur: {}\nPrev: {}".format(
+                    # pruned.iloc[cur_idx],
+                    # pruned.iloc[prev_idx]))
+                    # print("Dropping batch size {} (row {})".format(
+                    #     pruned.iloc[cur_idx]["mean_batch_size"], cur_idx))
+                    pruned = pruned.drop(index=cur_idx)
+                    idx_idx_cur += 1
+                else:
+                    idx_idx_prev += 1
+                    idx_idx_cur += 1
+
+        #     if not np.all(np.diff(sorted_df[self.throughput_field]) >= 0):
+        #         print("Profile for node {name} bundle {bundle} is non-monotonic".format(
+        #             name=self.name, bundle=bundle))
+        #
+        # # Iterate over the original dataframe but filter the copy
+        # for index, row in self.profile.iterrows():
+        #     # Keep any configs that have higher throughput, lower cost, or lower latency
+        #     # pruned = pruned[(pruned[self.throughput_field] >= row[self.throughput_field])
+        #     #                 | (pruned.cost <= row["cost"])
+        #     #                 | (pruned.p99_latency <= row["p99_latency"])]
+        #     pruned = pruned[!((pruned[self.throughput_field] < row[self.throughput_field])
+        #                     & (pruned.cost >= row["cost"])) & (pruned.cloud == row["cloud"])
+        #                     & (pruned.gpu_type == row["gpu_type"])
+        #                     & (pruned.num_cpus_per_replica == row["num_cpus_per_replica"])]
         self.profile = pruned
 
 

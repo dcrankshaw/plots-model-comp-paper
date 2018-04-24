@@ -95,6 +95,13 @@ def get_gpu_type(node_config):
                 return ("aws", "v100")
             else:
                 return ("aws", "none")
+        elif "m4" in node_config["instance_type"]:
+            print("Client was running on separate machine. Assuming you used V100s")
+            if node_config["gpus_per_replica"] > 0:
+                return ("aws", "v100")
+            else:
+                return ("aws", "none")
+
         else:
             print("Error: unknown GPU type for instance type {}".format(
                 node_config["instance_type"]))
@@ -178,6 +185,7 @@ def create_node_profile_df(results_dir):
     fnames = []
     clouds = []
     gpu_types = []
+    contentions = []
 
     node_name = experiments[next(iter(experiments))]["node_configs"][0]["name"]
 
@@ -200,6 +208,10 @@ def create_node_profile_df(results_dir):
         cloud, gpu_type = get_gpu_type(node_config)
         clouds.append(cloud)
         gpu_types.append(gpu_type)
+        if "contention" in e:
+            contentions.append(e["contention"]["contention_throughput_qps"])
+        else:
+            contentions.append(-1)
         if gpu_type == "none":
             gpus.append(0)
         else:
@@ -221,6 +233,7 @@ def create_node_profile_df(results_dir):
         "fname": fnames,
         "cloud": clouds,
         "gpu_type": gpu_types,
+        "contention": contentions,
     }
 
     df = pd.DataFrame.from_dict(results_dict)

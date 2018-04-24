@@ -142,9 +142,8 @@ def load_inferline_results_file(path):
     return {"name": "InferLine", "cost": cost, "lambda": lam, "CV": cv, "slo": slo, "slo_miss_rate": slo_miss_rate,
             "slo_plus_25_per_miss_rate": slo_plus_25_miss_rate, "utilization": utilization}
 
-def load_all_inferline_sys_comp_results():
+def load_all_inferline_sys_comp_results(util, base_path):
     all_results = []
-    base_path = os.path.abspath("../results_cpp_benchmarker/e2e_results/image_driver_1/sys_comp")
     for exp in os.listdir(base_path):
         for fname in os.listdir(os.path.join(base_path, exp)):
             result = load_inferline_results_file(os.path.join(base_path, exp, fname))
@@ -155,7 +154,7 @@ def load_all_inferline_sys_comp_results():
 
 ##########################################################
 
-def load_e2e_experiments():
+def load_e2e_experiments(util, base_path):
     # experiments = [
     #     {"name": "Inferline", "slo": .35, "path": os.path.abspath("../results_cpp_benchmarker/e2e_results/image_driver_1/image_driver_one_slo_0.35_cv_1")},
     #     {"name": "TFS Peak", "slo": .35, "path": os.path.abspath("../TFS/image_driver_1/min_latency_arrival_process/v100-8xlarge/peak_350")},
@@ -188,7 +187,7 @@ def load_e2e_experiments():
     #                 loaded_exps.append(loaded)
     #             except json.JSONDecodeError:
     #                 print("Could not load {}".format(os.path.join(exp["path"], f)))
-    loaded_exps = load_all_inferline_sys_comp_results()
+    loaded_exps = load_all_inferline_sys_comp_results(util, base_path)
     df = pd.DataFrame(loaded_exps)
     return df
 
