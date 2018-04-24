@@ -275,7 +275,7 @@ def optimize_pipeline_three(throughput, opt, slo, cost, cloud, cv):
     return result
 
 def sweep_utilization_factor_pipeline_three():
-    results_dir = os.path.abspath("utilization_sweep_pipeline_three")
+    results_dir = os.path.abspath("utilization_sweep_pipeline_three_with_prune")
     if not os.path.exists(results_dir):
         os.makedirs(results_dir)
         logger.info("Created results directory: %s" % results_dir)
