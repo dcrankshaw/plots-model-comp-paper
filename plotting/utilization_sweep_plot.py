@@ -77,5 +77,6 @@ def load_all(slo, pipeline):
         if slo == 1.0:
             return load_exp_slo_1000(os.path.abspath(
                 "../results_cpp_benchmarker/e2e_results/resnet_cascade/util_sweep/slo_1.0/"
-                "resnet-cascade_utilization_sweep_slo_1.0_cv_1.0"))
+                # "resnet-cascade_utilization_sweep_slo_1.0_cv_1.0"))
+                "resnet-cascade_utilization_sweep_with_prune_slo_1.0_cv_1.0"))
 
