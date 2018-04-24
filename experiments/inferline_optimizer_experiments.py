@@ -342,29 +342,29 @@ def generate_pipeline_three_configs(utilization=0.7):
                 else:
                     logger.info("no result")
 
-def debug_pipeline_three():
-    cost = 11.08
-    cloud = "aws"
-    logger.info("Optimizer initialized")
-    cv = 1.0
-    slo = 1.0
-    utilization = 1.0
-    lam = 200
-    opt = get_optimizer_pipeline_three(utilization)
-    result = optimize_pipeline_three(lam, opt, slo, cost, cloud, cv)
-    if result:
-        logger.info(("FOUND CONFIG FOR UTIL: {util}, COST: {cost}, LAMBDA: {lam}, "
-                    "CV: {cv}").format(util=utilization, cost=cost, lam=lam, cv=cv))
-        node_configs, perfs, response_time = result
-        config_res = Configuration(
-            slo, cost, lam, cv, node_configs, perfs,
-            response_time, utilization).__dict__
-        logger.info("Result:\n{}".format(json.dumps(config_res, indent=2)))
-    else:
-        logger.info("no result")
+# def debug_pipeline_three():
+#     cost = 11.08
+#     cloud = "aws"
+#     logger.info("Optimizer initialized")
+#     cv = 1.0
+#     slo = 1.0
+#     utilization = 1.0
+#     lam = 200
+#     opt = get_optimizer_pipeline_three(utilization)
+#     result = optimize_pipeline_three(lam, opt, slo, cost, cloud, cv)
+#     if result:
+#         logger.info(("FOUND CONFIG FOR UTIL: {util}, COST: {cost}, LAMBDA: {lam}, "
+#                     "CV: {cv}").format(util=utilization, cost=cost, lam=lam, cv=cv))
+#         node_configs, perfs, response_time = result
+#         config_res = Configuration(
+#             slo, cost, lam, cv, node_configs, perfs,
+#             response_time, utilization).__dict__
+#         logger.info("Result:\n{}".format(json.dumps(config_res, indent=2)))
+#     else:
+#         logger.info("no result")
 
 if __name__ == "__main__":
     # generate_pipeline_one_configs(0.7)
     # generate_pipeline_three_configs(0.7)
-    # sweep_utilization_factor_pipeline_three()
-    debug_pipeline_three()
+    sweep_utilization_factor_pipeline_three()
+    # debug_pipeline_three()
