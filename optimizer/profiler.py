@@ -108,7 +108,7 @@ class NodeConfig(object):
 
 class NodeProfile(object):
 
-    def __init__(self, name, profile, throughput_stage, utilization):
+    def __init__(self, name, profile, throughput_stage, utilization, latency_perc=1.0):
         """
         Parameters:
         -----------
@@ -126,7 +126,19 @@ class NodeProfile(object):
         self.profile.latency_stage_mean_throughput_qps *= utilization
         self.profile.thru_stage_mean_throughput_qps *= utilization
         self.prune_profile()
+        self.underestimate_latency(latency_perc)
 
+    def underestimate_latency(self, percent):
+        """
+        Parameters
+        ----------
+        percent: float
+            The p99 latencies in the profile will be multiplied by this parameter to
+            underestimate the latency. E.g. a percent of 0.9 will underestimate the latency
+            by 10%.
+
+        """
+        self.profile["p99_latency"] *= percent
 
     def enumerate_configs(self, max_replication_factor=1):
         """
