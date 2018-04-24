@@ -332,7 +332,7 @@ def sweep_utilization_factor_pipeline_three():
                 logger.info("no result")
 
 def generate_pipeline_three_configs(utilization=0.7):
-    results_dir = os.path.abspath("e2e_sys_comp_pipeline_three/util_{}".format(utilization))
+    results_dir = os.path.abspath("e2e_sys_comp_pipeline_three_with_prune/util_{}".format(utilization))
     if not os.path.exists(results_dir):
         os.makedirs(results_dir)
         logger.info("Created results directory: %s" % results_dir)
@@ -347,8 +347,8 @@ def generate_pipeline_three_configs(utilization=0.7):
     opt = get_optimizer_pipeline_three(utilization)
     logger.info("Optimizer initialized")
     # for cv in [1.0, 4.0, 0.1]:
-    for cv in [4.0, 0.1]:
-        for slo in [0.5, 0.35, 1.0]:
+    for cv in [1.0, 4.0, 0.1]:
+        for slo in [0.5, 1.0, 0.35]:
             configs = []
             results_fname = "aws_resnet_cascade_ifl_configs_slo_{slo}_cv_{cv}.json".format(
                 slo=slo,
@@ -421,8 +421,8 @@ def underestimate_profile_latency_pipeline_three():
 
 if __name__ == "__main__":
     # generate_pipeline_one_configs(0.7)
-    # generate_pipeline_three_configs(0.7)
+    generate_pipeline_three_configs(0.7)
     # sweep_utilization_factor_pipeline_three()
     # debug_pipeline_three()
-    underestimate_profile_latency_pipeline_one()
-    underestimate_profile_latency_pipeline_three()
+    # underestimate_profile_latency_pipeline_one()
+    # underestimate_profile_latency_pipeline_three()
