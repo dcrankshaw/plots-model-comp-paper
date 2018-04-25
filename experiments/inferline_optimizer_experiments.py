@@ -71,29 +71,29 @@ def generate_arrival_process(throughput, cv):
 def generate_nasa_arrival_process(avg_qps = None):
     """
     Returns a sequence of time stamps in milliseconds to the nasa website.
-    avg_qps: an optional argument specifying the desired average QPS.  
+    avg_qps: an optional argument specifying the desired average QPS.
         This is achieved by artificially scaling the timesamps
-    
+
     Note the first invocation of this function may take some time to prepare
     and cache the data.
-    
-    This data has a gap of several DAYS in the middle due to a hurricane.  
+
+    This data has a gap of several DAYS in the middle due to a hurricane.
     """
     import gzip
     import pickle
     arrival_process_dir = os.path.join(cur_dir, "cached_arrival_processes")
     file_name = "nasa_weblog_times.pkl.gz"
     arrival_process_path = os.path.join(arrival_process_dir, file_name)
-        
+
     if not os.path.exists(arrival_process_path):
         print("downloading data")
         from data_fetch_utils import fetch_and_cache
-        data_file1 = fetch_and_cache("ftp://ita.ee.lbl.gov/traces/NASA_access_log_Jul95.gz", 
+        data_file1 = fetch_and_cache("ftp://ita.ee.lbl.gov/traces/NASA_access_log_Jul95.gz",
             "nasa1.gz", data_dir = arrival_process_dir)
-        data_file2 = fetch_and_cache("ftp://ita.ee.lbl.gov/traces/NASA_access_log_Aug95.gz", 
+        data_file2 = fetch_and_cache("ftp://ita.ee.lbl.gov/traces/NASA_access_log_Aug95.gz",
             "nasa2.gz", data_dir = arrival_process_dir)
-    
-        
+
+
         print("cleaning timestamps")
 
         import re
@@ -103,12 +103,12 @@ def generate_nasa_arrival_process(avg_qps = None):
                 line = line.decode("UTF8", errors="ignore")
                 m = re.match(r".*\[([^\]]*)\]", line)
                 if m:
-                    yield datetime.strptime(m.groups()[0], "%d/%b/%Y:%H:%M:%S %z") 
+                    yield datetime.strptime(m.groups()[0], "%d/%b/%Y:%H:%M:%S %z")
         with gzip.open(data_file1, "r") as f:
             dates1 = list(extract_dates(f))
         with gzip.open(data_file2, "r") as f:
             dates2 = list(extract_dates(f))
-        
+
         print("computing offset in ms")
         import pandas as pd
         dates = pd.concat([pd.Series(dates1), pd.Series(dates2)]).reset_index(drop=True)
@@ -122,10 +122,10 @@ def generate_nasa_arrival_process(avg_qps = None):
     print("Loading data from cache")
     with gzip.open(arrival_process_path, "rb") as f:
         time_in_ms = pickle.load(f)
-    
+
     if avg_qps:
         qps = len(time_in_ms) / (time_in_ms.max() / 1000.0)
-        print(f"Scaling the QPS from {qps} QPS to {avg_qps} QPS.")
+        print("Scaling the QPS from {qps} QPS to {avg_qps} QPS.")
         scaled_time_in_ms = time_in_ms / avg_qps * qps
         return scaled_time_in_ms
     else:
@@ -262,7 +262,8 @@ def underestimate_profile_latency_pipeline_one():
     results_fname = "aws_image_driver_one_profiler_underestimate_slo_{slo}_cv_{cv}_cost_{cost}.json".format(
         slo=slo, cv=cv, cost=cost)
     results_file = os.path.join(results_dir, results_fname)
-    for perc in [1.0, 0.99, 0.97, 0.95, 0.90, 0.85, 0.80, 0.98, 0.96, 0.75]:
+    # for perc in [1.0, 0.99, 0.97, 0.95, 0.90, 0.85, 0.80, 0.98, 0.96, 0.75]:
+    for perc in [0.70, 0.65, 0.6, 0.55, 0.5]:
         opt = get_optimizer_pipeline_one(utilization, perc)
         lam, result = probe_throughputs(slo, cloud, cost, opt, cv, optimize_pipeline_one)
         if result:
@@ -502,7 +503,8 @@ def underestimate_profile_latency_pipeline_three():
     results_fname = "aws_resnet_cascade_three_profiler_underestimate_slo_{slo}_cv_{cv}_cost_{cost}.json".format(
         slo=slo, cv=cv, cost=cost)
     results_file = os.path.join(results_dir, results_fname)
-    for perc in [1.0, 0.99, 0.97, 0.95, 0.90, 0.85, 0.80, 0.98, 0.96, 0.75]:
+    # for perc in [1.0, 0.99, 0.97, 0.95, 0.90, 0.85, 0.80, 0.98, 0.96, 0.75]:
+    for perc in [0.70, 0.65, 0.6, 0.55, 0.5]:
         opt = get_optimizer_pipeline_three(utilization, perc)
         lam, result = probe_throughputs(slo, cloud, cost, opt, cv, optimize_pipeline_three)
         if result:
@@ -544,5 +546,5 @@ if __name__ == "__main__":
     generate_pipeline_three_configs_no_scale_factor(0.7)
     # sweep_utilization_factor_pipeline_three()
     # debug_pipeline_three()
-    # underestimate_profile_latency_pipeline_one()
-    # underestimate_profile_latency_pipeline_three()
+    underestimate_profile_latency_pipeline_one()
+    underestimate_profile_latency_pipeline_three()
