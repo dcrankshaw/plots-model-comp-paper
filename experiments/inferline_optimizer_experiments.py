@@ -313,6 +313,23 @@ def generate_pipeline_one_configs(utilization=0.8):
 ########################################################
 ########## PIPELINE THREE (Resnet Cascade) #############
 
+def get_optimizer_pipeline_three_no_scale_factor(utilization, perc=1.0):
+    dag = profiler.get_logical_pipeline("pipeline_three")
+    with open(os.path.abspath("../results_python_benchmarker/e2e_profs/systemx/resnet_cascade/"
+                              "slo_500ms/alex_1-r50_1-r152_1-171025_083128.json")) as f:
+        sample_run = json.load(f)
+    scale_factors = profiler.get_node_scale_factors(sample_run, dag.reference_node)
+    for s in scale_factors:
+        scale_factors[s] = 1.0
+    print("SCALE FACTORS: {}".format(scale_factors))
+    node_configs = profiler.get_node_configs_from_experiment(sample_run)
+    profs = snp.load_single_node_profiles(models=[n for n in node_configs])
+    node_profs = {}
+    for name in node_configs:
+        node_profs[name] = profiler.NodeProfile(name, profs[name], "thru_stage", utilization, perc)
+    opt = GreedyOptimizer(dag, scale_factors, node_profs)
+    return opt
+
 def get_optimizer_pipeline_three(utilization, perc=1.0):
     dag = profiler.get_logical_pipeline("pipeline_three")
     with open(os.path.abspath("../results_python_benchmarker/e2e_profs/systemx/resnet_cascade/"
@@ -394,6 +411,44 @@ def sweep_utilization_factor_pipeline_three():
                     json.dump(configs, f, indent=4)
             else:
                 logger.info("no result")
+
+def generate_pipeline_three_configs_no_scale_factor(utilization=0.7):
+    results_dir = os.path.abspath("e2e_pipeline_three_no_scale_factors/util_{}".format(utilization))
+    if not os.path.exists(results_dir):
+        os.makedirs(results_dir)
+        logger.info("Created results directory: %s" % results_dir)
+    cloud = "aws"
+    cost_lower_bound = get_cpu_cost(cloud, 3) + get_gpu_cost(cloud, "v100", 2) + get_gpu_cost(cloud, "k80", 1)
+    cost_upper_bound = get_cpu_cost(cloud, 16) + get_gpu_cost(cloud, "v100", 8) + get_gpu_cost(cloud, "k80", 8)
+    cost_increment = get_cpu_cost(cloud, 1) + get_gpu_cost(cloud, "v100", 1)
+    print(cost_lower_bound, cost_upper_bound, cost_increment)
+    costs = np.arange(cost_lower_bound, cost_upper_bound+1.0, cost_increment)
+    print(costs)
+    cloud = "aws"
+    opt = get_optimizer_pipeline_three_no_scale_factor(utilization)
+    logger.info("Optimizer initialized")
+    # for cv in [1.0, 4.0, 0.1]:
+    for cv in [1.0, 4.0, 0.1]:
+        for slo in [0.5, 1.0, 0.35]:
+            configs = []
+            results_fname = "aws_resnet_cascade_ifl_configs_slo_{slo}_cv_{cv}.json".format(
+                slo=slo,
+                cv=cv,
+                util=utilization)
+            results_file = os.path.join(results_dir, results_fname)
+            for cost in costs:
+                lam, result = probe_throughputs(slo, cloud, cost, opt, cv, optimize_pipeline_three)
+                if result:
+                    logger.info(("FOUND CONFIG FOR SLO: {slo}, COST: {cost}, LAMBDA: {lam}, "
+                                "CV: {cv}").format(slo=slo, cost=cost, lam=lam, cv=cv))
+                    node_configs, perfs, response_time = result
+                    configs.append(Configuration(
+                        slo, cost, lam, cv, node_configs, perfs,
+                        response_time, utilization).__dict__)
+                    with open(results_file, "w") as f:
+                        json.dump(configs, f, indent=4)
+                else:
+                    logger.info("no result")
 
 def generate_pipeline_three_configs(utilization=0.7):
     results_dir = os.path.abspath("e2e_sys_comp_pipeline_three_with_prune/util_{}".format(utilization))
@@ -485,7 +540,8 @@ def underestimate_profile_latency_pipeline_three():
 
 if __name__ == "__main__":
     # generate_pipeline_one_configs(0.7)
-    generate_pipeline_three_configs(0.7)
+    # generate_pipeline_three_configs(0.7)
+    generate_pipeline_three_configs_no_scale_factor(0.7)
     # sweep_utilization_factor_pipeline_three()
     # debug_pipeline_three()
     # underestimate_profile_latency_pipeline_one()
