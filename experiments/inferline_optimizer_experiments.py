@@ -68,6 +68,70 @@ def generate_arrival_process(throughput, cv):
     return arrival_history
 
 
+def generate_nasa_arrival_process(avg_qps = None):
+    """
+    Returns a sequence of time stamps in milliseconds to the nasa website.
+    avg_qps: an optional argument specifying the desired average QPS.  
+        This is achieved by artificially scaling the timesamps
+    
+    Note the first invocation of this function may take some time to prepare
+    and cache the data.
+    
+    This data has a gap of several DAYS in the middle due to a hurricane.  
+    """
+    import gzip
+    import pickle
+    arrival_process_dir = os.path.join(cur_dir, "cached_arrival_processes")
+    file_name = "nasa_weblog_times.pkl.gz"
+    arrival_process_path = os.path.join(arrival_process_dir, file_name)
+        
+    if not os.path.exists(arrival_process_path):
+        print("downloading data")
+        from data_fetch_utils import fetch_and_cache
+        data_file1 = fetch_and_cache("ftp://ita.ee.lbl.gov/traces/NASA_access_log_Jul95.gz", 
+            "nasa1.gz", data_dir = arrival_process_dir)
+        data_file2 = fetch_and_cache("ftp://ita.ee.lbl.gov/traces/NASA_access_log_Aug95.gz", 
+            "nasa2.gz", data_dir = arrival_process_dir)
+    
+        
+        print("cleaning timestamps")
+
+        import re
+        from datetime import datetime
+        def extract_dates(fp):
+            for line in fp:
+                line = line.decode("UTF8", errors="ignore")
+                m = re.match(r".*\[([^\]]*)\]", line)
+                if m:
+                    yield datetime.strptime(m.groups()[0], "%d/%b/%Y:%H:%M:%S %z") 
+        with gzip.open(data_file1, "r") as f:
+            dates1 = list(extract_dates(f))
+        with gzip.open(data_file2, "r") as f:
+            dates2 = list(extract_dates(f))
+        
+        print("computing offset in ms")
+        import pandas as pd
+        dates = pd.concat([pd.Series(dates1), pd.Series(dates2)]).reset_index(drop=True)
+        elapsed = dates - dates.min()
+        elapsed_ms = elapsed.dt.total_seconds() * 1000
+
+        print("saving timestamps")
+        with gzip.open(arrival_process_path, "wb") as f:
+            pickle.dump(elapsed_ms.values, f)
+
+    print("Loading data from cache")
+    with gzip.open(arrival_process_path, "rb") as f:
+        time_in_ms = pickle.load(f)
+    
+    if avg_qps:
+        qps = len(time_in_ms) / (time_in_ms.max() / 1000.0)
+        print(f"Scaling the QPS from {qps} QPS to {avg_qps} QPS.")
+        scaled_time_in_ms = time_in_ms / avg_qps * qps
+        return scaled_time_in_ms
+    else:
+        return time_in_ms
+
+
 def probe_throughputs(slo, cloud, cost, opt, cv, opt_function):
     min = 0
     max = 2000
