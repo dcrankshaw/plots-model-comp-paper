@@ -70,19 +70,38 @@ def load_tfs_results(path, slo):
 
 def compute_spd_cost(results):
     node_configs = results["node_configs"]
-    # All nodes use the same cpu set, so only get cpus once outside the for loop
-    # Divide by 2 to convert from virtual cpus to physical cpus
-    num_cpus = len(node_configs[0]["allocated_cpus"]) / 2
-    cost = utils.get_cpu_cost("aws", num_cpus)
+    num_models = len(node_configs)
+    num_reps = node_configs[0]["num_replicas"]
+    num_cpus = num_models * num_reps
+    gpu_type = "v100"
+
+    # Check how many gpus were used
+    num_gpus = 0
     for n in node_configs:
-        num_gpus = len(n["gpus"])
-        if num_gpus > 0:
-            # SPD always uses V100s
-            gpu_type = "v100"
-        else:
-            gpu_type = "none"
-        cost += utils.get_gpu_cost("aws", gpu_type, num_gpus)
+        if len(n["gpus"]) > 0:
+            gpus_per_rep = len(n["gpus"][0].split(" "))
+            num_gpus = gpus_per_rep * num_reps
+            break
+    cost = utils.get_cpu_cost("aws", num_cpus) + utils.get_gpu_cost("aws", gpu_type, num_gpus)
     return cost
+
+    #
+    #
+    #
+    #
+    # # All nodes use the same cpu set, so only get cpus once outside the for loop
+    # # Divide by 2 to convert from virtual cpus to physical cpus
+    # num_cpus = len(node_configs[0]["allocated_cpus"]) / 2
+    # cost = utils.get_cpu_cost("aws", num_cpus)
+    # for n in node_configs:
+    #     num_gpus = len(n["gpus"])
+    #     if num_gpus > 0:
+    #         # SPD always uses V100s
+    #         gpu_type = "v100"
+    #     else:
+    #         gpu_type = "none"
+    #     cost += utils.get_gpu_cost("aws", gpu_type, num_gpus)
+    # return cost
 
 def compute_spd_slo_miss_rate(results, slo):
     # Skip the first trial
@@ -91,16 +110,83 @@ def compute_spd_slo_miss_rate(results, slo):
     slo_miss_rate = np.sum(lats > slo) / len(lats)
     return slo_miss_rate
 
-def load_spd_results(path, slo):
+def load_spd_run(path, slo, provision_strategy):
+    """
+    Loads a single SPD experiment JSON file
+    """
     with open(path, "r") as f:
         results = json.load(f)
-    arrival_process_fname = os.path.basename(results["arrival_process"])
+    arrival_process_fname = os.path.basename(results["arrival_process"]["file_path"])
     lam, cv = get_lam_and_cv_from_fname(arrival_process_fname)
     cost = compute_spd_cost(results)
     slo_miss_rate = compute_spd_slo_miss_rate(results, slo)
     slo_plus_25_miss_rate = compute_spd_slo_miss_rate(results, slo*1.25)
-    return {"cost": cost, "lambda": lam, "CV": cv, "slo_miss_rate": slo_miss_rate,
-            "slo_plus_25_per_miss_rate": slo_plus_25_miss_rate}
+    return {
+            "name": "SPD-{}".format(provision_strategy),
+            "cost": cost,
+            "lambda": lam,
+            "CV": cv,
+            "slo": slo,
+            "slo_miss_rate": slo_miss_rate,
+            "slo_plus_25_per_miss_rate": slo_plus_25_miss_rate
+            }
+
+def load_spd_experiment(path, slo, provision_strategy):
+    results = []
+    expected_num_results = len(list(os.listdir(path)))
+    for reps_dir in os.listdir(path):
+        num_reps = int(reps_dir.rstrip("_rep"))
+        for f in os.listdir(os.path.join(path, reps_dir)):
+            if "results" in f and f[-4:] == "json":
+                results.append(
+                        load_spd_run(
+                            os.path.join(path, reps_dir, f),
+                            slo,
+                            provision_strategy))
+    return results
+
+
+def get_slo_and_cv_from_spd_dirname(f):
+    # File name structure is EITHER:
+    # 1) <slo-in-ms-as-int>ms_cv<cv-as-float>
+    # 2) min_lat_cv<cv-as-float>
+    if "min_lat" in f:
+        slo = "min_lat"
+    else:
+        # Convert to seconds
+        slo = float(f.split("ms")[0]) / 1000.0
+    cv = float(f.split("cv")[1])
+    return slo, cv
+
+
+def load_spd_pipeline_one():
+    base_path = os.path.abspath("../SPD/image_driver_1/v100-8xlarge")
+    all_results = []
+
+    for d in os.listdir(base_path):
+        slo, cv = get_slo_and_cv_from_spd_dirname(d)
+        if slo == "min_lat":
+            for slo in [.35, .5, 1.0]:
+                all_results.extend(load_spd_experiment(
+                    os.path.join(base_path, d, "mean_provision"),
+                    slo,
+                    "min_lat_mean_provision"))
+                all_results.extend(load_spd_experiment(
+                    os.path.join(base_path, d, "peak_provision"),
+                    slo,
+                    "min_lat_peak_provision"))
+        else:
+            all_results.extend(load_spd_experiment(
+                os.path.join(base_path, d, "mean_provision"),
+                slo,
+                "mean_provision"))
+            all_results.extend(load_spd_experiment(
+                os.path.join(base_path, d, "peak_provision"),
+                slo,
+                "peak_provision"))
+    return pd.DataFrame(all_results)
+        
+
 
 ##########################################################
 ####################### INFERLINE ########################
@@ -139,10 +225,18 @@ def load_inferline_results_file(path):
     slo_miss_rate = np.sum(lats > slo) / len(lats)
     slo_plus_25_miss_rate = np.sum(lats > slo*1.25) / len(lats)
     cost = compute_inferline_cost(results)
-    return {"name": "InferLine", "cost": cost, "lambda": lam, "CV": cv, "slo": slo, "slo_miss_rate": slo_miss_rate,
-            "slo_plus_25_per_miss_rate": slo_plus_25_miss_rate, "utilization": utilization}
+    return {
+            "name": "InferLine",
+            "cost": cost,
+            "lambda": lam,
+            "CV": cv,
+            "slo": slo,
+            "slo_miss_rate": slo_miss_rate,
+            "slo_plus_25_per_miss_rate": slo_plus_25_miss_rate,
+            "utilization": utilization
+            }
 
-def load_all_inferline_sys_comp_results(util, base_path):
+def load_all_inferline_sys_comp_results(base_path):
     all_results = []
     for exp in os.listdir(base_path):
         for fname in os.listdir(os.path.join(base_path, exp)):
@@ -151,6 +245,11 @@ def load_all_inferline_sys_comp_results(util, base_path):
                 all_results.append(result)
     return all_results
 
+def load_inferline_pipeline_one():
+    base_path = os.path.abspath("../results_cpp_benchmarker/e2e_results/image_driver_1/sys_comp/util_0.7")
+    loaded_exps = load_all_inferline_sys_comp_results(base_path)
+    df = pd.DataFrame(loaded_exps)
+    return df
 
 ##########################################################
 
