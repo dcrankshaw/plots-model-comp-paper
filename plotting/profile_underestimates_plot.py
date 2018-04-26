@@ -26,6 +26,9 @@ def load_exp(dir_path):
     results = []
     for f in os.listdir(dir_path):
         if f[-4:] == "json":
+            # Old result
+            if f == "aws_latency_percentage_0.9_lambda_295-180424_185852.json":
+                continue
             results.append(load_run(os.path.join(dir_path, f)))
     df = pd.DataFrame(results)
     df = df.sort_values("latency_percentage_underestimate")

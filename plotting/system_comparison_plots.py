@@ -68,10 +68,10 @@ def load_tfs_results(path, slo):
 ##########################################################
 ################ SINGLE PROCESS DRIVER ###################
 
-def compute_spd_cost(results):
+def compute_spd_cost(results, num_reps):
     node_configs = results["node_configs"]
     num_models = len(node_configs)
-    num_reps = node_configs[0]["num_replicas"]
+    # num_reps = node_configs[0]["num_replicas"]
     num_cpus = num_models * num_reps
     gpu_type = "v100"
 
@@ -110,7 +110,12 @@ def compute_spd_slo_miss_rate(results, slo):
     slo_miss_rate = np.sum(lats > slo) / len(lats)
     return slo_miss_rate
 
-def load_spd_run(path, slo, provision_strategy):
+def compute_spd_thruput(results, lam):
+    thrus = results["client_metrics"][0]["thrus"][1:]
+    thru = np.mean(thrus)
+    return thru, lam-thru
+
+def load_spd_run(path, slo, provision_strategy, num_reps):
     """
     Loads a single SPD experiment JSON file
     """
@@ -118,8 +123,9 @@ def load_spd_run(path, slo, provision_strategy):
         results = json.load(f)
     arrival_process_fname = os.path.basename(results["arrival_process"]["file_path"])
     lam, cv = get_lam_and_cv_from_fname(arrival_process_fname)
-    cost = compute_spd_cost(results)
+    cost = compute_spd_cost(results, num_reps)
     slo_miss_rate = compute_spd_slo_miss_rate(results, slo)
+    thruput, thruput_delta = compute_spd_thruput(results, lam)
     slo_plus_25_miss_rate = compute_spd_slo_miss_rate(results, slo*1.25)
     return {
             "name": "SPD-{}".format(provision_strategy),
@@ -128,7 +134,9 @@ def load_spd_run(path, slo, provision_strategy):
             "CV": cv,
             "slo": slo,
             "slo_miss_rate": slo_miss_rate,
-            "slo_plus_25_per_miss_rate": slo_plus_25_miss_rate
+            "slo_plus_25_per_miss_rate": slo_plus_25_miss_rate,
+            "throughput": thruput,
+            "lam_minus_through": thruput_delta
             }
 
 def load_spd_experiment(path, slo, provision_strategy):
@@ -142,7 +150,8 @@ def load_spd_experiment(path, slo, provision_strategy):
                         load_spd_run(
                             os.path.join(path, reps_dir, f),
                             slo,
-                            provision_strategy))
+                            provision_strategy,
+                            num_reps))
     return results
 
 
@@ -202,6 +211,14 @@ def compute_inferline_cost(results):
         cost += utils.get_cpu_cost(cloud, num_cpus) + utils.get_gpu_cost(cloud, gpu_type, num_replicas)
     return cost
 
+def compute_throughput_inferline(results, lam):
+    thrus = []
+    trials = results["throughput_results"]["summary_metrics"][1:]
+    for t in trials:
+        thrus.append(t["client_thrus"]["e2e"])
+    thru = np.mean(thrus)
+    return thru, lam - thru
+
 def load_inferline_results_file(path):
     if path[-4:] != "json":
         return None
@@ -224,6 +241,7 @@ def load_inferline_results_file(path):
     lats = np.array(lats)
     slo_miss_rate = np.sum(lats > slo) / len(lats)
     slo_plus_25_miss_rate = np.sum(lats > slo*1.25) / len(lats)
+    thruput, thruput_delta = compute_throughput_inferline(results, lam)
     cost = compute_inferline_cost(results)
     return {
             "name": "InferLine",
@@ -233,7 +251,9 @@ def load_inferline_results_file(path):
             "slo": slo,
             "slo_miss_rate": slo_miss_rate,
             "slo_plus_25_per_miss_rate": slo_plus_25_miss_rate,
-            "utilization": utilization
+            "utilization": utilization,
+            "throughput": thruput,
+            "lam_minus_through": thruput_delta
             }
 
 def load_all_inferline_sys_comp_results(base_path):
