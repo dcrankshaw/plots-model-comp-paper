@@ -82,7 +82,7 @@ def generate_nasa_arrival_process(avg_qps = None):
     import gzip
     import pickle
     arrival_process_dir = os.path.join(cur_dir, "cached_arrival_processes")
-    file_name = "nasa_weblog_times.pkl.gz"
+    file_name = "nasa_weblog_times_part1.pkl.gz"
     arrival_process_path = os.path.join(arrival_process_dir, file_name)
 
     if not os.path.exists(arrival_process_path):
@@ -90,10 +90,9 @@ def generate_nasa_arrival_process(avg_qps = None):
         from data_fetch_utils import fetch_and_cache
         data_file1 = fetch_and_cache("ftp://ita.ee.lbl.gov/traces/NASA_access_log_Jul95.gz",
             "nasa1.gz", data_dir = arrival_process_dir)
-        data_file2 = fetch_and_cache("ftp://ita.ee.lbl.gov/traces/NASA_access_log_Aug95.gz",
-            "nasa2.gz", data_dir = arrival_process_dir)
-
-
+        # data_file2 = fetch_and_cache("ftp://ita.ee.lbl.gov/traces/NASA_access_log_Aug95.gz", 
+        #    "nasa2.gz", data_dir = arrival_process_dir)
+    
         print("cleaning timestamps")
 
         import re
@@ -106,12 +105,13 @@ def generate_nasa_arrival_process(avg_qps = None):
                     yield datetime.strptime(m.groups()[0], "%d/%b/%Y:%H:%M:%S %z")
         with gzip.open(data_file1, "r") as f:
             dates1 = list(extract_dates(f))
-        with gzip.open(data_file2, "r") as f:
-            dates2 = list(extract_dates(f))
-
+        #         with gzip.open(data_file2, "r") as f:
+        #             dates2 = list(extract_dates(f))
+        
         print("computing offset in ms")
         import pandas as pd
-        dates = pd.concat([pd.Series(dates1), pd.Series(dates2)]).reset_index(drop=True)
+        # dates = pd.concat([pd.Series(dates1), pd.Series(dates2)]).reset_index(drop=True)
+        dates = pd.Series(dates1)
         elapsed = dates - dates.min()
         elapsed_ms = elapsed.dt.total_seconds() * 1000
 
