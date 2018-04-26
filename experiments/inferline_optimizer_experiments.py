@@ -289,7 +289,7 @@ def generate_pipeline_one_configs(utilization=0.8):
     opt = get_optimizer_pipeline_one(utilization)
     logger.info("Optimizer initialized")
     # for cv in [1.0, 4.0, 0.1]:
-    for cv in [1.0, 4.0]:
+    for cv in [0.1]:
         for slo in [0.5, 0.35, 1.0]:
             configs = []
             results_fname = "aws_image_driver_one_ifl_configs_slo_{slo}_cv_{cv}.json".format(
@@ -546,5 +546,5 @@ if __name__ == "__main__":
     # generate_pipeline_three_configs_no_scale_factor(0.7)
     # sweep_utilization_factor_pipeline_three()
     # debug_pipeline_three()
-    underestimate_profile_latency_pipeline_one()
-    underestimate_profile_latency_pipeline_three()
+    # underestimate_profile_latency_pipeline_one()
+    # underestimate_profile_latency_pipeline_three()
