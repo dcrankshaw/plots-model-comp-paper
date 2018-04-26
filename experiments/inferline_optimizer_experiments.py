@@ -541,9 +541,9 @@ def underestimate_profile_latency_pipeline_three():
 #         logger.info("no result")
 
 if __name__ == "__main__":
-    # generate_pipeline_one_configs(0.7)
+    generate_pipeline_one_configs(1.0)
     # generate_pipeline_three_configs(0.7)
-    generate_pipeline_three_configs_no_scale_factor(0.7)
+    # generate_pipeline_three_configs_no_scale_factor(0.7)
     # sweep_utilization_factor_pipeline_three()
     # debug_pipeline_three()
     underestimate_profile_latency_pipeline_one()
