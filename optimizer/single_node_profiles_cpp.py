@@ -96,7 +96,7 @@ def get_gpu_type(node_config):
             else:
                 return ("aws", "none")
         elif "m4" in node_config["instance_type"]:
-            print("Client was running on separate machine. Assuming you used V100s")
+            # print("Client was running on separate machine. Assuming you used V100s")
             if node_config["gpus_per_replica"] > 0:
                 return ("aws", "v100")
             else:

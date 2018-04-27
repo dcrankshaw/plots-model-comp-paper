@@ -542,8 +542,88 @@ def underestimate_profile_latency_pipeline_three():
 #     else:
 #         logger.info("no result")
 
+
+
+def debug_pipeline_one(throughput, opt, slo, cost, cloud, cv):
+    arrival_history = generate_arrival_process(throughput, cv)
+    results = []
+    inception_gpu = "v100"
+    resnet_gpu = "v100"
+    num_cpus = 1
+    initial_config = {
+        "inception": profiler.NodeConfig(name="inception",
+                                         num_cpus=num_cpus,
+                                         gpu_type=inception_gpu,
+                                         batch_size=1,
+                                         num_replicas=1,
+                                         cloud=cloud),
+        "tf-resnet-feats": profiler.NodeConfig(name="tf-resnet-feats",
+                                               num_cpus=num_cpus,
+                                               gpu_type=resnet_gpu,
+                                               batch_size=1,
+                                               num_replicas=1,
+                                               cloud=cloud),
+        "tf-log-reg": profiler.NodeConfig(name="tf-log-reg",
+                                          num_cpus=num_cpus,
+                                          gpu_type="none",
+                                          batch_size=1,
+                                          num_replicas=1,
+                                          cloud=cloud),
+        "tf-kernel-svm": profiler.NodeConfig(name="tf-kernel-svm",
+                                             num_cpus=num_cpus,
+                                             gpu_type="none",
+                                             batch_size=1,
+                                             num_replicas=1,
+                                             cloud=cloud),
+    }
+    result = opt.select_optimal_config(
+        cloud, latency_constraint=slo, cost_constraint=cost, initial_config=initial_config,
+        arrival_history=arrival_history, use_netcalc=True)
+    if result:
+        results.append(result)
+        best_config, best_config_perf, response_time = result
+    return result
+
+def debug_pipeline_one():
+    slo = .5
+    # lam = 117
+    cost = 10.6
+    cv = 0.1
+    utilization = 1.0
+    cloud = "aws"
+
+    opt = get_optimizer_pipeline_one(utilization)
+    lam, result = probe_throughputs(slo, cloud, cost, opt, cv, optimize_pipeline_one)
+    print("FINISHED: LAMBDA: {}".format(lam))
+    if result:
+        node_configs, perfs, response_time = result
+        conf = Configuration(
+            slo, cost, lam, cv, node_configs, perfs,
+            response_time, utilization).__dict__
+        print(json.dumps(conf, indent=4))
+
+
+    # result = debug_pipeline_one(lam, opt, slo, cost, "aws", cv)
+    # if result:
+    #     node_configs, perfs, response_time = result
+    #     conf = Configuration(
+    #         slo, cost, lam, cv, node_configs, perfs,
+    #         response_time, utilization).__dict__
+    #     json.dumps(conf, indent=4)
+    #
+    #
+    # cost = 13.2
+    # result = debug_pipeline_one(lam, opt, slo, cost, "aws", cv)
+    # if result:
+    #     node_configs, perfs, response_time = result
+    #     conf = Configuration(
+    #         slo, cost, lam, cv, node_configs, perfs,
+    #         response_time, utilization).__dict__
+    #     json.dumps(conf, indent=4)
+
 if __name__ == "__main__":
     generate_pipeline_one_configs(cvs=[0.1])
+
     # generate_pipeline_three_configs(0.7)
     # generate_pipeline_three_configs_no_scale_factor(0.7)
     # sweep_utilization_factor_pipeline_three()
