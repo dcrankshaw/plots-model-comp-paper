@@ -166,10 +166,10 @@ def get_optimizer_pipeline_one(utilization, perc=1.0):
     profs = snp.load_single_node_profiles(models=[n for n in node_configs])
     node_profs = {}
     for name in node_configs:
-        if name in ["tf-log-reg", "tf-kernel-svm"]:
-            node_profs[name] = profiler.NodeProfile(name, profs[name], "latency_stage", utilization, perc)
-        else:
-            node_profs[name] = profiler.NodeProfile(name, profs[name], "thru_stage", utilization, perc)
+        # if name in ["tf-log-reg", "tf-kernel-svm"]:
+        #     node_profs[name] = profiler.NodeProfile(name, profs[name], "latency_stage", utilization, perc)
+        # else:
+        node_profs[name] = profiler.NodeProfile(name, profs[name], "thru_stage", utilization, perc)
     opt = GreedyOptimizer(dag, scale_factors, node_profs)
     return opt
 
