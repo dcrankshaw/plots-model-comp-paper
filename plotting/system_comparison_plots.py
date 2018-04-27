@@ -68,13 +68,16 @@ def load_tfs_results(path, slo):
 ##########################################################
 ################ SINGLE PROCESS DRIVER ###################
 
-def compute_spd_cost(results, num_reps):
+def compute_spd_cost(results):
     node_configs = results["node_configs"]
     num_models = len(node_configs)
-    # num_reps = node_configs[0]["num_replicas"]
-    num_cpus = num_models * num_reps
+    # All nodes use the same cpu set, so only get cpus once outside the for loop
+    # Divide by 2 to convert from virtual cpus to physical cpus
+    num_reps = node_configs[0]["num_replicas"]
+    cpus_per_rep = len(node_configs[0]["allocated_cpus"][0].split(" ")) / 2
+    assert cpus_per_rep == 4
+    num_cpus = num_reps * cpus_per_rep
     gpu_type = "v100"
-
     # Check how many gpus were used
     num_gpus = 0
     for n in node_configs:
@@ -85,29 +88,12 @@ def compute_spd_cost(results, num_reps):
     cost = utils.get_cpu_cost("aws", num_cpus) + utils.get_gpu_cost("aws", gpu_type, num_gpus)
     return cost
 
-    #
-    #
-    #
-    #
-    # # All nodes use the same cpu set, so only get cpus once outside the for loop
-    # # Divide by 2 to convert from virtual cpus to physical cpus
-    # num_cpus = len(node_configs[0]["allocated_cpus"]) / 2
-    # cost = utils.get_cpu_cost("aws", num_cpus)
-    # for n in node_configs:
-    #     num_gpus = len(n["gpus"])
-    #     if num_gpus > 0:
-    #         # SPD always uses V100s
-    #         gpu_type = "v100"
-    #     else:
-    #         gpu_type = "none"
-    #     cost += utils.get_gpu_cost("aws", gpu_type, num_gpus)
-    # return cost
-
 def compute_spd_slo_miss_rate(results, slo):
     # Skip the first trial
     lats = np.array(results["client_metrics"][0]["all_lats"][1:])
     lats = np.hstack(lats)
     slo_miss_rate = np.sum(lats > slo) / len(lats)
+    print(np.sum(lats > 100000))
     return slo_miss_rate
 
 def compute_spd_thruput(results, lam):
@@ -115,15 +101,17 @@ def compute_spd_thruput(results, lam):
     thru = np.mean(thrus)
     return thru, lam-thru
 
-def load_spd_run(path, slo, provision_strategy, num_reps):
+def load_spd_run(path, slo, provision_strategy):
     """
     Loads a single SPD experiment JSON file
     """
     with open(path, "r") as f:
         results = json.load(f)
     arrival_process_fname = os.path.basename(results["arrival_process"]["file_path"])
-    lam, cv = get_lam_and_cv_from_fname(arrival_process_fname)
-    cost = compute_spd_cost(results, num_reps)
+    # lam, cv = get_lam_and_cv_from_fname(arrival_process_fname)
+    lam = results["experiment_config"]["lambda_val"]
+    cv = results["experiment_config"]["cv"]
+    cost = compute_spd_cost(results)
     slo_miss_rate = compute_spd_slo_miss_rate(results, slo)
     thruput, thruput_delta = compute_spd_thruput(results, lam)
     slo_plus_25_miss_rate = compute_spd_slo_miss_rate(results, slo*1.25)
@@ -150,8 +138,7 @@ def load_spd_experiment(path, slo, provision_strategy):
                         load_spd_run(
                             os.path.join(path, reps_dir, f),
                             slo,
-                            provision_strategy,
-                            num_reps))
+                            provision_strategy))
     return results
 
 
@@ -173,6 +160,8 @@ def load_spd_pipeline_one():
     all_results = []
 
     for d in os.listdir(base_path):
+        if "INCOMPLETE" in d:
+            continue
         slo, cv = get_slo_and_cv_from_spd_dirname(d)
         if slo == "min_lat":
             for slo in [.35, .5, 1.0]:
