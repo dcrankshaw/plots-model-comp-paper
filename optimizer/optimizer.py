@@ -51,11 +51,11 @@ class ArrivalHistory(object):
         # print("Initializing maximum x coordinate")
         x_coordinate = 1.
         service_y_point = get_service_curve_at_x(x_coordinate)
-        arrival_y_point = self._get_arrival_curve_at_x(x_coordinate)
+        _, arrival_y_point = self._get_arrival_curve_at_x(x_coordinate)
         while(service_y_point < arrival_y_point):
             x_coordinate = x_coordinate * 2.
             service_y_point = get_service_curve_at_x(x_coordinate)
-            arrival_y_point = self._get_arrival_curve_at_x(x_coordinate)
+            _, arrival_y_point = self._get_arrival_curve_at_x(x_coordinate)
         # Do a telescoping search to get the x_coordinate close to the intersection of the arrival
         # and service curve.
         # 1 is a magic number: We want to continue to telescope into the range of x values
@@ -66,7 +66,7 @@ class ArrivalHistory(object):
         right_bound = x_coordinate
         middle = (left_bound + right_bound) / 2.
         service_y_point = get_service_curve_at_x(middle)
-        arrival_y_point = self._get_arrival_curve_at_x(middle)
+        _, arrival_y_point = self._get_arrival_curve_at_x(middle)
         while(abs(service_y_point - arrival_y_point) > 1.):
             # print(left_bound, right_bound, middle, service_y_point, arrival_y_point)
             if np.isclose(middle, np.max(self.history)):
@@ -78,7 +78,7 @@ class ArrivalHistory(object):
                 right_bound = middle
             middle = (left_bound + right_bound) / 2.
             service_y_point = get_service_curve_at_x(middle)
-            arrival_y_point = self._get_arrival_curve_at_x(middle)
+            _, arrival_y_point = self._get_arrival_curve_at_x(middle)
         return middle
 
     # Compute maximum vertical gap from arrival curve to service curve
@@ -144,8 +144,8 @@ class ArrivalHistory(object):
         result = get_smallest_delta_2(arrival_x_value, self.history)
         # print("_get_arrival_curve_at_x("+str(arrival_x_value)+") = "+str(result))
         if queue:
-            queue.put(result)
-        return result
+            queue.put((arrival_x_value, result))
+        return (arrival_x_value, result)
 
     def get_max_Q_and_time(self, latency, throughput):
 
