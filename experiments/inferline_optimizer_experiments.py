@@ -90,9 +90,9 @@ def generate_nasa_arrival_process(avg_qps = None):
         from data_fetch_utils import fetch_and_cache
         data_file1 = fetch_and_cache("ftp://ita.ee.lbl.gov/traces/NASA_access_log_Jul95.gz",
             "nasa1.gz", data_dir = arrival_process_dir)
-        # data_file2 = fetch_and_cache("ftp://ita.ee.lbl.gov/traces/NASA_access_log_Aug95.gz", 
+        # data_file2 = fetch_and_cache("ftp://ita.ee.lbl.gov/traces/NASA_access_log_Aug95.gz",
         #    "nasa2.gz", data_dir = arrival_process_dir)
-    
+
         print("cleaning timestamps")
 
         import re
@@ -107,7 +107,7 @@ def generate_nasa_arrival_process(avg_qps = None):
             dates1 = list(extract_dates(f))
         #         with gzip.open(data_file2, "r") as f:
         #             dates2 = list(extract_dates(f))
-        
+
         print("computing offset in ms")
         import pandas as pd
         # dates = pd.concat([pd.Series(dates1), pd.Series(dates2)]).reset_index(drop=True)
@@ -279,7 +279,8 @@ def underestimate_profile_latency_pipeline_one():
             logger.info("no result")
 
 
-def generate_pipeline_one_configs(utilization=0.8):
+def generate_pipeline_one_configs(cvs):
+    utilization=1.0
     results_dir = os.path.abspath("e2e_sys_comp_pipeline_one/util_{}".format(utilization))
     if not os.path.exists(results_dir):
         os.makedirs(results_dir)
@@ -288,8 +289,7 @@ def generate_pipeline_one_configs(utilization=0.8):
     cloud = "aws"
     opt = get_optimizer_pipeline_one(utilization)
     logger.info("Optimizer initialized")
-    # for cv in [1.0, 4.0, 0.1]:
-    for cv in [0.1]:
+    for cv in cvs:
         for slo in [0.5, 0.35, 1.0]:
             configs = []
             results_fname = "aws_image_driver_one_ifl_configs_slo_{slo}_cv_{cv}.json".format(
@@ -541,7 +541,7 @@ def underestimate_profile_latency_pipeline_three():
 #         logger.info("no result")
 
 if __name__ == "__main__":
-    generate_pipeline_one_configs(1.0)
+    generate_pipeline_one_configs(cvs=[0.1])
     # generate_pipeline_three_configs(0.7)
     # generate_pipeline_three_configs_no_scale_factor(0.7)
     # sweep_utilization_factor_pipeline_three()
