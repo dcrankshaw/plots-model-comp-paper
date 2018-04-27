@@ -190,6 +190,8 @@ class ArrivalHistory(object):
                 # p.join()
         sorted_arr_xy_pairs = sorted(list(arrival_xy_map.items()))
         arrival_x, arrival_y = zip(*sorted_arr_xy_pairs)
+        for i in range(len(arrival_x)):
+            assert arrival_y[i] == arrival_xy_map[arrival_x[i]]
 
         return (self._max_Q_given_arrival(arrival_x, arrival_y, latency, throughput),
                 self._max_response_time_given_arrival(arrival_x, arrival_y, latency, throughput))
