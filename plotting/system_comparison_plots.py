@@ -200,8 +200,9 @@ def load_spd_pipeline_one():
 ##########################################################
 ####################### INFERLINE ########################
 
-def compute_inferline_cost(results):
-    node_configs = results["loaded_config"]["node_configs"]
+def compute_inferline_cost(results, conf_name):
+    # node_configs = results["loaded_config"]["node_configs"]
+    node_configs = results[conf_name]["node_configs"]
     cost = 0
     for name, n in node_configs.items():
         num_replicas = n["num_replicas"]
@@ -225,10 +226,11 @@ def load_inferline_results_file(path):
 
     with open(path, "r") as f:
         results = json.load(f)
-    cv = results["loaded_config"]["cv"]
-    slo = results["loaded_config"]["slo"]
-    lam = results["loaded_config"]["lam"]
-    utilization = results["loaded_config"]["utilization"]
+    conf_name = "used_config"
+    cv = results[conf_name]["cv"]
+    slo = results[conf_name]["slo"]
+    lam = results[conf_name]["lam"]
+    utilization = results[conf_name]["utilization"]
     trials = results["throughput_results"]["client_metrics"][0][1:]
     lats = []
     for t in trials:
@@ -242,10 +244,12 @@ def load_inferline_results_file(path):
     slo_miss_rate = np.sum(lats > slo) / len(lats)
     slo_plus_25_miss_rate = np.sum(lats > slo*1.25) / len(lats)
     thruput, thruput_delta = compute_throughput_inferline(results, lam)
-    cost = compute_inferline_cost(results)
+    orig_cost = compute_inferline_cost(results, "orig_config")
+    used_cost = compute_inferline_cost(results, "used_config")
     return {
             "name": "InferLine",
-            "cost": cost,
+            "orig_cost": orig_cost,
+            "used_cost": used_cost,
             "lambda": lam,
             "CV": cv,
             "slo": slo,
@@ -266,7 +270,8 @@ def load_all_inferline_sys_comp_results(base_path):
     return all_results
 
 def load_inferline_pipeline_one():
-    base_path = os.path.abspath("../results_cpp_benchmarker/e2e_results/image_driver_1/sys_comp/util_0.7")
+    # base_path = os.path.abspath("../results_cpp_benchmarker/e2e_results/image_driver_1/sys_comp/util_0.7")
+    base_path = os.path.abspath("../results_cpp_benchmarker/e2e_results/image_driver_1/sys_comp_dynamic_replication/debug_util_1.0")
     loaded_exps = load_all_inferline_sys_comp_results(base_path)
     df = pd.DataFrame(loaded_exps)
     return df
