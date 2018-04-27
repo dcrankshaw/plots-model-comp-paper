@@ -21,6 +21,8 @@ logger = logging.getLogger(__name__)
 
 MIN_DELAY_MS = 0.047
 
+np.random.seed(42)
+
 
 arrival_process_dir = os.path.join(cur_dir, "cached_arrival_processes")
 if not os.path.exists(arrival_process_dir):
@@ -587,7 +589,8 @@ def debug_pipeline_one(throughput, opt, slo, cost, cloud, cv):
 def debug_pipeline_one():
     slo = .5
     # lam = 117
-    cost = 10.6
+    # cost = 10.6
+    cost = 5.4
     cv = 0.1
     utilization = 1.0
     cloud = "aws"
@@ -622,6 +625,7 @@ def debug_pipeline_one():
     #     json.dumps(conf, indent=4)
 
 if __name__ == "__main__":
+    # debug_pipeline_one()
     generate_pipeline_one_configs(cvs=[0.1])
 
     # generate_pipeline_three_configs(0.7)

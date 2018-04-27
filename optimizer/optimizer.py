@@ -173,7 +173,8 @@ class ArrivalHistory(object):
         # requires more computation time
         arrival_x = np.linspace(1, max_x, 200)
         chunk_size = 40
-        arrival_y = []
+        # arrival_y = []
+        arrival_xy_map = {}
         # This for loop is just to limit the degree of parallelism
         for chunk in range(len(arrival_x) // chunk_size):
             queue = Queue()
@@ -183,8 +184,13 @@ class ArrivalHistory(object):
                 p.start()
                 procs.append(p)
             for p in procs:
-                arrival_y.append(queue.get())
+                arr_x, arr_y = queue.get()
+                arrival_xy_map[arr_x] = arr_y
+                # arrival_y.append(queue.get())
                 # p.join()
+        sorted_arr_xy_pairs = sorted(list(arrival_xy_map.items()))
+        arrival_x, arrival_y = zip(*sorted_arr_xy_pairs)
+
         return (self._max_Q_given_arrival(arrival_x, arrival_y, latency, throughput),
                 self._max_response_time_given_arrival(arrival_x, arrival_y, latency, throughput))
 
