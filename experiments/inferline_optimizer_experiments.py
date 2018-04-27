@@ -179,11 +179,7 @@ def optimize_pipeline_one(throughput, opt, slo, cost, cloud, cv):
     results = []
     inception_gpu = "v100"
     resnet_gpu = "v100"
-    if cloud == "aws":
-        num_cpus = 1
-        resnet_gpu = "v100"
-    else:
-        num_cpus = 2
+    num_cpus = 1
     initial_config = {
         "inception": profiler.NodeConfig(name="inception",
                                          num_cpus=num_cpus,
@@ -285,8 +281,14 @@ def generate_pipeline_one_configs(cvs):
     if not os.path.exists(results_dir):
         os.makedirs(results_dir)
         logger.info("Created results directory: %s" % results_dir)
-    costs = [5.4, 8.0, 10.6, 13.2, 15.8, 18.4, 21.0]
+    # costs = [5.4, 8.0, 10.6, 13.2, 15.8, 18.4, 21.0]
+
     cloud = "aws"
+    cost_lower_bound = get_cpu_cost(cloud, 4) + get_gpu_cost(cloud, "v100", 2)
+    cost_upper_bound = get_cpu_cost(cloud, 16) + get_gpu_cost(cloud, "v100", 8)
+    cost_increment = get_cpu_cost(cloud, 1) + get_gpu_cost(cloud, "v100", 1)
+    print(cost_lower_bound, cost_upper_bound, cost_increment)
+    costs = np.arange(cost_lower_bound, cost_upper_bound+1.0, cost_increment)
     opt = get_optimizer_pipeline_one(utilization)
     logger.info("Optimizer initialized")
     for cv in cvs:
