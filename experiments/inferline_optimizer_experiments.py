@@ -177,8 +177,8 @@ def get_optimizer_pipeline_one(utilization, perc=1.0):
 def optimize_pipeline_one(throughput, opt, slo, cost, cloud, cv):
     arrival_history = generate_arrival_process(throughput, cv)
     results = []
-    inception_gpu = "k80"
-    resnet_gpu = "k80"
+    inception_gpu = "v100"
+    resnet_gpu = "v100"
     if cloud == "aws":
         num_cpus = 1
         resnet_gpu = "v100"
