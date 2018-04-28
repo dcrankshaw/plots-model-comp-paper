@@ -1,0 +1,114 @@
+[
+    {
+        "slo": 1.0,
+        "cost": 26.078,
+        "lam": 959,
+        "node_configs": {
+            "inception": {
+                "name": "inception",
+                "num_cpus": 1,
+                "gpu_type": "v100",
+                "batch_size": 24.0,
+                "num_replicas": 4,
+                "cloud": "aws",
+                "p99_lat": 0.21947779,
+                "estimated_thru": 970.4
+            },
+            "tf-resnet-feats": {
+                "name": "tf-resnet-feats",
+                "num_cpus": 1,
+                "gpu_type": "v100",
+                "batch_size": 47.873333333333335,
+                "num_replicas": 5,
+                "cloud": "aws",
+                "p99_lat": 0.33449379999999995,
+                "estimated_thru": 1052.5
+            },
+            "tf-log-reg": {
+                "name": "tf-log-reg",
+                "num_cpus": 1,
+                "gpu_type": "none",
+                "batch_size": 12.0,
+                "num_replicas": 1,
+                "cloud": "aws",
+                "p99_lat": 0.034157,
+                "estimated_thru": 996.6
+            },
+            "tf-kernel-svm": {
+                "name": "tf-kernel-svm",
+                "num_cpus": 1,
+                "gpu_type": "none",
+                "batch_size": 24.0,
+                "num_replicas": 2,
+                "cloud": "aws",
+                "p99_lat": 0.05970841999999998,
+                "estimated_thru": 1164.8
+            }
+        },
+        "estimated_perf": {
+            "latency": 0.39420221999999994,
+            "throughput": 970.4,
+            "cost": 23.55
+        },
+        "response_time": 0.9782012103314597,
+        "cv": 4.0,
+        "utilization": 1.0,
+        "latency_percentage": 1.0
+    },
+    {
+        "slo": 1.0,
+        "cost": 23.4835,
+        "lam": 811,
+        "node_configs": {
+            "inception": {
+                "name": "inception",
+                "num_cpus": 1,
+                "gpu_type": "v100",
+                "batch_size": 24.0,
+                "num_replicas": 4,
+                "cloud": "aws",
+                "p99_lat": 0.21947779,
+                "estimated_thru": 970.4
+            },
+            "tf-resnet-feats": {
+                "name": "tf-resnet-feats",
+                "num_cpus": 1,
+                "gpu_type": "v100",
+                "batch_size": 47.873333333333335,
+                "num_replicas": 4,
+                "cloud": "aws",
+                "p99_lat": 0.33449379999999995,
+                "estimated_thru": 842.0
+            },
+            "tf-log-reg": {
+                "name": "tf-log-reg",
+                "num_cpus": 1,
+                "gpu_type": "none",
+                "batch_size": 4.0,
+                "num_replicas": 1,
+                "cloud": "aws",
+                "p99_lat": 0.03416104999999999,
+                "estimated_thru": 883.2
+            },
+            "tf-kernel-svm": {
+                "name": "tf-kernel-svm",
+                "num_cpus": 1,
+                "gpu_type": "none",
+                "batch_size": 16.0,
+                "num_replicas": 2,
+                "cloud": "aws",
+                "p99_lat": 0.05829252,
+                "estimated_thru": 917.0
+            }
+        },
+        "estimated_perf": {
+            "latency": 0.39278631999999997,
+            "throughput": 861.2274024738344,
+            "cost": 20.9555
+        },
+        "response_time": 0.9163109595600165,
+        "cv": 4.0,
+        "utilization": 1.0,
+        "latency_percentage": 1.0
+    }
+]
