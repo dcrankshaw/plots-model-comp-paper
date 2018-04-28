@@ -289,6 +289,41 @@ def include_T_S_in_node_configs(node_configs, opt):
         n["p99_lat"] = lat
         n["estimated_thru"] = thru
 
+def aggregate_configs():
+    utilization = 1.0
+    results_dir = os.path.abspath("e2e_sys_comp_pipeline_one/util_{}".format(utilization))
+    all_configs = []
+    # Remove any configs that require more than 2 p3.8xlarge instances (8 GPUS)
+    for c_name in os.listdir(results_dir):
+        if c_name[-4:] == "json":
+            if "ANNOTATED" in c_name or "higher_cost" in c_name:
+                with open(os.path.join(results_dir, c_name), "r") as f:
+                    configs = json.load(f)
+                for c in configs:
+                    total_gpus = 0
+                    for name, n in c["node_configs"].items():
+                        gpu_type = n["gpu_type"]
+                        num_reps = n["num_replicas"]
+                        if gpu_type != "none":
+                            total_gpus += num_reps
+                    if total_gpus <= 8:
+                        all_configs.append(c)
+
+
+    def config_sort_key(a):
+        return (a["cv"], -1*a["slo"], -1*a["lam"], a["cost"])
+
+    sorted_configs = sorted(all_configs, key=config_sort_key)
+
+    with open(os.path.join(results_dir, "all_configs_pipeline_one.json"), "w") as f:
+        json.dump(sorted_configs, f, indent=4)
+    # for c in all_configs:
+
+
+
+
+
+
 
 def annotate_existing_configs():
     utilization=1.0
@@ -335,10 +370,10 @@ def generate_pipeline_one_configs(cvs):
                     logger.info(("FOUND CONFIG FOR SLO: {slo}, COST: {cost}, LAMBDA: {lam}, "
                                 "CV: {cv}").format(slo=slo, cost=cost, lam=lam, cv=cv))
                     node_configs, perfs, response_time = result
-                    include_T_S_in_node_configs(node_configs, opt)
-                    configs.append(Configuration(
-                        slo, cost, lam, cv, node_configs, perfs,
-                        response_time, utilization).__dict__)
+                    config_obj = Configuration(slo, cost, lam, cv, node_configs, perfs,
+                        response_time, utilization)
+                    include_T_S_in_node_configs(config_obj.node_configs, opt)
+                    configs.append(config_obj.__dict__)
                     with open(results_file, "w") as f:
                         json.dump(configs, f, indent=4)
                 else:
@@ -654,8 +689,9 @@ def debug_pipeline_one():
     #     json.dumps(conf, indent=4)
 
 if __name__ == "__main__":
-    generate_pipeline_one_configs(cvs=[0.1, 1.0, 4.0])
+    # generate_pipeline_one_configs(cvs=[0.1, 1.0, 4.0])
     # annotate_existing_configs()
+    aggregate_configs()
 
     # generate_pipeline_three_configs(0.7)
     # generate_pipeline_three_configs_no_scale_factor(0.7)
