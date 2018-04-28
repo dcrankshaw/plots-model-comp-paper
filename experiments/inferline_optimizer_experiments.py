@@ -625,7 +625,7 @@ def debug_pipeline_one():
 
 if __name__ == "__main__":
     # debug_pipeline_one()
-    generate_pipeline_one_configs(cvs=[0.1, 4.0])
+    generate_pipeline_one_configs(cvs=[0.1])
 
     # generate_pipeline_three_configs(0.7)
     # generate_pipeline_three_configs_no_scale_factor(0.7)
