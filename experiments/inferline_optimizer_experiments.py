@@ -289,10 +289,11 @@ def generate_pipeline_one_configs(cvs):
     cost_increment = get_cpu_cost(cloud, 1) + get_gpu_cost(cloud, "v100", 1)
     print(cost_lower_bound, cost_upper_bound, cost_increment)
     costs = np.arange(cost_lower_bound, cost_upper_bound+1.0, cost_increment)
+    costs = reversed(costs)
     opt = get_optimizer_pipeline_one(utilization)
     logger.info("Optimizer initialized")
     for cv in cvs:
-        for slo in [0.5, 0.35, 1.0]:
+        for slo in [1.0, 0.5, 0.35]:
             configs = []
             results_fname = "aws_image_driver_one_ifl_configs_slo_{slo}_cv_{cv}.json".format(
                 slo=slo,
