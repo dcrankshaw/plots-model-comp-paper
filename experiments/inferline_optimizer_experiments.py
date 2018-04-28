@@ -11,6 +11,7 @@ from optimizer import GreedyOptimizer
 from utils import get_cpu_cost, get_gpu_cost
 import logging
 import math
+from profiler import NodeConfig
 
 logging.basicConfig(
     format='%(asctime)s %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s',
@@ -276,6 +277,32 @@ def underestimate_profile_latency_pipeline_one():
         else:
             logger.info("no result")
 
+def include_T_S_in_node_configs(node_configs, opt):
+    for name, n in node_configs.items():
+        nc = NodeConfig(n["name"],
+                        n["num_cpus"],
+                        n["gpu_type"],
+                        n["batch_size"],
+                        n["num_replicas"],
+                        n["cloud"])
+        lat, thru, cost = opt.node_profs[n["name"]].estimate_performance(nc)
+        n["p99_lat"] = lat
+        n["estimated_thru"] = thru
+
+
+def annotate_existing_configs():
+    utilization=1.0
+    opt = get_optimizer_pipeline_one(utilization)
+    results_dir = os.path.abspath("e2e_sys_comp_pipeline_one/util_{}".format(utilization))
+    for c_name in os.listdir(results_dir):
+        with open(os.path.join(results_dir, c_name), "r") as f:
+            if c_name[-4:] == "json" and "ANNOTATED" not in c_name:
+                configs = json.load(f)
+                for conf in configs:
+                    include_T_S_in_node_configs(conf["node_configs"], opt)
+                with open(os.path.join(results_dir, "ANNOTATED_{}".format(c_name)), "w") as f:
+                    json.dump(configs, f, indent=4)
+
 
 def generate_pipeline_one_configs(cvs):
     utilization=1.0
@@ -284,18 +311,19 @@ def generate_pipeline_one_configs(cvs):
         os.makedirs(results_dir)
         logger.info("Created results directory: %s" % results_dir)
     cloud = "aws"
+    completed_cost = 20.889
     cost_lower_bound = get_cpu_cost(cloud, 4) + get_gpu_cost(cloud, "v100", 2)
-    cost_upper_bound = get_cpu_cost(cloud, 16) + get_gpu_cost(cloud, "v100", 8)
+    cost_upper_bound = get_cpu_cost(cloud, 11) + get_gpu_cost(cloud, "v100", 9)
     cost_increment = get_cpu_cost(cloud, 1) + get_gpu_cost(cloud, "v100", 1)
     print(cost_lower_bound, cost_upper_bound, cost_increment)
-    costs = np.arange(cost_lower_bound, cost_upper_bound+1.0, cost_increment)
+    costs = np.arange(completed_cost + cost_increment, cost_upper_bound, cost_increment)
     costs = list(reversed(costs))
     opt = get_optimizer_pipeline_one(utilization)
     logger.info("Optimizer initialized")
     for cv in cvs:
         for slo in [1.0, 0.5]:
             configs = []
-            results_fname = "aws_image_driver_one_ifl_configs_slo_{slo}_cv_{cv}.json".format(
+            results_fname = "aws_image_driver_one_ifl_configs_slo_{slo}_cv_{cv}_higher_cost.json".format(
                 slo=slo,
                 cv=cv,
                 util=utilization)
@@ -624,8 +652,8 @@ def debug_pipeline_one():
     #     json.dumps(conf, indent=4)
 
 if __name__ == "__main__":
-    # debug_pipeline_one()
-    generate_pipeline_one_configs(cvs=[0.1])
+    # generate_pipeline_one_configs(cvs=[0.1, 1.0, 4.0])
+    annotate_existing_configs()
 
     # generate_pipeline_three_configs(0.7)
     # generate_pipeline_three_configs_no_scale_factor(0.7)
