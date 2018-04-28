@@ -311,13 +311,14 @@ def generate_pipeline_one_configs(cvs):
         os.makedirs(results_dir)
         logger.info("Created results directory: %s" % results_dir)
     cloud = "aws"
-    completed_cost = 20.889
     cost_lower_bound = get_cpu_cost(cloud, 4) + get_gpu_cost(cloud, "v100", 2)
-    cost_upper_bound = get_cpu_cost(cloud, 11) + get_gpu_cost(cloud, "v100", 9)
+    cost_upper_bound = get_cpu_cost(cloud, 14) + get_gpu_cost(cloud, "v100", 10)
     cost_increment = get_cpu_cost(cloud, 1) + get_gpu_cost(cloud, "v100", 1)
-    print(cost_lower_bound, cost_upper_bound, cost_increment)
-    costs = np.arange(completed_cost + cost_increment, cost_upper_bound, cost_increment)
+    cost_lower_bound = 20.889 + cost_increment
+    # print(cost_lower_bound, cost_upper_bound, cost_increment)
+    costs = np.arange(cost_lower_bound, cost_upper_bound, cost_increment)
     costs = list(reversed(costs))
+    print(costs)
     opt = get_optimizer_pipeline_one(utilization)
     logger.info("Optimizer initialized")
     for cv in cvs:
@@ -334,6 +335,7 @@ def generate_pipeline_one_configs(cvs):
                     logger.info(("FOUND CONFIG FOR SLO: {slo}, COST: {cost}, LAMBDA: {lam}, "
                                 "CV: {cv}").format(slo=slo, cost=cost, lam=lam, cv=cv))
                     node_configs, perfs, response_time = result
+                    include_T_S_in_node_configs(node_configs, opt)
                     configs.append(Configuration(
                         slo, cost, lam, cv, node_configs, perfs,
                         response_time, utilization).__dict__)
@@ -652,8 +654,8 @@ def debug_pipeline_one():
     #     json.dumps(conf, indent=4)
 
 if __name__ == "__main__":
-    # generate_pipeline_one_configs(cvs=[0.1, 1.0, 4.0])
-    annotate_existing_configs()
+    generate_pipeline_one_configs(cvs=[0.1, 1.0, 4.0])
+    # annotate_existing_configs()
 
     # generate_pipeline_three_configs(0.7)
     # generate_pipeline_three_configs_no_scale_factor(0.7)
