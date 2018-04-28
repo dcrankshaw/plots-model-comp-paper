@@ -257,6 +257,7 @@ def load_single_node_profiles(
         not necessarily match the directory name of the directory containing the profiling results
         for that node.
     """
+    logger.info("Loading profs from {}".format(os.path.basename(single_node_profs_dir)))
     profs = {}
     for m in os.listdir(single_node_profs_dir):
         fname = os.path.join(single_node_profs_dir, m)
