@@ -529,8 +529,10 @@ def generate_pipeline_three_configs(cvs):
     cloud = "aws"
     # cost_lower_bound = get_cpu_cost(cloud, 3) + get_gpu_cost(cloud, "v100", 2) + get_gpu_cost(cloud, "k80", 1)
     # cost_upper_bound = get_cpu_cost(cloud, 16) + get_gpu_cost(cloud, "v100", 8) + get_gpu_cost(cloud, "k80", 8)
-    cost_lower_bound = get_cpu_cost(cloud, 3) + get_gpu_cost(cloud, "v100", 3)
-    cost_upper_bound = get_cpu_cost(cloud, 16) + get_gpu_cost(cloud, "v100", 8)
+    # cost_lower_bound = get_cpu_cost(cloud, 3) + get_gpu_cost(cloud, "v100", 3)
+    # cost_upper_bound = get_cpu_cost(cloud, 16) + get_gpu_cost(cloud, "v100", 8)
+    cost_lower_bound = get_cpu_cost(cloud, 9) + get_gpu_cost(cloud, "v100", 9)
+    cost_upper_bound = get_cpu_cost(cloud, 17) + get_gpu_cost(cloud, "v100", 17)
     cost_increment = get_cpu_cost(cloud, 1) + get_gpu_cost(cloud, "v100", 1)
     print(cost_lower_bound, cost_upper_bound, cost_increment)
     costs = np.arange(cost_lower_bound, cost_upper_bound+1.0, cost_increment)
@@ -542,7 +544,7 @@ def generate_pipeline_three_configs(cvs):
     for cv in cvs:
         for slo in [1.0, 0.5, 0.35]:
             configs = []
-            results_fname = "aws_resnet_cascade_ifl_configs_slo_{slo}_cv_{cv}.json".format(
+            results_fname = "aws_resnet_cascade_ifl_configs_slo_{slo}_cv_{cv}_higher_cost.json".format(
                 slo=slo,
                 cv=cv,
                 util=utilization)
