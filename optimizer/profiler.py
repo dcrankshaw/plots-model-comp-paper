@@ -287,8 +287,6 @@ class NodeProfile(object):
         --------
         tuple : (p99_latency, throughput, cost)
             Returns estimated latency, throughput, and cost for this configuration.
-            If there is not an exact batch size match, the profiler will perform linear
-            interpolation.
 
         Raises:
         -------
@@ -334,9 +332,11 @@ class NodeProfile(object):
         else:
             relevant_entries = resource_bundle_matches.loc[idx_glb:idx_lub]
             assert np.all(np.diff(relevant_entries[self.throughput_field]) > 0)
-            estimated_thruput = np.interp(config.batch_size,
-                                          relevant_entries["mean_batch_size"],
-                                          relevant_entries[self.throughput_field])
+            # Don't do linear interpolation
+            # estimated_thruput = np.interp(config.batch_size,
+            #                               relevant_entries["mean_batch_size"],
+            #                               relevant_entries[self.throughput_field])
+            estimated_thruput = np.min(relevant_entries[self.throughput_field])
             estimated_thruput = estimated_thruput * config.num_replicas
 
             assert np.all(np.diff(relevant_entries["p99_latency"]) > 0)

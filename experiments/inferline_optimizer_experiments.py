@@ -164,7 +164,8 @@ def get_optimizer_pipeline_one(utilization, perc=1.0):
     with open(os.path.abspath("../results_python_benchmarker/e2e_profs/systemx/image_driver_1/500ms"
                               "/incep_1-logreg_1-ksvm_1-resnet_1-171221_091209.json")) as f:
         sample_run = json.load(f)
-    scale_factors = profiler.get_node_scale_factors(sample_run, dag.reference_node)
+    scale_factors = {'inception': 1.0, 'tf-log-reg': 1.0, 'tf-kernel-svm': 1.0, 'tf-resnet-feats': 1.0}
+    print(scale_factors)
     node_configs = profiler.get_node_configs_from_experiment(sample_run)
     profs = snp.load_single_node_profiles(models=[n for n in node_configs])
     node_profs = {}
@@ -339,7 +340,7 @@ def annotate_existing_configs():
                     json.dump(configs, f, indent=4)
 
 
-def generate_pipeline_one_configs(cvs):
+def generate_pipeline_one_configs(cvs, slos):
     utilization=1.0
     results_dir = os.path.abspath("e2e_sys_comp_pipeline_one/util_{}".format(utilization))
     if not os.path.exists(results_dir):
@@ -356,7 +357,7 @@ def generate_pipeline_one_configs(cvs):
     opt = get_optimizer_pipeline_one(utilization)
     logger.info("Optimizer initialized")
     for cv in cvs:
-        for slo in [1.0, 0.5]:
+        for slo in slos:
             configs = []
             results_fname = "aws_image_driver_one_ifl_configs_slo_{slo}_cv_{cv}_higher_cost.json".format(
                 slo=slo,
@@ -695,12 +696,47 @@ def debug_pipeline_one():
     #         response_time, utilization).__dict__
     #     json.dumps(conf, indent=4)
 
+def pipeline_one_debug_2():
+    cv = 0.1
+    slo = 0.5
+    cost = 20.889
+    # utilization=0.95
+    utilization=1.0
+    results_dir = os.path.abspath("optimizer_thruput_pipeline_one_DEBUG/")
+    if not os.path.exists(results_dir):
+        os.makedirs(results_dir)
+        logger.info("Created results directory: %s" % results_dir)
+    cloud = "aws"
+    opt = get_optimizer_pipeline_one(utilization)
+    logger.info("Optimizer initialized")
+    configs = []
+    results_fname = "aws_image_driver_one_ifl_configs_slo_{slo}_cv_{cv}_{util}.json".format(
+        slo=slo,
+        cv=cv,
+        util=utilization)
+    results_file = os.path.join(results_dir, results_fname)
+    lam, result = probe_throughputs(slo, cloud, cost, opt, cv, optimize_pipeline_one)
+    if result:
+        logger.info(("FOUND CONFIG FOR SLO: {slo}, COST: {cost}, LAMBDA: {lam}, "
+                    "CV: {cv}").format(slo=slo, cost=cost, lam=lam, cv=cv))
+        node_configs, perfs, response_time = result
+        config_obj = Configuration(slo, cost, lam, cv, node_configs, perfs,
+            response_time, utilization)
+        include_T_S_in_node_configs(config_obj.node_configs, opt)
+        configs.append(config_obj.__dict__)
+        with open(results_file, "w") as f:
+            json.dump(configs, f, indent=4)
+    else:
+        logger.info("no result")
+
 if __name__ == "__main__":
-    # generate_pipeline_one_configs(cvs=[0.1, 1.0, 4.0])
+    # pipeline_one_debug_2()
+    # generate_pipeline_one_configs(cvs=[0.1, 1.0, 4.0], slos=[1.0, 0.5])
+    generate_pipeline_one_configs(cvs=[0.1], slos=[1.0])
     # annotate_existing_configs()
     # aggregate_configs()
 
-    generate_pipeline_three_configs(cvs=[0.1, 1.0, 4.0])
+    # generate_pipeline_three_configs(cvs=[0.1, 1.0, 4.0])
     # generate_pipeline_three_configs_no_scale_factor(0.7)
     # sweep_utilization_factor_pipeline_three()
     # debug_pipeline_three()
