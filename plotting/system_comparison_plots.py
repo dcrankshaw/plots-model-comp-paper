@@ -74,17 +74,20 @@ def compute_spd_cost(results):
     # All nodes use the same cpu set, so only get cpus once outside the for loop
     # Divide by 2 to convert from virtual cpus to physical cpus
     num_reps = node_configs[0]["num_replicas"]
-    cpus_per_rep = len(node_configs[0]["allocated_cpus"][0].split(" ")) / 2
-    assert cpus_per_rep == 4
-    num_cpus = num_reps * cpus_per_rep
+    # # cpus_per_rep = len(node_configs[0]["allocated_cpus"][0].split(" ")) / 2
+    # # print(cpus_per_rep)
+    # assert cpus_per_rep == 4
+    # num_cpus = num_reps * cpus_per_rep
     gpu_type = "v100"
-    # Check how many gpus were used
-    num_gpus = 0
-    for n in node_configs:
-        if len(n["gpus"]) > 0:
-            gpus_per_rep = len(n["gpus"][0].split(" "))
-            num_gpus = gpus_per_rep * num_reps
-            break
+    # # Check how many gpus were used
+    # num_gpus = 0
+    # for n in node_configs:
+    #     if len(n["gpus"]) > 0:
+    #         gpus_per_rep = len(n["gpus"][0].split(" "))
+    #         num_gpus = gpus_per_rep * num_reps
+    #         break
+    num_cpus = 4 * num_reps
+    num_gpus = 2 * num_reps
     cost = utils.get_cpu_cost("aws", num_cpus) + utils.get_gpu_cost("aws", gpu_type, num_gpus)
     return cost
 
@@ -93,7 +96,7 @@ def compute_spd_slo_miss_rate(results, slo):
     lats = np.array(results["client_metrics"][0]["all_lats"][1:])
     lats = np.hstack(lats)
     slo_miss_rate = np.sum(lats > slo) / len(lats)
-    print(np.sum(lats > 100000))
+    # print(np.sum(lats > 100000))
     return slo_miss_rate
 
 def compute_spd_thruput(results, lam):
@@ -131,7 +134,6 @@ def load_spd_experiment(path, slo, provision_strategy):
     results = []
     expected_num_results = len(list(os.listdir(path)))
     for reps_dir in os.listdir(path):
-        num_reps = int(reps_dir.rstrip("_rep"))
         for f in os.listdir(os.path.join(path, reps_dir)):
             if "results" in f and f[-4:] == "json":
                 results.append(
