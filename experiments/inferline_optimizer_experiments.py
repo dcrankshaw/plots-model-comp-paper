@@ -348,7 +348,7 @@ def generate_pipeline_one_configs(cvs, slos):
         logger.info("Created results directory: %s" % results_dir)
     cloud = "aws"
     cost_lower_bound = get_cpu_cost(cloud, 4) + get_gpu_cost(cloud, "v100", 2)
-    cost_upper_bound = get_cpu_cost(cloud, 14) + get_gpu_cost(cloud, "v100", 10)
+    cost_upper_bound = get_cpu_cost(cloud, 14) + get_gpu_cost(cloud, "v100", 9)
     cost_increment = get_cpu_cost(cloud, 1) + get_gpu_cost(cloud, "v100", 1)
     # print(cost_lower_bound, cost_upper_bound, cost_increment)
     costs = np.arange(cost_lower_bound, cost_upper_bound, cost_increment)
@@ -359,7 +359,7 @@ def generate_pipeline_one_configs(cvs, slos):
     for cv in cvs:
         for slo in slos:
             configs = []
-            results_fname = "aws_image_driver_one_ifl_configs_slo_{slo}_cv_{cv}_higher_cost.json".format(
+            results_fname = "aws_image_driver_one_ifl_configs_slo_{slo}_cv_{cv}.json".format(
                 slo=slo,
                 cv=cv,
                 util=utilization)

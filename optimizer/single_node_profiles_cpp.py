@@ -43,10 +43,6 @@ def load_results(results_dir):
     procs = []
 
     for exp in fs:
-        if "inception" in exp and "contention-600" in exp:
-            print("Skipping {}".format(exp))
-            continue
-
         p = Process(target=load_file, args=(results_dir, exp, queue))
         p.start()
         procs.append(p)
@@ -246,7 +242,7 @@ def create_node_profile_df(results_dir):
 
 
 def load_single_node_profiles(
-        single_node_profs_dir=os.path.abspath("../results_cpp_benchmarker/single_model_profs_contention_1000_inc/"),
+        single_node_profs_dir=os.path.abspath("../results_cpp_benchmarker/single_model_profs_contention_tuned/"),
         models=[]):
     """
     Returns
