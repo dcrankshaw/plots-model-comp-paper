@@ -732,7 +732,7 @@ def pipeline_one_debug_2():
 if __name__ == "__main__":
     # pipeline_one_debug_2()
     # generate_pipeline_one_configs(cvs=[0.1, 1.0, 4.0], slos=[1.0, 0.5])
-    generate_pipeline_one_configs(cvs=[0.1], slos=[1.0])
+    generate_pipeline_one_configs(cvs=[4.0], slos=[0.5])
     # annotate_existing_configs()
     # aggregate_configs()
 
