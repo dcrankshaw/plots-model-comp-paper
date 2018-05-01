@@ -22,9 +22,6 @@ def get_lam_and_cv_from_fname(arrival_process_fname):
     return (lam, cv)
 
 
-
-
-
 ##########################################################
 ################# TENSORFLOW SERVING #####################
 
@@ -74,20 +71,20 @@ def compute_spd_cost(results):
     # All nodes use the same cpu set, so only get cpus once outside the for loop
     # Divide by 2 to convert from virtual cpus to physical cpus
     num_reps = node_configs[0]["num_replicas"]
-    # # cpus_per_rep = len(node_configs[0]["allocated_cpus"][0].split(" ")) / 2
+    cpus_per_rep = len(node_configs[0]["allocated_cpus"][0].split(" ")) / 2
     # # print(cpus_per_rep)
     # assert cpus_per_rep == 4
-    # num_cpus = num_reps * cpus_per_rep
+    num_cpus = num_reps * cpus_per_rep
     gpu_type = "v100"
     # # Check how many gpus were used
-    # num_gpus = 0
-    # for n in node_configs:
-    #     if len(n["gpus"]) > 0:
-    #         gpus_per_rep = len(n["gpus"][0].split(" "))
-    #         num_gpus = gpus_per_rep * num_reps
-    #         break
-    num_cpus = 4 * num_reps
-    num_gpus = 2 * num_reps
+    num_gpus = 0
+    for n in node_configs:
+        if len(n["gpus"]) > 0:
+            gpus_per_rep = len(n["gpus"][0].split(" "))
+            num_gpus = gpus_per_rep * num_reps
+            break
+    # num_cpus = 4 * num_reps
+    # num_gpus = 2 * num_reps
     cost = utils.get_cpu_cost("aws", num_cpus) + utils.get_gpu_cost("aws", gpu_type, num_gpus)
     return cost
 
@@ -104,16 +101,17 @@ def compute_spd_thruput(results, lam):
     thru = np.mean(thrus)
     return thru, lam-thru
 
-def load_spd_run(path, slo, provision_strategy):
+def load_spd_run(path, provision_strategy):
     """
     Loads a single SPD experiment JSON file
     """
     with open(path, "r") as f:
         results = json.load(f)
-    arrival_process_fname = os.path.basename(results["arrival_process"]["file_path"])
+    # arrival_process_fname = os.path.basename(results["arrival_process"]["file_path"])
     # lam, cv = get_lam_and_cv_from_fname(arrival_process_fname)
     lam = results["experiment_config"]["lambda_val"]
     cv = results["experiment_config"]["cv"]
+    slo = float(results["experiment_config"]["slo_millis"]) / 1000.0
     cost = compute_spd_cost(results)
     slo_miss_rate = compute_spd_slo_miss_rate(results, slo)
     thruput, thruput_delta = compute_spd_thruput(results, lam)
@@ -130,60 +128,22 @@ def load_spd_run(path, slo, provision_strategy):
             "lam_minus_through": thruput_delta
             }
 
-def load_spd_experiment(path, slo, provision_strategy):
-    results = []
-    expected_num_results = len(list(os.listdir(path)))
-    for reps_dir in os.listdir(path):
-        for f in os.listdir(os.path.join(path, reps_dir)):
-            if "results" in f and f[-4:] == "json":
-                results.append(
-                        load_spd_run(
-                            os.path.join(path, reps_dir, f),
-                            slo,
-                            provision_strategy))
-    return results
-
-
-def get_slo_and_cv_from_spd_dirname(f):
-    # File name structure is EITHER:
-    # 1) <slo-in-ms-as-int>ms_cv<cv-as-float>
-    # 2) min_lat_cv<cv-as-float>
-    if "min_lat" in f:
-        slo = "min_lat"
-    else:
-        # Convert to seconds
-        slo = float(f.split("ms")[0]) / 1000.0
-    cv = float(f.split("cv")[1])
-    return slo, cv
-
-
 def load_spd_pipeline_one():
     base_path = os.path.abspath("../SPD/image_driver_1/v100-8xlarge")
     all_results = []
 
-    for d in os.listdir(base_path):
-        if "INCOMPLETE" in d:
-            continue
-        slo, cv = get_slo_and_cv_from_spd_dirname(d)
-        if slo == "min_lat":
-            for slo in [.35, .5, 1.0]:
-                all_results.extend(load_spd_experiment(
-                    os.path.join(base_path, d, "mean_provision"),
-                    slo,
-                    "min_lat_mean_provision"))
-                all_results.extend(load_spd_experiment(
-                    os.path.join(base_path, d, "peak_provision"),
-                    slo,
-                    "min_lat_peak_provision"))
-        else:
-            all_results.extend(load_spd_experiment(
-                os.path.join(base_path, d, "mean_provision"),
-                slo,
-                "mean_provision"))
-            all_results.extend(load_spd_experiment(
-                os.path.join(base_path, d, "peak_provision"),
-                slo,
-                "peak_provision"))
+
+    for cv_slo_d in os.listdir(base_path):
+        path_components = [base_path, cv_slo_d]
+        for prov_type_d in os.listdir(os.path.join(*path_components)):
+            path_components = [base_path, cv_slo_d, prov_type_d]
+            for lamb_d in os.listdir(os.path.join(*path_components)):
+                path_components = [base_path, cv_slo_d, prov_type_d, lamb_d]
+                for f in os.listdir(os.path.join(*path_components)):
+                    path_components = [base_path, cv_slo_d, prov_type_d, lamb_d, f]
+                    if "results" in f and f[-4:] == "json":
+                        # print(os.path.join(*path_components))
+                        all_results.append(load_spd_run(os.path.join(*path_components), prov_type_d))
     return pd.DataFrame(all_results)
         
 
@@ -191,9 +151,9 @@ def load_spd_pipeline_one():
 ##########################################################
 ####################### INFERLINE ########################
 
-def compute_inferline_cost(results, conf_name):
+def compute_inferline_cost(results):
     # node_configs = results["loaded_config"]["node_configs"]
-    node_configs = results[conf_name]["node_configs"]
+    node_configs = results["used_config"]["node_configs"]
     cost = 0
     for name, n in node_configs.items():
         num_replicas = n["num_replicas"]
@@ -235,12 +195,16 @@ def load_inferline_results_file(path):
     slo_miss_rate = np.sum(lats > slo) / len(lats)
     slo_plus_25_miss_rate = np.sum(lats > slo*1.25) / len(lats)
     thruput, thruput_delta = compute_throughput_inferline(results, lam)
-    orig_cost = compute_inferline_cost(results, "orig_config")
-    used_cost = compute_inferline_cost(results, "used_config")
+    node_cost = compute_inferline_cost(results)
+    # Each Clipper instance uses 4 physical CPUs. Each entry in the
+    # addr config map corresponds to a single Clipper instance
+    clipper_cost = utils.get_cpu_cost("aws", 4) * len(results["addr_config_map"])
+    total_cost = node_cost + clipper_cost
+    # used_cost = compute_inferline_cost(results, "used_config")
     return {
             "name": "InferLine",
-            "orig_cost": orig_cost,
-            "used_cost": used_cost,
+            "cost": total_cost,
+            # "used_cost": used_cost,
             "lambda": lam,
             "CV": cv,
             "slo": slo,
@@ -253,16 +217,15 @@ def load_inferline_results_file(path):
 
 def load_all_inferline_sys_comp_results(base_path):
     all_results = []
-    for exp in os.listdir(base_path):
-        for fname in os.listdir(os.path.join(base_path, exp)):
-            result = load_inferline_results_file(os.path.join(base_path, exp, fname))
-            if result is not None:
-                all_results.append(result)
+    for fname in os.listdir(base_path):
+        if fname[-4:] == "json":
+            all_results.append(load_inferline_results_file(os.path.join(base_path, fname)))
     return all_results
 
 def load_inferline_pipeline_one():
     # base_path = os.path.abspath("../results_cpp_benchmarker/e2e_results/image_driver_1/sys_comp/util_0.7")
-    base_path = os.path.abspath("../results_cpp_benchmarker/e2e_results/image_driver_1/sys_comp_dynamic_replication/debug_util_1.0")
+    base_path = os.path.abspath("../results_cpp_benchmarker/e2e_results_contention_tuned/"
+                                "pipeline_one/e2e_sys_comp")
     loaded_exps = load_all_inferline_sys_comp_results(base_path)
     df = pd.DataFrame(loaded_exps)
     return df
