@@ -803,8 +803,30 @@ def pipeline_one_debug_2():
         logger.info("no result")
 
 if __name__ == "__main__":
+
+    lams = []
+
+    base_path = os.path.expanduser("/home/ubuntu/plots-model-comp-paper/experiments/e2e_sys_comp_no_netcalc/pipeline_one/util_1.0")
+
+    config_paths = [
+        "aws_image_driver_one_ifl_configs_slo_0.5_util_1.0.json",
+        "aws_image_driver_one_ifl_configs_slo_1.0_util_1.0.json"
+    ]
+
+    config_paths = [os.path.join(base_path, c) for c in config_paths]
+    for config_path in config_paths:
+        print(config_path)
+        with open(os.path.abspath(os.path.expanduser(config_path)), "r") as f:
+            provided_configs = json.load(f)
+            for c in provided_configs:
+                lams.append(c["estimated_perf"]["throughput"])
+
+    for t in lams:
+        for cv in [0.0, 0.1, 1.0, 4.0]:
+            generate_arrival_process(t, cv)
+
     # pipeline_one_debug_2()
-    generate_pipeline_one_configs_no_netcalc(slos=[1.0, 0.5, 0.35])
+    # generate_pipeline_one_configs_no_netcalc(slos=[1.0, 0.5, 0.35])
     # generate_pipeline_one_configs(cvs=[4.0], slos=[0.5])
     # annotate_existing_configs()
     # aggregate_configs()
