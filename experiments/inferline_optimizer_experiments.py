@@ -57,8 +57,12 @@ def generate_arrival_process(throughput, cv):
         deltas_path = os.path.join(arrival_process_dir,
                                    "{lam}_{cv}.deltas".format(lam=throughput, cv=cv))
     if not os.path.exists(deltas_path):
+        num_deltas = 50000
         inter_request_delay_ms = 1.0 / float(throughput) * 1000.0
-        deltas = gamma(inter_request_delay_ms, cv, size=50000)
+        if cv == 0:
+            deltas = np.ones(num_deltas) * inter_request_delay_ms
+        else:
+            deltas = gamma(inter_request_delay_ms, cv, size=num_deltas)
         deltas = np.clip(deltas, a_min=MIN_DELAY_MS, a_max=None)
         arrival_history = np.cumsum(deltas)
         with open(deltas_path, "w") as f:
@@ -403,7 +407,11 @@ def generate_pipeline_one_configs_no_netcalc(slos):
             if result:
                 logger.info(("FOUND CONFIG FOR SLO: {slo}, COST: {cost}").format(slo=slo, cost=cost))
                 node_configs, perfs, response_time = result
-                config_obj = Configuration(slo, cost, None, None, node_configs, perfs,
+                lam = int(math.floor(perfs["throughput"]))
+                # Now generate arrival procs for that lambda:
+                for cv in [0.0, 0.1, 1.0, 4.0]:
+                    generate_arrival_process(lam, cv)
+                config_obj = Configuration(slo, cost, lam, None, node_configs, perfs,
                     response_time, utilization)
                 include_T_S_in_node_configs(config_obj.node_configs, opt)
                 configs.append(config_obj.__dict__)
@@ -804,29 +812,29 @@ def pipeline_one_debug_2():
 
 if __name__ == "__main__":
 
-    lams = []
-
-    base_path = os.path.expanduser("/home/ubuntu/plots-model-comp-paper/experiments/e2e_sys_comp_no_netcalc/pipeline_one/util_1.0")
-
-    config_paths = [
-        "aws_image_driver_one_ifl_configs_slo_0.5_util_1.0.json",
-        "aws_image_driver_one_ifl_configs_slo_1.0_util_1.0.json"
-    ]
-
-    config_paths = [os.path.join(base_path, c) for c in config_paths]
-    for config_path in config_paths:
-        print(config_path)
-        with open(os.path.abspath(os.path.expanduser(config_path)), "r") as f:
-            provided_configs = json.load(f)
-            for c in provided_configs:
-                lams.append(c["estimated_perf"]["throughput"])
-
-    for t in lams:
-        for cv in [0.0, 0.1, 1.0, 4.0]:
-            generate_arrival_process(t, cv)
+    # lams = []
+    #
+    # base_path = os.path.expanduser("/home/ubuntu/plots-model-comp-paper/experiments/e2e_sys_comp_no_netcalc/pipeline_one/util_1.0")
+    #
+    # config_paths = [
+    #     "aws_image_driver_one_ifl_configs_slo_0.5_util_1.0.json",
+    #     "aws_image_driver_one_ifl_configs_slo_1.0_util_1.0.json"
+    # ]
+    #
+    # config_paths = [os.path.join(base_path, c) for c in config_paths]
+    # for config_path in config_paths:
+    #     print(config_path)
+    #     with open(os.path.abspath(os.path.expanduser(config_path)), "r") as f:
+    #         provided_configs = json.load(f)
+    #         for c in provided_configs:
+    #             lams.append(int(math.round(c["estimated_perf"]["throughput"])))
+    #
+    # for t in lams:
+    #     for cv in [0.0, 0.1, 1.0, 4.0]:
+    #         generate_arrival_process(t, cv)
 
     # pipeline_one_debug_2()
-    # generate_pipeline_one_configs_no_netcalc(slos=[1.0, 0.5, 0.35])
+    generate_pipeline_one_configs_no_netcalc(slos=[1.0, 0.5, 0.35])
     # generate_pipeline_one_configs(cvs=[4.0], slos=[0.5])
     # annotate_existing_configs()
     # aggregate_configs()
