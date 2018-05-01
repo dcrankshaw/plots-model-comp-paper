@@ -534,6 +534,41 @@ def optimize_pipeline_three(throughput, opt, slo, cost, cloud, cv):
         best_config, best_config_perf, response_time = result
     return result
 
+def optimize_pipeline_three_no_netcalc(opt, slo, cost, cloud):
+    results = []
+    initial_gpu_type = "v100"
+    if cloud == "aws":
+        num_cpus = 1
+    else:
+        num_cpus = 2
+    initial_config = {
+        "res50": profiler.NodeConfig(name="res50",
+                                     num_cpus=num_cpus,
+                                     gpu_type=initial_gpu_type,
+                                     batch_size=1,
+                                     num_replicas=1,
+                                     cloud=cloud),
+        "res152": profiler.NodeConfig(name="res152",
+                                      num_cpus=num_cpus,
+                                      gpu_type=initial_gpu_type,
+                                      batch_size=1,
+                                      num_replicas=1,
+                                      cloud=cloud),
+        "alexnet": profiler.NodeConfig(name="alexnet",
+                                      num_cpus=num_cpus,
+                                      gpu_type=initial_gpu_type,
+                                      batch_size=1,
+                                      num_replicas=1,
+                                      cloud=cloud),
+    }
+
+    result = opt.select_optimal_config(
+        cloud, latency_constraint=slo, cost_constraint=cost, initial_config=initial_config)
+    if result:
+        results.append(result)
+        best_config, best_config_perf, response_time = result
+    return result
+
 def sweep_utilization_factor_pipeline_three():
     results_dir = os.path.abspath("utilization_sweep_pipeline_three_with_prune")
     if not os.path.exists(results_dir):
@@ -645,6 +680,44 @@ def generate_pipeline_three_configs(cvs):
                         json.dump(configs, f, indent=4)
                 else:
                     logger.info("no result")
+
+def generate_pipeline_three_configs_no_netcalc(slos):
+    utilization=1.0
+    results_dir = os.path.abspath("e2e_sys_comp_no_netcalc_t_q_half_t_s/pipeline_three/util_{}".format(utilization))
+    if not os.path.exists(results_dir):
+        os.makedirs(results_dir)
+        logger.info("Created results directory: %s" % results_dir)
+    cloud = "aws"
+    cost_lower_bound = get_cpu_cost(cloud, 3) + get_gpu_cost(cloud, "v100", 3)
+    cost_upper_bound = get_cpu_cost(cloud, 13) + get_gpu_cost(cloud, "v100", 13)
+    cost_increment = get_cpu_cost(cloud, 1) + get_gpu_cost(cloud, "v100", 1)
+    print(cost_lower_bound, cost_upper_bound, cost_increment)
+    costs = np.arange(cost_lower_bound, cost_upper_bound+1.0, cost_increment)
+    costs = list(reversed(costs))
+    print(costs)
+    cloud = "aws"
+    opt = get_optimizer_pipeline_three(utilization)
+    logger.info("Optimizer initialized")
+    for slo in slos:
+        configs = []
+        results_fname = "aws_resnet_cascade_ifl_configs_slo_{slo}_util_{util}.json".format(
+            slo=slo,
+            util=utilization)
+        results_file = os.path.join(results_dir, results_fname)
+        for cost in costs:
+            result = optimize_pipeline_three_no_netcalc(opt, slo, cost, cloud)
+            if result:
+                logger.info(("FOUND CONFIG FOR SLO: {slo}, COST: {cost}").format(slo=slo, cost=cost))
+                node_configs, perfs, response_time = result
+                lam = int(math.floor(perfs["throughput"]))
+                config_obj = Configuration(slo, cost, lam, None, node_configs, perfs,
+                                            response_time, utilization)
+                include_T_S_in_node_configs(config_obj.node_configs, opt)
+                configs.append(config_obj.__dict__)
+                with open(results_file, "w") as f:
+                    json.dump(configs, f, indent=4)
+            else:
+                logger.info("no result")
 
 def underestimate_profile_latency_pipeline_three():
     results_dir = os.path.abspath("pipeline_three_underestimate_profile_latency")
@@ -811,30 +884,9 @@ def pipeline_one_debug_2():
         logger.info("no result")
 
 if __name__ == "__main__":
+    # generate_pipeline_one_configs_no_netcalc(slos=[0.5, 0.4, 0.3, 0.25])
+    generate_pipeline_three_configs_no_netcalc(slos=[0.5, 0.4, 0.35, 0.3])
 
-    # lams = []
-    #
-    # base_path = os.path.expanduser("/home/ubuntu/plots-model-comp-paper/experiments/e2e_sys_comp_no_netcalc/pipeline_one/util_1.0")
-    #
-    # config_paths = [
-    #     "aws_image_driver_one_ifl_configs_slo_0.5_util_1.0.json",
-    #     "aws_image_driver_one_ifl_configs_slo_1.0_util_1.0.json"
-    # ]
-    #
-    # config_paths = [os.path.join(base_path, c) for c in config_paths]
-    # for config_path in config_paths:
-    #     print(config_path)
-    #     with open(os.path.abspath(os.path.expanduser(config_path)), "r") as f:
-    #         provided_configs = json.load(f)
-    #         for c in provided_configs:
-    #             lams.append(int(math.round(c["estimated_perf"]["throughput"])))
-    #
-    # for t in lams:
-    #     for cv in [0.0, 0.1, 1.0, 4.0]:
-    #         generate_arrival_process(t, cv)
-
-    # pipeline_one_debug_2()
-    generate_pipeline_one_configs_no_netcalc(slos=[0.5, 0.4, 0.3, 0.25])
     # generate_pipeline_one_configs(cvs=[4.0], slos=[0.5])
     # annotate_existing_configs()
     # aggregate_configs()
