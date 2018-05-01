@@ -378,7 +378,7 @@ def run_opt_on_generated_pipeline_one_lambdas(lambdas_path):
 
 def generate_pipeline_one_configs(cvs, slos):
     utilization=1.0
-    results_dir = os.path.abspath("e2e_sys_comp_pipeline_one/util_{}".format(utilization))
+    results_dir = os.path.abspath("remove_t_s_e2e_sys_comp_pipeline_one/new_lambdas")
     if not os.path.exists(results_dir):
         os.makedirs(results_dir)
         logger.info("Created results directory: %s" % results_dir)
@@ -767,12 +767,13 @@ def pipeline_one_debug_2():
 
 if __name__ == "__main__":
 
-    run_opt_on_generated_pipeline_one_lambdas(os.path.abspath("e2e_sys_comp_pipeline_one/util_1.0"))
+    # run_opt_on_generated_pipeline_one_lambdas(os.path.abspath("e2e_sys_comp_pipeline_one/util_1.0"))
+    # generate_pipeline_one_configs(cvs=[0.1, 1.0, 4.0], slos=[1.0, 0.5, 0.35])
+    generate_pipeline_one_configs(cvs=[0.1], slos=[1.0, 0.5, 0.35])
 
 
 
     # pipeline_one_debug_2()
-    # generate_pipeline_one_configs(cvs=[0.1, 1.0, 4.0], slos=[1.0, 0.5])
     # generate_pipeline_one_configs(cvs=[4.0], slos=[0.5])
     # annotate_existing_configs()
     # aggregate_configs()
