@@ -216,9 +216,9 @@ class GreedyOptimizer(object):
                               latency_constraint,
                               cost_constraint,
                               initial_config,
-                              arrival_history,
+                              arrival_history=None,
                               # optimize_what="throughput",
-                              use_netcalc=True):
+                              use_netcalc=False):
         """
         Parameters
         ----------
@@ -226,7 +226,8 @@ class GreedyOptimizer(object):
             Can be either "throughput" or "cost"
         """
 
-        arrival_history_obj = ArrivalHistory(arrival_history)
+        if use_netcalc:
+            arrival_history_obj = ArrivalHistory(arrival_history)
         cur_pipeline_config = initial_config
         if not profiler.is_valid_pipeline_config(cur_pipeline_config):
             logger.error("ERROR: provided invalid initial pipeline configuration")
@@ -296,6 +297,7 @@ class GreedyOptimizer(object):
                     if new_estimated_perf["cost"] > cost_constraint:
                         continue
                     if use_netcalc:
+                        assert False
                         logger.info("Doing network calc")
                         netcalc_config = new_bottleneck_config
 
@@ -367,15 +369,16 @@ class GreedyOptimizer(object):
                         logger.info("Response time: {total}, T_s={ts}, T_q={tq}".format(total=response_time,
                             ts=T_S, tq=T_Q))
                     else:
-                        T_Q = 0.0
                         T_S = new_estimated_perf["latency"]
+                        T_Q = T_S
                         # T_Q = T_S
                         response_time = T_Q + T_S
 
-                    if latency_slo_met:
-                        latency_to_compare = response_time
-                    else:
-                        latency_to_compare = T_S
+                    # if latency_slo_met:
+                    #     latency_to_compare = response_time
+                    # else:
+                    #     latency_to_compare = T_S
+                    latency_to_compare = response_time
                     if (latency_to_compare <= latency_constraint and
                             new_estimated_perf["cost"] <= cost_constraint and
                             2*T_S <= latency_constraint):

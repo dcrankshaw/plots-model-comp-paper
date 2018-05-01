@@ -178,6 +178,46 @@ def get_optimizer_pipeline_one(utilization, perc=1.0):
     return opt
 
 
+def optimize_pipeline_one_no_netcalc(opt, slo, cost, cloud):
+    # arrival_history = generate_arrival_process(throughput, cv)
+    results = []
+    inception_gpu = "v100"
+    resnet_gpu = "v100"
+    num_cpus = 1
+    initial_config = {
+        "inception": profiler.NodeConfig(name="inception",
+                                         num_cpus=num_cpus,
+                                         gpu_type=inception_gpu,
+                                         batch_size=1,
+                                         num_replicas=1,
+                                         cloud=cloud),
+        "tf-resnet-feats": profiler.NodeConfig(name="tf-resnet-feats",
+                                               num_cpus=num_cpus,
+                                               gpu_type=resnet_gpu,
+                                               batch_size=1,
+                                               num_replicas=1,
+                                               cloud=cloud),
+        "tf-log-reg": profiler.NodeConfig(name="tf-log-reg",
+                                          num_cpus=num_cpus,
+                                          gpu_type="none",
+                                          batch_size=1,
+                                          num_replicas=1,
+                                          cloud=cloud),
+        "tf-kernel-svm": profiler.NodeConfig(name="tf-kernel-svm",
+                                             num_cpus=num_cpus,
+                                             gpu_type="none",
+                                             batch_size=1,
+                                             num_replicas=1,
+                                             cloud=cloud),
+    }
+    result = opt.select_optimal_config(
+        cloud, latency_constraint=slo, cost_constraint=cost, initial_config=initial_config)
+    if result:
+        results.append(result)
+        best_config, best_config_perf, response_time = result
+    return result
+
+
 def optimize_pipeline_one(throughput, opt, slo, cost, cloud, cv):
     arrival_history = generate_arrival_process(throughput, cv)
     results = []
@@ -321,11 +361,6 @@ def aggregate_configs():
     # for c in all_configs:
 
 
-
-
-
-
-
 def annotate_existing_configs():
     utilization=1.0
     opt = get_optimizer_pipeline_one(utilization)
@@ -338,6 +373,44 @@ def annotate_existing_configs():
                     include_T_S_in_node_configs(conf["node_configs"], opt)
                 with open(os.path.join(results_dir, "ANNOTATED_{}".format(c_name)), "w") as f:
                     json.dump(configs, f, indent=4)
+
+
+def generate_pipeline_one_configs_no_netcalc(slos):
+    utilization=1.0
+    results_dir = os.path.abspath("e2e_sys_comp_no_netcalc/pipeline_one/util_{}".format(utilization))
+    if not os.path.exists(results_dir):
+        os.makedirs(results_dir)
+        logger.info("Created results directory: %s" % results_dir)
+    cloud = "aws"
+    cost_lower_bound = get_cpu_cost(cloud, 4) + get_gpu_cost(cloud, "v100", 2)
+    cost_upper_bound = get_cpu_cost(cloud, 11) + get_gpu_cost(cloud, "v100", 9)
+    cost_increment = get_cpu_cost(cloud, 1) + get_gpu_cost(cloud, "v100", 1)
+    # print(cost_lower_bound, cost_upper_bound, cost_increment)
+    costs = np.arange(cost_lower_bound, cost_upper_bound, cost_increment)
+    costs = list(reversed(costs))
+    print(costs)
+    opt = get_optimizer_pipeline_one(utilization)
+    logger.info("Optimizer initialized")
+    # for cv in cvs:
+    for slo in slos:
+        configs = []
+        results_fname = "aws_image_driver_one_ifl_configs_slo_{slo}_util_{util}.json".format(
+            slo=slo,
+            util=utilization)
+        results_file = os.path.join(results_dir, results_fname)
+        for cost in costs:
+            result = optimize_pipeline_one_no_netcalc(opt, slo, cost, cloud)
+            if result:
+                logger.info(("FOUND CONFIG FOR SLO: {slo}, COST: {cost}").format(slo=slo, cost=cost))
+                node_configs, perfs, response_time = result
+                config_obj = Configuration(slo, cost, None, None, node_configs, perfs,
+                    response_time, utilization)
+                include_T_S_in_node_configs(config_obj.node_configs, opt)
+                configs.append(config_obj.__dict__)
+                with open(results_file, "w") as f:
+                    json.dump(configs, f, indent=4)
+            else:
+                logger.info("no result")
 
 
 def generate_pipeline_one_configs(cvs, slos):
@@ -731,12 +804,12 @@ def pipeline_one_debug_2():
 
 if __name__ == "__main__":
     # pipeline_one_debug_2()
-    # generate_pipeline_one_configs(cvs=[0.1, 1.0, 4.0], slos=[1.0, 0.5])
+    generate_pipeline_one_configs_no_netcalc(slos=[1.0, 0.5, 0.35])
     # generate_pipeline_one_configs(cvs=[4.0], slos=[0.5])
     # annotate_existing_configs()
     # aggregate_configs()
 
-    generate_pipeline_three_configs(cvs=[0.1])
+    # generate_pipeline_three_configs(cvs=[0.1])
     # generate_pipeline_three_configs_no_scale_factor(0.7)
     # sweep_utilization_factor_pipeline_three()
     # debug_pipeline_three()
