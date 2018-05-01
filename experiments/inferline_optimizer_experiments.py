@@ -340,15 +340,20 @@ def annotate_existing_configs():
                     json.dump(configs, f, indent=4)
 
 
-def run_opt_on_generated_pipeline_one_lambdas(lambdas_path):
+def find_cost_from_lambda_pipeline_one(lambdas_path):
     utilization = 1.0
     cloud = "aws"
     opt = get_optimizer_pipeline_one(utilization)
-    results_dir = os.path.abspath("remove_t_s_e2e_sys_comp_pipeline_one/old_configs")
+    results_dir = os.path.abspath("remove_t_s_e2e_sys_comp_pipeline_one/old_lambdas_new_costs")
     if not os.path.exists(results_dir):
         os.makedirs(results_dir)
         logger.info("Created results directory: %s" % results_dir)
 
+    cost_lower_bound = get_cpu_cost(cloud, 4) + get_gpu_cost(cloud, "v100", 2)
+    cost_upper_bound = get_cpu_cost(cloud, 14) + get_gpu_cost(cloud, "v100", 9)
+    cost_increment = get_cpu_cost(cloud, 1) + get_gpu_cost(cloud, "v100", 1)
+    # print(cost_lower_bound, cost_upper_bound, cost_increment)
+    costs = np.arange(cost_lower_bound, cost_upper_bound, cost_increment)
     for conf_file in os.listdir(lambdas_path):
         if conf_file[-4:] == "json":
             new_configs = []
@@ -358,16 +363,18 @@ def run_opt_on_generated_pipeline_one_lambdas(lambdas_path):
                 for oc in old_configs:
                     slo = oc["slo"]
                     lam = oc["lam"]
-                    cost = oc["cost"]
+                    old_cost = oc["cost"]
                     cv = oc["cv"]
                     old_est_thru = oc["estimated_perf"]["throughput"]
                     old_est_service_time = oc["estimated_perf"]["latency"]
-                    result = optimize_pipeline_one(lam, opt, slo, cost, cloud, cv)
+                    for cost in costs:
+                        result = optimize_pipeline_one(lam, opt, slo, cost, cloud, cv)
+                        if result:
+                            break
                     assert result
                     node_configs, perfs, response_time = result
-                    logger.info("FOUND NEW CONFIG FOR CV: {}, SLO: {}, COST: {}, LAMBDA: {}, THRU GAIN: {}, T_S INCREASE {}".format(
-                        cv, slo, cost, lam, perfs["throughput"] - old_est_thru,
-                        perfs["latency"] - old_est_service_time))
+                    logger.info("FOUND NEW CONFIG FOR CV: {}, SLO: {}, COST: {}, LAMBDA: {}, COST DECREASE: {}".format(
+                        cv, slo, cost, lam, old_cost - cost))
                     config_obj = Configuration(slo, cost, lam, cv, node_configs, perfs,
                                                response_time, utilization)
                     include_T_S_in_node_configs(config_obj.node_configs, opt)
@@ -770,6 +777,7 @@ if __name__ == "__main__":
     # run_opt_on_generated_pipeline_one_lambdas(os.path.abspath("e2e_sys_comp_pipeline_one/util_1.0"))
     # generate_pipeline_one_configs(cvs=[0.1, 1.0, 4.0], slos=[1.0, 0.5, 0.35])
     generate_pipeline_one_configs(cvs=[0.1], slos=[1.0, 0.5, 0.35])
+    # find_cost_from_lambda_pipeline_one(os.path.abspath("e2e_sys_comp_pipeline_one/util_1.0"))
 
 
 
