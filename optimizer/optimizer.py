@@ -370,7 +370,7 @@ class GreedyOptimizer(object):
                             ts=T_S, tq=T_Q))
                     else:
                         T_S = new_estimated_perf["latency"]
-                        T_Q = T_S
+                        T_Q = 0.5 * T_S
                         # T_Q = T_S
                         response_time = T_Q + T_S
 
@@ -380,8 +380,8 @@ class GreedyOptimizer(object):
                     #     latency_to_compare = T_S
                     latency_to_compare = response_time
                     if (latency_to_compare <= latency_constraint and
-                            new_estimated_perf["cost"] <= cost_constraint and
-                            2*T_S <= latency_constraint):
+                        new_estimated_perf["cost"] <= cost_constraint):
+                            # and 2*T_S <= latency_constraint):
                         if new_estimated_perf["throughput"] < cur_estimated_perf["throughput"]:
                             logger.warning(
                                 ("Uh oh: monotonicity violated:\n Old config: {}, Thru: {}"

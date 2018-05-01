@@ -381,7 +381,7 @@ def annotate_existing_configs():
 
 def generate_pipeline_one_configs_no_netcalc(slos):
     utilization=1.0
-    results_dir = os.path.abspath("e2e_sys_comp_no_netcalc/pipeline_one/util_{}".format(utilization))
+    results_dir = os.path.abspath("e2e_sys_comp_no_netcalc_t_q_half_t_s/pipeline_one/util_{}".format(utilization))
     if not os.path.exists(results_dir):
         os.makedirs(results_dir)
         logger.info("Created results directory: %s" % results_dir)
@@ -834,7 +834,7 @@ if __name__ == "__main__":
     #         generate_arrival_process(t, cv)
 
     # pipeline_one_debug_2()
-    generate_pipeline_one_configs_no_netcalc(slos=[1.0, 0.5, 0.35])
+    generate_pipeline_one_configs_no_netcalc(slos=[0.5, 0.4, 0.3, 0.25])
     # generate_pipeline_one_configs(cvs=[4.0], slos=[0.5])
     # annotate_existing_configs()
     # aggregate_configs()
