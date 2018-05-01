@@ -340,6 +340,42 @@ def annotate_existing_configs():
                     json.dump(configs, f, indent=4)
 
 
+def run_opt_on_generated_pipeline_one_lambdas(lambdas_path):
+    utilization = 1.0
+    cloud = "aws"
+    opt = get_optimizer_pipeline_one(utilization)
+    results_dir = os.path.abspath("remove_t_s_e2e_sys_comp_pipeline_one/old_configs")
+    if not os.path.exists(results_dir):
+        os.makedirs(results_dir)
+        logger.info("Created results directory: %s" % results_dir)
+
+    for conf_file in os.listdir(lambdas_path):
+        if conf_file[-4:] == "json":
+            new_configs = []
+            results_file = os.path.join(results_dir, conf_file)
+            with open(os.path.join(lambdas_path, conf_file), "r") as f:
+                old_configs = json.load(f)
+                for oc in old_configs:
+                    slo = oc["slo"]
+                    lam = oc["lam"]
+                    cost = oc["cost"]
+                    cv = oc["cv"]
+                    old_est_thru = oc["estimated_perf"]["throughput"]
+                    old_est_service_time = oc["estimated_perf"]["latency"]
+                    result = optimize_pipeline_one(lam, opt, slo, cost, cloud, cv)
+                    assert result
+                    node_configs, perfs, response_time = result
+                    logger.info("FOUND NEW CONFIG FOR CV: {}, SLO: {}, COST: {}, LAMBDA: {}, THRU GAIN: {}, T_S INCREASE {}".format(
+                        cv, slo, cost, lam, perfs["throughput"] - old_est_thru,
+                        perfs["latency"] - old_est_service_time))
+                    config_obj = Configuration(slo, cost, lam, cv, node_configs, perfs,
+                                               response_time, utilization)
+                    include_T_S_in_node_configs(config_obj.node_configs, opt)
+                    new_configs.append(config_obj.__dict__)
+                    with open(results_file, "w") as f:
+                        json.dump(new_configs, f, indent=4)
+
+
 def generate_pipeline_one_configs(cvs, slos):
     utilization=1.0
     results_dir = os.path.abspath("e2e_sys_comp_pipeline_one/util_{}".format(utilization))
@@ -730,13 +766,18 @@ def pipeline_one_debug_2():
         logger.info("no result")
 
 if __name__ == "__main__":
+
+    run_opt_on_generated_pipeline_one_lambdas(os.path.abspath("e2e_sys_comp_pipeline_one/util_1.0"))
+
+
+
     # pipeline_one_debug_2()
     # generate_pipeline_one_configs(cvs=[0.1, 1.0, 4.0], slos=[1.0, 0.5])
     # generate_pipeline_one_configs(cvs=[4.0], slos=[0.5])
     # annotate_existing_configs()
     # aggregate_configs()
 
-    generate_pipeline_three_configs(cvs=[0.1])
+    # generate_pipeline_three_configs(cvs=[0.1])
     # generate_pipeline_three_configs_no_scale_factor(0.7)
     # sweep_utilization_factor_pipeline_three()
     # debug_pipeline_three()

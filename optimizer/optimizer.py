@@ -361,8 +361,9 @@ class GreedyOptimizer(object):
 
                         # converting time to seconds
                         T_Q = Q_waiting_time / 1000.0
-                        response_time = T_Q + T_S
-                        assert T_Q >= T_S
+                        # response_time = T_Q + T_S
+                        response_time = T_Q
+                        # assert T_Q >= T_S
 
                         logger.info("Response time: {total}, T_s={ts}, T_q={tq}".format(total=response_time,
                             ts=T_S, tq=T_Q))
@@ -377,37 +378,38 @@ class GreedyOptimizer(object):
                     else:
                         latency_to_compare = T_S
                     if (latency_to_compare <= latency_constraint and
-                            new_estimated_perf["cost"] <= cost_constraint and
-                            2*T_S <= latency_constraint):
-                        if new_estimated_perf["throughput"] < cur_estimated_perf["throughput"]:
-                            logger.warning(
-                                ("Uh oh: monotonicity violated:\n Old config: {}, Thru: {}"
-                                 "\n New config: {}, Thru: {}").format(
-                                     cur_pipeline_config[cur_bottleneck_node],
-                                     cur_estimated_perf["throughput"],
-                                     new_bottleneck_config,
-                                     new_estimated_perf["throughput"]
-                                 ))
-                        #############################################
-                        # QPSD CALCULATION
-                        # Estimate the latency, throughput, and cost for JUST the bottleneck node
-                        # in order to calculate QPSD
-                        action_bottleneck_node_lat, action_bottleneck_node_thru, action_bottleneck_node_cost = \
-                            self.node_profs[cur_bottleneck_node].estimate_performance(new_bottleneck_config)
-                        action_bottleneck_qpsd = action_bottleneck_node_thru / action_bottleneck_node_cost
-                        throughput_delta = new_estimated_perf["throughput"] - cur_estimated_perf["throughput"]
-                        qpsd_delta = action_bottleneck_qpsd - cur_bottleneck_qpsd
-                        logger.info("Node: {}, Action: {}, bottleneck qpsd delta: {}, bottleneck throughput delta: {}".format(
-                            cur_bottleneck_node, action, qpsd_delta, throughput_delta))
-                        ##############################################
-                        if best_action is None or \
-                                best_action_thru < new_estimated_perf["throughput"]:
-                            best_action = action
-                            best_action_thru = new_estimated_perf["throughput"]
-                            best_action_qpsd_delta = qpsd_delta
-                            best_action_config = new_bottleneck_config
-                            best_action_response_time = response_time
-                            logger.info("Setting best action response time to {}".format(best_action_response_time))
+                        new_estimated_perf["cost"] <= cost_constraint):
+                        # Only enforce the 2*T_S latency constraint if the SLO has not been met yet
+                        if latency_slo_met or 2*T_S <= latency_constraint:
+                            if new_estimated_perf["throughput"] < cur_estimated_perf["throughput"]:
+                                logger.warning(
+                                    ("Uh oh: monotonicity violated:\n Old config: {}, Thru: {}"
+                                    "\n New config: {}, Thru: {}").format(
+                                        cur_pipeline_config[cur_bottleneck_node],
+                                        cur_estimated_perf["throughput"],
+                                        new_bottleneck_config,
+                                        new_estimated_perf["throughput"]
+                                    ))
+                            #############################################
+                            # QPSD CALCULATION
+                            # Estimate the latency, throughput, and cost for JUST the bottleneck node
+                            # in order to calculate QPSD
+                            action_bottleneck_node_lat, action_bottleneck_node_thru, action_bottleneck_node_cost = \
+                                self.node_profs[cur_bottleneck_node].estimate_performance(new_bottleneck_config)
+                            action_bottleneck_qpsd = action_bottleneck_node_thru / action_bottleneck_node_cost
+                            throughput_delta = new_estimated_perf["throughput"] - cur_estimated_perf["throughput"]
+                            qpsd_delta = action_bottleneck_qpsd - cur_bottleneck_qpsd
+                            logger.info("Node: {}, Action: {}, bottleneck qpsd delta: {}, bottleneck throughput delta: {}".format(
+                                cur_bottleneck_node, action, qpsd_delta, throughput_delta))
+                            ##############################################
+                            if best_action is None or \
+                                    best_action_thru < new_estimated_perf["throughput"]:
+                                best_action = action
+                                best_action_thru = new_estimated_perf["throughput"]
+                                best_action_qpsd_delta = qpsd_delta
+                                best_action_config = new_bottleneck_config
+                                best_action_response_time = response_time
+                                logger.info("Setting best action response time to {}".format(best_action_response_time))
 
             # No more steps can be taken
             if best_action is None:
