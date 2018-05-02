@@ -26,7 +26,9 @@ def load_file(results_dir, exp, queue):
                         data[stage]["summary_metrics"] = data[stage]["summary_metrics"][1:]
                         data[stage]["clipper_metrics"] = data[stage]["clipper_metrics"][2:]
                         data[stage]["client_metrics"] = data[stage]["client_metrics"][1:]
-                        if "remote" in exp:
+                        if "v100" in exp:
+                            data["node_configs"][0]["instance_type"] = "p3.8xlarge"
+                        elif "k80" in exp:
                             data["node_configs"][0]["instance_type"] = "p2.8xlarge"
                     result = (exp, data)
                 except json.JSONDecodeError as e:
@@ -200,6 +202,7 @@ def create_node_profile_df(results_dir):
         costs.append(compute_cost(e))
         all_lats = extract_all_latencies(e)
         p99_lats.append(np.percentile(all_lats, 99))
+        # p99_lats.append(np.mean(all_lats))
         mean_batch, std_batch = get_mean_batch_size(e)
         mean_batches.append(mean_batch)
         mean_queue, std_queue = get_mean_queue_size(e)

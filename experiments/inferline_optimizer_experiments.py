@@ -477,12 +477,15 @@ def get_optimizer_pipeline_three(utilization, perc=1.0):
     dag = profiler.get_logical_pipeline("pipeline_three")
     scale_factors = {'cascadepreprocess': 1.0,
                      'alexnet': 1.0,
-                     'res50': 0.809631985461154,
-                     'res152': 0.08096319854}
+                     # 'res50': 0.809631985461154,
+                     # 'res50': 0.5,
+                     'res152': 0.1}
 
     print("SCALE FACTORS: {}".format(scale_factors))
-    models = ["cascadepreprocess", "alexnet", "res50", "res152"]
+    # models = ["cascadepreprocess", "alexnet", "res50", "res152"]
+    models = ["cascadepreprocess", "alexnet", "res152"]
     profs = snp.load_single_node_profiles(models=models)
+    print(profs.keys())
     node_profs = {}
     for name in models:
         node_profs[name] = profiler.NodeProfile(name, profs[name], "thru_stage", utilization, perc)
@@ -497,12 +500,12 @@ def optimize_pipeline_three_no_netcalc(opt, slo, cost, cloud):
     else:
         num_cpus = 2
     initial_config = {
-        "res50": profiler.NodeConfig(name="res50",
-                                     num_cpus=num_cpus,
-                                     gpu_type=initial_gpu_type,
-                                     batch_size=1,
-                                     num_replicas=1,
-                                     cloud=cloud),
+        # "res50": profiler.NodeConfig(name="res50",
+        #                              num_cpus=num_cpus,
+        #                              gpu_type=initial_gpu_type,
+        #                              batch_size=1,
+        #                              num_replicas=1,
+        #                              cloud=cloud),
         "res152": profiler.NodeConfig(name="res152",
                                       num_cpus=num_cpus,
                                       gpu_type=initial_gpu_type,
@@ -513,6 +516,7 @@ def optimize_pipeline_three_no_netcalc(opt, slo, cost, cloud):
                                       num_cpus=num_cpus,
                                        # TODO: Check if this works
                                       gpu_type="k80",
+                                      # gpu_type=initial_gpu_type,
                                       batch_size=1,
                                       num_replicas=1,
                                       cloud=cloud),
@@ -627,6 +631,7 @@ def generate_pipeline_three_configs_no_netcalc(slos):
     print(cost_lower_bound, cost_upper_bound, cost_increment)
     costs = np.arange(cost_lower_bound, cost_upper_bound+1.0, cost_increment)
     costs = list(reversed(costs))
+    costs = list(range(10, 60, 5))
     print(costs)
     cloud = "aws"
     opt = get_optimizer_pipeline_three(utilization)
@@ -642,6 +647,7 @@ def generate_pipeline_three_configs_no_netcalc(slos):
             if result:
                 logger.info(("FOUND CONFIG FOR SLO: {slo}, COST: {cost}").format(slo=slo, cost=cost))
                 node_configs, perfs, response_time = result
+                perfs["qpsd"] = perfs["throughput"] / perfs["cost"]
                 lam = int(math.floor(perfs["throughput"]))
                 config_obj = Configuration(slo, cost, lam, None, node_configs, perfs,
                                             response_time, utilization)
@@ -685,8 +691,21 @@ def generate_pipeline_three_configs_no_netcalc(slos):
 
 
 if __name__ == "__main__":
+    # models = ["cascadepreprocess", "alexnet"]
+    # profs = snp.load_single_node_profiles(models=models)
+    # print(profs["cascadepreprocess"].sort_values(["mean_batch_size"]))
+    #
+    # node_profs = {}
+    # for name in models:
+    #     node_profs[name] = profiler.NodeProfile(name, profs[name], "thru_stage", 1.0, 1.0)
+    # print(node_profs["cascadepreprocess"].profile.sort_values(["mean_batch_size"]))
+
+    # generate_pipeline_three_configs_no_netcalc(slos=[0.5, 0.4, 0.35, 0.3])
+    # generate_pipeline_three_configs_no_netcalc(slos=[0.6])
+
+    generate_arrival_process(1482, 1.0)
+
     # generate_pipeline_one_configs_no_netcalc(slos=[0.5, 0.4, 0.3, 0.25])
-    generate_pipeline_three_configs_no_netcalc(slos=[0.5, 0.4, 0.35, 0.3])
 
     # generate_pipeline_one_configs(cvs=[4.0], slos=[0.5])
     # annotate_existing_configs()
