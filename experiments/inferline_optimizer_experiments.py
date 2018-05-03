@@ -16,7 +16,7 @@ from profiler import NodeConfig
 logging.basicConfig(
     format='%(asctime)s %(levelname)-8s [%(filename)s:%(lineno)d] %(message)s',
     datefmt='%y-%m-%d:%H:%M:%S',
-    level=logging.INFO)
+    level=logging.ERROR)
 
 logger = logging.getLogger(__name__)
 
@@ -166,8 +166,8 @@ def probe_throughputs(slo, cloud, cost, opt, cv, opt_function):
 def get_optimizer_pipeline_one(utilization, perc=1.0):
     dag = profiler.get_logical_pipeline("pipeline_one")
     scale_factors = {'inception': 1.0, 'tf-log-reg': 1.0, 'tf-kernel-svm': 1.0, 'tf-resnet-feats': 1.0}
-    print(scale_factors)
     profs = snp.load_single_node_profiles(models=[n for n in scale_factors])
+
     node_profs = {}
     for name in scale_factors:
         node_profs[name] = profiler.NodeProfile(name, profs[name], "thru_stage", utilization, perc)
@@ -413,6 +413,35 @@ def generate_pipeline_one_configs_no_netcalc(slos):
             else:
                 logger.info("no result")
 
+def pipeline_one_latency_sensitivity():
+    utilization=1.0
+    results_dir = os.path.abspath("latency_sensitivity/pipeline_one/")
+    if not os.path.exists(results_dir):
+        os.makedirs(results_dir)
+        logger.info("Created results directory: %s" % results_dir)
+    cloud = "aws"
+    cost = get_cpu_cost(cloud, 6) + get_gpu_cost(cloud, "v100", 4)
+    for slo in [0.3, 0.5]:
+        configs = []
+        results_fname = "image_driver_one_sensitivity_slo_{slo}_cost_{cost}.json".format(
+            cost=cost, slo=slo)
+        results_file = os.path.join(results_dir, results_fname)
+        for perc in [1.0, 0.9, 0.7, 0.5, 0.3]:
+            opt = get_optimizer_pipeline_one(utilization, perc)
+            result = optimize_pipeline_one_no_netcalc(opt, slo, cost, cloud)
+            if result:
+                logger.info(("FOUND CONFIG FOR SLO: {slo}, COST: {cost}").format(slo=slo, cost=cost))
+                node_configs, perfs, response_time = result
+                lam = int(math.floor(perfs["throughput"]))
+                # Now generate arrival procs for that lambda:
+                for cv in [0.0, 0.1, 1.0, 4.0]:
+                    generate_arrival_process(lam, cv)
+                config_obj = Configuration(slo, cost, lam, None, node_configs, perfs,
+                    response_time, utilization, perc)
+                include_T_S_in_node_configs(config_obj.node_configs, opt)
+                configs.append(config_obj.__dict__)
+        with open(results_file, "w") as f:
+            json.dump(configs, f, indent=4)
 
 # def generate_pipeline_one_configs(cvs, slos):
 #     utilization=1.0
@@ -749,64 +778,119 @@ def optimize_conditional_cascade_no_netcalc(opt, slo, cost, cloud):
     return result
 
 def compare_conditional_optimization():
-    base_dir = os.path.abspath("conditional_cascade_eval")
-    if not os.path.exists(base_dir):
-        os.makedirs(base_dir)
-        logger.info("Created results directory: %s" % base_dir)
-    for cond in [True, False]:
-        if cond:
-            results_dir = os.path.join(base_dir, "with_conditionals")
-        else:
-            results_dir = os.path.join(base_dir, "no_conditionals")
-        if not os.path.exists(results_dir):
-            os.makedirs(results_dir)
-            logger.info("Created results directory: %s" % results_dir)
-        cloud = "aws"
-        cost_lower_bound = get_cpu_cost(cloud, 3) + get_gpu_cost(cloud, "v100", 2)
-        cost_upper_bound = get_cpu_cost(cloud, 12) + get_gpu_cost(cloud, "v100", 4)
-        cost_increment = get_cpu_cost(cloud, 4)
-        print(cost_lower_bound, cost_upper_bound, cost_increment)
-        costs = np.arange(cost_lower_bound, cost_upper_bound, cost_increment)
-        costs = list(costs)
-        print(costs)
-        cloud = "aws"
-        opt = get_optimizer_conditional_cascade(cond)
-        logger.info("Optimizer initialized")
-        for slo in [0.2, 0.3, 0.4]:
-            configs = []
-            if cond:
-                cond_suffix = "with_cond"
-            else:
-                cond_suffix = "no_cond"
-            results_fname = "aws_conditional_cascade_ifl_configs_slo_{slo}_cond_{cond}.json".format(
-                slo=slo, cond=cond_suffix)
-            results_file = os.path.join(results_dir, results_fname)
-            last_lambda = 0
-            for cost in costs:
-                result = optimize_conditional_cascade_no_netcalc(opt, slo, cost, cloud)
-                if result and result[1]["throughput"] > last_lambda + 1:
-                    logger.info(("FOUND CONFIG FOR SLO: {slo}, COST: {cost}").format(slo=slo, cost=cost))
-                    node_configs, perfs, response_time = result
-                    perfs["qpsd"] = perfs["throughput"] / perfs["cost"]
-                    lam = int(math.floor(perfs["throughput"]))
-                    if lam > 800:
-                        break
-                    last_lambda = lam
-                    config_obj = Configuration(slo, cost, lam, None, node_configs, perfs,
-                                                response_time, 1.0)
-                    include_T_S_in_node_configs(config_obj.node_configs, opt)
-                    configs.append(config_obj.__dict__)
-                    with open(results_file, "w") as f:
-                        json.dump(configs, f, indent=4)
-                else:
-                    logger.info("no result")
+    # First, find a set of lambdas for the version with conditionals:
+    cond = True
+    slo = 0.3
+    cloud = "aws"
+    cost_lower_bound = get_cpu_cost(cloud, 3) + get_gpu_cost(cloud, "v100", 2)
+    cost_upper_bound = get_cpu_cost(cloud, 12) + get_gpu_cost(cloud, "v100", 4)
+    cost_increment = get_cpu_cost(cloud, 4)
+    print(cost_lower_bound, cost_upper_bound, cost_increment)
+    costs = np.arange(cost_lower_bound, cost_upper_bound, cost_increment)
+    costs = list(costs)
+    print(costs)
+    cloud = "aws"
+    opt = get_optimizer_conditional_cascade(cond)
+    logger.info("Optimizer initialized")
+    configs = []
+    last_lambda = 0
+    qpsd_compare = {}
+    for cost in costs:
+        result = optimize_conditional_cascade_no_netcalc(opt, slo, cost, cloud)
+        if result and result[1]["throughput"] > last_lambda + 1:
+            logger.info(("FOUND CONFIG FOR SLO: {slo}, COST: {cost}").format(slo=slo, cost=cost))
+            node_configs, perfs, response_time = result
+            perfs["qpsd"] = perfs["throughput"] / perfs["cost"]
+            lam = int(math.floor(perfs["throughput"]))
+            if lam > 800:
+                break
+            last_lambda = lam
+            config_obj = Configuration(slo, cost, lam, None, node_configs, perfs,
+                                        response_time, 1.0)
+            include_T_S_in_node_configs(config_obj.node_configs, opt)
+            configs.append(config_obj.__dict__)
+            qpsd_compare[lam] = {"qpsd_with_cond": perfs["qpsd"]}
+
+    # Now given those lambdas, figure out how much it would cost to serve without the
+    # conditional.
+
+    for lam in qpsd_compare:
+        result = None
+        cost = cost_lower_bound
+        while not result:
+            result = optimize_conditional_cascade_no_netcalc(opt, slo, cost, cloud)
+            if result:
+                node_configs, perfs, response_time = result
+                perfs["qpsd"] = perfs["throughput"] / perfs["cost"]
+                new_lam = int(math.floor(perfs["throughput"]))
+                qpsd_compare[lam]["qpsd_no_cond"] = perfs["qpsd"]
+            cost += cost_increment
+
+    for lam in qpsd_compare:
+        cur = qpsd_compare[lam]
+        cur["ratio"] = cur["qpsd_with_cond"] / cur["qpsd_no_cond"]
+
+    print(json.dumps(qpsd_compare, indent=2))
+
+    #
+    #
+    #
+    #
+    # for cond in [True, False]:
+    #     if cond:
+    #         results_dir = os.path.join(base_dir, "with_conditionals")
+    #     else:
+    #         results_dir = os.path.join(base_dir, "no_conditionals")
+    #     if not os.path.exists(results_dir):
+    #         os.makedirs(results_dir)
+    #         logger.info("Created results directory: %s" % results_dir)
+    #     cloud = "aws"
+    #     cost_lower_bound = get_cpu_cost(cloud, 3) + get_gpu_cost(cloud, "v100", 2)
+    #     cost_upper_bound = get_cpu_cost(cloud, 12) + get_gpu_cost(cloud, "v100", 4)
+    #     cost_increment = get_cpu_cost(cloud, 4)
+    #     print(cost_lower_bound, cost_upper_bound, cost_increment)
+    #     costs = np.arange(cost_lower_bound, cost_upper_bound, cost_increment)
+    #     costs = list(costs)
+    #     print(costs)
+    #     cloud = "aws"
+    #     opt = get_optimizer_conditional_cascade(cond)
+    #     logger.info("Optimizer initialized")
+    #     for slo in [0.2, 0.3, 0.4]:
+    #         configs = []
+    #         if cond:
+    #             cond_suffix = "with_cond"
+    #         else:
+    #             cond_suffix = "no_cond"
+    #         results_fname = "aws_conditional_cascade_ifl_configs_slo_{slo}_cond_{cond}.json".format(
+    #             slo=slo, cond=cond_suffix)
+    #         results_file = os.path.join(results_dir, results_fname)
+    #         last_lambda = 0
+    #         for cost in costs:
+    #             result = optimize_conditional_cascade_no_netcalc(opt, slo, cost, cloud)
+    #             if result and result[1]["throughput"] > last_lambda + 1:
+    #                 logger.info(("FOUND CONFIG FOR SLO: {slo}, COST: {cost}").format(slo=slo, cost=cost))
+    #                 node_configs, perfs, response_time = result
+    #                 perfs["qpsd"] = perfs["throughput"] / perfs["cost"]
+    #                 lam = int(math.floor(perfs["throughput"]))
+    #                 if lam > 800:
+    #                     break
+    #                 last_lambda = lam
+    #                 config_obj = Configuration(slo, cost, lam, None, node_configs, perfs,
+    #                                             response_time, 1.0)
+    #                 include_T_S_in_node_configs(config_obj.node_configs, opt)
+    #                 configs.append(config_obj.__dict__)
+    #                 with open(results_file, "w") as f:
+    #                     json.dump(configs, f, indent=4)
+    #             else:
+    #                 logger.info("no result")
 
 
 if __name__ == "__main__":
+    pipeline_one_latency_sensitivity()
 
     # compare_conditional_optimization()
 
-    generate_pipeline_three_configs_no_netcalc(slos=[0.2, 0.3])
+    # generate_pipeline_three_configs_no_netcalc(slos=[0.2, 0.3])
 
 
     # models = ["cascadepreprocess", "alexnet"]

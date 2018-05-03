@@ -293,7 +293,7 @@ class GreedyOptimizer(object):
                     if result is None:
                         continue
                     new_estimated_perf, new_bottleneck_node = result
-                    print("NEW ESTIMATED PERF: {}".format(new_estimated_perf))
+                    logger.info("NEW ESTIMATED PERF: {}".format(new_estimated_perf))
                     # We'll never take this action if it violates the cost constraint
                     if new_estimated_perf["cost"] > cost_constraint:
                         continue
