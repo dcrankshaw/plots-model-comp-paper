@@ -607,12 +607,13 @@ def generate_pipeline_three_configs_no_netcalc(slos):
         os.makedirs(results_dir)
         logger.info("Created results directory: %s" % results_dir)
     cloud = "aws"
-    cost_lower_bound = get_cpu_cost(cloud, 3) + get_gpu_cost(cloud, "v100", 2)
-    cost_upper_bound = get_cpu_cost(cloud, 13) + get_gpu_cost(cloud, "v100", 9)
-    cost_increment = get_cpu_cost(cloud, 1) + get_gpu_cost(cloud, "v100", 1)
+    cost_lower_bound = get_cpu_cost(cloud, 2) + get_gpu_cost(cloud, "v100", 1)
+    cost_upper_bound = get_cpu_cost(cloud, 10) + get_gpu_cost(cloud, "v100", 1)
+    cost_increment = get_cpu_cost(cloud, 2)
     print(cost_lower_bound, cost_upper_bound, cost_increment)
-    costs = np.arange(cost_lower_bound, cost_upper_bound+1.0, cost_increment)
-    costs = list(reversed(costs))
+    costs = np.arange(cost_lower_bound, cost_upper_bound, cost_increment)
+    # costs = list(reversed(costs))
+    costs = list(costs)
     print(costs)
     cloud = "aws"
     opt = get_optimizer_pipeline_three(utilization)
@@ -623,13 +624,15 @@ def generate_pipeline_three_configs_no_netcalc(slos):
             slo=slo,
             util=utilization)
         results_file = os.path.join(results_dir, results_fname)
+        last_lambda = 0
         for cost in costs:
             result = optimize_pipeline_three_no_netcalc(opt, slo, cost, cloud)
-            if result:
+            if result and result[1]["throughput"] > last_lambda + 1:
                 logger.info(("FOUND CONFIG FOR SLO: {slo}, COST: {cost}").format(slo=slo, cost=cost))
                 node_configs, perfs, response_time = result
                 perfs["qpsd"] = perfs["throughput"] / perfs["cost"]
                 lam = int(math.floor(perfs["throughput"]))
+                last_lambda = lam
                 config_obj = Configuration(slo, cost, lam, None, node_configs, perfs,
                                             response_time, utilization)
                 include_T_S_in_node_configs(config_obj.node_configs, opt)
@@ -797,8 +800,7 @@ if __name__ == "__main__":
     #     node_profs[name] = profiler.NodeProfile(name, profs[name], "thru_stage", 1.0, 1.0)
     # print(node_profs["cascadepreprocess"].profile.sort_values(["mean_batch_size"]))
 
-    generate_pipeline_three_configs_no_netcalc(slos=[0.5, 0.4, 0.3, 0.2])
-    # generate_pipeline_three_configs_no_netcalc(slos=[0.2, 0.3, 0.4])
+    generate_pipeline_three_configs_no_netcalc(slos=[0.5])
 
     # generate_arrival_process(1482, 1.0)
 
