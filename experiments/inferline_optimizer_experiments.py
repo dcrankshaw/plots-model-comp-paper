@@ -165,7 +165,7 @@ def probe_throughputs(slo, cloud, cost, opt, cv, opt_function):
 
 def get_optimizer_pipeline_one(utilization, perc=1.0):
     dag = profiler.get_logical_pipeline("pipeline_one")
-    scale_factors = {'tf-alexnet': 1.0, 'tf-log-reg': 1.0, 'tf-kernel-svm': 1.0, 'tf-resnet-feats': 1.0}
+    scale_factors = {'inception': 1.0, 'tf-log-reg': 1.0, 'tf-kernel-svm': 1.0, 'tf-resnet-feats': 1.0}
     print(scale_factors)
     profs = snp.load_single_node_profiles(models=[n for n in scale_factors])
     node_profs = {}
@@ -178,13 +178,13 @@ def get_optimizer_pipeline_one(utilization, perc=1.0):
 def optimize_pipeline_one_no_netcalc(opt, slo, cost, cloud):
     # arrival_history = generate_arrival_process(throughput, cv)
     results = []
-    alexnet_gpu = "v100"
+    inception_gpu = "v100"
     resnet_gpu = "v100"
     num_cpus = 1
     initial_config = {
-        "tf-alexnet": profiler.NodeConfig(name="tf-alexnet",
+        "inception": profiler.NodeConfig(name="inception",
                                          num_cpus=num_cpus,
-                                         gpu_type=alexnet_gpu,
+                                         gpu_type=inception_gpu,
                                          batch_size=1,
                                          num_replicas=1,
                                          cloud=cloud),
@@ -476,14 +476,15 @@ def get_optimizer_pipeline_three_no_scale_factor(utilization, perc=1.0):
 def get_optimizer_pipeline_three(utilization, perc=1.0):
     dag = profiler.get_logical_pipeline("pipeline_three")
     scale_factors = {'cascadepreprocess': 1.0,
-                     'alexnet': 1.0,
+                     'alexnet': 1.0}
                      # 'res50': 0.809631985461154,
                      # 'res50': 0.5,
-                     'res152': 0.1}
+                     # 'res152': 0.1*.5}
 
     print("SCALE FACTORS: {}".format(scale_factors))
     # models = ["cascadepreprocess", "alexnet", "res50", "res152"]
-    models = ["cascadepreprocess", "alexnet", "res152"]
+    models = ["cascadepreprocess", "alexnet"]
+    # models = ["cascadepreprocess", "alexnet", "res152"]
     profs = snp.load_single_node_profiles(models=models)
     print(profs.keys())
     node_profs = {}
@@ -506,17 +507,17 @@ def optimize_pipeline_three_no_netcalc(opt, slo, cost, cloud):
         #                              batch_size=1,
         #                              num_replicas=1,
         #                              cloud=cloud),
-        "res152": profiler.NodeConfig(name="res152",
-                                      num_cpus=num_cpus,
-                                      gpu_type=initial_gpu_type,
-                                      batch_size=1,
-                                      num_replicas=1,
-                                      cloud=cloud),
+        # "res152": profiler.NodeConfig(name="res152",
+        #                               num_cpus=num_cpus,
+        #                               gpu_type=initial_gpu_type,
+        #                               batch_size=1,
+        #                               num_replicas=1,
+        #                               cloud=cloud),
         "alexnet": profiler.NodeConfig(name="alexnet",
                                       num_cpus=num_cpus,
                                        # TODO: Check if this works
-                                      gpu_type="k80",
-                                      # gpu_type=initial_gpu_type,
+                                      # gpu_type="k80",
+                                      gpu_type=initial_gpu_type,
                                       batch_size=1,
                                       num_replicas=1,
                                       cloud=cloud),
@@ -625,13 +626,12 @@ def generate_pipeline_three_configs_no_netcalc(slos):
         os.makedirs(results_dir)
         logger.info("Created results directory: %s" % results_dir)
     cloud = "aws"
-    cost_lower_bound = get_cpu_cost(cloud, 3) + get_gpu_cost(cloud, "v100", 3)
-    cost_upper_bound = get_cpu_cost(cloud, 13) + get_gpu_cost(cloud, "v100", 13)
+    cost_lower_bound = get_cpu_cost(cloud, 3) + get_gpu_cost(cloud, "v100", 2)
+    cost_upper_bound = get_cpu_cost(cloud, 13) + get_gpu_cost(cloud, "v100", 9)
     cost_increment = get_cpu_cost(cloud, 1) + get_gpu_cost(cloud, "v100", 1)
     print(cost_lower_bound, cost_upper_bound, cost_increment)
     costs = np.arange(cost_lower_bound, cost_upper_bound+1.0, cost_increment)
     costs = list(reversed(costs))
-    costs = list(range(10, 60, 5))
     print(costs)
     cloud = "aws"
     opt = get_optimizer_pipeline_three(utilization)
@@ -701,11 +701,11 @@ if __name__ == "__main__":
     # print(node_profs["cascadepreprocess"].profile.sort_values(["mean_batch_size"]))
 
     # generate_pipeline_three_configs_no_netcalc(slos=[0.5, 0.4, 0.35, 0.3])
-    # generate_pipeline_three_configs_no_netcalc(slos=[0.6])
+    # generate_pipeline_three_configs_no_netcalc(slos=[0.2, 0.3, 0.4])
 
-    generate_arrival_process(1482, 1.0)
+    # generate_arrival_process(1482, 1.0)
 
-    # generate_pipeline_one_configs_no_netcalc(slos=[0.5, 0.4, 0.3, 0.25])
+    generate_pipeline_one_configs_no_netcalc(slos=[0.5, 0.3])
 
     # generate_pipeline_one_configs(cvs=[4.0], slos=[0.5])
     # annotate_existing_configs()

@@ -416,14 +416,14 @@ def get_logical_pipeline(pipeline_name):
     # root_node = "inception"
     if pipeline_name == "pipeline_one":
         adj_list = {
-            LogicalDAG.SOURCE: ["tf-resnet-feats", "tf-alexnet"],
+            LogicalDAG.SOURCE: ["tf-resnet-feats", "inception"],
             "tf-resnet-feats": ["tf-kernel-svm", ],
             "tf-kernel-svm": [LogicalDAG.SINK],
-            "tf-alexnet": ["tf-log-reg", ],
+            "inception": ["tf-log-reg", ],
             "tf-log-reg": [LogicalDAG.SINK],
             LogicalDAG.SINK: []
         }
-        return LogicalDAG(adj_list, "tf-alexnet")
+        return LogicalDAG(adj_list, "inception")
 
     if pipeline_name == "pipeline_two":
         # paths = [("tf-lang-detect",),
@@ -441,13 +441,18 @@ def get_logical_pipeline(pipeline_name):
 
     # Resnet Cascade
     elif pipeline_name == "pipeline_three":
+        # adj_list = {
+        #     LogicalDAG.SOURCE: ["cascadepreprocess", ],
+        #     "cascadepreprocess": ["alexnet"],
+        #     "alexnet": ["res50", LogicalDAG.SINK],
+        #     "res50": ["res152", LogicalDAG.SINK],
+        #     "res152": [LogicalDAG.SINK],
+        #     LogicalDAG.SINK: []
+        # }
         adj_list = {
             LogicalDAG.SOURCE: ["cascadepreprocess", ],
             "cascadepreprocess": ["alexnet"],
-            "alexnet": ["res152", LogicalDAG.SINK],
-            # "alexnet": ["res50", LogicalDAG.SINK],
-            # "res50": ["res152", LogicalDAG.SINK],
-            "res152": [LogicalDAG.SINK],
+            "alexnet": [LogicalDAG.SINK],
             LogicalDAG.SINK: []
         }
         return LogicalDAG(adj_list, "cascadepreprocess")
