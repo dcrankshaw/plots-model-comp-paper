@@ -145,6 +145,24 @@ def load_spd_pipeline_one():
                         # print(os.path.join(*path_components))
                         all_results.append(load_spd_run(os.path.join(*path_components), prov_type_d))
     return pd.DataFrame(all_results)
+
+def load_spd_pipeline_three():
+    base_path = os.path.abspath("../SPD/preproc-win-10x/v100-8xlarge")
+    all_results = []
+
+
+    for cv_slo_d in os.listdir(base_path):
+        path_components = [base_path, cv_slo_d]
+        for prov_type_d in os.listdir(os.path.join(*path_components)):
+            path_components = [base_path, cv_slo_d, prov_type_d]
+            for lamb_d in os.listdir(os.path.join(*path_components)):
+                path_components = [base_path, cv_slo_d, prov_type_d, lamb_d]
+                for f in os.listdir(os.path.join(*path_components)):
+                    path_components = [base_path, cv_slo_d, prov_type_d, lamb_d, f]
+                    if "results" in f and f[-4:] == "json":
+                        # print(os.path.join(*path_components))
+                        all_results.append(load_spd_run(os.path.join(*path_components), prov_type_d))
+    return pd.DataFrame(all_results)
         
 
 
@@ -182,6 +200,7 @@ def load_inferline_results_file(path):
     slo = results[conf_name]["slo"]
     lam = results[conf_name]["lam"]
     utilization = results[conf_name]["utilization"]
+    latency_perc = results[conf_name]["latency_percentage"]
     trials = results["throughput_results"]["client_metrics"][0][1:]
     lats = []
     for t in trials:
@@ -212,7 +231,8 @@ def load_inferline_results_file(path):
             "slo_plus_25_per_miss_rate": slo_plus_25_miss_rate,
             "utilization": utilization,
             "throughput": thruput,
-            "lam_minus_through": thruput_delta
+            "lam_minus_through": thruput_delta,
+            "latency_percentage": latency_perc
             }
 
 def load_all_inferline_sys_comp_results(base_path):
@@ -224,50 +244,22 @@ def load_all_inferline_sys_comp_results(base_path):
 
 def load_inferline_pipeline_one():
     # base_path = os.path.abspath("../results_cpp_benchmarker/e2e_results/image_driver_1/sys_comp/util_0.7")
-    base_path = os.path.abspath("../results_cpp_benchmarker/e2e_results_contention_tuned/"
+    base_path = os.path.abspath("../results_cpp_benchmarker/e2e_no_netcalc/"
                                 "pipeline_one/e2e_sys_comp")
+    loaded_exps = load_all_inferline_sys_comp_results(base_path)
+    df = pd.DataFrame(loaded_exps)
+    return df
+
+def load_inferline_pipeline_three():
+    # base_path = os.path.abspath("../results_cpp_benchmarker/e2e_results/image_driver_1/sys_comp/util_0.7")
+    base_path = os.path.abspath("../results_cpp_benchmarker/e2e_no_netcalc/"
+                                "pipeline_three")
     loaded_exps = load_all_inferline_sys_comp_results(base_path)
     df = pd.DataFrame(loaded_exps)
     return df
 
 ##########################################################
 
-def load_e2e_experiments(util, base_path):
-    # experiments = [
-    #     {"name": "Inferline", "slo": .35, "path": os.path.abspath("../results_cpp_benchmarker/e2e_results/image_driver_1/image_driver_one_slo_0.35_cv_1")},
-    #     {"name": "TFS Peak", "slo": .35, "path": os.path.abspath("../TFS/image_driver_1/min_latency_arrival_process/v100-8xlarge/peak_350")},
-    #     {"name": "TFS Mean", "slo": .35, "path": os.path.abspath("../TFS/image_driver_1/min_latency_arrival_process/v100-8xlarge/mean")},
-    #     {"name": "SPD Mean Batching", "slo": .35, "path": os.path.abspath("../SPD/image_driver_1/v100-8xlarge/mean_provision_350/")},
-    #     {"name": "SPD Peak Batching", "slo": .35, "path": os.path.abspath("../SPD/image_driver_1/v100-8xlarge/peak_provision_350/")},
-    #     {"name": "SPD Mean No Batching", "slo": .35, "path": os.path.abspath("../SPD/image_driver_1/v100-8xlarge/mean_provision_min_lat/")},
-    #     {"name": "SPD Peak No Batching", "slo": .35, "path": os.path.abspath("../SPD/image_driver_1/v100-8xlarge/peak_provision_min_lat/")},
-    #     {"name": "Inferline", "slo": .50, "path": os.path.abspath("../results_cpp_benchmarker/e2e_results/image_driver_1/image_driver_one_slo_0.5_cv_1")},
-    #     {"name": "TFS Mean", "slo": .50, "path": os.path.abspath("../TFS/image_driver_1/min_latency_arrival_process/v100-8xlarge/mean")},
-    #     {"name": "TFS Peak", "slo": .50, "path": os.path.abspath("../TFS/image_driver_1/min_latency_arrival_process/v100-8xlarge/peak_500")},
-    #     {"name": "SPD Mean No Batching", "slo": .50, "path": os.path.abspath("../SPD/image_driver_1/v100-8xlarge/mean_provision_min_lat/")},
-    #     {"name": "SPD Peak No Batching", "slo": .50, "path": os.path.abspath("../SPD/image_driver_1/v100-8xlarge/peak_provision_min_lat/")},
-    #     {"name": "Inferline", "slo": 1.0, "path": os.path.abspath("../results_cpp_benchmarker/e2e_results/image_driver_1/image_driver_one_slo_1.0_cv_1")}
-    # ]
-    #
-    # loaded_exps = []
-    #
-    # for exp in experiments:
-    #     for f in os.listdir(exp["path"]):
-    #         if f[-4:] == "json":
-    #             try:
-    #                 loaded = exp.copy()
-    #                 if "TFS" in exp["name"]:
-    #                     loaded.update(load_tfs_results(os.path.join(exp["path"], f), exp["slo"]))
-    #                 elif "SPD" in exp["name"]:
-    #                     loaded.update(load_spd_results(os.path.join(exp["path"], f), exp["slo"]))
-    #                 elif "Inferline" in exp["name"]:
-    #                     loaded.update(load_inferline_results(os.path.join(exp["path"], f), exp["slo"]))
-    #                 loaded_exps.append(loaded)
-    #             except json.JSONDecodeError:
-    #                 print("Could not load {}".format(os.path.join(exp["path"], f)))
-    loaded_exps = load_all_inferline_sys_comp_results(util, base_path)
-    df = pd.DataFrame(loaded_exps)
-    return df
-
 if __name__ == "__main__":
-    print(load_e2e_experiments())
+    # print(load_e2e_experiments())
+    print(load_spd_pipeline_three())
