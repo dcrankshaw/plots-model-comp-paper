@@ -461,8 +461,9 @@ def get_logical_pipeline(pipeline_name):
         adj_list = {
             LogicalDAG.SOURCE: ["cascadepreprocess", ],
             "cascadepreprocess": ["alexnet"],
-            "alexnet": ["res50", LogicalDAG.SINK],
-            "res50": ["res152", LogicalDAG.SINK],
+            # "alexnet": ["res50", LogicalDAG.SINK],
+            # "res50": ["res152", LogicalDAG.SINK],
+            "alexnet": ["res152", LogicalDAG.SINK],
             "res152": [LogicalDAG.SINK],
             LogicalDAG.SINK: []
         }

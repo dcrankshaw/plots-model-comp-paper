@@ -1,6 +1,5 @@
 [
     {
-
         "slo": 0.2,
         "cost": 2.661,
         "lam": 160,
@@ -33,6 +32,43 @@
             "qpsd": 60.31567080045096
         },
         "response_time": 0.150080475,
+        "cv": null,
+        "utilization": 1.0,
+        "latency_percentage": 1.0
+    },
+    {
+        "slo": 0.2,
+        "cost": 2.7275,
+        "lam": 321,
+        "node_configs": {
+            "alexnet": {
+                "name": "alexnet",
+                "num_cpus": 1,
+                "gpu_type": "v100",
+                "batch_size": 4.0,
+                "num_replicas": 1,
+                "cloud": "aws",
+                "p99_lat": 0.03658948000000001,
+                "estimated_thru": 487.8
+            },
+            "cascadepreprocess": {
+                "name": "cascadepreprocess",
+                "num_cpus": 1,
+                "gpu_type": "none",
+                "batch_size": 4.0,
+                "num_replicas": 2,
+                "cloud": "aws",
+                "p99_lat": 0.06781867,
+                "estimated_thru": 321.0
+            }
+        },
+        "estimated_perf": {
+            "latency": 0.10440815,
+            "throughput": 321.0,
+            "cost": 2.7275,
+            "qpsd": 117.69019248395966
+        },
+        "response_time": 0.156612225,
         "cv": null,
         "utilization": 1.0,
         "latency_percentage": 1.0
@@ -76,7 +112,7 @@
     },
     {
         "slo": 0.2,
-        "cost": 2.927,
+        "cost": 2.8605,
         "lam": 557,
         "node_configs": {
             "alexnet": {
