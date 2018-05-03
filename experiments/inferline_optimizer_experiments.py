@@ -619,8 +619,8 @@ def generate_pipeline_three_configs_no_netcalc(slos):
     cost_lower_bound = get_cpu_cost(cloud, 2) + get_gpu_cost(cloud, "v100", 1)
     # cost_upper_bound = get_cpu_cost(cloud, 10) + get_gpu_cost(cloud, "v100", 1)
     cost_increment = get_cpu_cost(cloud, 1)
-    cpu_incrs = range(1, 13, 2)
-    costs = [cost_lower_bound + cost_increment * c for c in cpu_incrs]
+    cpu_incrs = [0] + list(range(1, 13, 2))
+    costs = [cost_lower_bound + (cost_increment * c) for c in cpu_incrs]
     cloud = "aws"
     opt = get_optimizer_pipeline_three(utilization)
     logger.info("Optimizer initialized")
