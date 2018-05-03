@@ -695,8 +695,6 @@ def get_optimizer_conditional_cascade(with_conditionals):
     node_profs = {}
     for name in models:
         node_profs[name] = profiler.NodeProfile(name, profs[name], "thru_stage", utilization, perc)
-    print(profs["res152"].sort_values("mean_batch_size"))
-    sys.exit(0)
     opt = GreedyOptimizer(dag, scale_factors, node_profs)
     return opt
 
@@ -765,7 +763,7 @@ def compare_conditional_optimization():
         cloud = "aws"
         opt = get_optimizer_conditional_cascade(cond)
         logger.info("Optimizer initialized")
-        for slo in [0.3, 0.4, 0.6, 0.75]:
+        for slo in [0.2, 0.3, 0.4]:
             configs = []
             if cond:
                 cond_suffix = "with_cond"
@@ -782,6 +780,8 @@ def compare_conditional_optimization():
                     node_configs, perfs, response_time = result
                     perfs["qpsd"] = perfs["throughput"] / perfs["cost"]
                     lam = int(math.floor(perfs["throughput"]))
+                    if lam > 800:
+                        break
                     last_lambda = lam
                     config_obj = Configuration(slo, cost, lam, None, node_configs, perfs,
                                                 response_time, 1.0)
