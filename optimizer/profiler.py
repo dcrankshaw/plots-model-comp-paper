@@ -457,6 +457,17 @@ def get_logical_pipeline(pipeline_name):
         }
         return LogicalDAG(adj_list, "cascadepreprocess")
 
+    elif pipeline_name == "conditional_cascade":
+        adj_list = {
+            LogicalDAG.SOURCE: ["cascadepreprocess", ],
+            "cascadepreprocess": ["alexnet"],
+            "alexnet": ["res50", LogicalDAG.SINK],
+            "res50": ["res152", LogicalDAG.SINK],
+            "res152": [LogicalDAG.SINK],
+            LogicalDAG.SINK: []
+        }
+        return LogicalDAG(adj_list, "cascadepreprocess")
+
 
 def get_node_scale_factors(exp, reference_node):
     """
