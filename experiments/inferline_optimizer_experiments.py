@@ -467,10 +467,19 @@ def get_optimizer_pipeline_three(utilization, perc=1.0):
     models = ["cascadepreprocess", "alexnet"]
     # models = ["cascadepreprocess", "alexnet", "res152"]
     profs = snp.load_single_node_profiles(models=models)
+    print(profs["cascadepreprocess"])
     print(profs.keys())
     node_profs = {}
     for name in models:
         node_profs[name] = profiler.NodeProfile(name, profs[name], "thru_stage", utilization, perc)
+
+    # c = "cascadepreprocess"
+    # nc = profiler.NodeConfig(c, 1, "none", 4.0, 1, "aws")
+    # print(node_profs[c].estimate_performance(nc))
+    # sys.exit()
+
+
+
     opt = GreedyOptimizer(dag, scale_factors, node_profs)
     return opt
 
@@ -610,7 +619,7 @@ def generate_pipeline_three_configs_no_netcalc(slos):
     cost_lower_bound = get_cpu_cost(cloud, 2) + get_gpu_cost(cloud, "v100", 1)
     # cost_upper_bound = get_cpu_cost(cloud, 10) + get_gpu_cost(cloud, "v100", 1)
     cost_increment = get_cpu_cost(cloud, 1)
-    cpu_incrs = [0, 1, 2, 3, 4]
+    cpu_incrs = range(1, 13, 2)
     costs = [cost_lower_bound + cost_increment * c for c in cpu_incrs]
     cloud = "aws"
     opt = get_optimizer_pipeline_three(utilization)
@@ -795,9 +804,9 @@ def compare_conditional_optimization():
 
 if __name__ == "__main__":
 
-    compare_conditional_optimization()
+    # compare_conditional_optimization()
 
-    # generate_pipeline_three_configs_no_netcalc(slos=[0.2, 0.3])
+    generate_pipeline_three_configs_no_netcalc(slos=[0.2, 0.3])
 
 
     # models = ["cascadepreprocess", "alexnet"]
