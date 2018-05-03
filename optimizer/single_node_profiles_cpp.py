@@ -261,10 +261,9 @@ def load_single_node_profiles(
     for m in os.listdir(single_node_profs_dir):
         fname = os.path.join(single_node_profs_dir, m)
         if os.path.isdir(fname):
-            if not any(m in fname for m in models):
-                continue
-            res = create_node_profile_df(fname)
-            if res is not None:
-                node_name, df = res
-                profs[node_name] = df
+            if m == "all" or any(m in fname for m in models):
+                res = create_node_profile_df(fname)
+                if res is not None:
+                    node_name, df = res
+                    profs[node_name] = df
     return profs
