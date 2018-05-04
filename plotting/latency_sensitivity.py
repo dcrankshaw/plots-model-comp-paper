@@ -27,16 +27,17 @@ def plot():
     if not os.path.exists(base_dir):
         os.makedirs(base_dir)
 
-    fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(5, 2.5))
+    fig, ax = plt.subplots(nrows=1, ncols=1, figsize=(4, 1.5))
     idx = 0
     for slo, slo_group in df.groupby(df.slo):
-        slo_group = slo_group.sort_values("latency_percentage")
-        ax.plot(100*(1.0 - slo_group.latency_percentage),
-                slo_group.slo_miss_rate,
-                marker=markers[idx],
-                c=colors[idx],
-                label="SLO {}".format(slo))
-        idx += 1
+        if slo == 0.3:
+            slo_group = slo_group.sort_values("latency_percentage")
+            ax.plot(100*(1.0 - slo_group.latency_percentage),
+                    slo_group.slo_miss_rate,
+                    marker=markers[idx],
+                    c=colors[idx],
+                    label="SLO {}".format(slo))
+            idx += 1
 
     ax.set_ylabel("SLO Miss Rate", fontsize=8)
     ax.set_xlabel("% Latency Underestimate", fontsize=8)

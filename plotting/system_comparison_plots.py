@@ -201,6 +201,9 @@ def load_inferline_results_file(path):
     lam = results[conf_name]["lam"]
     utilization = results[conf_name]["utilization"]
     latency_perc = results[conf_name]["latency_percentage"]
+    lam_add = 0
+    if "lam_add" in results[conf_name]:
+        lam_add = results[conf_name]["lam_add"]
     trials = results["throughput_results"]["client_metrics"][0][1:]
     lats = []
     for t in trials:
@@ -232,7 +235,8 @@ def load_inferline_results_file(path):
             "utilization": utilization,
             "throughput": thruput,
             "lam_minus_through": thruput_delta,
-            "latency_percentage": latency_perc
+            "latency_percentage": latency_perc,
+            "lam_add": lam_add
             }
 
 def load_all_inferline_sys_comp_results(base_path):
@@ -245,7 +249,7 @@ def load_all_inferline_sys_comp_results(base_path):
 def load_inferline_pipeline_one():
     # base_path = os.path.abspath("../results_cpp_benchmarker/e2e_results/image_driver_1/sys_comp/util_0.7")
     base_path = os.path.abspath("../results_cpp_benchmarker/e2e_no_netcalc/"
-                                "pipeline_one/e2e_sys_comp")
+                                "pipeline_one/tq_half_ts")
     loaded_exps = load_all_inferline_sys_comp_results(base_path)
     df = pd.DataFrame(loaded_exps)
     return df

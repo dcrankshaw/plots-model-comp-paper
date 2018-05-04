@@ -23,7 +23,7 @@ def plot():
             }
 
     for model, p in profs.items():
-        fig, (ax_thru, ax_lat) = plt.subplots(nrows=1, ncols=2, figsize=(7, 2))
+        fig, (ax_thru, ax_lat) = plt.subplots(nrows=1, ncols=2, figsize=(9, 4))
         p = p.sort_values(["contention", "mean_batch_size"])
         markers = ['d', 'o', 'x', 's']
         iii = 0

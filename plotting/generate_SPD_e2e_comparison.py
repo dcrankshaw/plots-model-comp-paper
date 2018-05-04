@@ -36,15 +36,13 @@ def plot_pipeline_one_results():
         "InferLine":"o"
     }
 
-    base_dir = "e2e/pipeline_one"
-    if not os.path.exists(base_dir):
-        os.makedirs(base_dir)
+    base_dir = os.path.expanduser("~/Dropbox/Apps/ShareLaTeX/model-comp-paper/figs")
 
     for cv, cv_group in pipeline_one_df.groupby(pipeline_one_df.CV):
         if cv not in [0.1, 4.0]:
             continue
         for slo, slo_group in cv_group.groupby(cv_group.slo):
-            fig, (ax_cost) = plt.subplots(nrows=1, ncols=1, figsize=(4, 3))
+            fig, (ax_cost) = plt.subplots(nrows=1, ncols=1, figsize=(4, 2))
             ng = slo_group.groupby(slo_group.name)
             ifl_costs = ng.get_group("InferLine").sort_values("lambda")
             for name, name_group in ng:
@@ -57,11 +55,12 @@ def plot_pipeline_one_results():
             ax_cost.set_ylim(0)
             ax_cost.set_xlim(0)
             ax_cost.tick_params(labelsize=13)
-            ax_cost.legend()
+            ax_cost.legend(loc=0)
 
-            fig.suptitle("CV: {cv}, SLO: {slo}".format(cv=cv, slo=slo), fontsize=14)
+            # fig.suptitle("CV: {cv}, SLO: {slo}".format(cv=cv, slo=slo), fontsize=14)
             plt.tight_layout(pad=3)
-            fig.savefig(os.path.join(base_dir, 'CV_{}_SLO_{}.pdf'.format(cv,slo)))
+            fig.savefig(os.path.join(base_dir,
+                'pipe_1_CV_{}_SLO_{}'.format(cv,slo).replace(".", "_") + ".pdf"))
 
 def plot_pipeline_three_results():
 
@@ -86,10 +85,11 @@ def plot_pipeline_three_results():
         "InferLine":"o"
     }
 
-    base_dir = "e2e/pipeline_three"
-    if not os.path.exists(base_dir):
-        os.makedirs(base_dir)
+    # base_dir = "e2e/pipeline_three"
+    # if not os.path.exists(base_dir):
+    #     os.makedirs(base_dir)
 
+    base_dir = os.path.expanduser("~/Dropbox/Apps/ShareLaTeX/model-comp-paper/figs")
     for cv, cv_group in pipeline_three_df.groupby(pipeline_three_df.CV):
         if cv not in [0.1, 4.0]:
             continue
@@ -115,8 +115,9 @@ def plot_pipeline_three_results():
             plt.tight_layout(pad=3)
 
             # fig.savefig(os.path.join(base_dir, 'CV_{}_SLO_{}.pdf'.format(cv,slo)))
-            fig.savefig(os.path.join(base_dir, 'CV_{}_SLO_{}.png'.format(cv,slo)))
+            fig.savefig(os.path.join(base_dir, ('pipe_3_CV_{}_SLO_{}.pdf'.format(cv,slo)).replace(".", "_")))
 
 
 if __name__ == "__main__":
+    plot_pipeline_one_results()
     plot_pipeline_three_results()
