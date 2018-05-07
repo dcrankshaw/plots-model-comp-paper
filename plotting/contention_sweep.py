@@ -15,20 +15,26 @@ def plot():
             models="all")
     idx = 0
 
-    chosen = sns.hls_palette(8, l=.3, s=.8)
+    cmap = sns.hls_palette(8, l=.3, s=.8)
+    name_map = {
+            "inception": "Inception",
+            "tf-kernel-svm": "Kernel SVM",
+            "cascadepreprocess": "Image Pre-Process"
+            }
 
     for model, p in profs.items():
-        fig, (ax_thru, ax_lat) = plt.subplots(nrows=1, ncols=2, figsize=(10, 4))
+        fig, (ax_thru, ax_lat) = plt.subplots(nrows=1, ncols=2, figsize=(7, 2))
         p = p.sort_values(["contention", "mean_batch_size"])
-        cmap = iter(chosen)
-        markers = iter(['d', 'o', 'x', 's'])
+        markers = ['d', 'o', 'x', 's']
+        iii = 0
         for b, g in p.groupby("mean_batch_size"):
             if b in [1, 8, 16, 32]:
-                color = cmap.next()
-                marker = markers.next()
-                ax_thru.plot(g.contention, g.thru_stage_mean_throughput_qps, ms=8, marker=marker, label="Batch {}".format(b), color=color)
-                color = cmap.next()
-                ax_lat.plot(g.contention, g.p99_latency, marker=marker, ms=8, label="Batch {}".format(b), color=color)
+                color = cmap[iii]
+                marker = markers[iii]
+                ax_thru.plot(g.contention, g.thru_stage_mean_throughput_qps, ms=8, marker=marker, label="Batch {}".format(int(b)), color=color)
+                color = cmap[iii]
+                ax_lat.plot(g.contention, g.p99_latency, marker=marker, ms=8, label="Batch {}".format(int(b)), color=color)
+                iii += 1
 
 
         ax_thru.set_xlabel("Background Load (QPS)", fontsize=13)
@@ -40,17 +46,19 @@ def plot():
         ax_lat.xaxis.set_ticks(np.arange(0, 1001, 250))
         ax_thru.xaxis.set_ticks(np.arange(0, 1001, 250))
 
-        ax_thru.legend(ncol=2, loc=0)
+        # ax_thru.legend(ncol=2, loc=0)
         ax_lat.legend(ncol=2, loc=0)
-        fig.suptitle(model, fontsize=20)
-        plt.tight_layout(pad=3)
+
+        fig.suptitle(name_map[model], fontsize=20)
+        plt.tight_layout(pad=2)
         base_dir = "contention_sweep"
         if not os.path.exists(base_dir):
             os.makedirs(base_dir)
+        print(name_map[model])
 
         plt.savefig(os.path.join(base_dir, "{}.pdf".format(model)))
 
         idx += 1
 
-if name=='__main__':
+if __name__ == '__main__':
     plot()
