@@ -90,11 +90,27 @@ def compute_spd_cost(results):
 
 def compute_spd_slo_miss_rate(results, slo):
     # Skip the first trial
-    lats = np.array(results["client_metrics"][0]["all_lats"][1:])
-    lats = np.hstack(lats)
-    slo_miss_rate = np.sum(lats > slo) / len(lats)
-    # print(np.sum(lats > 100000))
-    return slo_miss_rate
+    lats_bad = np.array(results["client_metrics"][0]["all_lats"][1:])
+    lats_bad = np.hstack(lats_bad)
+
+
+
+    # lats = np.array(list(results["client_metrics"][0]["per_message_lats"].values()))
+    old_slo_miss_rate = np.sum(lats_bad > slo) / len(lats_bad)
+
+    lats = np.array(list(results["client_metrics"][0]["per_message_lats"].values()))
+    new_slo_miss_rate = np.sum(lats > slo) / len(lats)
+
+    # print("Dropped queries: {}".format(np.sum(lats > 100000)))
+    # dropped_idxs = np.argwhere(lats < 10000)
+    # if len(dropped_idxs) > 0:
+    #     lats = lats[dropped_idxs]
+    #
+    # print("SLO: {slo}, Old/new mean: {om:.3f},{nm:.3f}, Old/new p99: {op:.3f},{np:.3f}".format(
+    #     om=np.mean(lats_bad), nm=np.mean(lats), op=np.percentile(lats_bad, 99),
+    #     np=np.percentile(lats, 99), slo=slo))
+
+    return new_slo_miss_rate, old_slo_miss_rate, lats
 
 def compute_spd_thruput(results, lam):
     thrus = results["client_metrics"][0]["thrus"][1:]
@@ -112,10 +128,11 @@ def load_spd_run(path, provision_strategy):
     lam = results["experiment_config"]["lambda_val"]
     cv = results["experiment_config"]["cv"]
     slo = float(results["experiment_config"]["slo_millis"]) / 1000.0
+    # print(path, slo)
     cost = compute_spd_cost(results)
-    slo_miss_rate = compute_spd_slo_miss_rate(results, slo)
+    slo_miss_rate, old_slo_miss_rate, lats = compute_spd_slo_miss_rate(results, slo)
     thruput, thruput_delta = compute_spd_thruput(results, lam)
-    slo_plus_25_miss_rate = compute_spd_slo_miss_rate(results, slo*1.25)
+    # slo_plus_25_miss_rate = compute_spd_slo_miss_rate(results, slo*1.25)
     return {
             "name": "SPD-{}".format(provision_strategy),
             "cost": cost,
@@ -123,13 +140,18 @@ def load_spd_run(path, provision_strategy):
             "CV": cv,
             "slo": slo,
             "slo_miss_rate": slo_miss_rate,
-            "slo_plus_25_per_miss_rate": slo_plus_25_miss_rate,
+            "old_slo_miss_rate": old_slo_miss_rate,
+            # "slo_plus_25_per_miss_rate": slo_plus_25_miss_rate,
             "throughput": thruput,
-            "lam_minus_through": thruput_delta
+            "lam_minus_through": thruput_delta,
+            "p99_lat": np.percentile(lats, 99),
+            "mean_lat": np.mean(lats),
+            "num_queries": len(lats),
             }
 
 def load_spd_pipeline_one():
-    base_path = os.path.abspath("../SPD/image_driver_1/v100-8xlarge")
+    base_path = os.path.abspath("../SPD/image_driver_1/v100-8xlarge/RESULTS_502")
+    # base_path = os.path.abspath("../SPD/image_driver_1/v100-8xlarge")
     all_results = []
 
 
@@ -152,6 +174,8 @@ def load_spd_pipeline_three():
 
 
     for cv_slo_d in os.listdir(base_path):
+        if cv_slo_d == "RESULTS_502":
+            continue
         path_components = [base_path, cv_slo_d]
         for prov_type_d in os.listdir(os.path.join(*path_components)):
             path_components = [base_path, cv_slo_d, prov_type_d]

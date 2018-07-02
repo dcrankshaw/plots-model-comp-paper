@@ -23,7 +23,7 @@ def plot():
             }
 
     for model, p in profs.items():
-        fig, (ax_thru, ax_lat) = plt.subplots(nrows=1, ncols=2, figsize=(9, 4))
+        fig, (ax_thru, ax_lat) = plt.subplots(nrows=1, ncols=2, figsize=(8, 4))
         p = p.sort_values(["contention", "mean_batch_size"])
         markers = ['d', 'o', 'x', 's']
         iii = 0
@@ -37,12 +37,13 @@ def plot():
                 iii += 1
 
 
-        ax_thru.set_xlabel("Background Load (QPS)", fontsize=13)
-        ax_thru.set_ylabel("Throughput (QPS)", fontsize=13)
+        fs = 16
+        ax_thru.set_xlabel("Background Load (QPS)", fontsize=fs)
+        ax_thru.set_ylabel("Throughput (QPS)", fontsize=fs)
         ax_thru.set_ylim(bottom=0)
         ax_lat.set_ylim(bottom=0)
-        ax_lat.set_xlabel("Background Load (QPS)", fontsize=13)
-        ax_lat.set_ylabel("P99 Latency (s)", fontsize=13)
+        ax_lat.set_xlabel("Background Load (QPS)", fontsize=fs)
+        ax_lat.set_ylabel("P99 Latency (s)", fontsize=fs)
         ax_lat.xaxis.set_ticks(np.arange(0, 1001, 250))
         ax_thru.xaxis.set_ticks(np.arange(0, 1001, 250))
 
@@ -50,7 +51,7 @@ def plot():
         ax_lat.legend(ncol=2, loc=0)
 
         fig.suptitle(name_map[model], fontsize=20)
-        plt.tight_layout(pad=2)
+        plt.tight_layout(pad=3)
         base_dir = "contention_sweep"
         if not os.path.exists(base_dir):
             os.makedirs(base_dir)
